@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Robustness:c57a1d31-679b-546b-b148-e6b329e80631",
+  "craftedItem": "Definition:Shield_Robustness:d544dab7-fc17-5b21-9118-c14b79e68245",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9dc64dcc-692c-5343-87b0-75c8cf67fd02",
+  "guid": "93c07c4f-5732-591e-bc7c-5de6f3b07863",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Robustness"
 }

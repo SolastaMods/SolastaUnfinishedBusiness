@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHideArmor_FrostWalking:9e88573a-e279-5dd4-9194-d1e10b46b82c",
+    "recipeDefinition": "Definition:RecipeEnchantingHideArmor_FrostWalking:61277d5d-1839-52ad-8116-4c2819f2744d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "431d39b9-26c1-5858-bebe-d9b0dacdd1bd",
+  "guid": "87b7177e-6ef8-55cd-8403-65c17928b9eb",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHideArmor_FrostWalking"
 }

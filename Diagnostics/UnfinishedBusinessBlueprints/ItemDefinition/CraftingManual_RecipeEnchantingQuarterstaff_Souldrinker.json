@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Souldrinker:4d650a65-f918-5912-be0d-6cd1c25b6805",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Souldrinker:6725dfc9-d0fa-5e69-ad7c-ef56a540d0c5",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ab0a56b-dca4-5fb1-8fbe-c3cebf9eba89",
+  "guid": "8af67fc6-9c3b-5ea2-96cf-8a553b81b5f7",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Souldrinker"
 }

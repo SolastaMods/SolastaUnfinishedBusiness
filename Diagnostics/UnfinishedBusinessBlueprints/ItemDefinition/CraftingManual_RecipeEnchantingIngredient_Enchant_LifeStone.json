@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_LifeStone:909c70a3-6c33-58c4-8790-fd3eaf04f419",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_LifeStone:e4601ecd-d23c-5136-aebf-8e745340fdc1",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1a1a9836-e8d5-533a-90b7-c79b742e702c",
+  "guid": "12a0b03b-bf7a-55a6-906e-a259179ff271",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_LifeStone"
 }

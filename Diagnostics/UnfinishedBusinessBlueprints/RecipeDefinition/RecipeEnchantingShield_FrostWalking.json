@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_FrostWalking:6472df45-7eb2-5124-9485-09d51f5f4d4a",
+  "craftedItem": "Definition:Shield_FrostWalking:105a5659-0af9-5bf1-bbed-7a56584a555b",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "db0712b6-75b9-58ab-b32b-a0d18e58c422",
+  "guid": "d8ff0048-e0c5-5fe0-b888-0bfd2c75e528",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_FrostWalking"
 }

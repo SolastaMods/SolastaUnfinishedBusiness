@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Frostburn:cbdb0a0e-9cb5-53fa-9cf8-8466eac15208",
+    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Frostburn:d8c297e5-b1e1-5a40-a6bd-f138e38581a3",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fa3c5c48-d8ae-5f4d-8394-406ec4188c6f",
+  "guid": "9d7ca1e2-74a1-5828-9069-0fe38f72e2ac",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHandaxe_Frostburn"
 }

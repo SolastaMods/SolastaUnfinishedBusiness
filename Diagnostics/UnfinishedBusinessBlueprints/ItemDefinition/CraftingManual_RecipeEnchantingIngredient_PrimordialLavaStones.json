@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_PrimordialLavaStones:e7e1d550-23bc-562f-a623-171f1a382604",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_PrimordialLavaStones:74f571cc-63b2-57e9-ac6f-dc391487107a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a8a914ad-622c-57e1-8e26-74db3a00401e",
+  "guid": "9548828e-72f1-53be-8ad3-5ba4d3330719",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_PrimordialLavaStones"
 }

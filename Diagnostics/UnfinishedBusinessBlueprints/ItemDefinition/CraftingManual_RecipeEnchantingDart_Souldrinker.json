@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingDart_Souldrinker:4fca4a41-6d76-574d-9ffc-9ec93ad09b11",
+    "recipeDefinition": "Definition:RecipeEnchantingDart_Souldrinker:343cdb0b-8201-5dea-9b41-7afc573d962b",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "80f7fabd-9e1b-5e42-8575-735f35f860fe",
+  "guid": "0d26b546-c25d-5674-b0c6-08cf9a740858",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingDart_Souldrinker"
 }

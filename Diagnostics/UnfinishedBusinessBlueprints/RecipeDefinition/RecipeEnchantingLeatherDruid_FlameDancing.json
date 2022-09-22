@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LeatherDruid_FlameDancing:21e90137-cbe0-57be-8a7f-0f8b6de50aa4",
+  "craftedItem": "Definition:LeatherDruid_FlameDancing:68847fa6-a09f-564b-8583-c6c9f7a81341",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d9ded0b3-2cf2-51cf-bdfa-3e27165381d8",
+  "guid": "ff8dcd19-d234-59b6-8760-b637b05df211",
   "contentPack": 9999,
   "name": "RecipeEnchantingLeatherDruid_FlameDancing"
 }

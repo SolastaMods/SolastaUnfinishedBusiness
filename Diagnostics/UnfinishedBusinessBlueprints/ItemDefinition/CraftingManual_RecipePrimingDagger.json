@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingDagger:149a0a21-9f66-59aa-8cb2-aa433cc728d2",
+    "recipeDefinition": "Definition:RecipePrimingDagger:bc1f0ee4-fd5f-5c72-a64b-d230fe46b582",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a3457e23-330c-5edb-94b1-7c7f644d00c9",
+  "guid": "7bdf91d9-73ca-57e6-86c6-b0ae39e3e38e",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingDagger"
 }

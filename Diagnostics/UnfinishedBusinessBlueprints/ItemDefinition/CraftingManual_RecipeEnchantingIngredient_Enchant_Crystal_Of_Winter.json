@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Crystal_Of_Winter:04128079-8c63-5087-9f62-1e7bc9c488d7",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Crystal_Of_Winter:8a56c943-6b6b-51af-9a4b-f0e4dbfe2278",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "890311b0-06a1-5407-a5c2-11d7738886b9",
+  "guid": "0d19b7b9-97a8-5285-83e5-45766d08c72e",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Crystal_Of_Winter"
 }

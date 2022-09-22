@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingLeatherDruid_FlameDancing:d9ded0b3-2cf2-51cf-bdfa-3e27165381d8",
+    "recipeDefinition": "Definition:RecipeEnchantingLeatherDruid_FlameDancing:ff8dcd19-d234-59b6-8760-b637b05df211",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2e2d26bf-6909-5f69-8743-dd56940474f9",
+  "guid": "e54c730e-eddc-5f3e-8040-2b919ddbdb1f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingLeatherDruid_FlameDancing"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingGreataxe_Punisher:6c47ae5a-a634-54d6-98a9-f82cb78a7df4",
+    "recipeDefinition": "Definition:RecipeEnchantingGreataxe_Punisher:8fddb19c-2867-5d4d-8116-ed655ba31fed",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddd86781-a441-5e6e-b3a7-86abf43d939b",
+  "guid": "ca157f54-9683-5f57-9db9-0b98c61616ba",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingGreataxe_Punisher"
 }

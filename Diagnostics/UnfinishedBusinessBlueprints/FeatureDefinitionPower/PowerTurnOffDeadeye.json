@@ -106,10 +106,10 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionDeadeye",
-          "conditionDefinition": "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314",
+          "conditionDefinition": "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:ConditionDeadeye:a0d24e21-3469-43af-ad63-729552120314"
+            "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

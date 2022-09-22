@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Heartstone:63eed515-daae-5841-9dad-ec8e5a548b22",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Heartstone:6ffcfc5c-3ec2-5ed1-8f1a-dd063a92a382",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "54cfa11d-4808-58fe-9b6b-afbdc376b7eb",
+  "guid": "d63d67d7-2269-534d-80eb-4235b9df67c8",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Heartstone"
 }

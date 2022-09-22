@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HideArmor_FrostWalking:d2c78947-1d4d-5b72-8634-29a90043c4cd",
+  "craftedItem": "Definition:HideArmor_FrostWalking:bb704566-1236-5e69-aaa8-80fda1241722",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e88573a-e279-5dd4-9194-d1e10b46b82c",
+  "guid": "61277d5d-1839-52ad-8116-4c2819f2744d",
   "contentPack": 9999,
   "name": "RecipeEnchantingHideArmor_FrostWalking"
 }

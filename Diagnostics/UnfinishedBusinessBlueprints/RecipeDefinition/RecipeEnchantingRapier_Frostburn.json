@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Frostburn:7b305695-946b-56a1-8d52-fba8bbe93b5e",
+  "craftedItem": "Definition:Rapier_Frostburn:8e2d6b94-3824-5d49-b016-ad6e0f26f662",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c0a5fc8c-9380-51e1-9fb8-1ba8b82f32e2",
+  "guid": "af8d49b3-b653-56ce-bee3-cbd478e5f2ae",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Frostburn"
 }

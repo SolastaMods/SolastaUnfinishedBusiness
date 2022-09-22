@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingChainShirt_Survival:2cb6c8fd-585b-5962-80ae-6c0dbcfc2311",
+    "recipeDefinition": "Definition:RecipeEnchantingChainShirt_Survival:c4c90ea6-2165-5ad3-b65a-9be5ea4d3a69",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "255bdbca-2b3d-55bc-b9ec-7bb86f0fee13",
+  "guid": "f4910936-af60-581a-9ba7-bd5f97e1a5ff",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingChainShirt_Survival"
 }

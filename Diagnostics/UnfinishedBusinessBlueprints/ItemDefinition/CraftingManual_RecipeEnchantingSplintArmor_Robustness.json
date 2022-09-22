@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_Robustness:22249da2-a42c-5b5e-b910-24b28e2919e4",
+    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_Robustness:5a5bffe5-6792-562f-be95-f9188a955dbe",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "034208a0-c0bb-5433-8f65-cb190e2a739d",
+  "guid": "b6c2d1f9-cd5a-5a78-a06f-3384945b24b7",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSplintArmor_Robustness"
 }

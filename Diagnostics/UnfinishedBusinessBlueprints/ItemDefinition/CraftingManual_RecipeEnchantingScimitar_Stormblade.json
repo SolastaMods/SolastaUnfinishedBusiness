@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Stormblade:b5cbca90-864f-5759-9f91-2b0f6b138a0c",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Stormblade:88541315-66d3-57f7-9c13-d8c8bbed019d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff2f4988-211e-5ab0-89e8-92967587a206",
+  "guid": "32109f53-ea25-5cd6-94a2-f36c13a6f234",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Stormblade"
 }

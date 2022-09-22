@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Stormblade:3c47a616-9acc-5590-8311-cc7d11892c03",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Stormblade:6818c9bf-07d9-5e73-b859-b4292399fde2",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81172361-a337-5d73-acce-70de39d1f2cf",
+  "guid": "d0d2e438-b02c-557a-b78a-f1ce7a4135f2",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Stormblade"
 }

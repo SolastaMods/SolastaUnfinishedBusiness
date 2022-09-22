@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:StuddedLeather_FlameDancing:a7d3f124-9c44-5a46-b641-cf6a92c2c6dc",
+  "craftedItem": "Definition:StuddedLeather_FlameDancing:f7bbdfd7-7669-56b6-84cd-5a6a6e0032d9",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "63f723a3-06d4-523a-a99e-9386b25c72eb",
+  "guid": "8ef554da-40df-5db3-a020-3953cc8a037e",
   "contentPack": 9999,
   "name": "RecipeEnchantingStuddedLeather_FlameDancing"
 }

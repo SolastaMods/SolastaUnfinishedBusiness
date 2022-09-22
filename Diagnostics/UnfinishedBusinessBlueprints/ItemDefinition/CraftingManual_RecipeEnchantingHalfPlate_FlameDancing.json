@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHalfPlate_FlameDancing:a32d14ac-87ab-53e9-9faa-7f63cf14fcd8",
+    "recipeDefinition": "Definition:RecipeEnchantingHalfPlate_FlameDancing:4dd04393-8295-5128-8e29-2fc5cfa006dc",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e46349c4-38cc-52cd-be29-26fd5cd08fb9",
+  "guid": "32f8848f-a243-5bab-955f-77a504405205",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHalfPlate_FlameDancing"
 }

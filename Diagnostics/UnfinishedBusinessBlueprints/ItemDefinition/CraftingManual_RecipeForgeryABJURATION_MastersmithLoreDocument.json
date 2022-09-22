@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryABJURATION_MastersmithLoreDocument:3588e497-5504-5c69-a5e8-dd09d5788aad",
+    "recipeDefinition": "Definition:RecipeForgeryABJURATION_MastersmithLoreDocument:37cc2ad4-d55d-5253-874c-f8edc2f1919a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "054db5f2-3271-5e8b-b7f1-2e4358fe9bba",
+  "guid": "b38f74a0-c270-5f41-a63a-6468d933d8b2",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryABJURATION_MastersmithLoreDocument"
 }

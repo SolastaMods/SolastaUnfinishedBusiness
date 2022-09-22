@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Handaxe_Souldrinker:d8df4c4b-872a-5303-9824-3db3dcf59c25",
+  "craftedItem": "Definition:Handaxe_Souldrinker:d643f216-9d4c-5780-b6cb-81cd29dacb4a",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c45446b-4e33-5072-834c-84194728a105",
+  "guid": "056a1f11-a30c-53b8-bc0b-70dfdf32a759",
   "contentPack": 9999,
   "name": "RecipeEnchantingHandaxe_Souldrinker"
 }

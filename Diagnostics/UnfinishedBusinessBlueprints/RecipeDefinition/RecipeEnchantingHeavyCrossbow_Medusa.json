@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HeavyCrossbow_Medusa:a66dad20-24ac-52d2-8be5-faec3c50b276",
+  "craftedItem": "Definition:HeavyCrossbow_Medusa:3373bb03-7d49-5a2e-9b23-4045e0ff4806",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1bd4226a-018e-5843-bb78-687c5761f655",
+  "guid": "6ef62270-d5e9-5078-bdfb-426aaafe29e2",
   "contentPack": 9999,
   "name": "RecipeEnchantingHeavyCrossbow_Medusa"
 }

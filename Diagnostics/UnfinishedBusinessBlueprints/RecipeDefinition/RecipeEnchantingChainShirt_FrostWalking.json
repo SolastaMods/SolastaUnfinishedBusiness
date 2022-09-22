@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainShirt_FrostWalking:263eb181-d15f-5cdf-84d2-5ed38234d16d",
+  "craftedItem": "Definition:ChainShirt_FrostWalking:01b59ca9-a1a7-5744-b24c-f012abafb2e1",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e2afe94e-7bb1-589e-af9d-e6ab462f2f88",
+  "guid": "1c5a5a50-f82b-5d97-9772-ca46d80aa796",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainShirt_FrostWalking"
 }

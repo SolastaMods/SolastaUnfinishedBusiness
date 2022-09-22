@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Acuteness:b094b0d8-957a-5cf6-96bf-5a11a3fa8a31",
+    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Acuteness:4735560e-5f75-51a7-84b7-2f12f9e226ce",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "482913b5-4236-53ba-8635-65b9dbc97431",
+  "guid": "380b195d-ed95-5dee-8e35-56a2bc38775d",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHandaxe_Acuteness"
 }

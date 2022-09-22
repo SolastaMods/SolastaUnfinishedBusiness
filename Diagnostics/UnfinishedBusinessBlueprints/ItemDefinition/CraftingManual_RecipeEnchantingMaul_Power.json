@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingMaul_Power:979dd3be-4392-55a7-beae-bf6b05665d2a",
+    "recipeDefinition": "Definition:RecipeEnchantingMaul_Power:0761b029-2d3c-5500-9802-150c4aeccaab",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38352ffa-d697-5685-8de1-3f210d5d3fde",
+  "guid": "6ddf3d96-7bba-513a-b3ca-b710e0196568",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingMaul_Power"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Dragonblade:21df8252-d363-5fd0-bf8b-3883eec9c808",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Dragonblade:b718be6e-02a5-5497-90a8-a42ced4cfc2b",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c009a77-dece-54e9-bf65-7484790bd3ad",
+  "guid": "7cab5ee9-94ab-58d5-91e9-7481365b1524",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Dragonblade"
 }

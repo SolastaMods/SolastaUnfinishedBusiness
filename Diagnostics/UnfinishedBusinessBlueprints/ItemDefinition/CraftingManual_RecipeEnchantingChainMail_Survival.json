@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingChainMail_Survival:bd582ab3-b46a-53b8-a687-f6ed8b86e437",
+    "recipeDefinition": "Definition:RecipeEnchantingChainMail_Survival:2574b5fa-3b50-598b-a469-326518843a89",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc9ca2e0-0bab-5086-b67a-45ec6857b31a",
+  "guid": "d3ab8fca-9969-5efe-b15e-ba9c9454bfe3",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingChainMail_Survival"
 }

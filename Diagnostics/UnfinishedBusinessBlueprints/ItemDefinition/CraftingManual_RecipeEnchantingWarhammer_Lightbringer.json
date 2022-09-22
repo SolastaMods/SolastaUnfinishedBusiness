@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Lightbringer:e8abbd8a-27f7-5ecc-beeb-70ed442b775b",
+    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Lightbringer:3d8d4b53-6009-5c46-b39e-00a03aa78f4c",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f2eaf7fe-89cc-5718-8d99-7bc8e255ee38",
+  "guid": "f9a5968e-3e6c-5243-b9a8-ce492c9c75b9",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingWarhammer_Lightbringer"
 }

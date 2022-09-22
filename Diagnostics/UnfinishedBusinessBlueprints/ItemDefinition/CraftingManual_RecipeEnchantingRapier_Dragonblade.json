@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Dragonblade:dcd09216-1956-5d6c-bbc4-fa1a423b0d25",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Dragonblade:79d82a9d-ed5b-50b9-8805-df59d21beed4",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4233d4ab-a5f5-5145-929c-35f18cd85c3a",
+  "guid": "f7a35a0c-c241-5256-b795-dcfeaf31e9db",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Dragonblade"
 }

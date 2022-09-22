@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Spear_Lightbringer:377d9065-7a45-55a9-9413-025312fff677",
+  "craftedItem": "Definition:Spear_Lightbringer:ea610629-d6b9-5b22-906e-e7427c2cfca1",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dba63481-77fa-5adc-828f-e423fa83e01e",
+  "guid": "9631dcd6-d467-5cca-82dc-518bf8bfdb88",
   "contentPack": 9999,
   "name": "RecipeEnchantingSpear_Lightbringer"
 }

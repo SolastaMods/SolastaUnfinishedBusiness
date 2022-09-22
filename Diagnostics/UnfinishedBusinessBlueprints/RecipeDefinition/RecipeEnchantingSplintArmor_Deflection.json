@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:SplintArmor_Deflection:06a30e5d-08c2-55f1-9e62-14b572f290b4",
+  "craftedItem": "Definition:SplintArmor_Deflection:fd126b85-5147-5e98-b87f-24ece167b684",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "caface3e-5c74-5b84-abfc-4932e522c5eb",
+  "guid": "09cba1ba-3bdd-5d7c-994a-0aef6c7b67cb",
   "contentPack": 9999,
   "name": "RecipeEnchantingSplintArmor_Deflection"
 }

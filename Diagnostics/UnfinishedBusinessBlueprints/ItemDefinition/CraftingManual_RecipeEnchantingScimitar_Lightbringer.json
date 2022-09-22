@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Lightbringer:c5ab405a-afd3-547a-9578-7b01dede5c88",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Lightbringer:283f347e-5b77-5a41-8c83-0ab423eaf06a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb68ce30-0450-59b1-ba10-a42496ca7f7e",
+  "guid": "8fc38740-acd0-5b04-85c2-2396d1e63422",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Lightbringer"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingLightCrossbow_Accuracy:27183db7-eb92-5eee-acee-597cfbaed4a9",
+    "recipeDefinition": "Definition:RecipeEnchantingLightCrossbow_Accuracy:0729929a-8ed4-509a-b4b5-d6f1d2ca1d89",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f8404cf-3dfa-5e88-95d8-5e09cee4c561",
+  "guid": "893ae866-887a-5b18-9120-1cdee23ce778",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingLightCrossbow_Accuracy"
 }

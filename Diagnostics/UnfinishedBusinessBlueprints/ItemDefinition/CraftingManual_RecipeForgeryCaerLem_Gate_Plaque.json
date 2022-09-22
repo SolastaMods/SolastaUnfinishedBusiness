@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryCaerLem_Gate_Plaque:0a30a989-ff64-583b-b5a0-fa90128f2772",
+    "recipeDefinition": "Definition:RecipeForgeryCaerLem_Gate_Plaque:859d934d-e01d-508b-a22d-55d572f1da93",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ab9ae4d-ebff-599c-b5fc-4fe7cfff7e71",
+  "guid": "a79df95b-e442-5a17-bbba-39b0d7ac3ba4",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryCaerLem_Gate_Plaque"
 }

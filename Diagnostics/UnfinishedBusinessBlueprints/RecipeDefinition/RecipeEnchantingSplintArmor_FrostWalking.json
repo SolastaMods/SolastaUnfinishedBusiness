@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:SplintArmor_FrostWalking:2662eb13-3da1-5b9f-9985-7097aa82c467",
+  "craftedItem": "Definition:SplintArmor_FrostWalking:3f0dc75d-d039-5e5a-baf4-79c51898a155",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3eeedee2-e77b-5a90-ae21-2be557eb9180",
+  "guid": "a6e7f98f-49a1-526d-9525-b96f8f89d003",
   "contentPack": 9999,
   "name": "RecipeEnchantingSplintArmor_FrostWalking"
 }

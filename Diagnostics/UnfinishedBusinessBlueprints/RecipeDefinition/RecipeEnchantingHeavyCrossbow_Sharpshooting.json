@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HeavyCrossbow_Sharpshooting:60fd904a-2ce5-5233-a932-e4c9e47c0cd3",
+  "craftedItem": "Definition:HeavyCrossbow_Sharpshooting:6088cb46-53c2-5437-8f5e-b7df581a7cca",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34a2ff3a-83b7-5a12-8573-3e4547c4d665",
+  "guid": "9b18fba9-f84d-5632-b577-d4976e5bfec4",
   "contentPack": 9999,
   "name": "RecipeEnchantingHeavyCrossbow_Sharpshooting"
 }

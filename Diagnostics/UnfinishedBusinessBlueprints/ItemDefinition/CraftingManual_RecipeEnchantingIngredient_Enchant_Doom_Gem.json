@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Doom_Gem:183de9f6-9889-5441-bf39-32cdb550cfae",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Doom_Gem:4ac50223-273a-51cf-877a-18257ee0c612",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "42dcbbdc-6030-5fe0-b855-6830b9c653f2",
+  "guid": "0f0849d3-f561-5149-87be-ebd48bc11d52",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Doom_Gem"
 }

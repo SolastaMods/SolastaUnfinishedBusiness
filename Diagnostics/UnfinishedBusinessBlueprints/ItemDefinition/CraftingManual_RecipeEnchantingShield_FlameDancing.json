@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingShield_FlameDancing:1ed26625-bb49-569e-8d1e-6214cd924975",
+    "recipeDefinition": "Definition:RecipeEnchantingShield_FlameDancing:1c6898ae-dd6f-5158-a790-94a285957075",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "61725bf7-66a4-57fe-8a4d-312c4484d541",
+  "guid": "490364f3-0982-5d25-bf7e-76f22343732f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingShield_FlameDancing"
 }

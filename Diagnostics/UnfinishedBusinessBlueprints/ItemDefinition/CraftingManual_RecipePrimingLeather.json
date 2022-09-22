@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingLeather:f1d50802-1630-5094-bfbb-1a6be0acf38f",
+    "recipeDefinition": "Definition:RecipePrimingLeather:5690b9fe-a119-59cf-9e6f-c80c9c59a6d9",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "01b46ae2-4cde-5a08-b251-eebfb13afbd8",
+  "guid": "04843504-f87a-51c0-9bc3-b318855153b8",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingLeather"
 }

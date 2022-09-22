@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:SplintArmor_Sturdiness:ee1b1638-cb68-5764-b097-b8254711a6d9",
+  "craftedItem": "Definition:SplintArmor_Sturdiness:9b0dec20-1999-5c73-8b01-53db1372ca7d",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b9b51443-30b9-5902-abae-98669fe5c354",
+  "guid": "8ca5aaca-08c2-517a-aa81-7f54f5f86bde",
   "contentPack": 9999,
   "name": "RecipeEnchantingSplintArmor_Sturdiness"
 }

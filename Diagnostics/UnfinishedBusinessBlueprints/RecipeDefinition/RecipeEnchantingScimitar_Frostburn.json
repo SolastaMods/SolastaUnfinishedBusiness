@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Frostburn:e30665eb-6258-5b64-a4b9-529f2ab30181",
+  "craftedItem": "Definition:Scimitar_Frostburn:a0b4e878-3b22-5afa-8d73-77047a2756a8",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d043a659-29d0-57a0-a881-f95e1d3b4bdf",
+  "guid": "73047925-fe20-5357-9a80-b84a34fcae19",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Frostburn"
 }

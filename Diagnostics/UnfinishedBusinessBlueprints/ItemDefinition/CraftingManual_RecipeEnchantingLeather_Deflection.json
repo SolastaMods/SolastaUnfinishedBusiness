@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingLeather_Deflection:72e0b9dd-c529-5126-b844-ea117edc373d",
+    "recipeDefinition": "Definition:RecipeEnchantingLeather_Deflection:c89bc636-8900-5488-b1ee-31d5fb1a72b3",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e73a8266-1d59-571c-8da6-d30c7b8d89c8",
+  "guid": "bc6d632a-367f-5904-96eb-f85b84d88f96",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingLeather_Deflection"
 }

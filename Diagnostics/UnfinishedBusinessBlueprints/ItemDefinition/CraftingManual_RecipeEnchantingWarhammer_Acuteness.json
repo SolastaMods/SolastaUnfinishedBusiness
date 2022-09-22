@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Acuteness:8b7887c0-30d4-5135-8d38-ede8250aef8a",
+    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Acuteness:2f311dcb-624a-5760-9a9c-b138d2283af0",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4539feaa-ce33-53be-9345-427fee0c0d3f",
+  "guid": "fa3c9e4d-0924-5735-b2ef-dc95b9baedbf",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingWarhammer_Acuteness"
 }

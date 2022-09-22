@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Lightbringer:9a872b9f-e54e-593a-bdee-6b83fd0b3653",
+    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Lightbringer:aaa7ee97-1217-5896-8695-5f959daa0c26",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "66b5199d-54ec-5974-9dde-4e5c67182068",
+  "guid": "5effe602-201d-52e8-9519-0673f806ec21",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHeavyCrossbow_Lightbringer"
 }

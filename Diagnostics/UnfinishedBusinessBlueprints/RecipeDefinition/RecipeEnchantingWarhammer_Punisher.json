@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Warhammer_Punisher:850ebbde-9344-54ba-9f55-4efd03be08b5",
+  "craftedItem": "Definition:Warhammer_Punisher:e24acda7-24e1-57a8-bd5d-9c777fd4f9b9",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "496c5b63-66c9-5455-a0e7-409ba732d28d",
+  "guid": "2c4aae26-abe4-56c5-99c0-17a6964b95ea",
   "contentPack": 9999,
   "name": "RecipeEnchantingWarhammer_Punisher"
 }

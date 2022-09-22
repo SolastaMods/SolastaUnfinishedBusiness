@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Frostburn:c0a5fc8c-9380-51e1-9fb8-1ba8b82f32e2",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Frostburn:af8d49b3-b653-56ce-bee3-cbd478e5f2ae",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "643c7e20-e544-5b31-80c6-60e2af6672fb",
+  "guid": "e48419d8-d4f3-5aaa-a640-0710f0df5ba0",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Frostburn"
 }

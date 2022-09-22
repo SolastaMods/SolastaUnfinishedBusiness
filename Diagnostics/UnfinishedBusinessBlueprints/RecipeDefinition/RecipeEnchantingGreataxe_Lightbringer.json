@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Greataxe_Lightbringer:7a530104-3607-5e36-b042-74e4cf3d403a",
+  "craftedItem": "Definition:Greataxe_Lightbringer:5e5b7d6d-d7a9-5c38-afe1-55716fcd918f",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f6b55e2-464a-59c0-8461-3a2783a00eaa",
+  "guid": "186122ea-0ea4-588b-8b08-d5de8c1e8c0a",
   "contentPack": 9999,
   "name": "RecipeEnchantingGreataxe_Lightbringer"
 }

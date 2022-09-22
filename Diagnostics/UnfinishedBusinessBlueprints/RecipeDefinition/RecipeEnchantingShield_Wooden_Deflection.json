@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Wooden_Deflection:9a512679-d398-5ac4-b2e4-8df5b55d62f6",
+  "craftedItem": "Definition:Shield_Wooden_Deflection:c41c5ea1-8fa0-5276-a5cf-2553782ff9dc",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7116dd74-7e8e-520a-9f9b-1fe1f13a8fba",
+  "guid": "63496901-4b25-5f3e-a60b-73ffc5b9409a",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Wooden_Deflection"
 }

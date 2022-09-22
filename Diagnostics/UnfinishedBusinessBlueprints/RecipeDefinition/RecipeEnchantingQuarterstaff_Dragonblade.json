@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Dragonblade:9c53b825-1d11-5a78-9cef-a27a1d7590ea",
+  "craftedItem": "Definition:Quarterstaff_Dragonblade:e370ac47-673b-5ff2-ad01-b84293f18d78",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 14,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5eb32b99-ecaa-50bf-8812-ac1aa05e159a",
+  "guid": "62020e19-75a6-50d2-ba0d-af877c13ccbc",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Dragonblade"
 }

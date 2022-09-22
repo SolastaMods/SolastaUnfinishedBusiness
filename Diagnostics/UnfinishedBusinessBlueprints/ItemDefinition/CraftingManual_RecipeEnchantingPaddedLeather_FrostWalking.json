@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_FrostWalking:1435a269-923f-56a4-861f-20b887b97061",
+    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_FrostWalking:9122d344-e820-5344-b931-a4fc801f9b1f",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b7e12791-8099-5d3b-b365-efaf748ac2e3",
+  "guid": "26f70087-e372-5a6f-97c4-a22555e95d55",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingPaddedLeather_FrostWalking"
 }

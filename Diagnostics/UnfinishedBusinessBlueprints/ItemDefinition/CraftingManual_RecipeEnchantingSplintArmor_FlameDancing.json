@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_FlameDancing:944c714c-7aa7-57ca-a33c-332ced1f278a",
+    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_FlameDancing:1b7b7c8f-21c5-5bc2-869e-865080b6f345",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "477ffba0-b54a-59e2-9753-f8dce6502f46",
+  "guid": "aeabb8ac-25d2-58da-a2a7-4aed771e1df5",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSplintArmor_FlameDancing"
 }

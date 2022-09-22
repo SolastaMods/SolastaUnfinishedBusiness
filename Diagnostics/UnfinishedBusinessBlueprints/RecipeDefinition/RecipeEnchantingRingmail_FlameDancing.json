@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Ringmail_FlameDancing:04cd1c0a-3795-5732-9c3e-529ba8652f7f",
+  "craftedItem": "Definition:Ringmail_FlameDancing:348f301c-d0d2-5d41-9916-8aa12ee27394",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e06bd194-0377-5210-8d80-eaab45a5fd66",
+  "guid": "0817ab49-d3ec-5bb8-be1b-36f70a93f9e0",
   "contentPack": 9999,
   "name": "RecipeEnchantingRingmail_FlameDancing"
 }

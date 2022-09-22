@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Whiteburn:5c9f96ad-73c8-524d-9d8d-5a2f9da897b6",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Whiteburn:131e7da8-2668-5b54-a238-498b590377b5",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e6d88403-776a-5843-9073-15fe3e83e1a8",
+  "guid": "8374297e-77d2-5ca7-9b93-a78baabf104e",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Whiteburn"
 }

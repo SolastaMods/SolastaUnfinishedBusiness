@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Acuteness:2f9b7314-d74e-528d-87d6-da99ec4e6f4c",
+  "craftedItem": "Definition:Quarterstaff_Acuteness:b436771e-0c9f-5048-b1bc-2aeb81c59a50",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ba30648d-b7a4-591b-9657-5f9dd9295814",
+  "guid": "4e136fee-9b0a-593f-b8f7-06783acfbf02",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Acuteness"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingStuddedLeather_Sturdiness:ce85778d-7e50-5a3f-b581-98f7f960e115",
+    "recipeDefinition": "Definition:RecipeEnchantingStuddedLeather_Sturdiness:ec32746d-8b4a-5a6d-ac95-e8ace005a79d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1b698f8f-db1d-54bd-a174-740223206eb4",
+  "guid": "4bdefd13-3665-5f1d-84d1-90e858f36a19",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingStuddedLeather_Sturdiness"
 }

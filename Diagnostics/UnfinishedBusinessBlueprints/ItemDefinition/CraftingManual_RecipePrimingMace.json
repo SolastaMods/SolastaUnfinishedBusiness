@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingMace:f6190176-ad98-5cee-b476-e0a7a9c15078",
+    "recipeDefinition": "Definition:RecipePrimingMace:26f60fa3-325a-559a-ae1e-32c281c469f7",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "58579180-61fe-5cf0-bd2a-0f171ed328ef",
+  "guid": "fd88d7da-c6b3-5c1b-830b-5f15aaf3ac1d",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingMace"
 }

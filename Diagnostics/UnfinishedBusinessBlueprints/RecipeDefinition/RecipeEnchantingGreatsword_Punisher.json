@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Greatsword_Punisher:394ce563-93af-5c70-b892-17a431cd84ae",
+  "craftedItem": "Definition:Greatsword_Punisher:cc4b73c6-eed0-555a-87d5-af997ab12ce5",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -47,7 +47,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6fd77b4d-f69d-5061-b8da-a932dc1de1d3",
+  "guid": "64005c2b-29e9-59c7-8185-e9d1706f10a2",
   "contentPack": 9999,
   "name": "RecipeEnchantingGreatsword_Punisher"
 }

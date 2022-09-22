@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HideArmor_Deflection:872a7c6f-51e7-5e6b-98bb-83f309891aca",
+  "craftedItem": "Definition:HideArmor_Deflection:01364c0b-b4da-5b7c-8654-82e2e36572ae",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b0de44f-81e6-5213-919d-b90fdd7cc931",
+  "guid": "3d217ffb-6416-548c-8a26-2c6acf850161",
   "contentPack": 9999,
   "name": "RecipeEnchantingHideArmor_Deflection"
 }

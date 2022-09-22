@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Medusa:1bd4226a-018e-5843-bb78-687c5761f655",
+    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Medusa:6ef62270-d5e9-5078-bdfb-426aaafe29e2",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "891a1838-ba02-5740-987e-21dad3453759",
+  "guid": "a897b5b8-58c4-5e5b-b0d2-45e4a8dbb2c6",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHeavyCrossbow_Medusa"
 }

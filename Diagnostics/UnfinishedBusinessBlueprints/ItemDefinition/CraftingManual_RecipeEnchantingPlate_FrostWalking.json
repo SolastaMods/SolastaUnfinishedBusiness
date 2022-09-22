@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingPlate_FrostWalking:83105657-76e2-5d39-a610-f7a4a1f54034",
+    "recipeDefinition": "Definition:RecipeEnchantingPlate_FrostWalking:d4d09e78-7958-5dba-b061-56bbc9d64eaa",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e754c32-c1f2-52bb-ba47-c323a1d7bac2",
+  "guid": "8e8e216d-693f-5b0b-86d6-e71d59f31a01",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingPlate_FrostWalking"
 }

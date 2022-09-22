@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Handaxe_Sharpness:e1df4f0c-1cf1-5677-8f59-0e6137455349",
+  "craftedItem": "Definition:Handaxe_Sharpness:55699f06-c4aa-5191-88ba-1ee0738ccb32",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fee28814-a500-5310-a1c3-dbd5f4263984",
+  "guid": "15af4a5c-9021-57e3-80cd-b3fc1590755f",
   "contentPack": 9999,
   "name": "RecipeEnchantingHandaxe_Sharpness"
 }

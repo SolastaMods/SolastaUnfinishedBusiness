@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HalfPlate_FrostWalking:089028e9-c683-5e36-bf1a-a9d4344ff31c",
+  "craftedItem": "Definition:HalfPlate_FrostWalking:10793e27-a972-553e-a3db-9539903171c6",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f21c853b-6669-5fcb-a0ed-46614e5bd9a4",
+  "guid": "a94ddcbc-24a7-524c-a1a2-bc8de0202b81",
   "contentPack": 9999,
   "name": "RecipeEnchantingHalfPlate_FrostWalking"
 }

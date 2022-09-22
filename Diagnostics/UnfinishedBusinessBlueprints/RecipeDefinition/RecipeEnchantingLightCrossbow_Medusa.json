@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LightCrossbow_Medusa:88922cf9-ec43-5122-aad6-d6b2f0b240e6",
+  "craftedItem": "Definition:LightCrossbow_Medusa:b146ed78-9aa0-5b7d-a639-a4128886637d",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1fabeacd-f5b8-5ac8-8b92-c0a689719b14",
+  "guid": "4583e131-a2f6-514a-8e4e-86e344a7d8dd",
   "contentPack": 9999,
   "name": "RecipeEnchantingLightCrossbow_Medusa"
 }

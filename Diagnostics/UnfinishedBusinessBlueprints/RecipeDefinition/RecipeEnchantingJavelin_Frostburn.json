@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Javelin_Frostburn:1eeb3ad2-a1cb-5b06-a9aa-567f49b0330b",
+  "craftedItem": "Definition:Javelin_Frostburn:7d17ef79-4cba-5bad-b8a3-87dbe73d7dfa",
   "stackCount": 3,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d4e290ac-ed36-5de1-a986-633a22dcbfc2",
+  "guid": "821b1e78-6f08-5eae-a2a3-2705203d4dfd",
   "contentPack": 9999,
   "name": "RecipeEnchantingJavelin_Frostburn"
 }

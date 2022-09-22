@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Warden:bdb8eb4a-9256-5e89-a205-6280ebb2b1a2",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Warden:f9dd1378-27d3-516d-8072-45c189c22d2d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d190ec36-f7bd-5708-800d-60c10eddf6c7",
+  "guid": "9bbd8e3e-b162-5d60-8e59-23db9ee9c578",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Warden"
 }

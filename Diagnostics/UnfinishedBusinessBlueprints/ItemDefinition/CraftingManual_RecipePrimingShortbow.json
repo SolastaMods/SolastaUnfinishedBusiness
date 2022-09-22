@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingShortbow:7ff130f9-fa8b-59a0-9bef-0625169b15e0",
+    "recipeDefinition": "Definition:RecipePrimingShortbow:8457af1e-bdfc-5151-95f7-c36d06730de9",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ab82aa1e-e3b0-5a81-b929-9d438ec11d28",
+  "guid": "9101b2dd-f962-5218-b016-9bee69caf576",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingShortbow"
 }

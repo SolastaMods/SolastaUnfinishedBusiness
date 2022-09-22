@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Javelin_Acuteness:3da727e7-23bf-5e0b-ad7b-3e081f0dbb0b",
+  "craftedItem": "Definition:Javelin_Acuteness:8ef151fb-6100-5d0d-96fb-73d84a5137dd",
   "stackCount": 3,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9c81e8c1-9fdd-5de0-b54c-6c3e6a7a1906",
+  "guid": "21191b2c-6462-543c-b443-612c5f20d8b1",
   "contentPack": 9999,
   "name": "RecipeEnchantingJavelin_Acuteness"
 }

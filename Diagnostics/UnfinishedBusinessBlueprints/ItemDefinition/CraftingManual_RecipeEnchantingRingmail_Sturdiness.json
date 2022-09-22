@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRingmail_Sturdiness:1c34a78b-1cf9-5730-9feb-513431087356",
+    "recipeDefinition": "Definition:RecipeEnchantingRingmail_Sturdiness:bb79b191-da10-5445-8e3d-3168f58718f5",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7e745409-bf04-5b4e-b0bc-b58c88fa5f9b",
+  "guid": "dd15c27a-b859-582e-8446-48ed5f918590",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRingmail_Sturdiness"
 }

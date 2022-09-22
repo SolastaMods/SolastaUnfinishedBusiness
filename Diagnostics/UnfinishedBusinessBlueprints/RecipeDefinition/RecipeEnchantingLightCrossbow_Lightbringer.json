@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LightCrossbow_Lightbringer:c6bee8c4-8ec9-594f-b07e-80c94fb36df4",
+  "craftedItem": "Definition:LightCrossbow_Lightbringer:c30aa3e1-3e47-5ec9-9e4a-523bd2f6ea79",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9cb3ed29-48f1-5aeb-941f-036780f8e6e9",
+  "guid": "0b9c519f-2518-5db1-91c1-624c05f13d24",
   "contentPack": 9999,
   "name": "RecipeEnchantingLightCrossbow_Lightbringer"
 }

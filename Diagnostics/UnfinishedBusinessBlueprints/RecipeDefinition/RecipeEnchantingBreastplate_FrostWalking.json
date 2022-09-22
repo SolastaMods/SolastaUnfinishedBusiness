@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Breastplate_FrostWalking:25fbb961-9b8c-5454-831b-a2c8a465d99e",
+  "craftedItem": "Definition:Breastplate_FrostWalking:775541df-4fbf-5802-9121-8336fd2305ea",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53b26a2a-425e-5475-a1c2-b71ae1e033e4",
+  "guid": "6286eff2-f4e0-55d7-9da6-b46e0f925343",
   "contentPack": 9999,
   "name": "RecipeEnchantingBreastplate_FrostWalking"
 }

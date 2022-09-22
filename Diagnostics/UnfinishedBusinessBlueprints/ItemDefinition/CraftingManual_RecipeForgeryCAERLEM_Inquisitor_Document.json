@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryCAERLEM_Inquisitor_Document:93682ab8-a62c-5691-b11c-9f51acc4da0d",
+    "recipeDefinition": "Definition:RecipeForgeryCAERLEM_Inquisitor_Document:b662e6df-4deb-5198-98d4-f1dc7be69b24",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b07df9ff-7b30-51eb-ac6a-43521742ac9a",
+  "guid": "88861561-7ca9-5139-94ae-075589d2bfb9",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryCAERLEM_Inquisitor_Document"
 }

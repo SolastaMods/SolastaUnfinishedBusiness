@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Maul_Punisher:1d4d31ab-b90f-50b0-8e4f-fd0d69cae79e",
+  "craftedItem": "Definition:Maul_Punisher:9e2ad0c1-06d3-58d7-aee4-0d3e5ff37769",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34f2c9aa-f3b8-51ef-941b-6b127e4a3b5a",
+  "guid": "0a62751f-9e28-5ce8-875b-34cedfd53063",
   "contentPack": 9999,
   "name": "RecipeEnchantingMaul_Punisher"
 }

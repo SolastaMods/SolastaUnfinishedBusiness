@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_FlameDancing:a13d0852-3b4e-5eef-9120-76f14f8a4a38",
+  "craftedItem": "Definition:Shield_FlameDancing:d9b8b3eb-48e0-576c-97a9-3773705c4d74",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1ed26625-bb49-569e-8d1e-6214cd924975",
+  "guid": "1c6898ae-dd6f-5158-a790-94a285957075",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_FlameDancing"
 }

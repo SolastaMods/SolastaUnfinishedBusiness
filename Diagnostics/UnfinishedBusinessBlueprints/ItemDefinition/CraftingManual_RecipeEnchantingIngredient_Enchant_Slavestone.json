@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Slavestone:0dc1ff69-93d8-5281-96da-409dfcd3165a",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Slavestone:c9d7a44a-8562-5f03-88ff-a7d9cb0c4a43",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f161c981-a129-5bb0-be6e-75b9cc271941",
+  "guid": "9307123c-864b-56c4-9ca8-0dadf027937c",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Slavestone"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LeatherDruid_Deflection:9bc6b8a9-0edf-55c7-b93d-0012c6dfa6de",
+  "craftedItem": "Definition:LeatherDruid_Deflection:6068a4cf-096c-53c9-af80-85c4d419901e",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "29ee67b5-c938-55af-92d0-915dd18f1c83",
+  "guid": "3ade298a-89b9-5e3c-828c-2aee8b4d8e0e",
   "contentPack": 9999,
   "name": "RecipeEnchantingLeatherDruid_Deflection"
 }

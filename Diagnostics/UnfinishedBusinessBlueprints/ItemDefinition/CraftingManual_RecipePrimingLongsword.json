@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingLongsword:cb613301-b10c-549c-8b26-0ec95f6178f4",
+    "recipeDefinition": "Definition:RecipePrimingLongsword:4d7504b8-c271-5743-bd68-7d9df8a6b70a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9d68c79f-995f-5512-8570-87810bcfa7ef",
+  "guid": "143d3f6e-8939-566f-a2ef-f5026dadac3d",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingLongsword"
 }

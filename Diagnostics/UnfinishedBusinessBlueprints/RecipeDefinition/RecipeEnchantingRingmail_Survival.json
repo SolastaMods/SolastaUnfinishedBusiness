@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Ringmail_Survival:bd1ab954-7722-564d-9f91-a458e521db7f",
+  "craftedItem": "Definition:Ringmail_Survival:5bea8f6f-b008-54b1-9f3f-9bb62e286225",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff95b704-460f-56c3-ba4e-ee1cf203577f",
+  "guid": "7ac8831f-fdc0-53cf-b69f-aa6d67ae4835",
   "contentPack": 9999,
   "name": "RecipeEnchantingRingmail_Survival"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryABJURATION_TOWER_Manifest:abffda1f-2680-5a9a-a2e4-d637989d6258",
+    "recipeDefinition": "Definition:RecipeForgeryABJURATION_TOWER_Manifest:488e2cfc-bab7-5a29-8e2b-a50181effdb1",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2a884160-5f51-5757-bb20-38127fdd5d12",
+  "guid": "6d13a029-3860-544a-bf35-2da4e8834247",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryABJURATION_TOWER_Manifest"
 }

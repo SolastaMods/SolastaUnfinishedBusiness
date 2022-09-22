@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Spear_Whiteburn:20b17f63-9348-5d91-accd-4ceab124adc8",
+  "craftedItem": "Definition:Spear_Whiteburn:b4c38138-3fa9-5be1-b0cd-d602ae6c39f6",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "11db017b-a5ca-5e64-b4b2-78730e1cab1a",
+  "guid": "5f4a61e6-fb10-5310-8608-f7cc2a52b793",
   "contentPack": 9999,
   "name": "RecipeEnchantingSpear_Whiteburn"
 }

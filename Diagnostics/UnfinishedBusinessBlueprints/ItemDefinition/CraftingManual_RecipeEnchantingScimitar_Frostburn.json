@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Frostburn:d043a659-29d0-57a0-a881-f95e1d3b4bdf",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Frostburn:73047925-fe20-5357-9a80-b84a34fcae19",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34178fb2-bbb6-5b81-b102-4af079dd7334",
+  "guid": "037842dd-9064-569b-968e-591bb9ea96a6",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Frostburn"
 }

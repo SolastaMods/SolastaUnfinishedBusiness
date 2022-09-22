@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainShirt_Robustness:f412f316-c70a-5aa8-9813-44ba99b05111",
+  "craftedItem": "Definition:ChainShirt_Robustness:c0234038-ef71-5168-ac63-58e2003528c2",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "97ee3da8-be96-5bb4-8ea9-61876e2bd037",
+  "guid": "5e8cf292-654e-5a35-be39-2a0682b2755c",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainShirt_Robustness"
 }

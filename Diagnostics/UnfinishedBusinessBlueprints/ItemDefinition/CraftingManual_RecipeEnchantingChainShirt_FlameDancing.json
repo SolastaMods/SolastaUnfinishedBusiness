@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingChainShirt_FlameDancing:6d90e1f4-83be-59b0-b2bb-4316d1302f9d",
+    "recipeDefinition": "Definition:RecipeEnchantingChainShirt_FlameDancing:d7fa6a76-3910-5478-b612-b65f42320d31",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "41cf7da1-ad46-5a11-90a2-0338d342027b",
+  "guid": "cd027105-104d-573d-a4f3-d6e7400e6a6a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingChainShirt_FlameDancing"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRingmail_FrostWalking:558ca66a-a7d1-52f0-9ccb-a045f70ba933",
+    "recipeDefinition": "Definition:RecipeEnchantingRingmail_FrostWalking:9d599a6a-cdfc-53f0-aa94-8d304cb0f4ed",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76742240-615d-5f88-8827-aae3d5a74668",
+  "guid": "ef93cd78-4b93-5eb0-b97b-a8dedba081c9",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRingmail_FrostWalking"
 }

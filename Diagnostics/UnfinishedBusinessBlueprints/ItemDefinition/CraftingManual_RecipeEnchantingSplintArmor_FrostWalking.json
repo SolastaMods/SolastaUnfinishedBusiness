@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_FrostWalking:3eeedee2-e77b-5a90-ae21-2be557eb9180",
+    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_FrostWalking:a6e7f98f-49a1-526d-9525-b96f8f89d003",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7da18f29-81d9-59bd-9199-4e8c0a0f563c",
+  "guid": "54e346ff-d6a1-5664-9c03-ed07e3cdf31f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSplintArmor_FrostWalking"
 }

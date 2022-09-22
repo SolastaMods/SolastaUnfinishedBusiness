@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Warden:790636c0-08d7-5a82-917f-8eba24d642ff",
+  "craftedItem": "Definition:Quarterstaff_Warden:dcd36d0b-d27d-5f50-8192-0040902fe487",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f28faeac-35bb-5724-9554-3ef49f073cba",
+  "guid": "b6d792c3-6398-5cfa-a33e-6ca69737c789",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Warden"
 }

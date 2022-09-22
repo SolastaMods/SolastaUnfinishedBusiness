@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Stormblade:caa01f4f-f1d0-593c-9b14-1e85aec577f7",
+  "craftedItem": "Definition:Rapier_Stormblade:93a16bb3-e58e-5a35-93a2-d8cae6429d5a",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce9ae1d0-cfee-54ca-bdd3-60d29646b97f",
+  "guid": "1f8813af-f4ce-50b9-b052-0dad1ee5a795",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Stormblade"
 }

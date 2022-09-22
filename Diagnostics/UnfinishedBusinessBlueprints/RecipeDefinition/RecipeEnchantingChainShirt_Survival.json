@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainShirt_Survival:525638d0-957c-5a8f-89b9-39767d60d8e1",
+  "craftedItem": "Definition:ChainShirt_Survival:ab439bef-f486-58db-8198-14ae37bc1177",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2cb6c8fd-585b-5962-80ae-6c0dbcfc2311",
+  "guid": "c4c90ea6-2165-5ad3-b65a-9be5ea4d3a69",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainShirt_Survival"
 }

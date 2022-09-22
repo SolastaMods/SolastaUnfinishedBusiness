@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Plate_Robustness:f03986de-dbc1-56d0-8c3d-0693ca6758ed",
+  "craftedItem": "Definition:Plate_Robustness:9790c486-6284-5876-9786-c1265bd13043",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d55f4dd5-b800-51cc-b93f-a2f5a3d5d346",
+  "guid": "249cdc63-a856-5a46-80c3-7fb6c886d272",
   "contentPack": 9999,
   "name": "RecipeEnchantingPlate_Robustness"
 }

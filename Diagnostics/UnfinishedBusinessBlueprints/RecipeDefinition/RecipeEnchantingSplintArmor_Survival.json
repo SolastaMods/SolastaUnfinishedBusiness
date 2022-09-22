@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:SplintArmor_Survival:a47d43b3-2835-5dd8-bd93-059359519897",
+  "craftedItem": "Definition:SplintArmor_Survival:55ffa94b-d482-5fa8-8498-ba584ca28cd7",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "31fe0678-9405-52db-8770-f59743e6ace8",
+  "guid": "813c1f8b-494b-59bf-977d-311a59aebf25",
   "contentPack": 9999,
   "name": "RecipeEnchantingSplintArmor_Survival"
 }

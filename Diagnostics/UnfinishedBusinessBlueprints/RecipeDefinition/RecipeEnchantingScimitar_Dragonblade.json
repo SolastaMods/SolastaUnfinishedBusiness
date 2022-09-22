@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Dragonblade:f6079939-885f-50ff-b1c7-b921f956af25",
+  "craftedItem": "Definition:Scimitar_Dragonblade:6b816680-67dc-5318-9452-8afb603b67e3",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 14,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "21df8252-d363-5fd0-bf8b-3883eec9c808",
+  "guid": "b718be6e-02a5-5497-90a8-a42ced4cfc2b",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Dragonblade"
 }

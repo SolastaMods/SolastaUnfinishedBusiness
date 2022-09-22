@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Plate_FrostWalking:7a2e09a3-58d2-5008-8f85-3805b60f8cf6",
+  "craftedItem": "Definition:Plate_FrostWalking:b72d6a77-bd10-5238-930d-b9cc7d30e041",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "83105657-76e2-5d39-a610-f7a4a1f54034",
+  "guid": "d4d09e78-7958-5dba-b061-56bbc9d64eaa",
   "contentPack": 9999,
   "name": "RecipeEnchantingPlate_FrostWalking"
 }

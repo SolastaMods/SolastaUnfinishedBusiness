@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Lightbringer:0a556c4d-ca96-52eb-be28-da403d37dbf6",
+  "craftedItem": "Definition:Rapier_Lightbringer:525abea5-bf76-5b68-a104-da0716472849",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f99d901-4aac-5a62-aacd-5f3762645b2c",
+  "guid": "29872c33-3981-50ab-b15c-99c07109d2e3",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Lightbringer"
 }

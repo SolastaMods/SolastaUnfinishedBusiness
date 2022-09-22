@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingDart_Sharpness:d9fbadc8-f7b3-5cc4-bb63-7b4b5d802ddc",
+    "recipeDefinition": "Definition:RecipeEnchantingDart_Sharpness:0f45092e-3f14-5c1c-9532-4a50622437b2",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "908ef2e7-1feb-5d33-a3ca-5f8dd47babca",
+  "guid": "b2cea143-a74e-59b6-8933-98598fb40c6f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingDart_Sharpness"
 }

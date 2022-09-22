@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Souldrinker:53404fc8-4e13-5783-80c1-e3e0c027a268",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Souldrinker:19151da4-2e74-52e7-9e14-3af9946e96c7",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fed41fe1-16a4-5861-a929-527516f50e38",
+  "guid": "24dc1a57-2485-5f2d-a561-20e2f577f87b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Souldrinker"
 }

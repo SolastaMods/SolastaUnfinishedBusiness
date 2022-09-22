@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HideArmor_FlameDancing:c95f122e-9d9b-5945-ac28-722576bff4f5",
+  "craftedItem": "Definition:HideArmor_FlameDancing:872d57e5-687a-5101-a75e-e2f599e42f59",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3e2b62e5-4c6b-5c44-8d75-4435f65e3d8b",
+  "guid": "54d7b380-fca9-586d-8df4-d6349fa000c3",
   "contentPack": 9999,
   "name": "RecipeEnchantingHideArmor_FlameDancing"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Diamond_Of_Elai:94ad2be7-b18d-5208-8e7c-d2f2f66d0330",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Diamond_Of_Elai:63083bde-fc45-55bd-93af-ca3f950727e1",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f014a4d-9686-549b-b20b-dfbf1f167f83",
+  "guid": "d687780a-c4c7-54bd-bafc-f724bf95086b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Diamond_Of_Elai"
 }

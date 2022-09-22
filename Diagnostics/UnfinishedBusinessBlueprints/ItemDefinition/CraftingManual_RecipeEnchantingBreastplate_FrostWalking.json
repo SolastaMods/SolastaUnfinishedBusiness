@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_FrostWalking:53b26a2a-425e-5475-a1c2-b71ae1e033e4",
+    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_FrostWalking:6286eff2-f4e0-55d7-9da6-b46e0f925343",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aca0a3b8-ef5d-5e26-b63f-40d44533d074",
+  "guid": "e843f6db-2764-548e-acd4-23cacaea2993",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingBreastplate_FrostWalking"
 }

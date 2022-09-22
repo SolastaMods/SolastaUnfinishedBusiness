@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HeavyCrossbow_Stormbow:1e27c727-42a7-51d6-be0e-c2fb0935e063",
+  "craftedItem": "Definition:HeavyCrossbow_Stormbow:ec10656f-44fa-5780-be78-2ec11419c428",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b840b9d-b036-5afa-a472-d9a445805213",
+  "guid": "8d867cea-4d52-5a57-a6d1-3cb03d3e36a3",
   "contentPack": 9999,
   "name": "RecipeEnchantingHeavyCrossbow_Stormbow"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRingmail_FlameDancing:e06bd194-0377-5210-8d80-eaab45a5fd66",
+    "recipeDefinition": "Definition:RecipeEnchantingRingmail_FlameDancing:0817ab49-d3ec-5bb8-be1b-36f70a93f9e0",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8aeccdbc-88b3-51f0-b795-f07f772b17ee",
+  "guid": "e3b32647-bd34-51b6-bcdd-c682b2466983",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRingmail_FlameDancing"
 }

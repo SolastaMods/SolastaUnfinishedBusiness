@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHalfPlate_FrostWalking:f21c853b-6669-5fcb-a0ed-46614e5bd9a4",
+    "recipeDefinition": "Definition:RecipeEnchantingHalfPlate_FrostWalking:a94ddcbc-24a7-524c-a1a2-bc8de0202b81",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "768711cf-6be5-5a18-b090-7cc41f1c76d1",
+  "guid": "be43c64d-54e3-5285-b78d-492b01cd63d4",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHalfPlate_FrostWalking"
 }

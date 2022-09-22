@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingDart_Frostburn:b86af8c6-0026-59d0-81ee-6c3fd605dbdd",
+    "recipeDefinition": "Definition:RecipeEnchantingDart_Frostburn:e6172719-480f-56b9-b19e-180922663bd3",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "28b90978-c1a4-5c43-9e37-261991104848",
+  "guid": "a319ea6c-7b86-5ae6-9c10-56664c82278a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingDart_Frostburn"
 }

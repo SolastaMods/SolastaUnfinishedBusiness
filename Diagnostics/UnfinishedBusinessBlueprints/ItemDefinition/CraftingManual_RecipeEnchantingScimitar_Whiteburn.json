@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Whiteburn:64137041-7891-5f82-8158-4876ba7bdb08",
+    "recipeDefinition": "Definition:RecipeEnchantingScimitar_Whiteburn:7eb0c53f-66bd-53a6-a116-dd10ad5d4ad5",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8297c5a-6549-5b2a-96ed-4959509a6a48",
+  "guid": "9dab7be6-2834-52e6-aefc-4366a44c47ad",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingScimitar_Whiteburn"
 }

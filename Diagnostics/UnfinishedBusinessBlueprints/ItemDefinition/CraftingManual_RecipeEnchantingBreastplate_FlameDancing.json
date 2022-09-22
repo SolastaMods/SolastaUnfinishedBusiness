@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_FlameDancing:8bf2253f-a8ee-5c20-b62b-3ce3fac8d401",
+    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_FlameDancing:54444667-d48d-55d8-b2cc-ec5e5ce2ab0b",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4e0169af-c7b3-53da-8331-fff584120cae",
+  "guid": "c2dd01a4-9d34-5eef-be7e-c2af6243d5f3",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingBreastplate_FlameDancing"
 }

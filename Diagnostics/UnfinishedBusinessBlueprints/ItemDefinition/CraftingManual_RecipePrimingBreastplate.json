@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingBreastplate:de7f1a68-0bd2-50ee-8171-4d481e8bf3da",
+    "recipeDefinition": "Definition:RecipePrimingBreastplate:e1bc1323-39db-5e0b-a20e-cfa30b66fed7",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b76aa10d-693e-5baf-beed-409ca6f4a224",
+  "guid": "6a9bc599-37d5-58cf-bf70-bc17c9732c90",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingBreastplate"
 }

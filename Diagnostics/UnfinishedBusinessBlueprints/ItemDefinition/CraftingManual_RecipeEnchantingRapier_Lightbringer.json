@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Lightbringer:2f99d901-4aac-5a62-aacd-5f3762645b2c",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Lightbringer:29872c33-3981-50ab-b15c-99c07109d2e3",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4ee67320-dca1-50b1-9849-1b5bda2cc23b",
+  "guid": "5608475c-4b98-5459-a487-ce2146186ba0",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Lightbringer"
 }

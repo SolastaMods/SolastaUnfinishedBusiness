@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Cloud_Diamond:27020945-36ea-5ffd-a048-68efed19298b",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Cloud_Diamond:84ab50b9-d0f2-5dc0-8cee-333b2e5367ac",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4121ca75-4bc3-5c95-831d-67217e7e7059",
+  "guid": "b6a29107-669c-5aae-98ab-2ff7a1f28d2f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Cloud_Diamond"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Warhammer_Acuteness:a4de3c91-625a-5ef3-82ec-6308d2d97743",
+  "craftedItem": "Definition:Warhammer_Acuteness:29393d79-944f-5b8b-8186-6f4fe37d39b9",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8b7887c0-30d4-5135-8d38-ede8250aef8a",
+  "guid": "2f311dcb-624a-5760-9a9c-b138d2283af0",
   "contentPack": 9999,
   "name": "RecipeEnchantingWarhammer_Acuteness"
 }

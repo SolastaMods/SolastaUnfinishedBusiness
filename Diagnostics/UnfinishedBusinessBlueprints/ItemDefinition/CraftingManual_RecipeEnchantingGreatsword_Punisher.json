@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingGreatsword_Punisher:6fd77b4d-f69d-5061-b8da-a932dc1de1d3",
+    "recipeDefinition": "Definition:RecipeEnchantingGreatsword_Punisher:64005c2b-29e9-59c7-8185-e9d1706f10a2",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6cc58c61-e899-5106-a94e-a532d496d9ea",
+  "guid": "818554b5-e842-5926-ad92-81c56514251b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingGreatsword_Punisher"
 }

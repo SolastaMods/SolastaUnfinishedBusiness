@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSpear_Sharpness:a94b0119-50c6-5e36-92c9-81b4e462a360",
+    "recipeDefinition": "Definition:RecipeEnchantingSpear_Sharpness:6db351d3-9d97-582f-b49d-16657c990411",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52c8ae86-c27b-54bf-8d98-006feeb7cced",
+  "guid": "3bd077f3-27e2-52ed-be8f-b8e63a6d2921",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSpear_Sharpness"
 }

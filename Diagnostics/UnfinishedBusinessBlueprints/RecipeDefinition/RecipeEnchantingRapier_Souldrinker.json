@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Souldrinker:00e83c55-900c-543e-af47-e48e76bb23f4",
+  "craftedItem": "Definition:Rapier_Souldrinker:8e068e69-6a5f-53ed-aacd-8822ec14afff",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "91243b81-e14f-57b2-850a-b6c8a61b4248",
+  "guid": "d2dc1bff-9476-5c8f-9397-999a546be2d6",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Souldrinker"
 }

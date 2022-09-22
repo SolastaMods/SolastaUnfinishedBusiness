@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Whiteburn:59b92cff-90ac-5eda-af72-6fcf084bf176",
+  "craftedItem": "Definition:Scimitar_Whiteburn:0c9353df-51a2-56bb-8a53-a8b906ce941c",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "64137041-7891-5f82-8158-4876ba7bdb08",
+  "guid": "7eb0c53f-66bd-53a6-a116-dd10ad5d4ad5",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Whiteburn"
 }

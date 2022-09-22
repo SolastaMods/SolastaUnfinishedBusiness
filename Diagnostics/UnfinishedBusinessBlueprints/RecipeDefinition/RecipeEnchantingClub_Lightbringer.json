@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Club_Lightbringer:4eb9d77a-57e3-567b-b958-ec857fbc7c80",
+  "craftedItem": "Definition:Club_Lightbringer:5354d901-1e72-519e-8b52-538a099c6d45",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa13cd80-8afc-56c5-95a0-e76ad25f5559",
+  "guid": "a9fb459e-a9c7-54d4-8701-b08327c34a80",
   "contentPack": 9999,
   "name": "RecipeEnchantingClub_Lightbringer"
 }

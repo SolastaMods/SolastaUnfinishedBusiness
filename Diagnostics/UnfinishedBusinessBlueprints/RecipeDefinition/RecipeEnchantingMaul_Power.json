@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Maul_Power:3731047a-8366-5257-9be0-065830c13af0",
+  "craftedItem": "Definition:Maul_Power:830af6fd-3283-56b2-be82-110ffc0771db",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "979dd3be-4392-55a7-beae-bf6b05665d2a",
+  "guid": "0761b029-2d3c-5500-9802-150c4aeccaab",
   "contentPack": 9999,
   "name": "RecipeEnchantingMaul_Power"
 }

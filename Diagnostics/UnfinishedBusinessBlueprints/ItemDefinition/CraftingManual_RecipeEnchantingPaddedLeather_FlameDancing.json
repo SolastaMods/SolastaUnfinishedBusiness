@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_FlameDancing:2343026c-fc08-5508-b00f-918013f17af6",
+    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_FlameDancing:33254a19-98f7-5b33-989f-c9e104b8b322",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4a44a535-b1bc-5d37-bd01-99af4ce94710",
+  "guid": "ccac6b24-15a2-53f2-8d75-c07480bea5b2",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingPaddedLeather_FlameDancing"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Souldrinker:8c45446b-4e33-5072-834c-84194728a105",
+    "recipeDefinition": "Definition:RecipeEnchantingHandaxe_Souldrinker:056a1f11-a30c-53b8-bc0b-70dfdf32a759",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "23bdaab1-2cac-5306-ae66-c36d0b025758",
+  "guid": "95162658-b50a-5246-8002-578f74655dc5",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHandaxe_Souldrinker"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Greataxe_Punisher:1d841a73-9b21-57c0-97f7-7a196baa37d1",
+  "craftedItem": "Definition:Greataxe_Punisher:44f1cd14-d828-5ace-83b5-98fbbc260102",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c47ae5a-a634-54d6-98a9-f82cb78a7df4",
+  "guid": "8fddb19c-2867-5d4d-8116-ed655ba31fed",
   "contentPack": 9999,
   "name": "RecipeEnchantingGreataxe_Punisher"
 }

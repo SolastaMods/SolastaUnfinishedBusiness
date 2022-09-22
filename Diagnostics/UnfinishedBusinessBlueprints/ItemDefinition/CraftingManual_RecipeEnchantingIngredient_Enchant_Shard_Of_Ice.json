@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Shard_Of_Ice:3136ff0b-19b7-58b9-ac52-2c45987b8615",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Shard_Of_Ice:c73e1d70-2363-573d-82a4-1e71c5c14aac",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "13cf711c-64a3-533e-b046-bac9bec28a94",
+  "guid": "3e587dcd-93bc-52c6-9cae-e2a5a16dfcd3",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Shard_Of_Ice"
 }

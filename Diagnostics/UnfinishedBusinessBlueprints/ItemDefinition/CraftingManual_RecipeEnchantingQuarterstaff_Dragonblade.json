@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Dragonblade:5eb32b99-ecaa-50bf-8812-ac1aa05e159a",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Dragonblade:62020e19-75a6-50d2-ba0d-af877c13ccbc",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cd538329-6bfa-5993-b783-a2b70b34b3ec",
+  "guid": "31a5521c-3b7a-517d-8b0e-ba97e5becfba",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Dragonblade"
 }

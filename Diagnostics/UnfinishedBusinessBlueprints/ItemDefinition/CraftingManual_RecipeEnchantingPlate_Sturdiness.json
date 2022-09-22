@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingPlate_Sturdiness:746efb43-7613-5788-9c8f-82bebe92eea7",
+    "recipeDefinition": "Definition:RecipeEnchantingPlate_Sturdiness:72b528b4-026c-5dfc-9198-cf439788db0a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fbbf47e7-70ce-57bd-b6af-f10efd751815",
+  "guid": "c5f02201-f2cf-5c1f-b3ab-db2b91074ac3",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingPlate_Sturdiness"
 }

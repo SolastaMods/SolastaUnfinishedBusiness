@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_PurpleAmber:b795ca2b-2e12-5534-b57e-6207b5445f34",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_PurpleAmber:2f976b21-c6f6-5539-b8a2-ffc644139efa",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "22f30be0-7a31-5290-aa91-0d9a7c676929",
+  "guid": "c39b5008-8214-599a-9b04-e0f3f5def4be",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_PurpleAmber"
 }

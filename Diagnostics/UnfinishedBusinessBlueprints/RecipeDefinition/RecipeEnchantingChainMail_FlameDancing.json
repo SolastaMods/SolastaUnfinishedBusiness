@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainMail_FlameDancing:9231065e-fbd4-5585-8941-3d62b92bbb29",
+  "craftedItem": "Definition:ChainMail_FlameDancing:568b4fdf-9200-545b-9e8f-6da6d2d37db5",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d43b0f89-11dd-53f7-a17e-dbfc714943c7",
+  "guid": "ca7e0d71-a460-5b1a-9f2b-6ab99b0beb0b",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainMail_FlameDancing"
 }

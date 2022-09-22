@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryCAERLEM_TirmarianHolySymbol:5fa86c8e-700e-574e-a4a7-2be9c4d85ccc",
+    "recipeDefinition": "Definition:RecipeForgeryCAERLEM_TirmarianHolySymbol:f3421b0d-4418-5946-9b3e-5374ec277e99",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52a15ef6-b7c2-5064-a504-3dc754a359b4",
+  "guid": "a5d0e5b7-076f-5f5a-865d-a34e38e15d0c",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryCAERLEM_TirmarianHolySymbol"
 }

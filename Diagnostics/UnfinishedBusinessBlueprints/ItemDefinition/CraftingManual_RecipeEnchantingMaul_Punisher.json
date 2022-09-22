@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingMaul_Punisher:34f2c9aa-f3b8-51ef-941b-6b127e4a3b5a",
+    "recipeDefinition": "Definition:RecipeEnchantingMaul_Punisher:0a62751f-9e28-5ce8-875b-34cedfd53063",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2383cbc1-fa6c-549f-88f8-6e39f70a36de",
+  "guid": "c5052a0b-edc5-5aff-bd38-5bb741f3adfe",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingMaul_Punisher"
 }

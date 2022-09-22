@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Dragonblade:619f7d3c-86f4-57e4-a109-748aab3758cf",
+  "craftedItem": "Definition:Rapier_Dragonblade:c5b6bb3e-77b4-579f-a55c-a432fff1a219",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 14,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dcd09216-1956-5d6c-bbc4-fa1a423b0d25",
+  "guid": "79d82a9d-ed5b-50b9-8805-df59d21beed4",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Dragonblade"
 }

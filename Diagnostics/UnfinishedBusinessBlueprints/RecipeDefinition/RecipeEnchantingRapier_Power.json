@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Power:2f782654-4576-5cc6-bea4-eb2e2662c0cb",
+  "craftedItem": "Definition:Rapier_Power:41ac2226-d6b6-5364-8fe0-99a2deeebbbd",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c07f4b1-b9ec-5f86-9c70-28c6f37f8e87",
+  "guid": "b296bb3b-40f1-552d-bd06-f372e0795d9c",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Power"
 }

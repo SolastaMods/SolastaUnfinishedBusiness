@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingMorningstar:8cf94429-75bb-5bec-bcc1-265c526810e3",
+    "recipeDefinition": "Definition:RecipePrimingMorningstar:a0a432d5-c9b1-505d-9ebd-9e1497fbf939",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e2e2475-28e9-5ab6-934b-fcce2891cc56",
+  "guid": "5cbbc2bc-eca1-5dd9-9db3-3a926cae6be1",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingMorningstar"
 }

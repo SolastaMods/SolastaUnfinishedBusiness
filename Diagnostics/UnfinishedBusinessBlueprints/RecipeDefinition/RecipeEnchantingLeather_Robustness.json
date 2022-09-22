@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Leather_Robustness:6e88feb2-9ea8-5cac-81c9-c0102724e7a6",
+  "craftedItem": "Definition:Leather_Robustness:14e1111b-8d82-5cc1-a6c3-f82223ab7f07",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "57ce5ce1-7276-5868-8b75-e726155c8ff6",
+  "guid": "1f1fb937-ce1e-5f85-a690-cf2b4191e813",
   "contentPack": 9999,
   "name": "RecipeEnchantingLeather_Robustness"
 }

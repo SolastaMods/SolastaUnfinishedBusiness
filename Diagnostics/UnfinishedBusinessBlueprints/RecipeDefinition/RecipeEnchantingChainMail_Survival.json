@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainMail_Survival:6128091f-ae64-59cb-957f-2a80b13e398d",
+  "craftedItem": "Definition:ChainMail_Survival:26ffc263-d0c3-574d-beae-b5c5f932ee41",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bd582ab3-b46a-53b8-a687-f6ed8b86e437",
+  "guid": "2574b5fa-3b50-598b-a469-326518843a89",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainMail_Survival"
 }

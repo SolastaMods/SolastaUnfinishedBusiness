@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingHideArmor:a27c8179-75b9-5390-acee-401b07534349",
+    "recipeDefinition": "Definition:RecipePrimingHideArmor:1b8d2dab-c6e2-561a-b63a-c29fec844ed0",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d5857134-f568-5195-9d3f-7d1a3844c30b",
+  "guid": "7b7515b1-62c5-527a-91a1-fdbe83d8c047",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingHideArmor"
 }

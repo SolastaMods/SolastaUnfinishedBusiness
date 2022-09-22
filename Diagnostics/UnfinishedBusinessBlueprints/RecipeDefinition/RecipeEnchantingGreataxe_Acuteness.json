@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Greataxe_Acuteness:e37cc61d-3464-5cc5-af20-9899171d952b",
+  "craftedItem": "Definition:Greataxe_Acuteness:ae092086-d499-5f8e-aee4-f0089aac9f2e",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "474a24c4-7fbf-563f-8b62-4e8ec400af9e",
+  "guid": "62611268-1e15-5d5c-84a3-0e624fbf470f",
   "contentPack": 9999,
   "name": "RecipeEnchantingGreataxe_Acuteness"
 }

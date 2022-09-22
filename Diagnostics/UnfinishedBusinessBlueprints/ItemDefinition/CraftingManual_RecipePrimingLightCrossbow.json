@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipePrimingLightCrossbow:d4a46e95-316d-557c-b061-e2e12d31e039",
+    "recipeDefinition": "Definition:RecipePrimingLightCrossbow:d64fecdd-3540-5306-b1ee-952d9c359665",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "03139f74-6fef-5453-a136-1b5027637a36",
+  "guid": "fc5c02ed-9b76-5e9f-9f4b-789ba24fbbd5",
   "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingLightCrossbow"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:SplintArmor_FlameDancing:db61cb19-4a29-5a61-a73b-a2627d5445b0",
+  "craftedItem": "Definition:SplintArmor_FlameDancing:006fce2d-b167-56c1-996f-a42c7a56fdba",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "944c714c-7aa7-57ca-a33c-332ced1f278a",
+  "guid": "1b7b7c8f-21c5-5bc2-869e-865080b6f345",
   "contentPack": 9999,
   "name": "RecipeEnchantingSplintArmor_FlameDancing"
 }

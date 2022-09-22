@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingMaul_Lightbringer:77338778-600e-52f8-b714-e705832f6b56",
+    "recipeDefinition": "Definition:RecipeEnchantingMaul_Lightbringer:ce2a4030-8a19-5397-b603-90b39f0c2bd9",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6b01d826-0cb1-566c-b07a-9c6c38dc8df6",
+  "guid": "6bc9b0e3-36be-540e-8771-eea2ac200b46",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingMaul_Lightbringer"
 }

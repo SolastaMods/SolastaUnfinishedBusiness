@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HalfPlate_FlameDancing:efdefaf0-cf36-5f59-932f-c58420df9bed",
+  "craftedItem": "Definition:HalfPlate_FlameDancing:e04398aa-a9d0-5b97-9cd5-6a143542d27b",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a32d14ac-87ab-53e9-9faa-7f63cf14fcd8",
+  "guid": "4dd04393-8295-5128-8e29-2fc5cfa006dc",
   "contentPack": 9999,
   "name": "RecipeEnchantingHalfPlate_FlameDancing"
 }

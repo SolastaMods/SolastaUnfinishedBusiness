@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Club_Bearclaw:d4d0912c-e38c-583d-b0e7-69377061c90c",
+  "craftedItem": "Definition:Club_Bearclaw:db0b2417-0c79-5812-b67c-941ddf26af18",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e557737-a099-5a7c-9da7-4932ee9921ef",
+  "guid": "2d99fab0-3689-5ee7-8794-3535bc6a872e",
   "contentPack": 9999,
   "name": "RecipeEnchantingClub_Bearclaw"
 }

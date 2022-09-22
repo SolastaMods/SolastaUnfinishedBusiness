@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Stormblade:ce9ae1d0-cfee-54ca-bdd3-60d29646b97f",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Stormblade:1f8813af-f4ce-50b9-b052-0dad1ee5a795",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fbdcf733-75fd-5e0a-b957-be8012ad2413",
+  "guid": "d2d9e465-ea90-5eff-9d35-19d714028bfe",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Stormblade"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Wooden_Survival:8c22dc76-ed0f-593d-b26a-bcc436cfc963",
+  "craftedItem": "Definition:Shield_Wooden_Survival:672c7dab-e18c-5a40-99af-194e7ff48a0d",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "386ead8b-78af-5e13-9b1f-74d41bd1566a",
+  "guid": "bba22d27-067f-569c-93d8-fc75ffa77a94",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Wooden_Survival"
 }

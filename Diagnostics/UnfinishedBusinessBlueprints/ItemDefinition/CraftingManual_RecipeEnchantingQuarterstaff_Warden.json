@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Warden:f28faeac-35bb-5724-9554-3ef49f073cba",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Warden:b6d792c3-6398-5cfa-a33e-6ca69737c789",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7477980a-60bd-50d2-a3e7-872ae0fdf0e2",
+  "guid": "ce032ba3-207c-5856-b97b-8d2637f57ed3",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Warden"
 }

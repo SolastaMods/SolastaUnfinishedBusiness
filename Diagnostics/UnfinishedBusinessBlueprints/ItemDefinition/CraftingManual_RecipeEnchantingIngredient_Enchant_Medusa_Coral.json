@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Medusa_Coral:8cdaba45-9809-5664-86b7-dea77ff6de86",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Medusa_Coral:783fab4d-0e16-5dbb-a54f-e1a271570e67",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1f98c74c-cb6b-5703-8125-cd56a2e95e99",
+  "guid": "244590d5-571d-5571-b51c-bfe9fa974f8b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Medusa_Coral"
 }

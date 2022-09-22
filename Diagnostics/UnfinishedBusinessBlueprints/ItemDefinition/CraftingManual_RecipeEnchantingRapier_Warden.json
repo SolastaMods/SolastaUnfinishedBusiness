@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Warden:e8a8e143-d0ec-5cf5-879f-5ea6583bfd3e",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Warden:957ce313-40c1-5986-8165-246c25189704",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ab471e74-f8fe-55c1-b009-3aed97c39611",
+  "guid": "3eaa720e-4262-5760-ac2e-e0d3971aaa9d",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Warden"
 }

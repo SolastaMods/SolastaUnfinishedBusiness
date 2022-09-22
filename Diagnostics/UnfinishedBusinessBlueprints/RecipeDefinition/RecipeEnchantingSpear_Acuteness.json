@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Spear_Acuteness:f9f6e3f4-43df-5c31-aacc-afb6f908c090",
+  "craftedItem": "Definition:Spear_Acuteness:3566d062-f75a-54ca-8545-e112d189d2b6",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e2904f20-51c9-57dc-b9b8-106ecbdc9dab",
+  "guid": "dcd409c8-3c1e-5402-97c4-67050dcc2f07",
   "contentPack": 9999,
   "name": "RecipeEnchantingSpear_Acuteness"
 }

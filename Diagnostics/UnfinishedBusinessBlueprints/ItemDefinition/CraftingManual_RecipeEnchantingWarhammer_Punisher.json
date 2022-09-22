@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Punisher:496c5b63-66c9-5455-a0e7-409ba732d28d",
+    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Punisher:2c4aae26-abe4-56c5-99c0-17a6964b95ea",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "50d10aa0-0fdc-55a8-9224-29f7912ffcdb",
+  "guid": "df4b949d-050a-5460-af4e-4d25dc610a9c",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingWarhammer_Punisher"
 }

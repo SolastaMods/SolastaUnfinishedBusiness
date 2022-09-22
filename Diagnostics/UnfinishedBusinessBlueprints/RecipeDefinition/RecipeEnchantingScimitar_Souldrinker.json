@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Souldrinker:244788f3-2689-5a45-8012-39f15d347b3d",
+  "craftedItem": "Definition:Scimitar_Souldrinker:970815d4-9136-5480-8a35-cbd68030eafa",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53404fc8-4e13-5783-80c1-e3e0c027a268",
+  "guid": "19151da4-2e74-52e7-9e14-3af9946e96c7",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Souldrinker"
 }

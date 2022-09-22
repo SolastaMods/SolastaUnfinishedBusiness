@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Wooden_Robustness:5a9e4bad-8b3e-57d8-a549-f03177ca3878",
+  "craftedItem": "Definition:Shield_Wooden_Robustness:a47fe35b-9369-5b39-80ea-d4954d11e87c",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b74507f6-fd59-5c29-bdc8-e4731fe85a28",
+  "guid": "15937636-bcfa-51ef-b5dc-d8566d4a9055",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Wooden_Robustness"
 }

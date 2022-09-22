@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryABJURATION_TOWER_ElvenWars:757b8255-fae6-53c3-b480-1894f9ce5e6c",
+    "recipeDefinition": "Definition:RecipeForgeryABJURATION_TOWER_ElvenWars:b2a64c8f-4d41-5a0d-b7ea-925682440039",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "328ff127-1314-58c2-af27-c46803ed15c0",
+  "guid": "4969e45b-f60f-5a56-be6f-1758b726821a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryABJURATION_TOWER_ElvenWars"
 }

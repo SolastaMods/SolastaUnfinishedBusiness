@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Stardust:54340117-896c-55b7-8b3e-5e331170b46b",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Stardust:23115cdd-9a0f-5a24-bc0b-0c5426f18fa7",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38966e88-ccdd-5d55-9b45-7c1c25fa4d92",
+  "guid": "baf9dc0e-017b-53bf-998d-686fe796be20",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Stardust"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Rapier_Whiteburn:c319f00f-52af-5bf1-9a0e-b03f17c6fcf6",
+  "craftedItem": "Definition:Rapier_Whiteburn:8f3afd5c-1e2a-5069-b776-21db41fd57d7",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8361854a-bd24-5c22-8874-50fe114a3a95",
+  "guid": "2a189f22-a52c-510e-8882-787bcd841356",
   "contentPack": 9999,
   "name": "RecipeEnchantingRapier_Whiteburn"
 }

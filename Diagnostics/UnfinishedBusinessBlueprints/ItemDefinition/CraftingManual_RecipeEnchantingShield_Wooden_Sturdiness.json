@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_Sturdiness:b1d59cba-78ac-5c5b-abb7-43fa6e4a0112",
+    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_Sturdiness:dc341984-4c34-5372-b147-652975ca20ad",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6bff4a46-2acd-5e4b-b97b-6dae7523a1d2",
+  "guid": "da1992e0-1e9e-5a6a-883e-83d58a3369c1",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingShield_Wooden_Sturdiness"
 }

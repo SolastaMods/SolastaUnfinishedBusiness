@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Greataxe_Bearclaw:fa92abe9-9f86-5ef6-85c7-abc0ded68447",
+  "craftedItem": "Definition:Greataxe_Bearclaw:0437bd02-89d8-5acc-9394-213eae0ba309",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e6efa3b7-5e06-52e5-bcf9-9f95cd161237",
+  "guid": "f2c47ca6-a265-5e43-a6a2-a07f453f6084",
   "contentPack": 9999,
   "name": "RecipeEnchantingGreataxe_Bearclaw"
 }

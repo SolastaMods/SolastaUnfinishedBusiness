@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Club_Power:5e48ba6d-7bee-5d93-b056-cc7d749cab88",
+  "craftedItem": "Definition:Club_Power:81d85d10-544a-5e91-b9ad-d3d36af6e266",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cf626fb0-d61f-54a0-90e7-ea7f3246c4cf",
+  "guid": "ad556c9c-7e96-5447-a2bc-678bff8108fa",
   "contentPack": 9999,
   "name": "RecipeEnchantingClub_Power"
 }

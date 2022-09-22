@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Warhammer_Lightbringer:f2b1fb51-d1ca-5636-a752-36570340ef0d",
+  "craftedItem": "Definition:Warhammer_Lightbringer:c21bfcd2-8004-50ca-a767-b0ad7a8209f1",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8abbd8a-27f7-5ecc-beeb-70ed442b775b",
+  "guid": "3d8d4b53-6009-5c46-b39e-00a03aa78f4c",
   "contentPack": 9999,
   "name": "RecipeEnchantingWarhammer_Lightbringer"
 }

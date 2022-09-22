@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Dart_Acuteness:59c7cd83-54ec-5e8e-8fac-62769129837a",
+  "craftedItem": "Definition:Dart_Acuteness:5ff354e2-67d1-55b0-a426-3405e65f9d4f",
   "stackCount": 3,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc944952-6ab5-506a-a4f0-52561e084dcf",
+  "guid": "4f72680f-072e-5bd2-9ad0-4ee8c9b49f67",
   "contentPack": 9999,
   "name": "RecipeEnchantingDart_Acuteness"
 }

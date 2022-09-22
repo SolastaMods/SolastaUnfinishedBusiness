@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Stormblade:2a89cf39-921b-5a4c-b97e-e0ab31a6f86d",
+  "craftedItem": "Definition:Quarterstaff_Stormblade:2c6df15f-2ea4-5dd5-9296-bc06e001d464",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c47a616-9acc-5590-8311-cc7d11892c03",
+  "guid": "6818c9bf-07d9-5e73-b859-b4292399fde2",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Stormblade"
 }

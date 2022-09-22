@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Club_Punisher:f35afcc5-7755-5b23-9c53-468ca9a90b2c",
+  "craftedItem": "Definition:Club_Punisher:f36e4a9c-cc2e-5b3c-af5c-250a9627fae8",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c72cdced-7136-571f-b956-c9fd22909d47",
+  "guid": "eec2146e-2fc1-5ad8-8f4c-6d67fa589fcb",
   "contentPack": 9999,
   "name": "RecipeEnchantingClub_Punisher"
 }

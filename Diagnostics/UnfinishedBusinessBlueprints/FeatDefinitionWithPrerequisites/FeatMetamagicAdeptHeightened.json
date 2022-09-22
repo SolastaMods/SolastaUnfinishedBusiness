@@ -14,7 +14,7 @@
   "features": [
     "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
     "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:MetamagicLearnHeightened:8a74dca9-b0a7-4519-aa84-d682a0272e7c"
+    "Definition:MetamagicLearnHeightened:663ff955-efea-5eb5-b3db-11c8fbb16ab4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

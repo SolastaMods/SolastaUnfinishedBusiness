@@ -5,7 +5,12 @@
     "hidden": false,
     "title": "Feature/&PowerAttackTitle",
     "description": "Feature/&PowerAttackDescription",
-    "spriteReference": null,
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -19,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87286627-3e62-459d-8781-ceac1c3462e6",
+  "guid": "87ac094a-a3a9-5ada-8948-0f2f7d0181d6",
   "contentPack": 9999,
   "name": "PowerAttackAttackModifier"
 }

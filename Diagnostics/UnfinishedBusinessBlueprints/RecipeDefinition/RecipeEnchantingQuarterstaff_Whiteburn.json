@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Whiteburn:1bed32d8-5285-59a7-abf3-0943a05ae757",
+  "craftedItem": "Definition:Quarterstaff_Whiteburn:3b843b59-0077-5a03-88a5-ead0de084eef",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c9f96ad-73c8-524d-9d8d-5a2f9da897b6",
+  "guid": "131e7da8-2668-5b54-a238-498b590377b5",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Whiteburn"
 }

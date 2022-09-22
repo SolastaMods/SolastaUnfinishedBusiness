@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Blood_Of_Solasta:c1a6e88d-401b-5a41-8fbc-adc70f7739c5",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Blood_Of_Solasta:d6f878a2-1637-51d0-9faf-7a7fd221141a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87872a88-d8fe-5eba-9ad8-12d45361653a",
+  "guid": "e2d4b46f-064a-5589-8f7e-d57d9bf4ea9b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Blood_Of_Solasta"
 }

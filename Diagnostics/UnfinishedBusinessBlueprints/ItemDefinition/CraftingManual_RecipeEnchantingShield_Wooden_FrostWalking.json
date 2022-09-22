@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_FrostWalking:3ec3c789-2876-5164-8d88-e20ba16e3302",
+    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_FrostWalking:d88ef8ee-62dc-509d-8c42-f500a5a489fe",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e027bb36-07d5-5058-a9f3-4bc2376fc0e7",
+  "guid": "2eb40787-8931-5b00-bc28-5b6fc3cd3e33",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingShield_Wooden_FrostWalking"
 }

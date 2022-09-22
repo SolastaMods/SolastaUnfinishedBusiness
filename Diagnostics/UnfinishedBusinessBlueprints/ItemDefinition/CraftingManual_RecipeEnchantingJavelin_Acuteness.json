@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Acuteness:9c81e8c1-9fdd-5de0-b54c-6c3e6a7a1906",
+    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Acuteness:21191b2c-6462-543c-b443-612c5f20d8b1",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8dd23eb6-4a58-547e-96de-4b0538f9c24a",
+  "guid": "45f0d2d7-b8a8-52ff-9225-d94b49886ce7",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingJavelin_Acuteness"
 }

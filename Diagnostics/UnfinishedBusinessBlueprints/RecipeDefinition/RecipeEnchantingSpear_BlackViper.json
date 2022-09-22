@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Spear_BlackViper:b0bd77eb-155b-5c1c-a91d-0e410358f39a",
+  "craftedItem": "Definition:Spear_BlackViper:b69ccf1a-3732-5c4f-91a7-c877900ba51a",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "01064d12-eb81-5b34-95ab-e825691d1485",
+  "guid": "61fc807c-9007-54ac-9583-57abfb8424bb",
   "contentPack": 9999,
   "name": "RecipeEnchantingSpear_BlackViper"
 }

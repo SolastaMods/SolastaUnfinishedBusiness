@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LightCrossbow_Accuracy:9a93e7cf-c117-5330-89db-6045d68fa7b0",
+  "craftedItem": "Definition:LightCrossbow_Accuracy:f54afec3-5054-5123-b233-f3965fc5670a",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "27183db7-eb92-5eee-acee-597cfbaed4a9",
+  "guid": "0729929a-8ed4-509a-b4b5-d6f1d2ca1d89",
   "contentPack": 9999,
   "name": "RecipeEnchantingLightCrossbow_Accuracy"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingGreataxe_Bearclaw:e6efa3b7-5e06-52e5-bcf9-9f95cd161237",
+    "recipeDefinition": "Definition:RecipeEnchantingGreataxe_Bearclaw:f2c47ca6-a265-5e43-a6a2-a07f453f6084",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d8423e14-530b-5028-93d0-1aae68d7a7d0",
+  "guid": "8fac3f8f-9875-530d-b7b8-f1c8a8b7a48a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingGreataxe_Bearclaw"
 }

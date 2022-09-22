@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingMaul_Bearclaw:bfa67bba-a031-547a-a125-a1b62a7e032e",
+    "recipeDefinition": "Definition:RecipeEnchantingMaul_Bearclaw:5b2868d4-2cce-5387-887e-81d72037a812",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76a51dcd-3c35-52b7-a3a5-75bd51b84233",
+  "guid": "2700248e-5759-5cdd-a1e6-6c146986b935",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingMaul_Bearclaw"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_Survival:c6c2eabb-eaba-56f9-a850-29953fd03962",
+    "recipeDefinition": "Definition:RecipeEnchantingBreastplate_Survival:389a3c4d-e5df-540d-9664-9ab9a404569f",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fcf762bf-66af-5799-8e20-f455de3cbe15",
+  "guid": "d3955030-05fe-5c05-bbd3-7380b2b0e4e1",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingBreastplate_Survival"
 }

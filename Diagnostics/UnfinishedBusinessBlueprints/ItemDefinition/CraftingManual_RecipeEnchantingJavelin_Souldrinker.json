@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Souldrinker:d984d851-7fe8-5efb-b9f6-9a113c1952d1",
+    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Souldrinker:f38c92b9-4b1d-53bd-af05-92a69913ef6d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3b57307f-8748-547d-9010-f65389b175ce",
+  "guid": "4ee77038-f872-5e92-8fe5-b65ad1cd0ab0",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingJavelin_Souldrinker"
 }

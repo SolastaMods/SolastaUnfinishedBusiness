@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Handaxe_Frostburn:e951692a-fe3f-50a4-be4a-a0745e67563d",
+  "craftedItem": "Definition:Handaxe_Frostburn:d996dbf1-03c4-50d4-95b6-49ba896cef35",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cbdb0a0e-9cb5-53fa-9cf8-8466eac15208",
+  "guid": "d8c297e5-b1e1-5a40-a6bd-f138e38581a3",
   "contentPack": 9999,
   "name": "RecipeEnchantingHandaxe_Frostburn"
 }

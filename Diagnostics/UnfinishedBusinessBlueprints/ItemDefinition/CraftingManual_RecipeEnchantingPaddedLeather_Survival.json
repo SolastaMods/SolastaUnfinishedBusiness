@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_Survival:dd6a44ea-9a0d-537b-8279-b76e070a920c",
+    "recipeDefinition": "Definition:RecipeEnchantingPaddedLeather_Survival:91ec19d7-4192-5f96-8b6f-4e0730d8928a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5858cc51-9aed-562b-a85d-ca0fc65bafc5",
+  "guid": "42eb4f4e-e829-55da-9f4b-c1d6a031ed0c",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingPaddedLeather_Survival"
 }

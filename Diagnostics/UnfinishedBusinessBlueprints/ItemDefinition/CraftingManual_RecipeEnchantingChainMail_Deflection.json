@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingChainMail_Deflection:4973122f-575b-567d-9025-51450c1678ef",
+    "recipeDefinition": "Definition:RecipeEnchantingChainMail_Deflection:0dccaf87-73f3-5983-915f-28d7592acbd9",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "877f3485-b4ba-5079-9051-731403b11877",
+  "guid": "d26d6bbf-3f3b-5a91-81d8-02098b0da05f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingChainMail_Deflection"
 }

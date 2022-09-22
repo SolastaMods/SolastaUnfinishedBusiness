@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Bearclaw:ed16deb3-3b5d-535b-9d49-3ca70e26f2f9",
+    "recipeDefinition": "Definition:RecipeEnchantingWarhammer_Bearclaw:019ded71-4599-5051-9302-3202380bcd23",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ace3596d-49ae-5e7e-aff7-54ee6f75b8bc",
+  "guid": "481fbc0f-bb14-5644-8c9c-853445d96333",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingWarhammer_Bearclaw"
 }

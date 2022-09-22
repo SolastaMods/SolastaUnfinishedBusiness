@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Frostburn:d4e290ac-ed36-5de1-a986-633a22dcbfc2",
+    "recipeDefinition": "Definition:RecipeEnchantingJavelin_Frostburn:821b1e78-6f08-5eae-a2a3-2705203d4dfd",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "af5cf6b3-dacf-53f7-9642-e85180733926",
+  "guid": "c8257cdd-45f7-5a78-8851-e8340dc01b78",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingJavelin_Frostburn"
 }

@@ -12,9 +12,9 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:CombatAffinityDeadeyeIgnoreDefender:eb2fce21-705e-5c2b-8f8c-ec2831d5b802",
     "Definition:PowerDeadeye:a16ac37a-8ced-52d8-8c63-e3d100ee3979",
-    "Definition:PowerTurnOffDeadeye:875cd397-c247-560b-959b-7e6d752d48aa",
-    "Definition:CombatAffinityDeadeyeIgnoreDefender:38940e1f-fc62-4a1a-aebe-b4cb7064050d"
+    "Definition:PowerTurnOffDeadeye:875cd397-c247-560b-959b-7e6d752d48aa"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -24,8 +24,8 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d2ca939a-465e-4e43-8e9b-6469177e1839",
+  "guid": "0e725cf6-1b88-5534-ab03-1f6d1a71454a",
   "contentPack": 9999,
   "name": "FeatDeadeye"
 }

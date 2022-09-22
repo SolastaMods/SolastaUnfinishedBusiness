@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Wooden_FlameDancing:d724563e-163b-5946-9f11-744ec4a70df6",
+  "craftedItem": "Definition:Shield_Wooden_FlameDancing:ee8cec1b-5285-5a5f-a70c-10ee135a8930",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dec706d4-4ba7-56cf-8ca2-899f6b14e545",
+  "guid": "0c1149ee-3872-54ed-b0f1-9f16e83b3ef9",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Wooden_FlameDancing"
 }

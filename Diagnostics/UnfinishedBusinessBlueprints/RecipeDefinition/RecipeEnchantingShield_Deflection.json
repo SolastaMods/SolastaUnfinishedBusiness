@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Deflection:6d16318f-86b2-5aad-932c-c5a6f9463902",
+  "craftedItem": "Definition:Shield_Deflection:01e3689f-bd54-5851-8810-c7f4402ab746",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c403dacb-e866-5bfd-9022-d13e702062f1",
+  "guid": "029a3638-02cd-57e8-a922-8ef002035f01",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Deflection"
 }

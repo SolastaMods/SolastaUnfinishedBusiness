@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HideArmor_Robustness:458a7c28-32e1-59f5-b7b3-36514dca8236",
+  "craftedItem": "Definition:HideArmor_Robustness:f427dffd-2fc8-5a63-9f4a-aca14498730f",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b70942c-72f8-529a-86a8-d12dbff8162b",
+  "guid": "67b25504-caa5-59cc-a7d2-7a9bde7a75ab",
   "contentPack": 9999,
   "name": "RecipeEnchantingHideArmor_Robustness"
 }

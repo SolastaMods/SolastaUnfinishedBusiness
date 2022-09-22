@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Whiteburn:8361854a-bd24-5c22-8874-50fe114a3a95",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Whiteburn:2a189f22-a52c-510e-8882-787bcd841356",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d842df1c-4b58-5c86-85cb-e0e8801e49d9",
+  "guid": "939e82ee-4943-543c-b346-6df6b872d303",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Whiteburn"
 }

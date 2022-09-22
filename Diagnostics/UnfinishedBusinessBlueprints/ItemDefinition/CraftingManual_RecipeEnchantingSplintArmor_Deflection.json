@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_Deflection:caface3e-5c74-5b84-abfc-4932e522c5eb",
+    "recipeDefinition": "Definition:RecipeEnchantingSplintArmor_Deflection:09cba1ba-3bdd-5d7c-994a-0aef6c7b67cb",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "92539fc0-0507-5364-84f8-58128a74e0f1",
+  "guid": "6bdc7d90-f7dd-55f5-86e4-de532053702f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSplintArmor_Deflection"
 }

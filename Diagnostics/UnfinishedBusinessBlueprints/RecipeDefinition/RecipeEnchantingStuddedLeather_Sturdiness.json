@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:StuddedLeather_Sturdiness:1d676cd7-b166-570c-b6b2-497f5a4dd9a6",
+  "craftedItem": "Definition:StuddedLeather_Sturdiness:c89e7448-7f01-50c2-bd03-9e77839897fe",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce85778d-7e50-5a3f-b581-98f7f960e115",
+  "guid": "ec32746d-8b4a-5a6d-ac95-e8ace005a79d",
   "contentPack": 9999,
   "name": "RecipeEnchantingStuddedLeather_Sturdiness"
 }

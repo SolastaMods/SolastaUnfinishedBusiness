@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Warhammer_Bearclaw:97f0ab47-1228-55e9-bb12-d6fea9d34765",
+  "craftedItem": "Definition:Warhammer_Bearclaw:021e865d-e49c-55df-9bfa-cf7bfe8e9b96",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ed16deb3-3b5d-535b-9d49-3ca70e26f2f9",
+  "guid": "019ded71-4599-5051-9302-3202380bcd23",
   "contentPack": 9999,
   "name": "RecipeEnchantingWarhammer_Bearclaw"
 }

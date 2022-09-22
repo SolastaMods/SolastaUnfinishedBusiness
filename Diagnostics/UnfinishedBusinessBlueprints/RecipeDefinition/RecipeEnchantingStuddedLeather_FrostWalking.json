@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:StuddedLeather_FrostWalking:e30cb5eb-a056-5d92-809f-e2a6292e0b55",
+  "craftedItem": "Definition:StuddedLeather_FrostWalking:cf901228-083d-5c3e-8eda-59c2bde5334b",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34c4b9d1-69bd-5652-8af4-b2f6e82541cc",
+  "guid": "6a5915be-0584-57ec-838a-a6da0d5e988a",
   "contentPack": 9999,
   "name": "RecipeEnchantingStuddedLeather_FrostWalking"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Javelin_Souldrinker:93762904-3a2e-59ef-9756-1ca037b653c2",
+  "craftedItem": "Definition:Javelin_Souldrinker:0d6bf2c0-6854-5754-8009-e3d1561ba84b",
   "stackCount": 3,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d984d851-7fe8-5efb-b9f6-9a113c1952d1",
+  "guid": "f38c92b9-4b1d-53bd-af05-92a69913ef6d",
   "contentPack": 9999,
   "name": "RecipeEnchantingJavelin_Souldrinker"
 }

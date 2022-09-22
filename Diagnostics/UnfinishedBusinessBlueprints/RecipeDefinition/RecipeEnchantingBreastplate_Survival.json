@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Breastplate_Survival:aa45223d-9771-59bf-94f3-51bb767d3d15",
+  "craftedItem": "Definition:Breastplate_Survival:e3c2eec6-83fc-5745-8681-5bf7f62df1cd",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c6c2eabb-eaba-56f9-a850-29953fd03962",
+  "guid": "389a3c4d-e5df-540d-9664-9ab9a404569f",
   "contentPack": 9999,
   "name": "RecipeEnchantingBreastplate_Survival"
 }

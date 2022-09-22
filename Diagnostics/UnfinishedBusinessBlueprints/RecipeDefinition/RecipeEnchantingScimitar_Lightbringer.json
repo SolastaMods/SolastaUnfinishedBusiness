@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Lightbringer:7ccb8da0-3d57-5f2e-8154-663f9d2ca778",
+  "craftedItem": "Definition:Scimitar_Lightbringer:d4d4fa8a-2c88-5921-822e-d2fa44ba5725",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c5ab405a-afd3-547a-9578-7b01dede5c88",
+  "guid": "283f347e-5b77-5a41-8c83-0ab423eaf06a",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Lightbringer"
 }

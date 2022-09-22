@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_Deflection:7116dd74-7e8e-520a-9f9b-1fe1f13a8fba",
+    "recipeDefinition": "Definition:RecipeEnchantingShield_Wooden_Deflection:63496901-4b25-5f3e-a60b-73ffc5b9409a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ddb28cee-e32c-5c7e-b38c-c3aeb29845a6",
+  "guid": "201b9ac0-efe4-5334-ba28-f8f16ec6e21d",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingShield_Wooden_Deflection"
 }

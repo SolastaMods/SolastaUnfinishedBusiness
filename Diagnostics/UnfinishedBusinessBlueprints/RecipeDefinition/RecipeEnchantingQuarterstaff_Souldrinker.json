@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Souldrinker:49cb7a93-0bc7-5a85-b01f-efbd2870bcb1",
+  "craftedItem": "Definition:Quarterstaff_Souldrinker:50cd9bf2-fbe1-5fa7-be92-19f2ef065c01",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d650a65-f918-5912-be0d-6cd1c25b6805",
+  "guid": "6725dfc9-d0fa-5e69-ad7c-ef56a540d0c5",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Souldrinker"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Breastplate_Deflection:b9de1f19-de80-52da-a5de-828f7c09ba37",
+  "craftedItem": "Definition:Breastplate_Deflection:a8e7640a-008d-5953-8e3c-86ac5fc4cc2f",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0773ad25-1c5a-588e-a9fa-6b431edb0579",
+  "guid": "6ca12d31-b81c-5348-8313-74f1ba73c500",
   "contentPack": 9999,
   "name": "RecipeEnchantingBreastplate_Deflection"
 }

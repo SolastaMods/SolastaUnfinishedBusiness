@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingRapier_Souldrinker:91243b81-e14f-57b2-850a-b6c8a61b4248",
+    "recipeDefinition": "Definition:RecipeEnchantingRapier_Souldrinker:d2dc1bff-9476-5c8f-9397-999a546be2d6",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1484fe2d-e7a3-5d75-83b9-906d93352c2c",
+  "guid": "60c78e7e-210a-55a2-82f8-16522baf9df8",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingRapier_Souldrinker"
 }

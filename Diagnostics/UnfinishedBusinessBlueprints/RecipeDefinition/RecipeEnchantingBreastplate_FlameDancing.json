@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Breastplate_FlameDancing:c95670ca-da90-5191-8b81-0f2de6cc1ca1",
+  "craftedItem": "Definition:Breastplate_FlameDancing:345a4a8d-8e01-5880-8b8f-392442bf8cb8",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8bf2253f-a8ee-5c20-b62b-3ce3fac8d401",
+  "guid": "54444667-d48d-55d8-b2cc-ec5e5ce2ab0b",
   "contentPack": 9999,
   "name": "RecipeEnchantingBreastplate_FlameDancing"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HalfPlate_Sturdiness:e1be0996-19c9-58a1-95d9-f878e772b579",
+  "craftedItem": "Definition:HalfPlate_Sturdiness:0e524c21-92dc-57da-9e5a-4270814b686a",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4cac63c1-2759-5636-b7c3-356b77064eb6",
+  "guid": "33b7c89a-b8ee-5a3a-8edc-456fea623c7b",
   "contentPack": 9999,
   "name": "RecipeEnchantingHalfPlate_Sturdiness"
 }

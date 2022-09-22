@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSpear_Lightbringer:dba63481-77fa-5adc-828f-e423fa83e01e",
+    "recipeDefinition": "Definition:RecipeEnchantingSpear_Lightbringer:9631dcd6-d467-5cca-82dc-518bf8bfdb88",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8dc5abe-8467-5879-b7bc-b27b3b4e1b1c",
+  "guid": "d3fbd085-3d86-5ee4-add0-1291469b06c5",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSpear_Lightbringer"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Stormbow:5b840b9d-b036-5afa-a472-d9a445805213",
+    "recipeDefinition": "Definition:RecipeEnchantingHeavyCrossbow_Stormbow:8d867cea-4d52-5a57-a6d1-3cb03d3e36a3",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e5d587d3-a069-587f-b5c1-75426cf9c7b8",
+  "guid": "790fc57e-9206-57b6-9c9d-132ef068167a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHeavyCrossbow_Stormbow"
 }

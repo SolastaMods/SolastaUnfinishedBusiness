@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingClub_Bearclaw:0e557737-a099-5a7c-9da7-4932ee9921ef",
+    "recipeDefinition": "Definition:RecipeEnchantingClub_Bearclaw:2d99fab0-3689-5ee7-8794-3535bc6a872e",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a994d077-316d-5386-a7ae-3deb75e960c3",
+  "guid": "652c5caf-d4b2-59f7-acae-42e064c53143",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingClub_Bearclaw"
 }

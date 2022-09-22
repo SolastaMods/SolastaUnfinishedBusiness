@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Plate_Survival:50a00b84-82c9-5eba-8099-89a845ad9898",
+  "craftedItem": "Definition:Plate_Survival:1a66fb51-6415-54ab-8613-02cb894c3bc3",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff9eeb75-6d55-59cf-a7d3-c4788ffdb311",
+  "guid": "f953e869-0dc6-5bec-9df3-7a613f04e1e3",
   "contentPack": 9999,
   "name": "RecipeEnchantingPlate_Survival"
 }

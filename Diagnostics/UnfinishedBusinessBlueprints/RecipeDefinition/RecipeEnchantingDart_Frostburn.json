@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Dart_Frostburn:3c0f7758-50fa-5995-b335-46143896884a",
+  "craftedItem": "Definition:Dart_Frostburn:754f4386-f6d0-5c8b-8276-ad112ddec279",
   "stackCount": 3,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b86af8c6-0026-59d0-81ee-6c3fd605dbdd",
+  "guid": "e6172719-480f-56b9-b19e-180922663bd3",
   "contentPack": 9999,
   "name": "RecipeEnchantingDart_Frostburn"
 }

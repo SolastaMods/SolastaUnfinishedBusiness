@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Plate_FlameDancing:0b2c3997-a6d9-54e5-9597-44e5a91bf4b3",
+  "craftedItem": "Definition:Plate_FlameDancing:444b1480-6e5f-55c9-a9c3-112599a2ce36",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f5df175-685c-516f-adf2-b5798e7d7c9c",
+  "guid": "d42d7790-1eb1-5a40-a196-7ce5c286ac40",
   "contentPack": 9999,
   "name": "RecipeEnchantingPlate_FlameDancing"
 }

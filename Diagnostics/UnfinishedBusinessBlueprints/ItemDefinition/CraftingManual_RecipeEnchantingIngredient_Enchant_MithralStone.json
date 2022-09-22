@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_MithralStone:f2891544-aa3d-5847-b068-eb32ea43bc8e",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_MithralStone:1f7396ff-bbcf-5008-8a52-18a78b81aeaa",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "51845a9d-cfbd-58f8-b4ae-51607916fa95",
+  "guid": "0d6612c4-2b4c-5d3b-ba6d-8e1a1e53333a",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_MithralStone"
 }

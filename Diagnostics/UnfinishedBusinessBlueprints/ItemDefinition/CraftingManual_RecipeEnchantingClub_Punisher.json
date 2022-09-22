@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingClub_Punisher:c72cdced-7136-571f-b956-c9fd22909d47",
+    "recipeDefinition": "Definition:RecipeEnchantingClub_Punisher:eec2146e-2fc1-5ad8-8f4c-6d67fa589fcb",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "59b2c461-e241-53dc-8ab2-295250444b1e",
+  "guid": "5a5b92bf-9cac-5d29-842e-ceab92cb77dc",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingClub_Punisher"
 }

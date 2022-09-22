@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingHideArmor_Survival:b1c43ee9-2858-5510-b498-0f4e4397ef01",
+    "recipeDefinition": "Definition:RecipeEnchantingHideArmor_Survival:d8b920cc-1641-5a6b-a768-654a3943ce50",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4654eb13-039a-51cc-bff9-ae779884e46e",
+  "guid": "ed1a3db0-5e7d-574d-a72b-28a3d173ed0b",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingHideArmor_Survival"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Lightbringer:baf77159-23ef-5501-ae77-c195d308001d",
+  "craftedItem": "Definition:Quarterstaff_Lightbringer:1c603ce8-dd27-5921-b9f9-eef932d4a443",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7aee7ae0-792a-59de-bcf6-c32c129ac700",
+  "guid": "1e284bb3-63d3-5d5e-b20f-5fbf5038c90d",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Lightbringer"
 }

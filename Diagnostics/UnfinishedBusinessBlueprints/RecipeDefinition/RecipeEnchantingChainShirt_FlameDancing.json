@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ChainShirt_FlameDancing:2438c0f3-3799-5e5c-ba1c-eed6818c030d",
+  "craftedItem": "Definition:ChainShirt_FlameDancing:ba44ed86-5747-5a82-9d86-78be9a7abe9d",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d90e1f4-83be-59b0-b2bb-4316d1302f9d",
+  "guid": "d7fa6a76-3910-5478-b612-b65f42320d31",
   "contentPack": 9999,
   "name": "RecipeEnchantingChainShirt_FlameDancing"
 }

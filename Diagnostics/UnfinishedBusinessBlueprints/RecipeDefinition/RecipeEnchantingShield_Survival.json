@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Shield_Survival:edf6c7b7-471a-59a2-87aa-1aaea580c38e",
+  "craftedItem": "Definition:Shield_Survival:6dd062d9-1638-58f2-919a-59e819132064",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bb7d056d-534a-5f5a-a505-88894707f600",
+  "guid": "52f96dec-d1c8-501a-9b41-bb972a6cc05c",
   "contentPack": 9999,
   "name": "RecipeEnchantingShield_Survival"
 }

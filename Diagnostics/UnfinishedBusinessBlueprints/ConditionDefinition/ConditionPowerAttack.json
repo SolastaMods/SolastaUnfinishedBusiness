@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:PowerAttackAttackModifier:87286627-3e62-459d-8781-ceac1c3462e6"
+    "Definition:PowerAttackAttackModifier:87ac094a-a3a9-5ada-8948-0f2f7d0181d6"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -146,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c125b7b9-e668-4c6f-a742-63c065ad2292",
+  "guid": "943c2260-338c-5247-b588-58d9bf2598ac",
   "contentPack": 9999,
   "name": "ConditionPowerAttack"
 }

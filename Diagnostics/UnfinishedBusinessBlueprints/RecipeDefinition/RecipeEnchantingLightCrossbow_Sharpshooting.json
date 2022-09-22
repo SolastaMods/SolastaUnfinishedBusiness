@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:LightCrossbow_Sharpshooting:eb414e00-f0e0-519f-bd3c-7e08022ff662",
+  "craftedItem": "Definition:LightCrossbow_Sharpshooting:970da285-e7c4-5cb8-b270-b3aa99334190",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b22aeb7b-d9ed-5d7d-8ffd-5077dbd530df",
+  "guid": "fc8abf7d-39f2-50be-9254-5a32b9b994a4",
   "contentPack": 9999,
   "name": "RecipeEnchantingLightCrossbow_Sharpshooting"
 }

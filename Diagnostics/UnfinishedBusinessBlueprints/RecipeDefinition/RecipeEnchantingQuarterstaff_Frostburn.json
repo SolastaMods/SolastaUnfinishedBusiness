@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Quarterstaff_Frostburn:4b63f36f-3d87-5558-9a21-c9bd1d0717a5",
+  "craftedItem": "Definition:Quarterstaff_Frostburn:00a482fd-9a9a-5c65-afa3-9db5992089da",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 12,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "27f3c6bf-a1e6-5ea6-890d-996ddac41efb",
+  "guid": "df84d98b-9223-501b-a448-3bd5ca9eeef9",
   "contentPack": 9999,
   "name": "RecipeEnchantingQuarterstaff_Frostburn"
 }

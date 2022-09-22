@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryBONEKEEP_AkshasJournal:5379ee73-5b96-5770-b917-a6b6ea19fdff",
+    "recipeDefinition": "Definition:RecipeForgeryBONEKEEP_AkshasJournal:8cc36cfe-83d3-5beb-a322-eb45c960537e",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "865e4d1f-b375-55be-bd77-2942e20ef087",
+  "guid": "78aba790-5cf3-51a0-883f-c956ae90bcf6",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryBONEKEEP_AkshasJournal"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:ScaleMail_FrostWalking:4237f5e6-5559-5629-960d-3c9cb1b28c21",
+  "craftedItem": "Definition:ScaleMail_FrostWalking:5d8da78e-88fd-5fe6-96ae-8017d91730cc",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d718ca1d-a851-58de-8c56-ed90baf559da",
+  "guid": "0c56c2af-cbb7-50f3-83c4-5565b5fecd32",
   "contentPack": 9999,
   "name": "RecipeEnchantingScaleMail_FrostWalking"
 }

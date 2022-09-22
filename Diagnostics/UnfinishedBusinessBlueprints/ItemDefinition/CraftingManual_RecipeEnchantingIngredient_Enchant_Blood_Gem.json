@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Blood_Gem:2a0cca6e-c158-5386-8489-018301b13ff3",
+    "recipeDefinition": "Definition:RecipeEnchantingIngredient_Enchant_Blood_Gem:7a907050-07ea-5e72-9a0f-7816375f49fa",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4409ca1f-9e1c-53aa-8b01-996f6009d31f",
+  "guid": "63db7332-b85e-516e-afc6-c12b15d4ff54",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingIngredient_Enchant_Blood_Gem"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSpear_Whiteburn:11db017b-a5ca-5e64-b4b2-78730e1cab1a",
+    "recipeDefinition": "Definition:RecipeEnchantingSpear_Whiteburn:5f4a61e6-fb10-5310-8608-f7cc2a52b793",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a547f36f-9086-59cb-b3ea-7c19f322c0a3",
+  "guid": "a7ae66e3-7e43-55cd-8dc1-a6782c420f19",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSpear_Whiteburn"
 }

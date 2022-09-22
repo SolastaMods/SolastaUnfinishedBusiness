@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Frostburn:27f3c6bf-a1e6-5ea6-890d-996ddac41efb",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Frostburn:df84d98b-9223-501b-a448-3bd5ca9eeef9",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dce0da7c-f2fd-5fb7-8a37-dfa0ea56bf32",
+  "guid": "159bb2e7-a7fc-5d7d-9229-d22ed433aef1",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Frostburn"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Lightbringer:7aee7ae0-792a-59de-bcf6-c32c129ac700",
+    "recipeDefinition": "Definition:RecipeEnchantingQuarterstaff_Lightbringer:1e284bb3-63d3-5d5e-b20f-5fbf5038c90d",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c92e033a-337d-5ae9-839b-20e6a2f776a0",
+  "guid": "88bb5c47-bd98-5ecb-b1e1-adaa8b61536f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingQuarterstaff_Lightbringer"
 }

@@ -106,10 +106,10 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPowerAttack",
-          "conditionDefinition": "Definition:ConditionPowerAttack:c125b7b9-e668-4c6f-a742-63c065ad2292",
+          "conditionDefinition": "Definition:ConditionPowerAttack:943c2260-338c-5247-b588-58d9bf2598ac",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:ConditionPowerAttack:c125b7b9-e668-4c6f-a742-63c065ad2292"
+            "Definition:ConditionPowerAttack:943c2260-338c-5247-b588-58d9bf2598ac"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

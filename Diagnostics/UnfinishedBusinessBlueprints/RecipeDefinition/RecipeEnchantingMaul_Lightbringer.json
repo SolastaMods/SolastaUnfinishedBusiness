@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Maul_Lightbringer:a513d7e2-8aaa-5fe4-9ed3-a1c4e6d6066a",
+  "craftedItem": "Definition:Maul_Lightbringer:bbf53118-5b0b-59d9-9757-d716a7a3c61d",
   "stackCount": 1,
   "craftingHours": 36,
   "craftingDC": 15,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "77338778-600e-52f8-b714-e705832f6b56",
+  "guid": "ce2a4030-8a19-5397-b603-90b39f0c2bd9",
   "contentPack": 9999,
   "name": "RecipeEnchantingMaul_Lightbringer"
 }

@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeForgeryBONEKEEP_MagicRune:305f7d33-3eec-5a29-a669-59809825591d",
+    "recipeDefinition": "Definition:RecipeForgeryBONEKEEP_MagicRune:862b0027-07be-5dcd-b70f-fa3ddc8708ab",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e958bb94-b452-5808-9f93-0bf07c7af237",
+  "guid": "04654239-c5f3-54e0-b5ae-fa9f386796d4",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeForgeryBONEKEEP_MagicRune"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Scimitar_Stormblade:bb16f251-bb10-5342-8603-92e3b631d3f8",
+  "craftedItem": "Definition:Scimitar_Stormblade:3ffa2e36-280d-5673-a6f1-ffdf9518cdd4",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b5cbca90-864f-5759-9f91-2b0f6b138a0c",
+  "guid": "88541315-66d3-57f7-9c13-d8c8bbed019d",
   "contentPack": 9999,
   "name": "RecipeEnchantingScimitar_Stormblade"
 }

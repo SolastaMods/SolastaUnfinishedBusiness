@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Spear_Doomblade:7e55da94-bcfe-5676-8376-7a70875c8736",
+  "craftedItem": "Definition:Spear_Doomblade:90878dc4-1b4e-59be-9025-509729d40804",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "42f109a7-fb06-5d5d-9837-35d720fc7e1d",
+  "guid": "ba4c769c-ea8a-5d8f-a81c-f712752bb49a",
   "contentPack": 9999,
   "name": "RecipeEnchantingSpear_Doomblade"
 }

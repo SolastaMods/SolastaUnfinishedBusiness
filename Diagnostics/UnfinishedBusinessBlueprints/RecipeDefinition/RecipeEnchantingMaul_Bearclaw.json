@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Maul_Bearclaw:ccfb56f6-c6c2-5328-9cb4-c1410f2d348c",
+  "craftedItem": "Definition:Maul_Bearclaw:ef710afe-5181-5efc-bfc6-be537a45461c",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bfa67bba-a031-547a-a125-a1b62a7e032e",
+  "guid": "5b2868d4-2cce-5387-887e-81d72037a812",
   "contentPack": 9999,
   "name": "RecipeEnchantingMaul_Bearclaw"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Dart_Souldrinker:9407609a-f976-580b-9d69-0377dfbc0e75",
+  "craftedItem": "Definition:Dart_Souldrinker:baf42769-1932-59f6-9cea-7430785a14f6",
   "stackCount": 3,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4fca4a41-6d76-574d-9ffc-9ec93ad09b11",
+  "guid": "343cdb0b-8201-5dea-9b41-7afc573d962b",
   "contentPack": 9999,
   "name": "RecipeEnchantingDart_Souldrinker"
 }

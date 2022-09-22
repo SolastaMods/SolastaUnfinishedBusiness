@@ -70,7 +70,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantingSpear_Doomblade:42f109a7-fb06-5d5d-9837-35d720fc7e1d",
+    "recipeDefinition": "Definition:RecipeEnchantingSpear_Doomblade:ba4c769c-ea8a-5d8f-a81c-f712752bb49a",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -229,7 +229,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cc43ead4-b911-5fa8-884c-287d67e827f9",
+  "guid": "1d23162f-18b2-5cf1-b9ce-5c510f06ec8f",
   "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingSpear_Doomblade"
 }
