@@ -78,7 +78,10 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 new List<SaveAffinityBySenseDescription>())
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
-                    DebilitatedConditionBuilder.DebilitatedCondition,
+                    ConditionDefinitionBuilder
+                        .Create("ConditionOpportunistDebilitated")
+                        .SetOrUpdateGuiPresentation(Category.Condition)
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.AddRandom,
                     false,
                     false,
@@ -116,24 +119,5 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddFeatureAtLevel(debilitatingStrikePower, 9)
             //.AddFeatureAtLevel(thugOvercomeCompetition, 13)
             .AddToDB();
-    }
-
-    private sealed class DebilitatedConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionOpportunistDebilitated";
-
-        internal static readonly ConditionDefinition DebilitatedCondition =
-            CreateAndAddToDB(Name, "0962e8e8-b7d9-46cf-b017-75da61d81d03");
-
-        private DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
-        {
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new DebilitatedConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation(Category.Condition)
-                .AddToDB();
-        }
     }
 }
