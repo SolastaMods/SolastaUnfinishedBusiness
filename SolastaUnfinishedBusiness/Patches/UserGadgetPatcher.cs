@@ -3,9 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro
+//PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
 [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserGadget_PostLoadJson

@@ -2,9 +2,9 @@
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: better gadget sorting
+//PATCH: better gadget sorting (DMP)
 [HarmonyPatch(typeof(GadgetBlueprintSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class GadgetBlueprintSelectionPanel_Compare

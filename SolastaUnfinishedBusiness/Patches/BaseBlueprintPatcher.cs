@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: ensures custom props display the proper icon
+//PATCH: ensures custom props display the proper icon (DMP)
 [HarmonyPatch(typeof(BaseBlueprint), "GetAssetKey")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class BaseBlueprint_GetAssetKey

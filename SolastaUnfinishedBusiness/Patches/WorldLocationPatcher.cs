@@ -5,9 +5,9 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: changes how the location / rooms are instantiated
+//PATCH: changes how the location / rooms are instantiated (DMP)
 [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class WorldLocation_BuildFromUserLocation

@@ -2,9 +2,9 @@
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: this patch unleashes all NPC definitions to be used as monsters
+//PATCH: this patch unleashes all NPC definitions to be used as monsters (DMP)
 [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildMonsters
@@ -36,7 +36,7 @@ internal static class DatabaseSelectionModal_BuildMonsters
     }
 }
 
-//PATCH: this patch unleashes all monster definitions to be used as NPCs
+//PATCH: this patch unleashes all monster definitions to be used as NPCs (DMP)
 [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class DatabaseSelectionModal_BuildNpcs

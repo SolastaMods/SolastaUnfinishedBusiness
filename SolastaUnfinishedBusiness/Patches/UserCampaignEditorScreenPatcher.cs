@@ -7,9 +7,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Models.Level20Context;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Allows Campaigns to be created with min level 20 requirement
+//PATCH: Allows Campaigns to be created with min level 20 requirement (DMP)
 [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserCampaignEditorScreen_OnMinLevelEndEdit
@@ -30,7 +30,7 @@ public static class UserCampaignEditorScreen_OnMinLevelEndEdit
     }
 }
 
-//PATCH: Allows Campaigns to be created with max level 20 requirement
+//PATCH: Allows Campaigns to be created with max level 20 requirement (DMP)
 [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserCampaignEditorScreen_OnMaxLevelEndEdit

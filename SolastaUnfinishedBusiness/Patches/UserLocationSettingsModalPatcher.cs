@@ -3,9 +3,9 @@ using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static SolastaUnfinishedBusiness.Models.DmProEditorContext;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: adds custom dungeons sizes
+//PATCH: adds custom dungeons sizes (DMP)
 [HarmonyPatch(typeof(UserLocationSettingsModal), "RuntimeLoaded")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class UserLocationSettingsModal_RuntimeLoaded
@@ -32,7 +32,7 @@ internal static class UserLocationSettingsModal_RuntimeLoaded
 }
 
 #if false
-//PATCH: Allows locations to be created with min level 20 requirement
+//PATCH: Allows locations to be created with min level 20 requirement (DMP)
 [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserLocationSettingsModal_OnMinLevelEndEdit
@@ -53,7 +53,7 @@ public static class UserLocationSettingsModal_OnMinLevelEndEdit
     }
 }
 
-//PATCH: Allows locations to be created with max level 20 requirement
+//PATCH: Allows locations to be created with max level 20 requirement (DMP)
 [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class UserLocationSettingsModal_OnMaxLevelEndEdit

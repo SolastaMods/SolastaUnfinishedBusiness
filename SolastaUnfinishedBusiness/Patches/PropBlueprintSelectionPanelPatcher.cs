@@ -2,9 +2,9 @@
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.DungeonMaker;
+namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: better props sorting
+//PATCH: better props sorting (DMP)
 [HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class PropBlueprintSelectionPanel_Compare
