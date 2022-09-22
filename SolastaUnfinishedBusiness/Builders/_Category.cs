@@ -18,6 +18,7 @@ public enum Category
     Monster,
     Race,
     Reaction,
+    RestActivity,
     Spell,
     Subclass
 }

@@ -77,10 +77,17 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
         BonusRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerSpellMasterBonusRecovery")
-            .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.Rest, 1,
-                RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence,
-                bonusRecoveryEffectDescription, false)
+            .Configure(1,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
+                RuleDefinitions.ActivationTime.Rest,
+                1,
+                RuleDefinitions.RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                bonusRecoveryEffectDescription,
+                false)
             .AddToDB();
 
         UpdateBonusRecovery();
@@ -102,8 +109,11 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         _ = RestActivityDefinitionBuilder
             .Create("SpellMasterArcaneDepth")
             .SetRestData(
-                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)
+                RestDefinitions.RestStage.AfterRest,
+                RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                FunctorDefinitions.FunctorUsePower,
+                BonusRecovery.Name)
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
                 PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
             .AddToDB();

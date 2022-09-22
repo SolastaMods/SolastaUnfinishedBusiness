@@ -25,35 +25,28 @@ public static class RespecContext
 
     private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName)
-        .SetGuiPresentation("RestActivity/&RespecTitle", "RestActivity/&RespecDescription")
+        .SetGuiPresentation(Category.RestActivity)
         .SetRestData(
-            RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
-            RestActivityDefinition.ActivityCondition.None, RespecName, string.Empty)
+            RestDefinitions.RestStage.AfterRest,
+            RuleDefinitions.RestType.LongRest,
+            RestActivityDefinition.ActivityCondition.None,
+            RespecName,
+            string.Empty)
         .AddToDB();
 
     internal static void Load()
     {
-        // _ = RestActivityLevelDown;
         _ = RestActivityRespec;
 
-        // ServiceRepository.GetService<IFunctorService>().RegisterFunctor(LevelDownName, new LevelDownContext.FunctorLevelDown());
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
-
         Switch();
     }
 
     internal static void Switch()
     {
-        if (Main.Settings.EnableRespec)
-        {
-            // RestActivityLevelDown.condition = RestActivityDefinition.ActivityCondition.None;
-            RestActivityRespec.condition = RestActivityDefinition.ActivityCondition.None;
-        }
-        else
-        {
-            // RestActivityLevelDown.condition = ActivityConditionDisabled;
-            RestActivityRespec.condition = ActivityConditionDisabled;
-        }
+        RestActivityRespec.condition = Main.Settings.EnableRespec
+            ? RestActivityDefinition.ActivityCondition.None
+            : ActivityConditionDisabled;
     }
 
     public sealed class FunctorRespec : Functor

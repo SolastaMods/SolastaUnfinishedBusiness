@@ -330,11 +330,14 @@ internal static class Level20Context
         powerSorcerousRestoration.SpellSlotsForm.sorceryPointsGain = 4;
 
         _ = RestActivityDefinitionBuilder
-            .Create("SorcerousRestoration")
+            .Create("SorcererSorcerousRestoration")
             .SetRestData(
-                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", PowerSorcerousRestorationName)
-            .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
+                RestDefinitions.RestStage.AfterRest,
+                RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                FunctorDefinitions.FunctorUsePower,
+                PowerSorcerousRestorationName)
+            .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
             .AddToDB();
 
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
