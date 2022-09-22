@@ -5,25 +5,28 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-[HarmonyPatch(typeof(RaceSelectionSlot), "Refresh")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RaceSelectionSlot_Refresh
+internal static class RaceSelectionSlotPatcher
 {
-    internal static void Postfix(
-        [NotNull] RaceSelectionSlot __instance,
-        [NotNull] CharacterRaceDefinition raceDefinition,
-        int selectedSubRace)
+    [HarmonyPatch(typeof(RaceSelectionSlot), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Refresh_Patch
     {
-        //PATCH: Fixes the display if user enables/disables races during level up
-        var gameObject = __instance.subraceCountLabel.gameObject;
-        var count = raceDefinition.SubRaces.Count(x => !x.GuiPresentation.Hidden);
-
-        if (gameObject.activeSelf)
+        internal static void Postfix(
+            [NotNull] RaceSelectionSlot __instance,
+            [NotNull] CharacterRaceDefinition raceDefinition,
+            int selectedSubRace)
         {
-            __instance.subraceCountLabel.Text = Gui.Format(
-                "Stage/&RaceSubraceCountDescription",
-                (selectedSubRace + 1).ToString(),
-                count.ToString());
+            //PATCH: Fixes the display if user enables/disables races during level up
+            var gameObject = __instance.subraceCountLabel.gameObject;
+            var count = raceDefinition.SubRaces.Count(x => !x.GuiPresentation.Hidden);
+
+            if (gameObject.activeSelf)
+            {
+                __instance.subraceCountLabel.Text = Gui.Format(
+                    "Stage/&RaceSubraceCountDescription",
+                    (selectedSubRace + 1).ToString(),
+                    count.ToString());
+            }
         }
     }
 }

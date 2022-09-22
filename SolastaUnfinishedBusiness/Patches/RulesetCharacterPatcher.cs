@@ -345,7 +345,7 @@ internal static class RulesetCharacterPatcher
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_RollAbilityCheck
+    internal static class RollAbilityCheck_Patch
     {
         internal static void Prefix(
             [NotNull] RulesetCharacter __instance,
@@ -378,7 +378,7 @@ internal static class RulesetCharacterPatcher
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "ResolveContestCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_ResolveContestCheck
+    internal static class ResolveContestCheck_Patch
     {
         public static int ExtendedRollDie(
             [NotNull] RulesetCharacter rulesetCharacter,
@@ -427,7 +427,7 @@ internal static class RulesetCharacterPatcher
         {
             var found = 0;
             var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
-            var extendedRollDieMethod = typeof(RulesetCharacter_ResolveContestCheck).GetMethod("ExtendedRollDie");
+            var extendedRollDieMethod = typeof(ResolveContestCheck_Patch).GetMethod("ExtendedRollDie");
 
             foreach (var instruction in instructions)
             {
@@ -471,7 +471,7 @@ internal static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_Kill
+    internal static class Kill_Patch
     {
         internal static void Prefix(RulesetCharacter __instance)
         {
@@ -717,7 +717,7 @@ internal static class RulesetCharacterPatcher
     //PATCH: ensures auto prepared spells from subclass are considered on level up
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeAutopreparedSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_ComputeAutopreparedSpells
+    internal static class ComputeAutopreparedSpells_Patch
     {
         internal static bool Prefix([NotNull] RulesetCharacter __instance,
             [NotNull] RulesetSpellRepertoire spellRepertoire)

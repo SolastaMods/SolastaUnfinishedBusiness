@@ -14,7 +14,7 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_SpendSpellSlot
+    internal static class SpendSpellSlot_Patch
     {
         internal static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
@@ -149,7 +149,7 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: handles all different scenarios to determine max spell level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevel_Getter
+    internal static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
@@ -175,7 +175,7 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: handles Arcane Recovery granted spells on short rests
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_RecoverMissingSlots
+    internal static class RecoverMissingSlots_Patch
     {
         internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
         {
@@ -216,7 +216,7 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: only offers upcast Warlock pact at their correct slot level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_CanUpcastSpell
+    internal static class CanUpcastSpell_Patch
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, SpellDefinition spellDefinition,
             List<int> availableSlotLevels)

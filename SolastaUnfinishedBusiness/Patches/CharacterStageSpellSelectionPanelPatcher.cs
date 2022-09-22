@@ -13,7 +13,7 @@ internal static class CharacterStageSpellSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageSpellSelectionPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageSpellSelectionPanel_EnterStage
+    internal static class EnterStage_Patch
     {
         public static void Prefix([NotNull] CharacterStageSpellSelectionPanel __instance)
         {

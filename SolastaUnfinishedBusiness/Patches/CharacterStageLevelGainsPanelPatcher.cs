@@ -61,7 +61,7 @@ internal static class CharacterStageLevelGainPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "RefreshSpellcastingFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageLevelGainsPanel_RefreshSpellcastingFeatures
+    internal static class RefreshSpellcastingFeatures_Patch
     {
         //PATCH: only displays spell casting features from the current class (MULTICLASS)
         private static List<RulesetSpellRepertoire> SpellRepertoires(

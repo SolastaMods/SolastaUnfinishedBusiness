@@ -11,7 +11,7 @@ internal static class CharacterStageDeitySelectionPanelPatcher
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(DeityDefinition),
         typeof(DeityDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageDeitySelectionPanel_Compare_DeityDefinition
+    internal static class Compare_Patch
     {
         internal static void Postfix(DeityDefinition left, DeityDefinition right, ref int __result)
         {
@@ -27,7 +27,7 @@ internal static class CharacterStageDeitySelectionPanelPatcher
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(CharacterSubclassDefinition),
         typeof(CharacterSubclassDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageDeitySelectionPanel_Compare_CharacterSubclassDefinition
+    internal static class Compare_Patch_2
     {
         internal static void Postfix(
             CharacterSubclassDefinition left,
@@ -45,7 +45,7 @@ internal static class CharacterStageDeitySelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "UpdateRelevance")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageDeitySelectionPanel_UpdateRelevance
+    internal static class UpdateRelevance_Patch
     {
         internal static void Postfix([NotNull] CharacterStageDeitySelectionPanel __instance)
         {

@@ -9,7 +9,7 @@ internal static class CharacterActionUsePowerPatcher
 {
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionBefore")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterActionUsePower_CheckInterruptionBefore
+    internal static class CheckInterruptionBefore_Patch
     {
         internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
@@ -20,7 +20,7 @@ internal static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionAfter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterActionUsePower_CheckInterruptionAfter
+    internal static class CheckInterruptionAfter_Patch
     {
         internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {

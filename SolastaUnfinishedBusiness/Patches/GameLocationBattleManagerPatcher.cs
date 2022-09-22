@@ -171,7 +171,7 @@ internal static class GameLocationBattleManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class HandleCharacterAttackFinished
+    internal static class HandleCharacterAttackFinished_Patch
     {
         internal static IEnumerator Postfix(
             IEnumerator __result,

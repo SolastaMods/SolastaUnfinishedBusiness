@@ -11,7 +11,7 @@ internal static class RevivePartyControlPanelPatcher
 {
     [HarmonyPatch(typeof(RevivePartyControlPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RevivePartyControlPanel_OnBeginShow
+    internal static class OnBeginShow_Patch
     {
         internal static void Prefix([NotNull] RevivePartyControlPanel __instance)
         {

@@ -69,7 +69,7 @@ internal static class RulesetImplementationManagerLocationPatcher
     //PATCH: Implements ExtraOriginOfAmount
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetImplementationManagerLocation_ApplySummonForm
+    internal static class ApplySummonForm_Patch
     {
         public static RulesetCondition ExtendInflictCondition(
             RulesetActor rulesetActor,
@@ -127,7 +127,7 @@ internal static class RulesetImplementationManagerLocationPatcher
             var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod =
-                typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
+                typeof(ApplySummonForm_Patch).GetMethod("ExtendInflictCondition");
 
             foreach (var instruction in instructions)
             {

@@ -6,20 +6,23 @@ using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: recalculates additional party members positions (PARTYSIZE)
-[HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GameLocationCharacterManager_UnlockCharactersForLoading
+internal static class GameLocationCharacterManagerPatcher
 {
-    internal static void Prefix([NotNull] GameLocationCharacterManager __instance)
+    //PATCH: recalculates additional party members positions (PARTYSIZE)
+    [HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UnlockCharactersForLoading_Patch
     {
-        var partyCharacters = __instance.PartyCharacters;
-
-        for (var idx = DungeonMakerContext.GamePartySize; idx < partyCharacters.Count; idx++)
+        internal static void Prefix([NotNull] GameLocationCharacterManager __instance)
         {
-            var position = partyCharacters[idx % DungeonMakerContext.GamePartySize].LocationPosition;
+            var partyCharacters = __instance.PartyCharacters;
 
-            partyCharacters[idx].LocationPosition = new int3(position.x, position.y, position.z);
+            for (var idx = DungeonMakerContext.GamePartySize; idx < partyCharacters.Count; idx++)
+            {
+                var position = partyCharacters[idx % DungeonMakerContext.GamePartySize].LocationPosition;
+
+                partyCharacters[idx].LocationPosition = new int3(position.x, position.y, position.z);
+            }
         }
     }
 }

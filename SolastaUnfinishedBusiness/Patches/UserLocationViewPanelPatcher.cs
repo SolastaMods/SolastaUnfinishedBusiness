@@ -8,7 +8,7 @@ internal static class UserLocationViewPanelPatcher
 {
     [HarmonyPatch(typeof(UserLocationViewPanel), "PropOverlap", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationViewPanel_PropOverlap_Getter
+    internal static class PropOverlap_Getter_Patch
     {
         internal static void Postfix(ref bool __result)
         {
@@ -24,7 +24,7 @@ internal static class UserLocationViewPanelPatcher
 
     [HarmonyPatch(typeof(UserLocationViewPanel), "GadgetOverlap", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationViewPanel_GadgetOverlap_Getter
+    internal static class GadgetOverlap_Getter_Patch
     {
         internal static void Postfix(ref bool __result)
         {
@@ -40,7 +40,7 @@ internal static class UserLocationViewPanelPatcher
 
     [HarmonyPatch(typeof(UserLocationViewPanel), "PropInvalidPlacement", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationViewPanel_PropInvalidPlacement_Getter
+    internal static class PropInvalidPlacement_Getter_Patch
     {
         internal static void Postfix(ref bool __result)
         {
@@ -56,7 +56,7 @@ internal static class UserLocationViewPanelPatcher
 
     [HarmonyPatch(typeof(UserLocationViewPanel), "GadgetInvalidPlacement", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationViewPanel_GadgetInvalidPlacement_Getter
+    internal static class GadgetInvalidPlacement_Getter_Patch
     {
         internal static void Postfix(ref bool __result)
         {

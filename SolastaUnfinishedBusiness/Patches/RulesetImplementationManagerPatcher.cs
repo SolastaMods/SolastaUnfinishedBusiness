@@ -145,7 +145,7 @@ internal static class RulesetImplementationManagerPatcher
     //PATCH: handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetImplementationManager_ApplySpellSlotsForm
+    internal static class ApplySpellSlotsForm_Patch
     {
         internal static bool Prefix(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
