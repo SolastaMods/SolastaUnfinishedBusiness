@@ -66,6 +66,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         }
 
         var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
+        
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
             FeatureSourceType.CharacterFeature, "FeatureSetMarshalKnowYourEnemy", null));
@@ -205,6 +206,8 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 
 internal static class MarshalCoordinatedAttackBuilder
 {
+    const string MarshalCoordinatedAttack = "MarshalCoordinatedAttack";
+        
     private static IEnumerator MarshalCoordinatedAttackOnAttackHitDelegate(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -228,12 +231,12 @@ internal static class MarshalCoordinatedAttackBuilder
         foreach (var guestCharacter in characterService.GuestCharacters)
         {
             if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
-                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains("MarshalEternalComrade"))
+                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeBuilder.EternalComradeName))
             {
                 continue;
             }
 
-            if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType("17TagConjure",
+            if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                     RuleDefinitions.ConditionConjuredCreature,
                     out var activeCondition)
                 || activeCondition.SourceGuid != attacker.Guid)
@@ -294,7 +297,7 @@ internal static class MarshalCoordinatedAttackBuilder
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
                 allAttackMode, defender, actionModifierBefore)
             {
-                StringParameter2 = "MarshalCoordinatedAttack", BoolParameter4 = !canAttack
+                StringParameter2 = MarshalCoordinatedAttack, BoolParameter4 = !canAttack
             };
 
             reactions.Add(reactionParams);
@@ -319,7 +322,7 @@ internal static class MarshalCoordinatedAttackBuilder
     internal static FeatureDefinition BuildMarshalCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
-            .Create("MarshalCoordinatedAttack")
+            .Create(MarshalCoordinatedAttack)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackFinished(MarshalCoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
@@ -328,6 +331,8 @@ internal static class MarshalCoordinatedAttackBuilder
 
 internal static class EternalComradeBuilder
 {
+    internal const string EternalComradeName = "MarshalEternalComrade";
+    
     private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
 
     private static MonsterDefinition BuildEternalComradeMonster()
@@ -361,7 +366,7 @@ internal static class EternalComradeBuilder
         return MonsterDefinitionBuilder
             .Create(
                 SuperEgo_Servant_Hostile,
-                "MarshalEternalComrade")
+                EternalComradeBuilder.EternalComradeName)
             .SetGuiPresentation(
                 Category.Feature,
                 SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
@@ -397,7 +402,7 @@ internal static class EternalComradeBuilder
             .SetArmorClass(16)
             .SetAlignment(AlignmentDefinitions.Neutral.Name)
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
-            .SetCreatureTags("MarshalEternalComrade")
+            .SetCreatureTags(EternalComradeBuilder.EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
@@ -468,14 +473,14 @@ internal static class EternalComradeBuilder
             .AddToDB();
 
         // Find a better place to put this in?
-        hpConditionDefinition.additionalDamageType = "Fighter";
+        hpConditionDefinition.additionalDamageType = FighterClass;
 
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
             .Create(
                 SummoningAffinityKindredSpiritBond,
                 "SummoningAffinityMarshalEternalComrade")
             .ClearEffectForms()
-            .SetRequiredMonsterTag("MarshalEternalComrade")
+            .SetRequiredMonsterTag(EternalComradeBuilder.EternalComradeName)
             .SetAddedConditions(
                 acConditionDefinition, stConditionDefinition, damageConditionDefinition,
                 hitConditionDefinition, hpConditionDefinition, hpConditionDefinition)
@@ -509,8 +514,7 @@ internal static class EncourageBuilder
     internal static FeatureDefinitionPower BuildEncourage()
     {
         var conditionEncouraged = ConditionDefinitionBuilder
-            .Create(
-                "ConditionMarshalEncouraged")
+            .Create("ConditionMarshalEncouraged")
             .SetGuiPresentation(
                 "PowerMarshalEncouragement",
                 Category.Feature,
@@ -557,36 +561,17 @@ internal static class EncourageBuilder
 
 internal static class MarshalFighterSubclassBuilder
 {
-    private const string MarshalFighterSubclassName = "MartialMarshal";
-
-    private static readonly FeatureDefinition MarshalCoordinatedAttack =
-        MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack();
-
-    private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
-        FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet();
-
-    private static readonly FeatureDefinitionPower PowerMarshalStudyYourEnemy =
-        PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower();
-
-    private static readonly FeatureDefinitionFeatureSet FeatureSetMarshalFearlessCommander =
-        FeatureSetMarshalFearlessCommanderBuilder.BuildFeatureSetMarshalFearlessCommander();
-
-    private static readonly FeatureDefinitionPower Encourage = EncourageBuilder.BuildEncourage();
-
-    private static readonly FeatureDefinitionFeatureSet EternalComrade =
-        EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade();
-
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
-            .Create(MarshalFighterSubclassName)
+            .Create("MartialMarshal")
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(MarshalCoordinatedAttack, 3)
-            .AddFeatureAtLevel(KnowYourEnemies, 3)
-            .AddFeatureAtLevel(PowerMarshalStudyYourEnemy, 3)
-            .AddFeatureAtLevel(EternalComrade, 7)
-            .AddFeatureAtLevel(FeatureSetMarshalFearlessCommander, 10)
-            .AddFeatureAtLevel(Encourage, 10)
+            .AddFeatureAtLevel(MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack(), 3)
+            .AddFeatureAtLevel(FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet(), 3)
+            .AddFeatureAtLevel(PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower(), 3)
+            .AddFeatureAtLevel(EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade(), 7)
+            .AddFeatureAtLevel(FeatureSetMarshalFearlessCommanderBuilder.BuildFeatureSetMarshalFearlessCommander(), 10)
+            .AddFeatureAtLevel(EncourageBuilder.BuildEncourage(), 10)
             .AddToDB();
     }
 }
