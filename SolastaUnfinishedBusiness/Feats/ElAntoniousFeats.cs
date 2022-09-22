@@ -7,43 +7,60 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ElAntoniousFeats
 {
+    private static ConditionDefinition _conditionDualFlurryApply;
+    private static ConditionDefinition _conditionDualFlurryGrant;
+    
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        feats.Add(FeatDualFlurryBuilder.FeatDualFlurry);
-        feats.Add(FeatTorchbearerBuilder.FeatTorchbearer);
+        feats.Add(BuildFeatDualFlurry());
+        feats.Add(BuildFeatTorchbearer());
     }
-}
-
-internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
-{
-    internal static readonly FeatDefinition FeatDualFlurry = CreateAndAddToDB("FeatDualFlurry");
-
-    private FeatDualFlurryBuilder(string name) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-        name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+    
+    private static FeatDefinition BuildFeatDualFlurry()
     {
-        Definition.Features.SetRange(BuildFeatureDualFlurry());
-        Definition.minimalAbilityScorePrerequisite = false;
-    }
-
-    private static FeatDefinition CreateAndAddToDB(string name)
-    {
-        return new FeatDualFlurryBuilder(name)
-            .SetGuiPresentation(Category.Feat)
+        _conditionDualFlurryApply = ConditionDefinitionBuilder
+            .Create("ConditionDualFlurryApply")
+            .SetGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 0, false)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetPossessive(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetConditionType(ConditionType.Beneficial)
             .AddToDB();
-    }
-
-    private static FeatureDefinition BuildFeatureDualFlurry()
-    {
-        return FeatureDefinitionOnAttackDamageEffectBuilder
-            .Create("OnAttackDamageEffectFeatDualFlurry")
-            .SetGuiPresentation("FeatDualFlurry", Category.Feat)
-            .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
+         
+        _conditionDualFlurryGrant = ConditionDefinitionBuilder
+            .Create("ConditionDualFlurryGrant")
+            .SetGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 0, false)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetPossessive(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
+                    .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
+                    .SetActionType(ActionDefinitions.ActionType.Bonus)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                    .AddToDB())
+            .AddToDB();
+        
+        return FeatDefinitionBuilder
+            .Create("FeatDualFlurry")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionOnAttackDamageEffectBuilder
+                    .Create("OnAttackDamageEffectFeatDualFlurry")
+                    .SetGuiPresentation("FeatDualFlurry", Category.Feat)
+                    .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
+                    .AddToDB())
             .AddToDB();
     }
 
@@ -53,7 +70,7 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
         ActionModifier attackModifier,
         [CanBeNull] RulesetAttackMode attackMode,
         bool rangedAttack,
-        RuleDefinitions.AdvantageType advantageType,
+        AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect,
         bool criticalHit,
@@ -65,104 +82,21 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
         }
 
         var condition =
-            attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply.Name)
-                ? ConditionDualFlurryGrantBuilder.ConditionDualFlurryGrant
-                : ConditionDualFlurryApplyBuilder.ConditionDualFlurryApply;
+            attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
+                ? _conditionDualFlurryGrant
+                : _conditionDualFlurryApply;
 
         var rulesetCondition = RulesetCondition.CreateActiveCondition(
             attacker.RulesetCharacter.Guid,
-            condition, RuleDefinitions.DurationType.Round, 0,
-            RuleDefinitions.TurnOccurenceType.EndOfTurn,
+            condition, DurationType.Round, 0,
+            TurnOccurenceType.EndOfTurn,
             attacker.RulesetCharacter.Guid,
             attacker.RulesetCharacter.CurrentFaction.Name);
 
         attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
     }
-}
-
-internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
-{
-    internal static readonly ConditionDefinition ConditionDualFlurryApply = CreateAndAddToDB("ConditionDualFlurryApply");
-
-    private ConditionDualFlurryApplyBuilder(string name) : base(
-        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
-    {
-        Definition.allowMultipleInstances = false;
-        Definition.durationParameter = 0;
-        Definition.durationType = RuleDefinitions.DurationType.Round;
-        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
-        Definition.possessive = true;
-        Definition.silentWhenAdded = true;
-        Definition.silentWhenRemoved = true;
-        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
-        Definition.Features.Clear();
-    }
-
-    private static ConditionDefinition CreateAndAddToDB(string name)
-    {
-        return new ConditionDualFlurryApplyBuilder(name)
-            .SetGuiPresentation(Category.Condition)
-            .AddToDB();
-    }
-}
-
-internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
-{
-    internal static readonly ConditionDefinition ConditionDualFlurryGrant = CreateAndAddToDB("ConditionDualFlurryGrant");
-
-    private ConditionDualFlurryGrantBuilder(string name) : base(
-        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
-    {
-        Definition.GuiPresentation.hidden = true;
-        Definition.allowMultipleInstances = false;
-        Definition.durationParameter = 0;
-        Definition.durationType = RuleDefinitions.DurationType.Round;
-        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
-        Definition.possessive = true;
-        Definition.silentWhenAdded = false;
-        Definition.silentWhenRemoved = false;
-        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
-        Definition.Features.Clear();
-        Definition.Features.Add(BuildAdditionalActionDualFlurry());
-    }
-
-    private static ConditionDefinition CreateAndAddToDB(string name)
-    {
-        return new ConditionDualFlurryGrantBuilder(name)
-            .SetGuiPresentation(Category.Condition)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildAdditionalActionDualFlurry()
-    {
-        return FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
-            .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-            .AddToDB();
-    }
-}
-
-internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
-{
-    public static readonly FeatDefinition FeatTorchbearer = CreateAndAddToDB("FeatTorchbearer");
-
-    private FeatTorchbearerBuilder(string name) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-        name, GuidHelper.Create(CENamespaceGuid, name).ToString())
-    {
-        Definition.Features.SetRange(BuildFeatureTorchbearer());
-        Definition.minimalAbilityScorePrerequisite = false;
-    }
-
-    private static FeatDefinition CreateAndAddToDB(string name)
-    {
-        return new FeatTorchbearerBuilder(name)
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildFeatureTorchbearer()
+    
+    private static FeatDefinition BuildFeatTorchbearer()
     {
         var burnEffect = new EffectForm
         {
@@ -178,31 +112,36 @@ internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
 
         burnDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
         burnDescription.SetCreatedByCharacter(true);
-        burnDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
-        burnDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+        burnDescription.SetTargetSide(Side.Enemy);
+        burnDescription.SetTargetType(TargetType.Individuals);
         burnDescription.SetTargetParameter(1);
-        burnDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-        burnDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+        burnDescription.SetRangeType(RangeType.Touch);
+        burnDescription.SetDurationType(DurationType.Round);
         burnDescription.SetDurationParameter(3);
         burnDescription.SetCanBePlacedOnCharacter(false);
         burnDescription.SetHasSavingThrow(true);
         burnDescription.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
         burnDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
-        burnDescription.SetDifficultyClassComputation(
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
-        burnDescription.SetSpeedType(RuleDefinitions.SpeedType.Instant);
+        burnDescription.SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency);
+        burnDescription.SetSpeedType(SpeedType.Instant);
         burnDescription.EffectForms.Clear();
         burnDescription.EffectForms.Add(burnEffect);
 
-        return FeatureDefinitionPowerBuilder
+        var  powerTorchbearer = FeatureDefinitionPowerBuilder
             .Create("PowerTorchbearer")
             .SetGuiPresentation(Category.Feature)
-            .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
+            .SetActivation(ActivationTime.BonusAction, 0)
             .SetEffectDescription(burnDescription)
             .SetUsesFixed(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetShowCasting(false)
             .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
+            .AddToDB();
+        
+        return FeatDefinitionBuilder
+            .Create("FeatTorchbearer")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerTorchbearer)
             .AddToDB();
     }
 }
