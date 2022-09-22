@@ -54,7 +54,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         return This();
     }
 
-    #if false
+#if false
     public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
@@ -63,7 +63,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         Definition.SharedPool = poolPower;
         return this;
     }
-    #endif
+#endif
 
     #region Constructors
 

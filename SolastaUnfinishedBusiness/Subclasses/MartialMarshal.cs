@@ -66,7 +66,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         }
 
         var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
-        
+
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
             FeatureSourceType.CharacterFeature, "FeatureSetMarshalKnowYourEnemy", null));
@@ -206,8 +206,8 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 
 internal static class MarshalCoordinatedAttackBuilder
 {
-    const string MarshalCoordinatedAttack = "MarshalCoordinatedAttack";
-        
+    private const string MarshalCoordinatedAttack = "MarshalCoordinatedAttack";
+
     private static IEnumerator MarshalCoordinatedAttackOnAttackHitDelegate(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -231,7 +231,8 @@ internal static class MarshalCoordinatedAttackBuilder
         foreach (var guestCharacter in characterService.GuestCharacters)
         {
             if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
-                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeBuilder.EternalComradeName))
+                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeBuilder
+                    .EternalComradeName))
             {
                 continue;
             }
@@ -332,7 +333,7 @@ internal static class MarshalCoordinatedAttackBuilder
 internal static class EternalComradeBuilder
 {
     internal const string EternalComradeName = "MarshalEternalComrade";
-    
+
     private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
 
     private static MonsterDefinition BuildEternalComradeMonster()
@@ -366,7 +367,7 @@ internal static class EternalComradeBuilder
         return MonsterDefinitionBuilder
             .Create(
                 SuperEgo_Servant_Hostile,
-                EternalComradeBuilder.EternalComradeName)
+                EternalComradeName)
             .SetGuiPresentation(
                 Category.Feature,
                 SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
@@ -402,7 +403,7 @@ internal static class EternalComradeBuilder
             .SetArmorClass(16)
             .SetAlignment(AlignmentDefinitions.Neutral.Name)
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
-            .SetCreatureTags(EternalComradeBuilder.EternalComradeName)
+            .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
@@ -480,7 +481,7 @@ internal static class EternalComradeBuilder
                 SummoningAffinityKindredSpiritBond,
                 "SummoningAffinityMarshalEternalComrade")
             .ClearEffectForms()
-            .SetRequiredMonsterTag(EternalComradeBuilder.EternalComradeName)
+            .SetRequiredMonsterTag(EternalComradeName)
             .SetAddedConditions(
                 acConditionDefinition, stConditionDefinition, damageConditionDefinition,
                 hitConditionDefinition, hpConditionDefinition, hpConditionDefinition)

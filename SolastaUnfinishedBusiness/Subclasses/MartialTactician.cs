@@ -182,11 +182,11 @@ internal static class TacticianFighterSubclassBuilder
                 PowerPoolTacticianGambit)
             .AddToDB();
     }
-    
+
     internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         var powerPoolTacticianGambitAdd = BuildPowerPoolTacticianGambitAdd();
-        
+
         return CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)

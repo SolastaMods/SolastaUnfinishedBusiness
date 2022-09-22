@@ -24,8 +24,10 @@ internal static class AttackEvaluationParamsPatcher
         )
         {
             //PATCH: allow for `Touch` effects to have reach changed, unless `Distant Spell` metamagic is used
-            if (metamagicOption is {Type: RuleDefinitions.MetamagicType.DistantSpell})
+            if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
+            {
                 return;
+            }
 
             __instance.maxRange = Math.Max(effectDescription.rangeParameter, 1f);
         }
@@ -48,8 +50,10 @@ internal static class AttackEvaluationParamsPatcher
         )
         {
             //PATCH: allow for `MeleeHit` effects to have reach changed, unless `Distant Spell` metamagic is used
-            if (metamagicOption is {Type: RuleDefinitions.MetamagicType.DistantSpell})
+            if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
+            {
                 return;
+            }
 
             __instance.maxRange = Math.Max(effectDescription.rangeParameter, 1f);
         }
