@@ -413,6 +413,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -428,6 +429,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -443,6 +445,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -458,6 +461,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -472,6 +476,7 @@ internal static class ZappaFeats
                 .Create("FeatMetamagicAdeptHeightened")
                 .SetFeatures(
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2,
                     attributeModifierSorcererSorceryPointsAdd2 // not a dup. adding 4 points
                 )
@@ -488,6 +493,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -503,6 +509,7 @@ internal static class ZappaFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned,
+                    ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsAdd2
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
