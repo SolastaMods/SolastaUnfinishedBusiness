@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -716,35 +715,36 @@ internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitio
     FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
 {
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =
-        CreateAndAddToDB("MetamagicLearnCareful", MetamagicCarefullSpell);
+        CreateAndAddToDB(MetamagicCarefullSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnDistant =
-        CreateAndAddToDB("MetamagicLearnDistant", MetamagicDistantSpell);
+        CreateAndAddToDB(MetamagicDistantSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnEmpowered =
-        CreateAndAddToDB("MetamagicLearnEmpowered", MetamagicEmpoweredSpell);
+        CreateAndAddToDB(MetamagicEmpoweredSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnExtended =
-        CreateAndAddToDB("MetamagicLearnExtended", MetamagicExtendedSpell);
+        CreateAndAddToDB(MetamagicExtendedSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnHeightened =
-        CreateAndAddToDB("MetamagicLearnHeightened", MetamagicHeightenedSpell);
+        CreateAndAddToDB(MetamagicHeightenedSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnQuickened =
-        CreateAndAddToDB("MetamagicLearnQuickened", MetamagicQuickenedSpell);
+        CreateAndAddToDB(MetamagicQuickenedSpell);
 
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnTwinned =
-        CreateAndAddToDB("MetamagicLearnTwinned", MetamagicTwinnedSpell);
+        CreateAndAddToDB(MetamagicTwinnedSpell);
 
-    private FeatureDefinitionMetamagicOptionBuilder(string name,
-        MetamagicOptionDefinition metamagicOption) : base(name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+    private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption) 
+        : base($"MetamagicLearn{metamagicOption.Name}",
+            GuidHelper.Create(CENamespaceGuid, $"MetamagicLearn{metamagicOption.Name}").ToString())
     {
         Definition.MetamagicOption = metamagicOption;
     }
 
-    private static FeatureDefinitionMetamagicOption CreateAndAddToDB(string name, MetamagicOptionDefinition metamagicOption)
+    private static FeatureDefinitionMetamagicOption CreateAndAddToDB(MetamagicOptionDefinition metamagicOption)
     {
-        return new FeatureDefinitionMetamagicOptionBuilder(name, metamagicOption)
+        return new FeatureDefinitionMetamagicOptionBuilder(metamagicOption)
             .SetGuiPresentationNoContent()
             .AddToDB();
     }

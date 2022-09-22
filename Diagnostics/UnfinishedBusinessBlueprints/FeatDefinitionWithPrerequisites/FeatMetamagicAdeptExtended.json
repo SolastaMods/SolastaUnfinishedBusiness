@@ -14,7 +14,7 @@
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
     "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:MetamagicLearnExtended:096b2cdb-cdb9-5460-90ac-e204fd7cab35"
+    "Definition:MetamagicLearnMetamagicExtendedSpell:30dbd4b3-bd4d-5044-8b86-a32dd638f640"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
