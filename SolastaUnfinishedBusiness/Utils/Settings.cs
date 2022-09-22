@@ -60,7 +60,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
-    public bool EnableEnhancedCharacterInspection { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
 
     //

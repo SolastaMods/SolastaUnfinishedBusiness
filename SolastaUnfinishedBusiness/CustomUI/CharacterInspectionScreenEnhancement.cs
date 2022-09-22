@@ -129,11 +129,6 @@ internal static class CharacterInspectionScreenEnhancement
         List<FeatureUnlockByLevel> features,
         string insufficientLevelFormat, TooltipDefinitions.AnchorMode tooltipAnchorMode)
     {
-        if (!Main.Settings.EnableEnhancedCharacterInspection)
-        {
-            return true;
-        }
-
         while (table.childCount < features.Count)
         {
             Gui.GetPrefabFromPool(panel.featurePrefab, table);
@@ -202,11 +197,6 @@ internal static class CharacterInspectionScreenEnhancement
 
     public static void SwapClassAndBackground(CharacterInformationPanel panel)
     {
-        if (!Main.Settings.EnableEnhancedCharacterInspection)
-        {
-            return;
-        }
-
         var backGroup = panel.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
         var classGroup = panel.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
 
@@ -352,16 +342,6 @@ internal static class CharacterInspectionScreenEnhancement
 
     public static IEnumerable<CodeInstruction> EnableClassSelector(IEnumerable<CodeInstruction> instructions)
     {
-        if (!Main.Settings.EnableEnhancedCharacterInspection)
-        {
-            foreach (var instruction in instructions)
-            {
-                yield return instruction;
-            }
-
-            yield break;
-        }
-
         var containsMethod = typeof(string).GetMethod("Contains");
         var getSelectedClassSearchTermMethod =
             typeof(CharacterInspectionScreenEnhancement).GetMethod("GetSelectedClassSearchTerm");
