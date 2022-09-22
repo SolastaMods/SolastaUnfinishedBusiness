@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Api;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 /// <summary>
 ///     Helper methods for working with <see cref="Guid" />.

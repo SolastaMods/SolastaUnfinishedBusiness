@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaUnfinishedBusiness.Utils;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-internal static class Transpile
+internal static class TranspileAssertHelper
 {
     public static void RemoveBoolAsserts(List<CodeInstruction> codes)
     {

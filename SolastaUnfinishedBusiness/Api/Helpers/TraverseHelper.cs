@@ -1,8 +1,9 @@
 ﻿using System;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 public static class TraverseHelper
 {

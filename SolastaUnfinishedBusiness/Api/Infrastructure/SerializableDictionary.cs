@@ -4,7 +4,7 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Utils;
+namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 [XmlRoot("SerializableDictionary")]
 public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable

@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 public static class GameConsoleHelper
 {

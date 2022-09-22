@@ -7,8 +7,8 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -42,7 +42,7 @@ internal static class CharacterReactionItemPatcher
             //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
             //this assert was added in 1.4.5 and triggers if non-spell caster does AoO
             //happens because we replaced default AoO reaction with warcaster one, so they would merge properly when several are triggered at once
-            Transpile.RemoveBoolAsserts(codes);
+            TranspileAssertHelper.RemoveBoolAsserts(codes);
 
             return codes.AsEnumerable();
         }
