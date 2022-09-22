@@ -199,16 +199,16 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+    public TBuilder SetInterruptionDamageThreshold(int value)
+    {
+        Definition.interruptionDamageThreshold = value;
+        return This();
+    }
+
 #if false
     public TBuilder SetCharacterShaderReference(AssetReference assetReference)
     {
         Definition.characterShaderReference = assetReference;
-        return This();
-    }
-
-    public TBuilder SetInterruptionDamageThreshold(int value)
-    {
-        Definition.interruptionDamageThreshold = value;
         return This();
     }
 

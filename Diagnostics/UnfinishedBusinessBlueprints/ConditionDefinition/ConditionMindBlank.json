@@ -4,9 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
     "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
     "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
-    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
     "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac"
   ],
   "allowMultipleInstances": false,
@@ -234,9 +234,9 @@
     "description": "Condition/&ConditionMindBlankDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
-      "m_SubObjectName": "ConditionEnhancedAbility",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -251,7 +251,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
+  "guid": "62e09827-ac34-5dcd-900b-feab80a4248b",
   "contentPack": 9999,
   "name": "ConditionMindBlank"
 }

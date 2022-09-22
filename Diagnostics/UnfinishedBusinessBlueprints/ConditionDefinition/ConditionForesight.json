@@ -238,9 +238,9 @@
     "description": "Condition/&ConditionForesightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
-      "m_SubObjectName": "ConditionEnhancedAbility",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -255,7 +255,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4615c639-95f2-4c04-b904-e79f5b916b68",
+  "guid": "f8b95114-cb99-5f76-ba54-23de67f7f497",
   "contentPack": 9999,
   "name": "ConditionForesight"
 }

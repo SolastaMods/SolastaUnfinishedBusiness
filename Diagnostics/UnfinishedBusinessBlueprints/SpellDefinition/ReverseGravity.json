@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionReverseGravity",
-          "conditionDefinition": "Definition:ConditionReverseGravity:809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
+          "conditionDefinition": "Definition:ConditionReverseGravity:185248e1-0e90-560e-978c-86218a4747d9",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

@@ -233,9 +233,9 @@
     "description": "Condition/&ConditionTimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
-      "m_SubObjectName": "ConditionIncapacitated",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -250,7 +250,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f00e592f-61c3-4cbf-a800-97596e83028d",
+  "guid": "e1d29b24-2799-5edd-a865-dbd2b5fc43b0",
   "contentPack": 9999,
   "name": "ConditionTimeStop"
 }

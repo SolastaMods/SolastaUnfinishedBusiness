@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionForesight",
-          "conditionDefinition": "Definition:ConditionForesight:4615c639-95f2-4c04-b904-e79f5b916b68",
+          "conditionDefinition": "Definition:ConditionForesight:f8b95114-cb99-5f76-ba54-23de67f7f497",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionWeird",
-          "conditionDefinition": "Definition:ConditionWeird:0f76e7e1-4490-4ee8-a13f-a4a967ba1c08",
+          "conditionDefinition": "Definition:ConditionWeird:13f3b2a2-1344-5cc0-ba61-5776b0f52220",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

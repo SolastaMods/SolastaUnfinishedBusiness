@@ -232,9 +232,9 @@
     "description": "Condition/&ConditionReverseGravityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "77cdd4e7a89c9c04c934505ffedebdfa",
-      "m_SubObjectName": "ConditionPositiveAirborne",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -249,7 +249,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "809f1cef-6bdc-4b5a-93bf-275af8ab0b36",
+  "guid": "185248e1-0e90-560e-978c-86218a4747d9",
   "contentPack": 9999,
   "name": "ConditionReverseGravity"
 }

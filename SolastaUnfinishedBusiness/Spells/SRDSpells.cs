@@ -61,7 +61,15 @@ public static class SrdSpells
                 new List<SaveAffinityBySenseDescription>())
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
-                    ReverseGravityConditionBuilder.ReverseGravityCondition,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionLevitate, "ConditionReverseGravity")
+                        .SetGuiPresentation(Category.Condition)
+                        .SetConditionType(RuleDefinitions.ConditionType.Neutral)
+                        .SetFeatures(
+                            FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
+                            FeatureDefinitionMoveModes.MoveModeFly2
+                        )
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -106,7 +114,16 @@ public static class SrdSpells
         );
         effectDescription.AddEffectForm(
             new EffectFormBuilder().SetConditionForm(
-                    MindBlankConditionBuilder.MindBlankCondition,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionBearsEndurance, "ConditionMindBlank")
+                        .SetGuiPresentation(Category.Condition)
+                        .SetFeatures(
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                            FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity
+                        )
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -142,7 +159,20 @@ public static class SrdSpells
                 RuleDefinitions.TargetType.Individuals)
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
-                    ForesightConditionBuilder.ForesightCondition,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionBearsEndurance, "ConditionForesight")
+                        .SetGuiPresentation(Category.Condition)
+                        .SetFeatures(
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionCatsGrace,
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionEaglesSplendor,
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionFoxsCunning,
+                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
+                            FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
+                            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze
+                        )
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -434,7 +464,14 @@ public static class SrdSpells
                 10)
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
-                    TimeStopConditionBuilder.TimeStopCondition,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionIncapacitated, "ConditionTimeStop")
+                        .SetGuiPresentation(Category.Condition)
+                        .SetInterruptionDamageThreshold(1)
+                        .SetSpecialInterruptions(
+                            RuleDefinitions.ConditionInterruption.Attacked,
+                            RuleDefinitions.ConditionInterruption.Damaged)
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -480,7 +517,10 @@ public static class SrdSpells
                 new List<SaveAffinityBySenseDescription>())
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
-                    WeirdConditionBuilder.WeirdCondition,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionFrightenedPhantasmalKiller, "ConditionWeird")
+                        .SetGuiPresentation(Category.Condition)
+                        .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -501,130 +541,5 @@ public static class SrdSpells
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
             .AddToDB();
-    }
-
-    private sealed class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionReverseGravity";
-        private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
-
-        internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
-
-        private ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
-        {
-            Definition.conditionType = RuleDefinitions.ConditionType.Neutral;
-            Definition.Features.SetRange
-            (
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                FeatureDefinitionMoveModes.MoveModeFly2
-            );
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new ReverseGravityConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionReverseGravity", Category.Condition)
-                .AddToDB();
-        }
-    }
-
-    private sealed class MindBlankConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionMindBlank";
-        private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
-
-        internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
-
-        private MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-        {
-            Definition.Features.SetRange(
-                FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new MindBlankConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionMindBlank", Category.Condition)
-                .AddToDB();
-        }
-    }
-
-    private sealed class ForesightConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionForesight";
-        private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
-
-        internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
-
-        private ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-        {
-            Definition.Features.SetRange
-            (
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionCatsGrace,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionEaglesSplendor,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionFoxsCunning,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
-                FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze
-            );
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new ForesightConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionForesight", Category.Condition)
-                .AddToDB();
-        }
-    }
-
-    private sealed class TimeStopConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionTimeStop";
-        private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
-
-        internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
-
-        private TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
-        {
-            Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
-            Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
-            Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
-            Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Damaged);
-            Definition.interruptionDamageThreshold = 1;
-            Definition.interruptionRequiresSavingThrow = false;
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new TimeStopConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionTimeStop", Category.Condition)
-                .AddToDB();
-        }
-    }
-
-    private sealed class WeirdConditionBuilder : ConditionDefinitionBuilder
-    {
-        private const string Name = "ConditionWeird";
-        private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
-
-        internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
-
-        private WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
-            guid)
-        {
-            // weird condition is the same as phantasma killer condition, just for more people
-        }
-
-        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new WeirdConditionBuilder(name, guid)
-                .SetOrUpdateGuiPresentation("ConditionWeird", Category.Condition)
-                .AddToDB();
-        }
     }
 }

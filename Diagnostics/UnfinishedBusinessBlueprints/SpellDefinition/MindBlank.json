@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionMindBlank",
-          "conditionDefinition": "Definition:ConditionMindBlank:74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869",
+          "conditionDefinition": "Definition:ConditionMindBlank:62e09827-ac34-5dcd-900b-feab80a4248b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
