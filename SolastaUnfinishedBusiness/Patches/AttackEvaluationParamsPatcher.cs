@@ -12,7 +12,7 @@ internal static class AttackEvaluationParamsPatcher
     internal static class FillForMagicTouchAttack_Patch
     {
         internal static void Postfix(
-            BattleDefinitions.AttackEvaluationParams __instance,
+            ref BattleDefinitions.AttackEvaluationParams __instance,
             GameLocationCharacter attacker,
             int3 attackPosition,
             EffectDescription effectDescription,
@@ -36,7 +36,7 @@ internal static class AttackEvaluationParamsPatcher
     internal static class FillForMagicReachAttack_Patch
     {
         internal static void Postfix(
-            BattleDefinitions.AttackEvaluationParams __instance,
+            ref BattleDefinitions.AttackEvaluationParams __instance,
             GameLocationCharacter attacker,
             int3 attackPosition,
             EffectDescription effectDescription,
