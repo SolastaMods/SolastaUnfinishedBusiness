@@ -7,28 +7,20 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {
-    public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
+    //TODO: only used by Tactician. Refactor that sub to use std Configure instead
+    public FeatureDefinitionPowerSharedPoolBuilder(
+        string name,
+        string guid,
         FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-        bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+        RuleDefinitions.RechargeRate recharge,
+        RuleDefinitions.ActivationTime activationTime,
+        int costPerUse,
+        bool proficiencyBonusToAttack,
+        bool abilityScoreBonusToAttack,
+        string abilityScore,
         EffectDescription effectDescription,
-        GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
-    {
-        Preconditions.ArgumentIsNotNull(poolPower,
-            $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
-
-        Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
-            abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
-
-        Definition.guiPresentation = guiPresentation;
-    }
-
-    public FeatureDefinitionPowerSharedPoolBuilder(string name,
-        FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-        bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-        EffectDescription effectDescription,
-        GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
+        GuiPresentation guiPresentation,
+        bool uniqueInstance) : base(name, guid)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
@@ -57,10 +49,16 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }
 
-    public FeatureDefinitionPowerSharedPoolBuilder Configure(FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-        bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-        EffectDescription effectDescription, bool uniqueInstance)
+    public FeatureDefinitionPowerSharedPoolBuilder Configure(
+        FeatureDefinitionPower poolPower,
+        RuleDefinitions.RechargeRate recharge,
+        RuleDefinitions.ActivationTime activationTime,
+        int costPerUse,
+        bool proficiencyBonusToAttack,
+        bool abilityScoreBonusToAttack,
+        string abilityScore,
+        EffectDescription effectDescription,
+        bool uniqueInstance)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
