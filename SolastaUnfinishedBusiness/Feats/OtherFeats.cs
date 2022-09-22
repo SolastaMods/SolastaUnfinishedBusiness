@@ -11,6 +11,8 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    internal const string FeatShieldExpertName = "FeatShieldExpert";
+
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker
@@ -50,7 +52,7 @@ internal static class OtherFeats
 
         // Shield Expert
         var shieldExpert = FeatDefinitionBuilder
-            .Create("FeatShieldExpert")
+            .Create(FeatShieldExpertName)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
                     .Create("FeatShieldExpertBonusShieldAttack")

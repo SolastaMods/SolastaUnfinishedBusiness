@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -108,7 +109,7 @@ internal static class FightingStyleContext
 
                 // Make Shield Expert benefit from Two Weapon Fighting Style
                 case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
-                    var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == "FeatShieldExpert");
+                    var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == OtherFeats.FeatShieldExpertName);
                     var mainHandSlot =
                         hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
                     var offHandSlot =
