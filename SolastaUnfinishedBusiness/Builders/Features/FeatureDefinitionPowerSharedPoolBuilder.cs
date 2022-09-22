@@ -4,33 +4,10 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {
-    //TODO: only used by Tactician. Refactor that sub to use std Configure instead
-    public FeatureDefinitionPowerSharedPoolBuilder(
-        string name,
-        string guid,
-        FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge,
-        RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
-        bool proficiencyBonusToAttack,
-        bool abilityScoreBonusToAttack,
-        string abilityScore,
-        EffectDescription effectDescription,
-        GuiPresentation guiPresentation,
-        bool uniqueInstance) : base(name, guid)
-    {
-        Preconditions.ArgumentIsNotNull(poolPower,
-            $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
-
-        Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
-            abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
-
-        Definition.guiPresentation = guiPresentation;
-    }
-
     protected override void Initialise()
     {
         base.Initialise();
@@ -63,7 +40,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
 
-        // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
+        // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod
         Definition.rechargeRate = recharge;
         Definition.activationTime = activationTime;
         Definition.costPerUse = costPerUse;
@@ -77,13 +54,16 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         return This();
     }
 
+    #if false
     public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
+
         Definition.SharedPool = poolPower;
         return this;
     }
+    #endif
 
     #region Constructors
 
