@@ -163,7 +163,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPoolModifierTacticianGambitAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
+  "overriddenPower": "Definition:PowerPoolModifierTacticianGambitAdd10:08c65db0-3888-57ed-84f0-91280e63d725",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -189,7 +189,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52b74360-eecf-407c-9445-4515cbb372f3",
+  "guid": "08c65db0-3888-57ed-84f0-91280e63d725",
   "contentPack": 9999,
   "name": "PowerPoolModifierTacticianGambitAdd10"
 }

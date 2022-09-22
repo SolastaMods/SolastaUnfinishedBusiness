@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionOpportunistDebilitated",
-          "conditionDefinition": "Definition:ConditionOpportunistDebilitated:0962e8e8-b7d9-46cf-b017-75da61d81d03",
+          "conditionDefinition": "Definition:ConditionOpportunistDebilitated:82bdfadb-65b4-52e9-867e-bcdcbbb7ee20",
           "operation": "AddRandom",
           "conditionsList": [
             "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",

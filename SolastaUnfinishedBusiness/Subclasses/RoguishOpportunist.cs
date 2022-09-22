@@ -79,7 +79,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
-                        .Create("ConditionOpportunistDebilitated")
+                        .Create(ConditionDummy, "ConditionOpportunistDebilitated")
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.AddRandom,

@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolTacticianGambit:00da2b27-139a-4ca0-a285-aaa70d108bc8",
+      "featureDefinition": "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
       "level": 3
     },
     {
@@ -28,17 +28,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd10:08c65db0-3888-57ed-84f0-91280e63d725",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd15:3547d6cf-a1da-5722-b58c-8b755fb590ae",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd18:c7ced45a-572f-4af0-8ec5-2add074dd7c3",
+      "featureDefinition": "Definition:PowerPoolModifierTacticianGambitAdd18:1557a569-4120-5b37-b04d-2638a01f96e5",
       "level": 18
     }
   ],
@@ -68,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9d32577d-d3ec-4859-b66d-451d071bb117",
+  "guid": "1e48c684-6822-5fe5-a311-f2c51b683451",
   "contentPack": 9999,
   "name": "MartialTactician"
 }
