@@ -1,17 +1,15 @@
 ﻿CHANGES:
 
 - Rebrand to Unfinished Business
-- Deprecate Gnome race
-- Deprecate Magus, Monk, Tinkerer, Warlock, and Witch classes
-- Deprecate Path of the Light and Path of the Rage Mage subclasses
-- Deprecate class theme based and chef feats
+- Deprecate Gnome
+- Deprecate all unofficial classes
+- Deprecate all unofficial Barbarian subclasses
+- Deprecate class themed feats (i.e.: shady, thug, etc.)
 - Remove Level Down feature
-- Support official Bard, Monk and Warlock
-- Add sub feats selection
-- Improve many under the hood systems
+- Add feat groups to game UI
+- Improve under the hood systems
 
-NEXT (TBD):
+COMING NEXT:
 
-- Refactor Path of The Light subclass
-- Refactor Tinkerer class
-- Refactor Monk and Warlock unofficial subclasses
+- Refactored Path of The Light subclass
+- Refactored Tinkerer class
