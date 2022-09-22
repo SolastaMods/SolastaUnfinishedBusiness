@@ -24,7 +24,7 @@ public static class GroupFeats
         return MakeGroup(name, family, feats.ToList());
     }
 
-    public static FeatDefinition MakeGroup(FeatDefinition group)
+    private static FeatDefinition MakeGroup(FeatDefinition group)
     {
         Groups.Add(group);
 

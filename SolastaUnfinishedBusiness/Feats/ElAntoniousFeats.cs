@@ -22,21 +22,18 @@ internal static class ElAntoniousFeats
 
 internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
 {
-    private const string FeatDualFlurryName = "FeatDualFlurry";
+    internal static readonly FeatDefinition FeatDualFlurry = CreateAndAddToDB("FeatDualFlurry");
 
-    internal static readonly FeatDefinition FeatDualFlurry =
-        CreateAndAddToDB(FeatDualFlurryName, GuidHelper.Create(CENamespaceGuid, FeatDualFlurryName).ToString());
-
-    private FeatDualFlurryBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-        name, guid)
+    private FeatDualFlurryBuilder(string name) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
+        name, GuidHelper.Create(CENamespaceGuid, name).ToString())
     {
         Definition.Features.SetRange(BuildFeatureDualFlurry());
         Definition.minimalAbilityScorePrerequisite = false;
     }
 
-    private static FeatDefinition CreateAndAddToDB(string name, string guid)
+    private static FeatDefinition CreateAndAddToDB(string name)
     {
-        return new FeatDualFlurryBuilder(name, guid)
+        return new FeatDualFlurryBuilder(name)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -85,13 +82,10 @@ internal sealed class FeatDualFlurryBuilder : FeatDefinitionBuilder
 
 internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
 {
-    internal static readonly ConditionDefinition ConditionDualFlurryApply =
-        CreateAndAddToDB(
-            "ConditionDualFlurryApply",
-            GuidHelper.Create(CENamespaceGuid, "ConditionDualFlurryApply").ToString());
+    internal static readonly ConditionDefinition ConditionDualFlurryApply = CreateAndAddToDB("ConditionDualFlurryApply");
 
-    private ConditionDualFlurryApplyBuilder(string name, string guid) : base(
-        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+    private ConditionDualFlurryApplyBuilder(string name) : base(
+        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
     {
         Definition.allowMultipleInstances = false;
         Definition.durationParameter = 0;
@@ -104,9 +98,9 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
         Definition.Features.Clear();
     }
 
-    private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+    private static ConditionDefinition CreateAndAddToDB(string name)
     {
-        return new ConditionDualFlurryApplyBuilder(name, guid)
+        return new ConditionDualFlurryApplyBuilder(name)
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
     }
@@ -114,13 +108,10 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
 
 internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
 {
-    internal static readonly ConditionDefinition ConditionDualFlurryGrant =
-        CreateAndAddToDB(
-            "ConditionDualFlurryGrant",
-            GuidHelper.Create(CENamespaceGuid, "ConditionDualFlurryGrant").ToString());
+    internal static readonly ConditionDefinition ConditionDualFlurryGrant = CreateAndAddToDB("ConditionDualFlurryGrant");
 
-    private ConditionDualFlurryGrantBuilder(string name, string guid) : base(
-        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+    private ConditionDualFlurryGrantBuilder(string name) : base(
+        DatabaseHelper.ConditionDefinitions.ConditionSurged, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
     {
         Definition.GuiPresentation.hidden = true;
         Definition.allowMultipleInstances = false;
@@ -135,9 +126,9 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
         Definition.Features.Add(BuildAdditionalActionDualFlurry());
     }
 
-    private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+    private static ConditionDefinition CreateAndAddToDB(string name)
     {
-        return new ConditionDualFlurryGrantBuilder(name, guid)
+        return new ConditionDualFlurryGrantBuilder(name)
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
     }
@@ -155,21 +146,18 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
 
 internal sealed class FeatTorchbearerBuilder : FeatDefinitionBuilder
 {
-    private const string FeatTorchbearerName = "FeatTorchbearer";
+    public static readonly FeatDefinition FeatTorchbearer = CreateAndAddToDB("FeatTorchbearer");
 
-    public static readonly FeatDefinition FeatTorchbearer =
-        CreateAndAddToDB(FeatTorchbearerName, GuidHelper.Create(CENamespaceGuid, FeatTorchbearerName).ToString());
-
-    private FeatTorchbearerBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-        name, guid)
+    private FeatTorchbearerBuilder(string name) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
+        name, GuidHelper.Create(CENamespaceGuid, name).ToString())
     {
         Definition.Features.SetRange(BuildFeatureTorchbearer());
         Definition.minimalAbilityScorePrerequisite = false;
     }
 
-    private static FeatDefinition CreateAndAddToDB(string name, string guid)
+    private static FeatDefinition CreateAndAddToDB(string name)
     {
-        return new FeatTorchbearerBuilder(name, guid)
+        return new FeatTorchbearerBuilder(name)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }

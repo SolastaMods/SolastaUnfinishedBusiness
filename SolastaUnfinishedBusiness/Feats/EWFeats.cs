@@ -155,17 +155,22 @@ public static class EwFeats
             .AddToDB();
 
         var powerAttackCondition = ConditionDefinitionBuilder
-            .Create("ConditionPowerAttack", "c125b7b9-e668-4c6f-a742-63c065ad2292")
+            .Create("ConditionPowerAttack")
             .SetGuiPresentation("PowerAttack", Category.Feature,
                 ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
-            .SetFeatures(PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier)
+            .SetFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create("PowerAttackAttackModifier")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetCustomSubFeatures(new ModifyPowerAttackPower())
+                    .AddToDB())
             .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
         var powerAttackPower = FeatureDefinitionPowerBuilder
-            .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
+            .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetActivationTime(ActivationTime.NoCost)
@@ -188,7 +193,7 @@ public static class EwFeats
 
         PowersContext.PowersThatIgnoreInterruptions.Add(powerAttackPower);
 
-        var PowerTurnOffPowerAttackPower = FeatureDefinitionPowerBuilder
+        var powerTurnOffPowerAttackPower = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffPowerAttack")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(ActivationTime.NoCost)
@@ -210,39 +215,17 @@ public static class EwFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(PowerTurnOffPowerAttackPower);
-        concentrationProvider.StopPower = PowerTurnOffPowerAttackPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttackPower);
+        concentrationProvider.StopPower = powerTurnOffPowerAttackPower;
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttackPower,
-                PowerTurnOffPowerAttackPower
+                powerTurnOffPowerAttackPower
             )
             .AddToDB();
-    }
-
-    private sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
-    {
-        private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
-        private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
-
-        public static readonly FeatureDefinition PowerAttackAttackModifier
-            = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
-
-        private PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
-            Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
-
-            Definition.SetCustomSubFeatures(new ModifyPowerAttackPower());
-        }
-
-        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
-        }
     }
 
     public sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider

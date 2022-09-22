@@ -420,13 +420,12 @@ internal static class Level20Context
     private sealed class RestActivityBuilder : RestActivityDefinitionBuilder
     {
         private const string SorcerousRestorationName = "SorcerousRestoration";
-        private const string SorcerousRestorationGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
 
         // An alternative pattern for lazily creating definition.
         private static RestActivityDefinition _restActivityRestoration;
 
-        private RestActivityBuilder(string name, string guid) : base(
-            DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
+        private RestActivityBuilder(string name) : base(
+            DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, GuidHelper.Create(CENamespaceGuid, name).ToString())
         {
             Definition.stringParameter = PowerSorcerousRestorationName;
         }
@@ -434,7 +433,7 @@ internal static class Level20Context
         // get only property
         public static RestActivityDefinition RestActivityRestoration =>
             _restActivityRestoration ??=
-                new RestActivityBuilder(SorcerousRestorationName, SorcerousRestorationGuid)
+                new RestActivityBuilder(SorcerousRestorationName)
                     .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
                     .AddToDB();
     }
