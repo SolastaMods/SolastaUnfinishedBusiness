@@ -99,41 +99,42 @@ internal static class EwSpells
                 )
                 .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetEffectForms(new EffectFormBuilder()
-                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionSunlightBlade")
-                            .SetGuiPresentation(Category.Condition)
-                            .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.AnyBattleTurnEnd)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                            .SetDuration(RuleDefinitions.DurationType.Round, 1)
-                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("AdditionalDamageSunlightBlade")
-                                .Configure(
-                                    "SunlightBlade",
-                                    RuleDefinitions.FeatureLimitedUsage.None,
-                                    RuleDefinitions.AdditionalDamageValueDetermination.Die,
-                                    RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                                    RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon,
-                                    true,
-                                    RuleDefinitions.DieType.D8,
-                                    1,
-                                    RuleDefinitions.AdditionalDamageType.Specific,
-                                    RuleDefinitions.DamageTypeRadiant,
-                                    RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
-                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionSunlightBlade")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.AnyBattleTurnEnd)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                                .SetDuration(RuleDefinitions.DurationType.Round, 1)
+                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                    .Create("AdditionalDamageSunlightBlade")
+                                    .Configure(
+                                        "SunlightBlade",
+                                        RuleDefinitions.FeatureLimitedUsage.None,
+                                        RuleDefinitions.AdditionalDamageValueDetermination.Die,
+                                        RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
+                                        RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon,
+                                        true,
+                                        RuleDefinitions.DieType.D8,
+                                        1,
+                                        RuleDefinitions.AdditionalDamageType.Specific,
+                                        RuleDefinitions.DamageTypeRadiant,
+                                        RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
+                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                    )
+                                    .SetTargetCondition(sunlitMark,
+                                        RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition)
+                                    .SetConditionOperations(highlight)
+                                    .SetAddLightSource(true)
+                                    .SetLightSourceForm(dimLight)
+                                    .AddToDB()
                                 )
-                                .SetTargetCondition(sunlitMark, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition)
-                                .SetConditionOperations(highlight)
-                                .SetAddLightSource(true)
-                                .SetLightSourceForm(dimLight)
-                                .AddToDB()
-                            )
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        false
-                    ).Build(),
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            false
+                        ).Build(),
                     EffectFormBuilder.Create()
                         .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                         .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)

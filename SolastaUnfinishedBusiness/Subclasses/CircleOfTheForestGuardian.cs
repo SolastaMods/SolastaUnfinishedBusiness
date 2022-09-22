@@ -83,7 +83,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     {
         var tempHpEffect = EffectFormBuilder
             .Create()
-            .SetTempHPForm(4, DieType.D1, 0)
+            .SetTempHPForm(4)
             .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
             .CreatedByCharacter()
             .Build();

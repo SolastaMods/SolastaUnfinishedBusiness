@@ -108,7 +108,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
         {
             var attackActionParams =
-                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) {AttackMode = attackMode};
+                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);

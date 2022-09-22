@@ -18,7 +18,8 @@ public static class PickPocketContext
     internal static void CreateFeats([NotNull] ICollection<FeatDefinition> feats)
     {
         var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket")
+            .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
+                "AbilityCheckAffinityFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
@@ -32,7 +33,8 @@ public static class PickPocketContext
         pickpocketCheckAffinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
         var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
-            .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket")
+            .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
+                "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 

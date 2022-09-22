@@ -139,11 +139,11 @@ internal static class FeatsContext
 
         UpdateFeatGroupsVisibility(featDefinition);
         GuiWrapperContext.RecacheFeats();
- 
+
         //
         // Syncs Feat Groups status with children
         //
-        
+
         // var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
         //
         // feats?.GetSubFeats().ForEach(x =>

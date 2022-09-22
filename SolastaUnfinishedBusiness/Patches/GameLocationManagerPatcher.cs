@@ -31,10 +31,10 @@ internal static class GameLocationManagerPatcher
                 // Record which campaign/location the latest load game belongs to
 
 #if DEBUG
-            var session = sessionService.Session;
+                var session = sessionService.Session;
 
-            Main.Log(
-                $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
+                Main.Log(
+                    $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
 #endif
                 var selectedCampaignService = SaveByLocationContext.ServiceRepositoryEx
                     .GetOrCreateService<SaveByLocationContext.SelectedCampaignService>();

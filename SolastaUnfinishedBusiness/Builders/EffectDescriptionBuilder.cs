@@ -310,7 +310,7 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder AddImmuneCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
-        effect.ImmuneCreatureFamilies.AddRange(families.Select(f=>f.Name));
+        effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));
         return this;
     }
 

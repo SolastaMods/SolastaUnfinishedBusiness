@@ -35,17 +35,17 @@ internal static class BazouSpells
             .Create(MagicMissile, "EldritchOrb")
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(0)
             .AddToDB();
 
         spell.EffectDescription
-            .SetRangeType(RuleDefinitions.RangeType.Distance)
+            .SetRangeType(RangeType.Distance)
             .SetRangeParameter(12)
-            .SetDurationType(RuleDefinitions.DurationType.Instantaneous)
-            .SetTargetType(RuleDefinitions.TargetType.Sphere)
+            .SetDurationType(DurationType.Instantaneous)
+            .SetTargetType(TargetType.Sphere)
             .SetTargetParameter(1)
             .SetHasSavingThrow(false)
             .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
@@ -58,7 +58,7 @@ internal static class BazouSpells
             .incrementMultiplier = 5;
 
         spell.EffectDescription.EffectAdvancement
-            .effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.CasterLevelTable;
+            .effectIncrementMethod = EffectIncrementMethod.CasterLevelTable;
 
         // Changing to a single damage effect with d4, as I am unsure how to implement 2 different effectDescriptions within the same spell
         // First one should be single target attack roll, d8 damage
@@ -69,8 +69,8 @@ internal static class BazouSpells
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
         effectForm.DamageForm.diceNumber = 1;
-        effectForm.DamageForm.dieType = RuleDefinitions.DieType.D4;
-        effectForm.DamageForm.damageType = RuleDefinitions.DamageTypeForce;
+        effectForm.DamageForm.dieType = DieType.D4;
+        effectForm.DamageForm.damageType = DamageTypeForce;
 
         // Not sure if I prefer copying and editing existing effect forms
         // or creating one from scratch through API
@@ -111,7 +111,7 @@ internal static class BazouSpells
             .SetArmorClass(11)
             .SetAbilityScores(3, 13, 8, 2, 12, 7)
             .SetHitDiceNumber(1)
-            .SetHitDiceType(RuleDefinitions.DieType.D4)
+            .SetHitDiceType(DieType.D4)
             .SetHitPointsBonus(-1)
             .SetStandardHitPoints(1)
             .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
@@ -135,22 +135,22 @@ internal static class BazouSpells
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
+            .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(1)
-            .SetCastingTime(RuleDefinitions.ActivationTime.Hours1)
+            .SetCastingTime(ActivationTime.Hours1)
             // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
-            .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10)
+            .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
 
         spell.uniqueInstance = true;
 
         spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
-        spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+        spell.EffectDescription.SetRangeType(RangeType.Distance);
         spell.EffectDescription.SetRangeParameter(2);
-        spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
-        spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+        spell.EffectDescription.SetDurationType(DurationType.Permanent);
+        spell.EffectDescription.SetTargetSide(Side.Ally);
         spell.EffectDescription.EffectForms.Clear();
 
         var summonForm = new SummonForm { monsterDefinitionName = familiarMonster.name, decisionPackage = null };
@@ -174,7 +174,7 @@ internal static class BazouSpells
             .Create(Confusion, "Frenzy")
             .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(6)
@@ -183,11 +183,11 @@ internal static class BazouSpells
 
         // Not sure if I prefer copying and editing existing effect description
         // or creating one from scratch through API
-        spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+        spell.EffectDescription.SetRangeType(RangeType.Distance);
         spell.EffectDescription.SetRangeParameter(24);
-        spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+        spell.EffectDescription.SetDurationType(DurationType.Minute);
         spell.EffectDescription.SetDurationParameter(1);
-        spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+        spell.EffectDescription.SetTargetType(TargetType.Sphere);
         spell.EffectDescription.SetTargetParameter(4);
         spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
@@ -207,7 +207,7 @@ internal static class BazouSpells
         var behaviorMode = new BehaviorModeDescription
         {
             behaviour =
-                RuleDefinitions.RandomBehaviour
+                RandomBehaviour
                     .ConditionDuringTurn, // It will not make the affected creature move towards another creature... :(
             // This condition seems to only attack a creature adjacent to where it is.
             condition = ConditionConfusedAttack,
@@ -240,7 +240,8 @@ internal static class BazouSpells
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
                 .AddEffectForm(new EffectFormBuilder()
-                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic, healFromInflictedDamage: HealFromInflictedDamage.Half)
+                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
+                        healFromInflictedDamage: HealFromInflictedDamage.Half)
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
                 .AddEffectForm(new EffectFormBuilder()
@@ -260,7 +261,7 @@ internal static class BazouSpells
             .Create(InsectPlague, "PetalStorm")
             .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(2)
@@ -269,26 +270,26 @@ internal static class BazouSpells
 
         // Not sure if I prefer copying and editing existing effect description
         // or creating one from scratch through API
-        spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+        spell.EffectDescription.SetRangeType(RangeType.Distance);
         spell.EffectDescription.SetRangeParameter(12);
-        spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+        spell.EffectDescription.SetDurationType(DurationType.Minute);
         spell.EffectDescription.SetDurationParameter(1);
-        spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cube);
+        spell.EffectDescription.SetTargetType(TargetType.Cube);
         spell.EffectDescription.SetTargetParameter(3);
         spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Strength);
-        spell.EffectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
+        spell.EffectDescription.SetRecurrentEffect((RecurrentEffect)20);
         spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
         spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
-        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod
             .PerAdditionalSlotLevel;
 
         spell.EffectDescription.EffectForms[0].hasSavingThrow = true;
         spell.EffectDescription.EffectForms[0]
-            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+            .savingThrowAffinity = EffectSavingThrowType.Negates;
         spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
-        spell.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D4;
-        spell.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypeSlashing;
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
         spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
@@ -303,7 +304,7 @@ internal static class BazouSpells
             .AddToDB();
 
         effectProxyDefinition.actionId = ActionDefinitions.Id.ProxyFlamingSphere;
-        effectProxyDefinition.attackMethod = RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms;
+        effectProxyDefinition.attackMethod = ProxyAttackMethod.ReproduceDamageForms;
         effectProxyDefinition.canMoveOnCharacters = true;
         effectProxyDefinition.isEmptyPresentation = false;
 
@@ -319,38 +320,38 @@ internal static class BazouSpells
             .Create(SpikeGrowth, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(2)
             .SetRequiresConcentration(false)
-            .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10).AddToDB();
+            .SetRitualCasting(ActivationTime.Minute10).AddToDB();
 
         // Not sure if I prefer copying and editing existing effect description
         // or creating one from scratch through API
-        spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+        spell.EffectDescription.SetRangeType(RangeType.Distance);
         spell.EffectDescription.SetRangeParameter(1);
-        spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+        spell.EffectDescription.SetDurationType(DurationType.Minute);
         spell.EffectDescription.SetDurationParameter(10);
-        spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+        spell.EffectDescription.SetTargetType(TargetType.Sphere);
         spell.EffectDescription.SetTargetParameter(0);
         spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
-        spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
-        spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
+        spell.EffectDescription.SetRecurrentEffect(RecurrentEffect.OnEnter);
+        spell.EffectDescription.SetDifficultyClassComputation(EffectDifficultyClassComputation
             .AbilityScoreAndProficiency);
 
         spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
         spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
-        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod
             .PerAdditionalSlotLevel;
 
         spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
         spell.EffectDescription.EffectForms[1]
-            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
+            .savingThrowAffinity = EffectSavingThrowType.HalfDamage;
         spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
-        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D6;
-        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypePsychic;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
         spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);

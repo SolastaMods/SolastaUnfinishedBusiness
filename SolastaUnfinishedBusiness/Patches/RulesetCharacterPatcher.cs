@@ -75,10 +75,11 @@ internal static class RulesetCharacterPatcher
             RuleDefinitions.AttackProximity proximity)
         {
             //PATCH: Allows condition interruption after target was attacked
-            target.ProcessConditionsMatchingInterruption((RuleDefinitions.ConditionInterruption) ExtraConditionInterruption.AfterWasAttacked);
+            target.ProcessConditionsMatchingInterruption(
+                (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentSomaticValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsComponentSomaticValid_Patch

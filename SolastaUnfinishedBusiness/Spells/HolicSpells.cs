@@ -49,7 +49,8 @@ internal static class HolicSpells
                 .AddEffectForm(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CONDITION)
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAcidSpit.GuiPresentation.SpriteReference)
+                        .SetGuiPresentation(Category.Condition,
+                            ConditionDefinitions.ConditionAcidSpit.GuiPresentation.SpriteReference)
                         .SetDuration(DurationType.Round, 1)
                         .SetSpecialDuration(true)
                         .SetFeatures(FeatureDefinitionAttributeModifierBuilder

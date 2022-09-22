@@ -47,7 +47,7 @@ internal static class CharacterActionMagicEffectPatcher
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attacks is {Count: > 0})
+            if (attacks is { Count: > 0 })
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,
@@ -61,7 +61,7 @@ internal static class CharacterActionMagicEffectPatcher
                 }
 
                 __instance.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
-                
+
                 foreach (var attackParams in attacks)
                 {
                     attackAction = new CharacterActionAttack(attackParams);

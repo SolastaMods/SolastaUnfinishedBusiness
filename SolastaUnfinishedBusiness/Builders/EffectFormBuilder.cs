@@ -364,7 +364,8 @@ public class EffectFormBuilder
         return this;
     }
 
-    public EffectFormBuilder SetTempHPForm(int bonusHitPoints = 0, DieType dieType = DieType.D1, int diceNumber = 0, bool applyToSelf = false)
+    public EffectFormBuilder SetTempHPForm(int bonusHitPoints = 0, DieType dieType = DieType.D1, int diceNumber = 0,
+        bool applyToSelf = false)
     {
         var tempHpForm = new TemporaryHitPointsForm
         {
