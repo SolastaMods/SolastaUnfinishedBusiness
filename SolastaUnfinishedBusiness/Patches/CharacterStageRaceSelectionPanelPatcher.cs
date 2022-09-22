@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: sorts the races panel by Title
 [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]

@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CharacterStageAbilityScoresPanelPatcher
 {

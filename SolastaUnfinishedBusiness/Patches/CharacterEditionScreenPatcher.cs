@@ -4,7 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: adds the Multiclass class selection panel to the level up screen (MULTICLASS)
 [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]

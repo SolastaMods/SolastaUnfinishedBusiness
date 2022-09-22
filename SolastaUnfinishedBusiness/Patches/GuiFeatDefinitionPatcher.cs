@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

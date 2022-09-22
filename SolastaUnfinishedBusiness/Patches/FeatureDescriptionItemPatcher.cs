@@ -3,7 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: Disables choices dropdown for features already taken on previous levels (MULTICLASS)
 [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]

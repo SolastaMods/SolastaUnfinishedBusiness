@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class CharacterStageSpellSelectionPanelPatcher
 {

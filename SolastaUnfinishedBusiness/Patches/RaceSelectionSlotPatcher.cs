@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 [HarmonyPatch(typeof(RaceSelectionSlot), "Refresh")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

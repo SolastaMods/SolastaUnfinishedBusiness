@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 [HarmonyPatch(typeof(CharacterBuildingManager), "CreateNewCharacter")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

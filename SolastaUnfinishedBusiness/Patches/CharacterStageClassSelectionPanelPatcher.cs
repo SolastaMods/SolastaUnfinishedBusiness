@@ -10,7 +10,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: sorts the class panel by Title
 [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]

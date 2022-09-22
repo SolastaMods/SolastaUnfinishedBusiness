@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

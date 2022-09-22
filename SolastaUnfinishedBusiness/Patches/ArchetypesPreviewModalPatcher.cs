@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Patches.LevelUp;
+namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: filters out features already taken on subclass display (MULTICLASS)
 [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
