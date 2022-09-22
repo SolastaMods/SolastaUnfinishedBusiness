@@ -154,7 +154,6 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             [CanBeNull] List<EffectFormFilter> filters = null)
         {
             var manager = ServiceRepository.GetService<IGameLoreService>();
-
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
 
             if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
@@ -354,9 +353,7 @@ internal static class EternalComradeBuilder
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var eternalComradeAttack = MonsterAttackDefinitionBuilder
-            .Create(
-                Attack_Generic_Guard_Longsword,
-                "AttackMarshalEternalComrade")
+            .Create(Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -365,12 +362,8 @@ internal static class EternalComradeBuilder
         var marshalEternalComradeAttackInteraction = new MonsterAttackIteration(eternalComradeAttack, 1);
 
         return MonsterDefinitionBuilder
-            .Create(
-                SuperEgo_Servant_Hostile,
-                EternalComradeName)
-            .SetGuiPresentation(
-                Category.Feature,
-                SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
+            .Create(SuperEgo_Servant_Hostile, EternalComradeName)
+            .SetOrUpdateGuiPresentation(Category.Monster)
             .ClearFeatures()
             .SetFeatures(
                 SenseNormalVision,
@@ -424,8 +417,7 @@ internal static class EternalComradeBuilder
         // TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
-            .SetGuiPresentation(Category.Feature,
-                Bane.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Bane.GuiPresentation.SpriteReference)
             .SetCostPerUse(1)
             .SetUsesFixed(1)
             .SetFixedUsesPerRecharge(1)
@@ -440,6 +432,7 @@ internal static class EternalComradeBuilder
                     .Build()
             )
             .AddToDB();
+
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, summonEternalComradePower);
 
         var acConditionDefinition = ConditionDefinitionBuilder
@@ -477,21 +470,21 @@ internal static class EternalComradeBuilder
         hpConditionDefinition.additionalDamageType = FighterClass;
 
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create(
-                SummoningAffinityKindredSpiritBond,
-                "SummoningAffinityMarshalEternalComrade")
+            .Create(SummoningAffinityKindredSpiritBond, "SummoningAffinityMarshalEternalComrade")
             .ClearEffectForms()
             .SetRequiredMonsterTag(EternalComradeName)
             .SetAddedConditions(
-                acConditionDefinition, stConditionDefinition, damageConditionDefinition,
-                hitConditionDefinition, hpConditionDefinition, hpConditionDefinition)
+                acConditionDefinition,
+                stConditionDefinition,
+                damageConditionDefinition,
+                hitConditionDefinition,
+                hpConditionDefinition,
+                hpConditionDefinition)
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create(
-                "FeatureSetMarshalEternalComrade")
-            .SetGuiPresentation(
-                Category.Feature)
+            .Create("FeatureSetMarshalEternalComrade")
+            .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(summoningAffinity, summonEternalComradePower)
             .AddToDB();
     }
@@ -550,12 +543,11 @@ internal static class EncourageBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
+            .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
             .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma,
                 ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
             .SetShowCasting(false)
-            .SetGuiPresentation(Category.Feature,
-                Bless.GuiPresentation.SpriteReference)
             .AddToDB();
     }
 }

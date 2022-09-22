@@ -33,12 +33,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var spriteReference =
             CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
 
-        // var spellCommandUndead = SpellDefinitionBuilder
-        //     .Create(DominateBeast, "CommandUndead", SubclassNamespace)
-        //     .SetGuiPresentation(Category.Spell, spriteReference)
-        //     .SetSchoolOfMagic(SchoolNecromancy)
-        //     .SetSpellLevel(7);
-
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
             .SetGuiPresentation(Category.Feature)

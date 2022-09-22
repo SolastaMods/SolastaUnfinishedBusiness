@@ -82,8 +82,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var divineHeartEmpoweredHealingModifier = FeatureDefinitionDieRollModifierBuilder
             .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
                 "DieRollModifierDivineHeartEmpoweredHealing")
-            .SetGuiPresentation("Feature/&PowerDivineHeartEmpoweredHealingTitle",
-                "Feature/&PowerDivineHeartEmpoweredHealingDescription")
+            .SetGuiPresentation("PowerDivineHeartEmpoweredHealing", Category.Feature)
             .AddToDB();
 
         divineHeartEmpoweredHealingModifier.validityContext = RuleDefinitions.RollContext.HealValueRoll;
@@ -100,6 +99,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord.GuiPresentation.SpriteReference)
             .AddToDB();
+
         divineHeartEmpoweredHealingPower.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
             divineHeartEmpoweredHealingCondition;
 
@@ -124,13 +124,13 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
+
         divineHeartDivineRecoveryPower.EffectDescription.rangeType = RuleDefinitions.RangeType.Self;
         divineHeartDivineRecoveryPower.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("SorcerousDivineHeart")
-            .SetGuiPresentation(Category.Subclass,
-                DomainLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(divineHeartDeityChoice, 1)
             .AddFeatureAtLevel(divineHeartDivineFortitude, 1)
             .AddFeatureAtLevel(magicAffinityDivineHeartClericSpellsList, 1)

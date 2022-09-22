@@ -101,7 +101,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityConArtistDC")
-            .SetGuiPresentation(GetSpellDcPresentation().Build())
+            .SetGuiPresentation(GetSpellDcPresentation())
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
                 Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
                 RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
@@ -118,12 +118,13 @@ internal sealed class RoguishConArtist : AbstractSubclass
     }
 
     [NotNull]
-    private static GuiPresentationBuilder GetSpellDcPresentation()
+    private static GuiPresentation GetSpellDcPresentation()
     {
         return new GuiPresentationBuilder(
-            "Feature/&MagicAffinityConArtistDCTitle",
-            Gui.Format("Feature/&MagicAffinityConArtistDCDescription",
-                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc.ToString()));
+                "Feature/&MagicAffinityConArtistDCTitle",
+                Gui.Format("Feature/&MagicAffinityConArtistDCDescription",
+                    Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc.ToString()))
+            .Build();
     }
 
     internal static void UpdateSpellDcBoost()
@@ -134,6 +135,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
         }
 
         DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-        DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation().Build();
+        DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation();
     }
 }

@@ -339,7 +339,7 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Arcane Pulse",
+  "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {

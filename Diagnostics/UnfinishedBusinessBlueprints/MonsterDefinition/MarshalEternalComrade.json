@@ -211,8 +211,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MarshalEternalComradeTitle",
-    "description": "Feature/&MarshalEternalComradeDescription",
+    "title": "Monster/&MarshalEternalComradeTitle",
+    "description": "Monster/&MarshalEternalComradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

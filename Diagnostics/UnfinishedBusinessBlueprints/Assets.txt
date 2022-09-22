@@ -4290,7 +4290,7 @@ RecipePrimingSpear	RecipeDefinition	RecipeDefinition	8c2c33ee-16b4-5209-b99a-b5a
 RecipePrimingStuddedLeather	RecipeDefinition	RecipeDefinition	9b6a7fc1-5507-5925-8b19-7461a4407f6b
 RecipePrimingWarhammer	RecipeDefinition	RecipeDefinition	31a7335b-d40d-5e4e-9206-db64d0d78512
 Respec	RestActivityDefinition	RestActivityDefinition	070acee3-3218-56ba-9148-ab19df65fb0d
-SorcerousRestoration	RestActivityDefinition	RestActivityDefinition	ff99b82c-2cfd-5af9-b46a-235eee77b824
+SorcererSorcerousRestoration	RestActivityDefinition	RestActivityDefinition	d5afa1d1-64fe-545e-8368-24b10ac56229
 SpellMasterArcaneDepth	RestActivityDefinition	RestActivityDefinition	d2caf45a-fd47-59d7-9827-b7c37db14d96
 Building_Cabin_12C~WoodLand~MOD	RoomBlueprint	RoomBlueprint	cc7e5a5e-86fc-5c4b-923b-5d1d8db9bba5
 Building_Lodge_24C~WoodLand~MOD	RoomBlueprint	RoomBlueprint	d90ea09e-7910-58be-9558-a1ed249afacb

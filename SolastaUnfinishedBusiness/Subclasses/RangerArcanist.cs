@@ -17,6 +17,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RangerArcanist : AbstractSubclass
 {
+    private const string ArcanistMarkTag = "ArcanistMark";
     private static ConditionDefinition _markedByArcanist;
 
     // ReSharper disable once InconsistentNaming
@@ -24,8 +25,7 @@ internal sealed class RangerArcanist : AbstractSubclass
 
     private static ConditionDefinition MarkedByArcanist => _markedByArcanist ??= ConditionDefinitionBuilder
         .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
-        .SetGuiPresentation(Category.Condition,
-            ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
+        .SetOrUpdateGuiPresentation(Category.Condition)
         .SetAllowMultipleInstances(false)
         .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
         .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
@@ -93,7 +93,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
-            .SetNotificationTag("ArcanistMark")
+            .SetNotificationTag(ArcanistMarkTag)
             .SetTargetCondition(MarkedByArcanist,
                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
@@ -119,7 +119,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-            .SetNotificationTag("ArcanistMark")
+            .SetNotificationTag(ArcanistMarkTag)
             .SetTargetCondition(MarkedByArcanist,
                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .SetNoSave()
@@ -242,7 +242,6 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
             .SetEffectDescription(pulseDescription)
             .SetAbility(AttributeDefinitions.Wisdom)
-            .SetShortTitle("Arcane Pulse")
             .AddToDB();
     }
 }

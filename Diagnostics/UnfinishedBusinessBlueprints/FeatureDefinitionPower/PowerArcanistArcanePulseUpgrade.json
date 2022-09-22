@@ -339,7 +339,7 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Arcane Pulse",
+  "shortTitleOverride": "",
   "overriddenPower": "Definition:PowerArcanistArcanePulse:583aedcb-4613-5108-9c22-afc4ce8ef7ad",
   "includeBaseDescription": false,
   "guiPresentation": {

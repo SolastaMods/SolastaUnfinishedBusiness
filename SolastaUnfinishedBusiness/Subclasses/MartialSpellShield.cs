@@ -58,6 +58,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     .Build()
             )
             .Build();
+
         effect.canBePlacedOnCharacter = true;
         effect.targetExcludeCaster = false;
 
