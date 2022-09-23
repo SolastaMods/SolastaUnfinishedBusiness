@@ -138,7 +138,8 @@ internal static class GameLocationBattleManagerTweaks
                   || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
                       .ProficiencyBonusAndSpellcastingBonus
                   || provider.DamageValueDetermination ==
-                  RuleDefinitions.AdditionalDamageValueDetermination.RageDamage))
+                  RuleDefinitions.AdditionalDamageValueDetermination.RageDamage
+                  || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.FlatBonus))
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
@@ -176,9 +177,9 @@ internal static class GameLocationBattleManagerTweaks
             {
                 // Look for the Spell Repertoire
                 var spellBonus = 0;
-                foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in hero.SpellRepertoires)
                 {
-                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
                         .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
 
                     // Stop if this is a class repertoire
@@ -195,7 +196,12 @@ internal static class GameLocationBattleManagerTweaks
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
             {
                 additionalDamageForm.BonusDamage =
-                    attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+                    hero.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+            }
+
+            if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.FlatBonus)
+            {
+                additionalDamageForm.BonusDamage += provider.FlatBonus;
             }
         }
         else if (provider.DamageValueDetermination ==
