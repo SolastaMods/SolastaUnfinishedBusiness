@@ -4,11 +4,11 @@ public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
 {
     public ReactionRequestCastDamageSpell(
         CharacterActionParams actionParams,
-        GameLocationCharacter attacker, bool isCanrip)
+        GameLocationCharacter attacker, bool isCantrip)
         : base("CastSpellInRetribution", actionParams)
     {
         AttackerName = attacker.Name;
-        if (!isCanrip) { BuildSlotSubOptions(); }
+        if (!isCantrip) { BuildSlotSubOptions(); }
     }
 
     private string AttackerName { get; }

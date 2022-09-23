@@ -14,7 +14,7 @@ public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
         var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
         var spellRepertoire = ReactionParams.SpellRepertoire;
-        var selected = 0;
+        // var selected = 0;
 
         // if (actionParams.StringParameter == "EldritchSmite")
         // {
@@ -25,7 +25,7 @@ public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         // }
         // else
         // {
-        selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+        var selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
         // }
 
         if (selected >= 0)

@@ -95,7 +95,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
         var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
 
-        if (powerValidators != null && powerValidators.Any(v => !v.CanUsePower(character)))
+        if (powerValidators.Any(v => !v.CanUsePower(character)))
         {
             return false;
         }

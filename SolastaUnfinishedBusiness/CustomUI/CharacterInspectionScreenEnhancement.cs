@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -23,7 +25,7 @@ internal static class CharacterInspectionScreenEnhancement
 
     [NotNull]
     // ReSharper disable once UnusedMember.Global
-    public static string GetSelectedClassSearchTerm(string original)
+    private static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
         return original
@@ -33,7 +35,7 @@ internal static class CharacterInspectionScreenEnhancement
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
+    private static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
         var badgeDefinitions =
             __instance.badgeDefinitions;
@@ -343,12 +345,10 @@ internal static class CharacterInspectionScreenEnhancement
     public static IEnumerable<CodeInstruction> EnableClassSelector(IEnumerable<CodeInstruction> instructions)
     {
         var containsMethod = typeof(string).GetMethod("Contains");
-        var getSelectedClassSearchTermMethod =
-            typeof(CharacterInspectionScreenEnhancement).GetMethod("GetSelectedClassSearchTerm");
+        var getSelectedClassSearchTermMethod = new Func<string, string>(GetSelectedClassSearchTerm).Method;
         var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
             BindingFlags.Instance | BindingFlags.NonPublic);
-        var myEnumerateClassBadgesMethod =
-            typeof(CharacterInspectionScreenEnhancement).GetMethod("EnumerateClassBadges");
+        var myEnumerateClassBadgesMethod = new Action<CharacterInformationPanel>(EnumerateClassBadges).Method;
         var found = 0;
 
         foreach (var instruction in instructions)
