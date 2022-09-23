@@ -1,22 +1,24 @@
-﻿#if false
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-[HarmonyPatch(typeof(BaseBlueprintSelectionPanel), "Bind")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class BaseBlueprintSelectionPanel_Bind
+internal static class BaseBlueprintSelectionPanelPatcher
 {
-    internal static void Postfix(BaseBlueprintSelectionPanel __instance)
+    [HarmonyPatch(typeof(BaseBlueprintSelectionPanel), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Bind_Patch
     {
-        //PATCH: open DM content folded (DMP)
-        if (!Main.Settings.EnableDungeonMakerModdedContent)
+        internal static void Postfix(BaseBlueprintSelectionPanel __instance)
         {
-            return;
-        }
+            //PATCH: open DM content folded (DMP)
+            if (!Main.Settings.EnableDungeonMakerModdedContent)
+            {
+                return;
+            }
 
-        __instance.FoldAll();
+            __instance.FoldAll();
+        }
     }
 }
-#endif
+
