@@ -128,12 +128,6 @@ internal static class CharacterActionCastSpellPatcher
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
-            //PATCH: Remove Concentration Requirements From Any Spell
-            if (Main.Settings.RemoveConcentrationRequirementsFromAnySpell)
-            {
-                return false;
-            }
-
             //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
             if (!Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
             {

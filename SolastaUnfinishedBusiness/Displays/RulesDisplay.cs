@@ -118,12 +118,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
         }
 
-        toggle = Main.Settings.RemoveConcentrationRequirementsFromAnySpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveConcentrationRequirementsFromAnySpell"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveConcentrationRequirementsFromAnySpell = toggle;
-        }
-
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
