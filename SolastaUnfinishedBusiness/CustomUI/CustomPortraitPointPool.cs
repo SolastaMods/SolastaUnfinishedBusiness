@@ -1,12 +1,11 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
+#if false
 public class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
 {
     private readonly FeatureDefinitionPower power;
@@ -29,6 +28,7 @@ public class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
         return character.GetRemainingPowerUses(power);
     }
 }
+#endif
 
 public class CustomPortraitPointPool : MonoBehaviour
 {
