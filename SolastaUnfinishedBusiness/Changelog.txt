@@ -1,15 +1,15 @@
 ﻿CHANGES:
 
 - Rebrand to Unfinished Business
-- Deprecate Gnome
-- Deprecate all unofficial classes
-- Deprecate all unofficial Barbarian subclasses
-- Deprecate class themed feats (i.e.: shady, thug, etc.)
-- Remove Level Down feature
-- Add feat groups to game UI
+- Add feat groups to selection UI
 - Improve under the hood systems
+- Remove all classes
+- Remove Gnome
+- Remove Path of The Light
+- Remove class themed feats (i.e.: shady, thug, etc.)
+- Remove Level Down feature
 
-COMING NEXT:
+NEXT:
 
-- Refactored Path of The Light subclass
-- Refactored Tinkerer class
+- Refactored Path of The Light
+- Refactored Tinkerer
