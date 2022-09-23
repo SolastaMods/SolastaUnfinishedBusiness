@@ -19,12 +19,12 @@ internal static class MulticlassPatchingContext
     // these features will be replaced to comply to SRD multiclass rules
     private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
     {
-        { ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.ProficiencyBarbarianArmorMulticlass },
-        { ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.ProficiencyFighterArmorMulticlass },
-        { ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.ProficiencyPaladinArmorMulticlass },
-        { PointPoolBardSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass },
-        { PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass },
-        { PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass }
+        { ProficiencyBarbarianArmor, MulticlassContext.ProficiencyBarbarianArmorMulticlass },
+        { ProficiencyFighterArmor, MulticlassContext.ProficiencyFighterArmorMulticlass },
+        { ProficiencyPaladinArmor, MulticlassContext.ProficiencyPaladinArmorMulticlass },
+        { PointPoolBardSkillPoints, MulticlassContext.PointPoolBardSkillPointsMulticlass },
+        { PointPoolRangerSkillPoints, MulticlassContext.PointPoolRangerSkillPointsMulticlass },
+        { PointPoolRogueSkillPoints, MulticlassContext.PointPoolRogueSkillPointsMulticlass }
     };
 
     // these features will be removed to comply with SRD multiclass rules

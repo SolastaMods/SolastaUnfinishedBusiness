@@ -624,15 +624,17 @@ public static class MulticlassGameUiContext
             extraSpellsMap.TryAdd(spell, "Multiclass");
 
             // displays known spells from other classes
-            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
+            if (!Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
             {
-                allSpells.TryAdd(spell);
+                continue;
+            }
 
-                //allow re-learning already known spells from other classes
-                if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
-                {
-                    autoPreparedSpells.TryAdd(spell);
-                }
+            allSpells.TryAdd(spell);
+
+            //allow re-learning already known spells from other classes
+            if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
+            {
+                autoPreparedSpells.TryAdd(spell);
             }
         }
 
