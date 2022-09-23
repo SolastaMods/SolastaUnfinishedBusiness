@@ -4,17 +4,13 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
-
-public interface ICanIgnoreAoOImmunity
-{
-    bool CanIgnoreAoOImmunity(RulesetCharacter character, RulesetCharacter attacker, float distance);
-}
 
 public static class AttacksOfOpportunity
 {
@@ -35,6 +31,7 @@ public static class AttacksOfOpportunity
         }
 
         var battle = battleManager.Battle;
+
         if (battle == null)
         {
             yield break;
@@ -97,6 +94,7 @@ public static class AttacksOfOpportunity
         }
 
         var battle = battleManager.Battle;
+
         if (battle == null)
         {
             yield break;
@@ -242,13 +240,6 @@ internal sealed class CanMakeAoOOnReachEntered
     {
         return character != null && character.IsValid(validators);
     }
-}
-
-public interface IReactToAttackFinished
-{
-    IEnumerator HandleReactToAttackFinished(GameLocationCharacter character, GameLocationCharacter defender,
-        RuleDefinitions.RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode,
-        ActionModifier modifier);
 }
 
 public delegate IEnumerator ReactToAttackFinishedHandler(GameLocationCharacter character,

@@ -2,22 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
-
-public interface IPerformAttackAfterMagicEffectUse
-{
-    delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
-
-    delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
-        GameLocationCharacter target, out string failure);
-
-    delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
-
-    CanUseHandler CanBeUsedToAttack { get; }
-    GetAttackAfterUseHandler PerformAttackAfterUse { get; }
-    CanAttackHandler CanAttack { get; }
-}
 
 public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
 {
@@ -33,19 +20,20 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
     }
 
     public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; set; }
-
     public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
     public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; set; }
 
     private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
     {
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
         if (attackMode == null)
         {
             return false;
         }
 
         var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
         if (battleService == null)
         {
             return false;
@@ -66,6 +54,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         var attacks = new List<CharacterActionParams>();
 
         var actionParams = effect?.ActionParams;
+
         if (actionParams == null)
         {
             return attacks;
@@ -98,6 +87,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         }
 
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
         if (attackMode == null)
         {
             return attacks;
@@ -124,10 +114,12 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
         GameLocationCharacter target, [NotNull] out string failure)
     {
         failure = String.Empty;
+
         //TODO: implement setting to tell how many targets must meet weapon attack requirements
         var maxTargets = targeting.maxTargets;
         var remainingTargets = targeting.remainingTargets;
         var selectedTargets = maxTargets - remainingTargets;
+
         if (selectedTargets > 0)
         {
             return true;
@@ -135,6 +127,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
 
         //TODO: add option for ranged attacks
         var canAttack = CanMeleeAttack(caster, target);
+
         if (!canAttack)
         {
             failure = "Failure/&FailureFlagTargetMeleeWeaponError";
