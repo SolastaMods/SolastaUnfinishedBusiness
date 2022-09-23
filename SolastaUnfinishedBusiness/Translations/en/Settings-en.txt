@@ -132,7 +132,6 @@ ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Ove
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst=Quick cast light cantrip uses head or torso worn items first
 ModUi/&Races=<color=#F0DAA0>Races & Subs</color>
 ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's Cost</color>

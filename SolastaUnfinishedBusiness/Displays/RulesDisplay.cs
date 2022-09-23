@@ -178,14 +178,6 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
-        if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
-        }
-
-        UI.Label("");
-
         toggle = Main.Settings.AddPickPocketableLoot;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
         {
