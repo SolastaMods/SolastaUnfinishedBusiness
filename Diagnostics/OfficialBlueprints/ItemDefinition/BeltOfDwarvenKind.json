@@ -231,9 +231,11 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Equipment/&BeltOfDwarvenkind_Title",
     "description": "Equipment/&BeltOfDwarvenkind_Description",
     "spriteReference": {

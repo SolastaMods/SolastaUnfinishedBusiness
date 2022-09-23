@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkin_30",
   "musculatureMorphotypeValue": 25.402092,
   "ageMorphotypeValue": 40.8548431,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_AS_B",
   "hairShapeMorphotype": "HairShape_H",

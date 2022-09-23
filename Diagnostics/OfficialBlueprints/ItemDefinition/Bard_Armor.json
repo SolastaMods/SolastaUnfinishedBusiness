@@ -192,8 +192,8 @@
       "Shape",
       "Shape",
       "Shape",
-      "Armor",
-      "Armor",
+      "Nothing",
+      "Both",
       "Armor",
       "Shape",
       "Armor",
@@ -207,7 +207,7 @@
       "Shape",
       "Shape",
       "Armor",
-      "Armor",
+      "Both",
       "Armor",
       "Armor",
       "Armor",
@@ -218,6 +218,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

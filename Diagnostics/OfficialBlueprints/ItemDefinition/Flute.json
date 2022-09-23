@@ -1,7 +1,7 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
-  "merchantCategory": "All",
+  "inDungeonEditor": true,
+  "merchantCategory": "Adventuring",
   "weight": 1.0,
   "slotTypes": [
     "OffHandSlot",
@@ -202,6 +202,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -227,6 +229,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "66eb201b0e459134d8ce4050a53d5393",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Flute"
 }

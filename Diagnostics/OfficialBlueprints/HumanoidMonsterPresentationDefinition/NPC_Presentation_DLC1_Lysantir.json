@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 40.2078857,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Lysantir",
   "hairShapeMorphotype": "HairShape_A",

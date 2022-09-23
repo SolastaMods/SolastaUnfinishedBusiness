@@ -205,6 +205,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -230,6 +232,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "24f0ef2e6a7ffa74090b0859585c107f",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "CraftingManual_DLC2.5_Enchant_GauntletOfSharpness"
 }

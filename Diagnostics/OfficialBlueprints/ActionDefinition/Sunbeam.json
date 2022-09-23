@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerSunbeam:ddb8f35f454801645a235ab236dee7c0",
   "displayPowerTooltip": false,
   "dieType": "D10",

@@ -19,6 +19,7 @@
   "addedConditionName": "ConditionFeatTakeAim",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": null,
   "displayPowerTooltip": false,
   "dieType": "D10",

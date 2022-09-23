@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Undead:cf4a5824ba8fe6242aea3944e58e47f3",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",

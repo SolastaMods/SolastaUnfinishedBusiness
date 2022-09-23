@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "MagicDevice",
   "weight": 4.0,
   "slotTypes": [
@@ -545,6 +545,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -570,6 +572,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "d0222a200f3f05a40a8ebbbb3a9e7bed",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "StaffOfSwarmingInsects"
 }

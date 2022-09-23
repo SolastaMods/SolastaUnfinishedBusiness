@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinObsidian",
   "musculatureMorphotypeValue": 35.7414246,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Beryl_Stonebeard",
   "hairShapeMorphotype": "HairShape_M",

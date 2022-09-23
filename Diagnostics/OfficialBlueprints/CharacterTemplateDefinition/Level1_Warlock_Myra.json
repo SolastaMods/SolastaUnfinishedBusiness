@@ -20,6 +20,7 @@
   "skinMorphotype": "FaceAndSkin_Dragonborn_02",
   "musculatureMorphotypeValue": 60.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_None",
   "hairColorMorphotype": "HairColor_33",

@@ -140,18 +140,14 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_01:18ecb6b16bc3193449636a9d93ed59f9",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_02:447280d217d83144c86a7e2289674d78",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_03:3b427be4682ae824abc2daaea7e1442c",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_04:fa97ca1a7c500b642a11c429e991f067",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_05:953f49ec32f2aff41b28498a2d23a6b2",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_06:55a50fcdbf36b5e4b9553edcfca3978f",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_07:a00509d6b5fc31c4d9810d6e6102ab0a",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_08:07fff5ade82e20543b93c6be344c38f8",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_09:2e8865964060d7346ad4d0790a292fd0",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_10:57a0c556b7de45f419f2b8f44f52f82f",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_11:39009274e3264c04c8729913e8d93b4a",
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Guard_12:0f02dfac9aa09d441918a76205532fe9"
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_01:83a4b82143014844a9fc5d1083cc3785",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_02:28a1afa60d9110646a869a210b52e38e",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_03:9967b0c9e2d05a9489b8586151dfb7c6",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_04:42f70286b3b11684ab92a78e88d4c192",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_05:0891441402b8cda46ac29c1f4d8edaae",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_06:8797c8e9ab82fc94483432cf7468d54f",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_07:b9564992e59e50f4bb9dcaa4345c4a2e",
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_08:9331e791aee0fa244ad2190714e22b6a"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -249,8 +245,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_WhiteCity_Guard_City_Title",
-    "description": "NPC/&DLC3_NPC_WhiteCity_Guard_City_Description",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Guard_City_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Guard_City_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "aa9e3714dd2fefe45a5a02502ca693be",

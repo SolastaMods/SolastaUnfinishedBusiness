@@ -493,6 +493,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -518,6 +520,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "02bc2dae36e77ae41ad5983a6faf292d",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Enchanted_Gauntlet_Of_Acuteness"
 }

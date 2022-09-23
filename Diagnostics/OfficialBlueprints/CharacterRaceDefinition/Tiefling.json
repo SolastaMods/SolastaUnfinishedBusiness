@@ -120,7 +120,8 @@
       "HairShape",
       "Age",
       "HairColor",
-      "BodyDecorationColor"
+      "BodyDecorationColor",
+      "TailLength"
     ],
     "needBeard": false,
     "defaultMusculature": 0,

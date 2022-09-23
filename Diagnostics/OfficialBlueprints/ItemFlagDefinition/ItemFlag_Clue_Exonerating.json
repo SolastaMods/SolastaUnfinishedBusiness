@@ -7,8 +7,8 @@
     "description": "Equipment/&ItemFlag_Clue_Exonerating",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "883466816dd825049939a99aa0fd3aa5",
-      "m_SubObjectName": "Poison_1D4",
+      "m_AssetGUID": "a9b47125ef9515849ac28b1bb7f437fe",
+      "m_SubObjectName": "ExoneratingClue",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

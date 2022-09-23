@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "ConditionDispellingEvilAndGood",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerDispelEvilBreakEnchantment:3397ff2b50486164e96fa0a0143ec701",
   "displayPowerTooltip": false,
   "dieType": "D10",

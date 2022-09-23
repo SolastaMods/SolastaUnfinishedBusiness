@@ -218,6 +218,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -225,8 +227,8 @@
     "description": "Equipment/&Monk_Armor_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "05be6fd345d7f7240a0d23dc228497ca",
-      "m_SubObjectName": "LeatherArmor",
+      "m_AssetGUID": "7e185b8b4b1155348890c9191941d8e5",
+      "m_SubObjectName": "Monk_Outfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -243,6 +245,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "93cbf3e9ed6ac994f8ad95e03fb16d79",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "MonkArmor"
 }

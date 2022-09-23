@@ -77,8 +77,16 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner01:ecf061f127ec8844f851397210568508",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner02:c8d734d6dff90d845ac5cefc70f4c644",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner03:c1965515ef3b6c64892dead9c134cf7d",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner04:5303fc6d5b2f33248b3cbdad0329aaef",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman01:2514d76178b973745884ab2096095694",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman02:b4f30085ab3428a45b1593b7aac8abb8",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman03:1a66953f37280be468f216f802cae413",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman04:3993b0b7d1e742d4180c0991e24b1300",
       "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman01:4dd88143b70fb6c4a869dc29060d6644",
       "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman02:ca7467b1668535341bf76660839d637a",
       "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman03:c5178e5fb16f3ed419ca1efd82c7de4c",

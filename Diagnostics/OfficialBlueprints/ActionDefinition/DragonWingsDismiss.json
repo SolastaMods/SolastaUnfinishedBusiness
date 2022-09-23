@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerSorcererDraconicDragonWingsDismiss:0c8e7587a4bc6fd46990bb5c26b2b069",
   "displayPowerTooltip": false,
   "dieType": "D10",

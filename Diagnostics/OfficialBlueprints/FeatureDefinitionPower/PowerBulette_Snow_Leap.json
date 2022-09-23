@@ -234,7 +234,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "13cd0fa92347d6b4f864e9b49f232bdc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -282,7 +282,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "31293299f547bf54c9c9be5307712272",
+        "m_AssetGUID": "5649fa973775a214eb0a08921ed77441",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -417,6 +417,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

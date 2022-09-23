@@ -9,9 +9,21 @@
           "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:MonkArmor:93cbf3e9ed6ac994f8ad95e03fb16d79",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Weapon",
               "itemReference": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
-              "defaultChoice": "",
+              "defaultChoice": "Quarterstaff",
               "number": 1
             }
           ]

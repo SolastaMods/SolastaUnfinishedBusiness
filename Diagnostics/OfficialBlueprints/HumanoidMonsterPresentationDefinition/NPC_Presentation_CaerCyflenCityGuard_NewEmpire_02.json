@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinTan",
   "musculatureMorphotypeValue": 60.2159042,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Joriel_Fox_Eye",
   "hairShapeMorphotype": "HairShape_D",

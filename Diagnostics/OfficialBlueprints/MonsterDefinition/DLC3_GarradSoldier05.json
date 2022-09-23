@@ -3,7 +3,10 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
-  "creatureTags": [],
+  "creatureTags": [
+    "Shapechanger",
+    "NonDetection"
+  ],
   "defaultFaction": "DLC3_Faction_Principality",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
@@ -135,9 +138,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_GarradSoldier_female_03:ee44578ca928f64418fb07c22ff389fb"
+      "Definition:NPC_Presentation_GarradSoldier_male_01:d05b3a3c9c9449d44b7ec9357dd08bf3"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -235,8 +238,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&NPC_DLC3_PrincipalitySoldier_Title",
-    "description": "NPC/&NPC_DLC3_PrincipalitySoldier_Description",
+    "title": "NPC/&NPC_DL3_GarradSoldier_05",
+    "description": "NPC/&NPC_DLC3_PrincipalitySoldier_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

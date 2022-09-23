@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "MagicDevice",
   "weight": 0.5,
   "slotTypes": [
@@ -219,6 +219,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -244,6 +246,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "b75abfba69f9c634fb85eb968328a0cc",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "ChargedRedCorundum"
 }

@@ -10,8 +10,8 @@
     "description": "CharacterInteraction/&NpcInteractionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3dee7ca6c0601ba4a84828e65fcbbd87",
-      "m_SubObjectName": "MerchantRest",
+      "m_AssetGUID": "63a13f380b629dd4e9e5b2e8a6df17b5",
+      "m_SubObjectName": "MerchantGeneral",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

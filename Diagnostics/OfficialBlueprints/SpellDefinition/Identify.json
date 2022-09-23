@@ -90,7 +90,8 @@
           "divinationType": "IdentifyItem",
           "creatureFamilies": [],
           "revealedTags": [],
-          "rangeCells": 0
+          "rangeCells": 0,
+          "silent": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -1,7 +1,7 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
-  "merchantCategory": "All",
+  "inDungeonEditor": true,
+  "merchantCategory": "Adventuring",
   "weight": 1.0,
   "slotTypes": [
     "OffHandSlot",
@@ -202,6 +202,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -227,6 +229,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "db4461c9e2b5f1a438ed8ab910a9bc83",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Horn"
 }

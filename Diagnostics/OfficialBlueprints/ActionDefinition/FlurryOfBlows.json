@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerMonkFlurryOfBlows:1ffa4b8777fe25345a5b85370c1807a2",
   "displayPowerTooltip": false,
   "dieType": "D10",

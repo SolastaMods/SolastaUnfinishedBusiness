@@ -167,7 +167,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Caretaker:12621a30a3b61e14aa13a1c702b371de"
+      "Definition:NPC_Presentation_DLC3_Representative_Undermountain:d0fe3bef59d62f2429cb7850bd94b84d"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -265,12 +265,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_UndermountainClans_Representative_Title",
-    "description": "NPC/&DLC3_NPC_UndermountainClans_Representative_Description",
+    "title": "NPC/&NPC_DLC3_Stig_Title",
+    "description": "NPC/&NPC_DLC3_Stig_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "998438b5f78d3ff41888ab4a5a054616",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_WhiteCity_Gorn",
+      "m_AssetGUID": "81a9892f0aed6f144a63d32d0c7e208c",
+      "m_SubObjectName": "CustomPortrait_DLC3_NPC_Undermountain_Representative",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

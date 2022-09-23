@@ -65,7 +65,7 @@
         "canOverchargeSpell": false,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerFunctionApplyPoison_ArivadsKiss:42309c836df86bc45aed84ce38596c5b"
+        "featureDefinitionPower": "Definition:PowerFunctionApplyPoison_TheBurden:2f7c153d7012d414694896801109fcff"
       }
     ],
     "usableDeviceTags": [
@@ -222,6 +222,8 @@
     ],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

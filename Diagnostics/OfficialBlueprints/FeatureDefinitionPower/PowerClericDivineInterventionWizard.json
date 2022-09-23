@@ -299,6 +299,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": true,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

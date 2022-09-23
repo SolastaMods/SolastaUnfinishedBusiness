@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerInvocationOneWithShadowsTurnInvisivle:11f3885b4d56b1c44a1d4c27ebeb4fca",
   "displayPowerTooltip": false,
   "dieType": "D10",

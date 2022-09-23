@@ -487,6 +487,8 @@
     ],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -512,6 +514,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "51acb92856627d6409c7da52009bdb2d",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Primed Gauntlet"
 }

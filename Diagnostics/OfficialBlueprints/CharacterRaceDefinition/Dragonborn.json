@@ -122,7 +122,9 @@
       "Pronoun",
       "Scars",
       "Horns",
-      "Tail"
+      "Tail",
+      "BodyDecorationColor",
+      "TailLength"
     ],
     "needBeard": false,
     "defaultMusculature": 100,
@@ -150,7 +152,11 @@
       "HairShape_None"
     ],
     "maleHornsOptions": [
-      "Horns_A"
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E"
     ],
     "femaleHornsOptions": [
       "Horns_A",
@@ -160,10 +166,18 @@
       "Horns_E"
     ],
     "maleTailOptions": [
-      "Tail_A"
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E"
     ],
     "femaleTailOptions": [
-      "Tail_A"
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E"
     ],
     "maleBeardShapeOptions": [
       "BeardShape_None"

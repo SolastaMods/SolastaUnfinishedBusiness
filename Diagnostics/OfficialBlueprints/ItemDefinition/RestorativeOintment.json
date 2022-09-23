@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "Adventuring",
   "weight": 0.5,
   "slotTypes": [
@@ -230,6 +230,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -255,6 +257,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "97987a31b6e74b94b8dbd6f9d59f9716",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "RestorativeOintment"
 }

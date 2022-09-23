@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerBardHopeSingSongOfHope:1c6f69d8990b8874b98db3a7e4f2e277",
   "displayPowerTooltip": false,
   "dieType": "D1",

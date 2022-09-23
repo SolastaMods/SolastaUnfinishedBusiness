@@ -532,6 +532,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -557,6 +559,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "2c3c738da46fbcc4db88d7c4205bc97b",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Enchanted_Rapier_Of_Harmony"
 }

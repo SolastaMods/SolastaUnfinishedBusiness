@@ -201,6 +201,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -226,6 +228,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "c4bf8382f61ef72479d9e7f986debaa4",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "NecklaceOfGrounding"
 }

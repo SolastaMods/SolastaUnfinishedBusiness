@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Weapon",
   "weight": 0.05,
   "slotTypes": [
@@ -116,7 +116,7 @@
           "hasSavingThrow": true,
           "savingThrowAffinity": "HalfDamage",
           "dcModifier": 0,
-          "canSaveToCancel": true,
+          "canSaveToCancel": false,
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
@@ -482,6 +482,8 @@
     ],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

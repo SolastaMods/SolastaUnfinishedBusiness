@@ -96,7 +96,7 @@
   "isMusicalInstrument": true,
   "musicalInstrumentDefinition": {
     "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "LuteType"
+    "musicalInstrumentType": "BrassType"
   },
   "isStarterPack": false,
   "isContainerItem": false,
@@ -239,6 +239,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -264,6 +266,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "d23b9ed52419d604f855f5ddee638600",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "DwarvenWarDrums"
 }

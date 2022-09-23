@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "ConditionDispellingEvilAndGood",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerDispelEvilDismissal:6a0e7c69812536c4ab4db51de64d36c2",
   "displayPowerTooltip": false,
   "dieType": "D10",

@@ -296,6 +296,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "DEPRECATED_DamagedBySpecificElement",
   "reactionName": "BlessingOfTheElements",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

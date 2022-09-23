@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Fiend:d5dc121ebb417664db6be40aef6d8d90",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 3,
   "additionalDamageType": "SameAsBaseDamage",

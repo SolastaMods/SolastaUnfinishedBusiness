@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinPale",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 55.0329132,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
   "hairShapeMorphotype": "HairShape_I",

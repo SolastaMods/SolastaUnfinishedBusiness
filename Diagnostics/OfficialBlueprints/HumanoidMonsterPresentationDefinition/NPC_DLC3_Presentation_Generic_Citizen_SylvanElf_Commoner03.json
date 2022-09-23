@@ -1,55 +1,56 @@
 {
   "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
-  "raceDefinition": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
-  "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
-  "sex": "Female",
+  "raceDefinition": "Definition:Elf:143998b174becf84682ae849dfe9d757",
+  "subRaceDefinition": "Definition:ElfSylvan:1b0e27feb0a8d6944b907d5afaf28e0a",
+  "sex": "Male",
   "originMorphotype": "Origin_NonHuman",
-  "skinMorphotype": "FaceAndSkinCopperish",
-  "musculatureMorphotypeValue": 67.64104,
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_F",
-  "hairShapeMorphotype": "HairShape_O",
-  "hairColorMorphotype": "HairColorBrown",
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_G",
+  "hairColorMorphotype": "HairColorBlack",
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
-  "eyeColorMorphotype": "EyeColor_006",
+  "eyeColorMorphotype": "EyeColorBlue",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "Leather",
+  "armorDefinition": "ClothesCommon_Valley",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.261073083,
-    "g": 0.8962264,
-    "b": 0.2325116,
-    "a": 1.0
+    "r": 0.735849,
+    "g": 0.2603239,
+    "b": 0.2603239,
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.178137168,
-    "g": 0.5943396,
-    "b": 0.176619783,
-    "a": 1.0
+    "r": 0.258543938,
+    "g": 0.6603774,
+    "b": 0.383220136,
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.3935174,
-    "g": 0.6603774,
-    "b": 0.345763624,
-    "a": 1.0
+    "r": 0.18427375,
+    "g": 0.386792451,
+    "b": 0.238551855,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.754717,
-    "g": 0.488731265,
-    "b": 0.103239611,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -57,12 +58,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Family Neighbour",
-    "description": "!PH! Family Neighbour",
+    "title": "NPC/&NPC_CitizenTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e530e01b99e72264b9dfbef91f727b3c",
-      "m_SubObjectName": "CustomPortrait_DLC3_WhiteCity_Trapper_Family_Neighbour",
+      "m_AssetGUID": "a3b10e096d01eb148a130d800471c9e9",
+      "m_SubObjectName": "NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner03",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -78,7 +79,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "f750ad34265526b44b03eaae4954556f",
+  "guid": "c1965515ef3b6c64892dead9c134cf7d",
   "contentPack": "PalaceOfIce",
-  "name": "NPC_Presentation_DLC3_WhiteCity_Trapper_Family_Neighbour"
+  "name": "NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner03"
 }

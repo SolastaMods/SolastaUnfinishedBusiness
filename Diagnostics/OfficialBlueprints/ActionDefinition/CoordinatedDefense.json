@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": true,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerMartialCommanderCoordinatedDefense:1db8bd5a73378824a91b63a2a2128eef",
   "displayPowerTooltip": false,
   "dieType": "D10",

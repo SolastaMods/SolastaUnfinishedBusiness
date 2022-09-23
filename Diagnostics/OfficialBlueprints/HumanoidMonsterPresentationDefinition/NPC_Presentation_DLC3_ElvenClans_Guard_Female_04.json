@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinCopperish",
   "musculatureMorphotypeValue": 36.0197678,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Finaliel_SharpMind",
   "hairShapeMorphotype": "HairShape_D",

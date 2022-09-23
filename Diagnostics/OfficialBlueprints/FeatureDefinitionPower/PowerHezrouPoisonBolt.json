@@ -145,8 +145,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedType": "CellsPerSeconds",
+    "speedParameter": 12.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -154,7 +154,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "aa9694687824dcd469a9c3984bf8fb29",
+        "m_AssetGUID": "6dc6c2cd25cbc9242b28fde76faa5f94",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -178,7 +178,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "e332d400a12336242a99bc79f8087156",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -202,7 +202,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "34f67bfd0b273d74a8ce8e4ef929fd6c",
+        "m_AssetGUID": "476fd881673e13048a2391dc9b328396",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -337,6 +337,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

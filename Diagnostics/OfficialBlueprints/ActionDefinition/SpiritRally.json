@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerKindredSpiritRally:cb3eb0f588d63834f90807f37b14855d",
   "displayPowerTooltip": false,
   "dieType": "D10",

@@ -10,7 +10,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&DLC3_WhiteCity_Major_Gate",
+    "title": "Map/&MapWaypointDefinition_DLC3_WhiteCity_Elven_Quarters",
     "description": "",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -191,9 +191,11 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title",
     "description": "Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description",
     "spriteReference": {

@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerVampiricTouch:a578a0f3cd07e6b4e892d32f8e786e07",
   "displayPowerTooltip": false,
   "dieType": "D10",

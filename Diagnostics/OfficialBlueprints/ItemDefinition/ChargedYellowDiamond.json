@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "MagicDevice",
   "weight": 0.5,
   "slotTypes": [
@@ -219,6 +219,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -244,6 +246,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "1cd6e35747e3f2241934e09ca43e394c",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "ChargedYellowDiamond"
 }

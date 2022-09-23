@@ -220,6 +220,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -245,6 +247,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "86163b5b43f3a2e4795f67259a0cce8d",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "PenitentBelt"
 }

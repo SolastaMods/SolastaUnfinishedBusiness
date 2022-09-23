@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkin_03",
   "musculatureMorphotypeValue": 26.0547161,
   "ageMorphotypeValue": 60.47267,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Talbut_the_Grey",
   "hairShapeMorphotype": "HairShape_J",

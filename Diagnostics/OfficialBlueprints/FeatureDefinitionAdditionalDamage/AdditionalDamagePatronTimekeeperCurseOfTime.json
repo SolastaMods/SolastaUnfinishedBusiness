@@ -14,6 +14,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "damageValueDetermination": "None",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
@@ -64,7 +65,7 @@
   },
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "cffbfc5e74b6d334d812b9a32eca7bad",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

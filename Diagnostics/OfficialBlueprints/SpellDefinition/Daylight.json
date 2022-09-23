@@ -18,7 +18,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
-    "itemSelectionType": "EquipedNoLightSource",
+    "itemSelectionType": "EquippedNoLightSource",
     "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",

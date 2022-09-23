@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_D",
   "hairShapeMorphotype": "HairShape_U",
@@ -57,12 +58,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Leralyn",
-    "description": "wife of estorgath",
+    "title": "NPC/&DLC3_NPC_Leralyn_Title",
+    "description": "NPC/&DLC3_NPC_Leralyn_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f4aa79108645dbb4cb9c848d1514b085",
-      "m_SubObjectName": "CustomPortrait_DLC3_Leralyn",
+      "m_AssetGUID": "29b73c97a25649f479056ade8eef49be",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Leralyn",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

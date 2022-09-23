@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Ooze:aff60c773b51a4a4685ff9a009f99b45",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "TargetKnowledgeLevel",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",

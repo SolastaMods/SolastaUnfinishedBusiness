@@ -165,9 +165,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Uncle_Of_Vigdis:bd0dd7050a62ee344b28d34c5a61335e"
+      "Definition:NPC_Presentation_DLC3_WhiteCity_Gorm_The_Wise:5dd20ba47d3867a43941f15dd480664e"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

@@ -87,7 +87,8 @@
             "Definition:Undead:cf4a5824ba8fe6242aea3944e58e47f3"
           ],
           "revealedTags": [],
-          "rangeCells": 6
+          "rangeCells": 6,
+          "silent": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -302,6 +303,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

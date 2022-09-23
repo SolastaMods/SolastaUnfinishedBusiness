@@ -494,6 +494,8 @@
     ],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -519,6 +521,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "44574de02cddbfb4c84a372c519ed7fe",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Primed Shortsword_DLC_Sovereign"
 }

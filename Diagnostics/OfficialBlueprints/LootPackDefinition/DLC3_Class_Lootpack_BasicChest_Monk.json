@@ -19,7 +19,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:MonkGauntlet+1:ada62b8f68d16b446b76c4761f7e584f",
+      "itemDefinition": "Definition:MonkGauntlet+2:ec5fa30f98734654c86d61c85d193fb3",
       "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
       "autoIdentify": false
     },
@@ -90,6 +90,26 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_Monk_MagicItems_Table:5c6b8e48f2b27b94cb5dc0cea2484ad5",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_Monk_MagicItems_Table:5c6b8e48f2b27b94cb5dc0cea2484ad5",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:AmuletOfPureSouls:131eafc5871777d43be3487dc641b148",
       "treasureTableDefinition": "Definition:DLC3_Class_Random_Monk_MagicItems_Table:5c6b8e48f2b27b94cb5dc0cea2484ad5",
       "autoIdentify": false
     }

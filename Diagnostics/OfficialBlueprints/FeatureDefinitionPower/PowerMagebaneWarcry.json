@@ -303,6 +303,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "DamagedByMagicEffectAndRaging",
   "reactionName": "WarCry",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinCopperish",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_NPC_Atima_Bladeburn",
   "hairShapeMorphotype": "HairShape_R",
@@ -16,7 +17,7 @@
   "eyeColorMorphotype": "EyeColorBlack",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "Scars_17",
+  "scarsMorphotype": "Scars_16",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
   "armorDefinition": "ChainMail",
@@ -40,15 +41,15 @@
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.7647059,
-    "g": 0.5098038,
-    "b": 0.5098038,
+    "g": 0.509803951,
+    "b": 0.509803951,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.7647059,
-    "g": 0.5098038,
-    "b": 0.5098038,
+    "g": 0.509803951,
+    "b": 0.509803951,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -57,12 +58,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&NPC_CityGuardTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "NPC/&NPC_DL3_GarradSoldier_04",
+    "description": "NPC/&NPC_DLC3_PrincipalitySoldier_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "27d94fe8c17230d49be386fb123c98cd",
-      "m_SubObjectName": "NPC_Presentation_CaerCyflenCityGuard_female_03",
+      "m_AssetGUID": "42cb233c00ed7fb4ba9bd8dd487da9be",
+      "m_SubObjectName": "NPC_Presentation_GarradSoldier_female_04",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

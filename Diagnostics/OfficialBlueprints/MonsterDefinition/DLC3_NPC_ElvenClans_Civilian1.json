@@ -134,7 +134,6 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_ElvenClans_Civilian_Female_01:092a51ff7e0205f4aad990e558e28802",
       "Definition:NPC_Presentation_DLC3_ElvenClans_Civilian_Male_01:8ead2b537056af249b463f03a44da202"
     ],
     "useCustomMaterials": false,

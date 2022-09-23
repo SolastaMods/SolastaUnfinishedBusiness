@@ -20,6 +20,7 @@
   "skinMorphotype": "FaceAndSkin_02",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 98.3,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_F",
   "hairShapeMorphotype": "HairShape_Q",
   "hairColorMorphotype": "HairColorBlond",

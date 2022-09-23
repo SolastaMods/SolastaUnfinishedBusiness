@@ -303,6 +303,8 @@
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "HitByMelee",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,

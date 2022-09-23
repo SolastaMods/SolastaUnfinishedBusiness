@@ -82,7 +82,7 @@
   "isMusicalInstrument": true,
   "musicalInstrumentDefinition": {
     "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "FluteType"
+    "musicalInstrumentType": "BrassType"
   },
   "isStarterPack": false,
   "isContainerItem": false,
@@ -225,6 +225,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -250,6 +252,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "8a003329450dd824fb3b3788389c31d8",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "PipesOfHaunting"
 }

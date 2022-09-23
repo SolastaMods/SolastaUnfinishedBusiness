@@ -1,7 +1,7 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
-  "merchantCategory": "MagicDevice",
+  "inDungeonEditor": true,
+  "merchantCategory": "Adventuring",
   "weight": 0.1,
   "slotTypes": [
     "NeckSlot"
@@ -194,6 +194,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

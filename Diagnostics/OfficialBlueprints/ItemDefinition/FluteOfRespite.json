@@ -84,7 +84,7 @@
   "isMusicalInstrument": true,
   "musicalInstrumentDefinition": {
     "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "FluteType"
+    "musicalInstrumentType": "BrassType"
   },
   "isStarterPack": false,
   "isContainerItem": false,
@@ -227,6 +227,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -252,6 +254,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "e59c364d36281434b94e7b4cce6690ce",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "FluteOfRespite"
 }

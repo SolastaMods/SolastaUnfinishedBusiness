@@ -16,6 +16,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D4",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",

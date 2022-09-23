@@ -1694,12 +1694,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_General_Title",
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "320301bc9d7a2674ab3de4cdaba7aae3",
-      "m_SubObjectName": "DLC1_Valley_NPC_Telerien_Purevoice_MerchantPhoto",
+      "m_AssetGUID": "48d144ea04a872a4cb9d845396e9fbb3",
+      "m_SubObjectName": "DLC3_NPC_SouthernClans_Weapons_Merchant_Photo",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

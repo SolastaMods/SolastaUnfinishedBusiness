@@ -214,7 +214,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "fc4318aa71f08ac4d9a9b321c990e498",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -342,8 +342,8 @@
   "projectileBone": "Head",
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
-  "useAnimationTag": false,
-  "animationTag": "NoWeapon",
+  "useAnimationTag": true,
+  "animationTag": "Javelin",
   "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

@@ -1694,12 +1694,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_General_Title",
+    "title": "NPC/&DLC3_NPC_Kaupaa_Merchant_Clan_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "320301bc9d7a2674ab3de4cdaba7aae3",
-      "m_SubObjectName": "DLC1_Valley_NPC_Telerien_Purevoice_MerchantPhoto",
+      "m_AssetGUID": "2eb03f7a046ff85498c6839f6f9c1b44",
+      "m_SubObjectName": "DLC3_NPC_SouthernClans_Clan_Merchant_Photo",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

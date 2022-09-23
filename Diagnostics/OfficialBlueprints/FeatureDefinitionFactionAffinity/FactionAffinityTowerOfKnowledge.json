@@ -6,7 +6,10 @@
     "factionName": "TowerOfKnowledge",
     "value": 5,
     "statusName": "",
-    "prominentMember": null
+    "prominentMember": null,
+    "investigationReputationLossOverride": false,
+    "investigation": "",
+    "investigationSuspect": ""
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

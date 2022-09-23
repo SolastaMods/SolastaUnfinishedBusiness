@@ -92,7 +92,8 @@
           "revealedTags": [
             "Magical"
           ],
-          "rangeCells": 6
+          "rangeCells": 6,
+          "silent": false
         },
         "hasFilterId": false,
         "filterId": 0

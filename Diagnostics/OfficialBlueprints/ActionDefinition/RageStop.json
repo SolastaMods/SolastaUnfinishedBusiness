@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerBarbarianRageStop:aa7092dd0c21573439e4325a919c81f3",
   "displayPowerTooltip": false,
   "dieType": "D10",

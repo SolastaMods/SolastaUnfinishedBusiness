@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Construct:35e16f2d735b51a4891a3c2e560cf7dc",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 3,
   "additionalDamageType": "SameAsBaseDamage",

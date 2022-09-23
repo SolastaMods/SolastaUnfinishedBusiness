@@ -493,6 +493,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -518,6 +520,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "eb97cf6bab6dd2545ba68d5d1874b693",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Enchanted_Gauntlet_Of_Sharpness"
 }

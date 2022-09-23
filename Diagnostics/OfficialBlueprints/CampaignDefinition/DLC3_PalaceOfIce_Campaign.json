@@ -1089,7 +1089,7 @@
     },
     {
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
-      "name": "DLC3_Campaign_NPC_NPC_NorthernClans_Leader_Status",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Leader_Status",
       "type": "String",
       "boolValue": true,
       "intValue": 0,
@@ -1449,8 +1449,48 @@
     },
     {
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
-      "name": "DLC3_Campaign_NPC_NPC_ElvenClans_Leader_Status",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Leader_Status",
       "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Good_Giant_Attacked_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Good_Giant_Got_Artefact_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Spoke_With_Heddlon_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_Gather_Vote_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Leader_InTeam",
+      "type": "Bool",
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"

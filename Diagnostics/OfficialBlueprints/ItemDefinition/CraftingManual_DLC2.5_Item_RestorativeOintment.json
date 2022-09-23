@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "Crafting",
   "weight": 1.0,
   "slotTypes": [
@@ -205,6 +205,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -230,6 +232,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "2e685b93a8e898040a2939e061c640b1",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "CraftingManual_DLC2.5_Item_RestorativeOintment"
 }

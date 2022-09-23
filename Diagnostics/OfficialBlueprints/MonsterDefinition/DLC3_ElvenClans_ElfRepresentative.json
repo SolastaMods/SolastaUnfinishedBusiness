@@ -264,8 +264,8 @@
     "description": "!PH!",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "334e44627fd0cea499de51c725994a4b",
-      "m_SubObjectName": "CustomPortrait_DLC3_GarradMiles",
+      "m_AssetGUID": "f738f423c69bf0543aded651352f403a",
+      "m_SubObjectName": "CustomPortrait_DLC3_NPC_ElvenClans_Representative",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

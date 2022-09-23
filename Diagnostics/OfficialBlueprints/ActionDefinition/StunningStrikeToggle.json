@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerMonkStunningStrike:5e112de763b0d40428c65e6b825a2f74",
   "displayPowerTooltip": false,
   "dieType": "D10",

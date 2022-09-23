@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerPatronTimekeeperTimeWarp:23f12fe3e7f54cc499393173c98844d4",
   "displayPowerTooltip": false,
   "dieType": "D10",

@@ -24,7 +24,7 @@
     "a": 1.0
   },
   "replaceEyeColorMask": false,
-  "bodyDecorationType": "Paintings",
+  "bodyDecorationType": "Tattoo",
   "bodyDecorationBlendFactor": 1.0,
   "minMaxValue": {
     "$type": "TA.RangedFloat, Assembly-CSharp",

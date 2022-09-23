@@ -9,7 +9,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:StaffOfFire:e1b08f5199cc7bd4ea614e42b7aec067",
+      "itemDefinition": "Definition:WandOfLightningBolts:ed39d2c184af32e448f0cf956d2af68b",
       "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
       "autoIdentify": false
     },
@@ -19,7 +19,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+      "itemDefinition": "Definition:RingOfPoisonResistance:595d93ba45ae672469317bf4f8417317",
       "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
       "autoIdentify": false
     },
@@ -140,6 +140,36 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:AmuletOfHealth:9e078ea9c920ae345bb2f1651a8c63fb",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Quarterstaff+1:a5d5caa1f56066e49970b83429c11e94",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:WizardClothes_Alternate:2cd3a9c1d81fbf743855802fd150b47c",
       "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_Potions_Table:329f8ed15f9e8c9478daf906f80ba032",
       "autoIdentify": false
     }

@@ -1,6 +1,7 @@
 {
   "$type": "MusicalInstrumentTypeDefinition, Assembly-CSharp",
   "animationTag": "Woodwinds",
+  "isCompatibleWithSpellVocalization": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

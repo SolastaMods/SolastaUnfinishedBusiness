@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "All",
   "weight": 1.0,
   "slotTypes": [
@@ -202,6 +202,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -227,6 +229,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "bf3245124743f6340804f14ffb022fa1",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "Lute"
 }

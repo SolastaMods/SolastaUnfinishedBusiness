@@ -191,9 +191,11 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Equipment/&BeltOfGiantFire_Title",
     "description": "Equipment/&BeltOfGiantHillStrength_Description",
     "spriteReference": {

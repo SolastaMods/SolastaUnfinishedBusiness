@@ -1,5 +1,6 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "tag": "draconic",
   "damageType": "DamageFire",
   "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_04",
   "myselfFamilyRestrictions": [],

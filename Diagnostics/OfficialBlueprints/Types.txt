@@ -21,6 +21,7 @@ CharacterSizeDefinition
 CharacterSubclassDefinition
 CharacterTemplateDefinition
 CharacterToLootPackMapDefinition
+ClueDefinition
 ConditionDefinition
 ContentPackDefinition
 CurrencyDefinition
@@ -90,6 +91,7 @@ GadgetBlueprint
 GadgetDefinition
 HumanoidMonsterPresentationDefinition
 InventoryDefinition
+InvestigationDefinition
 InvocationDefinition
 ItemDefinition
 ItemFlagDefinition

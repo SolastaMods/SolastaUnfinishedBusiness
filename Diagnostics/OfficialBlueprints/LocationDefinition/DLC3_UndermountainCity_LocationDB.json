@@ -197,8 +197,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "description": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "edfc074809178684c80a14bd12df1a42",

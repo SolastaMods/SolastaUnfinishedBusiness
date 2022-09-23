@@ -181,7 +181,7 @@
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": false,
   "hasPriorityForTeleporter": false,
-  "canAttackNonHostileCharacters": false,
+  "canAttackNonHostileCharacters": true,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
   "disablePlayerLightCastShadows": false,

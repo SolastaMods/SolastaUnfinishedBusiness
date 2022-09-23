@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerEyebiteSickened:c5b18871e7914624ea2cbbd847303907",
   "displayPowerTooltip": false,
   "dieType": "D10",

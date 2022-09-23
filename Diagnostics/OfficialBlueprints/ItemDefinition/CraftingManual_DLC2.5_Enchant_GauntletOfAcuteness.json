@@ -205,6 +205,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -230,6 +232,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "399e4a1116d2d74409a87ddaecf27e25",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "CraftingManual_DLC2.5_Enchant_GauntletOfAcuteness"
 }

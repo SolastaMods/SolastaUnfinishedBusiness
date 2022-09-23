@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerKindredSpiritRage:4f705331245c8e447a3dae762892d74f",
   "displayPowerTooltip": false,
   "dieType": "D10",

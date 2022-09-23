@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Fey:63797643242429841b1409512f4b487e",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "TargetKnowledgeLevel",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",

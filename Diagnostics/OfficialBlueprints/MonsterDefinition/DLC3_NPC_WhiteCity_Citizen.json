@@ -253,8 +253,8 @@
     "description": "NPC/&DLC3_NPC_WhiteCity_Citizen_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bf97b45245cdd7c43beac1c8c0344402",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Guard",
+      "m_AssetGUID": "9b31a13f2c700be45a74c6f7a34550d9",
+      "m_SubObjectName": "CustomPortrait_DLC3_WhiteCity_Citizen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

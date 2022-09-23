@@ -7,10 +7,11 @@
   "skinMorphotype": "FaceAndSkinPale",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 22.7,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_C",
   "hairShapeMorphotype": "HairShape_V",
-  "hairColorMorphotype": "HairColor_03",
+  "hairColorMorphotype": "HairColor_41",
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_013",
@@ -57,12 +58,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! female elven civilian 1 !PH!",
-    "description": "!PH!",
+    "title": "NPC/&NPC_DLC3_Berghild_StrongSpine",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1aebc3cc8fdacaa478851f02e671d410",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_Grimhild_DarkHead",
+      "m_AssetGUID": "5a0b36050035f804c89fc0a6ebac72a7",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Undermountain_Berghild_StronSpine",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

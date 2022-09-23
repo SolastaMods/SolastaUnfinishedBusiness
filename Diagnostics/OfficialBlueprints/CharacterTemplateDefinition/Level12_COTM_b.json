@@ -20,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinObsidian",
   "musculatureMorphotypeValue": 60.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_E",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBrown",

@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_B",
@@ -19,37 +20,37 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesNoble_Valley",
+  "armorDefinition": "GreenmageArmor",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 0.0
+    "r": 0.8867924,
+    "g": 0.6927582,
+    "b": 0.5981665,
+    "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 0.0
+    "r": 0.8018868,
+    "g": 0.8018868,
+    "b": 0.8018868,
+    "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 0.0
+    "r": 1.0,
+    "g": 0.888626754,
+    "b": 0.6462264,
+    "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 0.0
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,

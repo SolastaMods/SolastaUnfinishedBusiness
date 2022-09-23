@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Monstrosity:a92853e018071294ea85fb0fa954a799",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 3,
   "additionalDamageType": "SameAsBaseDamage",

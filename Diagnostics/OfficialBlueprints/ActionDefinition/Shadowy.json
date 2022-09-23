@@ -19,6 +19,7 @@
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerRoguishDarkweaverShadowy:0c819515e2325fb49b198a813dc6c053",
   "displayPowerTooltip": false,
   "dieType": "D10",

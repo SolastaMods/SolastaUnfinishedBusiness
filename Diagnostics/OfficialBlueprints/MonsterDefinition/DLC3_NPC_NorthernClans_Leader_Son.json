@@ -165,9 +165,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Cousin_Of_Vigdis:9b43091e2a0410b438439d7bde0476f2"
+      "Definition:NPC_Presentation_DLC3_Northern_Leader_Son:1f60401c0ad7a1b469247de6be37424b"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -261,7 +261,7 @@
   "followFloorAngle": false,
   "groupAttacks": false,
   "isUnique": true,
-  "uniqueNameId": "DLC3_NPC_NorthernClans_Leader",
+  "uniqueNameId": "DLC3_NPC_NorthernClans_Leader_Son",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -269,8 +269,8 @@
     "description": "NPC/&DLC3_NPC_NorthernClans_Leader_Son_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "998438b5f78d3ff41888ab4a5a054616",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_WhiteCity_Gorn",
+      "m_AssetGUID": "938f117d47d4ea141b306b349fdfa212",
+      "m_SubObjectName": "CustomPortrait_DLC3_NPC_NorthernClans_Leader_Son",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

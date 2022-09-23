@@ -7,6 +7,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 90.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_CA_A",
   "hairShapeMorphotype": "HairShape_A",
@@ -57,12 +58,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&NPC_CityGuardTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "NPC/&NPC_DL3_GarradSoldier_05",
+    "description": "NPC/&NPC_DLC3_PrincipalitySoldier_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "97172d18d5a8a0a459f19cb1ea84dbc8",
-      "m_SubObjectName": "NPC_Presentation_CaerCyflenCityGuard_male_01",
+      "m_AssetGUID": "8e9146dd795cffc4781549954707ab39",
+      "m_SubObjectName": "NPC_Presentation_GarradSoldier_male_01",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

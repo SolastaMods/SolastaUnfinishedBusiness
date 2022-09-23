@@ -204,6 +204,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -229,6 +231,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "b43a625a3b5fe4f498a5756618ab0c0a",
-  "contentPack": "LostValley",
+  "contentPack": "InnerStrength",
   "name": "Bracers_Of_StunningStrike"
 }

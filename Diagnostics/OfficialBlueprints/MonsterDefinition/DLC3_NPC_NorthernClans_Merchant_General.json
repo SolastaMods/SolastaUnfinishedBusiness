@@ -4,46 +4,71 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "DLC3_Faction_SouthernClan",
+  "defaultFaction": "DLC3_Faction_NorthernClan",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulGood",
   "armorClass": 20,
-  "armor": "HalfPlate",
-  "hitDice": 8,
-  "hitDiceType": "D10",
-  "hitPointsBonus": 24,
-  "standardHitPoints": 68,
+  "armor": "Plate",
+  "hitDice": 10,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 40,
+  "standardHitPoints": 93,
   "abilityScores": [
-    16,
-    12,
-    16,
+    14,
+    11,
+    18,
     10,
-    10,
-    12
+    20,
+    10
   ],
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Constitution",
-      "bonus": 5
+      "bonus": 6
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Strength",
-      "bonus": 5
+      "bonus": 2
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 4
     }
   ],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Stealth",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
-      "bonus": 5
+      "bonus": 2
     },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
-      "bonus": 2
+      "bonus": 5
     }
   ],
   "legendaryCreature": false,
@@ -51,7 +76,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
+  "defaultBattleDecisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -77,12 +102,14 @@
   },
   "languages": [
     "Language_Common",
-    "Language_Dwarvish"
+    "Language_Dwarvish",
+    "Language_Terran",
+    "Language_Giant"
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 6.0,
-  "challengeRating": 3.0,
+  "challengeRating": 4.0,
   "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
@@ -93,21 +120,10 @@
     "Definition:SavingThrowAffinityDwarvenPlate:92fa98ccbf88dc5489188b4cb692cb36",
     "Definition:AbilityCheckAffinityDwarfSnowCamouflage:4155a5a3ace202b4da7c4e71b71c0857",
     "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
-    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
-    "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b"
+    "Definition:CastSpell_DLC3_Vigdis:cf833df47f362f947b1311458f89dd49",
+    "Definition:PowerDomainBattleHeraldOfBattle:efe7d4d84e723ed47bdbf24c27f64966"
   ],
-  "attackIterations": [
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_DLC3_SouthernClanSoldierBattleAxe:f41b5394ca78da64f81bb8a0a9416317"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_DLC3_SouthernClanSoldierCrossbow:c263e6678d0243143900b96752bbb053"
-    }
-  ],
+  "attackIterations": [],
   "sneakStance": "Stealth",
   "patrolStance": "SlowWalk",
   "interceptStance": "Run",
@@ -140,7 +156,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_WhiteCity_Trapper_Family_Neighbour:f750ad34265526b44b03eaae4954556f"
+      "Definition:NPC_Presentation_DLC3_SouthernClans_Merchant_General:519e17799fd6be541b1ac4254c2a0e26"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -234,16 +250,16 @@
   "followFloorAngle": false,
   "groupAttacks": false,
   "isUnique": true,
-  "uniqueNameId": "DLC3_NPC_WhiteCity_Trapper_Family_Neighbour",
+  "uniqueNameId": "DLC3_NPC_SouthernClans_Merchant_General",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Family Neighbour",
-    "description": "!PH! Family Neighbour",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_General_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Merchant_General_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e530e01b99e72264b9dfbef91f727b3c",
-      "m_SubObjectName": "CustomPortrait_DLC3_WhiteCity_Trapper_Family_Neighbour",
+      "m_AssetGUID": "f18ac0b5c95a92c48868be7d6fd093ee",
+      "m_SubObjectName": "CustomPortrait_DLC3_NorthernClans_Merchant_General",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -259,7 +275,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
-  "guid": "e79a990a3f7ff9a4e89fef940765d281",
+  "guid": "fc8a6d4f9935e074b83d1a9a598011b5",
   "contentPack": "PalaceOfIce",
-  "name": "DLC3_NPC_WhiteCity_Trapper_Family_Neighbour"
+  "name": "DLC3_NPC_NorthernClans_Merchant_General"
 }
