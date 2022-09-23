@@ -65,6 +65,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 string.Empty,
                 RuleDefinitions.AdditionalDamageAdvancement.None,
                 new List<DiceByRank>())
+            .SetNotificationTag("ArcaneFighter")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

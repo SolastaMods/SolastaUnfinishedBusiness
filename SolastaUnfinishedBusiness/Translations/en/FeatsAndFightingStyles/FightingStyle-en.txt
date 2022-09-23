@@ -9,4 +9,4 @@ FightingStyle/&TitanTitle=Titan Fighting
 Feature/&AdditionalDamageCripplingDescription=Crippling Damage.
 Feature/&AdditionalDamageCripplingTitle=Crippling
 Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!
-Feedback/&AdditionalDamageCripplingLine={0} attacks {1} with crippling damage.
+Feedback/&AdditionalDamageCripplingLine={0} attacks {1} with +{2} crippling damage.
