@@ -1,5 +1,5 @@
-Feature/&PowerFunctionHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15 feet closer to you.
-Feature/&PowerFunctionHandwrapsOfPullingTitle=Reel In
+Feature/&PowerHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15 feet closer to you.
+Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Extra damage from Lighting Spear.
 Feedback/&ExtraDamageTitle=Lightning Spear extra damage
 Item/&Armor_Noble_ClothesTitle_Cherry=Cherry Noble's Clothes

@@ -158,7 +158,7 @@ internal static class DarkelfSubraceBuilder
 
         darkelfRacePresentation.surNameOptions = new List<string>();
 
-        for (var i = 0; i < 5; i++)
+        for (var i = 1; i <= 5; i++)
         {
             darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
         }
