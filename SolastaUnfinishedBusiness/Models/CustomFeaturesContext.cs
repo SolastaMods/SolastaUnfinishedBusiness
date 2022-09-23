@@ -16,34 +16,30 @@ public static class CustomFeaturesContext
     {
         foreach (var grantedFeature in features)
         {
-            if (grantedFeature is FeatureDefinitionFeatureSet
+            switch (grantedFeature)
+            {
+                case FeatureDefinitionFeatureSet
                 {
                     Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
-                } featureDefinitionFeatureSet)
-            {
-                RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
-            }
+                } featureDefinitionFeatureSet:
+                    RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
+                    break;
 
-            if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
-            {
-                customFeature.ApplyFeature(hero, tag);
-            }
+                case IFeatureDefinitionCustomCode customFeature:
+                    customFeature.ApplyFeature(hero, tag);
+                    break;
 
-            if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
-            {
-                continue;
+                case FeatureDefinitionProficiency
+                {
+                    ProficiencyType: RuleDefinitions.ProficiencyType.FightingStyle
+                } featureDefinitionProficiency:
+                    featureDefinitionProficiency.Proficiencies
+                        .ForEach(prof =>
+                            hero.TrainedFightingStyles
+                                .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
+                                    .GetElement(prof)));
+                    break;
             }
-
-            if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
-            {
-                continue;
-            }
-
-            featureDefinitionProficiency.Proficiencies
-                .ForEach(prof =>
-                    hero.TrainedFightingStyles
-                        .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
-                            .GetElement(prof)));
         }
     }
 
@@ -406,6 +402,7 @@ public static class CustomFeaturesContext
         }
 
         var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
         if (usablePower == null)
         {
             return 0;
@@ -437,17 +434,18 @@ public static class CustomFeaturesContext
 
     private static EffectDescription GetCachedEffect(RulesetCharacter caster, SpellDefinition spell)
     {
-        if (!SpellEffectCache.TryGetValue(caster.Guid, out var efefcts))
+        if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
             return null;
         }
 
-        return !efefcts.TryGetValue(spell.Name, out var effect) ? null : effect;
+        return !effects.TryGetValue(spell.Name, out var effect) ? null : effect;
     }
 
     private static void CacheEffect(RulesetCharacter caster, SpellDefinition spell, EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
+        
         if (!SpellEffectCache.ContainsKey(caster.Guid))
         {
             effects = new Dictionary<string, EffectDescription>();
@@ -479,18 +477,21 @@ public static class CustomFeaturesContext
         }
 
         var cached = GetCachedEffect(caster, spell);
+
         if (cached != null)
         {
             return cached;
         }
 
         var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+
         if (baseDefinition != null)
         {
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
 
         var modifiers = caster.GetSubFeaturesByType<IModifySpellEffect>();
+
         modifiers.AddRange(spell.GetAllSubFeaturesOfType<IModifySpellEffect>());
 
         if (!modifiers.Empty())
@@ -499,6 +500,7 @@ public static class CustomFeaturesContext
         }
 
         CacheEffect(caster, spell, result);
+
         return result;
     }
 

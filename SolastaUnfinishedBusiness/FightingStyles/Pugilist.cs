@@ -38,12 +38,9 @@ internal sealed class Pugilist : AbstractFightingStyle
             return instance;
         }
 
-        var gui = GuiPresentationBuilder.Build("Pugilist", Category.FightingStyle,
-            PathBerserker.GuiPresentation.SpriteReference);
-
         var actionAffinityPugilist = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityFightingStylePugilist")
-            .SetGuiPresentation(gui)
+            .SetGuiPresentation("Pugilist", Category.FightingStyle)
             .SetDefaultAllowedActonTypes()
             .SetAuthorizedActions(Id.ShoveBonus)
             .SetCustomSubFeatures(
@@ -56,7 +53,7 @@ internal sealed class Pugilist : AbstractFightingStyle
         instance = CustomizableFightingStyleBuilder
             .Create("Pugilist")
             .SetFeatures(actionAffinityPugilist)
-            .SetGuiPresentation(gui)
+            .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
             .SetIsActive(_ => true)
             .AddToDB();
 
@@ -106,6 +103,7 @@ internal static class PugilistFightingStyle
             }
 
             var operand = x.operand.ToString();
+
             return operand.Contains("IsWearingShield");
         });
 
