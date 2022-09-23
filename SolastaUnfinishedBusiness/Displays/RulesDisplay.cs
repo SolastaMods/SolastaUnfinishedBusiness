@@ -78,6 +78,8 @@ internal static class RulesDisplay
             }
         }
 
+        UI.Label("");
+
         toggle = Main.Settings.FixSorcererTwinnedLogic;
         if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
         {
@@ -90,8 +92,6 @@ internal static class RulesDisplay
             Main.Settings.FullyControlConjurations = toggle;
             ConjurationsContext.SwitchFullyControlConjurations();
         }
-
-        UI.Label("");
 
         toggle = Main.Settings.ApplySrdWeightToFoodRations;
         if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
