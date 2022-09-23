@@ -101,7 +101,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Dexterity,
-                RuleDefinitions.ActivationTime.OnSneakAttackHit,
+                RuleDefinitions.ActivationTime.OnSneakAttackHitAuto,
                 1,
                 RuleDefinitions.RechargeRate.AtWill,
                 false,
