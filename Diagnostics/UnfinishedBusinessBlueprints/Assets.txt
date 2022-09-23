@@ -708,7 +708,6 @@ PowerForestGuardianImprovedBarkWard	FeatureDefinitionPower	FeatureDefinition	4ec
 PowerForestGuardianSuperiorBarkWard	FeatureDefinitionPower	FeatureDefinition	5de5f27f-42d3-58a5-8fdd-52a78cf03ffd
 PowerGrayDwarfInvisibility	FeatureDefinitionPower	FeatureDefinition	c4864fef-ecc0-5cf5-bb63-638addf6e90a
 PowerGrayDwarfStoneStrength	FeatureDefinitionPower	FeatureDefinition	a3310dbb-532e-56a8-ba7d-cb855cabe127
-PowerHandwrapsOfPulling	FeatureDefinitionPower	FeatureDefinition	81b318cf-8220-5876-bac8-996c44adcdb9
 PowerHelp	FeatureDefinitionPower	FeatureDefinition	faded953-56c9-55e9-aa49-54a485c1de6d
 PowerMarshalEncouragement	FeatureDefinitionPower	FeatureDefinition	ab673a53-16f2-54af-9ed2-cb2b5bba27c8
 PowerMarshalStudyYourEnemy	FeatureDefinitionPower	FeatureDefinition	5ffa497a-ec15-5eae-b269-eb730978fa05
@@ -1099,7 +1098,6 @@ PowerForestGuardianImprovedBarkWard	FeatureDefinitionPower	FeatureDefinitionPowe
 PowerForestGuardianSuperiorBarkWard	FeatureDefinitionPower	FeatureDefinitionPower	5de5f27f-42d3-58a5-8fdd-52a78cf03ffd
 PowerGrayDwarfInvisibility	FeatureDefinitionPower	FeatureDefinitionPower	c4864fef-ecc0-5cf5-bb63-638addf6e90a
 PowerGrayDwarfStoneStrength	FeatureDefinitionPower	FeatureDefinitionPower	a3310dbb-532e-56a8-ba7d-cb855cabe127
-PowerHandwrapsOfPulling	FeatureDefinitionPower	FeatureDefinitionPower	81b318cf-8220-5876-bac8-996c44adcdb9
 PowerHelp	FeatureDefinitionPower	FeatureDefinitionPower	faded953-56c9-55e9-aa49-54a485c1de6d
 PowerMarshalEncouragement	FeatureDefinitionPower	FeatureDefinitionPower	ab673a53-16f2-54af-9ed2-cb2b5bba27c8
 PowerMarshalStudyYourEnemy	FeatureDefinitionPower	FeatureDefinitionPower	5ffa497a-ec15-5eae-b269-eb730978fa05
@@ -1692,7 +1690,6 @@ CraftingManualRecipeEnchantCEPikePsychic	ItemDefinition	ItemDefinition	fc6a3e9f-
 CraftingManualRecipeEnchantHandwraps+1	ItemDefinition	ItemDefinition	7ef8f698-c842-5d79-aca2-c981bbeb753d
 CraftingManualRecipeEnchantHandwraps+2	ItemDefinition	ItemDefinition	86df1d22-6dd5-585c-9a76-6c8e04cd1432
 CraftingManualRecipeEnchantHandwrapsOfForce	ItemDefinition	ItemDefinition	e9c8acc9-50a6-5f99-b517-7a04f9149ff6
-CraftingManualRecipeEnchantHandwrapsOfPulling	ItemDefinition	ItemDefinition	62b95471-8dc7-5785-89c1-7b23614e58b6
 CraftingManualRecipePrimingCEHalberd	ItemDefinition	ItemDefinition	ce536b56-a82c-50fa-908a-bfe5ede6512b
 CraftingManualRecipePrimingCEHandXbow	ItemDefinition	ItemDefinition	d35aac6b-5d27-520f-a085-e723c3c7f0f7
 CraftingManualRecipePrimingCELongMace	ItemDefinition	ItemDefinition	305ae287-759d-5b53-a3a7-242696ca694b
@@ -1720,7 +1717,6 @@ Handaxe_Souldrinker	ItemDefinition	ItemDefinition	d643f216-9d4c-5780-b6cb-81cd29
 Handwraps+1	ItemDefinition	ItemDefinition	6268865e-345f-50c1-8566-2da9bde4cb3e
 Handwraps+2	ItemDefinition	ItemDefinition	8adf7736-d5f2-5af1-9745-e40d4dc63507
 HandwrapsOfForce	ItemDefinition	ItemDefinition	fd4c1520-fb0e-56f5-ba86-4ef7ad9b0b70
-HandwrapsOfPulling	ItemDefinition	ItemDefinition	7a06ecde-1316-58ad-89e6-2b4edbf999cb
 HeavyCrossbow_Accuracy	ItemDefinition	ItemDefinition	4d4df48f-849c-5744-9e29-135fbaa7722c
 HeavyCrossbow_Lightbringer	ItemDefinition	ItemDefinition	85b045cb-677e-5276-9904-190ccdfa1282
 HeavyCrossbow_Medusa	ItemDefinition	ItemDefinition	3373bb03-7d49-5a2e-9b23-4045e0ff4806
@@ -2826,6 +2822,8 @@ FireBasin_B~Necropolis~MOD	PropBlueprint	PropBlueprint	99f44a87-e6a5-5902-bf35-b
 Fireplace~Stronghold~MOD	PropBlueprint	PropBlueprint	c13c13c4-4db8-5562-a553-8bf5bbabec2c
 FireplaceTavern~CityValley~MOD	PropBlueprint	PropBlueprint	4c467526-1726-5fe8-a646-1de6cf3fcc05
 FireplaceTavern~TownInterior~MOD	PropBlueprint	PropBlueprint	b924baef-8bcd-54dc-87ca-0eda9fa6090b
+FlagTavern_High~CityValley~MOD	PropBlueprint	PropBlueprint	4a1d7efa-c42a-5cf0-844f-6e6e2ca85b07
+FlagTavern_High~TownInterior~MOD	PropBlueprint	PropBlueprint	ef45b8fe-8007-57e5-b26c-c099c86b2a7c
 FlagTavern~CityValley~MOD	PropBlueprint	PropBlueprint	6956f1a0-bda6-5f0a-b241-9923c317ba27
 FlagTavern~TownInterior~MOD	PropBlueprint	PropBlueprint	7c6ff67a-d338-5d6f-a6c2-5fdb39aea059
 Fountain_A~CityValley~MOD	PropBlueprint	PropBlueprint	5f102fd0-216d-5430-86f2-b5b5e81d6d1a
@@ -2904,12 +2902,16 @@ HayStack_A~WoodLand~MOD	PropBlueprint	PropBlueprint	a3080b81-a117-5b25-a80c-0c16
 HayStack_B~CityValley~MOD	PropBlueprint	PropBlueprint	3a0a05b0-db61-50bc-8f89-e3742509ab46
 HayStack_B~Town~MOD	PropBlueprint	PropBlueprint	8aeeba59-7e8f-5b19-bbfd-847225d50549
 HayStack_B~WoodLand~MOD	PropBlueprint	PropBlueprint	62cc1123-2455-5a2d-b32c-b05b76d36108
+House_A_Doors~Town~MOD	PropBlueprint	PropBlueprint	478d9934-c1c8-54f0-9e69-5760472763fb
 House_A~CityValley~MOD	PropBlueprint	PropBlueprint	7bf7b662-cd1e-56eb-86e0-3af39eff8362
 House_A~Town~MOD	PropBlueprint	PropBlueprint	e50c438d-57fd-5d9f-8fc4-a760eab531e7
+House_B_Doors~Town~MOD	PropBlueprint	PropBlueprint	89e16faf-5e5f-5ac4-9d14-e0d61038aabf
 House_B~CityValley~MOD	PropBlueprint	PropBlueprint	6d68cce2-4e5e-5bba-8257-2a433e46aed6
 House_B~Town~MOD	PropBlueprint	PropBlueprint	24784850-6762-546e-a126-1179e089069e
+House_C_Doors~Town~MOD	PropBlueprint	PropBlueprint	43c3a98b-78fb-5c3d-9457-d0fe1b65b614
 House_C~CityValley~MOD	PropBlueprint	PropBlueprint	c0160d48-a50b-508a-9c7b-dd75be3d9214
 House_C~Town~MOD	PropBlueprint	PropBlueprint	5e2b2b9f-e4c4-55f3-836c-f2e018fc32a9
+House_D_Doors~Town~MOD	PropBlueprint	PropBlueprint	7500fe63-034e-5a24-bfd4-55fedbb5e6ea
 House_D~CityValley~MOD	PropBlueprint	PropBlueprint	bfde61f6-630d-5f4d-b379-db6144f71100
 House_D~Town~MOD	PropBlueprint	PropBlueprint	429ea608-2d5e-5f6b-b7c1-ed58e0bf5a31
 House_E~CityValley~MOD	PropBlueprint	PropBlueprint	83d8abfa-e8b0-5d7f-88a0-afd48eab43d1
@@ -2928,8 +2930,10 @@ House_Extension_F~CityValley~MOD	PropBlueprint	PropBlueprint	22c4e2ee-1a63-573a-
 House_Extension_F~Town~MOD	PropBlueprint	PropBlueprint	546b9455-fef2-5682-8af9-2e70e9f1772a
 House_F~CityValley~MOD	PropBlueprint	PropBlueprint	d4adefdf-c23c-56be-936d-be836cf3eb29
 House_F~Town~MOD	PropBlueprint	PropBlueprint	499c95ea-3b84-5ece-8ae0-be26a66b6a23
+House_G_Doors~Town~MOD	PropBlueprint	PropBlueprint	5ba1c7d0-d9bd-511f-afee-979a767856ed
 House_G~CityValley~MOD	PropBlueprint	PropBlueprint	60127a28-f032-5191-9f3e-8dee2ee7bca6
 House_G~Town~MOD	PropBlueprint	PropBlueprint	89ba9c60-e584-5f7d-b973-fda7b3d2d429
+House_H_Doors~Town~MOD	PropBlueprint	PropBlueprint	228f8cf6-d59a-5667-b5af-a89deb60a315
 House_H~CityValley~MOD	PropBlueprint	PropBlueprint	1d64b01b-f50b-547d-b1b9-56ddd127b6e7
 House_H~Town~MOD	PropBlueprint	PropBlueprint	9935ffc8-f5be-5e23-bb45-70bc1a41454d
 House_I~CityValley~MOD	PropBlueprint	PropBlueprint	17fd6ece-f4cb-518d-90e8-89bd95a39e6d
@@ -4078,7 +4082,6 @@ RecipeEnchantCEPikePsychic	RecipeDefinition	RecipeDefinition	820c7187-1191-5bfa-
 RecipeEnchantHandwraps+1	RecipeDefinition	RecipeDefinition	38343791-f216-5291-92da-e20f9e6df878
 RecipeEnchantHandwraps+2	RecipeDefinition	RecipeDefinition	a3ee4105-1ea3-5425-a8f2-b5973fddbba4
 RecipeEnchantHandwrapsOfForce	RecipeDefinition	RecipeDefinition	5bfb30ca-2a2f-5508-a4ba-529998b6458c
-RecipeEnchantHandwrapsOfPulling	RecipeDefinition	RecipeDefinition	e48d3697-5026-5d07-9a64-46166548f55d
 RecipeEnchantingBreastplate_Deflection	RecipeDefinition	RecipeDefinition	6ca12d31-b81c-5348-8313-74f1ba73c500
 RecipeEnchantingBreastplate_FlameDancing	RecipeDefinition	RecipeDefinition	54444667-d48d-55d8-b2cc-ec5e5ce2ab0b
 RecipeEnchantingBreastplate_FrostWalking	RecipeDefinition	RecipeDefinition	6286eff2-f4e0-55d7-9da6-b46e0f925343

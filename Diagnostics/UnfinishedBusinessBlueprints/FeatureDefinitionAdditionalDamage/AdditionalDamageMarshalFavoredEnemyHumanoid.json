@@ -14,6 +14,7 @@
   "requiredCharacterFamily": "Definition:Humanoid:f7aa818c9f44ba84180d6c255337cee8",
   "requiredSpecificSpell": null,
   "damageValueDetermination": "TargetKnowledgeLevel",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
