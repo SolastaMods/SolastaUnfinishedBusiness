@@ -326,7 +326,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
         var powerName = functorParameters.StringParameter;
         var power = PowersBundleContext.GetPower(powerName);
 
-        if (power == null && !DatabaseHelper.TryGetDefinition(powerName, null, out power))
+        if (power == null && !DatabaseHelper.TryGetDefinition(powerName, out power))
         {
             yield break;
         }

@@ -134,8 +134,7 @@ public static class CustomReactionsContext
 
             // toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
             toggle.PersonalityFlagDefinition =
-                DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority",
-                    "80bbfa1a26df10b4e8bb2c6b47a242e3");
+                DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
 
             toggle.PersonalityFlagSelected = (_, _, state) =>
             {

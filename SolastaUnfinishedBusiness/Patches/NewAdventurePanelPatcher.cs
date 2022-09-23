@@ -19,7 +19,7 @@ internal static class NewAdventurePanelPatcher
         internal static void Prefix([NotNull] NewAdventurePanel __instance)
         {
             // overrides campaign party size
-            DatabaseHelper.GetDefinition<CampaignDefinition>("UserCampaign", "c4ba3a35de0abc64988422d261021985")
+            DatabaseHelper.GetDefinition<CampaignDefinition>("UserCampaign")
                 .partySize = Main.Settings.OverridePartySize;
 
             // adds new character plates if required

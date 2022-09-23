@@ -176,7 +176,7 @@ internal static class EncountersSpawnContext
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();
             gameLocationCharacter.RulesetCharacter.SetBaseFaction(
-                DatabaseHelper.GetDefinition<FactionDefinition>("HostileMonsters", "b3e1a16573dc44a4aa95cf40f57471ec"));
+                DatabaseHelper.GetDefinition<FactionDefinition>("HostileMonsters"));
             characters.Add(gameLocationCharacter);
         }
 

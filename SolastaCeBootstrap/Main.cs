@@ -182,6 +182,7 @@ namespace SolastaCeBootstrap
                 "DatabaseIndex",
                 "DateTime",
                 "DecisionDefinition",
+                "DecisionPackageDefinition",
                 "Deity",
                 "DieStyle",
                 "DieType",
@@ -287,7 +288,7 @@ namespace SolastaCeBootstrap
 
             if (asset.AssetType == asset.DatabaseType)
                 WriteLine(stringBuilder,
-                    $"public static {asset.AssetType} {name} {{ get; }} = GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\", \"{asset.Guid}\");",
+                    $"public static {asset.AssetType} {name} {{ get; }} = GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\");",
                     indentCount);
         }
 

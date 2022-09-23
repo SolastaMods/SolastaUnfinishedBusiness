@@ -26,7 +26,7 @@ internal static class WorldGadgetPatcher
             }
 
             var activator =
-                DatabaseHelper.GetDefinition<GadgetDefinition>("Activator", "f05b58c5ba9444743a00057fd713faf2");
+                DatabaseHelper.GetDefinition<GadgetDefinition>("Activator");
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
             var feedbackPosition = __instance.GameGadget.FeedbackPosition;
