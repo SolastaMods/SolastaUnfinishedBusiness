@@ -445,7 +445,7 @@ public static class CustomFeaturesContext
     private static void CacheEffect(RulesetCharacter caster, SpellDefinition spell, EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
-        
+
         if (!SpellEffectCache.ContainsKey(caster.Guid))
         {
             effects = new Dictionary<string, EffectDescription>();

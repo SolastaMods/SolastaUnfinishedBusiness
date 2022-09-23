@@ -8,11 +8,11 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 internal static class UserGadgetPatcher
 {
-    //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
     [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class PostLoadJson_Patch
     {
+        //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
         private static MonsterDefinition.DungeonMaker DungeonMakerPresence()
         {
             return MonsterDefinition.DungeonMaker.Monster;

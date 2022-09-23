@@ -15,13 +15,13 @@ internal static class GameCampaignCharacterPatcher
             // PATCH: BUGFIX: correctly terminate effects on world travel
             // call `RefreshEffectsForRest` instead of `ApplyRestForConditions` for heroes
             // this makes powers and spells that last until rest properly terminate on rest during world travel
-            if (__instance.RulesetCharacter is RulesetCharacterHero hero)
+            if (__instance.RulesetCharacter is not RulesetCharacterHero hero)
             {
-                hero.RefreshEffectsForRest(restType);
-                return false;
+                return true;
             }
 
-            return true;
+            hero.RefreshEffectsForRest(restType);
+            return false;
         }
     }
 }

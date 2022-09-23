@@ -17,7 +17,6 @@ internal static class PowerSelectionPanelPatcher
     private static RectTransform _secondRow;
     private static RectTransform _thirdRow;
 
-    //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
@@ -39,6 +38,7 @@ internal static class PowerSelectionPanelPatcher
             return codes.AsEnumerable();
         }
 
+        //PATCH: remove invalid powers from display using our custom validators
         private static void RemoveInvalidPowers(PowerSelectionPanel panel, RulesetCharacter character)
         {
             var relevantPowers = panel.relevantPowers;
@@ -54,6 +54,7 @@ internal static class PowerSelectionPanelPatcher
             }
         }
 
+        //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
         internal static void Postfix(PowerSelectionPanel __instance)
         {
             if (!Main.Settings.EnableMultiLinePowerPanel)

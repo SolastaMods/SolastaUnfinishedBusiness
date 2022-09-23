@@ -19,6 +19,7 @@ internal static class FunctorTeleportPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Execute_Patch
     {
+        //PATCH: follow characters on teleport
         private static void FollowCharacterOnTeleport(GameLocationCharacter character)
         {
             if (!Main.Settings.FollowCharactersOnTeleport || Gui.GameLocation.UserLocation == null)

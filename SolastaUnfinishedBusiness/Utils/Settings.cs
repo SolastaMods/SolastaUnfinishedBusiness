@@ -62,6 +62,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
+    public bool DontConsumeSlots { get; set; }
 
     //
     // Character - General

@@ -21,4 +21,3 @@ internal static class BaseBlueprintSelectionPanelPatcher
         }
     }
 }
-

@@ -25,8 +25,6 @@ internal static class TacticalAdventuresApplicationPatcher
 
             __result = selectedCampaignService?.SaveGameDirectory ?? DefaultSaveGameDirectory;
 
-            Main.Log($"SaveGameDirectory_get: changed from {DefaultSaveGameDirectory} to {__result}");
-
             return false;
         }
     }

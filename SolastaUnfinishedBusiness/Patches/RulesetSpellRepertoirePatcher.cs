@@ -18,7 +18,7 @@ internal static class RulesetSpellRepertoirePatcher
     {
         internal static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
-            if (slotLevel == 0)
+            if (slotLevel == 0 || Main.Settings.DontConsumeSlots)
             {
                 return true;
             }

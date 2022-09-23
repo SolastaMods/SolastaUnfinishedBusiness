@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
@@ -30,7 +31,7 @@ internal static class CharacterSelectionModalPatcher
     internal static class EnumeratePlates_Patch
     {
         //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
-        public static int MyLevels(IEnumerable<int> levels)
+        private static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();
         }
@@ -38,7 +39,7 @@ internal static class CharacterSelectionModalPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var bypass = 0;
-            var myLevelMethod = typeof(EnumeratePlates_Patch).GetMethod("MyLevels");
+            var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
             foreach (var instruction in instructions)

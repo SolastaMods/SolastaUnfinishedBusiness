@@ -1,4 +1,6 @@
-﻿#if false
+﻿//TODO: enable this back if we ever get CustomSetDescriptions
+
+#if false
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;

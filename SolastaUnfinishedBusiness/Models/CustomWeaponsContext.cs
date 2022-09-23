@@ -163,7 +163,7 @@ public static class CustomWeaponsContext
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
 
-        #if false
+#if false
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.IsUsableDevice = true;
         HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
@@ -197,21 +197,21 @@ public static class CustomWeaponsContext
                     .AddToDB())
                 .Build())
             .Build();
-        #endif
-        
+#endif
+
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)), ShopCrafting));
-        
+
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem)), ShopCrafting));
-        
+
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Soul_Gem)), ShopCrafting));
-        
-        #if false
+
+#if false
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Slavestone)), ShopCrafting));
-        #endif
+#endif
     }
 
     [NotNull]

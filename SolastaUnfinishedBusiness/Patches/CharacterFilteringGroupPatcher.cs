@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -11,7 +12,7 @@ internal static class CharacterFilteringGroupPatcher
     internal static class Compare_Patch
     {
         //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
-        public static int MyLevels(IEnumerable<int> levels)
+        private static int MyLevels(IEnumerable<int> levels)
         {
             return levels.Sum();
         }
@@ -19,7 +20,7 @@ internal static class CharacterFilteringGroupPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var bypass = 0;
-            var myLevelMethod = typeof(Compare_Patch).GetMethod("MyLevels");
+            var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
             foreach (var instruction in instructions)

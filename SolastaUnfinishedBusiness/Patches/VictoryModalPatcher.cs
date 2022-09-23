@@ -11,7 +11,7 @@ internal static class VictoryModalPatcher
 {
     [HarmonyPatch(typeof(VictoryModal), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class VictoryModal_OnBeginShow
+    internal static class OnBeginShow_Patch
     {
         internal static void Prefix([NotNull] VictoryModal __instance)
         {

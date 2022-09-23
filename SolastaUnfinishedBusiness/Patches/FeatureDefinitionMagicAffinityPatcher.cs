@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
@@ -19,7 +20,7 @@ internal static class FeatureDefinitionMagicAffinityPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FormatDescription_Patch
     {
-        public static string FormatSpellList(FeatureDefinitionMagicAffinity instance)
+        private static string FormatSpellList(FeatureDefinitionMagicAffinity instance)
         {
             var description = instance.GuiPresentation.Description;
             var spells = new Dictionary<int, List<SpellDefinition>>();
@@ -52,8 +53,7 @@ internal static class FeatureDefinitionMagicAffinityPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
-            var myFormatMethod =
-                typeof(FormatDescription_Patch).GetMethod("FormatSpellList");
+            var myFormatMethod = new Func<FeatureDefinitionMagicAffinity, string>(FormatSpellList).Method;
             var found = 0;
 
             foreach (var instruction in instructions)

@@ -56,6 +56,3 @@ public class DeviceFunctionDescriptionBuilder
         return description;
     }
 }
-
-
-

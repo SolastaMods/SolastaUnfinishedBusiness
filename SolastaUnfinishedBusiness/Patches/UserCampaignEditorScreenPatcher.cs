@@ -22,7 +22,7 @@ public static class UserCampaignEditorScreen_OnMinLevelEndEdit
         if (Main.Settings.AllowDungeonsMaxLevel20)
         {
             code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
                 .ForEach(x => x.operand = ModMaxLevel);
         }
 
@@ -43,7 +43,7 @@ public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
         if (Main.Settings.AllowDungeonsMaxLevel20)
         {
             code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
                 .ForEach(x => x.operand = ModMaxLevel);
         }
 

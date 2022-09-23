@@ -12,7 +12,7 @@ internal static class SpellActivationBoxPatcher
 {
     [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    internal static class BindSpell_Patch
     {
         private static bool UniqueLevelSlots(
             FeatureDefinitionCastSpell featureDefinitionCastSpell,

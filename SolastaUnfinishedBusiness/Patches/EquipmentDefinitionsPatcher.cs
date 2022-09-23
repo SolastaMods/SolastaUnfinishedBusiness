@@ -81,7 +81,7 @@ internal static class EquipmentDefinitionsPatcher
 internal static class Precision
 {
     // 2^-24
-    private const float FloatEpsilon = 0.0000000596046448f;
+    // private const float FloatEpsilon = 0.0000000596046448f;
 
     // 2^-53
     private const double DoubleEpsilon = 0.00000000000000011102230246251565d;
@@ -98,6 +98,7 @@ internal static class Precision
         return Math.Abs(a - b) < epsilon;
     }
 
+#if false
     public static bool AlmostEquals(this float a, float b, float epsilon = FloatEpsilon)
     {
         // ReSharper disable CompareOfFloatsByEqualityOperator
@@ -109,6 +110,7 @@ internal static class Precision
 
         return Math.Abs(a - b) < epsilon;
     }
+#endif
 }
 
 internal static class SignificantDigits
