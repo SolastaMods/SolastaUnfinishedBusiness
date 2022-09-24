@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Tool",
+  "proficiencies": [
+    "ArtisanToolSmithToolsType",
+    "EnchantingToolType",
+    "HerbalismKitType",
+    "PoisonersKitType",
+    "ScrollKitType",
+    "ThievesToolsType"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ArtisanToolsProficiencyTitle",
+    "description": "Feature/&ArtisanToolsProficiencyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1f7ddfc8-41fb-51b6-8f11-2e10d869b937",
+  "contentPack": 9999,
+  "name": "ProficiencyToolsArtisan"
+}

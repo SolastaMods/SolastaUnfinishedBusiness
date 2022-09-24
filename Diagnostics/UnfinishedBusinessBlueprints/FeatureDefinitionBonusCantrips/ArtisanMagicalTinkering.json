@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
+    "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ArtisanMagicalTinkeringTitle",
+    "description": "Subclass/&ArtisanMagicalTinkeringDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "38ef0ea6-8d81-5510-9bb6-6c326995e4f3",
+  "contentPack": 9999,
+  "name": "ArtisanMagicalTinkering"
+}
