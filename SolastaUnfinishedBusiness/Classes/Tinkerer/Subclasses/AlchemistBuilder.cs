@@ -70,13 +70,14 @@ public static class AlchemistBuilder
         var swiftness = BuildCondition("AlchemistSwiftnessElixirCondition", DurationType.Hour, 1, false,
             swiftnessGui,
             BuildMovementAffinity("AlchemistSwiftnessMovementAffinity", true, 2, 1, swiftnessGui));
-        var cancelSwiftness = new CancelConditionPowerBuilder("CancelElixirSwiftness",
-            "86888f66-c8b2-49db-910a-bde389dd69df",
-            new GuiPresentationBuilder("Subclass/&CancelCancelElixirSwiftnessTitle",
-                    "Subclass/&CancelCancelElixirSwiftnessDescription")
-                .SetSpriteReference(ConditionExpeditiousRetreat.GuiPresentation.SpriteReference).Build(),
-            swiftness).AddToDB();
-        swiftness.Features.Add(cancelSwiftness);
+        //TODO:
+        // var cancelSwiftness = new CancelConditionPowerBuilder("CancelElixirSwiftness",
+        //     "86888f66-c8b2-49db-910a-bde389dd69df",
+        //     new GuiPresentationBuilder("Subclass/&CancelCancelElixirSwiftnessTitle",
+        //             "Subclass/&CancelCancelElixirSwiftnessDescription")
+        //         .SetSpriteReference(ConditionExpeditiousRetreat.GuiPresentation.SpriteReference).Build(),
+        //     swiftness).AddToDB();
+        // swiftness.Features.Add(cancelSwiftness);
         var swiftnessEffect = new EffectDescriptionBuilder();
         var swiftnessForm = new EffectFormBuilder();
         swiftnessForm.SetConditionForm(swiftness, ConditionForm.ConditionOperation.Add, false, false,
@@ -108,13 +109,14 @@ public static class AlchemistBuilder
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass,
                 1, resilienceGui));
-        var cancelResilience = new CancelConditionPowerBuilder("CancelElixirResilience",
-            "4de693d2-f193-4434-8741-57335d7cefdc",
-            new GuiPresentationBuilder("Subclass/&CancelCancelElixirResilienceTitle",
-                    "Subclass/&CancelCancelElixirResilienceDescription")
-                .SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference).Build(),
-            resilience).AddToDB();
-        resilience.Features.Add(cancelResilience);
+        //TODO:
+        // var cancelResilience = new CancelConditionPowerBuilder("CancelElixirResilience",
+        //     "4de693d2-f193-4434-8741-57335d7cefdc",
+        //     new GuiPresentationBuilder("Subclass/&CancelCancelElixirResilienceTitle",
+        //             "Subclass/&CancelCancelElixirResilienceDescription")
+        //         .SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference).Build(),
+        //     resilience).AddToDB();
+        // resilience.Features.Add(cancelResilience);
         var resilienceEffect = new EffectDescriptionBuilder();
         resilienceEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(resilience,
             ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
@@ -157,12 +159,13 @@ public static class AlchemistBuilder
         var fly = BuildCondition("AlchemistFlyElixirCondition", DurationType.Minute, 10, false, flyElixirGui,
             FeatureDefinitionMoveModes.MoveModeFly2);
 
-        var cancelFly = new CancelConditionPowerBuilder("CancelElixirFly", "64385214-7b0f-4372-a12f-8346b2b33884",
-            new GuiPresentationBuilder("Subclass/&CancelCancelElixirFlyTitle",
-                    "Subclass/&CancelCancelElixirFlyDescription")
-                .SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference).Build(),
-            fly).AddToDB();
-        fly.Features.Add(cancelFly);
+        //TODO:
+        // var cancelFly = new CancelConditionPowerBuilder("CancelElixirFly", "64385214-7b0f-4372-a12f-8346b2b33884",
+        //     new GuiPresentationBuilder("Subclass/&CancelCancelElixirFlyTitle",
+        //             "Subclass/&CancelCancelElixirFlyDescription")
+        //         .SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference).Build(),
+        //     fly).AddToDB();
+        // fly.Features.Add(cancelFly);
 
         var flyEffect = new EffectDescriptionBuilder();
         flyEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(fly, ConditionForm.ConditionOperation.Add,

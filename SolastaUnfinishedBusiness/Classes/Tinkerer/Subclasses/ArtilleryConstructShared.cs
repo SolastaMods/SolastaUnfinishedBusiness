@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿#if false
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -745,7 +746,7 @@ internal sealed class HalfCoverShieldAttributeBuilder : FeatureDefinitionAttribu
         Definition.GuiPresentation.Description = "Rules/&HalfCoverShieldAttributeDescription";
 
         Definition.modifiedAttribute = DatabaseHelper.SmartAttributeDefinitions.ArmorClass.Name;
-        Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
+        Definition.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
         Definition.modifierValue = 2;
     }
 
@@ -909,3 +910,4 @@ internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : Featu
         return new SummoningAffinityTinkererArtilleryConstructBuilder(name, guid).AddToDB();
     }
 }
+#endif

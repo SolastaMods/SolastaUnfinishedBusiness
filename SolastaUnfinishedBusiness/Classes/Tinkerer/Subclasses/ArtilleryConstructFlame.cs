@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿#if false
+using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -329,3 +330,4 @@ internal sealed class SummonFlameArtillerySpellConstruct15Builder : SpellDefinit
         return new SummonFlameArtillerySpellConstruct15Builder(name, guid).AddToDB();
     }
 }
+#endif

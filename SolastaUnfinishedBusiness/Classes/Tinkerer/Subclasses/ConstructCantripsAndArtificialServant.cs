@@ -196,7 +196,6 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&ArtificialServantTitle";
         Definition.GuiPresentation.Description = "Feat/&ArtificialServantDescription";
-        Definition.MonsterPresentation.uniqueNameTitle = "Feat/&ArtificialServantTitle";
         Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
         Definition.MonsterPresentation.canGeneratePortrait = true;
         Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;

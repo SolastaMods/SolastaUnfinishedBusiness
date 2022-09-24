@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
+using TA.AI;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
 public class
     CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
-#if false
     public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
     {
         Definition.hitDice = die;
@@ -64,17 +69,17 @@ public class
         return this;
     }
 
-    public CharacterClassDefinitionBuilder AddEquipmentRow(params HeroEquipmentOption[] equipmentList)
+    public CharacterClassDefinitionBuilder AddEquipmentRow(params CharacterClassDefinition.HeroEquipmentOption[] equipmentList)
     {
         return AddEquipmentRow(equipmentList.AsEnumerable());
     }
 
-    public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentList)
+    public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentList)
     {
-        var equipmentColumn = new HeroEquipmentColumn();
+        var equipmentColumn = new CharacterClassDefinition.HeroEquipmentColumn();
         equipmentColumn.EquipmentOptions.AddRange(equipmentList);
 
-        var equipmentRow = new HeroEquipmentRow();
+        var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
         equipmentRow.EquipmentColumns.Add(equipmentColumn);
 
         Definition.EquipmentRows.Add(equipmentRow);
@@ -82,16 +87,16 @@ public class
         return this;
     }
 
-    public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentListA,
-        IEnumerable<HeroEquipmentOption> equipmentListB)
+    public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentListA,
+        IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentListB)
     {
-        var equipmentColumnA = new HeroEquipmentColumn();
+        var equipmentColumnA = new CharacterClassDefinition.HeroEquipmentColumn();
         equipmentColumnA.EquipmentOptions.AddRange(equipmentListA);
 
-        var equipmentColumnB = new HeroEquipmentColumn();
+        var equipmentColumnB = new CharacterClassDefinition.HeroEquipmentColumn();
         equipmentColumnB.EquipmentOptions.AddRange(equipmentListB);
 
-        var equipmentRow = new HeroEquipmentRow();
+        var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
         equipmentRow.EquipmentColumns.Add(equipmentColumnA);
         equipmentRow.EquipmentColumns.Add(equipmentColumnB);
 
@@ -118,8 +123,6 @@ public class
         return this;
     }
 
-#endif
-
     #region Constructors
 
     protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -142,7 +145,6 @@ public class
 
     #endregion
 
-#if false
     #region Tool preference
 
     public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
@@ -286,6 +288,4 @@ public class
 #endif
 
     #endregion
-
-#endif
 }

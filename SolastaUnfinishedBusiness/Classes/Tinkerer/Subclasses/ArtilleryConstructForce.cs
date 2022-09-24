@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿#if false
+using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -410,3 +411,4 @@ internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
         return new ForceArtilleryProjectileBuilder(name, guid).AddToDB();
     }
 }
+#endif

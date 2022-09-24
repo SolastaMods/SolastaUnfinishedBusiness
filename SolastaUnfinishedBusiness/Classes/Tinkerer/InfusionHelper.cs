@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
@@ -10,8 +11,7 @@ using UnityEngine;
 using static SolastaUnfinishedBusiness.Classes.Tinkerer.FeatureHelpers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using FeatureDefinitionMagicAffinityBuilder =
-    SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionMagicAffinityBuilder;
+using FeatureDefinitionMagicAffinityBuilder = SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionMagicAffinityBuilder;
 
 namespace SolastaUnfinishedBusiness.Classes.Tinkerer;
 
@@ -137,7 +137,7 @@ internal static class InfusionHelpers
                 RuleDefinitions.ActivationTime.NoCost,
                 1, false, false, AttributeDefinitions.Intelligence, effect, true /* unique instance */);
     }
-
+    
     private static FeatureDefinitionPower BuildArtificialServant()
     {
         var artificialServantEffect = new EffectDescriptionBuilder();
@@ -430,7 +430,7 @@ internal static class InfusionHelpers
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                RuleDefinitions.AdditionalDamageRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1,
+                RuleDefinitions.RestrictedContextRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1,
                 RuleDefinitions.AdditionalDamageType.Specific,
                 "DamageRadiant", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), true,
                 AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None,
@@ -464,7 +464,7 @@ internal static class InfusionHelpers
 
         return BuildBasicInfusionPower(name, itemEffect.Build())
             .SetGuiPresentation(gui)
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always);
+            .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always);
     }
 
     private static FeatureDefinitionPowerSharedPoolBuilder BuildItemConditionInfusion(ConditionDefinition condition,
@@ -479,7 +479,7 @@ internal static class InfusionHelpers
             ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
         return BuildBasicInfusionPower(name, conditionEffect.Build())
             .SetGuiPresentation(gui)
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always);
+            .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always);
     }
 
     private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
@@ -497,7 +497,7 @@ internal static class InfusionHelpers
 
         return BuildBasicInfusionPower(TagsDefinitions.Power + name, itemEffect.Build())
             .SetGuiPresentation(item.GuiPresentation)
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
 }

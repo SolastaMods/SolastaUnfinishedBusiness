@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static CharacterClassDefinition;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -77,11 +76,11 @@ internal static class TinkererClass
     {
         var artificerBuilder = CharacterClassDefinitionBuilder
             .Create("ClassTinkerer", GuidNamespace)
-            .SetHitDice(RuleDefinitions.DieType.D8)
-            .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
-            .AddPersonality(PersonalityFlagDefinitions.GpCombat, 3)
-            .AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1)
-            .AddPersonality(PersonalityFlagDefinitions.Normal, 3);
+            .SetHitDice(RuleDefinitions.DieType.D8);
+            // .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
+            // .AddPersonality(PersonalityFlagDefinitions.GpCombat, 3)
+            // .AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1)
+            // .AddPersonality(PersonalityFlagDefinitions.Normal, 3);
 
         // Game background checks
         artificerBuilder.SetIngredientGatheringOdds(7);
@@ -234,21 +233,21 @@ internal static class TinkererClass
             .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
             .AddToDB();
 
-        var infusionChoice = FeatureDefinitionFeatureSetCustomBuilder
-            .Create("TinkererInfusionChoice", GuidNamespace)
-            .SetGuiPresentation(Category.Feature)
-            .SetRequireClassLevels(true)
-            .SetLevelFeatures(2, Level2InfusionList)
-            .SetLevelFeatures(6, Level6InfusionList)
-            .SetLevelFeatures(10, Level10InfusionList)
-            .SetLevelFeatures(14, Level14InfusionList)
-            .AddToDB();
-
-        var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
-            .Create("TinkererInfusionReplace", GuidNamespace)
-            .SetGuiPresentation(Category.Feature)
-            .SetReplacedFeatureSet(infusionChoice)
-            .AddToDB();
+        // var infusionChoice = FeatureDefinitionFeatureSetCustomBuilder
+        //     .Create("TinkererInfusionChoice", GuidNamespace)
+        //     .SetGuiPresentation(Category.Feature)
+        //     .SetRequireClassLevels(true)
+        //     .SetLevelFeatures(2, Level2InfusionList)
+        //     .SetLevelFeatures(6, Level6InfusionList)
+        //     .SetLevelFeatures(10, Level10InfusionList)
+        //     .SetLevelFeatures(14, Level14InfusionList)
+        //     .AddToDB();
+        //
+        // var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
+        //     .Create("TinkererInfusionReplace", GuidNamespace)
+        //     .SetGuiPresentation(Category.Feature)
+        //     .SetReplacedFeatureSet(infusionChoice)
+        //     .AddToDB();
 
         artificerBuilder.AddFeatureAtLevel(1, featureSpellCasting);
 
@@ -279,8 +278,8 @@ internal static class TinkererClass
         // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
         // Defense
 
-        artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
-        artificerBuilder.AddFeatureAtLevel(3, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
+        // artificerBuilder.AddFeatureAtLevel(3, infusionReplace);
 
         // Repeating Shot-- no point it seems
         // Returning Weapon-- not currently do-able
@@ -289,8 +288,8 @@ internal static class TinkererClass
 
         // ASI (4)
         artificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        artificerBuilder.AddFeatureAtLevel(4, infusionReplace);
-        artificerBuilder.AddFeatureAtLevel(5, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(4, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(5, infusionReplace);
         // Tool expertise (level 6)
         var toolExpertise = FeatureHelpers.BuildProficiency("ExpertiseToolsTinkerer",
                 RuleDefinitions.ProficiencyType.ToolOrExpertise,
@@ -309,8 +308,8 @@ internal static class TinkererClass
             .AddToDB();
         artificerBuilder.AddFeatureAtLevel(6, infusionPoolIncrease);
 
-        artificerBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
-        artificerBuilder.AddFeatureAtLevel(6, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
+        // artificerBuilder.AddFeatureAtLevel(6, infusionReplace);
 
         // Infusions
         // Repulsion Shield, +1 shield, reaction (charges) to push enemy away on hit, otherwise... unsure?
@@ -368,13 +367,13 @@ internal static class TinkererClass
             .SetGuiPresentation(Category.Subclass)
             .AddToDB();
         artificerBuilder.AddFeatureAtLevel(7, flashOfGenius);
-        artificerBuilder.AddFeatureAtLevel(7, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(7, infusionReplace);
         // ASI (8)
         artificerBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        artificerBuilder.AddFeatureAtLevel(8, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(8, infusionReplace);
 
         // 09
-        artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
 
         // Magic Item Adept (10)
         var craftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
@@ -402,9 +401,9 @@ internal static class TinkererClass
         artificerBuilder.AddFeatureAtLevel(10, infusionPoolIncrease10);
 
         artificerBuilder.AddFeaturesAtLevel(10,
-            infusionChoice,
-            infusionChoice,
-            infusionReplace,
+            // infusionChoice,
+            // infusionChoice,
+            // infusionReplace,
             InfusionHelpers.ImprovedEnhancedDefense,
             InfusionHelpers.ImprovedEnhancedFocus,
             InfusionHelpers.ImprovedEnhancedWeapon);
@@ -429,13 +428,13 @@ internal static class TinkererClass
                     .SpriteReference)
             .AddToDB();
         artificerBuilder.AddFeatureAtLevel(11, spellStoringItem);
-        artificerBuilder.AddFeatureAtLevel(11, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(11, infusionReplace);
 
         artificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        artificerBuilder.AddFeatureAtLevel(12, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(12, infusionReplace);
 
         // 13
-        artificerBuilder.AddFeatureAtLevel(13, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(13, infusionReplace);
 
         // 14- magic item savant another attunement slot and ignore requirements on magic items
         // also another infusion slot
@@ -446,20 +445,20 @@ internal static class TinkererClass
             .AddToDB();
 
         artificerBuilder.AddFeatureAtLevel(14, infusionPoolIncrease14);
-        artificerBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
-        artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
+        // artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
         // probably give several infusions another boost here
         // arcane propulsion armor
 
         // 15
-        artificerBuilder.AddFeatureAtLevel(15, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(15, infusionReplace);
 
         // 16
         artificerBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        artificerBuilder.AddFeatureAtLevel(16, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(16, infusionReplace);
 
         // 17
-        artificerBuilder.AddFeatureAtLevel(17, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(17, infusionReplace);
 
         // 18 - magic item master another attunement slot
         // also another infusion slot
@@ -470,11 +469,11 @@ internal static class TinkererClass
             .AddToDB();
 
         artificerBuilder.AddFeatureAtLevel(18, infusionPoolIncrease18);
-        artificerBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
-        artificerBuilder.AddFeatureAtLevel(18, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
+        // artificerBuilder.AddFeatureAtLevel(18, infusionReplace);
 
         artificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
 
         var soulOfArtificeGui = new GuiPresentationBuilder(
             "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
@@ -484,7 +483,7 @@ internal static class TinkererClass
             FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
             false, soulOfArtificeGui.Build());
         artificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
-        artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
+        // artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
 
         // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
         // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?
@@ -497,11 +496,11 @@ internal static class TinkererClass
             .SetGuiPresentation("ArtificerSpecialistArchetypes", Category.Feature)
             .SetSubclassSuffix("Specialist")
             .SetFilterByDeity(false)
-            .SetSubclasses(
-                AlchemistBuilder.Build(tinkerer),
-                ArtilleristBuilder.Build(tinkerer, featureSpellCasting),
-                BattleSmithBuilder.Build(tinkerer),
-                ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
+            // .SetSubclasses(
+            //     AlchemistBuilder.Build(tinkerer),
+            //     ArtilleristBuilder.Build(tinkerer, featureSpellCasting),
+            //     BattleSmithBuilder.Build(tinkerer),
+            //     ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
             .AddToDB();
 
         artificerBuilder.AddFeatureAtLevel(3, subclasses);

@@ -10,13 +10,13 @@ internal static class TinkererSpellList
 
     public static SpellListDefinition SpellList => _spellList ??=
         SpellListDefinitionBuilder.Create("SpellListTinkerer", TinkererClass.GuidNamespace)
-            .SetGuiPresentation("SpellListTinkerer", Category.SpellList)
+            .SetGuiPresentation("SpellListTinkerer", Category.Feature)
             .ClearSpells()
             // melee weapon attack (booming blade/green flame blade)
             // pull enemy towards you (thorn whip/lightning lure)
             // I'm surrounded (thunderclap/sword burst)
             .SetSpellsAtLevel(0, AcidSplash, DancingLights, FireBolt, Guidance, Light, PoisonSpray, RayOfFrost,
-                Resistance, ResonatingStrike, ShockingGrasp, SpareTheDying)
+                Resistance, /*ResonatingStrike,*/ ShockingGrasp, SpareTheDying)
             // absorb elements, snare, catapult, tasha's caustic brew
             .SetSpellsAtLevel(1, CureWounds, DetectMagic, ExpeditiousRetreat, FaerieFire, FalseLife, FeatherFall,
                 Grease, Identify, Jump, Longstrider)

@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -983,7 +984,7 @@ internal sealed class LightningSpearAdditionalDamageBuilder : FeatureDefinitionA
         Definition.notificationTag = "LightningSpear";
         Definition.triggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
         Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.OncePerTurn;
-        Definition.requiredProperty = RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon;
+        Definition.requiredProperty = RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon;
         Definition.damageDieType = RuleDefinitions.DieType.D6;
         Definition.damageDiceNumber = 1;
         Definition.specificDamageType = RuleDefinitions.DamageTypeLightning;
