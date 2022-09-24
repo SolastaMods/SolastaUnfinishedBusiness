@@ -174,7 +174,11 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+#if DEBUG
+    public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
+#else        
     public bool AddPickPocketableLoot { get; set; }
+#endif
     public bool AllowStackedMaterialComponent { get; set; }
     public bool ScaleMerchantPricesCorrectly { get; set; }
 

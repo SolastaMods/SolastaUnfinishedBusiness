@@ -349,8 +349,10 @@ internal static class SrdAndHouseRulesContext
 
 internal static class ConjurationsContext
 {
-    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
+    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
 
+    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
+    
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
     {
         // Conjure animals (3)
@@ -389,10 +391,28 @@ internal static class ConjurationsContext
     /// </summary>
     internal static void Load()
     {
+        BuildConjureElementalInvisibleStalker();
+        SwitchEnableUpcastConjureElementalAndFey(); // depends on BuildConjureElementalInvisibleStalker
         SwitchFullyControlConjurations();
-        SwitchEnableUpcastConjureElementalAndFey();
     }
 
+    private static void BuildConjureElementalInvisibleStalker()
+    {
+        ConjureElementalInvisibleStalker = SpellDefinitionBuilder
+                .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
+                .SetOrUpdateGuiPresentation("Spell/&ConjureElementalInvisibleStalkerTitle",
+                    "Spell/&ConjureElementalDescription")
+                .AddToDB();
+
+        var summonForm = ConjureElementalInvisibleStalker
+            .EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
+
+        if (summonForm != null)
+        {
+            summonForm.monsterDefinitionName = InvisibleStalker.Name;
+        }
+    }
+    
     internal static void SwitchFullyControlConjurations()
     {
         foreach (var conjuredMonster in ConjuredMonsters)
@@ -405,38 +425,14 @@ internal static class ConjurationsContext
     {
         if (!Main.Settings.EnableUpcastConjureElementalAndFey)
         {
+            ConjureElemental.SubspellsList.Remove(ConjureElementalInvisibleStalker);
+            
             return;
         }
 
-        // Invisible Stalker
-        if (!DatabaseRepository.GetDatabase<SpellDefinition>()
-                .TryGetElement(InvisibleStalkerSubspellName, out _))
-        {
-            var definition = SpellDefinitionBuilder
-                .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
-                .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
-                    "Spell/&ConjureElementalDescription")
-                .AddToDB();
-
-            var summonForm = definition.EffectDescription
-                .GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
-
-            if (summonForm != null)
-            {
-                summonForm.monsterDefinitionName = InvisibleStalker.Name;
-
-                ConjureElemental.SubspellsList.Add(definition);
-            }
-            else
-            {
-                Main.Error($"Unable to find summon form for {InvisibleStalker.Name}");
-            }
-        }
-
-        // TODO: add higher level elemental and fey
-
         ConfigureAdvancement(ConjureFey);
         ConfigureAdvancement(ConjureElemental);
+        ConjureElemental.SubspellsList.Add(ConjureElementalInvisibleStalker);
         ConfigureAdvancement(ConjureMinorElementals);
 
         // Set advancement at spell level, not sub-spell
