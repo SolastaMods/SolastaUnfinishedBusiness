@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ArtisanInfusedConditionMindSharpener",
-          "conditionDefinition": "Definition:ArtisanInfusedConditionMindSharpener:d7979792-a338-5af4-9439-f15350aad7e8",
+          "conditionDefinition": "Definition:ArtisanInfusedConditionMindSharpener:d43afe41-8edc-5cd0-a6ca-8e7e55a2d0ce",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c5ab2044-29d6-5a85-966a-ae0b5fa68806",
+  "guid": "6e13da77-ed11-5f4c-aea5-280506988033",
   "contentPack": 9999,
   "name": "ArtisanInfusionMindSharpener"
 }

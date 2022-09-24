@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ArtisanInfusedConditionBagOfHolding",
-          "conditionDefinition": "Definition:ArtisanInfusedConditionBagOfHolding:199b5585-2135-507b-84d1-9289387a0fc2",
+          "conditionDefinition": "Definition:ArtisanInfusedConditionBagOfHolding:446ecc8a-4e2d-555a-b90b-6ad96369e36f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "33d9f680-158f-54ce-be11-c642a1d783c7",
+  "guid": "30632987-f2dd-5cd3-a6f8-e2c40918e127",
   "contentPack": 9999,
   "name": "ArtisanInfusionBagOfHolding"
 }

@@ -311,7 +311,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:ArtisanInfusionEnhancedWeapon:99c3f860-3376-59a6-be84-97a8bcc6182b",
+  "overriddenPower": "Definition:ArtisanInfusionEnhancedWeapon:a816b11e-25d0-5dae-99bc-77c99ba7c657",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "61a0a68d-f925-5f5d-8805-9d2ad5458690",
+  "guid": "ad0f9528-99a6-5cb9-bc08-978e0a28bdc8",
   "contentPack": 9999,
   "name": "ArtisanInfusionImprovedEnhancedWeapon"
 }

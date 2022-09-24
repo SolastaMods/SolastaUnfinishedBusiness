@@ -13,9 +13,9 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedArtisan:aceea92d-03d3-525a-8d72-f13c5d706f5a",
     "Definition:AutoPreparedSpellsFeatShadowTouchedBarbarian:5fc5a825-7241-5ee2-b05d-05cd41c9e367",
     "Definition:AutoPreparedSpellsFeatShadowTouchedBard:d9730fbf-2a28-5af2-b8b1-969b784146d1",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedClassArtisan:d44c08e7-ca96-56d5-97b9-8206886a402f",
     "Definition:AutoPreparedSpellsFeatShadowTouchedCleric:47eaba1b-20a1-59bf-afcb-9a493f924fdc",
     "Definition:AutoPreparedSpellsFeatShadowTouchedDruid:3cee7ab0-d8e2-501e-95a2-9a86a33eabc4",
     "Definition:AutoPreparedSpellsFeatShadowTouchedFighter:96ae53f8-33af-5b90-93a3-df18d109a469",

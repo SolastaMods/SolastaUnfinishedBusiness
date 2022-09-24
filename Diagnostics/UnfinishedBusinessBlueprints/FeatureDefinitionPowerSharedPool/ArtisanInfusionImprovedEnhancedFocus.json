@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ArtisanImprovedInfusedFocus",
-          "conditionDefinition": "Definition:ArtisanImprovedInfusedFocus:ee5a5d2a-bab6-53e9-87fc-b3f6a85515b3",
+          "conditionDefinition": "Definition:ArtisanImprovedInfusedFocus:358096fa-0680-5231-89a2-402f65a6d3f9",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:ArtisanInfusionEnhancedFocus:2073aa81-9fd4-59d7-a32f-832faca6a18b",
+  "overriddenPower": "Definition:ArtisanInfusionEnhancedFocus:20efaebf-c2a8-5eeb-810a-d24fbcb3f982",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1f879b01-c278-5fa0-b5fa-3ae6e18f75ba",
+  "guid": "ac5abb2d-be26-5c7f-a639-34da729c8ee9",
   "contentPack": 9999,
   "name": "ArtisanInfusionImprovedEnhancedFocus"
 }

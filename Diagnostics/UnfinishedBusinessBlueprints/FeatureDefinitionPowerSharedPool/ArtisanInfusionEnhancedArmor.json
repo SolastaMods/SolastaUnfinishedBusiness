@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttributeModifierArmorInfusion:e19c224b-dcb8-525f-b0f4-c38580d7bbdd",
+              "featureDefinition": "Definition:AttributeModifierArmorInfusion:7923c94a-8ece-5925-8b5e-701440a1df3b",
               "level": 0
             }
           ],
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "031f84a4-5050-5dd5-9867-5659e9b17b29",
+  "guid": "647a57e4-a8f9-53c2-9032-2176e5b74f0e",
   "contentPack": 9999,
   "name": "ArtisanInfusionEnhancedArmor"
 }

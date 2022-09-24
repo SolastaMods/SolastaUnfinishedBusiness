@@ -44,7 +44,7 @@
       ]
     }
   ],
-  "spellcastingClass": "Definition:ClassArtisan:9a0d74a6-292b-5579-81e6-3798e582fe82",
+  "spellcastingClass": null,
   "affinityRace": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

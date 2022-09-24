@@ -13,9 +13,9 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeyTeleportationArtisan:66407064-69da-5c8e-aea7-0a3d2a18c5e5",
     "Definition:AutoPreparedSpellsFeyTeleportationBarbarian:ed874892-edcc-59ee-916e-e2b8aaee2123",
     "Definition:AutoPreparedSpellsFeyTeleportationBard:80f4aa79-e153-5fc9-be54-a667214f83ed",
-    "Definition:AutoPreparedSpellsFeyTeleportationClassArtisan:3f903f1b-d1b3-5376-a980-3d9f9a8d4ff8",
     "Definition:AutoPreparedSpellsFeyTeleportationCleric:089c6774-3104-51e9-a2b5-9fb2d2a0a2cd",
     "Definition:AutoPreparedSpellsFeyTeleportationDruid:f834316f-21f6-5f0d-9e7d-c4fcfa0b06fd",
     "Definition:AutoPreparedSpellsFeyTeleportationFighter:f206b0de-c0a0-5a45-9f8a-5a61a82734ca",

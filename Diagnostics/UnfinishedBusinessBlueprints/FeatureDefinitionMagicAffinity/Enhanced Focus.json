@@ -53,9 +53,14 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
-    "spriteReference": null,
+    "title": "Subclass/&AttackModifierArtisanEnhancedFocusTitle",
+    "description": "Subclass/&AttackModifierArtisanEnhancedFocusDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -69,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38575e67-ecc7-5a8a-9898-e209c4d5390e",
+  "guid": "d1196159-ca33-59ea-abde-87353789021b",
   "contentPack": 9999,
   "name": "Enhanced Focus"
 }

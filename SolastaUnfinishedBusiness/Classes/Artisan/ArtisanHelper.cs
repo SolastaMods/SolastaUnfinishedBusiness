@@ -12,71 +12,109 @@ namespace SolastaUnfinishedBusiness.Classes.Artisan;
 
 internal static class ArtisanHelpers
 {
-    public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
-        RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+    public static FeatureDefinitionProficiencyBuilder BuildProficiency(
+        string name,
+        RuleDefinitions.ProficiencyType type,
+        params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
-            .Create(name, ArtisanClass.GuidNamespace)
+            .Create(name)
             .SetProficiencies(type, proficiencies);
     }
 
-    public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
-        AttributeModifierOperation modifierType, string attribute, int amount, GuiPresentation guiPresentation)
+    public static FeatureDefinitionAttributeModifier BuildAttributeModifier(
+        string name,
+        AttributeModifierOperation modifierType,
+        string attribute,
+        int amount,
+        GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionAttributeModifierBuilder(name, ArtisanClass.GuidNamespace,
-            modifierType, attribute, amount, guiPresentation).AddToDB();
+        return FeatureDefinitionAttributeModifierBuilder
+            .Create(name)
+            .SetGuiPresentation(guiPresentation)
+            .SetModifier(modifierType, attribute, amount)
+            .AddToDB();
     }
 
-    public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(IEnumerable<string> spellNames,
-        int levelBonus, string name, GuiPresentation guiPresentation)
+    public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(
+        IEnumerable<string> spellNames,
+        int levelBonus,
+        string name,
+        GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionMagicAffinityBuilder(name, ArtisanClass.GuidNamespace, levelBonus,
-            guiPresentation, spellNames).AddToDB();
+        return new FeatureDefinitionMagicAffinityBuilder(
+            name, ArtisanClass.GuidNamespace, levelBonus, guiPresentation, spellNames).AddToDB();
     }
 
-    public static ConditionDefinition BuildCondition(string name, RuleDefinitions.DurationType durationType,
-        int durationParameter, bool silent, GuiPresentation guiPresentation,
+    public static ConditionDefinition BuildCondition(
+        string name,
+        RuleDefinitions.DurationType durationType,
+        int durationParameter,
+        bool silent,
+        GuiPresentation guiPresentation,
         params FeatureDefinition[] conditionFeatures)
     {
         return ConditionDefinitionBuilder
-            .Create(name, ArtisanClass.GuidNamespace)
+            .Create(name)
             .SetGuiPresentation(guiPresentation)
             .Configure(durationType, durationParameter, silent, conditionFeatures)
             .AddToDB();
     }
 
-    public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(string name, int attackModifier,
-        int dcModifier, GuiPresentation guiPresentation)
+    public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(
+        string name,
+        int attackModifier,
+        int dcModifier,
+        GuiPresentation guiPresentation)
     {
         return FeatureDefinitionMagicAffinityBuilder
-            .Create(name, ArtisanClass.GuidNamespace)
+            .Create(name)
+            .SetGuiPresentation(guiPresentation)
             .SetCastingModifiers(
-                attackModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
-                dcModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
-                false, false, false)
+                attackModifier,
+                RuleDefinitions.SpellParamsModifierType.FlatValue,
+                dcModifier,
+                RuleDefinitions.SpellParamsModifierType.FlatValue,
+                false,
+                false,
+                false)
             .AddToDB();
     }
 
-    public static FeatureDefinitionPowerBuilder BuildSpellFormPower(string name, int usesPerRecharge,
-        RuleDefinitions.UsesDetermination usesDetermination, RuleDefinitions.ActivationTime activationTime,
-        int costPerUse, RuleDefinitions.RechargeRate recharge)
+    public static FeatureDefinitionPowerBuilder BuildSpellFormPower(
+        string name,
+        int usesPerRecharge,
+        RuleDefinitions.UsesDetermination usesDetermination,
+        RuleDefinitions.ActivationTime activationTime,
+        int costPerUse,
+        RuleDefinitions.RechargeRate recharge)
     {
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
-        effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0,
+        
+        effectDescriptionBuilder.SetTargetingData(
+            RuleDefinitions.Side.All,
+            RuleDefinitions.RangeType.Self,
+            0,
+            0,
+            0,
             0);
         effectDescriptionBuilder.SetCreatedByCharacter();
 
         var effectFormBuilder = new EffectFormBuilder();
+        
         effectFormBuilder.SetSpellForm(9);
         effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
         effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
 
         var particleParams = new EffectParticleParameters();
-        particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription
-            .EffectParticleParameters);
+        
+        particleParams.Copy(
+            DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
+
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-        return new FeatureDefinitionPowerBuilder(name, ArtisanClass.GuidNamespace,
+        return new FeatureDefinitionPowerBuilder(
+            name, ArtisanClass.GuidNamespace,
             usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
             recharge, false, false, AttributeDefinitions.Intelligence,
             effectDescriptionBuilder.Build());

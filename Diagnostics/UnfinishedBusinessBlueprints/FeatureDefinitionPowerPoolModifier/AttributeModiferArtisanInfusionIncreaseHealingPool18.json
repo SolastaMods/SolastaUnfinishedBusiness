@@ -165,7 +165,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool18:f9a66ac2-6ab7-5ee2-bb26-4053ea17f1a3",
+  "overriddenPower": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool18:a43a1d93-6d97-58ae-9b69-085d03bbaa9d",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -191,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f9a66ac2-6ab7-5ee2-bb26-4053ea17f1a3",
+  "guid": "a43a1d93-6d97-58ae-9b69-085d03bbaa9d",
   "contentPack": 9999,
   "name": "AttributeModiferArtisanInfusionIncreaseHealingPool18"
 }

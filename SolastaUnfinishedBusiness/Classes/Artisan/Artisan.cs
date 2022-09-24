@@ -60,7 +60,7 @@ internal static class ArtisanClass
         ArtisanInfusionHelper.BootsOfStridingAndSpringing,
         ArtisanInfusionHelper.BootsOfTheWinterland,
         ArtisanInfusionHelper.BroochOfShielding,
-        ArtisanInfusionHelper.BracesrOfArchery,
+        ArtisanInfusionHelper.BracersOfArchery,
         ArtisanInfusionHelper.CloakOfProtection,
         ArtisanInfusionHelper.GauntletsOfOgrePower,
         ArtisanInfusionHelper.GlovesOfMissileSnaring,
@@ -118,7 +118,7 @@ internal static class ArtisanClass
             CustomIcons.CreateAssetReferenceSprite("Artisan", Resources.Artisan, 1024, 576);
 
         var artisanBuilder = CharacterClassDefinitionBuilder
-            .Create("ClassArtisan", GuidNamespace)
+            .Create("Artisan")
             .SetHitDice(RuleDefinitions.DieType.D8);
         // .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
         // .AddPersonality(PersonalityFlagDefinitions.GpCombat, 3)
@@ -248,7 +248,7 @@ internal static class ArtisanClass
 
         // skill point pool (1)
         var skillPoints = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolArtisanSkillPoints", GuidNamespace)
+            .Create("PointPoolArtisanSkillPoints")
             .Configure(HeroDefinitions.PointsPoolType.Skill, 2, false,
                 SkillDefinitions.Arcana, SkillDefinitions.History,
                 SkillDefinitions.Investigation, SkillDefinitions.Medecine,
@@ -261,7 +261,7 @@ internal static class ArtisanClass
 
         // spell casting (1)
         var featureSpellCasting = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellArtisan", GuidNamespace)
+            .Create("CastSpellArtisan")
             .SetGuiPresentation("ArtisanSpellcasting", Category.Subclass)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
@@ -276,7 +276,7 @@ internal static class ArtisanClass
             .AddToDB();
 
         // var infusionChoice = FeatureDefinitionFeatureSetCustomBuilder
-        //     .Create("ArtisanInfusionChoice", GuidNamespace)
+        //     .Create("ArtisanInfusionChoice")
         //     .SetGuiPresentation(Category.Feature)
         //     .SetRequireClassLevels(true)
         //     .SetLevelFeatures(2, Level2InfusionList)
@@ -286,7 +286,7 @@ internal static class ArtisanClass
         //     .AddToDB();
         //
         // var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
-        //     .Create("ArtisanInfusionReplace", GuidNamespace)
+        //     .Create("ArtisanInfusionReplace")
         //     .SetGuiPresentation(Category.Feature)
         //     .SetReplacedFeatureSet(infusionChoice)
         //     .AddToDB();
@@ -305,7 +305,7 @@ internal static class ArtisanClass
         ));
 
         var bonusCantrips = FeatureDefinitionBonusCantripsBuilder
-            .Create("ArtisanMagicalTinkering", GuidNamespace)
+            .Create("ArtisanMagicalTinkering")
             .SetGuiPresentation("ArtisanMagicalTinkering", Category.Subclass)
             .SetBonusCantrips(SpellDefinitions.Shine, SpellDefinitions.Sparkle, SpellDefinitions.Dazzle)
             .AddToDB();
@@ -344,7 +344,7 @@ internal static class ArtisanClass
         artisanBuilder.AddFeatureAtLevel(6, toolExpertise);
 
         var infusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool")
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
@@ -436,7 +436,7 @@ internal static class ArtisanClass
         // boost to infusions (many of the +1s become +2s)
 
         var infusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool10", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool10")
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
@@ -481,7 +481,7 @@ internal static class ArtisanClass
         // 14- magic item savant another attunement slot and ignore requirements on magic items
         // also another infusion slot
         var infusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool14", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool14")
             .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .AddToDB();
@@ -505,7 +505,7 @@ internal static class ArtisanClass
         // 18 - magic item master another attunement slot
         // also another infusion slot
         var infusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool18", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool18")
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
@@ -534,7 +534,7 @@ internal static class ArtisanClass
 
         // Subclasses
         var subclasses = FeatureDefinitionSubclassChoiceBuilder
-            .Create("SubclassChoiceArtisanSpecialistArchetypes", GuidNamespace)
+            .Create("SubclassChoiceArtisanSpecialistArchetypes")
             .SetGuiPresentation("ArtisanSpecialistArchetypes", Category.Feature)
             .SetSubclassSuffix("Specialist")
             .SetFilterByDeity(false)

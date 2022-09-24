@@ -88,7 +88,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "AlchemistSwiftnessElixirCondition",
-          "conditionDefinition": "Definition:AlchemistSwiftnessElixirCondition:08593981-1cfd-5156-be03-249dcce4ed27",
+          "conditionDefinition": "Definition:AlchemistSwiftnessElixirCondition:f61e3268-6294-52f5-ac30-0c3da1141573",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

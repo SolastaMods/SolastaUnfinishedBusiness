@@ -136,7 +136,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&ConditionResistantArmorTitle",
-    "description": "Subclass/&ConditionResistnatArmorDescription",
+    "description": "Subclass/&ConditionResistantArmorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
@@ -156,7 +156,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e90e3153-6e48-557e-a4d6-b7ce1d9e4183",
+  "guid": "075f5c79-ea15-5696-986a-117891004b00",
   "contentPack": 9999,
   "name": "ConditionPowerArtisanResistantArmor"
 }

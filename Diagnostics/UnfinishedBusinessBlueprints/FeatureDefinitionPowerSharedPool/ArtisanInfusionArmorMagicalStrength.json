@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ArtisanInfusionArmorMagicalStrengthCondition",
-          "conditionDefinition": "Definition:ArtisanInfusionArmorMagicalStrengthCondition:b59f3df7-a0ef-5659-8857-fe583bce5dce",
+          "conditionDefinition": "Definition:ArtisanInfusionArmorMagicalStrengthCondition:f8f0455c-b36a-5b3a-942b-16f8d1b5b07d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d8f1cc76-4ceb-5f66-9354-b67c37d4f63e",
+  "guid": "fcb483f7-42a5-57de-b0c0-c4f7f02bcc2a",
   "contentPack": 9999,
   "name": "ArtisanInfusionArmorMagicalStrength"
 }

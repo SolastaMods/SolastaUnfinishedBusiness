@@ -79,7 +79,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttributeModifierImprovedArmorInfusion:9ba23c8d-28de-517b-a27e-63593c9a008b",
+              "featureDefinition": "Definition:AttributeModifierImprovedArmorInfusion:9043b3a9-7ead-56a9-8ca0-c6b493887d36",
               "level": 0
             }
           ],
@@ -311,7 +311,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:ArtisanInfusionEnhancedArmor:031f84a4-5050-5dd5-9867-5659e9b17b29",
+  "overriddenPower": "Definition:ArtisanInfusionEnhancedArmor:647a57e4-a8f9-53c2-9032-2176e5b74f0e",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -337,7 +337,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "61914df7-4e3c-548c-bc70-82110069e6a8",
+  "guid": "53a03514-fb27-5c2f-b980-99395e4bbdb0",
   "contentPack": 9999,
   "name": "ArtisanInfusionImprovedEnhancedArmor"
 }

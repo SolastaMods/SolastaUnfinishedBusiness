@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerBattleSmithWeapon:87a49f0c-5774-5a9e-8a8e-251c3f48225d",
+      "featureDefinition": "Definition:PowerBattleSmithWeapon:9a79b7af-7bfe-5e65-b531-fa348d895763",
       "level": 3
     },
     {
@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWeaponArtisanBattleSmith:d6d56c19-92db-52b9-a7e0-d7e5adfa0719",
+      "featureDefinition": "Definition:ProficiencyWeaponArtisanBattleSmith:476455fe-e039-5437-b539-28b4764629bc",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierBattleSmithExtraAttack:0bc6f9a4-2220-50e1-a7b0-47bebf91d7be",
+      "featureDefinition": "Definition:AttributeModifierBattleSmithExtraAttack:def6d37b-a218-5b49-bf7d-2af45aec1df9",
       "level": 5
     },
     {

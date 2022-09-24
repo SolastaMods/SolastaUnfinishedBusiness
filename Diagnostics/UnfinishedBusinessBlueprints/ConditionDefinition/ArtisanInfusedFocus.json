@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:Enhanced Focus:38575e67-ecc7-5a8a-9898-e209c4d5390e"
+    "Definition:Enhanced Focus:d1196159-ca33-59ea-abde-87353789021b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "290be16c-21ac-567c-b15e-866258de5150",
+  "guid": "63020ad7-cf61-538c-aee6-1b844789a13b",
   "contentPack": 9999,
   "name": "ArtisanInfusedFocus"
 }

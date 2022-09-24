@@ -1,0 +1,372 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:StuddedLeather:d5ecaa9b5baa3e94f96107c280f33c0c",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "FocusArcaneChoice",
+              "itemReference": "Definition:ArcaneFocusWand:7a4868b5808e0e54b9ad9ce4c5418215",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "AmmoPack",
+              "itemReference": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Tool",
+              "itemReference": "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:DungeoneerPack:6286cf8295c47af42bca166999993f2b",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D8",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Intelligence",
+    "Constitution",
+    "Dexterity",
+    "Wisdom",
+    "Strength",
+    "Charisma"
+  ],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyArmorArtisan:7bf6590d-3607-5410-a12b-31d419ff9831",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolArtisanSkillPoints:ee379f66-2518-56cf-af02-61116b07e67b",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellArtisan:74b313bd-d685-5158-b289-e05589e5999d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWeaponArtisan:2f7abc3e-bea6-5c05-af3f-0a4f59b5a95f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityArtisanInfusionCasting:9af62f46-cdb7-5b25-b765-892f24a5a7cc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetClericRitualCasting:b5f687fa97a0be94a95197f0929ee304",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyArtisanSavingThrow:7e57c033-af14-5471-91d4-3fd8fff8a858",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyToolsArtisan:7b519d57-78bf-5a29-b44e-62b03cb971b0",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtisanInfusionHealingPool:17cd5094-001e-5ddb-99a8-2cf4fd31a92f",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanMagicalTinkering:273daeda-309c-5547-b83b-cf0a16172d17",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceArtisanSpecialistArchetypes:99ed4fbb-49b9-5baf-885c-289b10eaff60",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ExpertiseToolsArtisan:da5d48fc-819e-5756-b6ee-a196cf17dea1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool:331bf2c7-afc0-5229-bf97-aa466f5e0959",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanFlashOfGeniusPower:142e5620-8297-5144-8986-288e12fbdc66",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedArmor:53a03514-fb27-5c2f-b980-99395e4bbdb0",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedFocus:ac5abb2d-be26-5c7f-a639-34da729c8ee9",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedWeapon:ad0f9528-99a6-5cb9-bc08-978e0a28bdc8",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CraftingArtisanMagicItemAdept:ddde4151-aa49-5e86-aef8-d314fd2ebd44",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool10:610425dd-9bcb-503e-b2a4-38b8b273fce6",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanSpellStoringItem:96c16f37-3086-5bdd-aac4-384e108d8111",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool14:de69bd9e-5a7d-51e7-9bfe-5a2337e73161",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtisanInfusionIncreaseHealingPool18:a43a1d93-6d97-58ae-9b69-085d03bbaa9d",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtisanSoulOfArtificeSavingThrow:cd7bdda3-bdc8-544b-a086-ee2f56f03148",
+      "level": 20
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "skillAutolearnPreference": [
+    "Arcana",
+    "Athletics",
+    "History",
+    "Insight",
+    "Investigation",
+    "Nature",
+    "Perception",
+    "Persuasion",
+    "SleightOfHand",
+    "Stealth"
+  ],
+  "toolAutolearnPreference": [
+    "ArtisanToolSmithToolsType",
+    "EnchantingToolType",
+    "ScrollKitType",
+    "ThievesToolsType"
+  ],
+  "expertiseAutolearnPreference": [],
+  "featAutolearnPreference": [
+    "Lockbreaker",
+    "PowerfulCantrip",
+    "Robust"
+  ],
+  "invocationAutolearnPreference": [],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 7,
+  "classPictogramReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9bf940be035c7c64eb6ee577a4e9efef",
+    "m_SubObjectName": "Class_wizard",
+    "m_SubObjectType": ""
+  },
+  "defaultBattleDecisions": "Definition:DefaultSupportCasterWithBackupAttacksDecisions:f99448e8f4c2d9d478837c543e3e205f",
+  "classAnimationId": "Cleric",
+  "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Class/&ArtisanTitle",
+    "description": "Class/&ArtisanDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "36d8f74d93b05e0a9023d16f1bf7d957",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9a9d8583-9412-5242-b404-5d0bd5f174cb",
+  "contentPack": 9999,
+  "name": "Artisan"
+}
