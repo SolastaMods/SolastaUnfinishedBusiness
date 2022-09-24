@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -10,15 +11,21 @@ public class GuiModifierSubMenu : GuiModifier
     private RectTransform header;
     private Vector3 headerPosition;
     private Vector2 headerSize;
+    private Image background;
+    private RectTransform featTable;
 
-    public void Init()
+    public void Init(Image bkg, RectTransform table)
     {
-        header = transform.GetChild(0).GetComponent<RectTransform>();
+        featTable = table;
+        background = bkg;
+
+        var num = table.childCount;
+        header = table.GetChild(num - 1).GetComponent<RectTransform>();
         headerSize = header.sizeDelta;
         headerPosition = header.position;
-        for (var i = 1; i < transform.childCount; i++)
+        for (var i = 0; i < table.childCount - 1; i++)
         {
-            itemPositions.Add(transform.GetChild(i).GetComponent<RectTransform>().position);
+            itemPositions.Add(table.GetChild(i).GetComponent<RectTransform>().position);
         }
     }
 
@@ -28,15 +35,17 @@ public class GuiModifierSubMenu : GuiModifier
         header.sizeDelta = new Vector2(headerWidth, headerSize.y);
         header.position = headerPosition + new Vector3((headerSize.x - headerWidth) / 2, 0, 0);
 
-        var num = transform.childCount;
-        for (var i = 1; i < transform.childCount; i++)
+        var num = featTable.childCount;
+        for (var i = 0; i < featTable.childCount - 1; i++)
         {
-            var r = Math.Min(ratio * num / i, 1);
-            var rect = transform.GetChild(i).GetComponent<RectTransform>();
-            var pos = itemPositions[i - 1];
+            var r = Math.Min(ratio * num / (num - i), 1);
+            var rect = featTable.GetChild(i).GetComponent<RectTransform>();
+            var pos = itemPositions[i];
 
             rect.position = new Vector3(pos.x, Mathf.Lerp(headerPosition.y, pos.y, r), 0);
         }
+
+        background.color = new Color(0, 0, 0, 0.65f * ratio);
     }
 
 
