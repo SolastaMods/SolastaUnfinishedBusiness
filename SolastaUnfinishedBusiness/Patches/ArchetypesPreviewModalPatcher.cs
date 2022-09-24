@@ -60,7 +60,7 @@ internal static class ArchetypesPreviewModalPatcher
 
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ArchetypesPreviewModal_Show
+    internal static class Show_Patch
     {
         internal static void Prefix(ref List<string> subclasses)
         {

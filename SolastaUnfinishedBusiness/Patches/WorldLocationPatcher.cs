@@ -12,7 +12,7 @@ internal static class WorldLocationPatcher
 {
     [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class WorldLocation_BuildFromUserLocation
+    internal static class BuildFromUserLocation_Patch
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
