@@ -30,6 +30,7 @@ FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSense
 FeatureDefinitionSummoningAffinity
 ItemDefinition
+LootPackDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition
@@ -55,4 +56,5 @@ SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+FeatureDefinitionAdditionalD
 SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+FeatureDefinitionPowerIlluminatingBurst
 SpellDefinition
 SpellListDefinition
+TreasureTableDefinition
 WeaponTypeDefinition

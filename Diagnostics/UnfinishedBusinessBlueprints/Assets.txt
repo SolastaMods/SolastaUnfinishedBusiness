@@ -1900,6 +1900,11 @@ Warhammer_Bearclaw	ItemDefinition	ItemDefinition	021e865d-e49c-55df-9bfa-cf7bfe8
 Warhammer_Lightbringer	ItemDefinition	ItemDefinition	c21bfcd2-8004-50ca-a767-b0ad7a8209f1
 Warhammer_Power	ItemDefinition	ItemDefinition	12fbc355-26af-57d9-81d4-a2a0af500c5d
 Warhammer_Punisher	ItemDefinition	ItemDefinition	e24acda7-24e1-57a8-bd5d-9c777fd4f9b9
+CE_PickpocketableLoot_A	LootPackDefinition	LootPackDefinition	6ef59b28-ad24-53ad-af33-79cbf58c86e9
+CE_PickpocketableLoot_B	LootPackDefinition	LootPackDefinition	1ef01467-13ec-5fe3-831f-cfb0e52d8a86
+CE_PickpocketableLoot_C	LootPackDefinition	LootPackDefinition	91d2029a-542f-538b-b9f0-c4679259e0f8
+CE_PickpocketableLoot_D	LootPackDefinition	LootPackDefinition	e5c93db4-ba93-5de2-9ac3-cd4ec1761470
+CE_PickpocketableLoot_Undead	LootPackDefinition	LootPackDefinition	609f91d1-1201-5603-869e-fb8c97e39f03
 AttackMarshalEternalComrade	MonsterAttackDefinition	MonsterAttackDefinition	2880ee9a-07b0-5f38-97da-dbaa1cb0e3c4
 MarshalEternalComrade	MonsterDefinition	MonsterDefinition	62bcd3b3-0d54-5fe4-9578-1cea388159a9
 Owl	MonsterDefinition	MonsterDefinition	7a6b1ddd-74b0-58f0-9563-ac1b44c4fb2a
@@ -4491,6 +4496,7 @@ Turn_12C~ValleyPalace~MOD	RoomBlueprint	RoomBlueprint	09a5b4b5-749e-51ca-b59b-44
 AcidClaws	SpellDefinition	SpellDefinition	b849ef41-46a9-518e-82d4-5db770314c11
 AirBlast	SpellDefinition	SpellDefinition	abe05c55-df0e-527c-ab83-6cd88d84c683
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
+ConjureElementalInvisibleStalker	SpellDefinition	SpellDefinition	4f4b45b0-1a32-55c5-ab58-66d105a6f07f
 CreateDead3	SpellDefinition	SpellDefinition	acea4743-d459-5f30-85bb-1995b6c8062f
 CreateDead5	SpellDefinition	SpellDefinition	a994feb1-22e1-576a-88a6-8d7585f5edf1
 CreateDead7	SpellDefinition	SpellDefinition	f41faac4-2d8e-56ea-a622-c86460555e63
@@ -4529,6 +4535,9 @@ Weird	SpellDefinition	SpellDefinition	314a6d8b-bd4a-5200-b37b-2f250bd2f11e
 WinterBreath	SpellDefinition	SpellDefinition	1a825b62-9cb1-56fa-ba61-8b8e91fef8db
 SpellListBolgrifMagic	SpellListDefinition	SpellListDefinition	772c4d81-c0e7-530b-a128-a677d28bd5e8
 SpellListDarkelfMagic	SpellListDefinition	SpellListDefinition	ed29cff2-5b36-5cc1-aa49-cc39a8d11e08
+PickPocketTableLow	TreasureTableDefinition	TreasureTableDefinition	faefc690-5564-5765-b9b1-e5447bf76969
+PickPocketTableMed	TreasureTableDefinition	TreasureTableDefinition	9785f204-5c16-5254-9e65-44369f803034
+PickPocketTableUndead	TreasureTableDefinition	TreasureTableDefinition	e1758657-4633-5d59-a741-fedb9ee335ce
 CEHalberdType	WeaponTypeDefinition	WeaponTypeDefinition	3c4df6c0-0e8e-5237-a27c-9144e1186cf9
 CEHandXbowType	WeaponTypeDefinition	WeaponTypeDefinition	322c5334-3af4-57ef-aa30-6909d6705c10
 CELongMaceType	WeaponTypeDefinition	WeaponTypeDefinition	e164d40d-f08e-531c-9762-1e91988a1da0
