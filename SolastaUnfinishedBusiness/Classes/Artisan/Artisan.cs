@@ -4,6 +4,8 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
 using static CharacterClassDefinition;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -112,6 +114,9 @@ internal static class ArtisanClass
 
     public static CharacterClassDefinition BuildArtisanClass()
     {
+        var artisanSpriteReference =
+            CustomIcons.CreateAssetReferenceSprite("Artisan", Resources.Artisan, 1024, 576);
+
         var artisanBuilder = CharacterClassDefinitionBuilder
             .Create("ClassArtisan", GuidNamespace)
             .SetHitDice(RuleDefinitions.DieType.D8);
@@ -163,8 +168,7 @@ internal static class ArtisanClass
 
         // GUI
         artisanBuilder.SetPictogram(CharacterClassDefinitions.Wizard.ClassPictogramReference);
-        artisanBuilder.SetGuiPresentation("Artisan", Category.Class,
-            CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference, 1);
+        artisanBuilder.SetGuiPresentation("Artisan", Category.Class, artisanSpriteReference, 1);
 
         // Complicated stuff
 
