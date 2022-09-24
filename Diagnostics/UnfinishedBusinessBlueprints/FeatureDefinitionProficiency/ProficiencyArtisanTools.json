@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArtisanToolsProficiencyTitle",
-    "description": "Feature/&ArtisanToolsProficiencyDescription",
+    "title": "Feature/&ProficiencyArtisanToolsTitle",
+    "description": "Feature/&ProficiencyArtisanToolsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b519d57-78bf-5a29-b44e-62b03cb971b0",
+  "guid": "2860f7ce-44ca-59ed-bb1d-e50d0c97463c",
   "contentPack": 9999,
-  "name": "ProficiencyToolsArtisan"
+  "name": "ProficiencyArtisanTools"
 }

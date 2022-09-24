@@ -9,6 +9,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using FeatureDefinitionMagicAffinityBuilder =
+    SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionMagicAffinityBuilder;
 
 namespace SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 
@@ -204,9 +206,11 @@ public static class AlchemistBuilder
         var alchemicalSavantSpellsGui = new GuiPresentationBuilder(
             "Subclass/&MagicAffinityAlchemicalSavantListTitle",
             "Subclass/&MagicAffinityAlchemicalSavantListDescription");
-        var alchemicalSavantSpells = BuildMagicAffinityHeightenedList(
-            new List<string> { AcidArrow.Name, FlamingSphere.Name }, 2,
-            "MagicAffinityArtisanAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
+        var alchemicalSavantSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityArtisanAlchemicalSavantHeightened")
+            .SetGuiPresentation(alchemicalSavantSpellsGui.Build())
+            .SetWarList(2, new List<SpellDefinition> { AcidArrow, FlamingSphere })
+            .AddToDB();
         alchemicalSavantSpells.forceHalfDamageOnCantrips = true;
 
         var restorativeElixirsPower = new ArtisanHelpers.FeatureDefinitionPowerBuilder(

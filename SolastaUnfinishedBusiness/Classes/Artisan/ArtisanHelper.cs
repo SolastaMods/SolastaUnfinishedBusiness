@@ -42,8 +42,11 @@ internal static class ArtisanHelpers
         string name,
         GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionMagicAffinityBuilder(
-            name, ArtisanClass.GuidNamespace, levelBonus, guiPresentation, spellNames).AddToDB();
+        return FeatureDefinitionMagicAffinityBuilder
+            .Create(name)
+            .SetGuiPresentation(guiPresentation)
+            .SetWarList(levelBonus, spellNames)
+            .AddToDB();
     }
 
     public static ConditionDefinition BuildCondition(
@@ -90,7 +93,7 @@ internal static class ArtisanHelpers
         RuleDefinitions.RechargeRate recharge)
     {
         var effectDescriptionBuilder = new EffectDescriptionBuilder();
-        
+
         effectDescriptionBuilder.SetTargetingData(
             RuleDefinitions.Side.All,
             RuleDefinitions.RangeType.Self,
@@ -101,15 +104,16 @@ internal static class ArtisanHelpers
         effectDescriptionBuilder.SetCreatedByCharacter();
 
         var effectFormBuilder = new EffectFormBuilder();
-        
+
         effectFormBuilder.SetSpellForm(9);
         effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
         effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
 
         var particleParams = new EffectParticleParameters();
-        
+
         particleParams.Copy(
-            DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
+            DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription
+                .EffectParticleParameters);
 
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 

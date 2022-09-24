@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity
-    , FeatureDefinitionMagicAffinityBuilder>
+public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity,
+    FeatureDefinitionMagicAffinityBuilder>
 {
     public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
         RuleDefinitions.ConcentrationAffinity concentrationAffinity,
@@ -55,9 +55,28 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
 
     public FeatureDefinitionMagicAffinityBuilder SetWarList(
         int levelBonus,
+        params string[] spells)
+    {
+        return SetWarList(levelBonus, spells.AsEnumerable());
+    }
+
+    public FeatureDefinitionMagicAffinityBuilder SetWarList(
+        int levelBonus,
         params SpellDefinition[] spells)
     {
         return SetWarList(levelBonus, spells.AsEnumerable());
+    }
+
+    public FeatureDefinitionMagicAffinityBuilder SetWarList(
+        int levelBonus,
+        IEnumerable<string> spells)
+    {
+        Definition.usesWarList = true;
+        Definition.warListSlotBonus = levelBonus;
+        Definition.WarListSpells.AddRange(spells);
+        Definition.WarListSpells.Sort();
+
+        return this;
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetWarList(

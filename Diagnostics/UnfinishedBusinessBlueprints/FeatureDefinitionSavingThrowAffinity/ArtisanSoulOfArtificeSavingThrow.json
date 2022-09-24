@@ -44,7 +44,7 @@
     },
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
+      "abilityScoreName": "Intelligence",
       "affinity": "None",
       "savingThrowModifierType": "AddDice",
       "savingThrowModifierDiceNumber": 3,
@@ -57,7 +57,7 @@
     },
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
+      "abilityScoreName": "Wisdom",
       "affinity": "None",
       "savingThrowModifierType": "AddDice",
       "savingThrowModifierDiceNumber": 3,

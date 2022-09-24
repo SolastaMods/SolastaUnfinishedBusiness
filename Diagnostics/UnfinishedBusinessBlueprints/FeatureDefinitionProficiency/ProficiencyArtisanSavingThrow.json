@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SavingThrowArtisanProficiencyTitle",
-    "description": "Feature/&SavingThrowArtisanProficiencyDescription",
+    "title": "Feature/&ProficiencyArtisanSavingThrowTitle",
+    "description": "Feature/&ProficiencyArtisanSavingThrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

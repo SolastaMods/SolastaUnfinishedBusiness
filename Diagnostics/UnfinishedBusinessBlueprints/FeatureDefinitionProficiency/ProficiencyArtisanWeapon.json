@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArtisanWeaponProficiencyTitle",
-    "description": "Feature/&ArtisanWeaponProficiencyDescription",
+    "title": "Feature/&ProficiencyArtisanWeaponTitle",
+    "description": "Feature/&ProficiencyArtisanWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f7abc3e-bea6-5c05-af3f-0a4f59b5a95f",
+  "guid": "e2f66ea0-45a4-5936-a9d2-0b86f5104607",
   "contentPack": 9999,
-  "name": "ProficiencyWeaponArtisan"
+  "name": "ProficiencyArtisanWeapon"
 }

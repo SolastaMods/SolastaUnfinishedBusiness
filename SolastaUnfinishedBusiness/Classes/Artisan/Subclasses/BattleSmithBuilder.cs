@@ -41,7 +41,8 @@ public static class BattleSmithBuilder
 
         var infusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
             .Create("AttributeModiferArtisanBattleSmithInfusionHealingPool", ArtisanClass.GuidNamespace)
-            .Configure(2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence, ArtisanClass.InfusionPool)
+            .Configure(2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                ArtisanClass.PowerPoolArtisanInfusion)
             .SetGuiPresentation("HealingPoolArtisanBattleSmithInfusionsIncrease", Category.Subclass)
             .AddToDB();
 
@@ -96,11 +97,11 @@ public static class BattleSmithBuilder
         improvedInfuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade
             .GuiPresentation.SpriteReference);
 
-        var attackImprovedModGui = new GuiPresentationBuilder(
-            "Subclass/&AttackModifierImprovedArtisanBattleSmithWeaponTitle",
-            "Subclass/&AttackModifierImprovedArtisanBattleSmithWeaponDescription");
-        attackImprovedModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon
-            .GuiPresentation.SpriteReference);
+        // var attackImprovedModGui = new GuiPresentationBuilder(
+        //     "Subclass/&AttackModifierImprovedArtisanBattleSmithWeaponTitle",
+        //     "Subclass/&AttackModifierImprovedArtisanBattleSmithWeaponDescription");
+        // attackImprovedModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon
+        //     .GuiPresentation.SpriteReference);
 
         var jolt2AttackGui = new GuiPresentationBuilder(
             "Feat/&AttackModifierArtisanBattleSmithJolt2Title",

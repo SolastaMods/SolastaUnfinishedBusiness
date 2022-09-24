@@ -162,7 +162,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyArmorArtisan:7bf6590d-3607-5410-a12b-31d419ff9831",
+      "featureDefinition": "Definition:ProficiencyArtisanArmor:308b9f08-7d25-5d90-bcca-f662f58a2990",
       "level": 1
     },
     {
@@ -177,7 +177,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWeaponArtisan:2f7abc3e-bea6-5c05-af3f-0a4f59b5a95f",
+      "featureDefinition": "Definition:ProficiencyArtisanWeapon:e2f66ea0-45a4-5936-a9d2-0b86f5104607",
       "level": 1
     },
     {
@@ -197,12 +197,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyToolsArtisan:7b519d57-78bf-5a29-b44e-62b03cb971b0",
+      "featureDefinition": "Definition:ProficiencyArtisanTools:2860f7ce-44ca-59ed-bb1d-e50d0c97463c",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModiferArtisanInfusionHealingPool:17cd5094-001e-5ddb-99a8-2cf4fd31a92f",
+      "featureDefinition": "Definition:PowerPoolArtisanInfusion:e07c5714-1a80-507f-8034-aad4270345f7",
       "level": 2
     },
     {
@@ -242,17 +242,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedArmor:53a03514-fb27-5c2f-b980-99395e4bbdb0",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedArmor:93d56bcf-c32d-5990-8048-56d4236977ae",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedFocus:ac5abb2d-be26-5c7f-a639-34da729c8ee9",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedFocus:6be17d0e-e7d9-5073-87bf-3c5fd533eeb9",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArtisanInfusionImprovedEnhancedWeapon:ad0f9528-99a6-5cb9-bc08-978e0a28bdc8",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedWeapon:4d39028c-df8c-501f-8718-e25f942a363d",
       "level": 10
     },
     {

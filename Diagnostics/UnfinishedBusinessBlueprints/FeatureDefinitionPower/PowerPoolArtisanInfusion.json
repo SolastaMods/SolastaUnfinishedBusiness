@@ -165,13 +165,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:AttributeModiferArtisanInfusionHealingPool:17cd5094-001e-5ddb-99a8-2cf4fd31a92f",
+  "overriddenPower": "Definition:PowerPoolArtisanInfusion:e07c5714-1a80-507f-8034-aad4270345f7",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&HealingPoolArtisanInfusionsTitle",
-    "description": "Subclass/&HealingPoolArtisanInfusionsDescription",
+    "title": "Feature/&PowerPoolArtisanInfusionTitle",
+    "description": "Feature/&PowerPoolArtisanInfusionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -191,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "17cd5094-001e-5ddb-99a8-2cf4fd31a92f",
+  "guid": "e07c5714-1a80-507f-8034-aad4270345f7",
   "contentPack": 9999,
-  "name": "AttributeModiferArtisanInfusionHealingPool"
+  "name": "PowerPoolArtisanInfusion"
 }

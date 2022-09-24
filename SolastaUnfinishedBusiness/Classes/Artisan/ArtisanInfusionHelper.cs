@@ -135,7 +135,7 @@ internal static class ArtisanInfusionHelper
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
             .Configure(
-                ArtisanClass.InfusionPool,
+                ArtisanClass.PowerPoolArtisanInfusion,
                 RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.NoCost,
                 1,
@@ -149,7 +149,7 @@ internal static class ArtisanInfusionHelper
     private static FeatureDefinitionPower BuildArtificialServant()
     {
         var artificialServantEffect = new EffectDescriptionBuilder();
-        
+
         artificialServantEffect
             .SetDurationData(
                 RuleDefinitions.DurationType.UntilLongRest,
@@ -168,16 +168,16 @@ internal static class ArtisanInfusionHelper
             .AddEffectForm(new EffectFormBuilder()
                 .SetSummonForm(
                     SummonForm.Type.Creature,
-                ScriptableObject.CreateInstance<ItemDefinition>(),
+                    ScriptableObject.CreateInstance<ItemDefinition>(),
                     1,
                     ArtificialServantBuilder.ArtificialServant.name,
                     ConditionFlyingBootsWinged,
                     true,
                     null,
                     ScriptableObject.CreateInstance<EffectProxyDefinition>())
-            .Build());
+                .Build());
 
-        return BuildBasicInfusionPower("summonArtificialServantPower", artificialServantEffect.Build())
+        return BuildBasicInfusionPower("PowerSharedPoolArtisanSummonArtificialServant", artificialServantEffect.Build())
             .SetGuiPresentation("SummonArtificialServant", Category.Feat,
                 SpellDefinitions.ConjureGoblinoids.GuiPresentation.SpriteReference)
             .AddToDB();
@@ -199,7 +199,7 @@ internal static class ArtisanInfusionHelper
             "Subclass/&AttackModifierArtisanEnhancedFocusDescription");
         enhanceFocusGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade
             .GuiPresentation.SpriteReference);
-        return BuildItemConditionInfusion(infusedFocusCondition, "ArtisanInfusionEnhancedFocus",
+        return BuildItemConditionInfusion(infusedFocusCondition, "PowerSharedPoolArtisanInfusionEnhancedFocus",
             enhanceFocusGui.Build()).AddToDB();
     }
 
@@ -220,7 +220,7 @@ internal static class ArtisanInfusionHelper
             "Subclass/&AttackModifierArtisanImprovedEnhancedFocusDescription");
         enhanceFocusGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade
             .GuiPresentation.SpriteReference);
-        return BuildItemConditionInfusion(infusedFocusCondition, "ArtisanInfusionImprovedEnhancedFocus",
+        return BuildItemConditionInfusion(infusedFocusCondition, "PowerSharedPoolArtisanInfusionImprovedEnhancedFocus",
                 enhanceFocusGui.Build())
             .SetOverriddenPower(EnhancedFocus).AddToDB();
     }
@@ -242,7 +242,7 @@ internal static class ArtisanInfusionHelper
             .SpriteReference);
 
         return BuildItemModifierInfusion(armorModifier, ActionDefinitions.ItemSelectionType.Equiped,
-            "ArtisanInfusionEnhancedArmor", enhanceArmorGui.Build()).AddToDB();
+            "PowerSharedPoolArtisanInfusionEnhancedArmor", enhanceArmorGui.Build()).AddToDB();
     }
 
     private static FeatureDefinitionPower BuildImprovedEnhancedDefense()
@@ -262,7 +262,7 @@ internal static class ArtisanInfusionHelper
             .SpriteReference);
 
         return BuildItemModifierInfusion(armorModifier, ActionDefinitions.ItemSelectionType.Equiped,
-                "ArtisanInfusionImprovedEnhancedArmor", enhanceArmorGui.Build())
+                "PowerSharedPoolArtisanInfusionImprovedEnhancedArmor", enhanceArmorGui.Build())
             .SetOverriddenPower(EnhancedDefense).AddToDB();
     }
 
@@ -275,7 +275,7 @@ internal static class ArtisanInfusionHelper
             .GuiPresentation.SpriteReference);
 
         return BuildItemModifierInfusion(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
-            ActionDefinitions.ItemSelectionType.WeaponNonMagical, "ArtisanInfusionEnhancedWeapon",
+            ActionDefinitions.ItemSelectionType.WeaponNonMagical, "PowerSharedPoolArtisanInfusionEnhancedWeapon",
             enhanceWeaponGui.Build()).AddToDB();
     }
 
@@ -288,7 +288,7 @@ internal static class ArtisanInfusionHelper
             .GuiPresentation.SpriteReference);
 
         return BuildItemModifierInfusion(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon2,
-                ActionDefinitions.ItemSelectionType.WeaponNonMagical, "ArtisanInfusionImprovedEnhancedWeapon",
+                ActionDefinitions.ItemSelectionType.WeaponNonMagical, "PowerSharedPoolArtisanInfusionImprovedEnhancedWeapon",
                 enhanceWeaponGui.Build())
             .SetOverriddenPower(EnhancedWeapon).AddToDB();
     }
@@ -296,13 +296,13 @@ internal static class ArtisanInfusionHelper
     private static FeatureDefinitionPower BuildBagOfHolding()
     {
         var affinity = FeatureDefinitionEquipmentAffinityBuilder
-            .Create("InfusionBagOfHolding", ArtisanClass.GuidNamespace)
+            .Create("EquipmentAffinityArtisanInfusionBagOfHolding", ArtisanClass.GuidNamespace)
             .SetGuiPresentation("EquipmentModifierArtisanBagOfHolder", Category.Subclass,
                 ConditionBullsStrength.GuiPresentation.SpriteReference)
             .SetCarryingCapacityMultiplier(1.0f, 500.0f)
             .AddToDB();
 
-        var bagOfHoldingCondition = BuildCondition("ArtisanInfusedConditionBagOfHolding",
+        var bagOfHoldingCondition = BuildCondition("ConditionArtisanInfusedBagOfHolding",
             RuleDefinitions.DurationType.UntilLongRest, 1, false, affinity.GuiPresentation, affinity);
 
         var bagOfHoldingGui = new GuiPresentationBuilder(
@@ -310,27 +310,27 @@ internal static class ArtisanInfusionHelper
             "Subclass/&EquipmentModifierArtisanBagOfHolderDescription");
         bagOfHoldingGui.SetSpriteReference(FeatureDefinitionPowers.PowerFunctionPotionOfGiantStrengthCloud
             .GuiPresentation.SpriteReference);
-        return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtisanInfusionBagOfHolding",
+        return BuildItemConditionInfusion(bagOfHoldingCondition, "PowerSharedPoolArtisanInfusionBagOfHolding",
             bagOfHoldingGui.Build()).AddToDB();
     }
 
     private static FeatureDefinitionPower BuildGogglesOfNight()
     {
         var infuseDarkvisionCondition = new GuiPresentationBuilder(
-            "Subclass/&PowerInfuseDarkvisionTitle",
-            "Subclass/&PowerInfuseDarkvisionDescription");
+            "Condition/&ConditionArtisanInfusedDarkvisionTitle",
+            "Condition/&ConditionArtisanInfusedDarkvisionDescription");
         infuseDarkvisionCondition.SetSpriteReference(ConditionSeeInvisibility.GuiPresentation.SpriteReference);
-        var darkvisionCondition = BuildCondition("ArtisanInfusedConditionDarkvision",
+        var darkvisionCondition = BuildCondition("ConditionArtisanInfusedDarkvision",
             RuleDefinitions.DurationType.UntilLongRest, 1, false,
             infuseDarkvisionCondition.Build(), FeatureDefinitionSenses.SenseSuperiorDarkvision);
 
         var infuseDarkvision = new GuiPresentationBuilder(
-            "Subclass/&PowerInfuseDarkvisionTitle",
-            "Subclass/&PowerInfuseDarkvisionDescription");
+            "Feature/&PowerSharedPoolArtisanInfuseDarkvisionTitle",
+            "Feature/&PowerSharedPoolArtisanInfuseDarkvisionDescription");
         infuseDarkvision.SetSpriteReference(FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation
             .SpriteReference);
 
-        return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", infuseDarkvision.Build())
+        return BuildItemConditionInfusion(darkvisionCondition, "PowerSharedPoolArtisanInfuseDarkvision", infuseDarkvision.Build())
             .AddToDB();
     }
 
@@ -347,12 +347,12 @@ internal static class ArtisanInfusionHelper
             RuleDefinitions.DurationType.UntilLongRest, 1, false, affinity.GuiPresentation, affinity);
 
         var infuseMindSharpener = new GuiPresentationBuilder(
-            "Subclass/&PowerInfuseMindSharpenerTitle",
-            "Subclass/&PowerInfuseMindSharpenerDescription");
+            "Feature/&PowerSharedPoolArtisanInfusionMindSharpenerTitle",
+            "Feature/&PowerSharedPoolArtisanInfusionMindSharpenerDescription");
         infuseMindSharpener.SetSpriteReference(FeatureDefinitionPowers.PowerFunctionTomeOfQuickThought
             .GuiPresentation.SpriteReference);
 
-        return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtisanInfusionMindSharpener",
+        return BuildItemConditionInfusion(infusedMindSharpenerCondition, "PowerSharedPoolArtisanInfusionMindSharpener",
             infuseMindSharpener.Build()).AddToDB();
     }
 
@@ -377,11 +377,11 @@ internal static class ArtisanInfusionHelper
             FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity);
 
         var infuseArmorMagicalStrength = new GuiPresentationBuilder(
-            "Subclass/&PowerInfuseArmorMagicalStrengthTitle",
-            "Subclass/&PowerInfuseArmorMagicalStrengthDescription");
+            "Feature/&PowerSharedPoolArtisanInfusionArmorMagicalStrengthTitle",
+            "Feature/&PowerSharedPoolArtisanInfusionArmorMagicalStrengthDescription");
         infuseArmorMagicalStrength.SetSpriteReference(FeatureDefinitionPowers.PowerFunctionManualGainfulExercise
             .GuiPresentation.SpriteReference);
-        return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtisanInfusionArmorMagicalStrength",
+        return BuildItemConditionInfusion(armorMagicalStrengthCondition, "PowerSharedPoolArtisanInfusionArmorMagicalStrength",
             infuseArmorMagicalStrength.Build()).AddToDB();
     }
 
@@ -396,7 +396,7 @@ internal static class ArtisanInfusionHelper
             "Subclass/&ConditionResistantArmorTitle",
             "Subclass/&ConditionResistantArmorDescription");
         conditionArmorResistance.SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference);
-        var armorResistance = BuildCondition("ConditionPowerArtisanResistantArmor",
+        var armorResistance = BuildCondition("ConditionArtisanResistantArmor",
             RuleDefinitions.DurationType.UntilLongRest, 1, false, conditionArmorResistance.Build(),
             FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
             FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -408,7 +408,7 @@ internal static class ArtisanInfusionHelper
             FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance,
             FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
             FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance);
-        return BuildItemConditionInfusion(armorResistance, "ArtisanInfusionResistantArmor",
+        return BuildItemConditionInfusion(armorResistance, "PowerSharedPoolArtisanInfusionResistantArmor",
             infuseResistantArmor.Build()).AddToDB();
     }
 
@@ -427,9 +427,9 @@ internal static class ArtisanInfusionHelper
             RuleDefinitions.TargetType.Self);
         spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
 
-        return new FeatureDefinitionPowerSharedPoolBuilder("ArtisanInfusionSpellRefuelingRing",
-            GuidHelper.Create(ArtisanClass.GuidNamespace, "ArtisanInfusionSpellRefuelingRing").ToString(),
-            ArtisanClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest,
+        return new FeatureDefinitionPowerSharedPoolBuilder("PowerSharedPoolArtisanInfusionSpellRefuelingRing",
+            GuidHelper.Create(ArtisanClass.GuidNamespace, "PowerSharedPoolArtisanInfusionSpellRefuelingRing").ToString(),
+            ArtisanClass.PowerPoolArtisanInfusion, RuleDefinitions.RechargeRate.LongRest,
             RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
             spellEffect.Build(), infuseSpellRefuelingRing.Build(), true /* unique instance */).AddToDB();
     }
@@ -451,7 +451,7 @@ internal static class ArtisanInfusionHelper
         };
 
         var radiantDamage = new ArtisanHelpers.FeatureDefinitionAdditionalDamageBuilder(
-                "AdditionalDamageRadiantWeapon",
+                "AdditionalDamageArtisanRadiantWeapon",
                 ArtisanClass.GuidNamespace, "BlindingWeaponStrike",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
                 RuleDefinitions.AdditionalDamageValueDetermination.Die,
@@ -470,23 +470,37 @@ internal static class ArtisanInfusionHelper
             .SpriteReference);
 
         return BuildItemModifierInfusion(radiantDamage,
-                ActionDefinitions.ItemSelectionType.Weapon, "ArtisanInfusionBlindingWeapon",
+                ActionDefinitions.ItemSelectionType.Weapon, "PowerSharedPoolArtisanInfusionBlindingWeapon",
                 radiantWeaponGui.Build())
             .AddToDB();
     }
 
-    public static FeatureDefinitionPowerSharedPoolBuilder BuildItemModifierInfusion(FeatureDefinition itemFeature,
+    public static FeatureDefinitionPowerSharedPoolBuilder BuildItemModifierInfusion(
+        FeatureDefinition itemFeature,
         ActionDefinitions.ItemSelectionType itemType,
-        string name, GuiPresentation gui)
+        string name,
+        GuiPresentation gui)
     {
         var itemEffect = new EffectDescriptionBuilder();
-        itemEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
+        
+        itemEffect.SetDurationData(
+            RuleDefinitions.DurationType.UntilLongRest,
+            1,
             RuleDefinitions.TurnOccurenceType.EndOfTurn);
-        itemEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1,
-            RuleDefinitions.TargetType.Item, 1, 1, itemType);
+        itemEffect.SetTargetingData(
+            RuleDefinitions.Side.Ally,
+            RuleDefinitions.RangeType.Touch,
+            1,
+            RuleDefinitions.TargetType.Item,
+            1,
+            1,
+            itemType);
         itemEffect.AddEffectForm(new EffectFormBuilder()
-            .SetItemPropertyForm(new List<FeatureUnlockByLevel> { new(itemFeature, 0) },
-                RuleDefinitions.ItemPropertyUsage.Unlimited, 1).Build());
+            .SetItemPropertyForm(
+                new List<FeatureUnlockByLevel> { new(itemFeature, 0) },
+                RuleDefinitions.ItemPropertyUsage.Unlimited,
+                1)
+            .Build());
 
         return BuildBasicInfusionPower(name, itemEffect.Build())
             .SetGuiPresentation(gui)
@@ -499,7 +513,7 @@ internal static class ArtisanInfusionHelper
         GuiPresentation gui)
     {
         var conditionEffect = new EffectDescriptionBuilder();
-        
+
         conditionEffect.SetDurationData(
             RuleDefinitions.DurationType.UntilLongRest,
             1,
@@ -519,8 +533,9 @@ internal static class ArtisanInfusionHelper
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
-                    new List<ConditionDefinition>()).Build());
-        
+                    new List<ConditionDefinition>())
+                .Build());
+
         return BuildBasicInfusionPower(name, conditionEffect.Build())
             .SetGuiPresentation(gui)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always);
@@ -529,7 +544,7 @@ internal static class ArtisanInfusionHelper
     private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
     {
         var itemCondition = BuildCondition(
-            "Condition" + "Artisan" + name,
+            "ConditionArtisan" + name,
             RuleDefinitions.DurationType.UntilLongRest,
             1,
             false,
@@ -537,7 +552,7 @@ internal static class ArtisanInfusionHelper
             item.StaticProperties.Select(p => p.FeatureDefinition).ToArray());
 
         var itemEffect = new EffectDescriptionBuilder();
-        
+
         itemEffect.SetDurationData(
             RuleDefinitions.DurationType.UntilLongRest,
             1,
@@ -560,7 +575,7 @@ internal static class ArtisanInfusionHelper
                     new List<ConditionDefinition>())
                 .Build());
 
-        return BuildBasicInfusionPower(TagsDefinitions.Power + "Artisan" + name, itemEffect.Build())
+        return BuildBasicInfusionPower("PowerSharedPoolArtisan" + name, itemEffect.Build())
             .SetGuiPresentation(item.GuiPresentation)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
