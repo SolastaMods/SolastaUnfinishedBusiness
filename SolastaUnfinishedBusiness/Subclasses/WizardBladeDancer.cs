@@ -56,6 +56,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution")
+                    .SetGuiPresentationNoContent(true)
                     .BuildAndSetAffinityGroups(
                         RuleDefinitions.CharacterAbilityCheckAffinity.None,
                         RuleDefinitions.DieType.D1,

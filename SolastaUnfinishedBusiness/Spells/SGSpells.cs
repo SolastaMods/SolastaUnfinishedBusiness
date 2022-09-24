@@ -81,12 +81,14 @@ public static class SgSpells
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create("MovementAffinityConditionMule")
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
         movementAffinity.heavyArmorImmunity = true;
         movementAffinity.encumbranceImmunity = true;
 
         var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
             .Create("EquipmentAffinityConditionMule")
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
         equipmentAffinity.additionalCarryingCapacity = 20;
 

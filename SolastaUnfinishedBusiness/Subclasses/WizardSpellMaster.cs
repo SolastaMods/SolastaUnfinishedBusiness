@@ -77,6 +77,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
         BonusRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerSpellMasterBonusRecovery")
+            .SetGuiPresentationNoContent(true)
             .Configure(1,
                 RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Intelligence,

@@ -109,6 +109,7 @@ internal static class EwSpells
                                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                     .Create("AdditionalDamageSunlightBlade")
+                                    .SetGuiPresentationNoContent(true)
                                     .Configure(
                                         "SunlightBlade",
                                         RuleDefinitions.FeatureLimitedUsage.None,
@@ -251,6 +252,7 @@ internal static class EwSpells
                             .SetDuration(RuleDefinitions.DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                 .Create("AdditionalDamageResonatingStrike")
+                                .SetGuiPresentationNoContent(true)
                                 .Configure(
                                     "ResonatingStrike",
                                     RuleDefinitions.FeatureLimitedUsage.None,
