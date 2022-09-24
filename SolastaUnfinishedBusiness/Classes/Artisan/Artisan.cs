@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 using static CharacterClassDefinition;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer;
+namespace SolastaUnfinishedBusiness.Classes.Artisan;
 
-internal static class TinkererClass
+internal static class ArtisanClass
 {
+    private static SpellListDefinition _spellList;
+
     public static readonly Guid GuidNamespace = new("7aee1270-7a61-48d9-8670-cf087c551c16");
 
     public static readonly FeatureDefinitionPower InfusionPool = FeatureDefinitionPowerPoolBuilder
-        .Create("AttributeModiferArtificerInfusionHealingPool", GuidNamespace)
+        .Create("AttributeModiferArtisanInfusionHealingPool", GuidNamespace)
         .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
             RuleDefinitions.RechargeRate.LongRest)
-        .SetGuiPresentation("HealingPoolArtificerInfusions", Category.Subclass)
+        .SetGuiPresentation("HealingPoolArtisanInfusions", Category.Subclass)
         .AddToDB();
 
     private static readonly List<string> AbilityScores = new()
@@ -32,73 +34,109 @@ internal static class TinkererClass
 
     private static readonly List<FeatureDefinition> Level2InfusionList = new()
     {
-        InfusionHelpers.ArtificialServant,
-        InfusionHelpers.EnhancedDefense,
-        InfusionHelpers.BagOfHolding,
-        InfusionHelpers.GogglesOfNight,
-        InfusionHelpers.EnhancedFocus,
-        InfusionHelpers.EnhancedWeapon,
-        InfusionHelpers.MindSharpener,
-        InfusionHelpers.ArmorOfMagicalStrength
+        ArtisanInfusionHelper.ArtificialServant,
+        ArtisanInfusionHelper.EnhancedDefense,
+        ArtisanInfusionHelper.BagOfHolding,
+        ArtisanInfusionHelper.GogglesOfNight,
+        ArtisanInfusionHelper.EnhancedFocus,
+        ArtisanInfusionHelper.EnhancedWeapon,
+        ArtisanInfusionHelper.MindSharpener,
+        ArtisanInfusionHelper.ArmorOfMagicalStrength
     };
 
     private static readonly List<FeatureDefinition> Level6InfusionList = new()
     {
-        InfusionHelpers.ResistantArmor,
-        InfusionHelpers.SpellRefuelingRing,
-        InfusionHelpers.BlindingWeapon,
-        InfusionHelpers.BootsOfElvenKind,
-        InfusionHelpers.CloakOfElvenKind
+        ArtisanInfusionHelper.ResistantArmor,
+        ArtisanInfusionHelper.SpellRefuelingRing,
+        ArtisanInfusionHelper.BlindingWeapon,
+        ArtisanInfusionHelper.BootsOfElvenKind,
+        ArtisanInfusionHelper.CloakOfElvenKind
     };
 
     private static readonly List<FeatureDefinition> Level10InfusionList = new()
     {
-        InfusionHelpers.BootsOfStridingAndSpringing,
-        InfusionHelpers.BootsOfTheWinterland,
-        InfusionHelpers.BroochOfShielding,
-        InfusionHelpers.BracesrOfArchery,
-        InfusionHelpers.CloakOfProtection,
-        InfusionHelpers.GauntletsOfOgrePower,
-        InfusionHelpers.GlovesOfMissileSnaring,
-        InfusionHelpers.HeadbandOfIntellect,
-        InfusionHelpers.SlippersOfSpiderClimbing
+        ArtisanInfusionHelper.BootsOfStridingAndSpringing,
+        ArtisanInfusionHelper.BootsOfTheWinterland,
+        ArtisanInfusionHelper.BroochOfShielding,
+        ArtisanInfusionHelper.BracesrOfArchery,
+        ArtisanInfusionHelper.CloakOfProtection,
+        ArtisanInfusionHelper.GauntletsOfOgrePower,
+        ArtisanInfusionHelper.GlovesOfMissileSnaring,
+        ArtisanInfusionHelper.HeadbandOfIntellect,
+        ArtisanInfusionHelper.SlippersOfSpiderClimbing
     };
 
     private static readonly List<FeatureDefinition> Level14InfusionList = new()
     {
-        InfusionHelpers.AmuletOfHealth,
-        InfusionHelpers.BeltOfGiantHillStrength,
-        InfusionHelpers.BracersOfDefense,
-        InfusionHelpers.RingProtectionPlus1
+        ArtisanInfusionHelper.AmuletOfHealth,
+        ArtisanInfusionHelper.BeltOfGiantHillStrength,
+        ArtisanInfusionHelper.BracersOfDefense,
+        ArtisanInfusionHelper.RingProtectionPlus1
     };
 
-    public static CharacterClassDefinition BuildTinkererClass()
+    public static SpellListDefinition SpellList =>
+        _spellList ??=
+            SpellListDefinitionBuilder.Create("SpellListArtisan", GuidNamespace)
+                .SetGuiPresentation("SpellListArtisan", Category.Feature)
+                .ClearSpells()
+                // melee weapon attack (booming blade/green flame blade)
+                // pull enemy towards you (thorn whip/lightning lure)
+                // I'm surrounded (thunderclap/sword burst)
+                .SetSpellsAtLevel(0, SpellDefinitions.AcidSplash, SpellDefinitions.DancingLights,
+                    SpellDefinitions.FireBolt, SpellDefinitions.Guidance, SpellDefinitions.Light,
+                    SpellDefinitions.PoisonSpray, SpellDefinitions.RayOfFrost,
+                    SpellDefinitions.Resistance, /*ResonatingStrike,*/ SpellDefinitions.ShockingGrasp,
+                    SpellDefinitions.SpareTheDying)
+                // absorb elements, snare, catapult, tasha's caustic brew
+                .SetSpellsAtLevel(1, SpellDefinitions.CureWounds, SpellDefinitions.DetectMagic,
+                    SpellDefinitions.ExpeditiousRetreat, SpellDefinitions.FaerieFire, SpellDefinitions.FalseLife,
+                    SpellDefinitions.FeatherFall,
+                    SpellDefinitions.Grease, SpellDefinitions.Identify, SpellDefinitions.Jump,
+                    SpellDefinitions.Longstrider)
+                // web, pyrotechnics, heat metal, enlarge/reduce
+                .SetSpellsAtLevel(2, SpellDefinitions.Aid, SpellDefinitions.Blur, SpellDefinitions.Darkvision,
+                    SpellDefinitions.EnhanceAbility, SpellDefinitions.HeatMetal, SpellDefinitions.Invisibility,
+                    SpellDefinitions.LesserRestoration,
+                    SpellDefinitions.Levitate,
+                    SpellDefinitions.MagicWeapon, SpellDefinitions.ProtectionFromPoison,
+                    SpellDefinitions.SeeInvisibility, SpellDefinitions.SpiderClimb)
+                // blink, elemental weapon, flame arrows
+                .SetSpellsAtLevel(3, SpellDefinitions.CreateFood, SpellDefinitions.DispelMagic, SpellDefinitions.Fly,
+                    SpellDefinitions.Haste, SpellDefinitions.ProtectionFromEnergy, SpellDefinitions.Revivify)
+                // everything
+                .SetSpellsAtLevel(4, SpellDefinitions.FreedomOfMovement, SpellDefinitions.Stoneskin)
+                // everything
+                .SetSpellsAtLevel(5, SpellDefinitions.GreaterRestoration)
+                .FinalizeSpells()
+                .AddToDB();
+
+    public static CharacterClassDefinition BuildArtisanClass()
     {
-        var artificerBuilder = CharacterClassDefinitionBuilder
-            .Create("ClassTinkerer", GuidNamespace)
+        var artisanBuilder = CharacterClassDefinitionBuilder
+            .Create("ClassArtisan", GuidNamespace)
             .SetHitDice(RuleDefinitions.DieType.D8);
-            // .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
-            // .AddPersonality(PersonalityFlagDefinitions.GpCombat, 3)
-            // .AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1)
-            // .AddPersonality(PersonalityFlagDefinitions.Normal, 3);
+        // .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
+        // .AddPersonality(PersonalityFlagDefinitions.GpCombat, 3)
+        // .AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1)
+        // .AddPersonality(PersonalityFlagDefinitions.Normal, 3);
 
         // Game background checks
-        artificerBuilder.SetIngredientGatheringOdds(7);
+        artisanBuilder.SetIngredientGatheringOdds(7);
         // I don't think this matters
-        artificerBuilder.SetBattleAI(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
-        artificerBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Cleric);
+        artisanBuilder.SetBattleAI(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
+        artisanBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Cleric);
         // purposely left blank
         //public bool RequiresDeity { get; }
         //public List<string> ExpertiseAutolearnPreference { get; }
 
         // Auto select helpers
-        artificerBuilder.AddToolPreferences(
+        artisanBuilder.AddToolPreferences(
             ToolTypeDefinitions.EnchantingToolType,
             ToolTypeDefinitions.ScrollKitType,
             ToolTypeDefinitions.ArtisanToolSmithToolsType,
             ToolTypeDefinitions.ThievesToolsType);
 
-        artificerBuilder.SetAbilityScorePriorities(
+        artisanBuilder.SetAbilityScorePriorities(
             AttributeDefinitions.Intelligence,
             AttributeDefinitions.Constitution,
             AttributeDefinitions.Dexterity,
@@ -106,7 +144,7 @@ internal static class TinkererClass
             AttributeDefinitions.Strength,
             AttributeDefinitions.Charisma);
 
-        artificerBuilder.AddSkillPreferences(
+        artisanBuilder.AddSkillPreferences(
             DatabaseHelper.SkillDefinitions.Investigation,
             DatabaseHelper.SkillDefinitions.Arcana,
             DatabaseHelper.SkillDefinitions.History,
@@ -118,20 +156,20 @@ internal static class TinkererClass
             DatabaseHelper.SkillDefinitions.Persuasion,
             DatabaseHelper.SkillDefinitions.Nature);
 
-        artificerBuilder.AddFeatPreferences(
+        artisanBuilder.AddFeatPreferences(
             FeatDefinitions.Lockbreaker,
             FeatDefinitions.PowerfulCantrip,
             FeatDefinitions.Robust);
 
         // GUI
-        artificerBuilder.SetPictogram(CharacterClassDefinitions.Wizard.ClassPictogramReference);
-        artificerBuilder.SetGuiPresentation("Tinkerer", Category.Class,
+        artisanBuilder.SetPictogram(CharacterClassDefinitions.Wizard.ClassPictogramReference);
+        artisanBuilder.SetGuiPresentation("Artisan", Category.Class,
             CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference, 1);
 
         // Complicated stuff
 
         // Starting equipment.
-        artificerBuilder.AddEquipmentRow(
+        artisanBuilder.AddEquipmentRow(
             new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
@@ -143,7 +181,7 @@ internal static class TinkererClass
                     EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
             }
         );
-        artificerBuilder.AddEquipmentRow(
+        artisanBuilder.AddEquipmentRow(
             new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
@@ -162,68 +200,68 @@ internal static class TinkererClass
             EquipmentDefinitions.OptionArmor, 1));
         mediumArmor.Add(EquipmentOptionsBuilder.Option(ItemDefinitions.ScaleMail, EquipmentDefinitions.OptionArmor,
             1));
-        artificerBuilder.AddEquipmentRow(mediumArmor, lightArmor);
+        artisanBuilder.AddEquipmentRow(mediumArmor, lightArmor);
 
-        artificerBuilder.AddEquipmentRow(
+        artisanBuilder.AddEquipmentRow(
             EquipmentOptionsBuilder.Option(ItemDefinitions.ArcaneFocusWand,
                 EquipmentDefinitions.OptionArcaneFocusChoice, 1));
 
-        artificerBuilder.AddEquipmentRow(
+        artisanBuilder.AddEquipmentRow(
             EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
             EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1),
             EquipmentOptionsBuilder.Option(ItemDefinitions.ThievesTool, EquipmentDefinitions.OptionTool, 1),
             EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack,
                 1));
 
-        var armorProf = FeatureHelpers
-            .BuildProficiency("ProficiencyArmorTinkerer", RuleDefinitions.ProficiencyType.Armor,
+        var armorProf = ArtisanHelpers
+            .BuildProficiency("ProficiencyArmorArtisan", RuleDefinitions.ProficiencyType.Armor,
                 EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory)
-            .SetGuiPresentation("TinkererArmorProficiency", Category.Feature)
+            .SetGuiPresentation("ArtisanArmorProficiency", Category.Feature)
             .AddToDB();
 
-        var weaponProf = FeatureHelpers
-            .BuildProficiency("ProficiencyWeaponTinkerer", RuleDefinitions.ProficiencyType.Weapon,
+        var weaponProf = ArtisanHelpers
+            .BuildProficiency("ProficiencyWeaponArtisan", RuleDefinitions.ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory)
-            .SetGuiPresentation("TinkererWeaponProficiency", Category.Feature)
+            .SetGuiPresentation("ArtisanWeaponProficiency", Category.Feature)
             .AddToDB();
 
-        var toolProf = FeatureHelpers
-            .BuildProficiency("ProficiencyToolsTinkerer", RuleDefinitions.ProficiencyType.Tool,
+        var toolProf = ArtisanHelpers
+            .BuildProficiency("ProficiencyToolsArtisan", RuleDefinitions.ProficiencyType.Tool,
                 ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name, ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-            .SetGuiPresentation("TinkererToolsProficiency", Category.Feature)
+            .SetGuiPresentation("ArtisanToolsProficiency", Category.Feature)
             .AddToDB();
 
-        var saveProf = FeatureHelpers
-            .BuildProficiency("ProficiencyTinkererSavingThrow", RuleDefinitions.ProficiencyType.SavingThrow,
+        var saveProf = ArtisanHelpers
+            .BuildProficiency("ProficiencyArtisanSavingThrow", RuleDefinitions.ProficiencyType.SavingThrow,
                 AttributeDefinitions.Constitution, AttributeDefinitions.Intelligence)
-            .SetGuiPresentation("SavingThrowTinkererProficiency", Category.Feature)
+            .SetGuiPresentation("SavingThrowArtisanProficiency", Category.Feature)
             .AddToDB();
 
-        artificerBuilder.AddFeaturesAtLevel(1, armorProf, weaponProf, toolProf, saveProf);
+        artisanBuilder.AddFeaturesAtLevel(1, armorProf, weaponProf, toolProf, saveProf);
 
         // skill point pool (1)
         var skillPoints = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolTinkererSkillPoints", GuidNamespace)
+            .Create("PointPoolArtisanSkillPoints", GuidNamespace)
             .Configure(HeroDefinitions.PointsPoolType.Skill, 2, false,
                 SkillDefinitions.Arcana, SkillDefinitions.History,
                 SkillDefinitions.Investigation, SkillDefinitions.Medecine,
                 SkillDefinitions.Nature, SkillDefinitions.Perception, SkillDefinitions.SleightOfHand)
-            .SetGuiPresentation("Feature/&TinkererSkillPointsTitle",
-                "Feature/&TinkererSkillGainChoicesPluralDescription")
+            .SetGuiPresentation("Feature/&ArtisanSkillPointsTitle",
+                "Feature/&ArtisanSkillGainChoicesPluralDescription")
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(1, skillPoints);
+        artisanBuilder.AddFeatureAtLevel(1, skillPoints);
 
         // spell casting (1)
         var featureSpellCasting = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellTinkerer", GuidNamespace)
-            .SetGuiPresentation("ArtificerSpellcasting", Category.Subclass)
+            .Create("CastSpellArtisan", GuidNamespace)
+            .SetGuiPresentation("ArtisanSpellcasting", Category.Subclass)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-            .SetSpellList(TinkererSpellList.SpellList)
+            .SetSpellList(SpellList)
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.WholeList)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.Prepared)
             .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)
@@ -234,7 +272,7 @@ internal static class TinkererClass
             .AddToDB();
 
         // var infusionChoice = FeatureDefinitionFeatureSetCustomBuilder
-        //     .Create("TinkererInfusionChoice", GuidNamespace)
+        //     .Create("ArtisanInfusionChoice", GuidNamespace)
         //     .SetGuiPresentation(Category.Feature)
         //     .SetRequireClassLevels(true)
         //     .SetLevelFeatures(2, Level2InfusionList)
@@ -244,42 +282,42 @@ internal static class TinkererClass
         //     .AddToDB();
         //
         // var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
-        //     .Create("TinkererInfusionReplace", GuidNamespace)
+        //     .Create("ArtisanInfusionReplace", GuidNamespace)
         //     .SetGuiPresentation(Category.Feature)
         //     .SetReplacedFeatureSet(infusionChoice)
         //     .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(1, featureSpellCasting);
+        artisanBuilder.AddFeatureAtLevel(1, featureSpellCasting);
 
         // ritual casting (1)
-        artificerBuilder.AddFeatureAtLevel(1, FeatureDefinitionFeatureSets.FeatureSetClericRitualCasting);
+        artisanBuilder.AddFeatureAtLevel(1, FeatureDefinitionFeatureSets.FeatureSetClericRitualCasting);
 
-        // Artificers can cast with "hands full" because they can cast while holding an infused item, just blanket saying ignore that requirement
+        // Artisans can cast with "hands full" because they can cast while holding an infused item, just blanket saying ignore that requirement
         // is the closest reasonable option we have right now.
-        artificerBuilder.AddFeatureAtLevel(1, BuildMagicAffinityHandsFull("MagicAffinityArtificerInfusionCasting",
+        artisanBuilder.AddFeatureAtLevel(1, BuildMagicAffinityHandsFull("MagicAffinityArtisanInfusionCasting",
             new GuiPresentationBuilder(
-                "Feature/&ArtificerInfusionCastingTitle",
-                "Feature/&ArtificerInfusionCastingDescription").Build()
+                "Feature/&ArtisanInfusionCastingTitle",
+                "Feature/&ArtisanInfusionCastingDescription").Build()
         ));
 
         var bonusCantrips = FeatureDefinitionBonusCantripsBuilder
-            .Create("TinkererMagicalTinkering", GuidNamespace)
-            .SetGuiPresentation("TinkererMagicalTinkering", Category.Subclass)
+            .Create("ArtisanMagicalTinkering", GuidNamespace)
+            .SetGuiPresentation("ArtisanMagicalTinkering", Category.Subclass)
             .SetBonusCantrips(SpellDefinitions.Shine, SpellDefinitions.Sparkle, SpellDefinitions.Dazzle)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(2, bonusCantrips);
+        artisanBuilder.AddFeatureAtLevel(2, bonusCantrips);
 
         // infuse item (level 2)
         // potentially give them "healing pool" points for the number of infusions, then abilities that provide a bonus for 24hrs which the player activates each day
 
-        artificerBuilder.AddFeatureAtLevel(2, InfusionPool);
+        artisanBuilder.AddFeatureAtLevel(2, InfusionPool);
 
         // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
         // Defense
 
-        // artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
-        // artificerBuilder.AddFeatureAtLevel(3, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
+        // artisanBuilder.AddFeatureAtLevel(3, infusionReplace);
 
         // Repeating Shot-- no point it seems
         // Returning Weapon-- not currently do-able
@@ -287,29 +325,29 @@ internal static class TinkererClass
         // right tool for the job (level 3) (can I just give enchanting tool at level 3?)-- tools are available in the store, just skipping for now
 
         // ASI (4)
-        artificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        // artificerBuilder.AddFeatureAtLevel(4, infusionReplace);
-        // artificerBuilder.AddFeatureAtLevel(5, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+        // artisanBuilder.AddFeatureAtLevel(4, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(5, infusionReplace);
         // Tool expertise (level 6)
-        var toolExpertise = FeatureHelpers.BuildProficiency("ExpertiseToolsTinkerer",
+        var toolExpertise = ArtisanHelpers.BuildProficiency("ExpertiseToolsArtisan",
                 RuleDefinitions.ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name, ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-            .SetGuiPresentation("TinkererToolsExpertise", Category.Feature)
+            .SetGuiPresentation("ArtisanToolsExpertise", Category.Feature)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(6, toolExpertise);
+        artisanBuilder.AddFeatureAtLevel(6, toolExpertise);
 
         var infusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtificerInfusionIncreaseHealingPool", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
-            .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+            .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(6, infusionPoolIncrease);
+        artisanBuilder.AddFeatureAtLevel(6, infusionPoolIncrease);
 
-        // artificerBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
-        // artificerBuilder.AddFeatureAtLevel(6, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
+        // artisanBuilder.AddFeatureAtLevel(6, infusionReplace);
 
         // Infusions
         // Repulsion Shield, +1 shield, reaction (charges) to push enemy away on hit, otherwise... unsure?
@@ -318,12 +356,12 @@ internal static class TinkererClass
         // Boots of the Winding Path-- probably not going to happen
 
         var noContent = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle");
-        var geniusSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererFlashOfGeniusSavingThrow",
+        var geniusSaves = ArtisanHelpers.BuildSavingThrowAffinity("ArtisanFlashOfGeniusSavingThrow",
             AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None,
             FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 1, RuleDefinitions.DieType.D4,
             false, noContent.Build());
 
-        var geniusAbility = FeatureHelpers.BuildAbilityAffinity("TinkererFlashOfGeniusAbilityCheck",
+        var geniusAbility = ArtisanHelpers.BuildAbilityAffinity("ArtisanFlashOfGeniusAbilityCheck",
             new List<Tuple<string, string>>
             {
                 Tuple.Create(AttributeDefinitions.Strength, ""),
@@ -336,9 +374,9 @@ internal static class TinkererClass
             RuleDefinitions.CharacterAbilityCheckAffinity.None, noContent.Build());
 
         var flashOfGeniusConditionPresentation = new GuiPresentationBuilder(
-            "Subclass/&TinkererFlashOfGeniusConditionTitle",
-            "Subclass/&TinkererFlashOfGeniusConditionDescription");
-        var flashCondition = FeatureHelpers.BuildCondition("TinkererFlashOfGeniusCondition",
+            "Subclass/&ArtisanFlashOfGeniusConditionTitle",
+            "Subclass/&ArtisanFlashOfGeniusConditionDescription");
+        var flashCondition = ArtisanHelpers.BuildCondition("ArtisanFlashOfGeniusCondition",
             RuleDefinitions.DurationType.Hour, 1, true, flashOfGeniusConditionPresentation.Build(),
             geniusSaves, geniusAbility);
 
@@ -358,7 +396,7 @@ internal static class TinkererClass
             RuleDefinitions.TurnOccurenceType.StartOfTurn);
         flashEffect.SetParticleEffectParameters(SpellDefinitions.Bless.EffectDescription.EffectParticleParameters);
 
-        var flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower",
+        var flashOfGenius = new ArtisanHelpers.FeatureDefinitionPowerBuilder("ArtisanFlashOfGeniusPower",
                 GuidNamespace,
                 -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
@@ -366,21 +404,21 @@ internal static class TinkererClass
                 flashEffect.Build())
             .SetGuiPresentation(Category.Subclass)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(7, flashOfGenius);
-        // artificerBuilder.AddFeatureAtLevel(7, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(7, flashOfGenius);
+        // artisanBuilder.AddFeatureAtLevel(7, infusionReplace);
         // ASI (8)
-        artificerBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        // artificerBuilder.AddFeatureAtLevel(8, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+        // artisanBuilder.AddFeatureAtLevel(8, infusionReplace);
 
         // 09
-        // artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(9, infusionReplace);
 
         // Magic Item Adept (10)
-        var craftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
-            "Subclass/&CraftingTinkererMagicItemAdeptTitle",
-            "Subclass/&CraftingTinkererMagicItemAdeptDescription");
-        var craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder(
-            "CraftingTinkererMagicItemAdept", GuidNamespace,
+        var craftingArtisanMagicItemAdeptPresentation = new GuiPresentationBuilder(
+            "Subclass/&CraftingArtisanMagicItemAdeptTitle",
+            "Subclass/&CraftingArtisanMagicItemAdeptDescription");
+        var craftingAffinity = new ArtisanHelpers.FeatureDefinitionCraftingAffinityBuilder(
+            "CraftingArtisanMagicItemAdept", GuidNamespace,
             new List<ToolTypeDefinition>
             {
                 ToolTypeDefinitions.ThievesToolsType,
@@ -389,24 +427,24 @@ internal static class TinkererClass
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType
-            }, 0.25f, true, craftingTinkererMagicItemAdeptPresentation.Build()).AddToDB();
-        artificerBuilder.AddFeatureAtLevel(10, craftingAffinity);
+            }, 0.25f, true, craftingArtisanMagicItemAdeptPresentation.Build()).AddToDB();
+        artisanBuilder.AddFeatureAtLevel(10, craftingAffinity);
         // boost to infusions (many of the +1s become +2s)
 
         var infusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtificerInfusionIncreaseHealingPool10", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool10", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
-            .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+            .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(10, infusionPoolIncrease10);
+        artisanBuilder.AddFeatureAtLevel(10, infusionPoolIncrease10);
 
-        artificerBuilder.AddFeaturesAtLevel(10,
+        artisanBuilder.AddFeaturesAtLevel(10,
             // infusionChoice,
             // infusionChoice,
             // infusionReplace,
-            InfusionHelpers.ImprovedEnhancedDefense,
-            InfusionHelpers.ImprovedEnhancedFocus,
-            InfusionHelpers.ImprovedEnhancedWeapon);
+            ArtisanInfusionHelper.ImprovedEnhancedDefense,
+            ArtisanInfusionHelper.ImprovedEnhancedFocus,
+            ArtisanInfusionHelper.ImprovedEnhancedWeapon);
         // helm of awareness
         // winged boots-- probably not- it's a real complicated item
 
@@ -417,101 +455,100 @@ internal static class TinkererClass
         spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
             RuleDefinitions.TargetType.Self);
         spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
-        var spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem",
+        var spellStoringItem = new ArtisanHelpers.FeatureDefinitionPowerBuilder("ArtisanSpellStoringItem",
                 GuidNamespace,
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence,
                 spellEffect.Build())
-            .SetGuiPresentation("PowerTinkererSpellStoringItem", Category.Subclass,
+            .SetGuiPresentation("PowerArtisanSpellStoringItem", Category.Subclass,
                 FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation
                     .SpriteReference)
             .AddToDB();
-        artificerBuilder.AddFeatureAtLevel(11, spellStoringItem);
-        // artificerBuilder.AddFeatureAtLevel(11, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(11, spellStoringItem);
+        // artisanBuilder.AddFeatureAtLevel(11, infusionReplace);
 
-        artificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        // artificerBuilder.AddFeatureAtLevel(12, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+        // artisanBuilder.AddFeatureAtLevel(12, infusionReplace);
 
         // 13
-        // artificerBuilder.AddFeatureAtLevel(13, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(13, infusionReplace);
 
         // 14- magic item savant another attunement slot and ignore requirements on magic items
         // also another infusion slot
         var infusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtificerInfusionIncreaseHealingPool14", GuidNamespace)
-            .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool14", GuidNamespace)
+            .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(14, infusionPoolIncrease14);
-        // artificerBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
-        // artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(14, infusionPoolIncrease14);
+        // artisanBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
+        // artisanBuilder.AddFeatureAtLevel(14, infusionReplace);
         // probably give several infusions another boost here
         // arcane propulsion armor
 
         // 15
-        // artificerBuilder.AddFeatureAtLevel(15, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(15, infusionReplace);
 
         // 16
-        artificerBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        // artificerBuilder.AddFeatureAtLevel(16, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+        // artisanBuilder.AddFeatureAtLevel(16, infusionReplace);
 
         // 17
-        // artificerBuilder.AddFeatureAtLevel(17, infusionReplace);
+        // artisanBuilder.AddFeatureAtLevel(17, infusionReplace);
 
         // 18 - magic item master another attunement slot
         // also another infusion slot
         var infusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
-            .Create("AttributeModiferArtificerInfusionIncreaseHealingPool18", GuidNamespace)
+            .Create("AttributeModiferArtisanInfusionIncreaseHealingPool18", GuidNamespace)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
-            .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+            .SetGuiPresentation("HealingPoolArtisanInfusionsIncrease", Category.Subclass)
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(18, infusionPoolIncrease18);
-        // artificerBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
-        // artificerBuilder.AddFeatureAtLevel(18, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(18, infusionPoolIncrease18);
+        // artisanBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
+        // artisanBuilder.AddFeatureAtLevel(18, infusionReplace);
 
-        artificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-        // artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+        // artisanBuilder.AddFeatureAtLevel(19, infusionReplace);
 
         var soulOfArtificeGui = new GuiPresentationBuilder(
-            "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
-            "Subclass/&PowerTinkererSoulOfArtificeSavesDescription");
-        var soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererSoulOfArtificeSavingThrow",
+            "Subclass/&PowerArtisanSoulOfArtificeSavesTitle",
+            "Subclass/&PowerArtisanSoulOfArtificeSavesDescription");
+        var soulOfArtificeSaves = ArtisanHelpers.BuildSavingThrowAffinity("ArtisanSoulOfArtificeSavingThrow",
             AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None,
             FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
             false, soulOfArtificeGui.Build());
-        artificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
-        // artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
+        artisanBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
+        // artisanBuilder.AddFeatureAtLevel(20, infusionReplace);
 
         // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
         // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?
 
-        var tinkerer = artificerBuilder.AddToDB();
+        var artisan = artisanBuilder.AddToDB();
 
         // Subclasses
         var subclasses = FeatureDefinitionSubclassChoiceBuilder
-            .Create("SubclassChoiceArtificerSpecialistArchetypes", GuidNamespace)
-            .SetGuiPresentation("ArtificerSpecialistArchetypes", Category.Feature)
+            .Create("SubclassChoiceArtisanSpecialistArchetypes", GuidNamespace)
+            .SetGuiPresentation("ArtisanSpecialistArchetypes", Category.Feature)
             .SetSubclassSuffix("Specialist")
             .SetFilterByDeity(false)
-            // .SetSubclasses(
-            //     AlchemistBuilder.Build(tinkerer),
-            //     ArtilleristBuilder.Build(tinkerer, featureSpellCasting),
-            //     BattleSmithBuilder.Build(tinkerer),
-            //     ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
+            .SetSubclasses(
+                AlchemistBuilder.Build(artisan),
+                BattleSmithBuilder.Build(artisan),
+                ScoutSentinelBuilder.BuildAndAddSubclass())
             .AddToDB();
 
-        artificerBuilder.AddFeatureAtLevel(3, subclasses);
+        artisanBuilder.AddFeatureAtLevel(3, subclasses);
 
-        return tinkerer;
+        return artisan;
     }
 
     private static FeatureDefinitionMagicAffinity BuildMagicAffinityHandsFull(string name,
         GuiPresentation guiPresentation)
     {
-        return new FeatureHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidNamespace, guiPresentation)
+        return new ArtisanHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidNamespace, guiPresentation)
             .SetRitualCasting(RuleDefinitions.RitualCasting.Prepared)
             .AddToDB();
     }

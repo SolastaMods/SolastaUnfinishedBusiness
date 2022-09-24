@@ -110,14 +110,14 @@ public static class LevelUpContext
                 levelUpData.SelectedClass == Sorcerer ||
                 levelUpData.SelectedClass == Warlock ||
                 levelUpData.SelectedClass == Wizard //||
-                // levelUpData.SelectedClass == TinkererClass
+                // levelUpData.SelectedClass == ArtisanClass
             ) &&
             !(
                 classesAndLevels.ContainsKey(Ranger) ||
                 classesAndLevels.ContainsKey(Sorcerer) ||
                 classesAndLevels.ContainsKey(Warlock) ||
                 classesAndLevels.ContainsKey(Wizard) //||
-                // classesAndLevels.ContainsKey(TinkererClass)
+                // classesAndLevels.ContainsKey(ArtisanClass)
             );
 
         if (required)

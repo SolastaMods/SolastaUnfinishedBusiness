@@ -140,7 +140,7 @@ public static class MulticlassInOutRulesContext
                 return dexterity >= 13;
 
             case RuleDefinitions.WizardClass:
-                // case IntegrationContext.ClassTinkerer:
+                // case IntegrationContext.ClassArtisan:
                 return intelligence >= 13;
 
             default:

@@ -3,23 +3,23 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaUnfinishedBusiness.Classes.Tinkerer.FeatureHelpers;
+using static SolastaUnfinishedBusiness.Classes.Artisan.ArtisanHelpers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
+namespace SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 
 public static class AlchemistBuilder
 {
-    public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
+    public static CharacterSubclassDefinition Build(CharacterClassDefinition artisan)
     {
         var alchemistPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("ArtificerAlchemistAutoPrepSpells", TinkererClass.GuidNamespace)
+            .Create("ArtisanAlchemistAutoPrepSpells", ArtisanClass.GuidNamespace)
             .SetGuiPresentation("AlchemistSubclassSpells", Category.Feat)
-            .SetCastingClass(artificer)
+            .SetCastingClass(artisan)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, HealingWord, InflictWounds, DetectPoisonAndDisease),
                 BuildSpellGroup(5, FlamingSphere, AcidArrow, RayOfEnfeeblement),
@@ -52,18 +52,18 @@ public static class AlchemistBuilder
         healEffect.SetParticleEffectParameters(CureWounds.EffectDescription.EffectParticleParameters);
 
         var healElixirSpell = SpellDefinitionBuilder
-            .Create("AlchemistHealElixir", TinkererClass.GuidNamespace)
+            .Create("AlchemistHealElixir", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetEffectDescription(healEffect.Build())
             .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetGuiPresentation("ArtificerAlchemistHealElixir", Category.Feat,
+            .SetGuiPresentation("ArtisanAlchemistHealElixir", Category.Feat,
                 PowerFunctionPotionOfHealing.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var swiftnessGui = GuiPresentationBuilder.Build(
-            "ArtificerAlchemistSwiftnessElixir", Category.Feat,
+            "ArtisanAlchemistSwiftnessElixir", Category.Feat,
             ConditionExpeditiousRetreat.GuiPresentation.SpriteReference);
 
         // Swiftness speed increase by 10ft 1 hour
@@ -83,13 +83,13 @@ public static class AlchemistBuilder
         swiftnessForm.SetConditionForm(swiftness, ConditionForm.ConditionOperation.Add, false, false,
             new List<ConditionDefinition>());
         swiftnessEffect.AddEffectForm(swiftnessForm.Build());
-        swiftnessEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D1, 0).Build());
+        swiftnessEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm().Build());
         swiftnessEffect.SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals);
         swiftnessEffect.SetDurationData(DurationType.Hour, 1, TurnOccurenceType.EndOfTurn);
         swiftnessEffect.SetParticleEffectParameters(Longstrider.EffectDescription.EffectParticleParameters);
 
         var swiftnessElixirSpell = SpellDefinitionBuilder
-            .Create("AlchemistSwiftnessElixir", TinkererClass.GuidNamespace)
+            .Create("AlchemistSwiftnessElixir", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -100,7 +100,7 @@ public static class AlchemistBuilder
 
         // Resilience +1 AC 10 minutes
         var resilienceGui = GuiPresentationBuilder
-            .Build("ArtificerAlchemistResilienceElixir", Category.Feat,
+            .Build("ArtisanAlchemistResilienceElixir", Category.Feat,
                 ConditionAuraOfProtection.GuiPresentation.SpriteReference);
 
         var resilience = BuildCondition("AlchemistResilienceElixirCondition", DurationType.Minute, 10, false,
@@ -124,7 +124,7 @@ public static class AlchemistBuilder
         resilienceEffect.SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn);
         resilienceEffect.SetParticleEffectParameters(Blur.EffectDescription.EffectParticleParameters);
         var resilienceElixirSpell = SpellDefinitionBuilder
-            .Create("AlchemistResilienceElixir", TinkererClass.GuidNamespace)
+            .Create("AlchemistResilienceElixir", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -142,18 +142,18 @@ public static class AlchemistBuilder
         boldnessEffect.SetParticleEffectParameters(Bless.EffectDescription.EffectParticleParameters);
 
         var boldnessElixirSpell = SpellDefinitionBuilder
-            .Create("AlchemistBoldnessElixir", TinkererClass.GuidNamespace)
+            .Create("AlchemistBoldnessElixir", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetEffectDescription(boldnessEffect.Build())
             .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetGuiPresentation("ArtificerAlchemistBoldnessElixir", Category.Feat,
+            .SetGuiPresentation("ArtisanAlchemistBoldnessElixir", Category.Feat,
                 Bless.GuiPresentation.SpriteReference)
             .AddToDB();
 
         // Flight slow fly speed for 10 minutes
-        var flyElixirGui = GuiPresentationBuilder.Build("ArtificerAlchemistFlyElixir", Category.Feat,
+        var flyElixirGui = GuiPresentationBuilder.Build("ArtisanAlchemistFlyElixir", Category.Feat,
             PowerFunctionBootsWinged.GuiPresentation.SpriteReference);
 
         var fly = BuildCondition("AlchemistFlyElixirCondition", DurationType.Minute, 10, false, flyElixirGui,
@@ -174,7 +174,7 @@ public static class AlchemistBuilder
         flyEffect.SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn);
         flyEffect.SetParticleEffectParameters(Fly.EffectDescription.EffectParticleParameters);
         var flyElixirSpell = SpellDefinitionBuilder
-            .Create("AlchemistFlyElixir", TinkererClass.GuidNamespace)
+            .Create("AlchemistFlyElixir", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -184,9 +184,9 @@ public static class AlchemistBuilder
             .AddToDB();
 
         var alchemistElixirs = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("ArtificerAlchemistElixirSpellPrep", TinkererClass.GuidNamespace)
+            .Create("ArtisanAlchemistElixirSpellPrep", ArtisanClass.GuidNamespace)
             .SetGuiPresentation("AlchemistSubclassElixirs", Category.Feat)
-            .SetCastingClass(artificer)
+            .SetCastingClass(artisan)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, healElixirSpell, swiftnessElixirSpell, resilienceElixirSpell,
                     boldnessElixirSpell, flyElixirSpell))
@@ -196,21 +196,21 @@ public static class AlchemistBuilder
 
         // Level 5: Alchemical Savant
         var alchemicalSavantGui = new GuiPresentationBuilder(
-            "Feat/&ArtificerAlchemistAlchemicalSavantTitle",
-            "Feat/&ArtificerAlchemistAlchemicalSavantDescription");
-        var improvedHealing = BuildHealingModifier("ArtificerAlchemistAlchemicalSavantHealing", 1, DieType.D4,
+            "Feat/&ArtisanAlchemistAlchemicalSavantTitle",
+            "Feat/&ArtisanAlchemistAlchemicalSavantDescription");
+        var improvedHealing = BuildHealingModifier("ArtisanAlchemistAlchemicalSavantHealing", 1, DieType.D4,
             LevelSourceType.CharacterLevel, alchemicalSavantGui.Build());
 
         var alchemicalSavantSpellsGui = new GuiPresentationBuilder(
             "Subclass/&MagicAffinityAlchemicalSavantListTitle",
             "Subclass/&MagicAffinityAlchemicalSavantListDescription");
         var alchemicalSavantSpells = BuildMagicAffinityHeightenedList(
-            new List<string> {AcidArrow.Name, FlamingSphere.Name}, 2,
-            "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
+            new List<string> { AcidArrow.Name, FlamingSphere.Name }, 2,
+            "MagicAffinityArtisanAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
         alchemicalSavantSpells.forceHalfDamageOnCantrips = true;
 
-        var restorativeElixirsPower = new FeatureHelpers.FeatureDefinitionPowerBuilder(
-                "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,
+        var restorativeElixirsPower = new ArtisanHelpers.FeatureDefinitionPowerBuilder(
+                "PowerAlchemistRestorativeElixirs", ArtisanClass.GuidNamespace,
                 0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                 ActivationTime.Action, 1, RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
@@ -227,7 +227,7 @@ public static class AlchemistBuilder
         emboldeningShotsEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
         var emboldeningShots = SpellDefinitionBuilder
-            .Create("CantripAlchemistEmboldeningShots", TinkererClass.GuidNamespace)
+            .Create("CantripAlchemistEmboldeningShots", ArtisanClass.GuidNamespace)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -237,14 +237,14 @@ public static class AlchemistBuilder
             .AddToDB();
 
         var emboldeningCantrips = FeatureDefinitionBonusCantripsBuilder
-            .Create("ArtificerAlchemistShotsSpellPrep", TinkererClass.GuidNamespace)
+            .Create("ArtisanAlchemistShotsSpellPrep", ArtisanClass.GuidNamespace)
             .SetBonusCantrips(emboldeningShots)
             .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
             .AddToDB();
 
-        var greaterRestorativeElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder(
+        var greaterRestorativeElixirs = new ArtisanHelpers.FeatureDefinitionPowerBuilder(
                 "PowerAlchemistGreaterRestorativeElixirs",
-                TinkererClass.GuidNamespace,
+                ArtisanClass.GuidNamespace,
                 1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 ActivationTime.Action, 1, RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
@@ -277,8 +277,8 @@ public static class AlchemistBuilder
         healSpellEffect.SetDurationData(DurationType.Instantaneous, 1, TurnOccurenceType.EndOfTurn);
         healSpellEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
-        var greatHealElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",
-                TinkererClass.GuidNamespace,
+        var greatHealElixirs = new ArtisanHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",
+                ArtisanClass.GuidNamespace,
                 1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 ActivationTime.Action, 1, RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
@@ -287,8 +287,8 @@ public static class AlchemistBuilder
             .AddToDB();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("Alchemist", TinkererClass.GuidNamespace)
-            .SetGuiPresentation("ArtificerAlchemist", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+            .Create("Alchemist", ArtisanClass.GuidNamespace)
+            .SetGuiPresentation("ArtisanAlchemist", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(alchemistElixirs, 3)
             .AddFeatureAtLevel(alchemistPreparedSpells, 3)
             .AddFeatureAtLevel(bonusRecovery, 3)

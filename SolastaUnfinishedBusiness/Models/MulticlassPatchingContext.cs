@@ -89,12 +89,12 @@ internal static class MulticlassPatchingContext
     //     // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
     //     //
     //
-    //     FeaturesToExclude.Add(TinkererClass,
+    //     FeaturesToExclude.Add(ArtisanClass,
     //         new List<FeatureDefinition>
     //         {
-    //             dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
-    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
-    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
+    //             dbFeatureDefinitionPointPool.GetElement("PointPoolArtisanSkillPoints"),
+    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponArtisan"),
+    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyArtisanSavingThrow")
     //         });
     // }
 

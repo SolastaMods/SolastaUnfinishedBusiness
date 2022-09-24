@@ -12,9 +12,9 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
+namespace SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 
-internal static class ScoutSentinelTinkererSubclassBuilder
+internal static class ScoutSentinelBuilder
 {
     private const string Name = "ScoutSentinel";
     private const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
@@ -135,7 +135,7 @@ internal static class ScoutSentinelTinkererSubclassBuilder
     {
         return CharacterSubclassDefinitionBuilder
             .Create(Name, Guid)
-            .SetGuiPresentation("ScoutSentinelTinkererSubclass", Category.Subclass,
+            .SetGuiPresentation("ScoutSentinelArtisanSubclass", Category.Subclass,
                 MartialMountaineer.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(ScoutSentinelAutopreparedSpellsBuilder.SubclassAutopreparedSpells, 3)
             .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
@@ -161,9 +161,9 @@ internal sealed class ScoutSentinelFeatureSet03Builder : FeatureDefinitionFeatur
         Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level03Description";
 
         Definition.FeatureSet.Clear();
-        Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ArmorModePool);
-        Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
-        Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
+        Definition.FeatureSet.Add(ScoutSentinelBuilder.ArmorModePool);
+        Definition.FeatureSet.Add(ScoutSentinelBuilder.ScoutModePower);
+        Definition.FeatureSet.Add(ScoutSentinelBuilder.SentinelModePower);
         Definition.FeatureSet.Add(SubclassProficienciesBuilder.SubclassProficiencies);
         Definition.FeatureSet.Add(UseArmorWeaponsAsFocusBuilder.UseArmorWeaponsAsFocus);
         Definition.FeatureSet.Add(SubclassMovementAffinitiesBuilder.SubclassMovementAffinities);
@@ -218,7 +218,7 @@ internal sealed class ScoutSentinelFeatureSet09Builder : FeatureDefinitionFeatur
         var ExtraInfusionSlots = FeatureDefinitionPowerPoolModifierBuilder
             .Create("ExtraInfusionSlots", "350902fd-cf99-48e4-8edc-115c82886bdb")
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                TinkererClass.InfusionPool)
+                ArtisanClass.InfusionPool)
             .SetGuiPresentation(Category.Feat, null, 1)
             .AddToDB();
 
@@ -280,7 +280,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         (
             "ImprovedSentinelModePower" // string name
             , "b216988a-5905-47fd-9359-093cd77d41f9" // string guid
-            , ScoutSentinelTinkererSubclassBuilder.ArmorModePool // FeatureDefinitionPower poolPower
+            , ScoutSentinelBuilder.ArmorModePool // FeatureDefinitionPower poolPower
             , RuleDefinitions.RechargeRate.ShortRest // RuleDefinitions.RechargeRate recharge
             , RuleDefinitions.ActivationTime.NoCost // RuleDefinitions.ActivationTime activationTime
             , 1 // int costPerUse
@@ -293,7 +293,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         );
         var Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
 
-        Improvedsentinelmodepower.overriddenPower = ScoutSentinelTinkererSubclassBuilder.SentinelModePower;
+        Improvedsentinelmodepower.overriddenPower = ScoutSentinelBuilder.SentinelModePower;
 
         var guiPresentationImprovedScout = new GuiPresentation
         {
@@ -320,7 +320,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         (
             "ImprovedScoutModePower" // string name
             , "89ec2647-5560-4e82-aa7b-59a8489de492" // string guid
-            , ScoutSentinelTinkererSubclassBuilder.ArmorModePool // FeatureDefinitionPower poolPower
+            , ScoutSentinelBuilder.ArmorModePool // FeatureDefinitionPower poolPower
             , RuleDefinitions.RechargeRate.ShortRest // RuleDefinitions.RechargeRate recharge
             , RuleDefinitions.ActivationTime.NoCost // RuleDefinitions.ActivationTime activationTime
             , 1 // int costPerUse
@@ -333,7 +333,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         );
         var Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
 
-        Improvedscoutmodepower.overriddenPower = ScoutSentinelTinkererSubclassBuilder.ScoutModePower;
+        Improvedscoutmodepower.overriddenPower = ScoutSentinelBuilder.ScoutModePower;
 
         Definition.FeatureSet.Add(Improvedscoutmodepower);
         Definition.FeatureSet.Add(Improvedsentinelmodepower);
@@ -374,10 +374,10 @@ internal sealed class ScoutSentinelAutopreparedSpellsBuilder : FeatureDefinition
             // wall of fire (4th lvl) and wind wall (3th lvl) for wall of force (5th lvl)
             BuildSpellGroup(17, DimensionDoor, WallOfFire, WindWall));
 
-        // todo: refactor so the Tinkerer class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
-        var tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer",
-            GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());
-        Definition.spellcastingClass = tinkerer;
+        // todo: refactor so the Artisan class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
+        var artisan = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassArtisan",
+            GuidHelper.Create(ArtisanClass.GuidNamespace, "ClassArtisan").ToString());
+        Definition.spellcastingClass = artisan;
     }
 
     private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
@@ -612,14 +612,14 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         };
         usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
 
-        Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
+        Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
         Definition.SlotsWhereActive.AddRange(new List<string>
         {
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
         });
 
         var focusItemDescription =
-            new FocusItemDescription {shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane};
+            new FocusItemDescription { shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane };
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
@@ -673,7 +673,7 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
         Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
         Definition.shortTitleOverride = "Feat/&ThunderShieldTitle";
 
-        var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
+        var healingEffect = new EffectForm { FormType = EffectForm.EffectFormType.TemporaryHitPoints };
 
         var tempHPForm = new TemporaryHitPointsForm
         {
@@ -926,14 +926,14 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         LightningCloakMovement.type = ItemPropertyDescription.PropertyType.Feature;
         LightningCloakMovement.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
-        Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
+        Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
         Definition.SlotsWhereActive.AddRange(new List<string>
         {
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
         });
 
         var focusItemDescription =
-            new FocusItemDescription {shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane};
+            new FocusItemDescription { shownAsFocus = true, focusType = EquipmentDefinitions.FocusType.Arcane };
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
@@ -1109,9 +1109,9 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         Definition.shortTitleOverride = "Feat/&GauntletsGrappleTitle";
         Definition.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
 
-        var motionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
+        var motionEffect = new EffectForm { FormType = EffectForm.EffectFormType.Motion };
 
-        var motion = new MotionForm {distance = 6, type = MotionForm.MotionType.DragToOrigin};
+        var motion = new MotionForm { distance = 6, type = MotionForm.MotionType.DragToOrigin };
 
         motionEffect.motionForm = motion;
         motionEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;

@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class GlobalUniqueEffects
 {
-    public enum Group { Familiar, Tinkerer }
+    public enum Group { Familiar, Artisan }
 
     private static readonly Dictionary<Group, (List<FeatureDefinitionPower>, List<SpellDefinition>)>
         Groups = new();

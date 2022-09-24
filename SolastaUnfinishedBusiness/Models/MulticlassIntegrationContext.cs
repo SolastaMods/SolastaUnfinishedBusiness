@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassIntegrationContext
 {
-    private const string ClassTinkerer = "Tinkerer";
+    private const string ClassArtisan = "Artisan";
     private const string SubclassConartist = "RoguishConArtist";
     private const string SubclassSpellshield = "MartialSpellShield";
     private const string SubclassPathOfTheRageMage = "PathOfTheRageMage";
@@ -21,7 +21,7 @@ internal static class MulticlassIntegrationContext
         .SetGuiPresentationNoContent(true)
         .AddToDB();
 
-    internal static CharacterClassDefinition TinkererClass { get; private set; } = ClassDummy;
+    internal static CharacterClassDefinition ArtisanClass { get; private set; } = ClassDummy;
     internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
     internal static CharacterSubclassDefinition PathOfTheRageMageSubclass { get; private set; } = DummySubclass;
@@ -31,14 +31,14 @@ internal static class MulticlassIntegrationContext
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
-        dbCharacterClassDefinition.TryGetElement(ClassTinkerer, out var unofficialTinkerer);
+        dbCharacterClassDefinition.TryGetElement(ClassArtisan, out var unofficialArtisan);
         dbCharacterSubclassDefinition.TryGetElement(SubclassConartist, out var unofficialConArtist);
         dbCharacterSubclassDefinition.TryGetElement(SubclassSpellshield, out var unofficialSpellShield);
         dbCharacterSubclassDefinition.TryGetElement(SubclassPathOfTheRageMage, out var unofficialPathOfTheRageMage);
 
         // NOTE: don't use ?? here which bypasses Unity object lifetime check
 
-        TinkererClass = unofficialTinkerer ? unofficialTinkerer : ClassDummy;
+        ArtisanClass = unofficialArtisan ? unofficialArtisan : ClassDummy;
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;
         PathOfTheRageMageSubclass = unofficialPathOfTheRageMage ? unofficialPathOfTheRageMage : DummySubclass;

@@ -6,20 +6,20 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
+namespace SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 ////*****************************************************************************************************************************************
-////***********************************		TinkererConstructFamilyBuilder		*************************************************************
+////***********************************		ArtisanConstructFamilyBuilder		*************************************************************
 ////*****************************************************************************************************************************************
 
-internal sealed class TinkererConstructFamilyBuilder : CharacterFamilyDefinitionBuilder
+internal sealed class ArtisanConstructFamilyBuilder : CharacterFamilyDefinitionBuilder
 {
-    private const string TinkererConstructFamilyName = "TinkererConstruct";
-    private const string TinkererConstructFamilyGuid = "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e";
+    private const string ArtisanConstructFamilyName = "ArtisanConstruct";
+    private const string ArtisanConstructFamilyGuid = "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e";
 
-    public static readonly CharacterFamilyDefinition TinkererConstructFamily =
-        CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
+    public static readonly CharacterFamilyDefinition ArtisanConstructFamily =
+        CreateAndAddToDB(ArtisanConstructFamilyName, ArtisanConstructFamilyGuid);
 
-    private TinkererConstructFamilyBuilder(string name, string guid) : base(
+    private ArtisanConstructFamilyBuilder(string name, string guid) : base(
         DatabaseHelper.CharacterFamilyDefinitions.Construct, name, guid)
     {
         Definition.extraplanar = true;
@@ -27,7 +27,7 @@ internal sealed class TinkererConstructFamilyBuilder : CharacterFamilyDefinition
 
     private static CharacterFamilyDefinition CreateAndAddToDB(string name, string guid)
     {
-        return new TinkererConstructFamilyBuilder(name, guid).AddToDB();
+        return new ArtisanConstructFamilyBuilder(name, guid).AddToDB();
     }
 }
 
@@ -81,7 +81,7 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
 
         var mendingconstruct =
-            new HealingForm {BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2};
+            new HealingForm { BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2 };
 
         var effect = new EffectForm
         {
@@ -94,8 +94,8 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
         Definition.EffectDescription.EffectForms.Add(effect);
-        Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder
-            .TinkererConstructFamily.Name);
+        Definition.EffectDescription.RestrictedCreatureFamilies.Add(ArtisanConstructFamilyBuilder
+            .ArtisanConstructFamily.Name);
         Definition.EffectDescription.ImmuneCreatureFamilies.Clear();
     }
 
@@ -131,7 +131,7 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
         Definition.verboseComponent = false;
 
-        var dismissConstruct = new CounterForm {type = CounterForm.CounterType.DismissCreature};
+        var dismissConstruct = new CounterForm { type = CounterForm.CounterType.DismissCreature };
 
         var effect = new EffectForm
         {
@@ -152,7 +152,7 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         effectDescription.EffectAdvancement.Clear();
 
         effectDescription.RestrictedCreatureFamilies.Add(
-            TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+            ArtisanConstructFamilyBuilder.ArtisanConstructFamily.Name);
 
         effectDescription.ImmuneCreatureFamilies.AddRange(
             DatabaseHelper.CharacterFamilyDefinitions.Aberration.Name,
@@ -226,7 +226,7 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
         Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
         Definition.standardHitPoints = 10;
         Definition.defaultFaction = "Party";
-        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
+        Definition.characterFamily = ArtisanConstructFamilyBuilder.ArtisanConstructFamily.Name;
 
         // a tag should be added if scaling is applied to the servant
         //Definition.CreatureTags.Add();
@@ -282,7 +282,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
         var damageEffect = new EffectForm
         {
             AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
-            DamageForm = new DamageForm {DiceNumber = 1, DieType = RuleDefinitions.DieType.D4}
+            DamageForm = new DamageForm { DiceNumber = 1, DieType = RuleDefinitions.DieType.D4 }
         };
 
         const int assumedIntModifier = 3;

@@ -26,7 +26,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }
 
-    //TODO: refactor this out after Tinkerer remerge
+    //TODO: refactor this out after Artisan remerge
     public FeatureDefinitionPowerSharedPoolBuilder(
         string name,
         string guid,
@@ -45,7 +45,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack,
             abilityScore, effectDescription, uniqueInstance);
     }
-    
+
     public FeatureDefinitionPowerSharedPoolBuilder Configure(
         FeatureDefinitionPower poolPower,
         RuleDefinitions.RechargeRate recharge,

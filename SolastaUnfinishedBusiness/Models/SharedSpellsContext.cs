@@ -35,9 +35,9 @@ public static class SharedSpellsContext
         { "PowerWizardArcaneRecovery", Wizard },
         { "PowerSpellMasterBonusRecovery", Wizard }
         // added during load
-        //{ "TinkererSpellStoringItem", TinkererClass },
-        //{ "ArtificerInfusionSpellRefuelingRing", TinkererClass },
-        //{ "PowerAlchemistSpellBonusRecovery", TinkererClass }
+        //{ "ArtisanSpellStoringItem", ArtisanClass },
+        //{ "ArtisanInfusionSpellRefuelingRing", ArtisanClass },
+        //{ "PowerAlchemistSpellBonusRecovery", ArtisanClass }
     };
 
     private static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
@@ -50,7 +50,7 @@ public static class SharedSpellsContext
         { Paladin, CasterType.Half },
         { Ranger, CasterType.Half }
         // added during load
-        //{ TinkererClass, CasterType.HalfRoundUp }
+        //{ ArtisanClass, CasterType.HalfRoundUp }
     };
 
     private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
@@ -233,13 +233,13 @@ public static class SharedSpellsContext
 
     internal static void Load()
     {
-        // ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
+        // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
         SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
         SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
-        // RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
-        // RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
-        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
+        // RecoverySlots.Add("ArtisanSpellStoringItem", ArtisanClass);
+        // RecoverySlots.Add("ArtisanInfusionSpellRefuelingRing", ArtisanClass);
+        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", ArtisanClass);
     }
 
     internal static void LateLoad()
@@ -336,7 +336,7 @@ public static class SharedSpellsContext
             // Full Casters
             casterLevel += levels[CasterType.Full];
 
-            // Tinkerer / ...
+            // Artisan / ...
             if (levels[CasterType.HalfRoundUp] == 1)
             {
                 casterLevel++;

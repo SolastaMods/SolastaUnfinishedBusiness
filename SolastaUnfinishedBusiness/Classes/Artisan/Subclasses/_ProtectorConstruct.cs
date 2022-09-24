@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer.Subclasses;
+namespace SolastaUnfinishedBusiness.Classes.Artisan.Subclasses;
 //*****************************************************************************************************************************************
 //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
 //*****************************************************************************************************************************************
@@ -26,7 +26,7 @@ internal sealed class ProtectorConstructFeatureSetBuilder : FeatureDefinitionFea
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
 
         Definition.FeatureSet.Clear();
-        Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
+        Definition.FeatureSet.Add(SummoningAffinityArtisanConstructBuilder.SummoningAffinityArtisanConstruct);
         Definition.FeatureSet.Add(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
         Definition.FeatureSet.Add(ProtectorConstructLevel3AutopreparedSpellsBuilder
             .ProtectorConstructLevel3AutopreparedSpells);
@@ -60,18 +60,18 @@ public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureD
 }
 
 //*****************************************************************************************************************************************
-//***********************************		SummoningAffinityTinkererConstructBuilder		***********************************************************
+//***********************************		SummoningAffinityArtisanConstructBuilder		***********************************************************
 //*****************************************************************************************************************************************
 
-internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
+internal sealed class SummoningAffinityArtisanConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
 {
-    private const string Name = "SummoningAffinityTinkererConstruct";
+    private const string Name = "SummoningAffinityArtisanConstruct";
     private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
 
-    public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct =
+    public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityArtisanConstruct =
         CreateAndAddToDB(Name, Guid);
 
-    private SummoningAffinityTinkererConstructBuilder(string name, string guid)
+    private SummoningAffinityArtisanConstructBuilder(string name, string guid)
         : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
@@ -84,7 +84,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
-        Definition.requiredMonsterTag = "ScalingTinkererConstruct";
+        Definition.requiredMonsterTag = "ScalingArtisanConstruct";
         Definition.AddedConditions.SetRange(new List<ConditionDefinition>
         {
             // using kindred conditions for following reasons
@@ -112,7 +112,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
 
     private static FeatureDefinitionSummoningAffinity CreateAndAddToDB(string name, string guid)
     {
-        return new SummoningAffinityTinkererConstructBuilder(name, guid).AddToDB();
+        return new SummoningAffinityArtisanConstructBuilder(name, guid).AddToDB();
     }
 }
 
@@ -374,9 +374,9 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
         Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
         Definition.standardHitPoints = 20;
         Definition.defaultFaction = "Party";
-        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
+        Definition.characterFamily = ArtisanConstructFamilyBuilder.ArtisanConstructFamily.Name;
         // the following tag is used for scaling purposes
-        Definition.CreatureTags.Add("ScalingTinkererConstruct");
+        Definition.CreatureTags.Add("ScalingArtisanConstruct");
 
         Definition.Features.Clear();
         Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
@@ -508,7 +508,7 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         Definition.fixedUsesPerRecharge = 3;
         Definition.costPerUse = 1;
 
-        var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
+        var selfrepair = new HealingForm { BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2 };
 
         var effect = new EffectForm
         {
@@ -519,8 +519,8 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         Definition.EffectDescription.EffectForms.Clear();
         Definition.EffectDescription.EffectForms.Add(effect);
         Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
-        Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder
-            .TinkererConstructFamily.Name);
+        Definition.EffectDescription.RestrictedCreatureFamilies.Add(ArtisanConstructFamilyBuilder
+            .ArtisanConstructFamily.Name);
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

@@ -8,29 +8,29 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Tinkerer;
+namespace SolastaUnfinishedBusiness.Classes.Artisan;
 
-internal static class FeatureHelpers
+internal static class ArtisanHelpers
 {
     public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
         RuleDefinitions.ProficiencyType type, params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder
-            .Create(name, TinkererClass.GuidNamespace)
+            .Create(name, ArtisanClass.GuidNamespace)
             .SetProficiencies(type, proficiencies);
     }
 
     public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
         AttributeModifierOperation modifierType, string attribute, int amount, GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionAttributeModifierBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionAttributeModifierBuilder(name, ArtisanClass.GuidNamespace,
             modifierType, attribute, amount, guiPresentation).AddToDB();
     }
 
     public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(IEnumerable<string> spellNames,
         int levelBonus, string name, GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionMagicAffinityBuilder(name, TinkererClass.GuidNamespace, levelBonus,
+        return new FeatureDefinitionMagicAffinityBuilder(name, ArtisanClass.GuidNamespace, levelBonus,
             guiPresentation, spellNames).AddToDB();
     }
 
@@ -39,7 +39,7 @@ internal static class FeatureHelpers
         params FeatureDefinition[] conditionFeatures)
     {
         return ConditionDefinitionBuilder
-            .Create(name, TinkererClass.GuidNamespace)
+            .Create(name, ArtisanClass.GuidNamespace)
             .SetGuiPresentation(guiPresentation)
             .Configure(durationType, durationParameter, silent, conditionFeatures)
             .AddToDB();
@@ -49,7 +49,7 @@ internal static class FeatureHelpers
         int dcModifier, GuiPresentation guiPresentation)
     {
         return FeatureDefinitionMagicAffinityBuilder
-            .Create(name, TinkererClass.GuidNamespace)
+            .Create(name, ArtisanClass.GuidNamespace)
             .SetCastingModifiers(
                 attackModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
                 dcModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
@@ -76,7 +76,7 @@ internal static class FeatureHelpers
             .EffectParticleParameters);
         effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-        return new FeatureDefinitionPowerBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionPowerBuilder(name, ArtisanClass.GuidNamespace,
             usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
             recharge, false, false, AttributeDefinitions.Intelligence,
             effectDescriptionBuilder.Build());
@@ -86,7 +86,7 @@ internal static class FeatureHelpers
         RuleDefinitions.RestType restType,
         RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
     {
-        return new RestActivityDefinitionBuilder(name, TinkererClass.GuidNamespace, restStage, restType, condition,
+        return new RestActivityDefinitionBuilder(name, ArtisanClass.GuidNamespace, restStage, restType, condition,
             functor, stringParameter);
     }
 
@@ -97,7 +97,7 @@ internal static class FeatureHelpers
         string damageRollAbilityScore, bool canAddAbilityBonusToSecondary,
         string additionalAttackTag, GuiPresentation guiPresentation)
     {
-        return FeatureDefinitionAttackModifierBuilder.Create(name, TinkererClass.GuidNamespace)
+        return FeatureDefinitionAttackModifierBuilder.Create(name, ArtisanClass.GuidNamespace)
             .SetGuiPresentation(guiPresentation)
             .Configure(
                 attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
@@ -108,7 +108,7 @@ internal static class FeatureHelpers
     public static FeatureDefinitionMovementAffinity BuildMovementAffinity(string name, bool addBase, int speedAdd,
         float speedMult, GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionMovementAffinityBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionMovementAffinityBuilder(name, ArtisanClass.GuidNamespace,
             addBase, speedAdd, speedMult, guiPresentation).AddToDB();
     }
 
@@ -116,7 +116,7 @@ internal static class FeatureHelpers
         RuleDefinitions.DieType healingBonusDiceType, RuleDefinitions.LevelSourceType addLevel,
         GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionHealingModifierBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionHealingModifierBuilder(name, ArtisanClass.GuidNamespace,
             healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation).AddToDB();
     }
 
@@ -126,7 +126,7 @@ internal static class FeatureHelpers
         FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber,
         RuleDefinitions.DieType dieType, bool againstMagic, GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionSavingThrowAffinityBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionSavingThrowAffinityBuilder(name, ArtisanClass.GuidNamespace,
                 abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation)
             .AddToDB();
     }
@@ -135,7 +135,7 @@ internal static class FeatureHelpers
         IEnumerable<Tuple<string, string>> abilityProficiencyPairs, int diceNumber, RuleDefinitions.DieType dieType,
         RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
     {
-        return new FeatureDefinitionAbilityCheckAffinityBuilder(name, TinkererClass.GuidNamespace,
+        return new FeatureDefinitionAbilityCheckAffinityBuilder(name, ArtisanClass.GuidNamespace,
             abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
     }
 
