@@ -13,7 +13,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     private const float HideDuration = 0.1f;
     private static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
     private static readonly Color NormalColor = new(0.407f, 0.431f, 0.443f, 1f);
-    private static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
+    public static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
     private static readonly Color DisabledColor = new(0.557f, 0.431f, 0.443f, 1f);
 
     private static SubFeatSelectionModal _instance;
@@ -24,7 +24,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     private RulesetCharacterHero character;
     private Image image;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
-    
+
     private Image background;
     private RectTransform featTable;
 
@@ -184,7 +184,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         //create background
         var tmp = new GameObject();
-        
+
         tmp.AddComponent<RectTransform>();
         var rt = tmp.GetComponent<RectTransform>();
         rt.parent = transform;
@@ -197,7 +197,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         background.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
         background.color = new Color(0, 0, 0, 0.75f);
         background.alphaHitTestMinimumThreshold = 0;
-        
+
         //create container for feat items
         tmp = new GameObject();
         tmp.AddComponent<RectTransform>();
@@ -207,7 +207,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         featTable.anchorMax = new Vector2(1, 1);
         featTable.pivot = new Vector2(0f, 0f);
         featTable.position = new Vector3(0, 0, 0);
-        
+
         localInitialized = true;
     }
 
@@ -245,7 +245,9 @@ public class SubFeatSelectionModal : GuiGameScreen
         var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.CurrentPoolType, item.StageTag);
         var restrictedChoices = pool.RestrictedChoices;
 
-        var color = NormalColor;
+        var color = item.GuiFeatDefinition.FeatDefinition.HasSubFeatureOfType<IGroupedFeat>()
+            ? HeaderColor
+            : NormalColor;
 
         ProficiencyBaseItem.InteractiveMode interactiveMode;
         var isSameFamily = false;
@@ -308,7 +310,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         SetColor(item, color);
     }
 
-    private static void SetColor(FeatItem item, Color color)
+    public static void SetColor(FeatItem item, Color color)
     {
         item.StaticBackground.GetComponent<Image>().color = color;
         item.canvasGroup.alpha = 1;

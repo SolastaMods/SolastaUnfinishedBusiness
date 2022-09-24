@@ -44,6 +44,7 @@ internal static class FeatItemPatcher
                 flexibleWidth);
             __instance.GuiFeatDefinition.SetupTooltip(__instance.Tooltip, inspectedCharacter);
             __instance.OnItemHoverChanged = onItemHoverChanged;
+            SubFeatSelectionModal.SetColor(__instance, SubFeatSelectionModal.HeaderColor);
 
             return false;
         }
