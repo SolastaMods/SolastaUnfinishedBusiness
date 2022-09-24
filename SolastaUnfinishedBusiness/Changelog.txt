@@ -3,13 +3,7 @@
 - Rebrand to Unfinished Business
 - Add feat groups to selection UI
 - Improve under the hood systems
-- Remove all classes
+- Remove all unofficial classes
 - Remove Gnome
-- Remove Path of The Light
 - Remove class themed feats (i.e.: shady, thug, etc.)
 - Remove Level Down feature
-
-NEXT:
-
-- Refactored Path of The Light
-- Refactored Tinkerer

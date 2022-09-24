@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPathOfTheLightIlluminatingStrike:34bc9e65-61ea-53d9-ad91-910c42ba5688",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPathOfTheLightPierceTheDarkness:f143d231-858c-5505-b03c-ccd3a8ab3880",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPathOfTheLightLightsProtection:b5219151-c73a-5239-ae1d-d1d72dd80b46",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheLightEyesOfTruth:8c1406f1-2959-5141-94fb-474d3f483bf2",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeImprovement:e9c3be2e-9cec-5d8e-a343-a39280b037c3",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPathOfTheLightIlluminatingBurst:81312825-9ca6-5b0d-8173-e2972ab63504",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PathOfTheLightTitle",
+    "description": "Subclass/&PathOfTheLightDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "68e9a23b8059ee54b8e7230258b11d7d",
+      "m_SubObjectName": "DomainSun",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7cdff290-0fc5-543b-8980-e47c32976f98",
+  "contentPack": 9999,
+  "name": "PathOfTheLight"
+}

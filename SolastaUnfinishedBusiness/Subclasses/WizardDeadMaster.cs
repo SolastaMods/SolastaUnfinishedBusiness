@@ -21,13 +21,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     private const string CreateDeadSpellPrefix = "CreateDead";
     private const string AttackModifierDeadMasterUndeadChainsPrefix = "AttackModifierDeadMasterUndeadChains";
 
-    private static readonly Dictionary<int, List<MonsterDefinition>> CreateDeadSpellMonsters = new()
-    {
-        { 3, new List<MonsterDefinition> { Zombie, Skeleton, Skeleton_Archer } },
-        { 5, new List<MonsterDefinition> { Ghoul, Skeleton_Enforcer } },
-        { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
-    };
-
     internal WizardDeadMaster()
     {
         var spriteReference =
@@ -195,9 +188,16 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     private static IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>
         GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
     {
+        var createDeadSpellMonsters = new Dictionary<int, List<MonsterDefinition>>
+        {
+            { 3, new List<MonsterDefinition> { Zombie, Skeleton, Skeleton_Archer } },
+            { 5, new List<MonsterDefinition> { Ghoul, Skeleton_Enforcer } },
+            { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
+        };
+
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
 
-        foreach (var kvp in CreateDeadSpellMonsters)
+        foreach (var kvp in createDeadSpellMonsters)
         {
             var level = kvp.Key;
             var monsters = kvp.Value;

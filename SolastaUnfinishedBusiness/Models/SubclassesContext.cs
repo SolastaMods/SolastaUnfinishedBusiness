@@ -44,7 +44,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
-        // LoadSubclass(new PathOfTheLight());
+        LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
         LoadSubclass(new RangerArcanist());
         LoadSubclass(new RoguishConArtist());

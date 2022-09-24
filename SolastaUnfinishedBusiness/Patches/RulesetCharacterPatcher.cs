@@ -335,7 +335,7 @@ internal static class RulesetCharacterPatcher
         {
             var codes = instructions.ToList();
 
-            //PATCH: suppor for validation of attribute modifications applied through conditions
+            //PATCH: support for validation of attribute modifications applied through conditions
             FeatureApplicationValidation.ValidateAttributeModifiersFromConditions(codes);
 
             return codes;
@@ -475,6 +475,16 @@ internal static class RulesetCharacterPatcher
     {
         internal static void Prefix(RulesetCharacter __instance)
         {
+            //PATCH: INotifyConditionRemoval
+            foreach (var rulesetCondition in __instance.ConditionsByCategory
+                         .SelectMany(keyValuePair => keyValuePair.Value))
+            {
+                if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+                {
+                    notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
+                }
+            }
+
             //PATCH: IOnCharacterKill
             var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
 
@@ -492,17 +502,6 @@ internal static class RulesetCharacterPatcher
             {
                 characterKill.OnCharacterKill(GameLocationCharacter.GetFromActor(__instance));
             }
-
-            //TODO: Reenable when Path of The Light is back
-            //PATCH: INotifyConditionRemoval
-            // foreach (var rulesetCondition in __instance.ConditionsByCategory
-            //              .SelectMany(keyValuePair => keyValuePair.Value))
-            // {
-            //     if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-            //     {
-            //         notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
-            //     }
-            // }
         }
     }
 

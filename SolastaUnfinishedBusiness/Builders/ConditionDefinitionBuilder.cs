@@ -87,13 +87,14 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         Definition.ConditionTags.Sort();
         return This();
     }
+#endif
 
     public TBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
         return This();
     }
-#endif
+
 
     public TBuilder ClearFeatures()
     {
@@ -101,12 +102,14 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+#if false
     public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
     {
         Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
+#endif
 
     public TBuilder AddFeatures(params FeatureDefinition[] value)
     {
@@ -193,11 +196,13 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+#if false
     public TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return This();
     }
+#endif
 
     public TBuilder SetInterruptionDamageThreshold(int value)
     {
