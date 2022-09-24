@@ -7340,8 +7340,8 @@ public static partial class DatabaseHelper
         public static FeatureDefinitionProficiency ProficiencyFighterWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterWeapon");
 
-        public static FeatureDefinitionProficiency ProficiencyGnomeRockArtisansLore { get; } =
-            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeRockArtisansLore");
+        public static FeatureDefinitionProficiency ProficiencyGnomeRockArtificersLore { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeRockArtificersLore");
 
         public static FeatureDefinitionProficiency ProficiencyGnomeShadowStealthy { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeShadowStealthy");

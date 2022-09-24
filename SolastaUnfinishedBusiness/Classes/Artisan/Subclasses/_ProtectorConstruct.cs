@@ -535,7 +535,7 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
 
 internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
 {
-    private const string RetributionName = "Retribution";
+    private const string RetributionName = "PowerArtisanRetribution";
     private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";
 
     public static readonly FeatureDefinitionPower Retribution =
