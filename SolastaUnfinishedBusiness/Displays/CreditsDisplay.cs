@@ -22,11 +22,11 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, gameplay, feats, multiclass, quality of life, Half-elf variants, DeadMaster, BladeDancer"),
-        ("ImpPhil", "api, builders, gameplay, quality of life"),
+            "maintenance, gameplay, feats, multiclass, rules, quality of life, Half-elf variants, DeadMaster, BladeDancer"),
+        ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("TPABOBAP", "gameplay, infrastructure, feats, spells"),
         ("ChrisJohnDigital",
-            "gameplay, feats, Artisan, ArcaneFighter, ConArtist, LifeTransmuter, MasterManipulator, SpellMaster, SpellShield"),
+            "gameplay, feats, ArcaneFighter, ConArtist, LifeTransmuter, MasterManipulator, SpellMaster, SpellShield"),
         ("SilverGriffon", "gameplay, spells, DarkElf, GreyDwarf, SorcerousDivineHeart"),
         ("Nd", "MartialMarshal, RoguishOpportunist, RoguishRaven"),
         ("ElAntonious", "feats, RangerArcanist"),
@@ -36,7 +36,7 @@ internal static class CreditsDisplay
         ("Dreadmaker", "CircleOfTheForestGuardian"),
         ("Holic75", "spells, Bolgrif"),
         ("DubhHerder", "gameplay, spells"),
-        ("Bazou", "spells"),
+        ("Bazou", "rules, spells"),
         ("Esker", "ruleset support, quality assurance"),
         ("Lyraele", "ruleset support, quality assurance"),
         ("Nyowwww", "Chinese"),
@@ -99,7 +99,7 @@ internal static class CreditsDisplay
             using (UI.HorizontalScope())
             {
                 UI.Label(author.Orange(), UI.Width(150));
-                UI.Label(content, UI.Width(600));
+                UI.Label(content, UI.Width(650));
             }
         }
 
@@ -111,7 +111,7 @@ internal static class CreditsDisplay
             using (UI.HorizontalScope())
             {
                 UI.Label(kvp.Key.Orange(), UI.Width(150));
-                UI.Label(kvp.Value, UI.Width(600));
+                UI.Label(kvp.Value, UI.Width(650));
             }
         }
 
