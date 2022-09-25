@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -32,7 +33,8 @@ public abstract class
     #endregion
 }
 
-public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<
+[UsedImplicitly]
+internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<
     FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
     public FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)

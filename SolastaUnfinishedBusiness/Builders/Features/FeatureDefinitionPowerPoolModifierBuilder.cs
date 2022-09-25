@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -10,7 +11,8 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
      * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
      * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
      */
-public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<
+[UsedImplicitly]
+internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
 {
     protected override void Initialise()
@@ -40,8 +42,10 @@ public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerB
     }
 
     public FeatureDefinitionPowerPoolModifierBuilder Configure(
-        int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
-        string usesAbilityScoreName, FeatureDefinitionPower poolPower)
+        int powerPoolModifier,
+        RuleDefinitions.UsesDetermination usesDetermination,
+        string usesAbilityScoreName,
+        FeatureDefinitionPower poolPower)
     {
         Preconditions.ArgumentIsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 

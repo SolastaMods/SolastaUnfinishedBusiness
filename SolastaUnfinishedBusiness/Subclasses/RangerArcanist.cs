@@ -239,7 +239,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetUsesAbility(0, AttributeDefinitions.Wisdom)
             .SetShowCasting(true)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
-            .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
+            .SetActivationTime(RuleDefinitions.ActivationTime.Action, 1)
             .SetEffectDescription(pulseDescription)
             .SetAbility(AttributeDefinitions.Wisdom)
             .AddToDB();

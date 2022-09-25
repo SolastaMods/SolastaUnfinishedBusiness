@@ -4,8 +4,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-// ReSharper disable once ClassNeverInstantiated.Global
-public class FeatureDefinitionReduceDamageBuilder : FeatureDefinitionBuilder<FeatureDefinitionReduceDamage,
+[UsedImplicitly]
+internal class FeatureDefinitionReduceDamageBuilder : FeatureDefinitionBuilder<FeatureDefinitionReduceDamage,
     FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]

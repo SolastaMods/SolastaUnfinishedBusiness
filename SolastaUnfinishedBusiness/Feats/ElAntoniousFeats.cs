@@ -129,7 +129,7 @@ internal static class ElAntoniousFeats
         var powerTorchbearer = FeatureDefinitionPowerBuilder
             .Create("PowerTorchbearer")
             .SetGuiPresentation(Category.Feature)
-            .SetActivation(ActivationTime.BonusAction, 0)
+            .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(burnDescription)
             .SetUsesFixed(1)
             .SetRechargeRate(RechargeRate.AtWill)

@@ -36,9 +36,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
             .SetReplacedSpells(SharedSpellsContext.OneThirdCasterReplacedSpells)
-            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
-            .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
-            .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
         var conditionWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic")
@@ -118,7 +118,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Intelligence, arcaneDeflection, false /* unique instance */)
+                false, false, AttributeDefinitions.Intelligence, arcaneDeflection /* unique instance */)
             .AddToDB();
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder

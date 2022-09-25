@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -18,18 +19,6 @@ public abstract class
         Definition.uniqueChoices = uniqueChoices;
         Definition.RestrictedChoices.Sort();
 
-        return This();
-    }
-
-    public TBuilder SetMinSpellLevel(int minSpellLevel)
-    {
-        Definition.minSpellLevel = minSpellLevel;
-        return This();
-    }
-
-    public TBuilder SetMaxSpellLevel(int maxSpellLevel)
-    {
-        Definition.maxSpellLevel = maxSpellLevel;
         return This();
     }
 
@@ -81,7 +70,8 @@ public abstract class
     #endregion
 }
 
-public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionPointPoolBuilder<FeatureDefinitionPointPool,
+[UsedImplicitly]
+internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionPointPoolBuilder<FeatureDefinitionPointPool,
     FeatureDefinitionPointPoolBuilder>
 {
     #region Constructors

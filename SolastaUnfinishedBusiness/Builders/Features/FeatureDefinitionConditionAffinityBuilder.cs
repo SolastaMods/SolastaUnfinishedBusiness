@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -44,7 +45,8 @@ public abstract class
     #endregion
 }
 
-public class FeatureDefinitionConditionAffinityBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionConditionAffinityBuilder
     : FeatureDefinitionConditionAffinityBuilder<FeatureDefinitionConditionAffinity,
         FeatureDefinitionConditionAffinityBuilder>
 {

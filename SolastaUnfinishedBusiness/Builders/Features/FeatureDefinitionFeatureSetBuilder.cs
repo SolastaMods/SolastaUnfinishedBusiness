@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -12,12 +13,6 @@ public abstract class
     where TDefinition : FeatureDefinitionFeatureSet
     where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
 {
-    public TBuilder ClearFeatureSet()
-    {
-        Definition.FeatureSet.Clear();
-        return (TBuilder)this;
-    }
-
     public TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
     {
         return SetFeatureSet(featureDefinitions.AsEnumerable());
@@ -83,7 +78,8 @@ public abstract class
     #endregion
 }
 
-public class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet,
+[UsedImplicitly]
+internal class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet,
     FeatureDefinitionFeatureSetBuilder>
 {
     #region Constructors

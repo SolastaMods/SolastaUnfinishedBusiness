@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static FeatureDefinitionSavingThrowAffinity;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionSavingThrowAffinityBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionSavingThrowAffinityBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity,
         FeatureDefinitionSavingThrowAffinityBuilder>
 {

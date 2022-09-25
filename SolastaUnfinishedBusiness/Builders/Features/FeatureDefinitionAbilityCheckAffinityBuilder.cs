@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
@@ -8,20 +9,24 @@ using static RuleDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 public abstract class
-    FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<
-        TDefinition, TBuilder>
+    FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder> :
+        FeatureDefinitionAffinityBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionAbilityCheckAffinity
     where TBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder>
 {
-    public TBuilder BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity affinityType,
-        DieType dieType, int diceNumber,
+    public TBuilder BuildAndSetAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType,
+        DieType dieType,
+        int diceNumber,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber, abilityProficiencyPairs.AsEnumerable());
     }
 
-    public TBuilder BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity affinityType,
-        DieType dieType, int diceNumber,
+    public TBuilder BuildAndSetAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType,
+        DieType dieType,
+        int diceNumber,
         IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs)
     {
         SetAffinityGroups(
@@ -74,6 +79,7 @@ public abstract class
     #endregion
 }
 
+[UsedImplicitly]
 public class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<
     FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {

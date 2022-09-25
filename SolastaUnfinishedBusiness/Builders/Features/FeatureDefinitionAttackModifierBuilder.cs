@@ -1,9 +1,11 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionAttackModifierBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionAttackModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
     public FeatureDefinitionAttackModifierBuilder Configure(
@@ -24,7 +26,6 @@ public class FeatureDefinitionAttackModifierBuilder
         Definition.damageRollAbilityScore = damageRollAbilityScore;
         Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
         Definition.additionalBonusUnarmedStrikeAttacksTag = additionalAttackTag;
-
         return This();
     }
 
@@ -32,21 +33,18 @@ public class FeatureDefinitionAttackModifierBuilder
         RuleDefinitions.AbilityScoreReplacement replacement)
     {
         Definition.abilityScoreReplacement = replacement;
-
         return This();
     }
 
     public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
         Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
-
         return This();
     }
 
     public FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
-
         return This();
     }
 
@@ -54,7 +52,6 @@ public class FeatureDefinitionAttackModifierBuilder
         RuleDefinitions.RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
-
         return This();
     }
 

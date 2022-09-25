@@ -1,9 +1,11 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionReplaceAttackWithCantripBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionReplaceAttackWithCantripBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionReplaceAttackWithCantrip,
         FeatureDefinitionReplaceAttackWithCantripBuilder>
 {

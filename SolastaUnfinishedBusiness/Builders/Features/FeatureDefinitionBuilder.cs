@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -27,11 +28,10 @@ public abstract class FeatureDefinitionBuilder<TDefinition, TBuilder> : Definiti
     }
 
     #endregion
-
-    //TODO: methods specific to FeatureDefinition
 }
 
-public class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefinition, FeatureDefinitionBuilder>
+[UsedImplicitly]
+internal class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefinition, FeatureDefinitionBuilder>
 {
     #region Constructors
 

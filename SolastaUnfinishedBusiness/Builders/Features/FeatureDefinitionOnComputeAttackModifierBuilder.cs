@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinitionBuilder<
+[UsedImplicitly]
+internal class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionOnComputeAttackModifier,
     FeatureDefinitionOnComputeAttackModifierBuilder>
 {

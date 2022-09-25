@@ -1,12 +1,15 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
+[UsedImplicitly]
+internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
     FeatureDefinitionActionAffinityBuilder>
 {
-    public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
+    public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(
+        params ActionDefinitions.Id[] actions)
     {
         Definition.AuthorizedActions.SetRange(actions);
         Definition.AuthorizedActions.Sort();

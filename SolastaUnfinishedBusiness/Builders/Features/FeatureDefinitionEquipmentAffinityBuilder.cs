@@ -1,24 +1,13 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionEquipmentAffinityBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionEquipmentAffinityBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionEquipmentAffinity,
         FeatureDefinitionEquipmentAffinityBuilder>
 {
-    public FeatureDefinitionEquipmentAffinityBuilder SetCarryingCapacityMultiplier(float carryingCapacityMultiplier,
-        float? additionalCarryingCapacity)
-    {
-        Definition.carryingCapacityMultiplier = carryingCapacityMultiplier;
-
-        if (additionalCarryingCapacity != null)
-        {
-            Definition.additionalCarryingCapacity = additionalCarryingCapacity.Value;
-        }
-
-        return This();
-    }
-
     #region Constructors
 
     protected FeatureDefinitionEquipmentAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

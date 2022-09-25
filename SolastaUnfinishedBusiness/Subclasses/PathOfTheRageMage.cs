@@ -49,16 +49,16 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetKnownCantrips(
                 2,
                 3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             // start with 2 level 1 spells, gain at rate of third caster
             .SetKnownSpells(
                 3,
                 3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             // gain spell slots at rate of third caster
             .SetSlotsPerLevel(
                 3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
         var skillProf = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyPathOfTheRageMageSkill")
@@ -137,7 +137,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
              .AddToDB())
              .AddToDB();
 #endif
-        
+
         var arcaneExplosion = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamagePathOfTheRageMageArcaneExplosion")
             .SetGuiPresentation(Category.Feature)

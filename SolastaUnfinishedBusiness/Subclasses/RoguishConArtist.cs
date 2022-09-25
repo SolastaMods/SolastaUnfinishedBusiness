@@ -40,9 +40,9 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
             .SetReplacedSpells(SharedSpellsContext.OneThirdCasterReplacedSpells)
-            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
-            .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
-            .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
         var feintBuilder = EffectDescriptionBuilder
             .Create()
@@ -77,7 +77,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .Configure(
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), false /* unique instance */)
+                false, false, AttributeDefinitions.Charisma, feintBuilder.Build() /* unique instance */)
             .AddToDB();
 
         var proficiency = FeatureDefinitionProficiencyBuilder

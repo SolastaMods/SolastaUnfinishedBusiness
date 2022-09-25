@@ -138,7 +138,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             .SetFixedUsesPerRecharge(2)
             .SetCostPerUse(1)
             .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivation(ActivationTime.BonusAction, 0)
+            .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(effectDescription)
             .AddToDB();
     }

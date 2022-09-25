@@ -28,6 +28,4 @@ public abstract class
     }
 
     #endregion
-
-    // Methods specific to FeatureDefinitionAffinity
 }

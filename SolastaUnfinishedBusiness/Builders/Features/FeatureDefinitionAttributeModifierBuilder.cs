@@ -1,13 +1,17 @@
 ﻿using System;
+using JetBrains.Annotations;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier
+[UsedImplicitly]
+internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier
     , FeatureDefinitionAttributeModifierBuilder>
 {
-    public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType,
-        string attribute, int amount)
+    public FeatureDefinitionAttributeModifierBuilder SetModifier(
+        AttributeModifierOperation modifierType,
+        string attribute,
+        int amount)
     {
         Definition.modifierOperation = modifierType;
         Definition.modifiedAttribute = attribute;
@@ -15,17 +19,13 @@ public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilde
         return this;
     }
 
-    public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore, bool minimum1 = false)
+    public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(
+        string abilityScore,
+        bool minimum1 = false)
     {
         Definition.modifierAbilityScore = abilityScore;
         Definition.modifierOperation = AttributeModifierOperation.AddAbilityScoreBonus;
         Definition.minimum1 = minimum1;
-        return this;
-    }
-
-    public FeatureDefinitionAttributeModifierBuilder SetModifierValue(int amount)
-    {
-        Definition.modifierValue = amount;
         return this;
     }
 

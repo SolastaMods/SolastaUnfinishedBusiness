@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity,
+[UsedImplicitly]
+internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity,
     FeatureDefinitionMagicAffinityBuilder>
 {
     public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
@@ -55,28 +57,9 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
 
     public FeatureDefinitionMagicAffinityBuilder SetWarList(
         int levelBonus,
-        params string[] spells)
-    {
-        return SetWarList(levelBonus, spells.AsEnumerable());
-    }
-
-    public FeatureDefinitionMagicAffinityBuilder SetWarList(
-        int levelBonus,
         params SpellDefinition[] spells)
     {
         return SetWarList(levelBonus, spells.AsEnumerable());
-    }
-
-    public FeatureDefinitionMagicAffinityBuilder SetWarList(
-        int levelBonus,
-        IEnumerable<string> spells)
-    {
-        Definition.usesWarList = true;
-        Definition.warListSlotBonus = levelBonus;
-        Definition.WarListSpells.AddRange(spells);
-        Definition.WarListSpells.Sort();
-
-        return this;
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetWarList(
@@ -103,13 +86,6 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         Definition.additionalScribedSpells = additionalScribedSpells;
         Definition.scribeAdvantageType = scribeAdvantage;
         Definition.preparedSpellModifier = preparedModifier;
-
-        return this;
-    }
-
-    public FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritualCasting)
-    {
-        Definition.ritualCasting = ritualCasting;
 
         return this;
     }

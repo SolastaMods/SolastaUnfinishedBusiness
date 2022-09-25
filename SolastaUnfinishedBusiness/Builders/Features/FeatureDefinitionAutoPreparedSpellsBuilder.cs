@@ -1,44 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionAutoPreparedSpellsBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionAutoPreparedSpellsBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
 {
     public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
-        params AutoPreparedSpellsGroup[] autospelllists)
+        params AutoPreparedSpellsGroup[] autoSpellLists)
     {
-        return SetPreparedSpellGroups(autospelllists.AsEnumerable());
+        return SetPreparedSpellGroups(autoSpellLists.AsEnumerable());
     }
 
     public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
-        IEnumerable<AutoPreparedSpellsGroup> autospelllists)
+        IEnumerable<AutoPreparedSpellsGroup> autoSpellLists)
     {
-        Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
+        Definition.AutoPreparedSpellsGroups.SetRange(autoSpellLists);
         return this;
     }
 
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(CharacterClassDefinition castingClass)
+    public FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(
+        CharacterClassDefinition castingClass)
     {
         Definition.spellcastingClass = castingClass;
         return this;
     }
 
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetAffinityRace(CharacterRaceDefinition castingRace)
-    {
-        Definition.affinityRace = castingRace;
-        return this;
-    }
-
-    /**
-         * * This tag is used to create a tooltip:
-         * * this.autoPreparedTitle.Text = string.Format("Screen/&{0}SpellTitle", autoPreparedTag);
-         * * this.autoPreparedTooltip.Content = string.Format("Screen/&{0}SpellDescription", autoPreparedTag);
-         */
     public FeatureDefinitionAutoPreparedSpellsBuilder SetAutoTag(string tag)
     {
         Definition.autopreparedTag = tag;
@@ -78,13 +70,13 @@ public class FeatureDefinitionAutoPreparedSpellsBuilder
 
 public static class AutoPreparedSpellsGroupBuilder
 {
-    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellnames)
+    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellNames)
     {
-        return BuildSpellGroup(classLevel, spellnames.AsEnumerable());
+        return BuildSpellGroup(classLevel, spellNames.AsEnumerable());
     }
 
-    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
+    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellNames)
     {
-        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellnames.ToList() };
+        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellNames.ToList() };
     }
 }

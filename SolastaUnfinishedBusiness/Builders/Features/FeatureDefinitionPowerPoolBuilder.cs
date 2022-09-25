@@ -1,13 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-/**
-     * Note if you want to use a modifier for the power pool later you should set uses determination
-     * to fixed or ability bonus plus fixed.
-     */
-public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
+// note if you want to use a modifier for the power pool later you should set uses determination to fixed or ability bonus plus fixed
+[UsedImplicitly]
+internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
     FeatureDefinitionPowerPoolBuilder>
 {
     protected override void Initialise()
@@ -34,8 +33,10 @@ public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<F
             $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
     }
 
-    public FeatureDefinitionPowerPoolBuilder Configure(int usesPerRecharge,
-        RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
+    public FeatureDefinitionPowerPoolBuilder Configure(
+        int usesPerRecharge,
+        RuleDefinitions.UsesDetermination usesDetermination,
+        string usesAbilityScoreName,
         RuleDefinitions.RechargeRate recharge)
     {
         Definition.fixedUsesPerRecharge = usesPerRecharge;

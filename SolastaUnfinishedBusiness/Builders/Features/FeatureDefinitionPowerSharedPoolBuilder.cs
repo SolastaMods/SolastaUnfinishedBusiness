@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 // ReSharper disable once ClassNeverInstantiated.Global
-public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
+internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {
     protected override void Initialise()
@@ -24,26 +24,6 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
         Preconditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
-    }
-
-    //TODO: refactor this out after Artisan remerge
-    public FeatureDefinitionPowerSharedPoolBuilder(
-        string name,
-        string guid,
-        FeatureDefinitionPower poolPower,
-        RuleDefinitions.RechargeRate recharge,
-        RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
-        bool proficiencyBonusToAttack,
-        bool abilityScoreBonusToAttack,
-        string abilityScore,
-        EffectDescription effectDescription,
-        GuiPresentation guiPresentation,
-        bool uniqueInstance) : base(name, guid)
-    {
-        Definition.guiPresentation = guiPresentation;
-        Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack,
-            abilityScore, effectDescription, uniqueInstance);
     }
 
     public FeatureDefinitionPowerSharedPoolBuilder Configure(
@@ -73,17 +53,6 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
 
         return This();
     }
-
-#if false
-    public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
-    {
-        Preconditions.ArgumentIsNotNull(poolPower,
-            $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
-
-        Definition.SharedPool = poolPower;
-        return this;
-    }
-#endif
 
     #region Constructors
 

@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionDieRollModifierBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionDieRollModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
 {
     public FeatureDefinitionDieRollModifierBuilder SetModifiers(

@@ -5,7 +5,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionOnCharacterKillBuilder : FeatureDefinitionBuilder<FeatureDefinitionOnCharacterKill,
+[UsedImplicitly]
+internal class FeatureDefinitionOnCharacterKillBuilder : FeatureDefinitionBuilder<FeatureDefinitionOnCharacterKill,
     FeatureDefinitionOnCharacterKillBuilder>
 {
     [NotNull]

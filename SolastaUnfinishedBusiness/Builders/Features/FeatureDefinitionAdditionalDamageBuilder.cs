@@ -47,10 +47,11 @@ public abstract class
             diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
     }
 
-    //public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
-    //{
-    //    return SetAdvancement(advancement, diceByRanks.AsEnumerable());
-    //}
+    public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+        params DiceByRank[] diceByRanks)
+    {
+        return SetAdvancement(advancement, diceByRanks.AsEnumerable());
+    }
 
     public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> diceByRanks)
@@ -118,12 +119,6 @@ public abstract class
     public TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
     {
         Definition.damageValueDetermination = determination;
-        return This();
-    }
-
-    public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
-    {
-        Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         return This();
     }
 

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction,
+[UsedImplicitly]
+internal class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction,
     FeatureDefinitionAdditionalActionBuilder>
 {
     public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
@@ -27,43 +29,6 @@ public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder
         return this;
     }
 
-    /**
-         * The list of actions which are forbidden to use
-         */
-    public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
-        params ActionDefinitions.Id[] forbiddenActions)
-    {
-        return SetForbiddenActions(forbiddenActions.AsEnumerable());
-    }
-
-    public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
-        IEnumerable<ActionDefinitions.Id> forbiddenActions)
-    {
-        Definition.ForbiddenActions.SetRange(forbiddenActions);
-        Definition.ForbiddenActions.Sort();
-        return this;
-    }
-
-    /**
-         * The list of actions which are individually greenlighted
-         */
-    public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(
-        params ActionDefinitions.Id[] authorizedActions)
-    {
-        return SetAuthorizedActions(authorizedActions.AsEnumerable());
-    }
-
-    public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(
-        IEnumerable<ActionDefinitions.Id> authorizedActions)
-    {
-        Definition.AuthorizedActions.SetRange(authorizedActions);
-        Definition.AuthorizedActions.Sort();
-        return this;
-    }
-
-    /**
-         * The list of the only actions which are authorized (when non empty)
-         */
     public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
         params ActionDefinitions.Id[] restrictedActions)
     {

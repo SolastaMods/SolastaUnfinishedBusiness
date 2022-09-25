@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionOnAttackDamageEffectBuilder : FeatureDefinitionBuilder<
+[UsedImplicitly]
+internal class FeatureDefinitionOnAttackDamageEffectBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionOnAttackDamageEffect, FeatureDefinitionOnAttackDamageEffectBuilder>
 {
     public FeatureDefinitionOnAttackDamageEffectBuilder SetOnAttackDamageDelegates(OnAttackDamageDelegate before,
