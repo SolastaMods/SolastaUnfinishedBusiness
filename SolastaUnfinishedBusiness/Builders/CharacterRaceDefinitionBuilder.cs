@@ -45,6 +45,15 @@ internal class CharacterRaceDefinitionBuilder
         return this;
     }
 
+    public CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
+    {
+        Definition.FeatureUnlocks.Clear();
+
+        AddFeaturesAtLevel(level, features);
+
+        return this;
+    }
+
     public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
