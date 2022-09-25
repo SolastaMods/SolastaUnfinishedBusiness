@@ -374,10 +374,6 @@ public static class SharedSpellsContext
                 0,
                 0,
                 0,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 01
@@ -387,10 +383,6 @@ public static class SharedSpellsContext
             Slots = new List<int>
             {
                 2,
-                0,
-                0,
-                0,
-                0,
                 0,
                 0,
                 0,
@@ -408,10 +400,6 @@ public static class SharedSpellsContext
                 0,
                 0,
                 0,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 03
@@ -422,10 +410,6 @@ public static class SharedSpellsContext
             {
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
                 0,
                 0,
                 0,
@@ -442,10 +426,6 @@ public static class SharedSpellsContext
                 2,
                 0,
                 0,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 05
@@ -457,10 +437,6 @@ public static class SharedSpellsContext
                 2,
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
                 0,
                 0,
                 0
@@ -476,10 +452,6 @@ public static class SharedSpellsContext
                 2,
                 2,
                 0,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 07
@@ -492,10 +464,6 @@ public static class SharedSpellsContext
                 2,
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
                 0,
                 0
             },
@@ -510,10 +478,6 @@ public static class SharedSpellsContext
                 2,
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 09
@@ -527,10 +491,6 @@ public static class SharedSpellsContext
                 2,
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 10
@@ -544,10 +504,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 11
@@ -561,10 +517,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 12
@@ -578,10 +530,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 13
@@ -595,10 +543,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 14
@@ -612,10 +556,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 15
@@ -629,10 +569,6 @@ public static class SharedSpellsContext
                 3,
                 3,
                 3,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 16
@@ -646,10 +582,6 @@ public static class SharedSpellsContext
                 4,
                 4,
                 4,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 17
@@ -663,10 +595,6 @@ public static class SharedSpellsContext
                 4,
                 4,
                 4,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 18
@@ -680,10 +608,6 @@ public static class SharedSpellsContext
                 4,
                 4,
                 4,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 19
@@ -697,10 +621,6 @@ public static class SharedSpellsContext
                 4,
                 4,
                 4,
-                0,
-                0,
-                0,
-                0,
                 0
             },
             Level = 20

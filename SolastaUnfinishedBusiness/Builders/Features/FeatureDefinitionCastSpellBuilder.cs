@@ -11,24 +11,17 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell,
     FeatureDefinitionCastSpellBuilder>
 {
-    public enum CasterProgression
-    {
-        FullCaster,
-        HalfCaster,
-        ThirdCaster
-    }
-
-    private readonly int[] _bonusSpellsKnownByCasterLevel =
+    private static readonly int[] BonusSpellsKnownByCasterLevel =
     {
         0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13
     };
 
-    private readonly int[] _bonusSpellsKnownThirdCaster =
+    private static readonly int[] BonusSpellsKnownThirdCaster =
     {
         0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4
     };
 
-    private readonly List<int>[] _slotsByCasterLevel =
+    private static readonly List<int>[] SlotsByCasterLevel =
     {
         new()
         {
@@ -220,6 +213,115 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
             0
         }
     };
+
+    internal static void EnumerateKnownSpells(
+        int startingAmount,
+        int startingLevel,
+        CasterProgression progression,
+        List<int> knownSpells
+    )
+    {
+        knownSpells.Clear();
+
+        var level = 1;
+
+        for (; level < startingLevel; level++)
+        {
+            knownSpells.Add(0);
+        }
+
+        switch (progression)
+        {
+            case CasterProgression.FullCaster:
+                for (; level < 21; level++)
+                {
+                    knownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[level]);
+                }
+
+                break;
+            case CasterProgression.HalfCaster:
+                for (; level < 21; level++)
+                {
+                    // +1 here because half casters effectively round up the spells known
+                    knownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[(level + 1) / 2]);
+                }
+
+                break;
+            case CasterProgression.ThirdCaster:
+                for (; level < 21; level++)
+                {
+                    knownSpells.Add(startingAmount +
+                                    // +2 here because third casters effectively "round up" for spells known
+                                    BonusSpellsKnownByCasterLevel[(level + 2) / 3] +
+                                    // Third casters also just learn spells faster
+                                    BonusSpellsKnownThirdCaster[level]);
+                }
+
+                break;
+            default:
+                throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
+        }
+    }
+    
+    internal static void EnumerateSlotsPerLevel(
+        int startingLevel,
+        CasterProgression progression,
+        List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
+    {
+        var level = 1;
+
+        for (; level < startingLevel; level++)
+        {
+            var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = SlotsByCasterLevel[0]
+            };
+
+            slotsPerLevels.Add(slotsForLevel);
+        }
+
+        switch (progression)
+        {
+            case CasterProgression.FullCaster:
+                for (; level < 21; level++)
+                {
+                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                    {
+                        Level = level, Slots = SlotsByCasterLevel[level - startingLevel + 1]
+                    };
+
+                    slotsPerLevels.Add(slotsForLevel);
+                }
+
+                break;
+            case CasterProgression.HalfCaster:
+                for (; level < 21; level++)
+                {
+                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                    {
+                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
+                    };
+
+                    slotsPerLevels.Add(slotsForLevel);
+                }
+
+                break;
+            case CasterProgression.ThirdCaster:
+                for (; level < 21; level++)
+                {
+                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                    {
+                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
+                    };
+
+                    slotsPerLevels.Add(slotsForLevel);
+                }
+
+                break;
+            default:
+                throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
+        }
+    }
 
     private void InitializeFields()
     {
@@ -428,45 +530,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel,
         CasterProgression progression)
     {
-        Definition.KnownSpells.Clear();
-        var level = 1;
-        for (; level < startingLevel; level++)
-        {
-            Definition.KnownSpells.Add(0);
-        }
-
-        switch (progression)
-        {
-            case CasterProgression.FullCaster:
-                for (; level < 21; level++)
-                {
-                    Definition.KnownSpells.Add(startingAmount + _bonusSpellsKnownByCasterLevel[level]);
-                }
-
-                break;
-            case CasterProgression.HalfCaster:
-                for (; level < 21; level++)
-                {
-                    // +1 here because half casters effectively round up the spells known
-                    Definition.KnownSpells.Add(startingAmount + _bonusSpellsKnownByCasterLevel[(level + 1) / 2]);
-                }
-
-                break;
-            case CasterProgression.ThirdCaster:
-                for (; level < 21; level++)
-                {
-                    Definition.KnownSpells.Add(startingAmount +
-                                               // +2 here because third casters effectively "round up" for spells known
-                                               _bonusSpellsKnownByCasterLevel[(level + 2) / 3] +
-                                               // Third casters also just learn spells faster
-                                               _bonusSpellsKnownThirdCaster[level]);
-                }
-
-                break;
-            default:
-                throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
-        }
-
+        EnumerateKnownSpells(startingAmount, startingLevel, progression, Definition.KnownSpells);
         return this;
     }
 
@@ -494,56 +558,18 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
+
     public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(int startingLevel, CasterProgression progression)
     {
-        var level = 1;
-        for (; level < startingLevel; level++)
-        {
-            var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-            {
-                Level = level, Slots = _slotsByCasterLevel[0]
-            };
-            Definition.SlotsPerLevels.Add(slotsForLevel);
-        }
-
-        switch (progression)
-        {
-            case CasterProgression.FullCaster:
-                for (; level < 21; level++)
-                {
-                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-                    {
-                        Level = level, Slots = _slotsByCasterLevel[level - startingLevel + 1]
-                    };
-                    Definition.SlotsPerLevels.Add(slotsForLevel);
-                }
-
-                break;
-            case CasterProgression.HalfCaster:
-                for (; level < 21; level++)
-                {
-                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-                    {
-                        Level = level, Slots = _slotsByCasterLevel[((level - startingLevel) / 2) + 1]
-                    };
-                    Definition.SlotsPerLevels.Add(slotsForLevel);
-                }
-
-                break;
-            case CasterProgression.ThirdCaster:
-                for (; level < 21; level++)
-                {
-                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-                    {
-                        Level = level, Slots = _slotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
-                    };
-                    Definition.SlotsPerLevels.Add(slotsForLevel);
-                }
-
-                break;
-        }
-
+        EnumerateSlotsPerLevel(startingLevel, progression, Definition.SlotsPerLevels);
         return this;
+    }
+
+    internal enum CasterProgression
+    {
+        FullCaster,
+        HalfCaster,
+        ThirdCaster
     }
 
     #region Constructors
