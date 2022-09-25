@@ -147,6 +147,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
     {
         public override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            List<string> effectiveDamageTypes,
             bool retargeting,
             bool proxyOnly,
             bool forceSelfConditionOnly,

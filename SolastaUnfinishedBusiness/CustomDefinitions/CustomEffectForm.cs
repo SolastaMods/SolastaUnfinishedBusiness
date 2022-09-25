@@ -14,6 +14,7 @@ public abstract class CustomEffectForm : EffectForm
 
     public abstract void ApplyForm(
         RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+        List<string> effectiveDamageTypes,
         bool retargeting,
         bool proxyOnly,
         bool forceSelfConditionOnly,

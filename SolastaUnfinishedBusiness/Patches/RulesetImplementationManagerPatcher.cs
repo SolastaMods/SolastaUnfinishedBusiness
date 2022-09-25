@@ -29,7 +29,13 @@ internal static class RulesetImplementationManagerPatcher
         {
             foreach (var customEffect in effectForms.OfType<CustomEffectForm>())
             {
-                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication,
+                customEffect.ApplyForm(
+                    formsParams,
+                    effectiveDamageTypes,
+                    retargeting,
+                    proxyOnly,
+                    forceSelfConditionOnly,
+                    effectApplication,
                     filters);
             }
         }
