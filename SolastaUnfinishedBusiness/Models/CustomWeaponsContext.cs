@@ -67,10 +67,11 @@ public static class CustomWeaponsContext
     }
 
     [NotNull]
-    private static ItemPresentation BuildPresentation(string unIdentifiedName,
+    internal static ItemPresentation BuildPresentation(string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidentifiedDescription = false)
     {
+        //TODO: either create a builder for ItemPresentation, or add setter with custom values to ItemDefinitionBuilder
         var presentation = new ItemPresentation(basePresentation);
         presentation.ItemFlags.Clear();
         presentation.assetReference = basePresentation.AssetReference;

@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -418,6 +419,69 @@ internal static class RulesetCharacterHeroPatcher
             __result = new List<string>();
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAvailableDevices")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class EnumerateAvailableDevices_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance,
+            ref IEnumerable<RulesetItemDevice> __result,
+            bool includeContainer)
+        {
+            //PATCH: enabled `PowerPoolDevice` by adding fake device to hero's usable devices list
+            if (__instance.UsableDeviceFromMenu != null)
+            {
+                return;
+            }
+
+            var providers = __instance.GetSubFeaturesByType<PowerPoolDevice>();
+            if (providers.Empty())
+            {
+                return;
+            }
+
+            var tmp = __result.ToList();
+
+            foreach (var provider in providers)
+            {
+                tmp.Add(provider.GetDevice(__instance));
+            }
+            
+            __result = tmp;
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetCharacterHero), "UseDeviceFunction")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UseDeviceFunction_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance,
+            RulesetItemDevice usableDevice,
+            RulesetDeviceFunction function,
+            int additionalCharges)
+        {
+            //PATCH: enables `PowerPoolDevice` to consume usage for power pool
+            var feature = PowerPoolDevice.GetFromRulesetItem(__instance, usableDevice);
+            if (feature == null)
+            {
+                return;
+            }
+
+            var useAmount = function.DeviceFunctionDescription.UseAmount + additionalCharges;
+            __instance.UpdateUsageForPower(feature.Pool, useAmount);
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetCharacterHero), "Unregister")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Unregister_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance)
+        {
+            //PATCH: clears cached devices for a hero
+            PowerPoolDevice.Clear(__instance);
         }
     }
 }
