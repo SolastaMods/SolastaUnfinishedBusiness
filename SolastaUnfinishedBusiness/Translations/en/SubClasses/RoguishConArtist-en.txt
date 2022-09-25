@@ -1,6 +1,6 @@
 Feature/&AbilityCheckAffinityConArtistDescription=Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Feature/&AbilityCheckAffinityConArtistTitle=Manipulative
-Feature/&CastSpellConArtistDescription=Cast Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
+Feature/&CastSpellConArtistDescription=Cast Wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Intelligence to cast their spells.
 Feature/&CastSpellConArtistTitle=Spellcasting
 Feature/&MagicAffinityConArtistDCDescription=Your spell save DC increases by {0}.
 Feature/&MagicAffinityConArtistDCTitle=Improved Manipulation
