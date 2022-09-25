@@ -267,7 +267,7 @@
     "description": "Race/&RaceBolgrifDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c61572cd52435b98824229b82b293825",
+      "m_AssetGUID": "c61572cd-5243-5b98-8242-29b82b293825",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -325,7 +325,7 @@
     "description": "Spell/&BurstOfRadianceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8a967b2908a557408ad102e7327f995c",
+      "m_AssetGUID": "8a967b29-08a5-5740-8ad1-02e7327f995c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

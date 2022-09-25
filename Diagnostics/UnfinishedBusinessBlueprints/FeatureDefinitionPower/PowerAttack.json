@@ -348,7 +348,7 @@
     "description": "Feat/&FeatPowerAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "09a7e454274f5b56af1c156b29b9ae52",
+      "m_AssetGUID": "09a7e454-274f-5b56-af1c-156b29b9ae52",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

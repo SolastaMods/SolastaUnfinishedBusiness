@@ -8,7 +8,7 @@
     "description": "ContentPack/&9999Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8aaa36cea52c5319a72e0178b1751ff0",
+      "m_AssetGUID": "8aaa36ce-a52c-5319-a72e-0178b1751ff0",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

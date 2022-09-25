@@ -344,7 +344,7 @@
     "description": "Spell/&AcidClawsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "eff71dcd7fdb55f19b45e1da40fb0729",
+      "m_AssetGUID": "eff71dcd-7fdb-55f1-9b45-e1da40fb0729",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

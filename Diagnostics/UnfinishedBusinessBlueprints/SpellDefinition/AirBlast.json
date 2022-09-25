@@ -338,7 +338,7 @@
     "description": "Spell/&AirBlastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4d75293b23e45883aa218d2eac216faf",
+      "m_AssetGUID": "4d75293b-23e4-5883-aa21-8d2eac216faf",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

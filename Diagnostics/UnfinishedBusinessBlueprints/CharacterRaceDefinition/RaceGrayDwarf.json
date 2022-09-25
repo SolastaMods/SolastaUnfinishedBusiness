@@ -224,7 +224,7 @@
     "description": "Race/&RaceGrayDwarfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "508427756f5f5cf98f4edec5cc4bf838",
+      "m_AssetGUID": "50842775-6f5f-5cf9-8f4e-dec5cc4bf838",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

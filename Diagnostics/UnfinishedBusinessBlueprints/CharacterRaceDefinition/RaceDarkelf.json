@@ -271,7 +271,7 @@
     "description": "Race/&RaceDarkelfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "881f7262bbde5680a12517b92a886088",
+      "m_AssetGUID": "881f7262-bbde-5680-a125-17b92a886088",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

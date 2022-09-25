@@ -13,7 +13,6 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:AutoPreparedSpellsFeatCelestialTouchedArtisan:3418ed81-9fbc-5839-9e35-001a737e5f0c",
     "Definition:AutoPreparedSpellsFeatCelestialTouchedBarbarian:7e0a1361-6633-54db-91d2-6b435b9e91a5",
     "Definition:AutoPreparedSpellsFeatCelestialTouchedBard:2255cb4f-5e12-5dc3-b895-e493862acc60",
     "Definition:AutoPreparedSpellsFeatCelestialTouchedCleric:95f07978-68e1-53b7-b9e9-78acb1755148",

@@ -371,7 +371,7 @@
     "description": "Spell/&EarthTremorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e6c4119adca85e6ba2401587de7caef6",
+      "m_AssetGUID": "e6c4119a-dca8-5e6b-a240-1587de7caef6",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

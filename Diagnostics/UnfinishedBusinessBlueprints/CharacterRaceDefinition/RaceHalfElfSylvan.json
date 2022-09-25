@@ -122,7 +122,7 @@
     "description": "Race/&RaceHalfElfSylvanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "21efaa1da5a15b538a50a8d66a88dd66",
+      "m_AssetGUID": "21efaa1d-a5a1-5b53-8a50-a8d66a88dd66",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

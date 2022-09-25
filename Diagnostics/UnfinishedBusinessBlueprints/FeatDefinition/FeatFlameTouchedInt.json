@@ -13,7 +13,6 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:AutoPreparedSpellsFeatFlameTouchedArtisan:4f49f15d-4d89-55ae-bcd5-9856c8f48670",
     "Definition:AutoPreparedSpellsFeatFlameTouchedBarbarian:58c85e30-c937-5fae-bba1-22b81472b264",
     "Definition:AutoPreparedSpellsFeatFlameTouchedBard:60f36811-7655-5a0e-a6d2-c2e08039b1d7",
     "Definition:AutoPreparedSpellsFeatFlameTouchedCleric:64e4c588-1e89-56b9-b10d-21a2571c9337",

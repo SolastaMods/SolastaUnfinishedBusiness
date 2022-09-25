@@ -1,8 +1,0 @@
-ImprovedSentinelSuitWeapon	Title='Equipment/&ImprovedThunderPunchTitle'.
-ImprovedSentinelSuitWeapon	Description='Equipment/&ImprovedThunderPunchDescription'.
-ProtectorConstructLevel15AutopreparedSpells	Title='Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle'.
-ProtectorConstructLevel15AutopreparedSpells	Description='Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription'.
-ProtectorConstructLevel3AutopreparedSpells	Title='Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle'.
-ProtectorConstructLevel3AutopreparedSpells	Description='Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription'.
-SentinelSuitWeapon	Title='Equipment/&ThunderPunchTitle'.
-SentinelSuitWeapon	Description='Equipment/&ThunderPunchDescription'.

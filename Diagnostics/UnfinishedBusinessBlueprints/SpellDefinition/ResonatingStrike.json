@@ -318,7 +318,7 @@
     "description": "Spell/&ResonatingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0b77d7d8cada50c98e0d8dbb46184739",
+      "m_AssetGUID": "0b77d7d8-cada-50c9-8e0d-8dbb46184739",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

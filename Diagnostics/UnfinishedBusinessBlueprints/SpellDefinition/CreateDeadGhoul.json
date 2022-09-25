@@ -311,7 +311,7 @@
     "description": "Monster/&GhoulDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1058000d8fe55a80a4b972601a92769a",
+      "m_AssetGUID": "1058000d-8fe5-5a80-a4b9-72601a92769a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
