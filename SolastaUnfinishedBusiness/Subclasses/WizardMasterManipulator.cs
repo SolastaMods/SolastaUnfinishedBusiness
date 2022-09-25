@@ -60,10 +60,11 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardMasterManipulator")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(arcaneControlAffinity, 2)
-            .AddFeatureAtLevel(DcIncreaseAffinity, 6)
-            .AddFeatureAtLevel(proficiency, 10)
-            .AddFeatureAtLevel(powerDominate, 14).AddToDB();
+            .AddFeaturesAtLevel(2, arcaneControlAffinity)
+            .AddFeaturesAtLevel(6, DcIncreaseAffinity)
+            .AddFeaturesAtLevel(10, proficiency)
+            .AddFeaturesAtLevel(14, powerDominate)
+            .AddToDB();
     }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

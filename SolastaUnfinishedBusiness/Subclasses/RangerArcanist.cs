@@ -55,11 +55,11 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create("RangerArcanist")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, rangerArcanistMagic)
-            .AddFeatureAtLevel(arcanistMark, 3)
-            .AddFeatureAtLevel(arcaneDetonation, 3)
-            .AddFeatureAtLevel(arcanePulseAction, 7)
-            .AddFeatureAtLevel(arcaneDetonationUpgrade, 11)
-            .AddFeatureAtLevel(arcanePulseUpgradeAction, 15)
+            .AddFeaturesAtLevel(3, arcanistMark)
+            .AddFeaturesAtLevel(3, arcaneDetonation)
+            .AddFeaturesAtLevel(7, arcanePulseAction)
+            .AddFeaturesAtLevel(11, arcaneDetonationUpgrade)
+            .AddFeaturesAtLevel(15, arcanePulseUpgradeAction)
             .AddToDB();
     }
 

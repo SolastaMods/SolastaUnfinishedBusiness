@@ -174,16 +174,16 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             CharacterSubclassDefinitionBuilder
                 .Create("PathOfTheRageMage")
                 .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-                .AddFeatureAtLevel(magicAffinity, 3)
-                .AddFeatureAtLevel(skillProf, 3)
-                .AddFeatureAtLevel(arcaneExplosion, 6)
-                .AddFeatureAtLevel(supernaturalExploits, 10)
-                .AddFeatureAtLevel(supernaturalExploitsDarkvision, 10)
-                .AddFeatureAtLevel(supernaturalExploitsFeatherfall, 10)
-                .AddFeatureAtLevel(supernaturalExploitsJump, 10)
-                .AddFeatureAtLevel(supernaturalExploitsSeeInvisibility, 10)
-                .AddFeatureAtLevel(enhancedArcaneExplosion, 14)
+                .AddFeaturesAtLevel(3, spellCasting.AddToDB())
+                .AddFeaturesAtLevel(3, magicAffinity)
+                .AddFeaturesAtLevel(3, skillProf)
+                .AddFeaturesAtLevel(6, arcaneExplosion)
+                .AddFeaturesAtLevel(10, supernaturalExploits)
+                .AddFeaturesAtLevel(10, supernaturalExploitsDarkvision)
+                .AddFeaturesAtLevel(10, supernaturalExploitsFeatherfall)
+                .AddFeaturesAtLevel(10, supernaturalExploitsJump)
+                .AddFeaturesAtLevel(10, supernaturalExploitsSeeInvisibility)
+                .AddFeaturesAtLevel(14, enhancedArcaneExplosion)
                 .AddToDB();
     }
 

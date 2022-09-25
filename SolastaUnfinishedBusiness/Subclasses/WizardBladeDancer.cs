@@ -198,10 +198,10 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create("WizardBladeDancer")
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, lightArmorProficiency, martialWeaponProficiency, featureBladeDanceSet)
-            .AddFeatureAtLevel(featureReplaceAttackWithCantrip, 6)
-            .AddFeatureAtLevel(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, 6)
-            .AddFeatureAtLevel(featureDanceOfDefenseSet, 10)
-            .AddFeatureAtLevel(featureDanceOfVictorySet, 14)
+            .AddFeaturesAtLevel(6, featureReplaceAttackWithCantrip)
+            .AddFeaturesAtLevel(6, FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
+            .AddFeaturesAtLevel(10, featureDanceOfDefenseSet)
+            .AddFeaturesAtLevel(14, featureDanceOfVictorySet)
             .AddToDB();
     }
 

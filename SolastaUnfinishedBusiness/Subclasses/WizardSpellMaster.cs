@@ -99,13 +99,13 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Create("WizardSpellMaster")
             .SetGuiPresentation(Category.Subclass,
                 DomainInsight.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(prepared, 2)
-            .AddFeatureAtLevel(extraKnown, 2)
-            .AddFeatureAtLevel(BonusRecovery, 2)
-            .AddFeatureAtLevel(knowledgeAffinity, 6)
-            .AddFeatureAtLevel(bonusCantrips, 6)
-            .AddFeatureAtLevel(extraPrepared, 10)
-            .AddFeatureAtLevel(spellResistance, 14)
+            .AddFeaturesAtLevel(2, prepared)
+            .AddFeaturesAtLevel(2, extraKnown)
+            .AddFeaturesAtLevel(2, BonusRecovery)
+            .AddFeaturesAtLevel(6, knowledgeAffinity)
+            .AddFeaturesAtLevel(6, bonusCantrips)
+            .AddFeaturesAtLevel(10, extraPrepared)
+            .AddFeaturesAtLevel(14, spellResistance)
             .AddToDB();
 
         _ = RestActivityDefinitionBuilder

@@ -212,10 +212,10 @@ internal sealed class RoguishRaven : AbstractSubclass
         return CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(sharpShooter, 3)
-            .AddFeatureAtLevel(BuildHeartSeekingShot(), 3)
-            .AddFeatureAtLevel(killingSpree, 9)
-            .AddFeatureAtLevel(painMaker, 9)
+            .AddFeaturesAtLevel(3, sharpShooter)
+            .AddFeaturesAtLevel(3, BuildHeartSeekingShot())
+            .AddFeaturesAtLevel(9, killingSpree)
+            .AddFeaturesAtLevel(9, painMaker)
             .AddToDB();
     }
 

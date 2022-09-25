@@ -131,12 +131,12 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("SorcerousDivineHeart")
             .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(divineHeartDeityChoice, 1)
-            .AddFeatureAtLevel(divineHeartDivineFortitude, 1)
-            .AddFeatureAtLevel(magicAffinityDivineHeartClericSpellsList, 1)
-            .AddFeatureAtLevel(divineHeartEmpoweredHealingPower, 6)
-            .AddFeatureAtLevel(divineHeartPlanarPortalPower, 14)
-            .AddFeatureAtLevel(divineHeartDivineRecoveryPower, 18)
+            .AddFeaturesAtLevel(1, divineHeartDeityChoice)
+            .AddFeaturesAtLevel(1, divineHeartDivineFortitude)
+            .AddFeaturesAtLevel(1, magicAffinityDivineHeartClericSpellsList)
+            .AddFeaturesAtLevel(6, divineHeartEmpoweredHealingPower)
+            .AddFeaturesAtLevel(14, divineHeartPlanarPortalPower)
+            .AddFeaturesAtLevel(18, divineHeartDivineRecoveryPower)
             .AddToDB();
     }
 

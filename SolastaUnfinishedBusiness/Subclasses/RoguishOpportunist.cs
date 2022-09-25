@@ -115,9 +115,9 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         return CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(quickStrike, 3)
-            .AddFeatureAtLevel(debilitatingStrikePower, 9)
-            //.AddFeatureAtLevel(thugOvercomeCompetition, 13)
+            .AddFeaturesAtLevel(3, quickStrike)
+            .AddFeaturesAtLevel(9, debilitatingStrikePower)
+            //.AddFeaturesAtLevel( 13, thugOvercomeCompetition)
             .AddToDB();
     }
 }

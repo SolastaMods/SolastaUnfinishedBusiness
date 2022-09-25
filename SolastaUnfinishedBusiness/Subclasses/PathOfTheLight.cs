@@ -189,12 +189,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
             .SetGuiPresentation(Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(illuminatingStrike, 3)
-            .AddFeatureAtLevel(pierceOfTheDarkness, 3)
-            .AddFeatureAtLevel(lightsProtection, 6)
-            .AddFeatureAtLevel(BuildEyesOfTruth(), 10)
-            .AddFeatureAtLevel(illuminatingStrikeImprovement, 10)
-            .AddFeatureAtLevel(illuminatingBurst, 14)
+            .AddFeaturesAtLevel(3, illuminatingStrike)
+            .AddFeaturesAtLevel(3, pierceOfTheDarkness)
+            .AddFeaturesAtLevel(6, lightsProtection)
+            .AddFeaturesAtLevel(10, BuildEyesOfTruth())
+            .AddFeaturesAtLevel(10, illuminatingStrikeImprovement)
+            .AddFeaturesAtLevel(14, illuminatingBurst)
             .AddToDB();
     }
 

@@ -206,17 +206,17 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Create("WizardLifeTransmuter")
             .SetGuiPresentation(Category.Subclass,
                 RoguishDarkweaver.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
-            .AddFeatureAtLevel(transmuteForce, 6)
-            .AddFeatureAtLevel(powerDarkvision, 6)
-            .AddFeatureAtLevel(powerPoison, 6)
-            .AddFeatureAtLevel(powerConstitution, 6)
-            .AddFeatureAtLevel(transmuteForceExtra, 10)
-            .AddFeatureAtLevel(powerFly, 10)
-            .AddFeatureAtLevel(powerHeal, 10)
-            .AddFeatureAtLevel(powerRevive, 10)
-            .AddFeatureAtLevel(transmuteForceExtraBonus, 14)
-            .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14)
+            .AddFeaturesAtLevel(2, lifeTransmuterAffinity)
+            .AddFeaturesAtLevel(6, transmuteForce)
+            .AddFeaturesAtLevel(6, powerDarkvision)
+            .AddFeaturesAtLevel(6, powerPoison)
+            .AddFeaturesAtLevel(6, powerConstitution)
+            .AddFeaturesAtLevel(10, transmuteForceExtra)
+            .AddFeaturesAtLevel(10, powerFly)
+            .AddFeaturesAtLevel(10, powerHeal)
+            .AddFeaturesAtLevel(10, powerRevive)
+            .AddFeaturesAtLevel(14, transmuteForceExtraBonus)
+            .AddFeaturesAtLevel(14, FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance)
             .AddToDB();
     }
 

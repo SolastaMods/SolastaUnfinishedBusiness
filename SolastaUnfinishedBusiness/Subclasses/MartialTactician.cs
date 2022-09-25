@@ -190,14 +190,14 @@ internal static class TacticianFighterSubclassBuilder
         return CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(PowerPoolTacticianGambit, 3)
-            .AddFeatureAtLevel(BuildPowerSharedPoolTacticianKnockDown(), 3)
-            .AddFeatureAtLevel(BuildPowerSharedPoolTacticianInspire(), 3)
-            .AddFeatureAtLevel(BuildPowerSharedPoolTacticianCounterStrike(), 3)
-            .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7)
-            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 10)
-            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 15)
-            .AddFeatureAtLevel(powerPoolTacticianGambitAdd, 18)
+            .AddFeaturesAtLevel(3, PowerPoolTacticianGambit)
+            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianKnockDown())
+            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianInspire())
+            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianCounterStrike())
+            .AddFeaturesAtLevel(7, FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete)
+            .AddFeaturesAtLevel(10, powerPoolTacticianGambitAdd)
+            .AddFeaturesAtLevel(15, powerPoolTacticianGambitAdd)
+            .AddFeaturesAtLevel(18, powerPoolTacticianGambitAdd)
             .AddToDB();
     }
 }

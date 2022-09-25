@@ -91,11 +91,12 @@ internal sealed class RoguishConArtist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishConArtist")
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(abilityAffinity, 3)
-            .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-            .AddFeatureAtLevel(feint, 9)
-            .AddFeatureAtLevel(DcIncreaseAffinity, 13)
-            .AddFeatureAtLevel(proficiency, 17).AddToDB();
+            .AddFeaturesAtLevel(3, abilityAffinity)
+            .AddFeaturesAtLevel(3, spellCasting.AddToDB())
+            .AddFeaturesAtLevel(9, feint)
+            .AddFeaturesAtLevel(13, DcIncreaseAffinity)
+            .AddFeaturesAtLevel(17, proficiency)
+            .AddToDB();
     }
 
     private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=

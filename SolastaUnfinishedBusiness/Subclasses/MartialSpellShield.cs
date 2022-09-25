@@ -132,13 +132,14 @@ internal sealed class MartialSpellShield : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialSpellShield")
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(magicAffinity, 3)
-            .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
-            .AddFeatureAtLevel(warMagicPower, 7)
-            .AddFeatureAtLevel(replaceAttackWithCantrip, 7)
-            .AddFeatureAtLevel(vigor, 10)
-            .AddFeatureAtLevel(arcaneDeflectionPower, 15)
-            .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();
+            .AddFeaturesAtLevel(3, magicAffinity)
+            .AddFeaturesAtLevel(3, spellCasting.AddToDB())
+            .AddFeaturesAtLevel(7, warMagicPower)
+            .AddFeaturesAtLevel(7, replaceAttackWithCantrip)
+            .AddFeaturesAtLevel(10, vigor)
+            .AddFeaturesAtLevel(15, arcaneDeflectionPower)
+            .AddFeaturesAtLevel(18, actionAffinitySpellShieldRangedDefense)
+            .AddToDB();
     }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

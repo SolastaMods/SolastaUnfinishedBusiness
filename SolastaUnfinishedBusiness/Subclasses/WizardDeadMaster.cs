@@ -88,11 +88,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster")
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(autoPreparedSpellsDeadMaster, 2)
-            .AddFeatureAtLevel(featureStarkHarvest, 2)
-            .AddFeatureAtLevel(featureUndeadChains, 6)
-            .AddFeatureAtLevel(featureHardenToNecrotic, 10)
-            .AddFeatureAtLevel(powerDeadMasterCommandUndead, 14)
+            .AddFeaturesAtLevel(2, autoPreparedSpellsDeadMaster)
+            .AddFeaturesAtLevel(2, featureStarkHarvest)
+            .AddFeaturesAtLevel(6, featureUndeadChains)
+            .AddFeaturesAtLevel(10, featureHardenToNecrotic)
+            .AddFeaturesAtLevel(14, powerDeadMasterCommandUndead)
             .AddToDB();
 
         EnableCommandAllUndead();

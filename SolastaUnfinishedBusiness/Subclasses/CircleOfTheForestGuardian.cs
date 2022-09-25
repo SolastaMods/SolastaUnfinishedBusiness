@@ -67,13 +67,13 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         return CharacterSubclassDefinitionBuilder
             .Create(ForestGuardianName)
             .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(druidForestGuardianMagic, 2)
-            .AddFeatureAtLevel(sylvanResistance, 2)
-            .AddFeatureAtLevel(sylvanWarMagic, 2)
-            .AddFeatureAtLevel(barkWard, 2)
-            .AddFeatureAtLevel(extraAttack, 6)
-            .AddFeatureAtLevel(improvedBarkWard, 10)
-            .AddFeatureAtLevel(superiorBarkWard, 14)
+            .AddFeaturesAtLevel(2, druidForestGuardianMagic)
+            .AddFeaturesAtLevel(2, sylvanResistance)
+            .AddFeaturesAtLevel(2, sylvanWarMagic)
+            .AddFeaturesAtLevel(2, barkWard)
+            .AddFeaturesAtLevel(6, extraAttack)
+            .AddFeaturesAtLevel(10, improvedBarkWard)
+            .AddFeaturesAtLevel(14, superiorBarkWard)
             .AddToDB();
     }
 

@@ -560,12 +560,13 @@ internal static class MarshalFighterSubclassBuilder
         return CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack(), 3)
-            .AddFeatureAtLevel(FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet(), 3)
-            .AddFeatureAtLevel(PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower(), 3)
-            .AddFeatureAtLevel(EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade(), 7)
-            .AddFeatureAtLevel(FeatureSetMarshalFearlessCommanderBuilder.BuildFeatureSetMarshalFearlessCommander(), 10)
-            .AddFeatureAtLevel(EncourageBuilder.BuildEncourage(), 10)
+            .AddFeaturesAtLevel(3, MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack())
+            .AddFeaturesAtLevel(3,
+                FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet())
+            .AddFeaturesAtLevel(3, PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower())
+            .AddFeaturesAtLevel(7, EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade())
+            .AddFeaturesAtLevel(10, FeatureSetMarshalFearlessCommanderBuilder.BuildFeatureSetMarshalFearlessCommander())
+            .AddFeaturesAtLevel(10, EncourageBuilder.BuildEncourage())
             .AddToDB();
     }
 }
