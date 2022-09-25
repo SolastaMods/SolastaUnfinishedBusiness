@@ -41,7 +41,8 @@ internal static class RulesetSpellRepertoirePatcher
             if (warlockSpellRepertoire == null)
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                             .Where(x => x.SpellCastingRace == null))
+                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin != 
+                                         FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
                     var usedSpellsSlots =
                         spellRepertoire.usedSpellsSlots;
@@ -55,8 +56,8 @@ internal static class RulesetSpellRepertoirePatcher
             // handles MC Warlock
             else
             {
-                SpendMulticasterWarlockSlots(__instance, warlockSpellRepertoire, heroWithSpellRepertoire,
-                    slotLevel);
+                SpendMulticasterWarlockSlots(
+                    __instance, warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
             }
 
             return false;
@@ -121,8 +122,8 @@ internal static class RulesetSpellRepertoirePatcher
                      isShiftPressed)))
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                             .Where(spellRepertoire => spellRepertoire.SpellCastingFeature.SpellCastingOrigin !=
-                                                       FeatureDefinitionCastSpell.CastingOrigin.Race))
+                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin != 
+                                         FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
                     SpendWarlockSlots(spellRepertoire, heroWithSpellRepertoire);
                 }
@@ -132,11 +133,10 @@ internal static class RulesetSpellRepertoirePatcher
             else
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
+                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin != 
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
-                    var usedSpellsSlots =
-                        spellRepertoire.usedSpellsSlots;
+                    var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
 
                     usedSpellsSlots.TryAdd(slotLevel, 0);
                     usedSpellsSlots[slotLevel]++;
@@ -193,8 +193,7 @@ internal static class RulesetSpellRepertoirePatcher
 
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
             {
-                var usedSpellsSlots =
-                    spellRepertoire.usedSpellsSlots;
+                var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
 
                 foreach (var recoveredSlot in recoveredSlots)
                 {

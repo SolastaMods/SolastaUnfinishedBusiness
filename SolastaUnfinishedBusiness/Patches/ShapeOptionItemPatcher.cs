@@ -24,8 +24,9 @@ internal static class ShapeOptionItemPatcher
 
             var isShapeOptionAvailable = requiredLevel <= levels;
 
-            __instance.levelLabel.TMP_Text.color =
-                isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
+            __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable
+                ? __instance.validLevelColor
+                : __instance.invalidLevelColor;
             __instance.toggle.interactable = isShapeOptionAvailable;
             __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
         }

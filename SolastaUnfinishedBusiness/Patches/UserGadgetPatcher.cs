@@ -13,7 +13,7 @@ internal static class UserGadgetPatcher
     internal static class PostLoadJson_Patch
     {
         //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
-        private static MonsterDefinition.DungeonMaker DungeonMakerPresence()
+        private static MonsterDefinition.DungeonMaker DungeonMakerPresence(MonsterDefinition _)
         {
             return MonsterDefinition.DungeonMaker.Monster;
         }
@@ -21,13 +21,13 @@ internal static class UserGadgetPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var dungeonMakerPresenceMethod = typeof(MonsterDefinition).GetMethod("get_DungeonMakerPresence");
-            var myDungeonMakerPresenceMethod = new Func<MonsterDefinition.DungeonMaker>(DungeonMakerPresence).Method;
+            var myDungeonMakerPresenceMethod =
+                new Func<MonsterDefinition, MonsterDefinition.DungeonMaker>(DungeonMakerPresence).Method;
 
             foreach (var instruction in instructions)
             {
                 if (instruction.Calls(dungeonMakerPresenceMethod))
                 {
-                    yield return new CodeInstruction(OpCodes.Pop); // pop MonsterDefinition instance
                     yield return new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod);
                 }
                 else
