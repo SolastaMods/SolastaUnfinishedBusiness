@@ -10,18 +10,13 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
-    private const int ExitsWithGizmos = 2;
     private static readonly List<RectTransform> SpellLineTables = new();
-
-    private static readonly string[] GadgetExits =
-    {
-        "VirtualExit", "VirtualExitMultiple", "Exit", "ExitMultiple", "TeleporterIndividual", "TeleporterParty"
-    };
 
     // private static bool EnableDebugCamera { get; set; }
 
@@ -50,7 +45,7 @@ internal static class GameUiContext
         {
             Gui.ReleaseChildrenToPool(spellTable);
             spellTable.SetParent(null);
-            UnityEngine.Object.Destroy(spellTable.gameObject);
+            Object.Destroy(spellTable.gameObject);
         }
 
         SpellLineTables.Clear();
@@ -200,7 +195,7 @@ internal static class GameUiContext
             {
                 // instantiate new table
                 spellRepertoireLinesTable =
-                    UnityEngine.Object.Instantiate(spellRepertoireLinesTable, previousTable.parent.transform);
+                    Object.Instantiate(spellRepertoireLinesTable, previousTable.parent.transform);
                 // clear it of children
                 spellRepertoireLinesTable.DetachChildren();
                 //spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
@@ -321,7 +316,14 @@ internal static class GameUiContext
 
     private static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
-        return Array.IndexOf(GadgetExits, gadgetBlueprint.Name) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
+        const int ExitsWithGizmos = 2;
+
+        GadgetBlueprint[] gadgetExits =
+        {
+            VirtualExit, VirtualExitMultiple, Exit, ExitMultiple, TeleporterIndividual, TeleporterParty
+        };
+
+        return Array.IndexOf(gadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }
 
     internal static void HideExitsAndTeleportersGizmosIfNotDiscovered(
@@ -784,17 +786,25 @@ internal static class GameUiContext
             partyAndGuests.AddRange(gameLocationCharacterService.PartyCharacters);
             partyAndGuests.AddRange(gameLocationCharacterService.GuestCharacters);
 
-            gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position,
-                LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station,
-                positions, new List<RulesetActor.SizeParameters>(), 25);
+            gameLocationPositioningService.ComputeFormationPlacementPositions(
+                partyAndGuests,
+                position,
+                LocationDefinitions.Orientation.North,
+                formationPositions,
+                CellHelpers.PlacementMode.Station,
+                positions,
+                new List<RulesetActor.SizeParameters>(),
+                25);
 
             for (var index = 0; index < positions.Count; index++)
             {
                 partyAndGuests[index].LocationPosition = positions[index];
 
                 // rotates the characters in position to force the game to redrawn them
-                gameLocationActionService.MoveCharacter(partyAndGuests[index],
-                    positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0,
+                gameLocationActionService.MoveCharacter(
+                    partyAndGuests[index],
+                    positions[(index + 1) % positions.Count],
+                    LocationDefinitions.Orientation.North, 0,
                     ActionDefinitions.MoveStance.Walk);
             }
         }
