@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -362,7 +361,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
         var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-        if (!ShieldStrikeContext.IsShield(offHandItem))
+        if (!ShieldStrike.IsShield(offHandItem))
         {
             return null;
         }
@@ -371,7 +370,7 @@ public sealed class AddBonusShieldAttack : AddExtraAttackBase
         var attackMode = hero.RefreshAttackMode(
             ActionDefinitions.ActionType.Bonus,
             offHandItem.ItemDefinition,
-            ShieldStrikeContext.ShieldWeaponDescription,
+            ShieldStrike.ShieldWeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
             hero.CanAddAbilityBonusToOffhand(),
             EquipmentDefinitions.SlotTypeOffHand,

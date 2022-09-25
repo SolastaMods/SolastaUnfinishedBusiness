@@ -25,14 +25,14 @@ internal static class DiagnosticsContext
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
     // very large or not very useful definitions
+    // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
     private static readonly string[] ExcludeFromExport =
     {
         "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
-        "DocumentTableDefinition", "NarrativeEventTableDefinition",
-        "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+        "DocumentTableDefinition", "NarrativeEventTableDefinition", "NarrativeTreeDefinition",
         "SoundbanksDefinition", "SubtitleTableDefinition", "TravelJournalDefinition", "TutorialSectionDefinition",
-        "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition", "TutorialTableDefinition",
-        "QuestTreeDefinition"
+        "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition",
+        "TutorialTableDefinition", "QuestTreeDefinition"
     };
 
     private static readonly string[] ExcludeFromCeExport =

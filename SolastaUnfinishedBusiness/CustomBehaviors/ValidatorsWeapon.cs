@@ -2,8 +2,9 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon,
     RulesetCharacter character);

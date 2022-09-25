@@ -21,18 +21,19 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Level20Context
 {
-    public const int MaxSpellLevel = 9;
+    internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
 
-    public const int ModMaxLevel = 20;
-    public const int GameMaxLevel = 12;
-    public const int GameFinalMaxLevel = 16;
+    internal const int MaxSpellLevel = 9;
 
-    public const int ModMaxExperience = 355000;
-    public const int GameMaxExperience = 100000;
+    internal const int ModMaxLevel = 20;
+    internal const int GameMaxLevel = 12;
+    internal const int GameFinalMaxLevel = 16;
+
+    internal const int ModMaxExperience = 355000;
+    internal const int GameMaxExperience = 100000;
 
     [NotNull]
-    // ReSharper disable once UnusedMember.Global
-    public static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 
@@ -75,7 +76,8 @@ internal static class Level20Context
         const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler = typeof(Level20Context).GetMethod("Level20Transpiler");
+        var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(Level20Transpiler).Method;
+
         // these are currently the hard-coded levels on below methods
         var methods = new[]
         {
@@ -384,7 +386,7 @@ internal static class Level20Context
                 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(FeatureDefinitionPowerBuilder
-                    .Create(PowerWizardArcaneRecovery, "PowerWarlockEldritchMaster")
+                    .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
                     .SetGuiPresentation(Category.Feature)
                     .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
                     .AddToDB(),

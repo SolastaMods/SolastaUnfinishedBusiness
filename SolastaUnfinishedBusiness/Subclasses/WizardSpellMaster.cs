@@ -8,6 +8,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardSpellMaster : AbstractSubclass
 {
+    internal const string PowerSpellMasterBonusRecoveryName = "PowerSpellMasterBonusRecovery";
+
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
@@ -76,7 +78,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Build();
 
         BonusRecovery = FeatureDefinitionPowerBuilder
-            .Create("PowerSpellMasterBonusRecovery")
+            .Create(PowerSpellMasterBonusRecoveryName)
             .SetGuiPresentationNoContent(true)
             .Configure(1,
                 RuleDefinitions.UsesDetermination.Fixed,
@@ -87,8 +89,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
-                bonusRecoveryEffectDescription,
-                false)
+                bonusRecoveryEffectDescription)
             .AddToDB();
 
         UpdateBonusRecovery();

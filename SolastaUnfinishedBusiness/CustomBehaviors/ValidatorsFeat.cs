@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ValidatorsFeat
 {

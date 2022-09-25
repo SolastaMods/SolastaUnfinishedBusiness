@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -12,14 +11,14 @@ internal static class ShieldAttack
         ref bool isThrown,
         ref bool leftHand)
     {
-        if (!ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+        if (!ShieldStrike.IsShield(attackMode.SourceDefinition as ItemDefinition))
         {
             return;
         }
 
         leftHand = true;
         isThrown = false;
-        animation = ShieldStrikeContext.ShieldWeaponType.AnimationTag;
+        animation = ShieldStrike.ShieldWeaponType.AnimationTag;
     }
 
     //replaces calls to ItemDefinition's isWeapon and Wea[ponDescription getter with custom ones that account for shield
@@ -49,13 +48,13 @@ internal static class ShieldAttack
 
     private static WeaponDescription CustomWeaponDescription(ItemDefinition item)
     {
-        return ShieldStrikeContext.IsShield(item)
-            ? ShieldStrikeContext.ShieldWeaponDescription
+        return ShieldStrike.IsShield(item)
+            ? ShieldStrike.ShieldWeaponDescription
             : item.WeaponDescription;
     }
 
     private static bool CustomIsWeapon(ItemDefinition item)
     {
-        return item.IsWeapon || ShieldStrikeContext.IsShield(item);
+        return item.IsWeapon || ShieldStrike.IsShield(item);
     }
 }

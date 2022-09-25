@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Builders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public static class ShieldStrikeContext
+public static class ShieldStrike
 {
     private static WeaponDescription _shieldWeaponDescription;
     private static WeaponTypeDefinition _shieldWeaponType;

@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public delegate bool IsCharacterValidHandler(RulesetCharacter character);
 

@@ -5,10 +5,12 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Subclasses;
 using static FeatureDefinitionCastSpell;
 using static SolastaUnfinishedBusiness.Models.MulticlassIntegrationContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -30,10 +32,10 @@ public static class SharedSpellsContext
 
     public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
     {
-        { "PowerCircleLandNaturalRecovery", Druid },
-        { "PowerWarlockEldritchMaster", Warlock },
-        { "PowerWizardArcaneRecovery", Wizard },
-        { "PowerSpellMasterBonusRecovery", Wizard }
+        { PowerCircleLandNaturalRecovery.Name, Druid },
+        { PowerWizardArcaneRecovery.Name, Wizard },
+        { Level20Context.PowerWarlockEldritchMasterName, Warlock },
+        { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
         // added during load
         //{ "ArtisanSpellStoringItem", ArtisanClass },
         //{ "ArtisanInfusionSpellRefuelingRing", ArtisanClass },
