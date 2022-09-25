@@ -30,6 +30,16 @@ public class DeviceFunctionDescriptionBuilder
         description.featureDefinitionPower = power;
         return this;
     }
+    
+    public  DeviceFunctionDescriptionBuilder SetUsage(EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
+        DeviceFunctionDescription.FunctionUseAffinity useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill,
+        int useAmount = 1)
+    {
+        description.parentUsage = parentUsage;
+        description.useAffinity = useAffinity;
+        description.useAmount = useAmount;
+        return this;
+    }
 
     private void Validate()
     {

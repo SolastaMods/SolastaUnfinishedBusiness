@@ -53,6 +53,15 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
 
         return This();
     }
+    public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
+    {
+        Preconditions.ArgumentIsNotNull(poolPower,
+            $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
+
+        Definition.SharedPool = poolPower;
+        return this;
+    }
+    
 
     #region Constructors
 

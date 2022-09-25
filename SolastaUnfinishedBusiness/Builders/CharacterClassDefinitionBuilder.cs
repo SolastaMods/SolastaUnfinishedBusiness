@@ -187,6 +187,12 @@ internal class CharacterClassDefinitionBuilder
         AddSkillPreferences(skillTypes.AsEnumerable());
         return this;
     }
+    
+    public CharacterClassDefinitionBuilder AddSkillPreferences(params string[] skillTypes)
+    {
+        Definition.SkillAutolearnPreference.AddRange(skillTypes);
+        return this;
+    }
 
     public CharacterClassDefinitionBuilder AddSkillPreferences(IEnumerable<SkillDefinition> skillTypes)
     {
