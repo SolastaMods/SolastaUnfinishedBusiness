@@ -73,10 +73,9 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetActivationTime(RuleDefinitions.ActivationTime time, int costPerUse = 0)
+    public TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
     {
         Definition.activationTime = time;
-        Definition.costPerUse = costPerUse;
         return This();
     }
 
