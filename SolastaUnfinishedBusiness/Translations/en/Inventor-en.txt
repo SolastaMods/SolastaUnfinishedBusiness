@@ -1,0 +1,14 @@
+﻿Class/&InventorDescription=Inventor blah-blah class details TODO: Add proper description.
+Class/&InventorTitle=Inventor
+Subclass/&InventorInnovationDescription=Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InventorInnovationTitle=Innovation
+Subclass/&InventorInnovationAlchemyDescription=Alchemy Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InventorInnovationAlchemyTitle=Alchemy Innovation
+Subclass/&InventorInnovationNecromancyDescription=Necromancy Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InventorInnovationNecromancyTitle=Necromancy Innovation
+Subclass/&InventorInnovationWeaponDescription=Weapon Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InventorInnovationWeaponTitle=Weapon Innovation
+Stage/&SubclassSelectionStageInventorInnovationDescription=Innovation selection description TODO: add proper text
+Stage/&SubclassSelectionStageInventorInnovationTitle=Select\nInnovation
+Stage/&SubclassSelectionStageInventorInnovationHeader=Select Innovation
+Stage/&SubclassSelectionStageInventorInnovationFeatures=Innovation feature details TODO: add proper text
