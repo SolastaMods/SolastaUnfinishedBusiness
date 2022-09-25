@@ -7,7 +7,8 @@ using static SpellListDefinition;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
+[UsedImplicitly]
+internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
 {
     [NotNull]
     public SpellListDefinitionBuilder ClearSpells()
@@ -99,22 +100,9 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
         var hasCantrips =
             Definition.SpellsByLevel.Where(s => s.Spells.Any()).Any(s => s.Level == 0);
 
-        SetMaxSpellLevel(maxLevel, hasCantrips);
-
-        return this;
-    }
-
-    /// <summary>
-    ///     Explicitly set the max spell level and whether this list has cantrips
-    /// </summary>
-    /// <param name="maxLevel"></param>
-    /// <param name="hasCantrips"></param>
-    /// <returns></returns>
-    [NotNull]
-    public SpellListDefinitionBuilder SetMaxSpellLevel(int maxLevel, bool hasCantrips)
-    {
         Definition.maxSpellLevel = maxLevel;
         Definition.hasCantrips = hasCantrips;
+
         return this;
     }
 

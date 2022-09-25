@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
+[UsedImplicitly]
+internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
 {
     public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
     {
@@ -39,16 +41,6 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
         return this;
     }
 
-#if false
-    public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient, int amount)
-    {
-        var description = new IngredientOccurenceDescription {itemDefinition = ingredient, amount = amount};
-
-        Definition.Ingredients.Add(description);
-        return this;
-    }
-#endif
-
     public RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
     {
         foreach (var ingredient in ingredients)
@@ -58,14 +50,6 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
 
         return this;
     }
-
-#if false
-    public RecipeDefinitionBuilder SetSpellDefinition(SpellDefinition spellDefinition)
-    {
-        Definition.spellDefinition = spellDefinition;
-        return this;
-    }
-#endif
 
     #region Constructors
 

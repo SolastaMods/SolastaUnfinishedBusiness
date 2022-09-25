@@ -2,7 +2,6 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -199,7 +198,7 @@ internal static class ZappaFeats
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
-                AttributeDefinitions.Intelligence, effectArcanePrecision, false /* unique instance */)
+                AttributeDefinitions.Intelligence, effectArcanePrecision /* unique instance */)
             .AddToDB();
 
         var arcanePrecision = FeatDefinitionBuilder
@@ -275,7 +274,7 @@ internal static class ZappaFeats
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
-                AttributeDefinitions.Charisma, effectCharismaticPrecision, false /* unique instance */)
+                AttributeDefinitions.Charisma, effectCharismaticPrecision /* unique instance */)
             .AddToDB();
 
         var charismaticPrecision = FeatDefinitionBuilder
@@ -639,7 +638,7 @@ internal static class ZappaFeats
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Wisdom,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, true,
-                AttributeDefinitions.Intelligence, effectWisePrecision, false /* unique instance */)
+                AttributeDefinitions.Intelligence, effectWisePrecision /* unique instance */)
             .AddToDB();
 
         var wisePrecision = FeatDefinitionBuilder
@@ -743,7 +742,7 @@ internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitio
         CreateAndAddToDB(MetamagicTwinnedSpell);
 
     private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption)
-        : base($"MetamagicLearn{metamagicOption.Name}", CENamespaceGuid)
+        : base($"MetamagicLearn{metamagicOption.Name}", CeNamespaceGuid)
     {
         Definition.MetamagicOption = metamagicOption;
     }

@@ -167,7 +167,7 @@ public static class CustomWeaponsContext
         HandwrapsOfPulling.IsUsableDevice = true;
         HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-            .SetSaveDC(-1)
+            .SetSaveDc(-1)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")
@@ -184,8 +184,7 @@ public static class CustomWeaponsContext
                             true,
                             AttributeDefinitions.Strength,
                             false,
-                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            AttributeDefinitions.Wisdom)
+                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                         .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
                             .EffectDescription.EffectParticleParameters)
                         .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
@@ -205,7 +204,7 @@ public static class CustomWeaponsContext
 
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Soul_Gem)), ShopCrafting));
- 
+
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Slavestone)), ShopCrafting));
     }

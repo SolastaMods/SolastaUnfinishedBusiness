@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine.AddressableAssets;
@@ -389,7 +388,7 @@ internal static class ItemOptionsContext
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
             [CanBeNull] AssetReferenceSprite assetReferenceSprite,
-            [NotNull] params string[] slotTypes) : base(original, name, CENamespaceGuid)
+            [NotNull] params string[] slotTypes) : base(original, name, CeNamespaceGuid)
         {
             // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
             Definition.IsFocusItem = true;

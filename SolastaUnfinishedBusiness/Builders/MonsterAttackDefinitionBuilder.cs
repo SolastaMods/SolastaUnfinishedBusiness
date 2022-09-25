@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -8,24 +9,6 @@ public abstract class
     where TBuilder : MonsterAttackDefinitionBuilder<TDefinition, TBuilder>
 
 {
-    public TBuilder SetActionType(ActionDefinitions.ActionType value)
-    {
-        Definition.actionType = value;
-        return This();
-    }
-
-    public TBuilder SetToHitBonus(int bonus)
-    {
-        Definition.ToHitBonus = bonus;
-        return This();
-    }
-
-    public TBuilder SetProximity(RuleDefinitions.AttackProximity proximity)
-    {
-        Definition.proximity = proximity;
-        return This();
-    }
-
     public TBuilder SetEffectDescription(EffectDescription effect)
     {
         Definition.EffectDescription = effect;
@@ -55,7 +38,8 @@ public abstract class
     #endregion
 }
 
-public class MonsterAttackDefinitionBuilder : MonsterAttackDefinitionBuilder<MonsterAttackDefinition,
+[UsedImplicitly]
+internal class MonsterAttackDefinitionBuilder : MonsterAttackDefinitionBuilder<MonsterAttackDefinition,
     MonsterAttackDefinitionBuilder>
 {
     #region Constructors

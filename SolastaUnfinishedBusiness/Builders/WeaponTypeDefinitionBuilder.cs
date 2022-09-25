@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -11,20 +12,6 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
         Definition.weaponCategory = category.Name;
         return This();
     }
-
-#if false
-    public TBuilder SetWeaponCategory(string category)
-    {
-        Definition.weaponCategory = category;
-        return This();
-    }
-
-    public TBuilder SetWeaponProximity(RuleDefinitions.AttackProximity proximity)
-    {
-        Definition.weaponProximity = proximity;
-        return This();
-    }
-#endif
 
     public TBuilder SetAnimationTag(string tag)
     {
@@ -55,8 +42,9 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
     #endregion
 }
 
-public class
-    WeaponTypeDefinitionBuilder : WeaponTypeDefinitionBuilder<WeaponTypeDefinition, WeaponTypeDefinitionBuilder>
+[UsedImplicitly]
+internal class WeaponTypeDefinitionBuilder
+    : WeaponTypeDefinitionBuilder<WeaponTypeDefinition, WeaponTypeDefinitionBuilder>
 {
     #region Constructors
 

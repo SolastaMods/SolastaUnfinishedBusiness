@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -399,7 +398,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     {
         private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(string name,
             ConditionDefinition illuminatedCondition)
-            : base(name, CENamespaceGuid)
+            : base(name, CeNamespaceGuid)
         {
             Definition.additionalDamageType = AdditionalDamageType.Specific;
             Definition.specificDamageType = DamageTypeRadiant;
@@ -492,7 +491,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             string name,
             ConditionDefinition illuminatedCondition,
             ConditionDefinition illuminatingBurstSuppressedCondition)
-            : base(name, CENamespaceGuid)
+            : base(name, CeNamespaceGuid)
         {
             Definition.activationTime = ActivationTime.NoCost;
             Definition.effectDescription = CreateIlluminatingBurstPowerEffect(illuminatedCondition);
@@ -608,7 +607,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     {
         private FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder(string name,
             ConditionDefinition illuminatingBurstSuppressedCondition)
-            : base(name, CENamespaceGuid)
+            : base(name, CeNamespaceGuid)
         {
             Definition.activationTime = ActivationTime.OnRageStartAutomatic;
             Definition.effectDescription =

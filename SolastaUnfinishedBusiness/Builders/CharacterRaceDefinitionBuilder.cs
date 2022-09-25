@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
-    CharacterRaceDefinitionBuilder : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
+[UsedImplicitly]
+internal class CharacterRaceDefinitionBuilder
+    : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
 {
     public CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)
     {

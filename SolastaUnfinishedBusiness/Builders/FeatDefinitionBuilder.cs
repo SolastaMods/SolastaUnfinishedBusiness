@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -63,41 +64,6 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         return This();
     }
 
-#if false
-    public TBuilder SetClassPrerequisite(params string[] classes)
-    {
-        return SetClassPrerequisite(classes.AsEnumerable());
-    }
-
-    public TBuilder SetClassPrerequisite(IEnumerable<string> classes)
-    {
-        Definition.CompatibleClassesPrerequisite.SetRange(classes.OrderBy(c => c));
-        return This();
-    }
-
-    public TBuilder SetRacePrerequisite(params string[] races)
-    {
-        return SetRacePrerequisite(races.AsEnumerable());
-    }
-
-    public TBuilder SetRacePrerequisite(IEnumerable<string> races)
-    {
-        Definition.CompatibleRacesPrerequisite.SetRange(races.OrderBy(r => r));
-        return This();
-    }
-    
-    public TBuilder SetFeatPrerequisite(params string[] feats)
-    {
-        return SetFeatPrerequisite(feats.AsEnumerable());
-    }
-
-    public TBuilder SetFeatPrerequisite(IEnumerable<string> feats)
-    {
-        Definition.KnownFeatsPrerequisite.SetRange(feats.OrderBy(f => f));
-        return This();
-    }
-#endif
-
     public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category)
     {
         Definition.armorProficiencyPrerequisite = true;
@@ -128,7 +94,8 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
     #endregion
 }
 
-public class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
+[UsedImplicitly]
+internal class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
 {
     #region Constructors
 

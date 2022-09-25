@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
+[UsedImplicitly]
+internal class
     RestActivityDefinitionBuilder : DefinitionBuilder<RestActivityDefinition, RestActivityDefinitionBuilder>
 {
     internal RestActivityDefinitionBuilder SetRestData(

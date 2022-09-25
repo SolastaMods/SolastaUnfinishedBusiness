@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
+[UsedImplicitly]
+internal class
     TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
 {
     public TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)

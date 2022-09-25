@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using System.Linq;
 using static CharacterClassDefinition;
 
@@ -24,6 +25,4 @@ public static class EquipmentOptionsBuilder
         return options.AsEnumerable();
     }
 }
-
-
-
+#endif

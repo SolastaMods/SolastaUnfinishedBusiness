@@ -16,22 +16,6 @@ public class StockUnitDescriptionBuilder
     private string _requiredFaction = string.Empty;
     private int _stackCount = 1;
 
-#if false
-    public StockUnitDescriptionBuilder(StockUnitDescription reference)
-    {
-        _itemDefinition = reference.ItemDefinition;
-        _stackCount = reference.StackCount;
-        _initialAmount = reference.InitialAmount;
-        _minAmount = reference.MinAmount;
-        _maxAmount = reference.MaxAmount;
-        _reassortAmount = reference.ReassortAmount;
-        _reassortRateType = reference.ReassortRateType;
-        _reassortRateValue = reference.ReassortRateValue;
-        _requiredFaction = reference.RequiredFaction;
-        _factionStatus = reference.Factionstatus;
-    }
-#endif
-
     public StockUnitDescriptionBuilder SetItem(ItemDefinition itemDefinition)
     {
         _itemDefinition = itemDefinition;
@@ -56,14 +40,6 @@ public class StockUnitDescriptionBuilder
         _reassortRateValue = reassortRateValue;
         return this;
     }
-
-    public StockUnitDescriptionBuilder SetFaction(FactionDefinition faction, FactionStatusDefinition status)
-    {
-        _requiredFaction = faction.Name;
-        _factionStatus = status.Name;
-        return this;
-    }
-
 
     public StockUnitDescriptionBuilder SetFaction(string faction, string status)
     {

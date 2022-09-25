@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition, EffectProxyDefinitionBuilder>
+[UsedImplicitly]
+internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition, EffectProxyDefinitionBuilder>
 {
     protected EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
     {
@@ -25,25 +27,6 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
     {
     }
 
-#if false
-    public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
-        RuleDefinitions.DieType damageDie, string damageType)
-    {
-        Definition.canAttack = canAttack;
-        Definition.attackMethod = attackMethod;
-        Definition.damageDie = damageDie;
-        Definition.damageType = damageType;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetLightSource(LightSourceForm lightSourceForm)
-    {
-        Definition.addLightSource = true;
-        Definition.lightSourceForm = lightSourceForm;
-        return this;
-    }
-#endif
-
     public EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
         Definition.hasPortrait = true;
@@ -62,59 +45,9 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         return this;
     }
 
-#if false
-    public EffectProxyDefinitionBuilder SetShowWorldLocationFeedbacks()
-    {
-        Definition.showWorldLocationFeedbacks = true;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetAttackParticle(AssetReference attackParticle)
-    {
-        Definition.attackParticle = attackParticle;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetAttackImpactParticle(AssetReference attackImpactParticle)
-    {
-        Definition.attackImpactParticle = attackImpactParticle;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetSoundEffectOnHitDescription(
-        SoundEffectOnHitDescription soundEffectOnHitDescription)
-    {
-        Definition.soundEffectOnHitDescription = soundEffectOnHitDescription;
-        return this;
-    }
-#endif
-
     public EffectProxyDefinitionBuilder SetCanMove()
     {
         Definition.canMove = true;
         return this;
     }
-
-#if false
-    public EffectProxyDefinitionBuilder SetImpactsPlacement()
-    {
-        Definition.impactsPlacement = true;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetModelScale(float modelScale)
-    {
-        Definition.modelScale = modelScale;
-        return this;
-    }
-
-    public EffectProxyDefinitionBuilder SetPresentationInformation(bool hasPresentation,
-        AssetReference prefabReference, bool isEmptyPresentation)
-    {
-        Definition.hasPresentation = hasPresentation;
-        Definition.prefabReference = prefabReference;
-        Definition.isEmptyPresentation = isEmptyPresentation;
-        return this;
-    }
-#endif
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class ReactionDefinitionBuilder : DefinitionBuilder<ReactionDefinition, ReactionDefinitionBuilder>
+[UsedImplicitly]
+internal class ReactionDefinitionBuilder : DefinitionBuilder<ReactionDefinition, ReactionDefinitionBuilder>
 {
     internal ReactionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {

@@ -29,16 +29,6 @@ public class ItemPropertyDescriptionBuilder
             .SetKnowledgeAffinity(knowledgeAffinity);
     }
 
-    public static ItemPropertyDescriptionBuilder From(ConditionDefinition conditione, bool appliesOnItemOnly = true,
-        EquipmentDefinitions.KnowledgeAffinity knowledgeAffinity =
-            EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
-    {
-        return new ItemPropertyDescriptionBuilder()
-            .SetConditionDefinition(conditione)
-            .SetAppliesOnItemOnly(appliesOnItemOnly)
-            .SetKnowledgeAffinity(knowledgeAffinity);
-    }
-
     public ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)
     {
         property.type = ItemPropertyDescription.PropertyType.Condition;

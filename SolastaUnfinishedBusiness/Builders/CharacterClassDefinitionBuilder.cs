@@ -1,16 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using TA.AI;
-using UnityEngine.AddressableAssets;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
-    CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
+[UsedImplicitly]
+internal class CharacterClassDefinitionBuilder
+    : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
+    #region Constructors
+
+    protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    {
+    }
+
+    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) :
+        base(original, name, namespaceGuid)
+    {
+    }
+
+    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string definitionGuid)
+        : base(original, name, definitionGuid)
+    {
+    }
+
+    #endregion
+
+#if false
     public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
     {
         Definition.hitDice = die;
@@ -123,28 +142,6 @@ public class
         return this;
     }
 
-    #region Constructors
-
-    protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
-    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string definitionGuid)
-        : base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-
     #region Tool preference
 
     public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
@@ -195,7 +192,6 @@ public class
 
     #region Expertise preference
 
-#if false
     public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
     {
         Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
@@ -235,7 +231,6 @@ public class
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
-#endif
 
     #endregion
 
@@ -265,7 +260,6 @@ public class
 
     #region Metamagic preference
 
-#if false
     public CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
         Definition.MetamagicAutolearnPreference.Add(option.Name);
@@ -285,7 +279,7 @@ public class
         Definition.MetamagicAutolearnPreference.Sort();
         return this;
     }
-#endif
 
     #endregion
+#endif
 }

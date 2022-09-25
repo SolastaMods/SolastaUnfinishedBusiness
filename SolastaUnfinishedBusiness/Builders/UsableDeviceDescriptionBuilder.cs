@@ -27,33 +27,7 @@ public class UsableDeviceDescriptionBuilder
         };
     }
 
-#if false
-    public UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
-    {
-        description.usage = usage;
-        return this;
-    }
-    
-    public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
-    {
-        description.outOfChargesConsequence = consequence;
-        return this;
-    }
-
-    public UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
-    {
-        description.magicAttackBonus = bonus;
-        return this;
-    }
-    
-    public UsableDeviceDescriptionBuilder SetOnUseParticle(AssetReference asset)
-    {
-        description.onUseParticle = asset;
-        return this;
-    }
-#endif
-
-    public UsableDeviceDescriptionBuilder SetSaveDC(int DC)
+    public UsableDeviceDescriptionBuilder SetSaveDc(int DC)
     {
         description.saveDC = DC;
         return this;

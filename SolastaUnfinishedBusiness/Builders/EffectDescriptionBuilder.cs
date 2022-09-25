@@ -56,26 +56,6 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder SetEffectAIParameters(EffectAIParameters effectAIParameters)
-    {
-        effect.SetEffectAIParameters(effectAIParameters);
-        return this;
-    }
-
-    public EffectDescriptionBuilder SetEffectAIParameters(float aoeScoreMultiplier, int cooldownForCaster,
-        int cooldownForBattle, bool dynamicCooldown)
-    {
-        var aiParams = new EffectAIParameters();
-        aiParams.aoeScoreMultiplier = aoeScoreMultiplier;
-        aiParams.cooldownForCaster = cooldownForCaster;
-        aiParams.cooldownForBattle = cooldownForBattle;
-        aiParams.dynamicCooldown = dynamicCooldown;
-        effect.SetEffectAIParameters(aiParams);
-        return this;
-    }
-#endif
-
     public EffectDescriptionBuilder SetEffectAdvancement(
         RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier = 1,
         int additionalTargetsPerIncrement = 0,
@@ -119,49 +99,11 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
-    {
-        effect.SetRequiresVisibilityForPosition(false);
-        return this;
-    }
-
-    public EffectDescriptionBuilder HalfDamageOnMiss()
-    {
-        effect.SetHalfDamageOnAMiss(true);
-        return this;
-    }
-
-    public EffectDescriptionBuilder OptionalAdditionalAlly()
-    {
-        effect.SetInviteOptionalAlly(true);
-        return this;
-    }
-
-    public EffectDescriptionBuilder AddHitAffinity(string tag, RuleDefinitions.AdvantageType advantageType)
-    {
-        var hitAffinity = new HitAffinityByTag();
-
-        hitAffinity.tag = tag;
-        hitAffinity.advantageType = advantageType;
-        effect.HitAffinitiesByTargetTag.Add(hitAffinity);
-        return this;
-    }
-#endif
-
     public EffectDescriptionBuilder ExcludeCaster()
     {
         effect.SetTargetExcludeCaster(true);
         return this;
     }
-
-#if false
-    public EffectDescriptionBuilder MustPlaceNotOnCharacter()
-    {
-        effect.SetCanBePlacedOnCharacter(false);
-        return this;
-    }
-#endif
 
     public EffectDescriptionBuilder SetTargetProximityData(bool requiresTargetProximity,
         int targetProximityDistance)
@@ -185,37 +127,11 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder SetBorderData(RuleDefinitions.EmissiveBorder emissiveBorder,
-        int emissiveParameter)
-    {
-        effect.SetEmissiveBorder(emissiveBorder);
-        effect.SetEmissiveParameter(emissiveParameter);
-        return this;
-    }
-#endif
-
     public EffectDescriptionBuilder SetRecurrentEffect(RuleDefinitions.RecurrentEffect recurrentEffect)
     {
         effect.SetRecurrentEffect(recurrentEffect);
         return this;
     }
-
-#if false
-    public EffectDescriptionBuilder SetRetargetData(bool retargetAfterDeath,
-        ActionDefinitions.ActionType retargetActionType)
-    {
-        effect.SetRetargetAfterDeath(retargetAfterDeath);
-        effect.SetRetargetActionType(retargetActionType);
-        return this;
-    }
-
-    public EffectDescriptionBuilder SetTrapRange(RuleDefinitions.TrapRangeType trapRangeType)
-    {
-        effect.trapRangeType = trapRangeType;
-        return this;
-    }
-#endif
 
     public EffectDescriptionBuilder SetRequiredCondition(ConditionDefinition targetConditionAsset)
     {
@@ -279,29 +195,6 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder RequireShoveToHit()
-    {
-        effect.SetHasShoveRoll(true);
-        return this;
-    }
-
-    public EffectDescriptionBuilder CanBeDispersed()
-    {
-        effect.SetCanBeDispersed(true);
-        return this;
-    }
-
-    public EffectDescriptionBuilder SetVelocity(int velocityCellsPerRound,
-        RuleDefinitions.VelocityType velocityType)
-    {
-        effect.hasVelocity = true;
-        effect.velocityCellsPerRound = velocityCellsPerRound;
-        effect.velocityType = velocityType;
-        return this;
-    }
-#endif
-
     public EffectDescriptionBuilder AddRestrictedCreatureFamily(CharacterFamilyDefinition family)
     {
         effect.RestrictedCreatureFamilies.Add(family.Name);
@@ -314,38 +207,12 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-#if false
-    public EffectDescriptionBuilder AddRestrictedCharacterSize(RuleDefinitions.CreatureSize size)
-    {
-        effect.RestrictedCharacterSizes.Add(size);
-        return this;
-    }
-
-    public EffectDescriptionBuilder SetEffectPool(int effectPoolAmount)
-    {
-        effect.SetHasLimitedEffectPool(true);
-        effect.SetEffectPoolAmount(effectPoolAmount);
-        return this;
-    }
-#endif
-
     public EffectDescriptionBuilder SetSpeed(RuleDefinitions.SpeedType speedType, float speedParameter)
     {
         effect.SetSpeedType(speedType);
         effect.SetSpeedParameter(speedParameter);
         return this;
     }
-
-#if false
-    public EffectDescriptionBuilder SetOffsetImpactTime(float offsetImpactTimeBasedOnDistanceFactor,
-        float offsetImpactTimePerTarget)
-    {
-        effect.SetOffsetImpactTimeBasedOnDistance(true);
-        effect.SetOffsetImpactTimeBasedOnDistanceFactor(offsetImpactTimeBasedOnDistanceFactor);
-        effect.SetOffsetImpactTimePerTarget(offsetImpactTimePerTarget);
-        return this;
-    }
-#endif
 
     public EffectDescriptionBuilder AddEffectForm(EffectForm effectForm)
     {

@@ -18,12 +18,8 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
         IEnumerable<ContentFragmentDescription> contentFragments)
     {
-        if (Definition.DocumentDescription == null)
-        {
-            Definition.documentDescription = new DocumentDescription();
-        }
-
         Definition.IsDocument = true;
+        Definition.documentDescription ??= new DocumentDescription();
         Definition.DocumentDescription.recipeDefinition = recipeDefinition;
         Definition.DocumentDescription.loreType = RuleDefinitions.LoreType.CraftingRecipe;
         Definition.DocumentDescription.destroyAfterReading = true;
@@ -48,12 +44,6 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     public ItemDefinitionBuilder SetCosts(int[] costs)
     {
         Definition.costs = costs;
-        return this;
-    }
-
-    public ItemDefinitionBuilder SetInDungeonEditor(bool inDungeonEditor)
-    {
-        Definition.inDungeonEditor = inDungeonEditor;
         return this;
     }
 
@@ -85,12 +75,6 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     public ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
     {
         Definition.SlotTypes.SetRange(slotTypes.Select(t => t.Name));
-        return this;
-    }
-
-    public ItemDefinitionBuilder SetSlotsWhereActive(params string[] slotTypes)
-    {
-        Definition.SlotsWhereActive.SetRange(slotTypes);
         return this;
     }
 
@@ -131,12 +115,6 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         return this;
     }
 
-    public ItemDefinitionBuilder SetRequiresAttunement(bool value)
-    {
-        Definition.requiresAttunement = value;
-        return this;
-    }
-
     public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
     {
         Definition.StaticProperties.SetRange(staticProperties);
@@ -160,11 +138,6 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         Definition.IsUsableDevice = true;
         Definition.usableDeviceDescription = usableDescription;
         return this;
-    }
-
-    public ItemDefinitionBuilder SetUsableDeviceDescription(params FeatureDefinitionPower[] functions)
-    {
-        return SetUsableDeviceDescription(functions.AsEnumerable());
     }
 
     public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)

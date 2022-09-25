@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine.AddressableAssets;
@@ -16,11 +17,6 @@ public enum Silent
     WhenAddedOrRemoved = WhenAdded | WhenRemoved
 }
 
-/// <summary>
-///     Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
-/// </summary>
-/// <typeparam name="TDefinition"></typeparam>
-/// <typeparam name="TBuilder"></typeparam>
 public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
@@ -74,27 +70,11 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-#if false
-    public TBuilder AddConditionTags(IEnumerable<string> value)
-    {
-        Definition.ConditionTags.AddRange(value);
-        return This();
-    }
-    
-    public TBuilder AddConditionTags(params string[] value)
-    {
-        Definition.ConditionTags.AddRange(value);
-        Definition.ConditionTags.Sort();
-        return This();
-    }
-#endif
-
     public TBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
         return This();
     }
-
 
     public TBuilder ClearFeatures()
     {
@@ -102,14 +82,12 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-#if false
     public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
     {
         Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
-#endif
 
     public TBuilder AddFeatures(params FeatureDefinition[] value)
     {
@@ -196,13 +174,11 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-#if false
     public TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return This();
     }
-#endif
 
     public TBuilder SetInterruptionDamageThreshold(int value)
     {
@@ -210,40 +186,6 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-#if false
-    public TBuilder SetCharacterShaderReference(AssetReference assetReference)
-    {
-        Definition.characterShaderReference = assetReference;
-        return This();
-    }
-
-    public TBuilder SetConditionParticleReference(AssetReference assetReference)
-    {
-        Definition.conditionParticleReference = assetReference;
-        return This();
-    }
-
-    public TBuilder SetConditionParticleReferenceFrom(ConditionDefinition reference)
-    {
-        Definition.conditionParticleReference = reference.conditionParticleReference;
-        return This();
-    }
-
-    public TBuilder AddRecurrentEffectForm(EffectForm effect)
-    {
-        Definition.RecurrentEffectForms.Add(effect);
-        Definition.RecurrentEffectForms.Sort(Sorting.Compare);
-        return This();
-    }
-
-    public TBuilder ClearRecurrentEffectForms()
-    {
-        Definition.RecurrentEffectForms.Clear();
-        return This();
-    }
-#endif
-
-    // TODO: rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
     public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
     {
         if (validate)
@@ -257,8 +199,11 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-    public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
-        bool silent, params FeatureDefinition[] conditionFeatures)
+    public TBuilder Configure(
+        RuleDefinitions.DurationType durationType,
+        int durationParameter,
+        bool silent,
+        params FeatureDefinition[] conditionFeatures)
     {
         Definition.Features.AddRange(conditionFeatures);
         Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
@@ -302,10 +247,8 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     #endregion
 }
 
-/// <summary>
-///     Concrete ConditionDefinitionBuilder that allows building ConditionDefinition.
-/// </summary>
-public class ConditionDefinitionBuilder :
+[UsedImplicitly]
+internal class ConditionDefinitionBuilder :
     ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
 {
     #region Constructors

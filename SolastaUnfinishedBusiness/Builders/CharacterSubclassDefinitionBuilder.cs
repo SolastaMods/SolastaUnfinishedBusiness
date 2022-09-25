@@ -1,22 +1,13 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
-    CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition,
-        CharacterSubclassDefinitionBuilder>
+[UsedImplicitly]
+internal class CharacterSubclassDefinitionBuilder
+    : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
 {
-#if false
-    public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
-    {
-        Definition.PersonalityFlagOccurences.Add(
-            new PersonalityFlagOccurence(DatabaseHelper.CharacterSubclassDefinitions.MartialChampion
-                .PersonalityFlagOccurences[0]) {weight = weight, personalityFlag = personalityType.Name});
-        return this;
-    }
-#endif
-
     public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
     {
         Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
