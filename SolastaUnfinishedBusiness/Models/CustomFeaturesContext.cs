@@ -282,7 +282,8 @@ public static class CustomFeaturesContext
         // Find powers that rely on this pool
         foreach (var usablePower in character.UsablePowers)
         {
-            if (usablePower.PowerDefinition is not IPowerSharedPool pool)
+            var power = usablePower.PowerDefinition;
+            if (power is not IPowerSharedPool pool)
             {
                 continue;
             }
@@ -294,8 +295,18 @@ public static class CustomFeaturesContext
                 continue;
             }
 
-            usablePower.maxUses = totalUses / usablePower.PowerDefinition.CostPerUse;
-            usablePower.remainingUses = remainingUses / usablePower.PowerDefinition.CostPerUse;
+            if (power.CostPerUse == 0)
+            {
+                //Shared pool powers should have some cost, otherwise why make them shared?
+                Main.Error($"Shared pool power '{power.Name}' has zero use cost!");
+                usablePower.maxUses = totalUses;
+                usablePower.remainingUses = remainingUses;
+            }
+            else
+            {
+                usablePower.maxUses = totalUses / power.CostPerUse;
+                usablePower.remainingUses = remainingUses / power.CostPerUse;
+            }
         }
     }
 
@@ -328,6 +339,19 @@ public static class CustomFeaturesContext
         return totalPoolSize;
     }
 
+    internal static int GetMaxUsesForPool([NotNull] this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            power = poolPower.GetUsagePoolPower();
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        return usablePower == null ? 0 : GetMaxUsesForPool(usablePower, character);
+    }
+
     // internal static void UpdateUsageForPower([NotNull] this RulesetCharacter character, FeatureDefinitionPower power,
     //     int poolUsage)
     // {
@@ -348,6 +372,23 @@ public static class CustomFeaturesContext
     //     }
     // }
 
+    internal static void UpdateUsageForPower(this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power,
+        int poolUsage)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            power = poolPower.GetUsagePoolPower();
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        if (usablePower != null)
+        {
+            UpdateUsageForPowerPool(character, poolUsage, usablePower);
+        }
+    }
+
     internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
         [NotNull] RulesetUsablePower modifiedPower,
         int poolUsage)
@@ -358,25 +399,25 @@ public static class CustomFeaturesContext
         }
 
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == pointPoolPower);
 
-        foreach (var poolPower in character.UsablePowers)
+        if (usablePower != null)
         {
-            if (poolPower.PowerDefinition != pointPoolPower)
-            {
-                continue;
-            }
-
-            var maxUses = GetMaxUsesForPool(poolPower, character);
-            var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
-
-            poolPower.remainingUses = remainingUses;
-            AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
-
-            // refresh character control panel after power pool usage is updated
-            // needed for custom point pools on portrait to update properly in some cases
-            GameUiContext.GameHud.RefreshCharacterControlPanel();
-            return;
+            UpdateUsageForPowerPool(character, poolUsage, usablePower);
         }
+    }
+    
+    private static void UpdateUsageForPowerPool(RulesetCharacter character, int poolUsage, RulesetUsablePower usablePower)
+    {
+        var maxUses = GetMaxUsesForPool(usablePower, character);
+        var remainingUses = Mathf.Clamp(usablePower.RemainingUses - poolUsage, 0, maxUses);
+
+        usablePower.remainingUses = remainingUses;
+        AssignUsesToSharedPowersForPool(character, usablePower, remainingUses, maxUses);
+
+        // refresh character control panel after power pool usage is updated
+        // needed for custom point pools on portrait to update properly in some cases
+        GameUiContext.GameHud.RefreshCharacterControlPanel();
     }
 
     // internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] RulesetUsablePower usablePower)
@@ -411,6 +452,18 @@ public static class CustomFeaturesContext
         }
 
         return usablePower.RemainingUses / power.CostPerUse;
+    }
+    
+    internal static int GetRemainingPowerCharges(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            return GetRemainingPowerPoolUses(character, poolPower);
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        return usablePower?.RemainingUses ?? 0;
     }
 
     private static int GetRemainingPowerPoolUses(
