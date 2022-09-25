@@ -73,7 +73,7 @@ internal static class CustomIcons
     [NotNull]
     private static string GetSpriteGuid([NotNull] string id)
     {
-        return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
+        return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString();
     }
 
     [NotNull]

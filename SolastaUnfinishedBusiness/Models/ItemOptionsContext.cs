@@ -386,11 +386,10 @@ internal static class ItemOptionsContext
 
         private FocusDefinitionBuilder(
             string name,
-            string guid,
             ItemDefinition original,
             EquipmentDefinitions.FocusType type,
             [CanBeNull] AssetReferenceSprite assetReferenceSprite,
-            [NotNull] params string[] slotTypes) : base(original, name, guid)
+            [NotNull] params string[] slotTypes) : base(original, name, CENamespaceGuid)
         {
             // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
             Definition.IsFocusItem = true;
@@ -435,9 +434,7 @@ internal static class ItemOptionsContext
             AssetReferenceSprite assetReferenceSprite,
             [NotNull] params string[] slotTypes)
         {
-            var guid = GuidHelper.Create(CENamespaceGuid, name).ToString();
-
-            return new FocusDefinitionBuilder(name, guid, original, type, assetReferenceSprite, slotTypes).AddToDB();
+            return new FocusDefinitionBuilder(name, original, type, assetReferenceSprite, slotTypes).AddToDB();
         }
     }
 }

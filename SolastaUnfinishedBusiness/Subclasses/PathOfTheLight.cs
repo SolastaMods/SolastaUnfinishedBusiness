@@ -399,7 +399,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     {
         private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(string name,
             ConditionDefinition illuminatedCondition)
-            : base(name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+            : base(name, CENamespaceGuid)
         {
             Definition.additionalDamageType = AdditionalDamageType.Specific;
             Definition.specificDamageType = DamageTypeRadiant;
@@ -492,7 +492,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             string name,
             ConditionDefinition illuminatedCondition,
             ConditionDefinition illuminatingBurstSuppressedCondition)
-            : base(name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+            : base(name, CENamespaceGuid)
         {
             Definition.activationTime = ActivationTime.NoCost;
             Definition.effectDescription = CreateIlluminatingBurstPowerEffect(illuminatedCondition);
@@ -608,7 +608,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     {
         private FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder(string name,
             ConditionDefinition illuminatingBurstSuppressedCondition)
-            : base(name, GuidHelper.Create(CENamespaceGuid, name).ToString())
+            : base(name, CENamespaceGuid)
         {
             Definition.activationTime = ActivationTime.OnRageStartAutomatic;
             Definition.effectDescription =

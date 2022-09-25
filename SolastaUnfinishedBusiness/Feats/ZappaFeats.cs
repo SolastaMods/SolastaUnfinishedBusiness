@@ -743,8 +743,7 @@ internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitio
         CreateAndAddToDB(MetamagicTwinnedSpell);
 
     private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption)
-        : base($"MetamagicLearn{metamagicOption.Name}",
-            GuidHelper.Create(CENamespaceGuid, $"MetamagicLearn{metamagicOption.Name}").ToString())
+        : base($"MetamagicLearn{metamagicOption.Name}", CENamespaceGuid)
     {
         Definition.MetamagicOption = metamagicOption;
     }
