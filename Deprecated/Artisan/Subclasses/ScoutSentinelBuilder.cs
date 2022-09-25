@@ -219,7 +219,7 @@ internal sealed class ScoutSentinelFeatureSet09Builder : FeatureDefinitionFeatur
             .Create("ExtraInfusionSlots", "350902fd-cf99-48e4-8edc-115c82886bdb")
             .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 ArtisanClass.PowerPoolArtisanInfusion)
-            .SetGuiPresentation(Category.Feat, null, 1)
+            .SetGuiPresentation(Category.Feat, sortOrder: 1)
             .AddToDB();
 
         Definition.FeatureSet.Clear();

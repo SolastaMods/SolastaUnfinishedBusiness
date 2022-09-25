@@ -194,6 +194,16 @@ public static class BaseDefinitionBuilderGuiPresentationExtensions
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
     }
+    
+    public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
+        BaseDefinition definition, int sortOrder = 0, bool? hidden = null)
+        where TBuilder : IDefinitionBuilder
+    {
+        var definitionName = builder.Name;
+
+        return SetGuiPresentation(builder,
+            GuiPresentationBuilder.Build(null, definitionName, category, definition.GuiPresentation.SpriteReference, sortOrder, hidden));
+    }
 
     /// <summary>
     ///     Either update an existing GuiPresentation with the provided provided title, description and optional
