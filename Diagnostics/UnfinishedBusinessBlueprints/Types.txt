@@ -1,4 +1,3 @@
-CharacterClassDefinition
 CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
