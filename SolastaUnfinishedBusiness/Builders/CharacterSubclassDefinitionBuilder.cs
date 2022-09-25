@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -8,17 +9,19 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterSubclassDefinitionBuilder
     : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
 {
-    public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
-    {
-        Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
-        Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        return this;
-    }
-
     public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-        Definition.FeatureUnlocks.Sort(Sorting.Compare);
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
+        }
+        else
+        {
+            features.Do(x => x.GuiPresentation.sortOrder = level);
+        }
+
         return this;
     }
 
