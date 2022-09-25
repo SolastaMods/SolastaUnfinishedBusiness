@@ -351,8 +351,6 @@ internal static class ConjurationsContext
 {
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
 
-    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
-    
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
     {
         // Conjure animals (3)
@@ -386,6 +384,8 @@ internal static class ConjurationsContext
         Adam_The_Twelth
     };
 
+    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
+
     /// <summary>
     ///     Allow conjurations to fully controlled party members instead of AI controlled.
     /// </summary>
@@ -399,10 +399,10 @@ internal static class ConjurationsContext
     private static void BuildConjureElementalInvisibleStalker()
     {
         ConjureElementalInvisibleStalker = SpellDefinitionBuilder
-                .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
-                .SetOrUpdateGuiPresentation("Spell/&ConjureElementalInvisibleStalkerTitle",
-                    "Spell/&ConjureElementalDescription")
-                .AddToDB();
+            .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
+            .SetOrUpdateGuiPresentation("Spell/&ConjureElementalInvisibleStalkerTitle",
+                "Spell/&ConjureElementalDescription")
+            .AddToDB();
 
         var summonForm = ConjureElementalInvisibleStalker
             .EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
@@ -412,7 +412,7 @@ internal static class ConjurationsContext
             summonForm.monsterDefinitionName = InvisibleStalker.Name;
         }
     }
-    
+
     internal static void SwitchFullyControlConjurations()
     {
         foreach (var conjuredMonster in ConjuredMonsters)
@@ -426,7 +426,7 @@ internal static class ConjurationsContext
         if (!Main.Settings.EnableUpcastConjureElementalAndFey)
         {
             ConjureElemental.SubspellsList.Remove(ConjureElementalInvisibleStalker);
-            
+
             return;
         }
 

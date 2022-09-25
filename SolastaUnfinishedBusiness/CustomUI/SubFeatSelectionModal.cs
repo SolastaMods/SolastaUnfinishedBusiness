@@ -19,14 +19,13 @@ public class SubFeatSelectionModal : GuiGameScreen
     private static SubFeatSelectionModal _instance;
     private GuiModifierSubMenu animator;
     private RectTransform attachment;
+    private Image background;
     private FeatItem baseItem;
     private Button button;
     private RulesetCharacterHero character;
+    private RectTransform featTable;
     private Image image;
     private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
-
-    private Image background;
-    private RectTransform featTable;
 
     private bool localInitialized;
 
@@ -70,16 +69,18 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         Visible = true;
         itemClickHandler = onItemClicked;
+
         var subFeats = group.GetSubFeats();
 
         var corners = new Vector3[4];
+
         attachTo.GetWorldCorners(corners);
+
         var step = corners[0].y - corners[1].y - 4f;
         var position = attachTo.position;
-
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
-
         var header = Gui.GetPrefabFromPool(featPrefab, featTable).GetComponent<FeatItem>();
+
         InitFeatItem(feat, header);
         header.GetComponent<RectTransform>().position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
@@ -88,9 +89,11 @@ public class SubFeatSelectionModal : GuiGameScreen
         position += new Vector3(0, step, 0);
 
         var i = 0;
+
         foreach (var subFeat in subFeats)
         {
             var item = Gui.GetPrefabFromPool(featPrefab, featTable);
+
             InitFeatItem(subFeat, item.GetComponent<FeatItem>());
             item.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
             item.transform.SetAsFirstSibling();
@@ -109,6 +112,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         baseItem = null;
         animator.Clean();
         itemClickHandler = null;
+
         for (var i = 0; i < featTable.childCount; i++)
         {
             var featItem = featTable.GetChild(i).GetComponent<FeatItem>();
@@ -139,6 +143,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         //register this screen
         var guiMgr = Gui.GuiService as GuiManager;
+
         if (guiMgr != null)
         {
             guiMgr.screensByType.Add(GetType(), this);
@@ -162,8 +167,10 @@ public class SubFeatSelectionModal : GuiGameScreen
 
         //put it visually just above levelup screen
         transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
-        var levelupIndex = levelup.transform.GetSiblingIndex();
-        transform.SetSiblingIndex(levelupIndex + 1);
+
+        var levelUpIndex = levelup.transform.GetSiblingIndex();
+
+        transform.SetSiblingIndex(levelUpIndex + 1);
 
         RectTransform.sizeDelta = new Vector2(200, 200);
         RectTransform.anchorMin = new Vector2(0, 0);
@@ -185,7 +192,9 @@ public class SubFeatSelectionModal : GuiGameScreen
         var tmp = new GameObject();
 
         tmp.AddComponent<RectTransform>();
+
         var rt = tmp.GetComponent<RectTransform>();
+
         rt.parent = transform;
         rt.anchorMin = new Vector2(0, 0);
         rt.anchorMax = new Vector2(1, 1);
@@ -240,16 +249,16 @@ public class SubFeatSelectionModal : GuiGameScreen
         var service = ServiceRepository.GetService<ICharacterBuildingService>();
         var localHeroCharacter = service.CurrentLocalHeroCharacter;
         var buildingData = localHeroCharacter?.GetHeroBuildingData();
-
         var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.CurrentPoolType, item.StageTag);
         var restrictedChoices = pool.RestrictedChoices;
-
         var color = item.GuiFeatDefinition.FeatDefinition.HasSubFeatureOfType<IGroupedFeat>()
             ? HeaderColor
             : NormalColor;
 
         ProficiencyBaseItem.InteractiveMode interactiveMode;
+
         var isSameFamily = false;
+
         if (localHeroCharacter != null
             && (service.IsFeatKnownOrTrained(buildingData, feat) || localHeroCharacter.TrainedFeats.Contains(feat)))
         {
@@ -260,21 +269,22 @@ public class SubFeatSelectionModal : GuiGameScreen
             var isRestricted = restrictedChoices.Count != 0;
             if (isRestricted)
             {
-                var hasRestrictedfeats = false;
+                var hasRestrictedFeats = false;
                 foreach (var restrictedChoice in restrictedChoices)
                 {
                     if (DatabaseRepository.GetDatabase<FeatDefinition>()
                             .GetElement(restrictedChoice, true) != null)
                     {
-                        hasRestrictedfeats = true;
+                        hasRestrictedFeats = true;
                         break;
                     }
                 }
 
-                isRestricted = hasRestrictedfeats && !restrictedChoices.Contains(feat.Name);
+                isRestricted = hasRestrictedFeats && !restrictedChoices.Contains(feat.Name);
             }
 
             var matchingPrerequisites = service.IsFeatMatchingPrerequisites(buildingData, feat, out isSameFamily);
+
             if (!isRestricted && matchingPrerequisites)
             {
                 if (currentPoolType == HeroDefinitions.PointsPoolType.Feat)
@@ -318,6 +328,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     private void OnItemSelected(ProficiencyBaseItem item)
     {
         var handler = itemClickHandler;
+
         itemClickHandler = null;
 
         if (item is FeatItem featItem
@@ -348,6 +359,7 @@ public class SubFeatSelectionModal : GuiGameScreen
     {
         base.OnBeginShow(instant);
         animator.duration = ShowDuration;
+
         if (Gui.GamepadActive)
         {
             Gui.InputService.ClearCurrentSelectable();

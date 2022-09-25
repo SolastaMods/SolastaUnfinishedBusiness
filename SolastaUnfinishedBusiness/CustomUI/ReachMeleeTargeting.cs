@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -39,46 +40,50 @@ public static class ReachMeleeTargeting
     {
         var reachRange = attackMode.ReachRange;
         var validDestinations = cursor.validDestinations;
+
         if (cursor.BattleService.IsWithinXCells(actor, target, reachRange) || validDestinations.Empty())
         {
             return true;
         }
 
         var battleBoundingBox = target.LocationBattleBoundingBox;
+
         battleBoundingBox.Inflate(reachRange);
+
         var foundDestination = false;
 
         var current = new GameLocationCharacterDefinitions.PathStep { moveCost = 99999 };
         var distance = (current.position - actorPosition).magnitudeSqr;
 
-        foreach (var destination in validDestinations)
+        foreach (var destination in validDestinations
+                     .Where(destination => battleBoundingBox.Contains(destination.position)))
         {
-            if (battleBoundingBox.Contains(destination.position))
+            bool better;
+
+            if (foundDestination && destination.moveCost >= current.moveCost)
             {
-                bool better;
-                if (foundDestination && destination.moveCost >= current.moveCost)
+                if (destination.moveCost == current.moveCost)
                 {
-                    if (destination.moveCost == current.moveCost)
-                    {
-                        better = (destination.position - actorPosition).magnitudeSqr < distance;
-                    }
-                    else
-                    {
-                        better = false;
-                    }
+                    better = (destination.position - actorPosition).magnitudeSqr < distance;
                 }
                 else
                 {
-                    better = true;
-                }
-
-                if (better)
-                {
-                    current = destination;
-                    distance = (current.position - actorPosition).magnitudeSqr;
-                    foundDestination = true;
+                    better = false;
                 }
             }
+            else
+            {
+                better = true;
+            }
+
+            if (!better)
+            {
+                continue;
+            }
+
+            current = destination;
+            distance = (current.position - actorPosition).magnitudeSqr;
+            foundDestination = true;
         }
 
         if (foundDestination)

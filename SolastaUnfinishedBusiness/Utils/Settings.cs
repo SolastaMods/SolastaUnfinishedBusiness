@@ -176,7 +176,7 @@ public class Settings : UnityModManager.ModSettings
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
 #if DEBUG
     public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
-#else        
+#else
     public bool AddPickPocketableLoot { get; set; }
 #endif
     public bool AllowStackedMaterialComponent { get; set; }

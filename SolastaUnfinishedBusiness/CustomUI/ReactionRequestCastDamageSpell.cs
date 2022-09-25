@@ -17,17 +17,21 @@ public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
 
     public override string FormatDescription()
     {
-        var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
-            .Title;
-        return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), AttackerName,
+        var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?
+            .SpellDefinition.GuiPresentation.Title;
+
+        return Gui.Format(
+            Gui.Localize("Reaction/&CastSpellInRetributionDescription"),
+            AttackerName,
             Character.Name,
             spellName);
     }
 
     public override string FormatReactDescription()
     {
-        var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
-            .Title;
+        var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?
+            .SpellDefinition.GuiPresentation.Title;
+
         return Gui.Format("Reaction/&CastSpellInRetributionReactDescription", spellName);
     }
 

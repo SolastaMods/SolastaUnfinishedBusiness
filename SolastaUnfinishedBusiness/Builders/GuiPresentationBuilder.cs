@@ -194,7 +194,7 @@ public static class BaseDefinitionBuilderGuiPresentationExtensions
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
     }
-    
+
     public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
         BaseDefinition definition, int sortOrder = 0, bool? hidden = null)
         where TBuilder : IDefinitionBuilder
@@ -202,7 +202,8 @@ public static class BaseDefinitionBuilderGuiPresentationExtensions
         var definitionName = builder.Name;
 
         return SetGuiPresentation(builder,
-            GuiPresentationBuilder.Build(null, definitionName, category, definition.GuiPresentation.SpriteReference, sortOrder, hidden));
+            GuiPresentationBuilder.Build(null, definitionName, category, definition.GuiPresentation.SpriteReference,
+                sortOrder, hidden));
     }
 
     /// <summary>

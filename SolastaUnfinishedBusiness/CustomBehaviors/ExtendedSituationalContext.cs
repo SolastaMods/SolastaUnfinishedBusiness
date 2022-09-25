@@ -1,6 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Models;
-
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public enum ExtendedSituationalContext
 {

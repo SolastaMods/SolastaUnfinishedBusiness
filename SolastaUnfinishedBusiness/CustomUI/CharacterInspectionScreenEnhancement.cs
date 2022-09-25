@@ -24,7 +24,6 @@ internal static class CharacterInspectionScreenEnhancement
         Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
     [NotNull]
-    // ReSharper disable once UnusedMember.Global
     private static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
@@ -34,7 +33,6 @@ internal static class CharacterInspectionScreenEnhancement
                    : selectedClass.Name);
     }
 
-    // ReSharper disable once UnusedMember.Global
     private static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
         var badgeDefinitions =

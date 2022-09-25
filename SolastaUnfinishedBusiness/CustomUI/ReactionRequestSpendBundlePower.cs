@@ -32,6 +32,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
         get
         {
             var power = (ReactionParams.RulesetEffect as RulesetEffectPower)?.PowerDefinition;
+
             if (power == null)
             {
                 return -1;
@@ -70,7 +71,9 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
         foreach (var p in bundle.SubPowers)
         {
             var canUsePower = CanUsePower(rulesetCharacter, p);
+
             Main.Log($"Can use {p.Name} = {canUsePower}");
+
             if (!canUsePower)
             {
                 continue;
@@ -91,9 +94,9 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
     private static bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
-        Main.Log($"{character.Name} can use {power.Name}?", true);
-
         var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
+
+        Main.Log($"{character.Name} can use {power.Name}?", true);
 
         if (powerValidators.Any(v => !v.CanUsePower(character)))
         {
@@ -119,6 +122,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
         }
 
         var actingCharacter = ReactionParams.ActingCharacter;
+
         ReactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
             .AllActionDefinitions[ActionDefinitions.Id.SpendPower];
 
@@ -138,6 +142,7 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
         }
 
         var effectDescription = power.EffectDescription;
+
         if (effectDescription.RangeType == RuleDefinitions.RangeType.Self
             || effectDescription.TargetType == RuleDefinitions.TargetType.Self)
         {
@@ -172,18 +177,21 @@ public sealed class ReactionRequestSpendBundlePower : ReactionRequest
     public override string FormatDescription()
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Description";
+
         return Gui.Format(format, guiCharacter.Name);
     }
 
     public override string FormatReactTitle()
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactTitle";
+
         return Gui.Format(format, guiCharacter.Name);
     }
 
     public override string FormatReactDescription()
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactDescription";
+
         return Gui.Format(format, guiCharacter.Name);
     }
 

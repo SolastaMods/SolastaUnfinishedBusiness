@@ -54,8 +54,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
-                DominatePerson.EffectDescription,
-                false /* unique instance */)
+                DominatePerson.EffectDescription)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

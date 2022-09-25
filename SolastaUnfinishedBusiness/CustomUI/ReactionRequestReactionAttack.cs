@@ -17,6 +17,7 @@ public class ReactionRequestReactionAttack : ReactionRequest
         get
         {
             var targetCharacter = ReactionParams.TargetCharacters[0];
+
             return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                 .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
         }
@@ -35,18 +36,21 @@ public class ReactionRequestReactionAttack : ReactionRequest
     public override string FormatDescription()
     {
         var format = $"Reaction/&ReactionAttack{type}Description";
+
         return Gui.Format(format, target.Name);
     }
 
     public override string FormatReactTitle()
     {
         var format = $"Reaction/&ReactionAttack{type}ReactTitle";
+
         return Gui.Format(format, target.Name);
     }
 
     public override string FormatReactDescription()
     {
         var format = $"Reaction/&ReactionAttack{type}ReactDescription";
+
         return Gui.Format(format, target.Name);
     }
 }

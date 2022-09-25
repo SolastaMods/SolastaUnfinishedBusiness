@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
-using SolastaUnfinishedBusiness.Models;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;

@@ -47,9 +47,9 @@ public class CustomPortraitPointPool : MonoBehaviour
         else
         {
             var obj = Instantiate(prefab, parent, false);
+
             obj.name = name;
             pool = obj.AddComponent<CustomPortraitPointPool>();
-
             pool.Setup(provider, character);
         }
 
@@ -76,12 +76,14 @@ public class CustomPortraitPointPool : MonoBehaviour
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
         var label = transform.Find("SorceryPointsLabel")?.GetComponent<GuiLabel>();
+
         if (label != null)
         {
             label.Text = $"{provider.GetPoints(character)}";
         }
 
         var tooltip = GetComponent<GuiTooltip>();
+
         if (tooltip != null)
         {
             tooltip.Content = provider.Tooltip;

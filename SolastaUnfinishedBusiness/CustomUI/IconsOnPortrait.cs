@@ -8,6 +8,7 @@ internal static class IconsOnPortrait
     internal static void CharacterPanelRefresh(ActiveCharacterPanel panel)
     {
         var character = panel.GuiCharacter?.RulesetCharacter;
+
         if (character == null)
         {
             return;
@@ -29,12 +30,14 @@ internal static class IconsOnPortrait
 
         // setup/update relevant custom controls
         var pools = character.GetSubFeaturesByType<ICustomPortraitPointPoolProvider>();
+
         foreach (var provider in pools)
         {
             CustomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
         }
 
         var concentrations = character.GetSubFeaturesByType<ICustomConcentrationProvider>();
+
         foreach (var provider in concentrations)
         {
             CustomConcentrationControl.Setup(provider, character, concentrationPrefab, layout);

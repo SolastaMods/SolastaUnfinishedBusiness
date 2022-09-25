@@ -125,7 +125,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
-                AttributeDefinitions.Intelligence, effect, false /* unique instance */)
+                AttributeDefinitions.Intelligence, effect)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }

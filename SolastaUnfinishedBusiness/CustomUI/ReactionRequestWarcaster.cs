@@ -58,11 +58,13 @@ internal class ReactionRequestWarcaster : ReactionRequest
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
         var actingCharacter = reactionParams.ActingCharacter;
         var cantrips = GetValidCantrips(battleManager, actingCharacter, reactionParams.targetCharacters[0]);
+
         if (cantrips != null && !cantrips.Empty())
         {
             reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
 
             var i = 1;
+
             foreach (var c in cantrips)
             {
                 reactionParams.SpellRepertoire.KnownSpells.Add(c);
@@ -145,13 +147,16 @@ internal class ReactionRequestWarcaster : ReactionRequest
         }
 
         var actingCharacter = reactionParams.ActingCharacter;
+
         if (option == 0)
         {
             reactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
                 .AllActionDefinitions[ActionDefinitions.Id.AttackOpportunity];
             reactionParams.RulesetEffect = null;
+
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var actionModifier = new ActionModifier();
+
             attackParams.FillForPhysicalReachAttack(actingCharacter,
                 actingCharacter.LocationPosition,
                 reactionParams.AttackMode,
@@ -163,13 +168,17 @@ internal class ReactionRequestWarcaster : ReactionRequest
         {
             reactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
                 .AllActionDefinitions[ActionDefinitions.Id.CastReaction];
+
             var spell = reactionParams.SpellRepertoire.KnownSpells[option - 1];
             var rulesService =
                 ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
+
             rulesetCharacter.CanCastCantrip(spell, out var spellRepertoire);
+
             var spellEffect = rulesService.InstantiateEffectSpell(rulesetCharacter, spellRepertoire,
                 spell, spell.SpellLevel, false);
+
             ReactionParams.RulesetEffect = spellEffect;
 
             var spellTargets = spellEffect.ComputeTargetParameter();

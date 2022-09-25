@@ -183,7 +183,7 @@ internal static class HealingFeats
             .Configure(
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
                 proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription, false /* unique instance */)
+                abilityScoreBonusToAttack, abilityScore, effectDescription /* unique instance */)
             .AddToDB();
     }
 

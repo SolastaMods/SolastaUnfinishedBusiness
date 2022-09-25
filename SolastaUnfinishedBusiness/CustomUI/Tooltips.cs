@@ -36,6 +36,7 @@ internal static class Tooltips
 
         var power = guiPowerDefinition.PowerDefinition;
         var usesLabel = parameters.usesLabel;
+
         usesLabel.Text = FormatUses(power, character, usesLabel.Text);
     }
 
@@ -59,6 +60,7 @@ internal static class Tooltips
         var usablePower = UsablePowersProvider.Get(power, character);
         var maxUses = CustomFeaturesContext.GetMaxUsesForPool(usablePower, character);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
+
         return $"{remainingUses}/{maxUses}";
     }
 

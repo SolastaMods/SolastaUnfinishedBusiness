@@ -36,8 +36,11 @@ public static class ExtraAttacksOnActionPanel
         }
     }
 
-    private static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(GameLocationCharacter character,
-        Id actionId, bool getWithMostAttackNb, GuiCharacterAction guiAction)
+    private static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(
+        GameLocationCharacter character,
+        Id actionId,
+        bool getWithMostAttackNb,
+        GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
         {
@@ -73,8 +76,11 @@ public static class ExtraAttacksOnActionPanel
         }
     }
 
-    private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(GameLocationCharacter character,
-        Id actionId, bool getWithMostAttackNb, [CanBeNull] RulesetAttackMode forcedAttack)
+    private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(
+        GameLocationCharacter character,
+        Id actionId,
+        bool getWithMostAttackNb,
+        [CanBeNull] RulesetAttackMode forcedAttack)
     {
         if (actionId != Id.AttackOff || forcedAttack == null)
         {
@@ -84,10 +90,13 @@ public static class ExtraAttacksOnActionPanel
         return forcedAttack;
     }
 
-    public static int ComputeMultipleGuiCharacterActions(CharacterActionPanel panel, Id actionId,
+    public static int ComputeMultipleGuiCharacterActions(
+        CharacterActionPanel panel,
+        Id actionId,
         int def)
     {
         var multiple = CanActionHaveMultipleGuiItems(actionId);
+
         if (!multiple)
         {
             if (panel.guiActionsById.TryGetValue(actionId, out var actionsList))
@@ -103,8 +112,9 @@ public static class ExtraAttacksOnActionPanel
             return 1;
         }
 
-        if (actionId == Id.AttackMain && ServiceRepository.GetService<IGameLocationCharacterService>()
-                .GuestCharacters.Contains(panel.GuiCharacter.GameLocationCharacter))
+        if (actionId == Id.AttackMain
+            && ServiceRepository.GetService<IGameLocationCharacterService>().GuestCharacters
+                .Contains(panel.GuiCharacter.GameLocationCharacter))
         {
             //this case was processed by base method
             return def;

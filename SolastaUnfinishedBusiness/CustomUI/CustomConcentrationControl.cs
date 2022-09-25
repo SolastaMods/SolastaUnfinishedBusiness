@@ -22,9 +22,9 @@ public class CustomConcentrationControl : MonoBehaviour
         else
         {
             var obj = Instantiate(prefab, parent, false);
+
             obj.name = name;
             control = obj.AddComponent<CustomConcentrationControl>();
-
             control.Setup(provider, character);
         }
 
@@ -37,6 +37,7 @@ public class CustomConcentrationControl : MonoBehaviour
     private void Setup(ICustomConcentrationProvider provider, RulesetCharacter character)
     {
         var image = transform.Find("ConcentrationImage").GetComponent<Image>();
+
         if (image != null)
         {
             image.sprite = null;
@@ -51,12 +52,14 @@ public class CustomConcentrationControl : MonoBehaviour
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
         var tooltip = GetComponent<GuiTooltip>();
+
         if (tooltip != null)
         {
             tooltip.Content = provider.Tooltip;
         }
 
         var button = GetComponent<Button>();
+
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => provider.Stop(character));
     }
