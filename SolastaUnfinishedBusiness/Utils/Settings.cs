@@ -58,7 +58,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingDungeonMakerAssets { get; set; } = true;
     public bool EnableSortingFeats { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
-    public bool EnableSortingFutureFeatures { get; set; } = true;
+    public bool EnableSortingFutureFeatures { get; set; }
     public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;

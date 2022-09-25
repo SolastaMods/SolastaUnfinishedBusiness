@@ -10,7 +10,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -19,9 +18,9 @@ internal static class GameUiContext
     private const int ExitsWithGizmos = 2;
     private static readonly List<RectTransform> SpellLineTables = new();
 
-    private static readonly GadgetBlueprint[] GadgetExits =
+    private static readonly string[] GadgetExits =
     {
-        VirtualExit, VirtualExitMultiple, Exit, ExitMultiple, TeleporterIndividual, TeleporterParty
+        "VirtualExit", "VirtualExitMultiple", "Exit", "ExitMultiple", "TeleporterIndividual", "TeleporterParty"
     };
 
     // private static bool EnableDebugCamera { get; set; }
@@ -51,7 +50,7 @@ internal static class GameUiContext
         {
             Gui.ReleaseChildrenToPool(spellTable);
             spellTable.SetParent(null);
-            Object.Destroy(spellTable.gameObject);
+            UnityEngine.Object.Destroy(spellTable.gameObject);
         }
 
         SpellLineTables.Clear();
@@ -201,7 +200,7 @@ internal static class GameUiContext
             {
                 // instantiate new table
                 spellRepertoireLinesTable =
-                    Object.Instantiate(spellRepertoireLinesTable, previousTable.parent.transform);
+                    UnityEngine.Object.Instantiate(spellRepertoireLinesTable, previousTable.parent.transform);
                 // clear it of children
                 spellRepertoireLinesTable.DetachChildren();
                 //spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
@@ -322,7 +321,7 @@ internal static class GameUiContext
 
     private static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
-        return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
+        return Array.IndexOf(GadgetExits, gadgetBlueprint.Name) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }
 
     internal static void HideExitsAndTeleportersGizmosIfNotDiscovered(
