@@ -98,7 +98,7 @@ internal static class RaceBolgrifBuilder
             .SetMaximalAge(500)
             .SetBaseHeight(84)
             .SetBaseWeight(170)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 bolgrifAbilityScoreModifierWisdom,
                 bolgrifAbilityScoreModifierStrength,

@@ -238,7 +238,7 @@ internal static class GrayDwarfSubraceBuilder
             .Create(DwarfHill, "RaceGrayDwarf")
             .SetGuiPresentation(Category.Race, grayDwarfSpriteReference)
             .SetRacePresentation(grayDwarfRacePresentation)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove5,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionProficiencys.ProficiencyDwarfLanguages,

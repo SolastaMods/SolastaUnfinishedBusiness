@@ -34,7 +34,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
             .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
                 MoveModeMove6)
             .AddFeaturesAtLevel(3, darkelfFaerieFire)
@@ -53,7 +53,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
@@ -64,7 +64,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceHalfElfSylvan")
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();
 

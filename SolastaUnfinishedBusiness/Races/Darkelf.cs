@@ -172,7 +172,7 @@ internal static class DarkelfSubraceBuilder
             .Create(ElfHigh, "RaceDarkelf")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
