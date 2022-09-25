@@ -30,6 +30,14 @@ public class DeviceFunctionDescriptionBuilder
         description.featureDefinitionPower = power;
         return this;
     }
+
+    public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
+    {
+        description.type = DeviceFunctionDescription.FunctionType.Spell;
+        description.spellDefinition = spell;
+        description.canOverchargeSpell = canOverchargeSpell;
+        return this;
+    }
     
     public  DeviceFunctionDescriptionBuilder SetUsage(EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
         DeviceFunctionDescription.FunctionUseAffinity useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill,
