@@ -119,7 +119,9 @@ internal static class EncountersSpawnContext
                 null,
                 null);
         }
-        else if (Global.IsUserLocation)
+        else if (Gui.GameLocation &&
+                 Gui.GameLocation.LocationDefinition &&
+                 Gui.GameLocation.LocationDefinition.IsUserLocation)
         {
             var position = GetEncounterPosition();
 

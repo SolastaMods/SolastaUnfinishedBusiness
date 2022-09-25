@@ -10,15 +10,6 @@ public static class Global
     // true if in a multiplayer game
     public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
-    // true if not in game
-    public static bool IsOffGame => Gui.Game == null;
-
-    // true if an user location
-    // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
-    public static bool IsUserLocation => Gui.GameLocation &&
-                                         Gui.GameLocation.LocationDefinition &&
-                                         Gui.GameLocation.LocationDefinition.IsUserLocation;
-
     // active level up hero
     [CanBeNull]
     public static RulesetCharacterHero ActiveLevelUpHero =>
@@ -38,6 +29,7 @@ public static class Global
         get
         {
             var exploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+
             if (exploration.Visible)
             {
                 return exploration.CharacterControlPanel.GuiCharacter?.GameLocationCharacter;

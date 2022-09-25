@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -29,7 +30,6 @@ internal class CharacterClassDefinitionBuilder
 
     #endregion
 
-#if false
     public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
     {
         Definition.hitDice = die;
@@ -281,5 +281,5 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
-#endif
 }
+#endif

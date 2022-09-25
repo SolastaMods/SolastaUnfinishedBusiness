@@ -289,7 +289,7 @@ public static class EncountersDisplay
 
         UI.Label("");
 
-        if (Global.IsOffGame)
+        if (Gui.Game == null)
         {
             UI.Label("Load a game to modify heroes AI...".Bold().Red(), UI.AutoWidth());
         }
