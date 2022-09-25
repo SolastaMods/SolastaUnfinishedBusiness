@@ -71,32 +71,42 @@ internal static class InventorClass
             .SetIngredientGatheringOdds(CharacterClassDefinitions.Fighter.IngredientGatheringOdds)
             .SetHitDice(DieType.D8)
 
-            //TODO: set proper equipment
-
             #region Equipment
 
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
-                        EquipmentDefinitions.OptionWeapon, 1)
+                        EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Shield,
+                        EquipmentDefinitions.OptionArmor, 1)
                 },
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
+                        EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
                 }
             )
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
+            {
+                EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow,
+                    EquipmentDefinitions.OptionWeapon, 1),
+                EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt,
+                    EquipmentDefinitions.OptionAmmoPack, 1)
+            })
+            .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Leather,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.StuddedLeather,
                         EquipmentDefinitions.OptionArmor, 1)
                 },
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.HideArmor,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ScaleMail,
                         EquipmentDefinitions.OptionArmor, 1)
-                })
+                }
+            )
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
@@ -109,16 +119,6 @@ internal static class InventorClass
                         EquipmentDefinitions.OptionStarterPack, 1)
                 }
             )
-            .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dart,
-                        EquipmentDefinitions.OptionWeapon, 10)
-                },
-                new List<CharacterClassDefinition.HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Javelin,
-                        EquipmentDefinitions.OptionWeapon, 5)
-                })
 
             #endregion
 
@@ -128,7 +128,17 @@ internal static class InventorClass
             .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
                 .Create("ClassInventorWeaponProficiency")
                 .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
-                .SetProficiencies(ProficiencyType.Weapon, WeaponCategoryDefinitions.SimpleWeaponCategory.Name)
+                .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                .AddToDB())
+
+            // Armor
+            .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
+                .Create("ClassInventorArmorProficiency")
+                .SetGuiPresentation(Category.Feature, "Feature/&ArmorTrainingShortDescription")
+                .SetProficiencies(ProficiencyType.Armor,
+                    EquipmentDefinitions.LightArmorCategory,
+                    EquipmentDefinitions.MediumArmorCategory,
+                    EquipmentDefinitions.ShieldCategory)
                 .AddToDB())
 
             // Saves
