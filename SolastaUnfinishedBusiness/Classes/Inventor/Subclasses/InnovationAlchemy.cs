@@ -14,7 +14,7 @@ public static class InnovationAlchemy
         return CharacterSubclassDefinitionBuilder
             .Create("InventorInnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
-            .AddFeatureAtLevel(BuildAlchemy(), 1)
+            .AddFeaturesAtLevel(1, BuildAlchemy())
             .AddToDB();
     }
 

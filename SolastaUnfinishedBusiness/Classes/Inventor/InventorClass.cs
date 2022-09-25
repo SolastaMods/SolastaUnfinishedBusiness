@@ -125,14 +125,14 @@ internal static class InventorClass
             #region Proficiencies
 
             // Weapons
-            .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
+            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
                 .Create("ClassInventorWeaponProficiency")
                 .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
                 .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
                 .AddToDB())
 
             // Armor
-            .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
+            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
                 .Create("ClassInventorArmorProficiency")
                 .SetGuiPresentation(Category.Feature, "Feature/&ArmorTrainingShortDescription")
                 .SetProficiencies(ProficiencyType.Armor,
@@ -142,7 +142,7 @@ internal static class InventorClass
                 .AddToDB())
 
             // Saves
-            .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
+            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
                 .Create("ClassInventorSavingThrowProficiency")
                 .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                 .SetProficiencies(ProficiencyType.SavingThrow,
@@ -151,7 +151,7 @@ internal static class InventorClass
                 .AddToDB())
 
             // Skill points
-            .AddFeatureAtLevel(1, FeatureDefinitionPointPoolBuilder
+            .AddFeaturesAtLevel(1, FeatureDefinitionPointPoolBuilder
                 .Create("ClassInventorSkillProficiency")
                 .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
@@ -171,7 +171,7 @@ internal static class InventorClass
 
             #region Subclasses
 
-            .AddFeatureAtLevel(1, FeatureDefinitionSubclassChoiceBuilder
+            .AddFeaturesAtLevel(1, FeatureDefinitionSubclassChoiceBuilder
                 .Create("InventorSubclassChoice")
                 .SetGuiPresentation("InventorInnovation", Category.Subclass)
                 .SetSubclassSuffix("InventorInnovation")
