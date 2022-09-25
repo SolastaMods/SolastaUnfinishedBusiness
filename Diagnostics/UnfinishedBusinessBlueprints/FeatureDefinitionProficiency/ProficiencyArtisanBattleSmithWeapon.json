@@ -1,17 +1,15 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "ArtisanAlchemist",
-    "ArtisanBattleSmith",
-    "ScoutSentinel"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "MartialWeaponCategory"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "Specialist",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArtisanSpecialistArchetypesTitle",
-    "description": "Feature/&ArtisanSpecialistArchetypesDescription",
+    "title": "Feature/&ProficiencyArtisanBattleSmithWeaponTitle",
+    "description": "Feature/&ProficiencyArtisanBattleSmithWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "99ed4fbb-49b9-5baf-885c-289b10eaff60",
+  "guid": "340bd307-0fc7-5dcc-a684-8d6202fa6a5c",
   "contentPack": 9999,
-  "name": "SubclassChoiceArtisanSpecialistArchetypes"
+  "name": "ProficiencyArtisanBattleSmithWeapon"
 }

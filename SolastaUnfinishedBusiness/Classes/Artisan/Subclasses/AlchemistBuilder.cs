@@ -19,8 +19,8 @@ public static class AlchemistBuilder
     public static CharacterSubclassDefinition Build(CharacterClassDefinition artisan)
     {
         var alchemistPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("ArtisanAlchemistAutoPrepSpells", ArtisanClass.GuidNamespace)
-            .SetGuiPresentation("AlchemistSubclassSpells", Category.Feat)
+            .Create("AutoPreparedSpellsArtisanAlchemist")
+            .SetGuiPresentation(Category.Feature)
             .SetCastingClass(artisan)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, HealingWord, InflictWounds, DetectPoisonAndDisease),
@@ -102,7 +102,7 @@ public static class AlchemistBuilder
 
         // Resilience +1 AC 10 minutes
         var resilienceGui = GuiPresentationBuilder
-            .Build("ArtisanAlchemistResilienceElixir", Category.Feat,
+            .Build("ArtisanAlchemistResilienceElixir", Category.Feature,
                 ConditionAuraOfProtection.GuiPresentation.SpriteReference);
 
         var resilience = BuildCondition("AlchemistResilienceElixirCondition", DurationType.Minute, 10, false,
@@ -110,7 +110,7 @@ public static class AlchemistBuilder
             BuildAttributeModifier("AlchemistResilienceMovementAffinity",
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass,
-                1, resilienceGui));
+                1, "ArtisanAlchemistResilienceElixir", ConditionAuraOfProtection.GuiPresentation.SpriteReference));
         //TODO:
         // var cancelResilience = new CancelConditionPowerBuilder("CancelElixirResilience",
         //     "4de693d2-f193-4434-8741-57335d7cefdc",
@@ -291,8 +291,8 @@ public static class AlchemistBuilder
             .AddToDB();
 
         return CharacterSubclassDefinitionBuilder
-            .Create("Alchemist", ArtisanClass.GuidNamespace)
-            .SetGuiPresentation("ArtisanAlchemist", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+            .Create("ArtisanAlchemist")
+            .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(alchemistElixirs, 3)
             .AddFeatureAtLevel(alchemistPreparedSpells, 3)
             .AddFeatureAtLevel(bonusRecovery, 3)

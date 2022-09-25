@@ -4,16 +4,16 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AlchemistResilienceMovementAffinity:1e6af25e-ecaa-5a10-b60a-cde2bee1d2c6"
+    "Definition:EquipmentAffinityArtisanInfuseBagOfHolding:550f9453-ada3-5c71-841c-846773a918d3"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Minute",
+  "durationType": "UntilLongRest",
   "durationParameterDie": "D4",
-  "durationParameter": 10,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -126,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArtisanAlchemistResilienceElixirTitle",
-    "description": "Feature/&ArtisanAlchemistResilienceElixirDescription",
+    "title": "Feature/&PowerSharedPoolArtisanInfuseBagOfHoldingTitle",
+    "description": "Feature/&PowerSharedPoolArtisanInfuseBagOfHoldingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
-      "m_SubObjectName": "ConditionShieldedByFaith",
+      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
+      "m_SubObjectName": "ConditionEnhancedAbility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "722951c2-f99d-5687-8500-e76ddad91933",
+  "guid": "1127d283-b98b-5b50-9cc3-d638e3485b5b",
   "contentPack": 9999,
-  "name": "AlchemistResilienceElixirCondition"
+  "name": "ConditionArtisanInfuseBagOfHolding"
 }

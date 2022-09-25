@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:MagicAffinityMindSharpener:02fc665f-a827-5e8d-bd9b-807b8c4b9824"
+    "Definition:MagicAffinityArtisanInfuseMindSharpener:2e32bb07-1021-5960-a791-b58b703f4e9c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -126,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PowerInfuseMindSharpenerTitle",
-    "description": "Subclass/&PowerInfuseMindSharpenerDescription",
+    "title": "Feature/&PowerSharedPoolArtisanInfuseMindSharpenerTitle",
+    "description": "Feature/&PowerSharedPoolArtisanInfuseMindSharpenerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",

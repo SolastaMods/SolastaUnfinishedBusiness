@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
@@ -12,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Classes.Artisan;
 
 internal static class ArtisanHelpers
 {
-    public static FeatureDefinitionProficiencyBuilder BuildProficiency(
+    internal static FeatureDefinitionProficiencyBuilder BuildProficiency(
         string name,
         RuleDefinitions.ProficiencyType type,
         params string[] proficiencies)
@@ -22,34 +23,22 @@ internal static class ArtisanHelpers
             .SetProficiencies(type, proficiencies);
     }
 
-    public static FeatureDefinitionAttributeModifier BuildAttributeModifier(
+    internal static FeatureDefinitionAttributeModifier BuildAttributeModifier(
         string name,
         AttributeModifierOperation modifierType,
         string attribute,
         int amount,
-        GuiPresentation guiPresentation)
+        string guiName,
+        AssetReferenceSprite spriteReference)
     {
         return FeatureDefinitionAttributeModifierBuilder
             .Create(name)
-            .SetGuiPresentation(guiPresentation)
+            .SetGuiPresentation(guiName, Category.Feature, spriteReference)
             .SetModifier(modifierType, attribute, amount)
             .AddToDB();
     }
 
-    public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(
-        IEnumerable<string> spellNames,
-        int levelBonus,
-        string name,
-        GuiPresentation guiPresentation)
-    {
-        return FeatureDefinitionMagicAffinityBuilder
-            .Create(name)
-            .SetGuiPresentation(guiPresentation)
-            .SetWarList(levelBonus, spellNames)
-            .AddToDB();
-    }
-
-    public static ConditionDefinition BuildCondition(
+    internal static ConditionDefinition BuildCondition(
         string name,
         RuleDefinitions.DurationType durationType,
         int durationParameter,
@@ -61,26 +50,6 @@ internal static class ArtisanHelpers
             .Create(name)
             .SetGuiPresentation(guiPresentation)
             .Configure(durationType, durationParameter, silent, conditionFeatures)
-            .AddToDB();
-    }
-
-    public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(
-        string name,
-        int attackModifier,
-        int dcModifier,
-        GuiPresentation guiPresentation)
-    {
-        return FeatureDefinitionMagicAffinityBuilder
-            .Create(name)
-            .SetGuiPresentation(guiPresentation)
-            .SetCastingModifiers(
-                attackModifier,
-                RuleDefinitions.SpellParamsModifierType.FlatValue,
-                dcModifier,
-                RuleDefinitions.SpellParamsModifierType.FlatValue,
-                false,
-                false,
-                false)
             .AddToDB();
     }
 
@@ -132,15 +101,20 @@ internal static class ArtisanHelpers
             functor, stringParameter);
     }
 
-    public static FeatureDefinitionAttackModifier BuildAttackModifier(string name,
-        RuleDefinitions.AttackModifierMethod attackRollModifierMethod, int attackRollModifier,
+    public static FeatureDefinitionAttackModifier BuildAttackModifier(
+        string name,
+        RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
+        int attackRollModifier,
         string attackRollAbilityScore,
-        RuleDefinitions.AttackModifierMethod damageRollModifierMethod, int damageRollModifier,
-        string damageRollAbilityScore, bool canAddAbilityBonusToSecondary,
-        string additionalAttackTag, GuiPresentation guiPresentation)
+        RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
+        int damageRollModifier,
+        string damageRollAbilityScore,
+        bool canAddAbilityBonusToSecondary,
+        string additionalAttackTag)
     {
-        return FeatureDefinitionAttackModifierBuilder.Create(name, ArtisanClass.GuidNamespace)
-            .SetGuiPresentation(guiPresentation)
+        return FeatureDefinitionAttackModifierBuilder
+            .Create(name, ArtisanClass.GuidNamespace)
+            .SetGuiPresentation(Category.Feature)
             .Configure(
                 attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
                 damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag)

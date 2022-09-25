@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
+  "modifiedAttribute": "AttacksNumber",
   "modifierOperation": "Additive",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
@@ -10,13 +10,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArtisanAlchemistResilienceElixirTitle",
-    "description": "Feature/&ArtisanAlchemistResilienceElixirDescription",
+    "title": "Feature/&AttributeModifierArtisanBattleSmithExtraAttackTitle",
+    "description": "Feature/&AttributeModifierArtisanBattleSmithExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
-      "m_SubObjectName": "ConditionShieldedByFaith",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1e6af25e-ecaa-5a10-b60a-cde2bee1d2c6",
+  "guid": "254788db-45c6-5ba4-b31e-f84139ea5846",
   "contentPack": 9999,
-  "name": "AlchemistResilienceMovementAffinity"
+  "name": "AttributeModifierArtisanBattleSmithExtraAttack"
 }

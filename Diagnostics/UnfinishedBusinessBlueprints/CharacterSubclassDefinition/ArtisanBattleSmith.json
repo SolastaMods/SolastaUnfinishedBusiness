@@ -1,0 +1,79 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfuseBattleSmithWeapon:be362abf-94dd-55c4-93b5-19f3be91e536",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsArtisanBattleSmith:02949f28-b099-57d3-b1d3-0fe319813376",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProtectorConstructFeatureSet:9b699719-0d02-4949-ad94-cff6a05f36c7",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolModifierArtisanBattleSmithInfusionPool:e93cc198-734b-5dce-acd6-8fa521a12613",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyArtisanBattleSmithWeapon:340bd307-0fc7-5dcc-a684-8d6202fa6a5c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierArtisanBattleSmithExtraAttack:254788db-45c6-5ba4-b31e-f84139ea5846",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttackModifierArtisanBattleSmithJolt:c3265c0f-433c-59a0-bb87-b3aa408df8b4",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttackModifierArtisanBattleSmithJolt2:b5fa19d3-a042-5716-ab18-fa646a0382ad",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProtectorConstructUpgradeFeatureSet:59bc566d-5204-4e53-89cb-eebc537ae6ab",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ArtisanBattleSmithTitle",
+    "description": "Subclass/&ArtisanBattleSmithDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
+      "m_SubObjectName": "Spellblade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "279d5b56-fbad-5272-99ab-5365bc067202",
+  "contentPack": 9999,
+  "name": "ArtisanBattleSmith"
+}

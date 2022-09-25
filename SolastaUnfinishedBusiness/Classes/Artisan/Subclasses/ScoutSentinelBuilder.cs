@@ -135,7 +135,7 @@ internal static class ScoutSentinelBuilder
     {
         return CharacterSubclassDefinitionBuilder
             .Create(Name, Guid)
-            .SetGuiPresentation("ScoutSentinelArtisanSubclass", Category.Subclass,
+            .SetGuiPresentation("ArtisanScoutSentinel", Category.Subclass,
                 MartialMountaineer.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(ScoutSentinelAutopreparedSpellsBuilder.SubclassAutopreparedSpells, 3)
             .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
@@ -351,7 +351,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
 
 internal sealed class ScoutSentinelAutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
 {
-    private const string SubclassAutopreparedSpellsName = "SubclassAutopreparedSpells";
+    private const string SubclassAutopreparedSpellsName = "AutoPreparedSpellsArtisanScoutSentinel";
     private const string SubclassAutopreparedSpellsGuid = "c5f03caa-7078-4da7-b166-00f292fcebfc";
 
     public static readonly FeatureDefinitionAutoPreparedSpells SubclassAutopreparedSpells =
@@ -360,8 +360,8 @@ internal sealed class ScoutSentinelAutopreparedSpellsBuilder : FeatureDefinition
     private ScoutSentinelAutopreparedSpellsBuilder(string name, string guid) : base(
         DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&AutoPreparedSpellsTitle";
-        Definition.GuiPresentation.Description = "Feat/&AutoPreparedSpellsDescription";
+        Definition.GuiPresentation.Title = "Feature/&AutoPreparedSpellsArtisanScoutSentinelTitle";
+        Definition.GuiPresentation.Description = "Feature/&AutoPreparedSpellsArtisanScoutSentinelDescription";
 
         SetPreparedSpellGroups(
             BuildSpellGroup(3, Thunderwave, MagicMissile),

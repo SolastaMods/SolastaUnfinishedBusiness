@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&AttackModifierArtisanBattleSmithJoltTitle",
-    "description": "Feat/&AttackModifierArtisanBattleSmithJoltDescription",
+    "title": "Feature/&AttackModifierArtisanBattleSmithJoltTitle",
+    "description": "Feature/&AttackModifierArtisanBattleSmithJoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

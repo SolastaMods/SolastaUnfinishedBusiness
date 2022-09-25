@@ -242,17 +242,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedArmor:93d56bcf-c32d-5990-8048-56d4236977ae",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfuseImprovedEnhancedArmor:0f475ab0-6b98-565e-acf6-ea6215dc98f8",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedFocus:6be17d0e-e7d9-5073-87bf-3c5fd533eeb9",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfuseImprovedEnhancedFocus:ef33ed07-9c62-50c4-bf40-1c45d75d4b88",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolArtisanInfusionImprovedEnhancedWeapon:4d39028c-df8c-501f-8718-e25f942a363d",
+      "featureDefinition": "Definition:PowerSharedPoolArtisanInfuseImprovedEnhancedWeapon:60bc0111-a6b9-5c5b-9148-58062b7ec71f",
       "level": 10
     },
     {

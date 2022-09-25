@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassAutopreparedSpells:c5f03caa-7078-4da7-b166-00f292fcebfc",
+      "featureDefinition": "Definition:AutoPreparedSpellsArtisanScoutSentinel:c5f03caa-7078-4da7-b166-00f292fcebfc",
       "level": 3
     },
     {
@@ -32,8 +32,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ScoutSentinelArtisanSubclassTitle",
-    "description": "Subclass/&ScoutSentinelArtisanSubclassDescription",
+    "title": "Subclass/&ArtisanScoutSentinelTitle",
+    "description": "Subclass/&ArtisanScoutSentinelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",

@@ -126,13 +126,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionArtisanInfusedDarkvisionTitle",
-    "description": "Condition/&ConditionArtisanInfusedDarkvisionDescription",
+    "title": "Feature/&VisionSuperiorDarkvisionTitle",
+    "description": "Feature/&VisionSuperiorDarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "da3138226e574a442803ae1229974089",
-      "m_SubObjectName": "ConditionDarkvision",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -142,7 +142,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
