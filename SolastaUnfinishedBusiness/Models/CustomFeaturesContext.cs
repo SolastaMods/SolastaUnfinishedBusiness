@@ -406,8 +406,9 @@ public static class CustomFeaturesContext
             UpdateUsageForPowerPool(character, poolUsage, usablePower);
         }
     }
-    
-    private static void UpdateUsageForPowerPool(RulesetCharacter character, int poolUsage, RulesetUsablePower usablePower)
+
+    private static void UpdateUsageForPowerPool(RulesetCharacter character, int poolUsage,
+        RulesetUsablePower usablePower)
     {
         var maxUses = GetMaxUsesForPool(usablePower, character);
         var remainingUses = Mathf.Clamp(usablePower.RemainingUses - poolUsage, 0, maxUses);
@@ -453,8 +454,9 @@ public static class CustomFeaturesContext
 
         return usablePower.RemainingUses / power.CostPerUse;
     }
-    
-    internal static int GetRemainingPowerCharges(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
+
+    internal static int GetRemainingPowerCharges(this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power)
     {
         if (power is IPowerSharedPool poolPower)
         {

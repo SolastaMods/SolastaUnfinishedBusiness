@@ -12,13 +12,14 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 internal static class InventorClass
 {
     private const string ClassName = "Inventor";
-    private static CharacterClassDefinition Class { get; set; }
 
     private static readonly AssetReferenceSprite Sprite =
         CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference;
 
     private static readonly AssetReferenceSprite Pictogram =
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
+
+    private static CharacterClassDefinition Class { get; set; }
 
     public static CharacterClassDefinition Build()
     {

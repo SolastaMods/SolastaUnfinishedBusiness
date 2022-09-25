@@ -38,9 +38,11 @@ public class DeviceFunctionDescriptionBuilder
         description.canOverchargeSpell = canOverchargeSpell;
         return this;
     }
-    
-    public  DeviceFunctionDescriptionBuilder SetUsage(EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
-        DeviceFunctionDescription.FunctionUseAffinity useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill,
+
+    public DeviceFunctionDescriptionBuilder SetUsage(
+        EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
+        DeviceFunctionDescription.FunctionUseAffinity useAffinity =
+            DeviceFunctionDescription.FunctionUseAffinity.AtWill,
         int useAmount = 1)
     {
         description.parentUsage = parentUsage;

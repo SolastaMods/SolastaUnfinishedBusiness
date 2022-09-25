@@ -53,13 +53,14 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
 
         return This();
     }
+
     public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
 
         Definition.SharedPool = poolPower;
-        
+
         //Recharge rate should match pool for tooltips to make sense
         Definition.rechargeRate = poolPower.RechargeRate;
         //Enforce usage determination as Fixed again, in case it was changed. Should we move it to some finalization method instead?
@@ -67,7 +68,7 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
 
         return this;
     }
-    
+
 
     #region Constructors
 

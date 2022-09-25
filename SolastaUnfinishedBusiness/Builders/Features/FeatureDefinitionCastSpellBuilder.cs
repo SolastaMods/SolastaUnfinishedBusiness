@@ -262,7 +262,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
     }
-    
+
     internal static void EnumerateSlotsPerLevel(
         int startingLevel,
         CasterProgression progression,

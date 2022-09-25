@@ -34,7 +34,7 @@ public static class InnovationAlchemy
             .SetSharedPool(alchemyPool)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 12,
-                    RuleDefinitions.TargetType.Sphere, 1)
+                    RuleDefinitions.TargetType.Sphere)
                 .SetSavingThrowData(
                     true,
                     true,

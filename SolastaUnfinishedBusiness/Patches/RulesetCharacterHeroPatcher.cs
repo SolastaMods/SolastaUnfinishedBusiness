@@ -448,11 +448,11 @@ internal static class RulesetCharacterHeroPatcher
             {
                 tmp.Add(provider.GetDevice(__instance));
             }
-            
+
             __result = tmp;
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "UseDeviceFunction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UseDeviceFunction_Patch
@@ -473,7 +473,7 @@ internal static class RulesetCharacterHeroPatcher
             __instance.UpdateUsageForPower(feature.Pool, useAmount);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "Unregister")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Unregister_Patch

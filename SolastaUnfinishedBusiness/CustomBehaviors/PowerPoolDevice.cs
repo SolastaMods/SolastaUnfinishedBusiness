@@ -16,13 +16,14 @@ public class PowerPoolDevice
     private static readonly Dictionary<RulesetCharacterHero, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
 
     private readonly ItemDefinition baseItem;
-    public FeatureDefinitionPower Pool { get; }
 
     public PowerPoolDevice(ItemDefinition baseItem, FeatureDefinitionPower pool)
     {
         this.baseItem = baseItem;
         Pool = pool;
     }
+
+    public FeatureDefinitionPower Pool { get; }
 
     public static void Clear(RulesetCharacterHero hero)
     {
