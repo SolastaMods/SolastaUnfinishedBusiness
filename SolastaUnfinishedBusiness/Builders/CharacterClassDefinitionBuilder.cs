@@ -1,6 +1,11 @@
-﻿#if false
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
+using TA.AI;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -282,4 +287,3 @@ internal class CharacterClassDefinitionBuilder
 
     #endregion
 }
-#endif
