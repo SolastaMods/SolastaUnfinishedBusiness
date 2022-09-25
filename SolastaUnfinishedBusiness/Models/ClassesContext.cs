@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Classes.Artisan;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -34,7 +33,7 @@ internal static class ClassesContext
     internal static void Load()
     {
         // LoadClass(Monk.BuildClass());
-        LoadClass(ArtisanClass.BuildArtisanClass());
+        // LoadClass(ArtisanClass.BuildArtisanClass());
         // LoadClass(Warlock.BuildWarlockClass());
         // LoadClass(Witch.Instance);
         // LoadClass(Magus.BuildMagusClass());
