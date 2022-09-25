@@ -130,7 +130,11 @@ internal static class Level20Context
             // TODO 20: Bard Superior Inspiration
         });
 
-        CastSpellBard.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellBard.SlotsPerLevels);
+
         CastSpellBard.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
     }
 
@@ -153,7 +157,11 @@ internal static class Level20Context
             // Solasta handles divine intervention on subclasses below
         });
 
-        CastSpellCleric.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellCleric.SlotsPerLevels);
+
         CastSpellCleric.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
@@ -210,7 +218,11 @@ internal static class Level20Context
             // TODO 20: Druid Arch Druid
         });
 
-        CastSpellDruid.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellDruid.SlotsPerLevels);
+
         CastSpellDruid.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
@@ -287,7 +299,11 @@ internal static class Level20Context
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
             });
 
-        CastSpellPaladin.SlotsPerLevels.SetRange(SharedSpellsContext.HalfCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            2,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+            CastSpellPaladin.SlotsPerLevels);
+
         CastSpellPaladin.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
@@ -305,7 +321,11 @@ internal static class Level20Context
             // TODO 20: Ranger Foe Slayer
         });
 
-        CastSpellRanger.SlotsPerLevels.SetRange(SharedSpellsContext.HalfCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            2,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+            CastSpellRanger.SlotsPerLevels);
+
         CastSpellRanger.ReplacedSpells.SetRange(SharedSpellsContext.HalfCasterReplacedSpells);
     }
 
@@ -368,9 +388,18 @@ internal static class Level20Context
                 20)
         });
 
-        CastSpellSorcerer.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellSorcerer.SlotsPerLevels);
+
         CastSpellSorcerer.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
-        CastSpellSorcerer.KnownSpells.SetRange(SharedSpellsContext.SorcererKnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+            2,
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellSorcerer.KnownSpells);
     }
 
     private static void WarlockLoad()
@@ -405,25 +434,41 @@ internal static class Level20Context
             // TODO 20: Signature Spells
         });
 
-        CastSpellWizard.SlotsPerLevels.SetRange(SharedSpellsContext.FullCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            1,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellWizard.SlotsPerLevels);
+
         CastSpellWizard.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
     }
 
     private static void MartialSpellBladeLoad()
     {
-        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            3,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+            CastSpellMartialSpellBlade.SlotsPerLevels);
+
         CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 
     private static void RoguishShadowcasterLoad()
     {
-        CastSpellShadowcaster.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            3,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+            CastSpellShadowcaster.SlotsPerLevels);
+
         CastSpellShadowcaster.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 
     private static void TraditionLightLoad()
     {
-        CastSpellTraditionLight.SlotsPerLevels.SetRange(SharedSpellsContext.OneThirdCastingSlots);
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
+            3,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+            CastSpellTraditionLight.SlotsPerLevels);
+
         CastSpellTraditionLight.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
     }
 }
