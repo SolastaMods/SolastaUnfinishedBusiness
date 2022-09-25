@@ -137,10 +137,9 @@ internal static class SrdAndHouseRulesContext
         FeatureDefinitionAttributeModifiers.AttributeModifierMageArmor
             .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
 
-        // as of 1.4.8 Mage Armor has its targetFilteringTag set as 255 (all flags on)
+        // as of 1.4.13 Mage Armor has its targetFilteringTag set as 255 (all flags on)
         // this change fixes it to be just unarmored
-        //TODO: move to better place
-        //TODO: check if still relevan after next patch - this was reported to TA on 15-09-22 (v1.4.8)
+        //TODO: check if still relevant after next patch - this was reported to TA on 15-09-22 (v1.4.8)
         MageArmor.EffectDescription.targetFilteringTag = TargetFilteringTag.Unarmored;
     }
 

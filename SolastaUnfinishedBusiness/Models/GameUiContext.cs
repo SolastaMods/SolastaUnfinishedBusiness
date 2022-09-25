@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Utils;
 using TA;
 using UnityEngine;
@@ -38,9 +40,182 @@ internal static class GameUiContext
         };
     }
 
-    internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
+    internal static void SetTeleporterGadgetActiveAnimation(WorldGadget worldGadget, bool visibility = false)
+    {
+        if (worldGadget.UserGadget == null)
+        {
+            return;
+        }
+
+        if (worldGadget.UserGadget.GadgetBlueprint == TeleporterIndividual)
+        {
+            var visualEffect = worldGadget.transform.FindChildRecursive("Vfx_Teleporter_Individual_Idle_01");
+
+            // NOTE: don't use visualEffect?. which bypasses Unity object lifetime check
+            if (visualEffect)
+            {
+                visualEffect.gameObject.SetActive(visibility);
+            }
+        }
+        else if (worldGadget.UserGadget.GadgetBlueprint == TeleporterParty)
+        {
+            var visualEffect = worldGadget.transform.FindChildRecursive("Vfx_Teleporter_Party_Idle_01");
+
+            // NOTE: don't use visualEffect?. which bypasses Unity object lifetime check
+            if (visualEffect)
+            {
+                visualEffect.gameObject.SetActive(visibility);
+            }
+        }
+    }
+
+    private static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
     {
         return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
+    }
+
+    internal static void HideExitsAndTeleportersGizmosIfNotDiscovered(
+        GameGadget __instance,
+        int conditionIndex,
+        bool state)
+    {
+        if (conditionIndex < 0 || conditionIndex >= __instance.conditionNames.Count)
+        {
+            return;
+        }
+
+        var param = __instance.conditionNames[conditionIndex];
+
+        if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
+            !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
+        {
+            return;
+        }
+
+        var service = ServiceRepository.GetService<IGameLocationService>();
+
+        if (service == null)
+        {
+            return;
+        }
+
+        var worldGadget = service.WorldLocation.WorldSectors
+            .SelectMany(ws => ws.WorldGadgets)
+            .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+        if (worldGadget == null)
+        {
+            return;
+        }
+
+        SetTeleporterGadgetActiveAnimation(worldGadget, state);
+    }
+
+    internal static void ComputeIsRevealedExtended(GameGadget __instance, ref bool __result)
+    {
+        var userGadget = Gui.GameLocation.UserLocation.UserRooms
+            .SelectMany(a => a.UserGadgets)
+            .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
+
+        if (userGadget == null || !IsGadgetExit(userGadget.GadgetBlueprint))
+        {
+            return;
+        }
+
+        // reverts the revealed state and recalculates it
+        __instance.revealed = false;
+        __result = false;
+
+        var x = (int)__instance.FeedbackPosition.x;
+        var y = (int)__instance.FeedbackPosition.z;
+
+        var feedbackPosition = new int3(x, 0, y);
+        var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
+
+        var gridAccessor = GridAccessor.Default;
+
+        foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
+        {
+            if (!gridAccessor.Visited(position))
+            {
+                continue;
+            }
+
+            var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+            var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+            var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+
+            var isInvisible = __instance.IsInvisible();
+            var isEnabled = __instance.IsEnabled();
+
+            if (worldGadget != null)
+            {
+                SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
+            }
+
+            __instance.revealed = true;
+            __result = true;
+
+            break;
+        }
+    }
+
+    internal static void SetHighlightVisibilityExtended(WorldGadget __instance, ref bool visible)
+    {
+        if (IsGadgetExit(__instance.UserGadget.GadgetBlueprint, true))
+        {
+            return;
+        }
+
+        var activator = DatabaseHelper.GetDefinition<GadgetDefinition>("Activator");
+        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+        var feedbackPosition = __instance.GameGadget.FeedbackPosition;
+
+        // activators aren't detected in their original position so we handle them in a different way
+        if (!__instance.GadgetDefinition == activator)
+        {
+            var position = new int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
+
+            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            {
+                visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+
+                if (visible)
+                {
+                    return;
+                }
+            }
+
+            return;
+        }
+
+        // scan activators surrounding cells
+        for (var x = -1; x <= 1; x++)
+        {
+            for (var z = -1; z <= 1; z++)
+            {
+                // jump original position
+                if (x == 0 && z == 0)
+                {
+                    continue;
+                }
+
+                var position = new int3((int)feedbackPosition.x + x, (int)feedbackPosition.y,
+                    (int)feedbackPosition.z + z);
+
+                foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+                {
+                    visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position,
+                        gameLocationCharacter);
+
+                    if (visible)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     private static void LoadRemoveBugVisualModels()

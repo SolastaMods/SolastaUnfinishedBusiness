@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
@@ -9,45 +8,47 @@ using static SolastaUnfinishedBusiness.Models.Level20Context;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-//PATCH: Allows Campaigns to be created with min level 20 requirement (DMP)
-[HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-public static class UserCampaignEditorScreen_OnMinLevelEndEdit
+internal static class UserCampaignEditorScreenPatcher
 {
-    [NotNull]
-    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    //PATCH: Allows Campaigns to be created with min level 20 requirement (DMP)
+    [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnMinLevelEndEdit_Patch
     {
-        var code = new List<CodeInstruction>(instructions);
-
-        if (Main.Settings.AllowDungeonsMaxLevel20)
+        [NotNull]
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
-                .ForEach(x => x.operand = ModMaxLevel);
-        }
+            var code = new List<CodeInstruction>(instructions);
 
-        return code;
+            if (Main.Settings.EnableLevel20)
+            {
+                code
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
+                    .ForEach(x => x.operand = ModMaxLevel);
+            }
+
+            return code;
+        }
     }
-}
 
 //PATCH: Allows Campaigns to be created with max level 20 requirement (DMP)
-[HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
-{
-    [NotNull]
-    internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnMaxLevelEndEdit_Patch
     {
-        var code = new List<CodeInstruction>(instructions);
-
-        if (Main.Settings.AllowDungeonsMaxLevel20)
+        [NotNull]
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
-                .ForEach(x => x.operand = ModMaxLevel);
-        }
+            var code = new List<CodeInstruction>(instructions);
 
-        return code;
+            if (Main.Settings.EnableLevel20)
+            {
+                code
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
+                    .ForEach(x => x.operand = ModMaxLevel);
+            }
+
+            return code;
+        }
     }
 }
-#endif

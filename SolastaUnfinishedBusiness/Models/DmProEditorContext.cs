@@ -29,6 +29,21 @@ internal static class DmProEditorContext
         UnlockTraps();
     }
 
+    internal static void AddCustomDungeonSizes(UserLocationSettingsModal __instance)
+    {
+        for (var size = ExtendedDungeonSize.Huge; size <= ExtendedDungeonSize.Gargantuan; size++)
+        {
+            var sizeString = UserLocationDefinitions.CellsBySize[(UserLocationDefinitions.Size)size].ToString();
+
+            __instance.optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
+            {
+                text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).Khaki() + " " +
+                       Gui.Format("{0} x {1}", sizeString, sizeString),
+                TooltipContent = string.Empty
+            });
+        }
+    }
+
     private static void UnlockItems()
     {
         var itemDefinitions = DatabaseRepository.GetDatabase<ItemDefinition>();
