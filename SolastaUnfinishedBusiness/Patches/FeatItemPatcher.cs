@@ -49,4 +49,15 @@ internal static class FeatItemPatcher
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(FeatItem), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class Unbind_Patch
+    {
+        public static void Prefix(FeatItem __instance)
+        {
+            //PATCH: sets FeatItem's color back to default
+            SubFeatSelectionModal.SetColor(__instance, SubFeatSelectionModal.DefaultColor);
+        }
+    }
 }

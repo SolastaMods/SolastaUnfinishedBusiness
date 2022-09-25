@@ -11,7 +11,7 @@ public class SubFeatSelectionModal : GuiGameScreen
 {
     private const float ShowDuration = 0.25f;
     private const float HideDuration = 0.1f;
-    private static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
+    public static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
     private static readonly Color NormalColor = new(0.407f, 0.431f, 0.443f, 1f);
     public static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
     private static readonly Color DisabledColor = new(0.557f, 0.431f, 0.443f, 1f);
@@ -112,7 +112,6 @@ public class SubFeatSelectionModal : GuiGameScreen
         for (var i = 0; i < featTable.childCount; i++)
         {
             var featItem = featTable.GetChild(i).GetComponent<FeatItem>();
-            SetColor(featItem, DefaultColor);
             featItem.Unbind();
         }
 
