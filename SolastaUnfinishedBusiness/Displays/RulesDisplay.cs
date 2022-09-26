@@ -11,7 +11,20 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label("");
 
-        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.FixSorcererTwinnedLogic;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixSorcererTwinnedLogic = toggle;
+        }
+
+        toggle = Main.Settings.ApplySrdWeightToFoodRations;
+        if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ApplySrdWeightToFoodRations = toggle;
+            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+        }
+
+        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
@@ -98,28 +111,6 @@ internal static class RulesDisplay
         }
 
         UI.Label("");
-
-        toggle = Main.Settings.FixSorcererTwinnedLogic;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixSorcererTwinnedLogic = toggle;
-        }
-
-        toggle = Main.Settings.FullyControlConjurations;
-        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FullyControlConjurations = toggle;
-            ConjurationsContext.SwitchFullyControlConjurations();
-        }
-
-        toggle = Main.Settings.ApplySrdWeightToFoodRations;
-        if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ApplySrdWeightToFoodRations = toggle;
-            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
-        }
-
-        UI.Label("");
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
@@ -141,6 +132,13 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             ItemOptionsContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.FullyControlConjurations;
+        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FullyControlConjurations = toggle;
+            ConjurationsContext.SwitchFullyControlConjurations();
         }
 
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;

@@ -112,6 +112,52 @@ internal static class GameUiDisplay
 
         #endregion
 
+        #region Input
+
+        UI.Label("");
+        UI.Label(Gui.Localize("ModUi/&Input"));
+        UI.Label("");
+
+        toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
+        if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
+        }
+
+        toggle = Main.Settings.InvertAltBehaviorOnTooltips;
+        if (UI.Toggle(Gui.Localize("ModUi/&InvertAltBehaviorOnTooltips"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+        }
+
+        UI.Label("");
+
+        toggle = Main.Settings.EnableHotkeyToggleHud;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHotkeyToggleHud = toggle;
+        }
+
+        toggle = Main.Settings.EnableCharacterExport;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterExport"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCharacterExport = toggle;
+        }
+
+        toggle = Main.Settings.EnableHotkeyDebugOverlay;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHotkeyDebugOverlay = toggle;
+        }
+
+        toggle = Main.Settings.EnableTeleportParty;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportParty"), ref toggle))
+        {
+            Main.Settings.EnableTeleportParty = toggle;
+        }
+
+        #endregion
+
         #region Item
 
         UI.Label("");

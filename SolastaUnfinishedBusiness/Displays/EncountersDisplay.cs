@@ -327,7 +327,7 @@ public static class EncountersDisplay
         UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
         UI.Label(". click " + "minus".Italic() + " to remove participants from the group");
         UI.Label(
-            ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color>pawn to place the enemies",
+            ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color> to spawn the enemies in place",
             UI.AutoWidth());
         UI.Label(". the encounters feature won't work in a multiplayer session. yet...");
         UI.Label("");
