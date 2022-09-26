@@ -242,7 +242,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetCostPerUse(1)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetEffectDescription(pulseDescription)
-            .SetAbility(AttributeDefinitions.Wisdom)
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .AddToDB();
     }
 }

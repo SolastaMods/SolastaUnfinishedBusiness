@@ -73,6 +73,34 @@ public abstract class
         return This();
     }
 
+    public TBuilder SetExplicitAbilityScore(string ability)
+    {
+        Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.Explicit;
+        Definition.abilityScore = ability;
+        return This();
+    }
+    
+    public TBuilder SetSpellcastingAbilityScore()
+    {
+        Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
+        return This();
+    }
+    
+    public TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true, bool proficiencyBonusToAttack = false)
+    {
+        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
+        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
+        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
+        return This();
+    }
+    
+    public TBuilder SetAttackFixedToHit(int bonus)
+    {
+        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
+        Definition.fixedAttackHit = bonus;
+        return This();
+    }
+
     public TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
     {
         Definition.activationTime = time;
@@ -141,12 +169,6 @@ public abstract class
     public TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
         Definition.overriddenPower = overridenPower;
-        return This();
-    }
-
-    public TBuilder SetAbility(string ability)
-    {
-        Definition.abilityScore = ability;
         return This();
     }
 
