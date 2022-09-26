@@ -24,7 +24,7 @@ internal static class GuiSpellDefinitionPatcher
         internal static void Postfix(GuiSpellDefinition __instance, ref EffectDescription __result)
         {
             //PATCH: support for ICustomMagicEffectBasedOnCaster allowing to pick spell effect for GUI depending on caster properties
-            __result = CustomFeaturesContext.ModifySpellEffectGui(__result, __instance);
+            __result = CustomFeaturesContext.ModifyMagicEffectGui(__result, __instance.SpellDefinition);
         }
     }
 }

@@ -481,25 +481,35 @@ public static class CustomFeaturesContext
 
     public static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
     {
-        return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
+        return ModifyMagicEffect(original, spell.SpellDefinition, spell.Caster);
     }
 
     public static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
     {
-        return ModifySpellEffect(spell.EffectDescription, spell, caster);
+        return ModifyMagicEffect(spell.EffectDescription, spell, caster);
     }
 
-    private static EffectDescription GetCachedEffect(RulesetCharacter caster, SpellDefinition spell)
+    public static EffectDescription ModifyPowerEffect(EffectDescription original, [NotNull] RulesetEffectPower power)
+    {
+        return ModifyMagicEffect(original, power.PowerDefinition, power.User);
+    }
+
+    private static string Key(BaseDefinition definition)
+    {
+        return $"{definition.GetType()}:{definition.Name}";
+    }
+
+    private static EffectDescription GetCachedEffect(RulesetCharacter caster, BaseDefinition definition)
     {
         if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
             return null;
         }
 
-        return !effects.TryGetValue(spell.Name, out var effect) ? null : effect;
+        return !effects.TryGetValue(Key(definition), out var effect) ? null : effect;
     }
 
-    private static void CacheEffect(RulesetCharacter caster, SpellDefinition spell, EffectDescription effect)
+    private static void CacheEffect(RulesetCharacter caster, BaseDefinition definition, EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
 
@@ -513,7 +523,7 @@ public static class CustomFeaturesContext
             effects = SpellEffectCache[caster.Guid];
         }
 
-        effects.AddOrReplace(spell.Name, effect);
+        effects.AddOrReplace(Key(definition), effect);
     }
 
     public static void ClearSpellEffectCache(RulesetCharacter caster)
@@ -521,9 +531,9 @@ public static class CustomFeaturesContext
         SpellEffectCache.Remove(caster.Guid);
     }
 
-    private static EffectDescription ModifySpellEffect(
+    private static EffectDescription ModifyMagicEffect(
         EffectDescription original,
-        SpellDefinition spell,
+        BaseDefinition definition,
         [CanBeNull] RulesetCharacter caster)
     {
         var result = original;
@@ -533,14 +543,14 @@ public static class CustomFeaturesContext
             return result;
         }
 
-        var cached = GetCachedEffect(caster, spell);
+        var cached = GetCachedEffect(caster, definition);
 
         if (cached != null)
         {
             return cached;
         }
 
-        var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+        var baseDefinition = definition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
 
         if (baseDefinition != null)
         {
@@ -549,27 +559,28 @@ public static class CustomFeaturesContext
 
         var modifiers = caster.GetSubFeaturesByType<IModifySpellEffect>();
 
-        modifiers.AddRange(spell.GetAllSubFeaturesOfType<IModifySpellEffect>());
+        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifySpellEffect>());
 
         if (!modifiers.Empty())
         {
-            result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current, caster));
+            result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(definition, current, caster));
         }
 
-        CacheEffect(caster, spell, result);
+        CacheEffect(caster, definition, result);
 
         return result;
     }
 
-    /**Modifies spell description for GUI purposes.*/
-    public static EffectDescription ModifySpellEffectGui(EffectDescription original, [NotNull] GuiSpellDefinition spell)
+    /**Modifies spell/power description for GUI purposes.*/
+    public static EffectDescription ModifyMagicEffectGui(EffectDescription original,
+        [NotNull] BaseDefinition definition)
     {
         var caster = Global.InspectedHero
                      ?? Global.ActiveLevelUpHero
                      ?? Global.ControlledPlayerCharacter?.RulesetCharacter
                      ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
-        return ModifySpellEffect(original, spell.SpellDefinition, caster);
+        return ModifyMagicEffect(original, definition, caster);
     }
 
     // [NotNull]

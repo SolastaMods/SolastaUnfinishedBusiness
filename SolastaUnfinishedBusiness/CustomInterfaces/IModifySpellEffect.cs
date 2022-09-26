@@ -2,5 +2,5 @@
 
 public interface IModifySpellEffect
 {
-    EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster);
+    EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter character);
 }
