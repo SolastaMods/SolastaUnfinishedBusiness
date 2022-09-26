@@ -2,7 +2,6 @@ CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
 ContentPackDefinition
-EffectProxyDefinition
 FeatDefinition
 FeatureDefinition
 FeatureDefinitionAbilityCheckAffinity

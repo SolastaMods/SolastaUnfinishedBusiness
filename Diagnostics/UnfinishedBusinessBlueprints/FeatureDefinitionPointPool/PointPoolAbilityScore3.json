@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Race/&PointPoolAbilityScore3Title",
-    "description": "Race/&PointPoolAbilityScore3Description",
+    "title": "Feature/&PointPoolAbilityScore3Title",
+    "description": "Feature/&PointPoolAbilityScore3Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
