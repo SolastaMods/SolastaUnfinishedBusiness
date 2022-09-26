@@ -131,11 +131,16 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellBard.SlotsPerLevels);
 
-        CastSpellBard.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+            4,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellBard.KnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 1, CastSpellBard.ReplacedSpells);
     }
 
     private static void ClericLoad()
@@ -158,11 +163,11 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellCleric.SlotsPerLevels);
 
-        CastSpellCleric.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 1, CastSpellCleric.ReplacedSpells);
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(
@@ -219,11 +224,11 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellDruid.SlotsPerLevels);
 
-        CastSpellDruid.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 1, CastSpellDruid.ReplacedSpells);
     }
 
     private static void FighterLoad()
@@ -300,11 +305,11 @@ internal static class Level20Context
             });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            2,
             FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
             CastSpellPaladin.SlotsPerLevels);
 
-        CastSpellPaladin.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            3, 1, CastSpellPaladin.ReplacedSpells);
     }
 
     private static void RangerLoad()
@@ -322,11 +327,16 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            2,
             FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
             CastSpellRanger.SlotsPerLevels);
 
-        CastSpellRanger.ReplacedSpells.SetRange(SharedSpellsContext.HalfCasterReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+            2,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+            CastSpellBard.KnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            3, 1, CastSpellRanger.ReplacedSpells);
     }
 
     private static void RogueLoad()
@@ -389,17 +399,16 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellSorcerer.SlotsPerLevels);
 
-        CastSpellSorcerer.ReplacedSpells.SetRange(SharedSpellsContext.FullCasterReplacedSpells);
-
         FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
             2,
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellSorcerer.KnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 1, CastSpellSorcerer.ReplacedSpells);
     }
 
     private static void WarlockLoad()
@@ -423,6 +432,9 @@ internal static class Level20Context
         });
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 1, CastSpellWarlock.ReplacedSpells);
     }
 
     private static void WizardLoad()
@@ -435,40 +447,45 @@ internal static class Level20Context
         });
 
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            1,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
             CastSpellWizard.SlotsPerLevels);
 
-        CastSpellWizard.ReplacedSpells.SetRange(SharedSpellsContext.EmptyReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+            6,
+            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CastSpellSorcerer.KnownSpells);
+
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            2, 0, CastSpellWizard.ReplacedSpells);
     }
 
     private static void MartialSpellBladeLoad()
     {
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            3,
             FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
             CastSpellMartialSpellBlade.SlotsPerLevels);
 
-        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            4, 1, CastSpellMartialSpellBlade.ReplacedSpells);
     }
 
     private static void RoguishShadowcasterLoad()
     {
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            3,
             FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
             CastSpellShadowcaster.SlotsPerLevels);
 
-        CastSpellShadowcaster.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            4, 1, CastSpellShadowcaster.ReplacedSpells);
     }
 
     private static void TraditionLightLoad()
     {
         FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            3,
             FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
             CastSpellTraditionLight.SlotsPerLevels);
 
-        CastSpellTraditionLight.ReplacedSpells.SetRange(SharedSpellsContext.OneThirdCasterReplacedSpells);
+        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+            4, 1, CastSpellTraditionLight.ReplacedSpells);
     }
 }

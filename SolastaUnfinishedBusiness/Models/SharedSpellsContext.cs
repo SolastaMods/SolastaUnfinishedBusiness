@@ -236,7 +236,7 @@ public static class SharedSpellsContext
 
     internal static void Load()
     {
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(1,
+        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster, FullCastingSlots);
 
         // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
@@ -657,102 +657,6 @@ public static class SharedSpellsContext
         14,
         15,
         15
-    };
-
-    internal static IEnumerable<int> EmptyReplacedSpells { get; } = new List<int>
-    {
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    };
-
-    internal static IEnumerable<int> FullCasterReplacedSpells { get; } = new List<int>
-    {
-        0,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-    };
-
-    internal static IEnumerable<int> HalfCasterReplacedSpells { get; } = new List<int>
-    {
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-    };
-
-    internal static IEnumerable<int> OneThirdCasterReplacedSpells { get; } = new List<int>
-    {
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
     };
 
     #endregion

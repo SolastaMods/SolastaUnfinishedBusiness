@@ -8,7 +8,6 @@ using System.Text;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
 #if DEBUG
@@ -30,11 +29,6 @@ internal static class BootContext
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
-
-        List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> a = new();
-
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(1,
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster, a);
 
         // Translations must load first
         Translations.Load();

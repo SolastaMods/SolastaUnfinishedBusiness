@@ -8,7 +8,6 @@
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -44,21 +43,16 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpellKnowledge(SpellKnowledge.Selection)
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetReplacedSpells(SharedSpellsContext.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(4, 1)
             // know 2 cantrips at level 3, gain at rate of third caster
             .SetKnownCantrips(
                 2,
                 3,
                 FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             // start with 2 level 1 spells, gain at rate of third caster
-            .SetKnownSpells(
-                3,
-                3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownSpells(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             // gain spell slots at rate of third caster
-            .SetSlotsPerLevel(
-                3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
         var skillProf = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyPathOfTheRageMageSkill")

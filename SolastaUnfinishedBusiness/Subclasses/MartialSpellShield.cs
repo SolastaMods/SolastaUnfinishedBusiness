@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -35,10 +34,10 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
-            .SetReplacedSpells(SharedSpellsContext.OneThirdCasterReplacedSpells)
+            .SetReplacedSpells(4, 1)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
+            .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
         var conditionWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic")

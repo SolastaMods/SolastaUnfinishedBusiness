@@ -11,9 +11,29 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell,
     FeatureDefinitionCastSpellBuilder>
 {
+    internal static void EnumerateReplacedSpells(
+        int startingLevel,
+        int replaces,
+        List<int> replacedSpells
+    )
+    {
+        replacedSpells.Clear();
+
+        var level = 1;
+
+        for (; level < startingLevel; level++)
+        {
+            replacedSpells.Add(0);
+        }
+
+        for (; level < 21; level++)
+        {
+            replacedSpells.Add(replaces);
+        }
+    }
+
     internal static void EnumerateKnownSpells(
         int startingAmount,
-        int startingLevel,
         CasterProgression progression,
         List<int> knownSpells
     )
@@ -22,7 +42,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         var level = 1;
 
-        for (; level < startingLevel; level++)
+        for (; level < (int)progression; level++)
         {
             knownSpells.Add(0);
         }
@@ -61,11 +81,11 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     }
 
     internal static void EnumerateSlotsPerLevel(
-        int startingLevel,
         CasterProgression progression,
         List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
     {
         var level = 1;
+        var startingLevel = (int)progression;
 
         for (; level < startingLevel; level++)
         {
@@ -324,10 +344,9 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel,
-        CasterProgression progression)
+    public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
     {
-        EnumerateKnownSpells(startingAmount, startingLevel, progression, Definition.KnownSpells);
+        EnumerateKnownSpells(startingAmount, progression, Definition.KnownSpells);
         return this;
     }
 
@@ -339,6 +358,12 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     public FeatureDefinitionCastSpellBuilder SetReplacedSpells(IEnumerable<int> spellsCount)
     {
         Definition.ReplacedSpells.SetRange(spellsCount);
+        return this;
+    }
+
+    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
+    {
+        EnumerateReplacedSpells(startingLevel, replaces, Definition.ReplacedSpells);
         return this;
     }
 
@@ -356,17 +381,17 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     }
 
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(int startingLevel, CasterProgression progression)
+    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
     {
-        EnumerateSlotsPerLevel(startingLevel, progression, Definition.SlotsPerLevels);
+        EnumerateSlotsPerLevel(progression, Definition.SlotsPerLevels);
         return this;
     }
 
     internal enum CasterProgression
     {
-        FullCaster,
-        HalfCaster,
-        ThirdCaster
+        FullCaster = 1,
+        HalfCaster = 2,
+        ThirdCaster = 3
     }
 
     #region SpellSlots
