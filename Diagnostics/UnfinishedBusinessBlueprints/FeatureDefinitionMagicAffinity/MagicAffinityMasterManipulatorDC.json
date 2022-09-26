@@ -54,7 +54,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&MagicAffinityMasterManipulatorDCTitle",
-    "description": "It is harder for opponents to resist your spells. The save DC increases by 2.",
+    "description": "Feature/&MagicAffinityMasterManipulatorDCDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

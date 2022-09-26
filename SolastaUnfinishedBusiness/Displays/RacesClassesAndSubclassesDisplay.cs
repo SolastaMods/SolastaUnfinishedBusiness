@@ -40,6 +40,8 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
 #if false
+        // ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue Con Artist</color>\nImproved Manipulation Spell DC</color>
+        // ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color>\nArcane Manipulation Spell DC</color>
         UI.Label("");
         //UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
         var intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
@@ -63,7 +65,7 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 #endif
 
-        UI.Label("");
+        // UI.Label("");
 
         toggle = Main.Settings.ReduceDarkElfLightPenalty;
         if (UI.Toggle(Gui.Localize("ModUi/&ReduceDarkelfLightPenalty"), ref toggle, UI.AutoWidth()))

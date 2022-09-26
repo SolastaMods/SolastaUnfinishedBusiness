@@ -75,10 +75,10 @@ ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned fr
 ModUi/&EnableRespec=Enable the RESPEC after rest actions
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable short rest recharge of Arcane Weapon on <color=#D89555>Wizard Arcane Fighter</color>
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable Arcane Weapon short rest recharge on <color=#D89555>Wizard Arcane Fighter</color>
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color>eleport party <i><color=#F0DAA0>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>\n<i><color=#F0DAA0>[must be enabled when the ability has available uses or before character creation]</color></i>
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
@@ -126,8 +126,6 @@ ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on 
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
 ModUi/&OverridePartySize=<color=white>Override the party size in custom adventures</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue Con Artist</color>\nImproved Manipulation Spell DC</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color>\nArcane Manipulation Spell DC</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
