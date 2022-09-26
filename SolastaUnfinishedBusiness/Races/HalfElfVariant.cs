@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -44,7 +43,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfHighSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
-        #if false
+#if false
         var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
             .Create(CastSpellElfHigh, "CastSpellHalfElfHigh")
             .SetGuiPresentation(Category.Feature)
@@ -52,8 +51,8 @@ internal static class RaceHalfElfVariantRaceBuilder
             .AddToDB();
         // Feature/&CastSpellHalfElfHighDescription=Choose one Wizard cantrip, using Charisma as the spellcasting ability.
         // Feature/&CastSpellHalfElfHighTitle=High Elf Cantrip
-        #endif
-        
+#endif
+
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)

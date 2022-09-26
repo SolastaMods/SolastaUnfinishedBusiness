@@ -27,7 +27,7 @@ internal static class RulesetEffectPowerPatcher
             __result = usablePower.SaveDC;
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetEffectPower), "EffectDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class EffectDescription_Getter_Patch

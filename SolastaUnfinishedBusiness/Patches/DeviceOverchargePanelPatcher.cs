@@ -96,7 +96,9 @@ internal static class DeviceOverchargePanelPatcher
             box.tooltip.Content += FormatEnhancementEffect(powerDefinition.EffectDescription, addedCharges);
             box.lastChargeGroup.gameObject.SetActive(lastChargeWarning);
             if (!lastChargeWarning)
+            {
                 return;
+            }
 
             box.lastChargeTooltip.Content = Gui.Localize(lastChargeConsequence == ItemOutOfCharges.Destroy
                 ? "Equipment/&DeviceLastChargeDestroyDescription"
@@ -108,51 +110,81 @@ internal static class DeviceOverchargePanelPatcher
         public static string FormatEnhancementEffect(EffectDescription effect, int slotDelta)
         {
             if (effect.EffectAdvancement.EffectIncrementMethod == RuleDefinitions.EffectIncrementMethod.None)
+            {
                 return string.Empty;
+            }
+
             var result = string.Empty;
             var targetsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTargetsBySlotDelta(slotDelta);
             if (targetsBySlotDelta > 0)
+            {
                 result = result + "\n" +
                          Gui.Format(targetsBySlotDelta == 1
                              ? "Action/&CastSpellHigherSlotAddTargetSingleTile"
                              : "Action/&CastSpellHigherSlotAddTargetPluralTile", targetsBySlotDelta.ToString("+0;-#"));
+            }
+
             var additionalDiceBySlotDelta = effect.EffectAdvancement.ComputeAdditionalDiceBySlotDelta(slotDelta);
             if (additionalDiceBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format(additionalDiceBySlotDelta == 1
                     ? "Action/&CastSpellHigherSlotAddDieTile"
                     : "Action/&CastSpellHigherSlotAddDiceTile", additionalDiceBySlotDelta.ToString("+0;-#"));
+            }
+
             var levelBySlotDelta = effect.EffectAdvancement.ComputeAdditionalSpellLevelBySlotDelta(slotDelta);
             if (levelBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format(levelBySlotDelta == 1
                         ? "Action/&CastSpellHigherSlotAddSpellLevelPluralTile"
                         : "Action/&CastSpellHigherSlotAddSpellLevelSingleTile",
                     levelBySlotDelta.ToString("+0;-#"));
+            }
+
             var summonsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalSummonsBySlotDelta(slotDelta);
             if (summonsBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format(summonsBySlotDelta == 1
                         ? "Action/&CastSpellHigherSlotAddSummonPluralTile"
                         : "Action/&CastSpellHigherSlotAddSummonSingleTile",
                     summonsBySlotDelta.ToString("+0;-#"));
+            }
+
             var additionalHpBySlotDelta = effect.EffectAdvancement.ComputeAdditionalHPBySlotDelta(slotDelta);
             if (additionalHpBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddHPTile",
                     additionalHpBySlotDelta.ToString("+0;-#"));
+            }
+
             var tempHpBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTempHPBySlotDelta(slotDelta);
             if (tempHpBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddTempHPTile",
                     tempHpBySlotDelta.ToString("+0;-#"));
+            }
+
             var cellsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTargetCellsBySlotDelta(slotDelta);
             if (cellsBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddTargetCellsTile",
                     cellsBySlotDelta.ToString("+0;-#"));
+            }
+
             var bonusBySlotDelta = effect.EffectAdvancement.ComputeAdditionalItemBonusBySlotDelta(slotDelta);
             if (bonusBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddItemBonusTile",
                     bonusBySlotDelta.ToString("+0;-#"));
+            }
+
             effect.EffectAdvancement.ComputeAdditionalWeaponDieBySlotDelta(slotDelta);
             if (bonusBySlotDelta > 0)
+            {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddWeaponDieTile",
                     bonusBySlotDelta.ToString("+0;-#"));
+            }
+
             return result;
         }
     }

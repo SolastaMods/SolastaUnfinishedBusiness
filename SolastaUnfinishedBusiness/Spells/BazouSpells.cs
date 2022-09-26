@@ -1,15 +1,11 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Models.SpellsContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -28,7 +24,7 @@ internal static class BazouSpells
         // RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
     }
 
-    #if false
+#if false
     [NotNull]
     private static SpellDefinition BuildEldritchOrb()
     {
@@ -86,8 +82,8 @@ internal static class BazouSpells
 
         return spell;
     }
-    #endif
-    
+#endif
+
     [NotNull]
     private static SpellDefinition BuildFindFamiliar()
     {
@@ -169,7 +165,7 @@ internal static class BazouSpells
         return spell;
     }
 
-    #if false
+#if false
     [NotNull]
     private static SpellDefinition BuildFrenzy()
     {
@@ -224,7 +220,7 @@ internal static class BazouSpells
 
         return spell;
     }
-    #endif
+#endif
 
     [NotNull]
     private static SpellDefinition BuildMinorLifesteal()
@@ -258,7 +254,7 @@ internal static class BazouSpells
         return spell;
     }
 
-    #if false
+#if false
     [NotNull]
     private static SpellDefinition BuildPetalStorm()
     {
@@ -373,5 +369,5 @@ internal static class BazouSpells
 
         return spell;
     }
-    #endif
+#endif
 }

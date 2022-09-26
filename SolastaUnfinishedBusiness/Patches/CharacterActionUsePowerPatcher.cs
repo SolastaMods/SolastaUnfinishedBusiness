@@ -29,7 +29,7 @@ internal static class CharacterActionUsePowerPatcher
             return !PowersContext.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
         }
     }
-    
+
     [HarmonyPatch(typeof(CharacterActionUsePower), "GetAdvancementData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GetAdvancementData_Patch

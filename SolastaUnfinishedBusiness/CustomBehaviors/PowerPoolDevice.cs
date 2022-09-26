@@ -64,6 +64,7 @@ public class PowerPoolDevice
                 item.Unregister();
                 throw new ArgumentException($"Can't create RulesetItemDevice from '{baseItem.Name}'!");
             }
+
             //mark fake device item as unidentified, so that if base item marked as need identification, it wont list all functions in the tooltip
             device.Identified = false;
 

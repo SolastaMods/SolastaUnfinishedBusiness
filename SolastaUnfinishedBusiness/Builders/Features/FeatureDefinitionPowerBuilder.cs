@@ -79,13 +79,13 @@ public abstract class
         Definition.abilityScore = ability;
         return This();
     }
-    
+
     public TBuilder SetSpellcastingAbilityScore()
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
         return This();
     }
-    
+
     public TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true, bool proficiencyBonusToAttack = false)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
@@ -93,7 +93,7 @@ public abstract class
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         return This();
     }
-    
+
     public TBuilder SetAttackFixedToHit(int bonus)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;

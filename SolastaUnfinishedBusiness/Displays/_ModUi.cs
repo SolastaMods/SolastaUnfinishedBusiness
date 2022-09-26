@@ -230,7 +230,7 @@ namespace SolastaUnfinishedBusiness.Displays
         public int Priority => 999;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
-        { 
+        {
             ModUi.DisplaySubMenu(ref creditsSelectedPane,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
@@ -238,6 +238,6 @@ namespace SolastaUnfinishedBusiness.Displays
 #endif
                 new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
                 new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
-        } 
+        }
     }
 }

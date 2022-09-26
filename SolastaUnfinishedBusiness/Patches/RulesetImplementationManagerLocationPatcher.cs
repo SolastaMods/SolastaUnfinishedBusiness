@@ -111,18 +111,18 @@ internal static class RulesetImplementationManagerLocationPatcher
         {
             switch (addedCondition.AmountOrigin)
             {
-                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus:
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
                     sourceAmount =
                         formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
 
-                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceCharacterLevel:
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
                     sourceAmount =
                         formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                     break;
 
-                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceClassLevel:
-                    var sourceCharacter = (RulesetCharacterHero) formsParams.sourceCharacter;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
+                    var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
                     if (DatabaseRepository.GetDatabase<CharacterClassDefinition>()

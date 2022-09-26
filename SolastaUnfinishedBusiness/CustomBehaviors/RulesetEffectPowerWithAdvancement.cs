@@ -2,8 +2,6 @@
 
 public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
-    public override int EffectLevel { get; }
-
     public RulesetEffectPowerWithAdvancement(
         int advancement,
         RulesetCharacter user,
@@ -14,6 +12,8 @@ public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         EffectLevel = 1 + advancement;
         RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(1 + advancement);
     }
+
+    public override int EffectLevel { get; }
 
     public override int ComputeTargetParameter()
     {

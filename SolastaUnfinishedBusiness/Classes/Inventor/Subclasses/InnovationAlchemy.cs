@@ -45,7 +45,7 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Dexterity,
                     false,
                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    savingThrowDifficultyAbility: AttributeDefinitions.Intelligence)
+                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
                 .SetEffectForms(new EffectFormBuilder()
@@ -72,7 +72,7 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Dexterity,
                     false,
                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    savingThrowDifficultyAbility: AttributeDefinitions.Intelligence)
+                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.BurningHands)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
                 .SetEffectForms(new EffectFormBuilder()
@@ -103,7 +103,7 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Dexterity,
                     false,
                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    savingThrowDifficultyAbility: AttributeDefinitions.Intelligence)
+                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
                 .SetEffectForms(new EffectFormBuilder()

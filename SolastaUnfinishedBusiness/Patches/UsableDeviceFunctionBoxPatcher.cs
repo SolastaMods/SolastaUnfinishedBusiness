@@ -25,7 +25,9 @@ internal static class UsableDeviceFunctionBoxPatcher
                 || advancement.EffectIncrementMethod != RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel
                 || !functionDescription.CanOverchargeSpell
                 || usableDevice.RemainingCharges <= functionDescription.UseAmount)
+            {
                 return;
+            }
 
             __instance.overchargeButton.gameObject.SetActive(true);
         }
