@@ -3,8 +3,8 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.4.8.0</AssemblyVersion>
-    <FileVersion>1.4.8.0</FileVersion>
+    <AssemblyVersion>1.4.13.0</AssemblyVersion>
+    <FileVersion>1.4.13.0</FileVersion>
     <Description>Solasta Unfinished Business</Description>
     <PackageProjectUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</RepositoryUrl>
@@ -13,7 +13,7 @@
     <Authors>SolastaMods</Authors>
     <Copyright>Copyright 2022</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.4.8.0</Version>
+    <Version>1.4.13.0</Version>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
