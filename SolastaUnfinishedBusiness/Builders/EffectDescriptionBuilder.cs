@@ -50,7 +50,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-    public EffectDescriptionBuilder SetParticleEffectParameters(SpellDefinition reference)
+    public EffectDescriptionBuilder SetParticleEffectParameters(IMagicEffect reference)
     {
         effect.SetEffectParticleParameters(reference.EffectDescription.EffectParticleParameters);
         return this;

@@ -41,8 +41,7 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Dexterity,
                     false,
                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetParticleEffectParameters(SpellDefinitions.FireBolt
-                    .EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
