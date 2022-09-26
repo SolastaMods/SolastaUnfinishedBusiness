@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -51,3 +52,4 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
         return this;
     }
 }
+#endif
