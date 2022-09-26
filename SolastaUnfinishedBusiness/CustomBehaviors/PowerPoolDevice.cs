@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Models;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 //TODO: add validation to check if this should apply at all
-//TODO: add ability to modify available functions based on validation
 /**
  * Adds fake usable device to hero's devices that has its charges set to uses of provided power pool.
  */
