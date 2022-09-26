@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -98,15 +97,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
-        FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityConArtistDC")
-            .SetGuiPresentation(GetSpellDcPresentation())
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
-                RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
-            .AddToDB();
-
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
@@ -117,6 +107,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
         return Subclass;
     }
 
+#if false
     [NotNull]
     private static GuiPresentation GetSpellDcPresentation()
     {
@@ -137,4 +128,14 @@ internal sealed class RoguishConArtist : AbstractSubclass
         DcIncreaseAffinity.saveDCModifier = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
         DcIncreaseAffinity.guiPresentation = GetSpellDcPresentation();
     }
+#endif
+
+    private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
+        FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityConArtistDC")
+            .SetGuiPresentation(Category.Feature)
+            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
+                3, // Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
+                RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
+            .AddToDB();
 }

@@ -39,6 +39,7 @@ internal static class RacesClassesAndSubclassesDisplay
             WizardSpellMaster.UpdateBonusRecovery();
         }
 
+#if false
         UI.Label("");
         //UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
         var intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
@@ -60,6 +61,7 @@ internal static class RacesClassesAndSubclassesDisplay
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
             WizardMasterManipulator.UpdateSpellDcBoost();
         }
+#endif
 
         UI.Label("");
 

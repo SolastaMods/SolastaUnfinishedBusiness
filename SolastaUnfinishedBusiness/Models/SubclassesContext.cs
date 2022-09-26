@@ -73,10 +73,10 @@ internal static class SubclassesContext
             SortSubclassesFeatures();
         }
 
-        RoguishConArtist.UpdateSpellDcBoost();
+        // RoguishConArtist.UpdateSpellDcBoost();
         WizardSpellMaster.UpdateBonusRecovery();
         WizardArcaneFighter.UpdateEnchantWeapon();
-        WizardMasterManipulator.UpdateSpellDcBoost();
+        // WizardMasterManipulator.UpdateSpellDcBoost();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)

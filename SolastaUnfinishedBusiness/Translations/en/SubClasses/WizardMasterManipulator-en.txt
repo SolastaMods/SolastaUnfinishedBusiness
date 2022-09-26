@@ -1,6 +1,6 @@
 Feature/&MagicAffinityMasterManipulatorControlHeightenedDescription=When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
 Feature/&MagicAffinityMasterManipulatorControlHeightenedTitle=Arcane Manipulation
-Feature/&MagicAffinityMasterManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by {0}.
+Feature/&MagicAffinityMasterManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 2.
 Feature/&MagicAffinityMasterManipulatorDCTitle=Arcane Force
 Feature/&ProficiencyMasterManipulatorMentalSavingThrowsDescription=Gain proficiency in saving throws with Constitution and Charisma.
 Feature/&ProficiencyMasterManipulatorMentalSavingThrowsTitle=Mental Resistance
