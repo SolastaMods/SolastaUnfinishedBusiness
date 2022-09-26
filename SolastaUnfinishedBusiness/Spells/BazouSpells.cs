@@ -20,14 +20,15 @@ internal static class BazouSpells
 {
     internal static void Register()
     {
-        RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
+        // RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildFrenzy(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(BuildFrenzy(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
-        RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
-        RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
+        // RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
+        // RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
     }
 
+    #if false
     [NotNull]
     private static SpellDefinition BuildEldritchOrb()
     {
@@ -85,7 +86,8 @@ internal static class BazouSpells
 
         return spell;
     }
-
+    #endif
+    
     [NotNull]
     private static SpellDefinition BuildFindFamiliar()
     {
@@ -167,6 +169,7 @@ internal static class BazouSpells
         return spell;
     }
 
+    #if false
     [NotNull]
     private static SpellDefinition BuildFrenzy()
     {
@@ -221,6 +224,7 @@ internal static class BazouSpells
 
         return spell;
     }
+    #endif
 
     [NotNull]
     private static SpellDefinition BuildMinorLifesteal()
@@ -254,6 +258,7 @@ internal static class BazouSpells
         return spell;
     }
 
+    #if false
     [NotNull]
     private static SpellDefinition BuildPetalStorm()
     {
@@ -368,4 +373,5 @@ internal static class BazouSpells
 
         return spell;
     }
+    #endif
 }

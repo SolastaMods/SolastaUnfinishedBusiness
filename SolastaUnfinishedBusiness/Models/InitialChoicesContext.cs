@@ -20,7 +20,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class InitialChoicesContext
 {
     internal const int MinInitialFeats = 0;
-    internal const int MaxInitialFeats = 10;
+    internal const int MaxInitialFeats = 2; // don't increase this value to avoid issue reports on crazy scenarios
 
     internal const int GameMaxAttribute = 15;
     internal const int GameBuyPoints = 27;
@@ -37,8 +37,9 @@ internal static class InitialChoicesContext
         for (var i = 2; i <= MaxInitialFeats + 1; i++)
         {
             _ = FeatureDefinitionPointPoolBuilder
-                .Create($"PointPool{i}BonusFeats")
-                .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Race)
+                .Create($"PointPool{i}Feats")
+                //.SetGuiPresentationNoContent()
+                .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Feature)
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
         }
