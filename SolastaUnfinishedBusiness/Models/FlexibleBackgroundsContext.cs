@@ -32,80 +32,137 @@ public static class FlexibleBackgroundsContext
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
         .AddToDB();
 
-    private static readonly FeatureDefinition AcademicSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAcademicBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition AcolyteSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAcolyteBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition AristocratSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAristocratBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition LawkeeperSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsLawkeeperBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition LowlifeSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsLowlifeBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition PhilosopherSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsPhilosopherBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition SellswordSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsSellswordBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition SpySuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsSpyBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition WandererSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsWandererBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition AesceticSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsAesceticBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition ArtistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsArtistBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
-    private static readonly FeatureDefinition OccultistSuggestedSkills = FeatureDefinitionBuilder
-        .Create("SuggestedSkillsOccultistBackground")
-        .SetGuiPresentation(Category.Background)
-        .AddToDB();
-
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> AddedFeatures = new()
     {
-        { Academic, new List<FeatureDefinition> { SkillThree, AcademicSuggestedSkills, ToolChoice } },
-        { Acolyte, new List<FeatureDefinition> { SkillThree, AcolyteSuggestedSkills, ToolChoice } },
-        { Aristocrat, new List<FeatureDefinition> { SkillThree, AristocratSuggestedSkills } },
-        { Lawkeeper, new List<FeatureDefinition> { SkillTwo, LawkeeperSuggestedSkills } },
-        { Lowlife, new List<FeatureDefinition> { SkillThree, LowlifeSuggestedSkills, ToolChoice } },
-        { Philosopher, new List<FeatureDefinition> { SkillTwo, PhilosopherSuggestedSkills, ToolChoice } },
-        { SellSword, new List<FeatureDefinition> { SkillTwo, SellswordSuggestedSkills, ToolChoice } },
-        { Spy, new List<FeatureDefinition> { SkillThree, SpySuggestedSkills, ToolChoice } },
-        { Wanderer, new List<FeatureDefinition> { SkillTwo, WandererSuggestedSkills, ToolChoiceTwo } },
-        { Aescetic_Background, new List<FeatureDefinition> { SkillTwo, AesceticSuggestedSkills, ToolChoice } },
-        { Artist_Background, new List<FeatureDefinition> { SkillThree, ArtistSuggestedSkills } },
-        { Occultist_Background, new List<FeatureDefinition> { SkillTwo, OccultistSuggestedSkills, ToolChoice } }
+        {
+            Academic, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsAcademicBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Acolyte, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsAcolyteBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Aristocrat, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsAristocratBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB()
+            }
+        },
+        {
+            Lawkeeper, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsLawkeeperBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB()
+            }
+        },
+        {
+            Lowlife, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsLowlifeBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Philosopher, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsPhilosopherBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            SellSword, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsSellswordBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Spy, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsSpyBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Wanderer, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsWandererBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoiceTwo
+            }
+        },
+        {
+            Aescetic_Background, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsAesceticBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        },
+        {
+            Artist_Background, new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsArtistBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB()
+            }
+        },
+        {
+            Occultist_Background, new List<FeatureDefinition>
+            {
+                SkillTwo,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsOccultistBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB(),
+                ToolChoice
+            }
+        }
     };
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> RemovedFeatures =
