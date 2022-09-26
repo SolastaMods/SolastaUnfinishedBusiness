@@ -21,7 +21,7 @@ internal static class BootContext
     internal const string DonateUrl =
         "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business";
 
-    internal static readonly HashSet<string> SupportedLanguages = new() { "zh-CN" };
+    internal static readonly HashSet<string> SupportedLanguages = new(); // { "zh-CN" };
 
     public static void Startup()
     {
