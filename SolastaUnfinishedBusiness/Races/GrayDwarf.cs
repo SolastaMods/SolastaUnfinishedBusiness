@@ -43,7 +43,7 @@ internal static class GrayDwarfSubraceBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
                 "CombatAffinityGrayDwarfLightSensitivity")
             .SetGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
-            .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
+            .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.None)
             .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
             .AddToDB();
@@ -71,29 +71,6 @@ internal static class GrayDwarfSubraceBuilder
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(grayDwarfLightingEffectAndCondition)
             .AddToDB();
-
-        if (Main.Settings.ReduceGrayDwarfLightPenalty)
-        {
-            const string REDUCED_DESCRIPTION = "Feature/&LightAffinityGrayDwarfReducedLightSensitivityDescription";
-
-            grayDwarfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.None;
-            grayDwarfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAffinityValueDetermination.Die;
-            grayDwarfCombatAffinityLightSensitivity.GuiPresentation.description = REDUCED_DESCRIPTION;
-            grayDwarfConditionLightSensitive.GuiPresentation.description = REDUCED_DESCRIPTION;
-            grayDwarfLightAffinity.GuiPresentation.description = REDUCED_DESCRIPTION;
-        }
-        else
-        {
-            grayDwarfCombatAffinityLightSensitivity.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
-            grayDwarfCombatAffinityLightSensitivity.myAttackModifierValueDetermination =
-                RuleDefinitions.CombatAffinityValueDetermination.None;
-            grayDwarfCombatAffinityLightSensitivity.GuiPresentation.description =
-                grayDwarfLightAffinity.GuiPresentation.Description;
-            grayDwarfConditionLightSensitive.GuiPresentation.description =
-                grayDwarfLightAffinity.GuiPresentation.Description;
-            grayDwarfLightAffinity.GuiPresentation.description = grayDwarfLightAffinity.GuiPresentation.Description;
-        }
 
         var grayDwarfConditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm,

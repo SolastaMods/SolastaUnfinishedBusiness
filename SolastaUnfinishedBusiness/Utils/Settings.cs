@@ -105,15 +105,12 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
-
     public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
 
     // public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 2;
     // public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
     // public bool ReduceDarkElfLightPenalty { get; set; }
-
-    public bool ReduceGrayDwarfLightPenalty { get; set; }
-
+    // public bool ReduceGrayDwarfLightPenalty { get; set; }
     // public bool HalfHighElfUseCharisma { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
