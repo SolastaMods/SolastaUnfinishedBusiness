@@ -8,7 +8,7 @@ public static class InnovationWeapon
     public static CharacterSubclassDefinition Build()
     {
         return CharacterSubclassDefinitionBuilder
-            .Create("InventorInnovationWeapon")
+            .Create("InnovationWeapon")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfJugement)
             .AddToDB();
     }

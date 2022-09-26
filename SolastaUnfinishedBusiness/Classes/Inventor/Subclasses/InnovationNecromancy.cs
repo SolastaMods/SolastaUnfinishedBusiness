@@ -8,7 +8,7 @@ public static class InnovationNecromancy
     public static CharacterSubclassDefinition Build()
     {
         return CharacterSubclassDefinitionBuilder
-            .Create("InventorInnovationNecromancy")
+            .Create("InnovationNecromancy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.SorcerousHauntedSoul)
             .AddToDB();
     }
