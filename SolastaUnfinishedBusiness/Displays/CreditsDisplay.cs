@@ -12,12 +12,6 @@ internal static class CreditsDisplay
 {
     private static bool _displayPatches;
 
-    private static readonly Dictionary<string, string> ThanksTable = new()
-    {
-        { "Critical Hit", "<b>M. Miller</b>, <b>C. Alvarez</b>, <b>J. Cohen</b>, <b>L. Goldiner</b>" },
-        { "D20", "D. Fenter, B. Amorsen, B. Lane, J. Loustaunau" }
-    };
-
     // ReSharper disable once MemberCanBePrivate.Global
     internal static readonly List<(string, string)> CreditsTable = new()
     {
@@ -85,7 +79,6 @@ internal static class CreditsDisplay
 
         UI.Label("");
         UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
-
         UI.Label("");
 
         if (_displayPatches)
@@ -100,18 +93,6 @@ internal static class CreditsDisplay
             {
                 UI.Label(author.Orange(), UI.Width(150));
                 UI.Label(content, UI.Width(650));
-            }
-        }
-
-        UI.Label("");
-
-        // credits
-        foreach (var kvp in ThanksTable)
-        {
-            using (UI.HorizontalScope())
-            {
-                UI.Label(kvp.Key.Orange(), UI.Width(150));
-                UI.Label(kvp.Value, UI.Width(650));
             }
         }
 

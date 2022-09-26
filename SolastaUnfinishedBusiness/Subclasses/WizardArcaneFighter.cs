@@ -76,7 +76,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 MartialSpellblade.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, weaponProficiency, concentrationAffinity, enchantWeapon)
-            .AddFeaturesAtLevel(2, concentrationAffinity)
             .AddFeaturesAtLevel(6, extraAttack)
             .AddFeaturesAtLevel(10, bonusSpell)
             .AddFeaturesAtLevel(14, bonusWeaponDamage)
