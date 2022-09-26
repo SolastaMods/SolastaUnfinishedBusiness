@@ -17,15 +17,6 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
 
-        // UI.Label("");
-        //
-        // toggle = Main.Settings.UseMoreRestrictiveAcStacking;
-        // if (UI.Toggle(Gui.Localize("ModUi/&UseMoreRestrictiveAcStacking"), ref toggle, UI.AutoWidth()))
-        // {
-        //     Main.Settings.UseMoreRestrictiveAcStacking = toggle;
-        // }
-        // ModUi/&UseMoreRestrictiveAcStacking=AC granting clothes and <color=#D89555>Barkskin</color> won't stack with <color=#D89555>Unarmored Defense</color> or similar features
-
         UI.Label("");
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
@@ -78,6 +69,34 @@ internal static class RulesDisplay
             }
         }
 
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+        }
+
+        UI.Label("");
+
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        }
+
+        toggle = Main.Settings.UseHeightOneCylinderEffect;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseHeightOneCylinderEffect = toggle;
+            SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
+        }
+
         UI.Label("");
 
         toggle = Main.Settings.FixSorcererTwinnedLogic;
@@ -104,33 +123,11 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
-        toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.AllowStackedMaterialComponent;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+            Main.Settings.AllowStackedMaterialComponent = toggle;
         }
-
-        toggle = Main.Settings.UseHeightOneCylinderEffect;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
-        }
-
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-        }
-
-        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-        }
-
-        UI.Label("");
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
@@ -146,12 +143,6 @@ internal static class RulesDisplay
             ItemOptionsContext.SwitchDruidAllowMetalArmor();
         }
 
-        toggle = Main.Settings.DisableAutoEquip;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableAutoEquip = toggle;
-        }
-
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
         if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {
@@ -163,36 +154,13 @@ internal static class RulesDisplay
 
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
-        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"), ref intValue,
-                SrdAndHouseRulesContext.DefaultVisionRange, SrdAndHouseRulesContext.MaxVisionRange,
+        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"),
+                ref intValue,
+                SrdAndHouseRulesContext.DefaultVisionRange,
+                SrdAndHouseRulesContext.MaxVisionRange,
                 SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
-        }
-
-        UI.Label("");
-
-        toggle = Main.Settings.AddPickPocketableLoot;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPickPocketableLoot = toggle;
-            if (toggle)
-            {
-                PickPocketContext.Load();
-            }
-        }
-
-        toggle = Main.Settings.AllowStackedMaterialComponent;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.AllowStackedMaterialComponent = toggle;
-        }
-
-        toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-        if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ScaleMerchantPricesCorrectly = toggle;
         }
 
         UI.Label("");

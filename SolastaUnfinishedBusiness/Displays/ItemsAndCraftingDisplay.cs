@@ -99,6 +99,16 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
+        toggle = Main.Settings.AddPickPocketableLoot;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPickPocketableLoot = toggle;
+            if (toggle)
+            {
+                PickPocketContext.Load();
+            }
+        }
+
         UI.Label("");
 
         toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
@@ -243,6 +253,12 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.DisplayMerchantsToggle)
         {
             UI.Label("");
+
+            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
+            if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
+            }
 
             toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
             if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,

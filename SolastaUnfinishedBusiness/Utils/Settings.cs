@@ -152,8 +152,6 @@ public class Settings : UnityModManager.ModSettings
 
     // SRD
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-
-    // public bool UseMoreRestrictiveAcStacking { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
@@ -162,25 +160,18 @@ public class Settings : UnityModManager.ModSettings
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool FixSorcererTwinnedLogic { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+    public bool RemoveRecurringEffectOnEntangle { get; set; }
+    public bool ChangeSleetStormToCube { get; set; }
+    public bool UseHeightOneCylinderEffect { get; set; }
     public bool ApplySrdWeightToFoodRations { get; set; }
 
     // House
-    public bool ChangeSleetStormToCube { get; set; }
-    public bool UseHeightOneCylinderEffect { get; set; }
-    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
+    public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
-    public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
-#if DEBUG
-    public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
-#else
-    public bool AddPickPocketableLoot { get; set; }
-#endif
-    public bool AllowStackedMaterialComponent { get; set; }
-    public bool ScaleMerchantPricesCorrectly { get; set; }
 
     //
     // Gameplay - Items, Crafting & Merchants
@@ -193,6 +184,11 @@ public class Settings : UnityModManager.ModSettings
 #else
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+#endif
+#if DEBUG
+    public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
+#else
+    public bool AddPickPocketableLoot { get; set; }
 #endif
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
@@ -208,6 +204,7 @@ public class Settings : UnityModManager.ModSettings
     public List<string> CraftingRecipesInDm { get; } = new();
 
     // Merchants
+    public bool ScaleMerchantPricesCorrectly { get; set; }
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
     public bool StockHugoStoreWithAdditionalFoci { get; set; }
     public bool EnableAdditionalFociInDungeonMaker { get; set; }
@@ -274,6 +271,7 @@ public class Settings : UnityModManager.ModSettings
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
 
     // Inventory and Items
+    public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }

@@ -102,8 +102,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters vis
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&HiderArmor=Hide Armor
 ModUi/&House=<color=#F0DAA0>House:</color>
-ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far away]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp=<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
 ModUi/&Input=Keyboard & Mouse
 ModUi/&Interface=Interface
@@ -150,7 +150,7 @@ ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Jor
 ModUi/&RestockHelp=. Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes)\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Rules
-ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly
+ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
@@ -179,7 +179,7 @@ ModUi/&UnlockEyeStyles=Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
-ModUi/&UseHeightOneCylinderEffect=Display a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
+ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> (square) and <color=#D89555>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WeaponTag=Weapon Tag

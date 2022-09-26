@@ -118,6 +118,12 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&InventoryAndItems"));
         UI.Label("");
 
+        toggle = Main.Settings.DisableAutoEquip;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableAutoEquip = toggle;
+        }
+
         toggle = Main.Settings.EnableInventoryFilteringAndSorting;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
         {
