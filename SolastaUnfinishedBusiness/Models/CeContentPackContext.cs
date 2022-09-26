@@ -8,31 +8,23 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CeContentPackContext
 {
-    internal const GamingPlatformDefinitions.ContentPack
-        CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
+    internal const GamingPlatformDefinitions.ContentPack CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
     private const string CeTag = "UnfinishedBusiness";
 
-    private static ContentPackDefinition CreateContentPackDefinition()
+    internal static void Load()
     {
         var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
 
-        //TODO: figure out how to fix CeContentPack being transformed into '9999' by ToString in `FeatureDefinitionItem`
-        //it uses ToString on value cast to base enum (ContentPack) and since it doesn't have value for our 9999, it just returns it as number
-        return ContentPackDefinitionBuilder
+        _ = ContentPackDefinitionBuilder
             .Create(CeContentPack.ToString())
             .SetGuiPresentation(Category.ContentPack, sprite)
             .AddToDB();
-    }
-
-    public static void Load()
-    {
-        _ = CreateContentPackDefinition();
 
         GamingPlatformManager.automaticallyUnlockedContentPacks.Add(CeContentPack);
     }
 
-    public static void AddCeTag(BaseDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddCeTag(BaseDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (DiagnosticsContext.IsCeDefinition(item))
         {
@@ -40,7 +32,7 @@ internal static class CeContentPackContext
         }
     }
 
-    public static void AddCeSpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddCeSpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (SpellsContext.Spells.TryGetValue(spell, out _))
         {
