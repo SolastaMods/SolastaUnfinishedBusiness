@@ -95,24 +95,12 @@ internal static class GrayDwarfSubraceBuilder
                 "SavingThrowAffinityGrayDwarfIllusion")
             .AddToDB();
 
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[0].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[1].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[1].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[2].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[2].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[3].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[3].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[4].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[4].savingThrowModifierDiceNumber = 0;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].affinity =
-            RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-        grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[5].savingThrowModifierDiceNumber = 0;
+        for (var i = 0; i < 6; i++)
+        {
+            grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].affinity =
+                RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+            grayDwarfSavingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].savingThrowModifierDiceNumber = 0;
+        }
 
         var grayDwarfAncestryFeatureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")

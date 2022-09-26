@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class RaceHalfElfVariantRaceBuilder
 {
-    internal static CharacterRaceDefinition RaceHalfElfVariantRace { get; } = BuildRaceHalfElfVariant();
+    internal static CharacterRaceDefinition RaceHalfElfVariant { get; } = BuildRaceHalfElfVariant();
 
     [NotNull]
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()

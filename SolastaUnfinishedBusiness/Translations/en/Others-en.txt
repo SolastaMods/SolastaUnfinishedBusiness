@@ -11,14 +11,10 @@ Feature/&AttributeModifier{0}Description={0}
 Feature/&EmptyString=
 Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nmax level reached
-MainMenu/&LevelDownDescription=Level down this Hero.
-MainMenu/&LevelDownTitle=Level Down
 Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription=Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription=Export {0}
-Message/&LevelDownConfirmationDescription=Level down this Hero?
-Message/&LevelDownMultiplayerAbortDescription=Cannot Level Down during a multiplayer session.
 Message/&MessageModWelcomeDescription=The Unfinished Business Mod is packed full of exciting features, but by default none are enabled. Press <color=#F0DAA0>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Unfinished Business' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle=Unfinished Business Mod
 Message/&RespecMultiplayerAbortDescription=Cannot Respec during a multiplayer session or on exploration map.
