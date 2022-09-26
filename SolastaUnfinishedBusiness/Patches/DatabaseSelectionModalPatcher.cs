@@ -21,7 +21,7 @@ internal static class DatabaseSelectionModalPatcher
 
             __instance.allMonsters.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                 .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+                .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
 
             var service = ServiceRepository.GetService<IGamingPlatformService>();
 
@@ -51,7 +51,7 @@ internal static class DatabaseSelectionModalPatcher
 
             __instance.allNpcs.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                 .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
+                .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
 
             var service = ServiceRepository.GetService<IGamingPlatformService>();
 
