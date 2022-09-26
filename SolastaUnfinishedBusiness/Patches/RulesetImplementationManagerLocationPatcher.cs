@@ -66,6 +66,26 @@ internal static class RulesetImplementationManagerLocationPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateActiveDeviceFunction")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class InstantiateActiveDeviceFunction_Patch
+    {
+        internal static bool Prefix(
+            RulesetImplementationManagerLocation __instance,
+            ref RulesetEffect __result,
+            RulesetCharacter user,
+            RulesetItemDevice usableDevice,
+            RulesetDeviceFunction usableDeviceFunction,
+            int addedCharges,
+            bool delayRegistration,
+            int subSpellIndex)
+        {
+            //PATCH: support `RulesetEffectPowerWithAdvancement` by creating custom instance when needed
+            return RulesetEffectPowerWithAdvancement.InstantiateActiveDeviceFunction(__instance, ref __result, user,
+                usableDevice, usableDeviceFunction, addedCharges, delayRegistration);
+        }
+    }
+
     //PATCH: Implements ExtraOriginOfAmount
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -91,18 +111,18 @@ internal static class RulesetImplementationManagerLocationPatcher
         {
             switch (addedCondition.AmountOrigin)
             {
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
+                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus:
                     sourceAmount =
                         formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
 
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
+                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceCharacterLevel:
                     sourceAmount =
                         formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                     break;
 
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
-                    var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
+                case (ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceClassLevel:
+                    var sourceCharacter = (RulesetCharacterHero) formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
                     if (DatabaseRepository.GetDatabase<CharacterClassDefinition>()

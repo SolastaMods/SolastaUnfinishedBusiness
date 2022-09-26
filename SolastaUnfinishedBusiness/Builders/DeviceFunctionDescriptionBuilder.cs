@@ -24,10 +24,11 @@ public class DeviceFunctionDescriptionBuilder
         };
     }
 
-    public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power)
+    public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power, bool canOvercharge = false)
     {
         description.type = DeviceFunctionDescription.FunctionType.Power;
         description.featureDefinitionPower = power;
+        description.canOverchargeSpell = canOvercharge;
         return this;
     }
 
