@@ -44,17 +44,23 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfHighSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
+        #if false
         var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
             .Create(CastSpellElfHigh, "CastSpellHalfElfHigh")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
-
+        // Feature/&CastSpellHalfElfHighDescription=Choose one Wizard cantrip, using Charisma as the spellcasting ability.
+        // Feature/&CastSpellHalfElfHighTitle=High Elf Cantrip
+        #endif
+        
         var halfElfHighElf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
-                Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
+                // Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
+                // ModUi/&HalfHighElfUseCharisma=<color=#D89555>Half-High Elf</color> uses Charisma instead of Intelligence as the cantrip score ability <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+                CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
 

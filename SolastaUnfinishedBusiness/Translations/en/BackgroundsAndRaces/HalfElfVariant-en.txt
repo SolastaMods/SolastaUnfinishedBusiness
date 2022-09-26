@@ -1,5 +1,3 @@
-Feature/&CastSpellHalfElfHighDescription=Choose one Wizard cantrip, using Charisma as the spellcasting ability.
-Feature/&CastSpellHalfElfHighTitle=High Elf Cantrip
 Race/&RaceHalfElfDarkDescription=Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 Race/&RaceHalfElfDarkTitle=Half-Dark Elf
 Race/&RaceHalfElfHighDescription=Half-High elves are trained to use magic very early.
