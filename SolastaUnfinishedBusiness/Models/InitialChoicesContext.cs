@@ -37,9 +37,9 @@ internal static class InitialChoicesContext
         for (var i = 2; i <= MaxInitialFeats + 1; i++)
         {
             _ = FeatureDefinitionPointPoolBuilder
-                .Create($"PointPool{i}Feats")
+                .Create($"PointPool{i}BonusFeats")
                 //.SetGuiPresentationNoContent()
-                .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Feature)
+                .SetGuiPresentation($"PointPoolSelect{i}BonusFeats", Category.Feature)
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
         }
