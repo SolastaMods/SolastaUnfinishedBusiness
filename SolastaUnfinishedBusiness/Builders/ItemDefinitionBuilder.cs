@@ -47,6 +47,12 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         return this;
     }
 
+    public ItemDefinitionBuilder SetWeight(float weight)
+    {
+        Definition.weight = weight;
+        return this;
+    }
+
     public ItemDefinitionBuilder MakeMagical()
     {
         Definition.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
