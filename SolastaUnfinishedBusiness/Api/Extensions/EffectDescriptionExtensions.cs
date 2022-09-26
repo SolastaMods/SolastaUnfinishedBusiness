@@ -243,10 +243,10 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectParticleParameters<T>([NotNull] this T entity, EffectParticleParameters value)
+    public static T SetEffectParticleParameters<T>([NotNull] this T entity, IMagicEffect magic)
         where T : EffectDescription
     {
-        entity.effectParticleParameters = value;
+        entity.effectParticleParameters = magic.EffectDescription.EffectParticleParameters;
         return entity;
     }
 

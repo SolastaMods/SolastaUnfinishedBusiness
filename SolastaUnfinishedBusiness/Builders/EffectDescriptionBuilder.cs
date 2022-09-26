@@ -46,13 +46,13 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters particleParameters)
     {
-        effect.SetEffectParticleParameters(particleParameters);
+        effect.effectParticleParameters = particleParameters;
         return this;
     }
 
     public EffectDescriptionBuilder SetParticleEffectParameters(IMagicEffect reference)
     {
-        effect.SetEffectParticleParameters(reference.EffectDescription.EffectParticleParameters);
+        effect.effectParticleParameters = reference.EffectDescription.EffectParticleParameters;
         return this;
     }
 

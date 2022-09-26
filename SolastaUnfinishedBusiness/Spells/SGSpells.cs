@@ -36,8 +36,7 @@ public static class SgSpells
         spell.EffectDescription.SetRangeParameter(18);
         spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         spell.EffectDescription.SetTargetParameter(5);
-        spell.EffectDescription.SetEffectParticleParameters(
-            SacredFlame_B.EffectDescription.EffectParticleParameters);
+        spell.EffectDescription.SetEffectParticleParameters(SacredFlame_B);
 
         return spell;
     }
