@@ -104,9 +104,8 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Races, Classes & Subclasses
     //
 
-    public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
-    public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
-
+    // public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
+    // public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
     // public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 2;
     // public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
     // public bool ReduceDarkElfLightPenalty { get; set; }

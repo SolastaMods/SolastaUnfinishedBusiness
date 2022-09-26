@@ -1,11 +1,11 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RacesClassesAndSubclassesDisplay
 {
+#if false
     private static void DisplayGeneral()
     {
         UI.Label("");
@@ -22,7 +22,7 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
         UI.Label("");
-
+        
         toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter"),
                 ref toggle, UI.AutoWidth()))
@@ -39,7 +39,6 @@ internal static class RacesClassesAndSubclassesDisplay
             WizardSpellMaster.UpdateBonusRecovery();
         }
 
-#if false
         // ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue Con Artist</color>\nImproved Manipulation Spell DC</color>
         // ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color>\nArcane Manipulation Spell DC</color>
         UI.Label("");
@@ -83,13 +82,11 @@ internal static class RacesClassesAndSubclassesDisplay
         {
             Main.Settings.HalfHighElfUseCharisma = toggle;
         }
-#endif
     }
+#endif
 
     internal static void DisplayClassesAndSubclasses()
     {
-        DisplayGeneral();
-
         var displayToggle = Main.Settings.DisplayRacesToggle;
         var sliderPos = Main.Settings.RaceSliderPosition;
         ModUi.DisplayDefinitions(

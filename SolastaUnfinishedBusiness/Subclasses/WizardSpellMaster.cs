@@ -92,7 +92,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 bonusRecoveryEffectDescription)
             .AddToDB();
 
-        UpdateBonusRecovery();
+        // UpdateBonusRecovery();
 
         // Make Spell Master subclass
         var spellMaster = CharacterSubclassDefinitionBuilder
@@ -135,21 +135,22 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         return Subclass;
     }
 
-    internal static void UpdateBonusRecovery()
-    {
-        if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
-        {
-            BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
-                Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            BonusRecovery.costPerUse = 0;
-            BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
-        }
-        else
-        {
-            BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
-                Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            BonusRecovery.costPerUse = 1;
-            BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-        }
-    }
+    // internal static void UpdateBonusRecovery()
+    // {
+    //     // ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>
+    //     if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
+    //     {
+    //         BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
+    //             Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
+    //         BonusRecovery.costPerUse = 0;
+    //         BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+    //     }
+    //     else
+    //     {
+    //         BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
+    //             Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
+    //         BonusRecovery.costPerUse = 1;
+    //         BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+    //     }
+    // }
 }

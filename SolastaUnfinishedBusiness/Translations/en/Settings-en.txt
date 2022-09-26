@@ -76,7 +76,6 @@ ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable Arcane Weapon short rest recharge on <color=#D89555>Wizard Arcane Fighter</color>
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
@@ -127,9 +126,9 @@ ModUi/&OverridePartySize=<color=white>Override the party size in custom adventur
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
-ModUi/&Races=<color=#F0DAA0>Races & Subs</color>
+ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
-ModUi/&RecipeCost=<color=white>Recipe's Cost</color>
+ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty Disadvantage with -1d4 on attacks
 ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty Disadvantage with -1d4 on attacks
@@ -142,14 +141,14 @@ ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Override defaults to force all of a merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
+ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Rules
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Set the chances of a beard appearing while using the</color> <color=#D89555>Belt of Dwarvenkind</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind's</color> <color=white>beard appearing chances</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set

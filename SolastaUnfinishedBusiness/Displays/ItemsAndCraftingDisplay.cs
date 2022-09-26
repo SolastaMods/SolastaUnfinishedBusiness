@@ -118,8 +118,6 @@ internal static class ItemsAndCraftingDisplay
             ItemOptionsContext.SwitchAttuneArcaneShieldstaff();
         }
 
-        UI.Label("");
-
         toggle = Main.Settings.RemoveAttunementRequirements;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
         {
@@ -130,14 +128,6 @@ internal static class ItemsAndCraftingDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentificationRequirements"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveIdentificationRequirements = toggle;
-        }
-
-        UI.Label("");
-
-        intValue = Main.Settings.TotalCraftingTimeModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
-        {
-            Main.Settings.TotalCraftingTimeModifier = intValue;
         }
 
         UI.Label("");
@@ -155,6 +145,12 @@ internal static class ItemsAndCraftingDisplay
         {
             Main.Settings.RecipeCost = intValue;
             ItemCraftingContext.UpdateRecipeCost();
+        }
+
+        intValue = Main.Settings.TotalCraftingTimeModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
+        {
+            Main.Settings.TotalCraftingTimeModifier = intValue;
         }
 
         UI.Label("");
@@ -254,12 +250,6 @@ internal static class ItemsAndCraftingDisplay
         {
             UI.Label("");
 
-            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-            if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
-            }
-
             toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
             if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
                     UI.AutoWidth()))
@@ -283,6 +273,12 @@ internal static class ItemsAndCraftingDisplay
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                     ItemOptionsContext.SwitchFociItemsDungeonMaker();
                 }
+            }
+
+            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
+            if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
             }
 
             UI.Label("");

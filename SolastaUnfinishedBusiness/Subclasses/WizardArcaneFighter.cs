@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardArcaneFighter : AbstractSubclass
 {
-    private static FeatureDefinitionPower _enchantWeapon;
+    // private static FeatureDefinitionPower _enchantWeapon;
 
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
@@ -18,7 +18,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
     {
         // Make Melee Wizard subclass
 
-        var weaponProf = FeatureDefinitionProficiencyBuilder
+        var weaponProficiency = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
@@ -69,11 +69,13 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var enchantWeapon = BuildEnchantWeapon();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardArcaneFighter")
             .SetGuiPresentation(Category.Subclass,
                 MartialSpellblade.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, weaponProf, EnchantWeapon)
+            .AddFeaturesAtLevel(2, weaponProficiency, concentrationAffinity, enchantWeapon)
             .AddFeaturesAtLevel(2, concentrationAffinity)
             .AddFeaturesAtLevel(6, extraAttack)
             .AddFeaturesAtLevel(10, bonusSpell)
@@ -81,7 +83,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
+    // private static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -124,16 +126,16 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
+                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.ShortRest, false, false,
                 AttributeDefinitions.Intelligence, effect)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
 
-    internal static void UpdateEnchantWeapon()
-    {
-        EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter
-            ? RuleDefinitions.RechargeRate.ShortRest
-            : RuleDefinitions.RechargeRate.LongRest;
-    }
+    // internal static void UpdateEnchantWeapon()
+    // {
+    //     EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter
+    //         ? RuleDefinitions.RechargeRate.ShortRest
+    //         : RuleDefinitions.RechargeRate.LongRest;
+    // }
 }

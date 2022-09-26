@@ -74,8 +74,8 @@ internal static class SubclassesContext
         }
 
         // RoguishConArtist.UpdateSpellDcBoost();
-        WizardSpellMaster.UpdateBonusRecovery();
-        WizardArcaneFighter.UpdateEnchantWeapon();
+        // WizardSpellMaster.UpdateBonusRecovery();
+        // WizardArcaneFighter.UpdateEnchantWeapon();
         // WizardMasterManipulator.UpdateSpellDcBoost();
     }
 
