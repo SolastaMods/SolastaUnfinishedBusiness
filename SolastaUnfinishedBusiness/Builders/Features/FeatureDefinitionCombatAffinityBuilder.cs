@@ -13,6 +13,7 @@ public abstract class
 
     public TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
     {
+        Definition.myAttackModifierValueDetermination = RuleDefinitions.CombatAffinityValueDetermination.Die;
         Definition.myAttackModifierDieType = dieType;
         return This();
     }

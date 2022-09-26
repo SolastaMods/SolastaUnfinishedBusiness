@@ -110,7 +110,7 @@ public class Settings : UnityModManager.ModSettings
 
     // public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 2;
     // public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-    public bool ReduceDarkElfLightPenalty { get; set; }
+    // public bool ReduceDarkElfLightPenalty { get; set; }
 
     public bool ReduceGrayDwarfLightPenalty { get; set; }
 
