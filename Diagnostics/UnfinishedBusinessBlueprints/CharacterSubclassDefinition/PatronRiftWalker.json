@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRiftWalkerBlink:0ddfb64d-6da6-55fa-9944-4ec5a337effa",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityRiftWalker:7122251a-0330-5db6-984c-0f5364117285",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftWalk:79992dc4-649e-567e-8623-6d6c64cdba9a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ConditionAffinityRiftWalkerRestrainedImmunity:92cb7a89-3554-567c-a62e-f72c78cd34f1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityRiftWalkerRiftStrike:6d319942-3994-5c41-b014-06cf49858670",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityRiftWalkerFadeIntoTheVoid:e05ae837-1690-5731-bcef-0a7f0e73e389",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftControl:685e0573-efc4-5d23-9066-30e20b4482d2",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripRiftWalkWardingBond:275d70b8-13f5-5b25-b129-4e3b4ba2a5ec",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PatronRiftWalkerTitle",
+    "description": "Subclass/&PatronRiftWalkerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "41f600f15c0f69149b5d8c2cff9a44bb",
+      "m_SubObjectName": "Barbarian_Path_Magebane",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6d245c2c-0dbe-574b-b793-e110f17980b1",
+  "contentPack": 9999,
+  "name": "PatronRiftWalker"
+}
