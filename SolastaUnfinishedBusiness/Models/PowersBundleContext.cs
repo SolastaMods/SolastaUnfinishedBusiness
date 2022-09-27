@@ -79,7 +79,7 @@ public static class PowersBundleContext
             return Powers2Spells[power];
         }
 
-        var spell = SpellDefinitionBuilder.Create($"CEPowerBundle_{power.name}_Spell")
+        var spell = SpellDefinitionBuilder.Create($"Spell{power.name}")
             .SetGuiPresentation(power.GuiPresentation)
             .AddToDB();
         Spells2Powers[spell] = power;

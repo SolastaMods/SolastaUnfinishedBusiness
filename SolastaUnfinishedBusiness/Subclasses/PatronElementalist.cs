@@ -244,7 +244,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddToDB();
 
         var conditionElementalist = ConditionDefinitionBuilder
-            .Create("ConditionElementalist" + text)
+            .Create("ConditionElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconRegular))
             .SetDuration(DurationType.Minute, 1)
             .SetSilent(Silent.None)
@@ -253,7 +253,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddToDB();
 
         var elementalFormPower = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerSharedPoolElementalist" + text)
+            .Create("PowerSharedPoolElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalForm", text, elementalFormConfig))
             .Configure(
                 elementalFormPool,
