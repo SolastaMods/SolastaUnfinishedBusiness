@@ -49,6 +49,14 @@ internal static class RulesetImplementationManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class TerminateEffect_Patch
     {
+        public static void Prefix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
+        {
+            //PATCH: allows for extra careful tracking of summoned items
+            //removes tracked items from any character, container or loot pile
+            //used for Inventor's item summoning
+            ExtraCarefulTrackedItem.Process(__instance, activeEffect);
+        }
+        
         internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             if (__instance is not RulesetImplementationManagerCampaign)
