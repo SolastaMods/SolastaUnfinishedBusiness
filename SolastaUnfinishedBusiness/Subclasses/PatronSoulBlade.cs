@@ -69,21 +69,25 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var shieldPower = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "PowerSoulBladeSoulShield")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetFixedUsesPerRecharge(1)
-            .SetCostPerUse(1)
-            .SetActivationTime(ActivationTime.BonusAction)
-            ////.SetAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(FeatureDefinitionPowers.PowerFighterSecondWind.EffectDescription
-                .Copy()
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetTempHPForm(-1, DieType.D1, 1)
-                    .SetBonusMode(AddBonusMode.AbilityBonus)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
-                    .Build())
-                .SetDurationType(DurationType.UntilLongRest))
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.BonusAction,
+                1,
+                RechargeRate.ShortRest,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                FeatureDefinitionPowers.PowerFighterSecondWind.EffectDescription
+                    .Copy()
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetTempHPForm(-1, DieType.D1, 1)
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                        .Build())
+                    .SetDurationType(DurationType.UntilLongRest))
             .AddToDB();
 
         shieldPower.abilityScore = AttributeDefinitions.Charisma;
