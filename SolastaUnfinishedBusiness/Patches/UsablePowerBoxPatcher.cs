@@ -2,6 +2,7 @@
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -29,6 +30,19 @@ internal static class UsablePowerBoxPatcher
         {
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user
             Tooltips.AddContextToPowerBoxTooltip(__instance);
+
+            //PATCH: make power icons fit into box, instead of stretching
+            var img = __instance.image;
+            var aspect = img.GetComponent<AspectRatioFitter>();
+            if (aspect == null)
+            {
+                return;
+            }
+            var rect = img.sprite.rect;
+            //Set aspect ratio to natural for the sprite, to remove stretching
+            aspect.aspectRatio = rect.width / rect.height;
+            //Set mode that would fill parent
+            aspect.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
         }
     }
 }
