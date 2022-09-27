@@ -69,6 +69,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var shieldPower = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "PowerSoulBladeSoulShield")
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .Configure(
                 1,
                 UsesDetermination.Fixed,
@@ -89,8 +90,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                         .Build())
                     .SetDurationType(DurationType.UntilLongRest))
             .AddToDB();
-
-        shieldPower.abilityScore = AttributeDefinitions.Charisma;
 
         var spellList = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListPaladin, "SpellListSoulBlade")
