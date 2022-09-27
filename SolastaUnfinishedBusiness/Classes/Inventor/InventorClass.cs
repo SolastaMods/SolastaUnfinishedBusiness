@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -21,12 +23,22 @@ internal static class InventorClass
 
     private static CharacterClassDefinition Class { get; set; }
 
+    public static FeatureDefinitionPower InfusionPool { get; private set; }
+
+    private static SpellListDefinition _spellList;
+    public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
+
+    public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
+
     public static CharacterClassDefinition Build()
     {
         if (Class != null)
         {
             throw new ArgumentException("Trying to build Inventor class additional time.");
         }
+
+        InfusionPool = BuildInfusionPool();
+        SpellCasting = BuildSpellCasting();
 
         Class = CharacterClassDefinitionBuilder
             .Create(ClassName)
@@ -97,6 +109,13 @@ internal static class InventorClass
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt,
                     EquipmentDefinitions.OptionAmmoPack, 1)
             })
+            .AddEquipmentRow(
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
+                        EquipmentDefinitions.OptionFocus, 1)
+                }
+            )
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.StuddedLeather,
@@ -188,11 +207,133 @@ internal static class InventorClass
 
             #region Level 01
 
+            .AddFeaturesAtLevel(1, SpellCasting, BuildInfusions())
+
             #endregion
 
             .AddToDB();
 
 
         return Class;
+    }
+
+    private static SpellListDefinition BuildSpellList()
+    {
+        return SpellListDefinitionBuilder
+            .Create("SpellListInventor")
+            .SetGuiPresentation(Category.Feature)
+            .ClearSpells()
+            .SetSpellsAtLevel(0,
+                SpellDefinitions.AcidSplash,
+                SpellDefinitions.FireBolt,
+                SpellDefinitions.RayOfFrost,
+                SpellDefinitions.Light,
+                SpellDefinitions.PoisonSpray,
+                SpellDefinitions.Resistance,
+                SpellDefinitions.ShockingGrasp,
+                SpellDefinitions.Shine,
+                SpellDefinitions.Sparkle
+            )
+            .FinalizeSpells()
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionCastSpell BuildSpellCasting()
+    {
+        return FeatureDefinitionCastSpellBuilder
+            .Create("CastSpellsInventor")
+            .SetGuiPresentation(Category.Feature)
+            .SetKnownCantrips(3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6)
+            .SetKnownSpells()
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .SetSpellList(SpellList)
+            .AddToDB();
+    }
+
+
+    private static FeatureDefinitionPower BuildInfusionPool()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerInfulionPool")
+            .SetGuiPresentation(Category.Power, hidden: true)
+            .SetUsesFixed(20)
+            .SetRechargeRate(RechargeRate.ShortRest)
+            .AddToDB();
+    }
+
+    public static FeatureDefinition BuildInfusions()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInfusions")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                InfusionPool,
+                BuildTestInfision()
+            )
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildTestInfision()
+    {
+        var testSummonItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestSummonItem")
+            .SetGuiPresentation(Category.Power, ItemDefinitions.Dagger)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            // .SetSharedPool(InventorClass.InfusionPool)
+            // .SetCustomSubFeatures(new AddDie(), new MakeCone())
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.FreeSlot)
+                .SetSlotTypes(SlotTypeDefinitions.ContainerSlot, SlotTypeDefinitions.MainHandSlot)
+                .SetSavingThrowData(
+                    false,
+                    true,
+                    AttributeDefinitions.Dexterity,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(new EffectFormBuilder()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetSummonItemForm(ItemDefinitions.Dagger, 1, true)
+                    .Build())
+                .Build())
+            .AddToDB();
+        
+        //TODO: make some builder for these fake items
+        var testItem = ItemDefinitionBuilder
+            .Create("TMPTestItem")
+            .SetGuiPresentation(Category.Feature, ItemDefinitions.ArwinMertonSword)
+            .SetRequiresIdentification(true)
+            .SetWeight(0)
+            .SetItemPresentation(CustomWeaponsContext.BuildPresentation("TMPTestItemUnid",
+                ItemDefinitions.ScrollFly.itemPresentation))
+            .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
+                .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
+                .SetRecharge(RechargeRate.ShortRest)
+                .SetSaveDc(-1) //Set to -1 so that it will calculate based on actual powers
+                .AddFunctions(
+                    new DeviceFunctionDescriptionBuilder()
+                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                        .SetPower(testSummonItem, true)
+                        .Build(),
+                    new DeviceFunctionDescriptionBuilder()
+                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                        .SetSpell(SpellDefinitions.FlameBlade)
+                        .Build(),
+                    new DeviceFunctionDescriptionBuilder()
+                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                        .SetSpell(SpellDefinitions.DivineBlade)
+                        .Build()
+                )
+                .Build())
+            .AddToDB();
+        
+        return FeatureDefinitionBuilder
+            .Create("TMPTestInfusion")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PowerPoolDevice(testItem, InfusionPool))
+            .AddToDB();
     }
 }

@@ -1,4 +1,3 @@
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -15,26 +14,26 @@ public static class InnovationAlchemy
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
-            .AddFeaturesAtLevel(1, BuildAlchemy())
+            .AddFeaturesAtLevel(1, BuildBombs())
+            //temporary test feature to grant use device as bonus action
+            .AddFeaturesAtLevel(1, FeatureDefinitionActionAffinityBuilder
+                .Create("TMPBonusAlchemy")
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetDefaultAllowedActonTypes()
+                .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
+                .AddToDB())
             .AddToDB();
     }
 
-    public static FeatureDefinition BuildAlchemy()
+    private static FeatureDefinition BuildBombs()
     {
-        var alchemyPool = FeatureDefinitionPowerBuilder
-            .Create("PowerInnovationAlchemyPool")
-            .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesFixed(20)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
-            .AddToDB();
-
-        var powerBombSplash = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombSplash")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fireball)
+        var powerBombSplash = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSplash")
+            .SetGuiPresentation(Category.Power, SpellDefinitions.Fireball)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetSharedPool(alchemyPool)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
             .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Sphere)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
@@ -56,12 +55,13 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
-        var powerBombBreath = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombBreath")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.BurningHands)
+        var powerBombBreath = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombBreath")
+            .SetGuiPresentation(Category.Power, SpellDefinitions.BurningHands)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetSharedPool(alchemyPool)
+            .SetCustomSubFeatures(new Overcharge())
             .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Cone, 4)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
@@ -83,16 +83,16 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
-        var powerBombSingle = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombSingle")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.ProduceFlame, hidden: true)
+        var powerBombSingle = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSingle")
+            .SetGuiPresentation(Category.Power, SpellDefinitions.ProduceFlame)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetSharedPool(alchemyPool)
             .SetAttackAbilityToHit(true, true)
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
             // .SetCustomSubFeatures(new ValidatorPowerUse(_ => false))
             .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 6,
                     RuleDefinitions.TargetType.Individuals)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
@@ -116,7 +116,7 @@ public static class InnovationAlchemy
 
         var bombItem = ItemDefinitionBuilder
             .Create("ItemAlchemyBomb")
-            .SetGuiPresentation(Category.Item, ItemDefinitions.AlchemistFire)
+            .SetGuiPresentation("FeatureAlchemyBombs", Category.Feature, ItemDefinitions.AlchemistFire)
             .SetRequiresIdentification(true)
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
@@ -142,25 +142,25 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
-        alchemyPool.SetCustomSubFeatures(new PowerPoolDevice(bombItem, alchemyPool));
-
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetAlchemyInnovationLevel01")
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .AddFeatureSet(
-                alchemyPool,
-                FeatureDefinitionActionAffinityBuilder //temporary test feature to grant use device as bonus action
-                    .Create("TMPBonusAlcheny")
-                    .SetDefaultAllowedActonTypes()
-                    // .SetCustomSubFeatures(new MakeCold())
-                    .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                    .AddToDB()
-            )
+        return FeatureDefinitionBuilder
+            .Create("FeatureAlchemyBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, InventorClass.InfusionPool))
             .AddToDB();
     }
 
 
     //Below is some temp test stuff
+    internal sealed class Overcharge : CustomOverchargeProvider
+    {
+        private static readonly (int, int)[] Steps = {(2, 1), (3, 2)};
+
+        public override (int, int)[] OverchargeSteps(RulesetCharacter character)
+        {
+            return Steps;
+        }
+    }
+
     internal sealed class AddDie : IModifySpellEffect
     {
         public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,

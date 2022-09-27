@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -20,8 +21,8 @@ internal static class EwSpells
 {
     internal static void Register()
     {
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
     }
 
     private static SpellDefinition BuildSunlightBlade()
