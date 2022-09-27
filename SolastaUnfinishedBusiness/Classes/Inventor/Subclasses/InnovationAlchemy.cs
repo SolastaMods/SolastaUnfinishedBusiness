@@ -23,13 +23,13 @@ public static class InnovationAlchemy
     {
         var alchemyPool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
-            .SetGuiPresentation(Category.Power, hidden: true)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(20)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
             .AddToDB();
 
         var powerBombSplash = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombSplash")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.Fireball)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fireball)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetSharedPool(alchemyPool)
@@ -57,7 +57,7 @@ public static class InnovationAlchemy
             .AddToDB();
 
         var powerBombBreath = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombBreath")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.BurningHands)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.BurningHands)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetSharedPool(alchemyPool)
@@ -84,7 +84,7 @@ public static class InnovationAlchemy
             .AddToDB();
 
         var powerBombSingle = FeatureDefinitionPowerSharedPoolBuilder.Create("PowerSharedPoolAlchemyBombSingle")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.ProduceFlame, hidden: true)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.ProduceFlame, hidden: true)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetSharedPool(alchemyPool)

@@ -13,7 +13,6 @@ public enum Category
     ContentPack,
     Feat,
     Feature,
-    Power,
     FightingStyle,
     Item,
     Monster,
