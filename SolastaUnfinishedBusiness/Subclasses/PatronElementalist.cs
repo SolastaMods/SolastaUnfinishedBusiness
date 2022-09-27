@@ -19,7 +19,7 @@ internal sealed class PatronElementalist : AbstractSubclass
     private const string Name = "PatronElementalist";
 
     // think about making smaller base pool of elements, with ability to expand via eldritch Invocations
-    private static readonly Dictionary<string, ElementalFormConfig> ElementalFormCfg = new()
+    private static readonly Dictionary<string, ElementalFormConfig> ElementalFormConfigs = new()
     {
         {
             "Fire", new ElementalFormConfig
@@ -120,12 +120,18 @@ internal sealed class PatronElementalist : AbstractSubclass
         var regularPowers = new List<FeatureDefinitionPower>();
         var enhancedPowers = new List<FeatureDefinitionPower>();
 
-        foreach (var e in ElementalFormCfg)
+        foreach (var e in ElementalFormConfigs)
         {
-            var (rPower, ePower) = BuildElementalForm(elementalFormPool, enhancedElementalFormPool, e.Key, e.Value, iconRegular, iconEnhanced);
+            var (regularPower, enhancedPower) = BuildElementalForm(
+                e.Key,
+                elementalFormPool,
+                enhancedElementalFormPool,
+                e.Value,
+                iconRegular,
+                iconEnhanced);
             
-            regularPowers.Add(rPower);
-            enhancedPowers.Add(ePower);
+            regularPowers.Add(regularPower);
+            enhancedPowers.Add(enhancedPower);
         }
 
         PowersBundleContext.RegisterPowerBundle(elementalFormPool, true, regularPowers.ToArray());
@@ -176,7 +182,6 @@ internal sealed class PatronElementalist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
-            // .AddFeatureAtLevel(FeatureSet_Level01, 1)
             .AddFeaturesAtLevel(1, elementalistMagicAffinityExpandedSpells, elementalFormPool)
             .AddFeaturesAtLevel(6, featureSetElementalistKnowledge)
             .AddFeaturesAtLevel(10, enhancedElementalFormPool)
@@ -197,30 +202,31 @@ internal sealed class PatronElementalist : AbstractSubclass
     private static GuiPresentation GuiPresentation(
         string type,
         string text,
-        ElementalFormConfig cfg,
+        ElementalFormConfig elementalFormConfig,
         AssetReferenceSprite sprite = null)
     {
-        var damageType = cfg.DamageType.GuiPresentation.Title;
+        var damageType = elementalFormConfig.DamageType.GuiPresentation.Title;
         var planeText = $"Feature/&ElementalPact{text}Plane";
 
         return new GuiPresentationBuilder(
-            Gui.Format($"Feature/&ElementalPatron{type}FormatTitle", planeText),
-            Gui.Format($"Feature/&ElementalPatron{type}FormatDescription", planeText, damageType),
-            sprite
-        ).Build();
+            Gui.Format($"Feature/&ElementalPatron{type}Title", planeText),
+            Gui.Format($"Feature/&ElementalPatron{type}Description", planeText, damageType),
+            sprite)
+            .Build();
     }
 
     private static (FeatureDefinitionPower, FeatureDefinitionPower)
         BuildElementalForm(
+            string text,
             FeatureDefinitionPower elementalFormPool,
             FeatureDefinitionPower enhancedElementalFormPool,
-            string text,
-            ElementalFormConfig cfg,
+            ElementalFormConfig elementalFormConfig,
             AssetReferenceSprite iconRegular,
             AssetReferenceSprite iconEnhanced)
     {
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"DH_ElementalForm_{text}AdditionalDamage")
+            .Create($"AdditionalDamageElementalist" + text)
+            .SetGuiPresentation(GuiPresentation("ElementalDamage", text, elementalFormConfig))
             .Configure(
                 "ElementalDamage",
                 FeatureLimitedUsage.OncePerTurn,
@@ -231,25 +237,24 @@ internal sealed class PatronElementalist : AbstractSubclass
                 DieType.D4,
                 1,
                 AdditionalDamageType.Specific,
-                cfg.DamageType.Name,
+                elementalFormConfig.DamageType.Name,
                 AdditionalDamageAdvancement.None,
                 new List<DiceByRank>()
             )
-            .SetGuiPresentation(GuiPresentation("ElementalDamage", text, cfg))
             .AddToDB();
 
-        var ElementalFormCondtion = ConditionDefinitionBuilder
-            .Create($"DH_ElementalForm_{text}Condition")
-            .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconRegular))
-            .SetSilent(Silent.None)
+        var conditionElementalist = ConditionDefinitionBuilder
+            .Create("ConditionElementalist" + text)
+            .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconRegular))
             .SetDuration(DurationType.Minute, 1)
-            .AddFeatures(cfg.Resistance, additionalDamage)
-            .SetConditionParticleReference(cfg.Particles)
+            .SetSilent(Silent.None)
+            .AddFeatures(elementalFormConfig.Resistance, additionalDamage)
+            .SetConditionParticleReference(elementalFormConfig.Particles)
             .AddToDB();
 
         var elementalFormPower = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("DH_ElementalForm_" + text)
-            .SetGuiPresentation(GuiPresentation("ElementalForm", text, cfg))
+            .Create("PowerSharedPoolElementalist" + text)
+            .SetGuiPresentation(GuiPresentation("ElementalForm", text, elementalFormConfig))
             .Configure(
                 elementalFormPool,
                 RechargeRate.LongRest,
@@ -263,7 +268,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            ElementalFormCondtion,
+                            conditionElementalist,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true
@@ -274,22 +279,19 @@ internal sealed class PatronElementalist : AbstractSubclass
                 true)
             .AddToDB();
 
-        //Enhanced form
-
-        var EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(
-                $"DH_EnhancedElementalForm_{text}Condition")
+        var conditionElementalistEnhanced = ConditionDefinitionBuilder
+            .Create("ConditionElementalistEnhanced" + text)
+            .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconEnhanced))
             .SetDuration(DurationType.Minute, 1)
-            .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconEnhanced))
             .SetSilent(Silent.None)
-            .SetDuration(DurationType.Minute, 1)
-            .AddFeatures(cfg.Immunity, additionalDamage)
-            .SetConditionParticleReference(cfg.Particles)
-            .SetCharacterShaderReference(cfg.Shaders)
+            .AddFeatures(elementalFormConfig.Immunity, additionalDamage)
+            .SetConditionParticleReference(elementalFormConfig.Particles)
+            .SetCharacterShaderReference(elementalFormConfig.Shaders)
             .AddToDB();
 
         var enhancedElementalFormPower = FeatureDefinitionPowerSharedPoolBuilder
-            .Create("DH_EnhancedElementalForm_" + text)
-            .SetGuiPresentation(GuiPresentation("ElementalFormEnhanced", text, cfg))
+            .Create("PowerSharedPoolElementalistEnhanced" + text)
+            .SetGuiPresentation(GuiPresentation("ElementalFormEnhanced", text, elementalFormConfig))
             .SetOverriddenPower(elementalFormPower)
             .Configure(
                 enhancedElementalFormPool,
@@ -303,7 +305,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(EnhancedElementalFormCondtion,
+                        .SetConditionForm(conditionElementalistEnhanced,
                             ConditionForm.ConditionOperation.Add, true, true)
                         .Build()
                     ).Build(),

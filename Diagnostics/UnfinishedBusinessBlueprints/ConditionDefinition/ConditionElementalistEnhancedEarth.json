@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DH_ElementalForm_FireAdditionalDamage:ed2f5022-d641-51a7-bc01-7741a40be0eb"
+    "Definition:AdditionalDamageElementalistEarth:cee3c86e-6d6f-53f0-a78b-9f11f6236230",
+    "Definition:DamageAffinityBludgeoningImmunity:a260a40c93a840444894b813253ee9fb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
+    "m_AssetGUID": "2e9f6a2a7a42f0c48bebe8fad0572632",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -58,9 +58,9 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidParticleParameters": null,
@@ -127,11 +127,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Fire Plane",
-    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Earth Plane",
+    "description": "Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
+      "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2257f7d0-f396-5909-8389-c486acb8e542",
+  "guid": "a4a968b4-15f1-589f-bdaf-5b5937c20592",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_FireCondition"
+  "name": "ConditionElementalistEnhancedEarth"
 }

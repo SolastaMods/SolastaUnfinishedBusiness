@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityBludgeoningImmunity:a260a40c93a840444894b813253ee9fb",
-    "Definition:DH_ElementalForm_EarthAdditionalDamage:cf6726dc-4b3d-5c47-aef8-9885c52c9ea0"
+    "Definition:AdditionalDamageElementalistIce:7cde15a1-e245-5689-80a6-58d886ce5a03",
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "2e9f6a2a7a42f0c48bebe8fad0572632",
+    "m_AssetGUID": "68f396d9f883fa845a63c44208e8306b",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -58,7 +58,7 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+    "m_AssetGUID": "7eaff9e3b38880f489d828aac95eede6",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Earth Plane",
-    "description": "Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Ice Plane",
+    "description": "Deal additional Cold damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c433a74c-fff6-516d-8096-557013327a37",
+  "guid": "0e28a693-9988-5613-85b0-168ef23759ec",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_EarthCondition"
+  "name": "ConditionElementalistEnhancedIce"
 }

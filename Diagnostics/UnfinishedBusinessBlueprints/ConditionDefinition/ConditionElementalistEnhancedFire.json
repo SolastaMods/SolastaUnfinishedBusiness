@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DH_ElementalForm_IceAdditionalDamage:5adb7179-78f2-593a-9d27-d196d81440b5"
+    "Definition:AdditionalDamageElementalistFire:2db42e37-34a5-58aa-abfc-287132298906",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "68f396d9f883fa845a63c44208e8306b",
+    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -58,9 +58,9 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "a008bb3ffbadf594ca935988fcf2456a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidParticleParameters": null,
@@ -127,11 +127,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Ice Plane",
-    "description": "Deal additional Cold damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Fire Plane",
+    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
+      "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cbd685be-cb74-53c9-98b3-fd7f230eae4d",
+  "guid": "4a1ea446-e42b-5b1f-862e-77847e90af7b",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_IceCondition"
+  "name": "ConditionElementalistEnhancedFire"
 }

@@ -18,7 +18,7 @@
   "damageDieType": "D4",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageBludgeoning",
+  "specificDamageType": "DamageThunder",
   "damageAdvancement": "None",
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
@@ -44,8 +44,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Damage: Earth Plane",
-    "description": "When channeling Earth Plane, deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Elemental Damage: Air Plane",
+    "description": "When channeling Air Plane, deal additional Thunder damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -65,7 +65,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cf6726dc-4b3d-5c47-aef8-9885c52c9ea0",
+  "guid": "8b548ce8-5850-552e-8939-3f7b1d099649",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_EarthAdditionalDamage"
+  "name": "AdditionalDamageElementalistAir"
 }

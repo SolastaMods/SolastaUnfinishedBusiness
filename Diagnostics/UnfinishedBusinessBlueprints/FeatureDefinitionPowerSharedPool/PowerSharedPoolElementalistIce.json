@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DH_ElementalForm_EarthCondition",
-          "conditionDefinition": "Definition:DH_ElementalForm_EarthCondition:66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
+          "conditionDefinitionName": "ConditionElementalistIce",
+          "conditionDefinition": "Definition:ConditionElementalistIce:b33cbdd3-67b0-546e-8cd6-90523cd4c42f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Earth Plane",
-    "description": "When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Ice Plane",
+    "description": "When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b74b16a2-257d-5577-8de6-4ea931819c35",
+  "guid": "0b10d66a-c40a-5d31-a283-93358fb0958b",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_Earth"
+  "name": "PowerSharedPoolElementalistIce"
 }

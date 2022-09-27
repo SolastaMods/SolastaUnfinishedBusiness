@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Air Plane",
-    "description": "When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Ice Plane",
+    "description": "When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b2323c53-0136-5e24-89c4-3f4577fccba0",
+  "guid": "25b72a0e-1060-5147-aa2a-f102662ab812",
   "contentPack": 9999,
-  "name": "CEPowerBundle_DH_EnhancedElementalForm_Air_Spell"
+  "name": "CEPowerBundle_PowerSharedPoolElementalistIce_Spell"
 }

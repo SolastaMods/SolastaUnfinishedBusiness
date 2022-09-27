@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
-    "Definition:DH_ElementalForm_AirAdditionalDamage:07dfa4fe-32a6-5495-8df6-c0ffc54963b7"
+    "Definition:AdditionalDamageElementalistFire:2db42e37-34a5-58aa-abfc-287132298906",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
+    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -58,9 +58,9 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "9667fd7f6bdb8be4c83933525757b80c",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidParticleParameters": null,
@@ -127,11 +127,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Air Plane",
-    "description": "Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Fire Plane",
+    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
+      "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "973f0538-b2b6-54c4-b7a4-c0930b8f0857",
+  "guid": "0758893e-662c-5ca6-a106-e75fc51cdeba",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_AirCondition"
+  "name": "ConditionElementalistFire"
 }

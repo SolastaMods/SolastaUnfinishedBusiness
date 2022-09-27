@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DH_EnhancedElementalForm_EarthCondition",
-          "conditionDefinition": "Definition:DH_EnhancedElementalForm_EarthCondition:c433a74c-fff6-516d-8096-557013327a37",
+          "conditionDefinitionName": "ConditionElementalistAir",
+          "conditionDefinition": "Definition:ConditionElementalistAir:2e7cb772-ffa9-5d76-afd1-69b3ea74964b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -308,13 +308,13 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:DH_ElementalForm_Earth:b74b16a2-257d-5577-8de6-4ea931819c35",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Earth Plane",
-    "description": "When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Air Plane",
+    "description": "When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4b626b40-458c-508a-990c-b836e7c02fff",
+  "guid": "dea70ba9-4a7d-5bda-9f40-f22d406262fa",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_Earth"
+  "name": "PowerSharedPoolElementalistAir"
 }

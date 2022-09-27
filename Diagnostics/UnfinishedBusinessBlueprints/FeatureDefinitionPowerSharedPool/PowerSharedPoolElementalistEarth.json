@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DH_EnhancedElementalForm_FireCondition",
-          "conditionDefinition": "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
+          "conditionDefinitionName": "ConditionElementalistEarth",
+          "conditionDefinition": "Definition:ConditionElementalistEarth:fa472fbf-6d64-50c4-8fac-d30093ed1b4e",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -308,13 +308,13 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:DH_ElementalForm_Fire:18d1f244-7896-58fb-ad14-eb471bd0d9db",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Fire Plane",
-    "description": "When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Earth Plane",
+    "description": "When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f2e6c06e-7346-5fbc-b34e-dd30748ff904",
+  "guid": "b558950c-3f28-5657-817b-3003bfcf2bb8",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_Fire"
+  "name": "PowerSharedPoolElementalistEarth"
 }

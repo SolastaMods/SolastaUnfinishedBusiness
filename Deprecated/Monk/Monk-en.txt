@@ -1,3 +1,5 @@
+Feature/&ClassMonkTongueOfSunAndMoonDescription=You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&ClassMonkTongueOfSunAndMoonTitle=Tongue of the Sun and Moon
 Class/&ClassMonkDescription=Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a Monk does.
 Class/&ClassMonkTitle=Monk
 Condition/&ClassMonkEmptyBodyConditionDescription=You have resistance to all damage but force.

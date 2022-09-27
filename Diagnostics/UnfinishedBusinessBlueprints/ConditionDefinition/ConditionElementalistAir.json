@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DH_ElementalForm_EarthAdditionalDamage:cf6726dc-4b3d-5c47-aef8-9885c52c9ea0"
+    "Definition:AdditionalDamageElementalistAir:8b548ce8-5850-552e-8939-3f7b1d099649",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "2e9f6a2a7a42f0c48bebe8fad0572632",
+    "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Earth Plane",
-    "description": "Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Air Plane",
+    "description": "Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
+  "guid": "2e7cb772-ffa9-5d76-afd1-69b3ea74964b",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_EarthCondition"
+  "name": "ConditionElementalistAir"
 }

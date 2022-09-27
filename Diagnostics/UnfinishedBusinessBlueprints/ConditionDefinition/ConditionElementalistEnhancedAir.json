@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
-    "Definition:DH_ElementalForm_IceAdditionalDamage:5adb7179-78f2-593a-9d27-d196d81440b5"
+    "Definition:AdditionalDamageElementalistAir:8b548ce8-5850-552e-8939-3f7b1d099649",
+    "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "68f396d9f883fa845a63c44208e8306b",
+    "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -58,7 +58,7 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "7eaff9e3b38880f489d828aac95eede6",
+    "m_AssetGUID": "9667fd7f6bdb8be4c83933525757b80c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Ice Plane",
-    "description": "Deal additional Cold damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Air Plane",
+    "description": "Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9eccdb1e-985e-55f7-8f81-83819d72e4d9",
+  "guid": "16bdda2e-d32f-5450-812e-7bd08c792b1a",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_IceCondition"
+  "name": "ConditionElementalistEnhancedAir"
 }

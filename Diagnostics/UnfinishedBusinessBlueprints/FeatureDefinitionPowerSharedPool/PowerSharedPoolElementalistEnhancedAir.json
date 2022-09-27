@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DH_EnhancedElementalForm_AirCondition",
-          "conditionDefinition": "Definition:DH_EnhancedElementalForm_AirCondition:973f0538-b2b6-54c4-b7a4-c0930b8f0857",
+          "conditionDefinitionName": "ConditionElementalistEnhancedAir",
+          "conditionDefinition": "Definition:ConditionElementalistEnhancedAir:16bdda2e-d32f-5450-812e-7bd08c792b1a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:DH_ElementalForm_Air:5c3501b1-955f-5bb4-ad87-c77541a25330",
+  "overriddenPower": "Definition:PowerSharedPoolElementalistAir:dea70ba9-4a7d-5bda-9f40-f22d406262fa",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "33a8c51e-7c6d-5e43-938e-935cc6fcec14",
+  "guid": "551377de-e741-5445-afe3-989d50aa8046",
   "contentPack": 9999,
-  "name": "DH_EnhancedElementalForm_Air"
+  "name": "PowerSharedPoolElementalistEnhancedAir"
 }

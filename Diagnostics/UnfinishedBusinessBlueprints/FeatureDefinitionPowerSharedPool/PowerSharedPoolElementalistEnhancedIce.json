@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "DH_ElementalForm_FireCondition",
-          "conditionDefinition": "Definition:DH_ElementalForm_FireCondition:2257f7d0-f396-5909-8389-c486acb8e542",
+          "conditionDefinitionName": "ConditionElementalistEnhancedIce",
+          "conditionDefinition": "Definition:ConditionElementalistEnhancedIce:0e28a693-9988-5613-85b0-168ef23759ec",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -308,13 +308,13 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerSharedPoolElementalistIce:0b10d66a-c40a-5d31-a283-93358fb0958b",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Plane",
-    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Channeling Ice Plane",
+    "description": "When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "18d1f244-7896-58fb-ad14-eb471bd0d9db",
+  "guid": "90367487-65c5-5f48-b8da-627d2e35d32e",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_Fire"
+  "name": "PowerSharedPoolElementalistEnhancedIce"
 }

@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Ice Plane",
-    "description": "When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Fire Plane",
+    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "054d40a6-dcf0-5e34-9405-1016d9bb0b19",
+  "guid": "c9df6a5c-3007-5ac8-ab97-3f0e0b367b0e",
   "contentPack": 9999,
-  "name": "CEPowerBundle_DH_EnhancedElementalForm_Ice_Spell"
+  "name": "CEPowerBundle_PowerSharedPoolElementalistFire_Spell"
 }

@@ -2,10 +2,10 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:CEPowerBundle_DH_EnhancedElementalForm_Fire_Spell:531aa2c6-930e-5b64-88ba-2dcea40f169a",
-    "Definition:CEPowerBundle_DH_EnhancedElementalForm_Earth_Spell:5400b9db-3c84-5706-89d2-dee52d7733f3",
-    "Definition:CEPowerBundle_DH_EnhancedElementalForm_Ice_Spell:054d40a6-dcf0-5e34-9405-1016d9bb0b19",
-    "Definition:CEPowerBundle_DH_EnhancedElementalForm_Air_Spell:b2323c53-0136-5e24-89c4-3f4577fccba0"
+    "Definition:CEPowerBundle_PowerSharedPoolElementalistEnhancedFire_Spell:6c3ba6b8-8bb5-5af5-b9fd-62e119afb69a",
+    "Definition:CEPowerBundle_PowerSharedPoolElementalistEnhancedEarth_Spell:e8de6ce2-2f68-56bc-b36e-d043e3980a82",
+    "Definition:CEPowerBundle_PowerSharedPoolElementalistEnhancedIce_Spell:0d73e7c3-423f-5dc9-9a11-8bd250ef6546",
+    "Definition:CEPowerBundle_PowerSharedPoolElementalistEnhancedAir_Spell:88d154cb-9c60-5b9d-8c73-bf4b6a94741b"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
