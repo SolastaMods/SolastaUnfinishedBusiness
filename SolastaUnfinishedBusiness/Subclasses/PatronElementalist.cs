@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -86,23 +87,41 @@ internal sealed class PatronElementalist : AbstractSubclass
     {
         ElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("DH_ElementalFormPool")
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.BonusAction,
+                1,
+                RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                new EffectDescription())
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("ElementalForm", Resources.ElementalForm,
                     128, 64))
             .SetUsesProficiency()
             .SetRechargeRate(RechargeRate.LongRest)
-            .SetActivation(ActivationTime.BonusAction, 1)
             .AddToDB();
 
         EnhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("DH_ElementalFormPoolEnhanced")
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.BonusAction,
+                1,
+                RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                new EffectDescription())
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced",
                     Resources.ElementalFormEnhanced, 128, 64))
-            // .SetShortTitle("Power/&DH_ElementalFormPoolEnhancedTitleShort")
             .SetUsesProficiency()
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetActivation(ActivationTime.BonusAction, 1)
             .SetOverriddenPower(ElementalFormPool)
             .AddToDB();
 
@@ -336,3 +355,4 @@ internal sealed class PatronElementalist : AbstractSubclass
         // internal AssetReferenceSprite Sprite;
     }
 }
+#endif

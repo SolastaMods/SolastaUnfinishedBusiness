@@ -159,6 +159,47 @@ namespace SolastaUnfinishedBusiness.Properties {
             }
         }
         
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ElementalForm {
+            get {
+                object obj = ResourceManager.GetObject("ElementalForm", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ElementalFormEnhanced {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormEnhanced", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ElementalFormIcon {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ElementalFormIconEnhanced {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormIconEnhanced", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>

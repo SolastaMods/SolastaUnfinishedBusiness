@@ -48,6 +48,12 @@ internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder
         return This();
     }
 
+    public FeatureDefinitionPowerPoolBuilder SetUsesProficiency()
+    {
+        Definition.proficiencyBonusToAttack = true;
+        return This();
+    }
+
     #region Constructors
 
     protected FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
