@@ -345,13 +345,14 @@ public class EffectFormBuilder
         return this;
     }
 
-    public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
+    public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number, bool trackItem = false)
     {
         var summonForm = new SummonForm
         {
             summonType = SummonForm.Type.InventoryItem,
             itemDefinition = item,
             number = number,
+            trackItem = trackItem,
             monsterDefinitionName = "", //do we even need this?
             conditionDefinition = null,
             persistOnConcentrationLoss = true,

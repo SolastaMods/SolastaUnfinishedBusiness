@@ -99,6 +99,18 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+    public EffectDescriptionBuilder SetSlotTypes(params string[] slots)
+    {
+        effect.slotTypes.SetRange(slots);
+        return this;
+    }
+
+    public EffectDescriptionBuilder SetSlotTypes(params SlotTypeDefinition[] slots)
+    {
+        effect.slotTypes.SetRange(slots.Select(s => s.Name));
+        return this;
+    }
+
     public EffectDescriptionBuilder ExcludeCaster()
     {
         effect.SetTargetExcludeCaster(true);
@@ -211,6 +223,12 @@ public class EffectDescriptionBuilder
     {
         effect.SetSpeedType(speedType);
         effect.SetSpeedParameter(speedParameter);
+        return this;
+    }
+
+    public EffectDescriptionBuilder SetAnimation(AnimationDefinitions.AnimationMagicEffect animation)
+    {
+        effect.animationMagicEffect = animation;
         return this;
     }
 
