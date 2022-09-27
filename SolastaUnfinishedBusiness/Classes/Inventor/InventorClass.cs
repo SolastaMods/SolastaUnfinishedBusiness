@@ -285,7 +285,6 @@ internal static class InventorClass
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
-                .SetSlotTypes(SlotTypeDefinitions.ContainerSlot, SlotTypeDefinitions.MainHandSlot)
                 .SetSavingThrowData(
                     false,
                     true,
@@ -293,7 +292,7 @@ internal static class InventorClass
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
+                .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(EffectSavingThrowType.None)
@@ -301,7 +300,41 @@ internal static class InventorClass
                     .Build())
                 .Build())
             .AddToDB();
-        
+
+        var testInfuseItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestInfuseItem")
+            .SetGuiPresentation(Category.Feature, ItemDefinitions.BONEKEEP_MagicRune)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetUniqueInstance()
+            // .SetSharedPool(InventorClass.InfusionPool)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
+                new CustomItemFilter((_, item) => item.ItemDefinition.IsWeapon))
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalSpellLevelPerIncrement: 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
+                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+                .SetSavingThrowData(
+                    false,
+                    true,
+                    AttributeDefinitions.Dexterity,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(new EffectFormBuilder()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
+                        new FeatureUnlockByLevel
+                        {
+                            level = 0,
+                            featureDefinition = FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3
+                        })
+                    .Build())
+                .Build())
+            .AddToDB();
+
         //TODO: make some builder for these fake items
         var testItem = ItemDefinitionBuilder
             .Create("TMPTestItem")
@@ -321,16 +354,12 @@ internal static class InventorClass
                         .Build(),
                     new DeviceFunctionDescriptionBuilder()
                         .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetSpell(SpellDefinitions.FlameBlade)
-                        .Build(),
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetSpell(SpellDefinitions.DivineBlade)
+                        .SetPower(testInfuseItem, true)
                         .Build()
                 )
                 .Build())
             .AddToDB();
-        
+
         return FeatureDefinitionBuilder
             .Create("TMPTestInfusion")
             .SetGuiPresentation(Category.Feature)
