@@ -21,11 +21,11 @@ internal static class InventorClass
     private static readonly AssetReferenceSprite Pictogram =
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
 
+    private static SpellListDefinition _spellList;
+
     private static CharacterClassDefinition Class { get; set; }
 
     public static FeatureDefinitionPower InfusionPool { get; private set; }
-
-    private static SpellListDefinition _spellList;
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }

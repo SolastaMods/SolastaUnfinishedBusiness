@@ -93,7 +93,7 @@ internal static class RulesetImplementationManagerPatcher
             //used for Inventor's item summoning
             ExtraCarefulTrackedItem.Process(__instance, activeEffect);
         }
-        
+
         internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             if (__instance is not RulesetImplementationManagerCampaign)

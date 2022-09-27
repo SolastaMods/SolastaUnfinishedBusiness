@@ -21,9 +21,9 @@ internal static class UsableDeviceFunctionBoxPatcher
 
             var power = functionDescription.FeatureDefinitionPower;
 
-            IMagicEffect magic = (functionDescription.Type == DeviceFunctionDescription.FunctionType.Spell
+            IMagicEffect magic = functionDescription.Type == DeviceFunctionDescription.FunctionType.Spell
                 ? functionDescription.SpellDefinition
-                : power);
+                : power;
 
             var advancement = magic.EffectDescription.EffectAdvancement;
 

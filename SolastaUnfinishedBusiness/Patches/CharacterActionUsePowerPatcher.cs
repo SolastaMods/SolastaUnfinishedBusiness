@@ -57,7 +57,7 @@ internal static class CharacterActionUsePowerPatcher
 
             var usableDevice = power.OriginItem;
 
-            foreach (RulesetDeviceFunction usableFunction in usableDevice.UsableFunctions)
+            foreach (var usableFunction in usableDevice.UsableFunctions)
             {
                 var functionDescription = usableFunction.DeviceFunctionDescription;
                 if (functionDescription.Type != DeviceFunctionDescription.FunctionType.Power

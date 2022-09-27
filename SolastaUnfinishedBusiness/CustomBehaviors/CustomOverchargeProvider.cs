@@ -7,15 +7,15 @@ public interface ICustomOverchargeProvider
 
 public delegate (int, int)[] OverchargeStepsHandler(RulesetCharacter character);
 
-public class CustomOverchargeProvider: ICustomOverchargeProvider
+public class CustomOverchargeProvider : ICustomOverchargeProvider
 {
     private readonly OverchargeStepsHandler _handler;
 
     public CustomOverchargeProvider(OverchargeStepsHandler handler)
     {
-        this._handler = handler;
+        _handler = handler;
     }
-    
+
     public (int, int)[] OverchargeSteps(RulesetCharacter character)
     {
         return _handler(character);
@@ -27,7 +27,7 @@ public class CustomOverchargeProvider: ICustomOverchargeProvider
         {
             return 0;
         }
-        
+
         foreach (var step in steps)
         {
             if (step.Item1 == overcharge)

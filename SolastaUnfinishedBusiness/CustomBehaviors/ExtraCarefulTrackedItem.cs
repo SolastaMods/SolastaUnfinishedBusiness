@@ -32,15 +32,20 @@ public class ExtraCarefulTrackedItem
         var itemService = ServiceRepository.GetService<IGameLocationItemService>();
 
         if (activeEffect.TrackedSummonedItemGuids.Count <= 0)
-            return;
-        rules.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
-        foreach (ulong guid in rules.summonedItemGuidsToProcess)
         {
-            if (RulesetEntity.TryGetEntity<RulesetItem>(guid, out var entity))
-                entity.ItemDestroyed -= activeEffect.ItemDestroyed;
+            return;
         }
 
-        foreach (ulong guid in rules.summonedItemGuidsToProcess)
+        rules.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
+        foreach (var guid in rules.summonedItemGuidsToProcess)
+        {
+            if (RulesetEntity.TryGetEntity<RulesetItem>(guid, out var entity))
+            {
+                entity.ItemDestroyed -= activeEffect.ItemDestroyed;
+            }
+        }
+
+        foreach (var guid in rules.summonedItemGuidsToProcess)
         {
             if (!RulesetEntity.TryGetEntity<RulesetItem>(guid, out var trackedItem))
             {

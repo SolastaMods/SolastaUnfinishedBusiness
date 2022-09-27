@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -12,6 +11,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DamageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronElementalist : AbstractSubclass
@@ -41,7 +41,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                 Particles = Earth_Elemental.MonsterPresentation.attachedParticlesReference,
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
-                Shaders = FeyBear.MonsterPresentation.CustomShaderReference 
+                Shaders = FeyBear.MonsterPresentation.CustomShaderReference
                 // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
             }
         },
@@ -107,7 +107,8 @@ internal sealed class PatronElementalist : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetGuiPresentation(Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Resources.ElementalFormEnhanced, 128, 64))
+                CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Resources.ElementalFormEnhanced, 128,
+                    64))
             .SetUsesProficiency()
             .SetOverriddenPower(elementalFormPool)
             .AddToDB();
@@ -116,7 +117,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             Resources.ElementalFormIcon, 24, 24);
         var iconEnhanced = CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced",
             Resources.ElementalFormIconEnhanced, 24, 24);
-        
+
         var regularPowers = new List<FeatureDefinitionPower>();
         var enhancedPowers = new List<FeatureDefinitionPower>();
 
@@ -129,14 +130,14 @@ internal sealed class PatronElementalist : AbstractSubclass
                 e.Value,
                 iconRegular,
                 iconEnhanced);
-            
+
             regularPowers.Add(regularPower);
             enhancedPowers.Add(enhancedPower);
         }
 
         PowersBundleContext.RegisterPowerBundle(elementalFormPool, true, regularPowers.ToArray());
         PowersBundleContext.RegisterPowerBundle(enhancedElementalFormPool, true, enhancedPowers.ToArray());
-        
+
         var elementalistSpellList = SpellListDefinitionBuilder
             .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellList")
             .SetGuiPresentationNoContent(true)
@@ -160,10 +161,13 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
                 "FeatureSetElementalistKnowledge")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental)
+            .AddFeatureSet(
+                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental)
             .AddFeatureSet(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
+            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
+                .ConditionAffinityCircleLandNaturesWardCharmed)
+            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
+                .ConditionAffinityCircleLandNaturesWardFrightened)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
             .AddToDB();
@@ -178,7 +182,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddBonusCantrip(conjureMinorElementalsAtWill)
             .AddToDB();
-        
+
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
@@ -209,9 +213,9 @@ internal sealed class PatronElementalist : AbstractSubclass
         var planeText = $"Feature/&ElementalPact{text}Plane";
 
         return new GuiPresentationBuilder(
-            Gui.Format($"Feature/&ElementalPatron{type}Title", planeText),
-            Gui.Format($"Feature/&ElementalPatron{type}Description", planeText, damageType),
-            sprite)
+                Gui.Format($"Feature/&ElementalPatron{type}Title", planeText),
+                Gui.Format($"Feature/&ElementalPatron{type}Description", planeText, damageType),
+                sprite)
             .Build();
     }
 
@@ -225,7 +229,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             AssetReferenceSprite iconEnhanced)
     {
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamageElementalist" + text)
+            .Create("AdditionalDamageElementalist" + text)
             .SetGuiPresentation(GuiPresentation("ElementalDamage", text, elementalFormConfig))
             .Configure(
                 "ElementalDamage",

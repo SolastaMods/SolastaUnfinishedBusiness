@@ -21,8 +21,10 @@ internal static class EwSpells
 {
     internal static void Register()
     {
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
+            InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
+            InventorClass.SpellList);
     }
 
     private static SpellDefinition BuildSunlightBlade()

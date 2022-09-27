@@ -39,7 +39,7 @@ public class CustomItemFilter : ICustomItemFilter
             return;
         }
 
-        foreach (InventorySlotBox box in panel.allSlotBoxes)
+        foreach (var box in panel.allSlotBoxes)
         {
             var item = box.InventorySlot.EquipedItem;
             if (item == null)

@@ -38,6 +38,7 @@ internal static class UsablePowerBoxPatcher
             {
                 return;
             }
+
             var rect = img.sprite.rect;
             //Set aspect ratio to natural for the sprite, to remove stretching
             aspect.aspectRatio = rect.width / rect.height;

@@ -18,7 +18,7 @@ public static class InnovationAlchemy
             //temporary test feature to grant use device as bonus action
             .AddFeaturesAtLevel(1, FeatureDefinitionActionAffinityBuilder
                 .Create("TMPBonusAlchemy")
-                .SetGuiPresentationNoContent(hidden: true)
+                .SetGuiPresentationNoContent(true)
                 .SetDefaultAllowedActonTypes()
                 .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
                 .AddToDB())
@@ -153,7 +153,7 @@ public static class InnovationAlchemy
     //Below is some temp test stuff
     private sealed class Overcharge : ICustomOverchargeProvider
     {
-        private static readonly (int, int)[] Steps = {(2, 1), (3, 2)};
+        private static readonly (int, int)[] Steps = { (2, 1), (3, 2) };
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {

@@ -230,13 +230,13 @@ internal sealed class PatronMoonlit : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronMoonlit")
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(1, 
+            .AddFeaturesAtLevel(1,
                 magicAffinityPatronExpandedSpells,
                 conditionAffinityMoonlitDarknessImmunity,
                 SenseSuperiorDarkvision)
             //TODO: should this be indeed on 2?
             .AddFeaturesAtLevel(2, moonLitLightAffinityWeak)
-            .AddFeaturesAtLevel(6, 
+            .AddFeaturesAtLevel(6,
                 moonLitLightAffinityStrong
                 , powerMoonlitDarkMoon,
                 powerMoonlitFullMoon)
@@ -298,7 +298,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         }
 
         var ruleEffect = characterAction.ActionParams.RulesetEffect;
-        
+
         if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
         {
             BecomeRevealed(hero);
@@ -309,7 +309,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
     {
         RevealedCondition = BuildRevealedCondition();
         InvisibilityCondition = BuildInvisibilityCondition();
-        
+
         return FeatureDefinitionMoonlitInvisibilityBuilder
             .Create("MoonlitInvisibility")
             .SetGuiPresentationNoContent()

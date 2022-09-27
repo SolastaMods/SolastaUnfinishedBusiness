@@ -42,7 +42,7 @@ internal static class DeviceOverchargePanelPatcher
             else
             {
                 overcharge = new (int, int)[num];
-                for (int i = 0; i < num; i++)
+                for (var i = 0; i < num; i++)
                 {
                     overcharge[i] = (i + 1, i + 1);
                 }
