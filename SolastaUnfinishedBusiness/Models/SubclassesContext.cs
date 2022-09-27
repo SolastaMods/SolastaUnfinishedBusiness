@@ -4,8 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Subclasses;
 
-// using SolastaUnfinishedBusiness.Subclasses.Barbarian;
-
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
@@ -46,6 +44,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialTactician());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
+        LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
@@ -75,11 +74,6 @@ internal static class SubclassesContext
         {
             SortSubclassesFeatures();
         }
-
-        // RoguishConArtist.UpdateSpellDcBoost();
-        // WizardSpellMaster.UpdateBonusRecovery();
-        // WizardArcaneFighter.UpdateEnchantWeapon();
-        // WizardMasterManipulator.UpdateSpellDcBoost();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
