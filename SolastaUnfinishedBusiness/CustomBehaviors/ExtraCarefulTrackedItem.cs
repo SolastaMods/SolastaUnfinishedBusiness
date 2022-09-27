@@ -15,7 +15,7 @@ public class ExtraCarefulTrackedItem
             return;
         }
 
-        Main.Log2(
+        Main.Log(
             $"RIM.TerminateEffect [{activeEffect.Name}] tracked items: [{string.Join(", ", activeEffect.TrackedSummonedItemGuids)}]",
             true);
 

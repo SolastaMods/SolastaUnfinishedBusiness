@@ -32,6 +32,7 @@ internal static class ClassesContext
 
     internal static void Load()
     {
+        LoadClass(SolastaUnfinishedBusiness.Classes.Inventor.InventorClass.Build());
         // LoadClass(Monk.BuildClass());
         // LoadClass(ArtisanClass.BuildArtisanClass());
         // LoadClass(Warlock.BuildWarlockClass());
