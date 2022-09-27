@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static EquipmentDefinitions;
@@ -28,6 +31,23 @@ internal static class DeviceOverchargePanelPatcher
             var useAmount = usableDeviceFunction.DeviceFunctionDescription.UseAmount;
             var num = usableDevice.RemainingCharges - useAmount;
 
+            var power = functionDescription.FeatureDefinitionPower;
+            var provider = power.GetFirstSubFeatureOfType<CustomOverchargeProvider>();
+            (int, int)[] overcharge;
+            if (provider != null)
+            {
+                overcharge = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+                num = overcharge.Length;
+            }
+            else
+            {
+                overcharge = new (int, int)[num];
+                for (int i = 0; i < num; i++)
+                {
+                    overcharge[i] = (i + 1, i + 1);
+                }
+            }
+
             var boxesTable = __instance.overchargeBoxesTable;
             while (boxesTable.childCount < num)
             {
@@ -44,24 +64,13 @@ internal static class DeviceOverchargePanelPatcher
                 }
 
                 var component = child.GetComponent<DeviceOverchargeBox>();
-                var addedCharges = num - index;
-                var lastChargeWarning = index == 0 &&
-                                        usableDevice.UsableDeviceDescription.OutOfChargesConsequence !=
-                                        ItemOutOfCharges.Persist;
+                var addedCharges = overcharge[num - index - 1];
+                var outOfChargesConsequence = usableDevice.UsableDeviceDescription.OutOfChargesConsequence;
+                var lastChargeWarning = index == 0 && outOfChargesConsequence != ItemOutOfCharges.Persist;
 
-
-                if (functionDescription.type == DeviceFunctionDescription.FunctionType.Spell)
-                {
-                    component.BindSlot(functionDescription.SpellDefinition, addedCharges,
-                        lastChargeWarning, usableDevice.UsableDeviceDescription.OutOfChargesConsequence,
-                        onActivateAdvanced);
-                }
-                else
-                {
-                    BindPowerSlot(component, functionDescription.FeatureDefinitionPower, addedCharges,
-                        lastChargeWarning, usableDevice.UsableDeviceDescription.OutOfChargesConsequence,
-                        onActivateAdvanced);
-                }
+                BindPowerSlot(component, power, addedCharges.Item1, addedCharges.Item2, lastChargeWarning,
+                    outOfChargesConsequence,
+                    onActivateAdvanced);
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(boxesTable);
@@ -79,21 +88,22 @@ internal static class DeviceOverchargePanelPatcher
 
         private static void BindPowerSlot(
             DeviceOverchargeBox box,
-            FeatureDefinitionPower powerDefinition,
+            IMagicEffect magic,
             int addedCharges,
+            int slotDelta,
             bool lastChargeWarning,
             ItemOutOfCharges lastChargeConsequence,
             DeviceOverchargeBox.OnActivateHandler onActivate)
         {
             box.OnActivate = onActivate;
             box.addedCharges = addedCharges;
-            box.chargesLabel.Text = Gui.Format(box.addedCharges == 1
+            box.chargesLabel.Text = Gui.Format(addedCharges == 1
                 ? "Equipment/&FunctionChargeCostFormatSingle"
-                : "Equipment/&FunctionChargeCostFormatPlural", box.addedCharges.ToString("+0;-#"));
-            box.tooltip.Content = Gui.Format(box.addedCharges == 1
+                : "Equipment/&FunctionChargeCostFormatPlural", addedCharges.ToString("+0;-#"));
+            box.tooltip.Content = Gui.Format(addedCharges == 1
                 ? "Action/&UseFunctionAdditionalChargeSingle"
-                : "Action/&UseFunctionAdditionalChargePlural", box.addedCharges.ToString());
-            box.tooltip.Content += FormatEnhancementEffect(powerDefinition.EffectDescription, addedCharges);
+                : "Action/&UseFunctionAdditionalChargePlural", addedCharges.ToString());
+            box.tooltip.Content += FormatEnhancementEffect(magic.EffectDescription, slotDelta);
             box.lastChargeGroup.gameObject.SetActive(lastChargeWarning);
             if (!lastChargeWarning)
             {

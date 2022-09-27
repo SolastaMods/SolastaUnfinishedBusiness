@@ -1,19 +1,37 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Models;
+
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
     public RulesetEffectPowerWithAdvancement(
-        int advancement,
+        int extraCharges,
         RulesetCharacter user,
         RulesetUsablePower usablePower,
         RulesetItemDevice originItem = null,
         RulesetDeviceFunction usableDeviceFunction = null) : base(user, usablePower, originItem, usableDeviceFunction)
     {
-        EffectLevel = 1 + advancement;
-        RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(1 + advancement);
+        var effectLevel = 1 + extraCharges;
+
+        if (extraCharges > 0)
+        {
+            var provider = usablePower.PowerDefinition.GetFirstSubFeatureOfType<CustomOverchargeProvider>();
+            if (provider != null)
+            {
+                var steps = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+                effectLevel = 1 + CustomOverchargeProvider.GetAdvancementFromOvercharge(extraCharges, steps);
+            }
+        }
+
+        EffectLevel = effectLevel;
+        ExtraCharges = extraCharges;
+
+        RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(effectLevel);
     }
 
     public override int EffectLevel { get; }
+    public int ExtraCharges { get; }
 
     public override int ComputeTargetParameter()
     {
