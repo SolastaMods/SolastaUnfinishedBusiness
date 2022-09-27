@@ -279,11 +279,12 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Power, ItemDefinitions.Dagger)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
+            .SetUniqueInstance()
             // .SetSharedPool(InventorClass.InfusionPool)
-            // .SetCustomSubFeatures(new AddDie(), new MakeCone())
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.FreeSlot)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetSlotTypes(SlotTypeDefinitions.ContainerSlot, SlotTypeDefinitions.MainHandSlot)
                 .SetSavingThrowData(
                     false,
@@ -293,7 +294,7 @@ internal static class InventorClass
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
-                .SetDurationData(DurationType.Minute, 1)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetSummonItemForm(ItemDefinitions.Dagger, 1, true)

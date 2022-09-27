@@ -138,6 +138,12 @@ public abstract class
         Definition.costPerUse = costPerUse;
         return This();
     }
+    
+    public TBuilder SetUniqueInstance(bool unique = true)
+    {
+        Definition.uniqueInstance = unique;
+        return This();
+    }
 
     public TBuilder SetAbilityScoreDetermination(
         RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
