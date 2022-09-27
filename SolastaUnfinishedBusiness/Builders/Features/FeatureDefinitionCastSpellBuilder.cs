@@ -147,6 +147,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         SetKnownCantripsZero();
         SetKnownZero();
         SetScribedZero();
+        SetSlotsZero();
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
@@ -332,6 +333,30 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         for (var level = 1; level < 21; level++)
         {
             Definition.KnownSpells.Add(0);
+        }
+    }
+
+    private void SetSlotsZero()
+    {
+        Definition.SlotsPerLevels.Clear();
+        for (var level = 1; level < 21; level++)
+        {
+            Definition.SlotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                level = level,
+                Slots = new List<int>
+                {
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                }
+            });
         }
     }
 
