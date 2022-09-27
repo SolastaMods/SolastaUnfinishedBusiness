@@ -41,6 +41,43 @@ internal static class RulesetImplementationManagerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ApplySummonForm_Patch
+    {
+        public static bool Prefix(RulesetImplementationManager __instance,
+            EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            //PATCH: track item that is summoned to inventory
+            //usually only items summoned to equipment slots are tracked
+            //this code tracks item if it is single item summon and item is marked to be tracked
+            //used to properly track items summoned by Inventor
+
+            var summonForm = effectForm.SummonForm;
+            if (summonForm.SummonType != SummonForm.Type.InventoryItem
+                || summonForm.ItemDefinition == null
+                || summonForm.Number != 1
+                || !summonForm.TrackItem
+                || formsParams.targetType != RuleDefinitions.TargetType.Self
+                || formsParams.sourceCharacter is not RulesetCharacterHero)
+            {
+                return true;
+            }
+
+            var rulesetItem = ServiceRepository.GetService<IRulesetItemFactoryService>()
+                .CreateStandardItem(summonForm.ItemDefinition);
+
+            rulesetItem.SourceSummoningEffectGuid = formsParams.activeEffect.Guid;
+
+            formsParams.sourceCharacter.GrantItem(rulesetItem, false);
+            formsParams.activeEffect.TrackSummonedItem(rulesetItem);
+            formsParams.sourceCharacter.RefreshAll();
+
+            return false;
+        }
+    }
+
     //PATCH:
     // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
     // This makes light and item effects correctly terminate when resting during world travel
