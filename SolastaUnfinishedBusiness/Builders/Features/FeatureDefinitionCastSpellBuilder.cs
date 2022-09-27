@@ -84,6 +84,8 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         CasterProgression progression,
         List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
     {
+        slotsPerLevels.Clear();
+
         var level = 1;
         var startingLevel = (int)progression;
 

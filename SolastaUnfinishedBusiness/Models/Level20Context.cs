@@ -16,6 +16,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -141,6 +142,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 1, CastSpellBard.ReplacedSpells);
+
+        SpellListBard.maxSpellLevel = 9;
     }
 
     private static void ClericLoad()
@@ -168,6 +171,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 1, CastSpellCleric.ReplacedSpells);
+
+        SpellListCleric.maxSpellLevel = 9;
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(
@@ -229,6 +234,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 1, CastSpellDruid.ReplacedSpells);
+
+        SpellListDruid.maxSpellLevel = 9;
     }
 
     private static void FighterLoad()
@@ -310,6 +317,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             3, 1, CastSpellPaladin.ReplacedSpells);
+
+        SpellListPaladin.maxSpellLevel = 5;
     }
 
     private static void RangerLoad()
@@ -337,6 +346,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             3, 1, CastSpellRanger.ReplacedSpells);
+
+        SpellListRanger.maxSpellLevel = 5;
     }
 
     private static void RogueLoad()
@@ -409,6 +420,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 1, CastSpellSorcerer.ReplacedSpells);
+
+        SpellListSorcerer.maxSpellLevel = 9;
     }
 
     private static void WarlockLoad()
@@ -435,6 +448,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 1, CastSpellWarlock.ReplacedSpells);
+
+        SpellListWarlock.maxSpellLevel = 9;
     }
 
     private static void WizardLoad()
@@ -457,6 +472,8 @@ internal static class Level20Context
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 0, CastSpellWizard.ReplacedSpells);
+
+        SpellListWizard.maxSpellLevel = 9;
     }
 
     private static void MartialSpellBladeLoad()
