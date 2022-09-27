@@ -342,7 +342,7 @@ internal static class Level20Context
         FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
             2,
             FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
-            CastSpellBard.KnownSpells);
+            CastSpellRanger.KnownSpells);
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             3, 1, CastSpellRanger.ReplacedSpells);
@@ -468,7 +468,7 @@ internal static class Level20Context
         FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
             6,
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
-            CastSpellSorcerer.KnownSpells);
+            CastSpellWizard.KnownSpells);
 
         FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
             2, 0, CastSpellWizard.ReplacedSpells);
