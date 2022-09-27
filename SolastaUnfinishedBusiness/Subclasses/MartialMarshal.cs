@@ -46,6 +46,8 @@ internal sealed class MartialMarshal : AbstractSubclass
 
 internal static class FeatureSetMarshalKnowYourEnemyBuilder
 {
+    private const string FeatureSetMarshalKnowYourEnemy = "FeatureSetMarshalKnowYourEnemy";
+
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
         return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry)
@@ -69,14 +71,14 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
 
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-            FeatureSourceType.CharacterFeature, "FeatureSetMarshalKnowYourEnemy", null));
+            FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemy, null));
     }
 
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
-            .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
+            .SetGuiPresentation(FeatureSetMarshalKnowYourEnemy, Category.Feature)
             .SetOnComputeAttackModifierDelegate(FeatureSetMarshalKnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
@@ -92,8 +94,8 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMarshalKnowYourEnemy")
-            .SetGuiPresentation("FighterMarshalFeatureSetMarshalKnowYourEnemyFeatureSet", Category.Feature)
+            .Create(FeatureSetMarshalKnowYourEnemy)
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 knowYourEnemiesAttackHitModifier,
                 AdditionalDamageRangerFavoredEnemyAberration,
@@ -133,8 +135,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature,
-                IdentifyCreatures.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, IdentifyCreatures.GuiPresentation.SpriteReference)
             .SetFixedUsesPerRecharge(2)
             .SetCostPerUse(1)
             .SetRechargeRate(RechargeRate.ShortRest)
@@ -190,6 +191,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 var num2 = outcome == RollOutcome.Success ? 1 : 2;
+
                 num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
                 manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
             }
@@ -288,7 +290,9 @@ internal static class MarshalCoordinatedAttackBuilder
             if (!gameLocationBattleService.CanAttack(attackParams))
             {
                 canAttack = false;
+
                 var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
+
                 if (cantrips == null || cantrips.Empty())
                 {
                     continue;
@@ -408,14 +412,13 @@ internal static class EternalComradeBuilder
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
         var summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name };
-
         var effectForm = new EffectForm
         {
             formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
         };
 
-        // TODO: make this use concentration and reduce the duration to may be 3 rounds
-        // TODO: increase the number of use to 2 and recharge per long rest
+        //TODO: make this use concentration and reduce the duration to may be 3 rounds
+        //TODO: increase the number of use to 2 and recharge per long rest
         var summonEternalComradePower = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature, Bane.GuiPresentation.SpriteReference)
@@ -510,9 +513,7 @@ internal static class EncourageBuilder
     {
         var conditionEncouraged = ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
-            .SetGuiPresentation(
-                "PowerMarshalEncouragement",
-                Category.Feature,
+            .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature,
                 ConditionBlessed.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
@@ -545,9 +546,17 @@ internal static class EncourageBuilder
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
-            .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma,
-                ActivationTime.PermanentUnlessIncapacitated, 1,
-                RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.PermanentUnlessIncapacitated,
+                1,
+                RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                effect)
             .SetShowCasting(false)
             .AddToDB();
     }
