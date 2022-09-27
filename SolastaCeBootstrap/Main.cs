@@ -226,10 +226,10 @@ namespace SolastaCeBootstrap
                 "AmmunitionTypeDefinition",
                 "CampaignDefinition",
                 "CharacterToLootPackMapDefinition",
-                "DamageDefinition",
                 "FactionDefinition",
                 "LootableContainerDefinition",
-                "PersonalityFlagDefinition", "TerrainTypeDefinition",
+                "PersonalityFlagDefinition",
+                "TerrainTypeDefinition",
                 "ToolCategoryDefinition"
             };
             var definitions = new Dictionary<string, List<Asset>>();

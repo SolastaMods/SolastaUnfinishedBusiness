@@ -1970,6 +1970,26 @@ public static partial class DatabaseHelper
     {
     }
 
+    public static class DamageDefinitions
+    {
+        public static DamageDefinition DamageAcid { get; } = GetDefinition<DamageDefinition>("DamageAcid");
+
+        public static DamageDefinition DamageBludgeoning { get; } =
+            GetDefinition<DamageDefinition>("DamageBludgeoning");
+
+        public static DamageDefinition DamageCold { get; } = GetDefinition<DamageDefinition>("DamageCold");
+        public static DamageDefinition DamageFire { get; } = GetDefinition<DamageDefinition>("DamageFire");
+        public static DamageDefinition DamageForce { get; } = GetDefinition<DamageDefinition>("DamageForce");
+        public static DamageDefinition DamageLightning { get; } = GetDefinition<DamageDefinition>("DamageLightning");
+        public static DamageDefinition DamageNecrotic { get; } = GetDefinition<DamageDefinition>("DamageNecrotic");
+        public static DamageDefinition DamagePiercing { get; } = GetDefinition<DamageDefinition>("DamagePiercing");
+        public static DamageDefinition DamagePoison { get; } = GetDefinition<DamageDefinition>("DamagePoison");
+        public static DamageDefinition DamagePsychic { get; } = GetDefinition<DamageDefinition>("DamagePsychic");
+        public static DamageDefinition DamageRadiant { get; } = GetDefinition<DamageDefinition>("DamageRadiant");
+        public static DamageDefinition DamageSlashing { get; } = GetDefinition<DamageDefinition>("DamageSlashing");
+        public static DamageDefinition DamageThunder { get; } = GetDefinition<DamageDefinition>("DamageThunder");
+    }
+
     public static class DocumentTableDefinitions
     {
     }

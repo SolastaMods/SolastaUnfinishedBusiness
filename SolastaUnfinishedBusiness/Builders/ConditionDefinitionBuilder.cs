@@ -58,6 +58,18 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
+    public TBuilder SetConditionParticleReference(AssetReference value)
+    {
+        Definition.conditionParticleReference = value;
+        return This();
+    }
+
+    public TBuilder SetCharacterShaderReference(AssetReference value)
+    {
+        Definition.characterShaderReference = value;
+        return This();
+    }
+
     public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {
         Definition.conditionType = value;

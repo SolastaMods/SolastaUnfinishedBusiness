@@ -1,5 +1,4 @@
-﻿#if false
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -8,6 +7,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DamageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -15,24 +15,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronElementalist : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
-    internal PatronElementalist()
-    {
-        
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
-    
     private const string Name = "DHWarlockSubclassElementalPatron";
 
     //Think about making smaller base pool of elements, with ability to expand via eldritch Invocations or Mysterium Arcana
@@ -97,12 +79,10 @@ internal sealed class PatronElementalist : AbstractSubclass
         }
     };
 
-    private static FeatureDefinitionPower ElementalFormPool { get; set; }
-    private static FeatureDefinitionPower EnhancedElementalFormPool { get; set; }
-    private static FeatureDefinitionBonusCantrips MinorElementalBonusCantrip { get; set; }
-    private static FeatureDefinitionMagicAffinity ElementalistMagicAffinity { get; set; }
+    // ReSharper disable once InconsistentNaming
+    private readonly CharacterSubclassDefinition Subclass;
 
-    public static CharacterSubclassDefinition Build()
+    internal PatronElementalist()
     {
         ElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("DH_ElementalFormPool")
@@ -148,15 +128,30 @@ internal sealed class PatronElementalist : AbstractSubclass
         // cantrip at will version of Protection from Energy or conjure minor elementals
         AtWillConjureMinorElementals();
 
-        return CharacterSubclassDefinitionBuilder.Create(Name)
+        Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
             // .AddFeatureAtLevel(FeatureSet_Level01, 1)
             .AddFeaturesAtLevel(1, ElementalistMagicAffinity, ElementalFormPool)
-            .AddFeatureAtLevel(featureSetLevel06, 6)
-            .AddFeatureAtLevel(EnhancedElementalFormPool, 10)
-            .AddFeatureAtLevel(MinorElementalBonusCantrip, 14)
+            .AddFeaturesAtLevel(6, featureSetLevel06)
+            .AddFeaturesAtLevel(10, EnhancedElementalFormPool)
+            .AddFeaturesAtLevel(14, MinorElementalBonusCantrip)
             .AddToDB();
+    }
+
+    private static FeatureDefinitionPower ElementalFormPool { get; set; }
+    private static FeatureDefinitionPower EnhancedElementalFormPool { get; set; }
+    private static FeatureDefinitionBonusCantrips MinorElementalBonusCantrip { get; set; }
+    private static FeatureDefinitionMagicAffinity ElementalistMagicAffinity { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    {
+        return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+    }
+
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
     }
 
     private static void BuildElementalForms()
@@ -341,4 +336,3 @@ internal sealed class PatronElementalist : AbstractSubclass
         // internal AssetReferenceSprite Sprite;
     }
 }
-#endif
