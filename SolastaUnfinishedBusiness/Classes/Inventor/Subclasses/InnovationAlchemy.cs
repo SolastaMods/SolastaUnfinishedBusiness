@@ -28,7 +28,7 @@ public static class InnovationAlchemy
     private static FeatureDefinition BuildBombs()
     {
         var powerBombSplash = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSplash")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.Fireball)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fireball)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
@@ -56,7 +56,7 @@ public static class InnovationAlchemy
             .AddToDB();
 
         var powerBombBreath = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombBreath")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.BurningHands)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.BurningHands)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new Overcharge())
@@ -84,7 +84,7 @@ public static class InnovationAlchemy
             .AddToDB();
 
         var powerBombSingle = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSingle")
-            .SetGuiPresentation(Category.Power, SpellDefinitions.ProduceFlame)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.ProduceFlame)
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetAttackAbilityToHit(true, true)
