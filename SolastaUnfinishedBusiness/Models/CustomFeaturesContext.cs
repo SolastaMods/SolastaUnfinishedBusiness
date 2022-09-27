@@ -575,12 +575,7 @@ public static class CustomFeaturesContext
     public static EffectDescription ModifyMagicEffectGui(EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
-        var caster = Global.InspectedHero
-                     ?? Global.ActiveLevelUpHero
-                     ?? Global.ControlledPlayerCharacter?.RulesetCharacter
-                     ?? Global.ActivePlayerCharacter?.RulesetCharacter;
-
-        return ModifyMagicEffect(original, definition, caster);
+        return ModifyMagicEffect(original, definition, Global.CurrentGuiCharacter);
     }
 
     // [NotNull]

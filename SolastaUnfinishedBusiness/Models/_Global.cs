@@ -46,6 +46,11 @@ public static class Global
         }
     }
 
+    public static RulesetCharacter CurrentGuiCharacter => InspectedHero
+                                                          ?? ActiveLevelUpHero
+                                                          ?? ControlledPlayerCharacter?.RulesetCharacter
+                                                          ?? ActivePlayerCharacter?.RulesetCharacter;
+
     // current action from any character on the map
     public static CharacterAction CurrentAction { get; private set; }
 
