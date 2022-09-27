@@ -32,7 +32,7 @@ internal static class DeviceOverchargePanelPatcher
             var num = usableDevice.RemainingCharges - useAmount;
 
             var power = functionDescription.FeatureDefinitionPower;
-            var provider = power.GetFirstSubFeatureOfType<CustomOverchargeProvider>();
+            var provider = power.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
             (int, int)[] overcharge;
             if (provider != null)
             {

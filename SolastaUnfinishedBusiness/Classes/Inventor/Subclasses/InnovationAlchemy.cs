@@ -151,11 +151,11 @@ public static class InnovationAlchemy
 
 
     //Below is some temp test stuff
-    internal sealed class Overcharge : CustomOverchargeProvider
+    private sealed class Overcharge : ICustomOverchargeProvider
     {
         private static readonly (int, int)[] Steps = {(2, 1), (3, 2)};
 
-        public override (int, int)[] OverchargeSteps(RulesetCharacter character)
+        public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {
             return Steps;
         }

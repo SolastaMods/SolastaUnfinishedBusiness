@@ -32,7 +32,7 @@ internal static class UsableDeviceFunctionBoxPatcher
 
             if (power != null)
             {
-                var provider = power.GetFirstSubFeatureOfType<CustomOverchargeProvider>();
+                var provider = power.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
                 if (provider != null)
                 {
                     var steps = provider.OverchargeSteps(Global.CurrentGuiCharacter);

@@ -1,8 +1,25 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public abstract class CustomOverchargeProvider
+public interface ICustomOverchargeProvider
 {
-    public abstract (int, int)[] OverchargeSteps(RulesetCharacter character);
+    public (int, int)[] OverchargeSteps(RulesetCharacter character);
+}
+
+public delegate (int, int)[] OverchargeStepsHandler(RulesetCharacter character);
+
+public class CustomOverchargeProvider: ICustomOverchargeProvider
+{
+    private readonly OverchargeStepsHandler _handler;
+
+    public CustomOverchargeProvider(OverchargeStepsHandler handler)
+    {
+        this._handler = handler;
+    }
+    
+    public (int, int)[] OverchargeSteps(RulesetCharacter character)
+    {
+        return _handler(character);
+    }
 
     public static int GetAdvancementFromOvercharge(int overcharge, (int, int)[] steps)
     {
