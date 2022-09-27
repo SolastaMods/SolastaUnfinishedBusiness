@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerSharedPoolElementalistFire:1c3279ac-5684-5e60-8e15-d102376efacf",
+  "overriddenPower": "Definition:PowerSharedPoolElementalistNormalFire:344201b3-b8fd-5892-a2af-53ab19aea702",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

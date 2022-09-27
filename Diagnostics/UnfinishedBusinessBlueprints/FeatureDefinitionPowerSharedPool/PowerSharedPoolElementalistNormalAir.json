@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionElementalistFire",
-          "conditionDefinition": "Definition:ConditionElementalistFire:0758893e-662c-5ca6-a106-e75fc51cdeba",
+          "conditionDefinitionName": "ConditionElementalistNormalAir",
+          "conditionDefinition": "Definition:ConditionElementalistNormalAir:54cd8d29-c7a9-52a2-aefd-347b62fd5da9",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Plane",
-    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Air Plane",
+    "description": "When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1c3279ac-5684-5e60-8e15-d102376efacf",
+  "guid": "d8ec4816-d34f-5cc3-afd3-59327cec38fe",
   "contentPack": 9999,
-  "name": "PowerSharedPoolElementalistFire"
+  "name": "PowerSharedPoolElementalistNormalAir"
 }

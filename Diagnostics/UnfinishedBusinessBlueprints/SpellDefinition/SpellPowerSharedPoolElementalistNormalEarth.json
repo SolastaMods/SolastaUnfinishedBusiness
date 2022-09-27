@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Ice Plane",
-    "description": "When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Earth Plane",
+    "description": "When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d73e7c3-423f-5dc9-9a11-8bd250ef6546",
+  "guid": "36252dcf-fd4c-5058-828a-9bfe768a880f",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistEnhancedIce_Spell"
+  "name": "SpellPowerSharedPoolElementalistNormalEarth"
 }

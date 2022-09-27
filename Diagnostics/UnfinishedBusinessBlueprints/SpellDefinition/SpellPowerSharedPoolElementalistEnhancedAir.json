@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Earth Plane",
-    "description": "When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Channeling Air Plane",
+    "description": "When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "46159935-e0d1-59b9-9e91-21c45c3bb998",
+  "guid": "4715d54b-8241-5dd4-8b96-0df5988e68ec",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistEarth_Spell"
+  "name": "SpellPowerSharedPoolElementalistEnhancedAir"
 }

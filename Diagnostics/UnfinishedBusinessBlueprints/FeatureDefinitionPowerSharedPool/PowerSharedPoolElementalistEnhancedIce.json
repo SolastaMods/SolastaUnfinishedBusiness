@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerSharedPoolElementalistIce:0b10d66a-c40a-5d31-a283-93358fb0958b",
+  "overriddenPower": "Definition:PowerSharedPoolElementalistNormalIce:7b019000-4f6a-57db-9c96-dfd124205c35",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

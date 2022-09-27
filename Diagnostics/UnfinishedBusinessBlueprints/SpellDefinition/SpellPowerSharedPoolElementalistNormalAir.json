@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Fire Plane",
-    "description": "When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Air Plane",
+    "description": "When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c3ba6b8-8bb5-5af5-b9fd-62e119afb69a",
+  "guid": "791eac51-d346-5b07-a257-48c74612bd05",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistEnhancedFire_Spell"
+  "name": "SpellPowerSharedPoolElementalistNormalAir"
 }

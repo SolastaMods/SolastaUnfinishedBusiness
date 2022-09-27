@@ -1,7 +1,12 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [],
+  "subspellsList": [
+    "Definition:SpellPowerSharedPoolElementalistNormalFire:04696f61-679c-513b-8443-5989b81bbf28",
+    "Definition:SpellPowerSharedPoolElementalistNormalEarth:36252dcf-fd4c-5058-828a-9bfe768a880f",
+    "Definition:SpellPowerSharedPoolElementalistNormalIce:293c0b3d-8076-5147-8490-554a600c3876",
+    "Definition:SpellPowerSharedPoolElementalistNormalAir:791eac51-d346-5b07-a257-48c74612bd05"
+  ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -161,11 +166,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Plane",
-    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Feature/&PowerElementalistElementalFormPoolTitle",
+    "description": "Feature/&PowerElementalistElementalFormPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "d77a84dd-0917-5212-809f-72029255344a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -182,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c9df6a5c-3007-5ac8-ab97-3f0e0b367b0e",
+  "guid": "058e414e-3261-5d0e-9f11-ef5c8959361a",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistFire_Spell"
+  "name": "SpellPowerElementalistElementalFormPool"
 }

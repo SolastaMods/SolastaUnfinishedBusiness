@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageElementalistFire:2db42e37-34a5-58aa-abfc-287132298906",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17"
+    "Definition:AdditionalDamageElementalistIce:7cde15a1-e245-5689-80a6-58d886ce5a03",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -45,7 +45,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
+    "m_AssetGUID": "68f396d9f883fa845a63c44208e8306b",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -127,8 +127,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Fire Plane",
-    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
+    "title": "Channeling Ice Plane",
+    "description": "Deal additional Cold damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0758893e-662c-5ca6-a106-e75fc51cdeba",
+  "guid": "23bfdfb5-654b-5ed0-a631-8e38f7864621",
   "contentPack": 9999,
-  "name": "ConditionElementalistFire"
+  "name": "ConditionElementalistNormalIce"
 }

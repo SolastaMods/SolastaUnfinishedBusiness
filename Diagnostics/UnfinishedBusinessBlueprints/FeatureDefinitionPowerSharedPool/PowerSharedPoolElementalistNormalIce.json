@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionElementalistAir",
-          "conditionDefinition": "Definition:ConditionElementalistAir:2e7cb772-ffa9-5d76-afd1-69b3ea74964b",
+          "conditionDefinitionName": "ConditionElementalistNormalIce",
+          "conditionDefinition": "Definition:ConditionElementalistNormalIce:23bfdfb5-654b-5ed0-a631-8e38f7864621",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -313,8 +313,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Air Plane",
-    "description": "When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Ice Plane",
+    "description": "When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -334,7 +334,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dea70ba9-4a7d-5bda-9f40-f22d406262fa",
+  "guid": "7b019000-4f6a-57db-9c96-dfd124205c35",
   "contentPack": 9999,
-  "name": "PowerSharedPoolElementalistAir"
+  "name": "PowerSharedPoolElementalistNormalIce"
 }

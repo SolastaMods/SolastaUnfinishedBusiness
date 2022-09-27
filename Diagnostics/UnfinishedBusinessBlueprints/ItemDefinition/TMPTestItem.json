@@ -67,22 +67,10 @@
         "useAmount": 2,
         "rechargeRate": "Dawn",
         "durationType": "Instantaneous",
-        "canOverchargeSpell": false,
-        "type": "Spell",
-        "spellDefinition": "Definition:FlameBlade:0547a31a7b87dbb438758ae4cf914af7",
-        "featureDefinitionPower": null
-      },
-      {
-        "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "ByFunction",
-        "useAffinity": "ChargeCost",
-        "useAmount": 2,
-        "rechargeRate": "Dawn",
-        "durationType": "Instantaneous",
-        "canOverchargeSpell": false,
-        "type": "Spell",
-        "spellDefinition": "Definition:DivineBlade:3a3cc601892613e4b8eac2d3c168efc9",
-        "featureDefinitionPower": null
+        "canOverchargeSpell": true,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:TMPPowerTestInfuseItem:90238b13-1009-5538-9893-9f5664e690ef"
       }
     ],
     "usableDeviceTags": [],

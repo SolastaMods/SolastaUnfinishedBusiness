@@ -161,8 +161,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Air Plane",
-    "description": "When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
+    "title": "Fire Plane",
+    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -182,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "adf16e98-2222-5019-b590-b62b3c09ab7c",
+  "guid": "04696f61-679c-513b-8443-5989b81bbf28",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistAir_Spell"
+  "name": "SpellPowerSharedPoolElementalistNormalFire"
 }

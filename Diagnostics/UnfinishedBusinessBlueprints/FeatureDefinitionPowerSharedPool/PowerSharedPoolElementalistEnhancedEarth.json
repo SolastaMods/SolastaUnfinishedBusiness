@@ -308,7 +308,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerSharedPoolElementalistEarth:b558950c-3f28-5657-817b-3003bfcf2bb8",
+  "overriddenPower": "Definition:PowerSharedPoolElementalistNormalEarth:dcc173c5-aa93-5472-9697-916ad85f9401",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

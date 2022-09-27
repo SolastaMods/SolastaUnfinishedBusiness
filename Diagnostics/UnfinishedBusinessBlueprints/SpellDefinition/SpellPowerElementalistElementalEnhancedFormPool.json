@@ -1,7 +1,12 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [],
+  "subspellsList": [
+    "Definition:SpellPowerSharedPoolElementalistEnhancedFire:0337917a-93ad-54d7-bbe0-4544566de9c9",
+    "Definition:SpellPowerSharedPoolElementalistEnhancedEarth:1c236835-fc8b-52c2-a98d-bf1bac39598c",
+    "Definition:SpellPowerSharedPoolElementalistEnhancedIce:e36b6f4a-fbc8-5142-bae4-a1f1e79999b9",
+    "Definition:SpellPowerSharedPoolElementalistEnhancedAir:4715d54b-8241-5dd4-8b96-0df5988e68ec"
+  ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -161,11 +166,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channeling Earth Plane",
-    "description": "When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.",
+    "title": "Feature/&PowerElementalistElementalEnhancedFormPoolTitle",
+    "description": "Feature/&PowerElementalistElementalEnhancedFormPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "8be884dc-1093-57ac-927c-087e5c027243",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -182,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8de6ce2-2f68-56bc-b36e-d043e3980a82",
+  "guid": "eb39c9d2-7f00-5391-b49c-7a8e4b0ebd99",
   "contentPack": 9999,
-  "name": "CEPowerBundle_PowerSharedPoolElementalistEnhancedEarth_Spell"
+  "name": "SpellPowerElementalistElementalEnhancedFormPool"
 }
