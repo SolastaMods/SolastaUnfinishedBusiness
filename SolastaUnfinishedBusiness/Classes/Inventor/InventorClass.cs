@@ -255,7 +255,7 @@ internal static class InventorClass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfulionPool")
-            .SetGuiPresentation(Category.Power, hidden: true)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(20)
             .SetRechargeRate(RechargeRate.ShortRest)
             .AddToDB();
@@ -276,7 +276,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildTestInfision()
     {
         var testSummonItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestSummonItem")
-            .SetGuiPresentation(Category.Power, ItemDefinitions.Dagger)
+            .SetGuiPresentation(Category.Feature, ItemDefinitions.Dagger)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetUniqueInstance()
