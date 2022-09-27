@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class PowersBundleContext
 {
-    private const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
+    internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
 
     private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();

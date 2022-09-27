@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -43,4 +42,3 @@ internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefi
 
     #endregion
 }
-#endif
