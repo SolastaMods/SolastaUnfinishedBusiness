@@ -1,0 +1,258 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Club:09527ada1527cf94b830ccf53335d1e5",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Club:09527ada1527cf94b830ccf53335d1e5",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "AmmoPack",
+              "itemReference": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Focus",
+              "itemReference": "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:StuddedLeather:d5ecaa9b5baa3e94f96107c280f33c0c",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:DungeoneerPack:6286cf8295c47af42bca166999993f2b",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D8",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Intelligence",
+    "Constitution",
+    "Dexterity",
+    "Strength",
+    "Wisdom",
+    "Charisma"
+  ],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellsInventor:23b47238-099a-5a6a-b3f9-45e59a574d5a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInfusions:f7b6e4e9-85a1-5eee-b27d-b22ff38f92db",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInventorArmor:cdce92cb-aebe-5adb-b62d-9463d2ddf46c",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolInventorSkills:b56b95b4-ee37-59a9-850b-36eabec2db65",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInventorWeapon:f93dc27c-34f8-59ee-a46c-7e44c6ffe895",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInventorSavingThrow:3ffcc425-4240-5532-839c-5214a75f337d",
+      "level": 1
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "skillAutolearnPreference": [
+    "Athletics",
+    "History",
+    "Insight",
+    "Stealth",
+    "Religion",
+    "Perception",
+    "Survival"
+  ],
+  "toolAutolearnPreference": [
+    "ArtisanToolSmithToolsType",
+    "HerbalismKitType"
+  ],
+  "expertiseAutolearnPreference": [],
+  "featAutolearnPreference": [],
+  "invocationAutolearnPreference": [],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 7,
+  "classPictogramReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9bf940be035c7c64eb6ee577a4e9efef",
+    "m_SubObjectName": "Class_wizard",
+    "m_SubObjectType": ""
+  },
+  "defaultBattleDecisions": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "classAnimationId": "Fighter",
+  "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Class/&InventorTitle",
+    "description": "Class/&InventorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "eaad22adde115de43bf2dffb56f36c8f",
+      "m_SubObjectName": "Wizard",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fbc44110-e6c1-5830-86e0-eb6f8efe5ae7",
+  "contentPack": 9999,
+  "name": "Inventor"
+}

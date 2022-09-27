@@ -1,0 +1,33 @@
+{
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:ConjureMinorElementalAtWill:2e0365c1-dd98-5e16-a425-2165ca3c3237"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BonusCantripElementalistMinorElementalTitle",
+    "description": "Feature/&BonusCantripElementalistMinorElementalDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2195abf8-b200-5218-a126-a57019c4d256",
+  "contentPack": 9999,
+  "name": "BonusCantripElementalistMinorElemental"
+}

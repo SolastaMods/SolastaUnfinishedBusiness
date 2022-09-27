@@ -1,3 +1,4 @@
+CharacterClassDefinition
 CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
@@ -27,6 +28,7 @@ FeatureDefinitionPower
 FeatureDefinitionProficiency
 FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSense
+FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
 ItemDefinition
 LootPackDefinition

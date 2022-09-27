@@ -1,0 +1,14 @@
+CastSpellsInventor	Title='Feature/&CastSpellsInventorTitle'.
+CastSpellsInventor	Description='Feature/&CastSpellsInventorDescription'.
+FeatureSetInfusions	Title='Feature/&FeatureSetInfusionsTitle'.
+FeatureSetInfusions	Description='Feature/&FeatureSetInfusionsDescription'.
+PowerInfulionPool	Title='Feature/&PowerInfulionPoolTitle'.
+PowerInfulionPool	Description='Feature/&PowerInfulionPoolDescription'.
+SpellListInventor	Title='Feature/&SpellListInventorTitle'.
+SpellListInventor	Description='Feature/&SpellListInventorDescription'.
+TMPPowerTestSummonItem	Title='Feature/&TMPPowerTestSummonItemTitle'.
+TMPPowerTestSummonItem	Description='Feature/&TMPPowerTestSummonItemDescription'.
+TMPTestInfusion	Title='Feature/&TMPTestInfusionTitle'.
+TMPTestInfusion	Description='Feature/&TMPTestInfusionDescription'.
+TMPTestItem	Title='Feature/&TMPTestItemTitle'.
+TMPTestItem	Description='Feature/&TMPTestItemDescription'.
