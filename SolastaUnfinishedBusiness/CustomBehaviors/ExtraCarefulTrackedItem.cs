@@ -15,10 +15,6 @@ public class ExtraCarefulTrackedItem
             return;
         }
 
-        Main.Log(
-            $"RIM.TerminateEffect [{activeEffect.Name}] tracked items: [{string.Join(", ", activeEffect.TrackedSummonedItemGuids)}]",
-            true);
-
         var allEntities = ServiceRepository
             .GetService<IRulesetEntityService>()
             .RulesetEntities.Values;

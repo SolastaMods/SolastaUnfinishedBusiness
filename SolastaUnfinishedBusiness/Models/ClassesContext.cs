@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -32,13 +33,12 @@ internal static class ClassesContext
 
     internal static void Load()
     {
-        LoadClass(SolastaUnfinishedBusiness.Classes.Inventor.InventorClass.Build());
         // LoadClass(Monk.BuildClass());
         // LoadClass(ArtisanClass.BuildArtisanClass());
         // LoadClass(Warlock.BuildWarlockClass());
         // LoadClass(Witch.Instance);
         // LoadClass(Magus.BuildMagusClass());
-        // LoadClass(InventorClass.Build());
+        LoadClass(InventorClass.Build());
 
         // sorting
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
