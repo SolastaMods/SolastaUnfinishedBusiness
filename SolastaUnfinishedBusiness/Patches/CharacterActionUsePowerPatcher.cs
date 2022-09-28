@@ -41,6 +41,19 @@ internal static class CharacterActionUsePowerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(CharacterActionUsePower), "HandleEffectUniqueness")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleEffectUniqueness_Patch
+    {
+        internal static void Postfix([NotNull] CharacterActionUsePower __instance)
+        {
+            //PATCH: Support for limited power efefct instances
+            //terminates earliest power effect instances of same limit, if limit reached
+            //used to limit Inventor's infusions
+            GlobalUniqueEffects.EnforceLimitedInstancePower(__instance);
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionUsePower), "SpendMagicEffectUses")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpendMagicEffectUses_Patch

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -95,6 +96,44 @@ public static class GlobalUniqueEffects
         powers.Add(power);
         TerminatePowers(character, power, powers);
         TerminateSpells(character, null, spells);
+    }
+
+    internal static void EnforceLimitedInstancePower(CharacterActionUsePower action)
+    {
+        var power = action.activePower.PowerDefinition;
+
+        var limiter = power.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+        if (limiter == null)
+        {
+            return;
+        }
+
+        var character = action.ActingCharacter.RulesetCharacter;
+        var effects = GetLimitedPowerEffects(character, limiter);
+        var limit = limiter.GetLimit(character);
+        var remove = 1 + effects.Count - limit;
+
+        for (var i = 0; i < remove; i++)
+        {
+            character.TerminatePower(effects[i]);
+        }
+    }
+
+    private static List<RulesetEffectPower> GetLimitedPowerEffects(RulesetCharacter character,
+        ILimitedEffectInstances limit)
+    {
+        return character.PowersUsedByMe
+            .Where(powerEffect =>
+            {
+                var tmp = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+                if (tmp == null)
+                {
+                    return false;
+                }
+
+                return tmp.Name == limit.Name;
+            })
+            .ToList();
     }
 
     /**
