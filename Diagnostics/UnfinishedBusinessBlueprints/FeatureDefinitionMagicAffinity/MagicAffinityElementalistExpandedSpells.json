@@ -33,7 +33,7 @@
   "warListSpells": [],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
-  "extendedSpellList": "Definition:SpellListMoonlit:bdfc3b37-fe0a-5c86-b2bb-6fc73c82e6d5",
+  "extendedSpellList": "Definition:SpellListElementalist:355a3a12-a0de-5347-9f15-7a0142365b14",
   "addBonusToEffectSaveDC": "None",
   "spellWithModifiedSaveDC": null,
   "powerWithModifiedSaveDC": null,
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4b8b5793-0d81-5cc2-82f6-a7fba01b8a46",
+  "guid": "b6847d24-cac4-5430-a56d-399fb47e69dd",
   "contentPack": 9999,
-  "name": "MagicAffinityMoonlit"
+  "name": "MagicAffinityElementalistExpandedSpells"
 }

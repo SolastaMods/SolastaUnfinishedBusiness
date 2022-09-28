@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySoulBladeExtendedSpellList:f9c76f6b-121d-5d33-96c3-f54db87e93ec",
+      "featureDefinition": "Definition:MagicAffinitySoulBladeExpandedSpells:3ccab35a-8074-5d5e-b5ab-4f278f9f5fd2",
       "level": 1
     },
     {

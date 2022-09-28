@@ -3,52 +3,57 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityMoonlitExpandedSpells:b505fba2-6c0e-5e24-9c0a-fbf155c96bea",
+      "featureDefinition": "Definition:BonusCantripAncientForest:3caea6e1-5db7-5273-b4ce-4cbb5e34794f",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ConditionAffinityMoonlitDarknessImmunity:c833c983-1a0b-5953-8e2e-b8cb8d453bd6",
+      "featureDefinition": "Definition:MagicAffinityAncientForest:f4218af2-2d51-5fce-aa4f-6db9e1807be4",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowth:cdd058d8-d63b-5851-b7b5-fbfd6750653c",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityMoonlitWeak:c1d98666-29b4-5429-ad81-4284628b843d",
-      "level": 2
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowthMultiplier:06645235-a6d5-510b-aa64-266f04b17886",
+      "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMoonlitDarkMoon:1d03cf2d-7bdc-5489-babe-81bb5e3606a2",
+      "featureDefinition": "Definition:PowerAncientForestRegrowth:c9471903-1408-52f6-9aa5-8dd80d38e3bd",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolAncientForestHerbalBrew:88ad425f-64b4-5c73-8537-224c623faad1",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMoonlitFullMoon:6357d148-e552-5c54-b45e-b36dd261dbd7",
+      "featureDefinition": "Definition:OnMagicalAttackDamageEffectAncientForestLifeSap:4a62c455-7736-5127-8d8d-3312d7384908",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityMoonlitStrong:8076ce55-9b01-5c37-8c85-5af9471f9e93",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMoonlitDanceOfTheNightSky:c9beb955-e93a-5583-a1ad-e0ca65424eac",
+      "featureDefinition": "Definition:LightAffinityAncientForest:06f414c0-38cb-516b-a7e3-6beee1f15d7f",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMoonlitMoonTouched:51154ed4-df8c-5f32-a10c-560afdc94216",
+      "featureDefinition": "Definition:PowerAncientForestRooted:276b897b-e7a5-5e7b-b93d-c0aaa35510ca",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripsMoonlit:3586c490-6d1f-5882-8ee0-f9004dcf4a7a",
+      "featureDefinition": "Definition:AttributeModifierAncientForestBarkskin:328e1ab2-fb19-579d-a1ce-9c62ddfc924f",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWallOfThorns:bb67ac7d-82bd-5eda-b5ea-7a2641ff2821",
       "level": 14
     }
   ],
@@ -57,12 +62,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&PatronMoonlitTitle",
-    "description": "Subclass/&PatronMoonlitDescription",
+    "title": "Subclass/&PatronAncientForestTitle",
+    "description": "Subclass/&PatronAncientForestDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
-      "m_SubObjectName": "Ranger_Shadow_Tamer",
+      "m_AssetGUID": "05db759cf66168b4495b148ea71ec6c5",
+      "m_SubObjectName": "Wizard_Sylvan_Mage",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -78,7 +83,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3481aafc-a5f4-5166-b383-faade5cb3d2f",
+  "guid": "84d79ba0-7e72-59d4-a030-d172573bebf5",
   "contentPack": 9999,
-  "name": "PatronMoonlit"
+  "name": "PatronAncientForest"
 }

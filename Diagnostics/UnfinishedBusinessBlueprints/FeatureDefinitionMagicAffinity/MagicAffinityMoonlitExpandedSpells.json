@@ -33,7 +33,7 @@
   "warListSpells": [],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
-  "extendedSpellList": "Definition:SpellListSoulBlade:a91506ab-c4f8-56c8-aa57-ce273894c831",
+  "extendedSpellList": "Definition:SpellListMoonlit:bdfc3b37-fe0a-5c86-b2bb-6fc73c82e6d5",
   "addBonusToEffectSaveDC": "None",
   "spellWithModifiedSaveDC": null,
   "powerWithModifiedSaveDC": null,
@@ -47,12 +47,7 @@
   "preserveSlotThreshold": 20,
   "preserveSlotLevelCap": 5,
   "healingPerSpentSorceryPoint": 0,
-  "sorceryPointAlteredParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "sorceryPointAlteredParticle": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -63,8 +58,8 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -79,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f9c76f6b-121d-5d33-96c3-f54db87e93ec",
+  "guid": "b505fba2-6c0e-5e24-9c0a-fbf155c96bea",
   "contentPack": 9999,
-  "name": "MagicAffinitySoulBladeExtendedSpellList"
+  "name": "MagicAffinityMoonlitExpandedSpells"
 }

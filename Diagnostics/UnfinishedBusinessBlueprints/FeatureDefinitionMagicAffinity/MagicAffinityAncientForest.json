@@ -33,7 +33,7 @@
   "warListSpells": [],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
-  "extendedSpellList": "Definition:ElementalistSpellList:57ed8f5e-f4f3-5e26-b614-5f00de8cd1a2",
+  "extendedSpellList": "Definition:SpellListAncientForest:e891d939-75c6-5955-a93d-866129ac02ba",
   "addBonusToEffectSaveDC": "None",
   "spellWithModifiedSaveDC": null,
   "powerWithModifiedSaveDC": null,
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ea54097e-344a-5627-866f-01e64fac9d8e",
+  "guid": "f4218af2-2d51-5fce-aa4f-6db9e1807be4",
   "contentPack": 9999,
-  "name": "ElementalistMagicAffinityExpandedSpells"
+  "name": "MagicAffinityAncientForest"
 }
