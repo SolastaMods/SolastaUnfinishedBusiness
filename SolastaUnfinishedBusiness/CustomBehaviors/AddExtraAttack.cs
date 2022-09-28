@@ -186,45 +186,47 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
-// public sealed class AddExtraMainHandAttack : AddExtraAttackBase
-// {
-//     public AddExtraMainHandAttack(
-//         ActionDefinitions.ActionType actionType,
-//         bool clearSameType,
-//         params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
-//     {
-//     }
-//
-//     public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
-//         base(actionType, validators)
-//     {
-//     }
-//
-//     [NotNull]
-//     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
-//     {
-//         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-//             .EquipedItem;
-//
-//         var strikeDefinition = mainHandItem.ItemDefinition;
-//
-//         var attackModifiers = hero.attackModifiers;
-//
-//         var attackMode = hero.RefreshAttackModePublic(
-//             ActionType,
-//             strikeDefinition,
-//             strikeDefinition.WeaponDescription,
-//             CharacterValidators.IsFreeOffhand(hero),
-//             true,
-//             EquipmentDefinitions.SlotTypeMainHand,
-//             attackModifiers,
-//             hero.FeaturesOrigin,
-//             mainHandItem
-//         );
-//
-//         return new List<RulesetAttackMode> { attackMode };
-//     }
-// }
+public sealed class AddExtraMainHandAttack : AddExtraAttackBase
+{
+    public AddExtraMainHandAttack(
+        ActionDefinitions.ActionType actionType,
+        bool clearSameType,
+        params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
+    {
+    }
+
+    public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType,
+        params IsCharacterValidHandler[] validators) :
+        base(actionType, validators)
+    {
+    }
+
+    [NotNull]
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    {
+        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
+
+        var strikeDefinition = mainHandItem.ItemDefinition;
+
+        var attackModifiers = hero.attackModifiers;
+
+        //TODO: check this...
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            ValidatorsCharacter.IsFreeOffhand(hero),
+            true,
+            EquipmentDefinitions.SlotTypeMainHand,
+            attackModifiers,
+            hero.FeaturesOrigin,
+            mainHandItem
+        );
+
+        return new List<RulesetAttackMode> { attackMode };
+    }
+}
 
 public sealed class AddExtraRangedAttack : AddExtraAttackBase
 {

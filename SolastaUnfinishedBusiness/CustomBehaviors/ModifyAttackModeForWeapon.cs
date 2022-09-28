@@ -79,22 +79,22 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 //     }
 // }
 //
-// public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
-// {
-//     private readonly string tag;
-//
-//     public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
-//         params CharacterValidator[] validators) : base(isWeaponValid, validators)
-//     {
-//         this.tag = tag;
-//     }
-//
-//     protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
-//         RulesetItem weapon)
-//     {
-//         attackMode.AddAttackTagAsNeeded(tag);
-//     }
-// }
+public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
+{
+    private readonly string tag;
+
+    public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
+    {
+        this.tag = tag;
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        attackMode.AddAttackTagAsNeeded(tag);
+    }
+}
 //
 // public class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
 // {

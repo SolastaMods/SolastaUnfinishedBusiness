@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -138,14 +140,14 @@ public static class ValidatorsCharacter
             .EquipedItem == null;
     }
 
-    // [NotNull]
-    // public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
-    // {
-    //     return character => conditions.Any(c => character.HasConditionOfType(c.Name));
-    // }
+    [NotNull]
+    public static IsCharacterValidHandler HasAnyOfConditions(params ConditionDefinition[] conditions)
+    {
+        return character => conditions.Any(c => character.HasConditionOfType(c.Name));
+    }
 
     // [NotNull]
-    // public static CharacterValidator HasAnyOfConditions(params string[] conditions)
+    // public static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     // {
     //     return character => conditions.Any(character.HasConditionOfType);
     // }
