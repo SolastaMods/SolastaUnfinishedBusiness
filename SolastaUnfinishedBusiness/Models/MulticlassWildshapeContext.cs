@@ -100,7 +100,7 @@ internal static class MulticlassWildshapeContext
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
             monster.MonsterDefinition.ArmorClass, TagNaturalAc
         );
-        mod.tags.Add(ExclusiveACBonus.TagNaturalArmor);
+        mod.tags.Add(ExclusiveAcBonus.TagNaturalArmor);
         ac.AddModifier(mod);
 
         //DEX bonus to AC

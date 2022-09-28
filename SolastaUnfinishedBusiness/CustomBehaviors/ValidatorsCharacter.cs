@@ -32,12 +32,14 @@ public static class ValidatorsCharacter
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
+
         if (equipedItem == null)
         {
             return false;
         }
 
         var equipedItemDescription = equipedItem.EquipedItem?.ItemDefinition;
+
         if (equipedItemDescription == null)
         {
             return false;
@@ -66,7 +68,6 @@ public static class ValidatorsCharacter
     public static readonly IsCharacterValidHandler HasUnarmedHand = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
-
         var main = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
         var off = slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
@@ -84,6 +85,7 @@ public static class ValidatorsCharacter
     {
         var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
             .EquipedItem;
+
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
             return false;
@@ -91,6 +93,7 @@ public static class ValidatorsCharacter
 
         var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
         var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
         return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };

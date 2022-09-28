@@ -153,6 +153,7 @@ public static class AttacksOfOpportunity
     private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
         if (actionManager == null)
         {
             return;
@@ -167,23 +168,26 @@ public static class AttacksOfOpportunity
         IGameLocationBattleService battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>();
-
         actionModifier = new ActionModifier();
         attackMode = null;
+
         if (!battleManager.IsValidAttackerForOpportunityAttackOnCharacter(attacker, defender))
         {
             return false;
         }
 
         attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
+
         if (attackMode == null)
         {
             return false;
         }
 
         var evaluationParams = new BattleDefinitions.AttackEvaluationParams();
+
         evaluationParams.FillForPhysicalReachAttack(attacker, attacker.LocationPosition, attackMode, defender,
             defender.LocationPosition, actionModifier);
+
         return battleManager.CanAttack(evaluationParams);
     }
 
@@ -200,9 +204,12 @@ internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
     public bool CanIgnoreAoOImmunity([NotNull] RulesetCharacter character, RulesetCharacter attacker, float distance)
     {
         var featuresToBrowse = new List<FeatureDefinition>();
+
         character.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(featuresToBrowse);
+
         var service = ServiceRepository.GetService<IRulesetImplementationService>();
         var disengaging = DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging;
+
         foreach (var feature in featuresToBrowse)
         {
             if (feature != disengaging
@@ -241,9 +248,13 @@ internal sealed class CanMakeAoOOnReachEntered
     }
 }
 
-public delegate IEnumerator ReactToAttackFinishedHandler(GameLocationCharacter character,
-    GameLocationCharacter defender, RuleDefinitions.RollOutcome outcome,
-    CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier);
+public delegate IEnumerator ReactToAttackFinishedHandler(
+    GameLocationCharacter character,
+    GameLocationCharacter defender,
+    RuleDefinitions.RollOutcome outcome,
+    CharacterActionParams actionParams,
+    RulesetAttackMode mode,
+    ActionModifier modifier);
 
 public sealed class ReactToAttackFinished : IReactToAttackFinished
 {
@@ -254,9 +265,13 @@ public sealed class ReactToAttackFinished : IReactToAttackFinished
         this.handler = handler;
     }
 
-    public IEnumerator HandleReactToAttackFinished(GameLocationCharacter character, GameLocationCharacter defender,
+    public IEnumerator HandleReactToAttackFinished(
+        GameLocationCharacter character,
+        GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,
-        CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        CharacterActionParams actionParams,
+        RulesetAttackMode mode,
+        ActionModifier modifier)
     {
         yield return handler(character, defender, outcome, actionParams, mode, modifier);
     }

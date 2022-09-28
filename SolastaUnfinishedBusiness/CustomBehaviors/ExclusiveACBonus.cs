@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public sealed class ExclusiveACBonus
+public sealed class ExclusiveAcBonus
 {
     //AC formula is `Value + DEX`
     public const string TagLikeArmor = "AC_LIKE_ARMOR";
@@ -10,14 +10,14 @@ public sealed class ExclusiveACBonus
 
     //AC Formula is `10 + DEX + Value`
     public const string TagUnarmoredDefense = "AC_UNARMORED_DEFENSE";
-    public static readonly ExclusiveACBonus MarkLikeArmor = new(TagLikeArmor);
-    public static readonly ExclusiveACBonus MarkNaturalArmor = new(TagNaturalArmor);
-    public static readonly ExclusiveACBonus MarkUnarmoredDefense = new(TagUnarmoredDefense);
+    public static readonly ExclusiveAcBonus MarkLikeArmor = new(TagLikeArmor);
+    public static readonly ExclusiveAcBonus MarkNaturalArmor = new(TagNaturalArmor);
+    public static readonly ExclusiveAcBonus MarkUnarmoredDefense = new(TagUnarmoredDefense);
 
-    public readonly string tag;
+    public readonly string Tag;
 
-    private ExclusiveACBonus(string tag)
+    private ExclusiveAcBonus(string tag)
     {
-        this.tag = tag;
+        Tag = tag;
     }
 }

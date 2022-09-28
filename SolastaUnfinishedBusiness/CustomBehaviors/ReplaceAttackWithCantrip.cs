@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ReplaceAttackWithCantrip
 {
-    public static void AllowCastDuringMainAttack(GameLocationCharacter character, ActionDefinitions.Id actionId,
+    public static void AllowCastDuringMainAttack(
+        GameLocationCharacter character,
+        ActionDefinitions.Id actionId,
         ActionDefinitions.ActionScope scope,
         ref ActionDefinitions.ActionStatus result)
     {
@@ -64,14 +67,9 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        var num = 0;
-        foreach (var attackMode in actionParams.ActingCharacter.RulesetCharacter.AttackModes)
-        {
-            if (attackMode.ActionType == ActionDefinitions.ActionType.Main)
-            {
-                num = Mathf.Max(num, attackMode.AttacksNumber);
-            }
-        }
+        var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
+            .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
+            .Aggregate(0, (current, attackMode) => Mathf.Max(current, attackMode.AttacksNumber));
 
         //increment used attacks to count cantrip as attack
         __instance.usedMainAttacks++;
@@ -81,10 +79,5 @@ internal static class ReplaceAttackWithCantrip
         {
             __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
         }
-        //This doesn't look right
-        // else
-        // {
-        //     __instance.usedMainAttacks = 0;
-        // }
     }
 }

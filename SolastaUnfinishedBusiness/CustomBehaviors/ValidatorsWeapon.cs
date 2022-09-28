@@ -67,6 +67,7 @@ public static class ValidatorsWeapon
         RulesetCharacter character)
     {
         var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
+
         if (item != null)
         {
             return item.WeaponDescription?.WeaponTypeDefinition ==

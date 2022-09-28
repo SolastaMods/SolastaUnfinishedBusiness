@@ -127,15 +127,15 @@ internal static class SrdAndHouseRulesContext
     private static void ApplyAcNonStackingRules()
     {
         FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense);
+            .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense);
         FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveACBonus.MarkUnarmoredDefense);
+            .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense);
         FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
-            .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
+            .SetCustomSubFeatures(ExclusiveAcBonus.MarkLikeArmor);
 
         //Mostly for wild-shaped AC stacking, since unarmored defenses would not be valid anyway under mage armor
         FeatureDefinitionAttributeModifiers.AttributeModifierMageArmor
-            .SetCustomSubFeatures(ExclusiveACBonus.MarkLikeArmor);
+            .SetCustomSubFeatures(ExclusiveAcBonus.MarkLikeArmor);
 
         // as of 1.4.13 Mage Armor has its targetFilteringTag set as 255 (all flags on)
         // this change fixes it to be just unarmored
@@ -508,10 +508,10 @@ internal static class ArmorClassStacking
         var modifier =
             RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag, sourceAbility);
 
-        var exclusive = feature.GetFirstSubFeatureOfType<ExclusiveACBonus>();
+        var exclusive = feature.GetFirstSubFeatureOfType<ExclusiveAcBonus>();
         if (exclusive != null)
         {
-            modifier.Tags.TryAdd(exclusive.tag);
+            modifier.Tags.TryAdd(exclusive.Tag);
         }
 
         return modifier;
@@ -555,19 +555,19 @@ internal static class ArmorClassStacking
             switch (modifier.operation)
             {
                 case AttributeModifierOperation.Set
-                    when modifier.Tags.Contains(ExclusiveACBonus.TagLikeArmor):
+                    when modifier.Tags.Contains(ExclusiveAcBonus.TagLikeArmor):
                 {
                     armor.Add(modifier);
                     break;
                 }
                 case AttributeModifierOperation.Set
-                    when modifier.Tags.Contains(ExclusiveACBonus.TagNaturalArmor):
+                    when modifier.Tags.Contains(ExclusiveAcBonus.TagNaturalArmor):
                 {
                     natural.Add(modifier);
                     break;
                 }
                 case AttributeModifierOperation.AddAbilityScoreBonus
-                    when modifier.Tags.Contains(ExclusiveACBonus.TagUnarmoredDefense):
+                    when modifier.Tags.Contains(ExclusiveAcBonus.TagUnarmoredDefense):
                 {
                     unarmored.Add(modifier);
                     break;
@@ -592,9 +592,9 @@ internal static class ArmorClassStacking
         }
 
         //get top formula of each type
-        TryAddFormula(armor, DEX, ExclusiveACBonus.TagLikeArmor);
-        TryAddFormula(natural, 0, ExclusiveACBonus.TagNaturalArmor);
-        TryAddFormula(unarmored, 10 + DEX, ExclusiveACBonus.TagUnarmoredDefense);
+        TryAddFormula(armor, DEX, ExclusiveAcBonus.TagLikeArmor);
+        TryAddFormula(natural, 0, ExclusiveAcBonus.TagNaturalArmor);
+        TryAddFormula(unarmored, 10 + DEX, ExclusiveAcBonus.TagUnarmoredDefense);
 
         //remove all modifiers corresponding to formulas
         modifiers.RemoveAll(m => armor.Contains(m));
@@ -612,7 +612,7 @@ internal static class ArmorClassStacking
             modifiers.Add(topFormula.Item2);
 
             //if this is Natural armor, we need to dump dex so it won't apply
-            if (topFormula.Item3 == ExclusiveACBonus.TagNaturalArmor)
+            if (topFormula.Item3 == ExclusiveAcBonus.TagNaturalArmor)
             {
                 var dexMod = modifiers.Find(m =>
                     m.Operation == AttributeModifierOperation.AddAbilityScoreBonus

@@ -17,7 +17,6 @@ internal static class FeatureApplicationValidation
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
         >(EnumerateActionPerformanceProviders).Method;
 
-
         var bindIndex = codes.FindIndex(x =>
         {
             if (x.operand == null)
@@ -36,10 +35,13 @@ internal static class FeatureApplicationValidation
         }
     }
 
-    private static void EnumerateActionPerformanceProviders(RulesetActor actor, List<FeatureDefinition> features,
+    private static void EnumerateActionPerformanceProviders(
+        RulesetActor actor,
+        List<FeatureDefinition> features,
         Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);
+
         if (actor is not RulesetCharacter character)
         {
             return;
@@ -48,6 +50,7 @@ internal static class FeatureApplicationValidation
         features.RemoveAll(f =>
         {
             var validator = f.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+
             return validator != null && !validator.IsValid(f, character);
         });
     }
@@ -82,6 +85,7 @@ internal static class FeatureApplicationValidation
         Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);
+
         if (actor is not RulesetCharacter character)
         {
             return;

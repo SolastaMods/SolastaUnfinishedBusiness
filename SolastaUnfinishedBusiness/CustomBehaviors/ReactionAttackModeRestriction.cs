@@ -14,12 +14,14 @@ public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestricti
         }
 
         var item = mode.SourceDefinition as ItemDefinition;
+
         if (item == null)
         {
             return false;
         }
 
         var weapon = item.WeaponDescription;
+
         if (weapon == null)
         {
             return false;
@@ -47,6 +49,7 @@ public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestricti
         return (_, _, _, target) =>
         {
             var rulesetCharacter = target.RulesetCharacter;
+
             return rulesetCharacter != null && !rulesetCharacter.HasConditionOfType(condition.Name);
         };
     }

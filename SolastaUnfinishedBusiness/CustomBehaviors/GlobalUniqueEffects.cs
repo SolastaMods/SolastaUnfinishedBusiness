@@ -58,6 +58,7 @@ public static class GlobalUniqueEffects
     {
         var powers = new HashSet<FeatureDefinitionPower>();
         var spells = new HashSet<SpellDefinition>();
+
         foreach (var group in Groups.Where(e => e.Value.Item2.Contains(spell)))
         {
             foreach (var p in group.Value.Item1)
@@ -132,13 +133,16 @@ public static class GlobalUniqueEffects
         }
 
         var toTerminate = character.PowersUsedByMe.Where(u => allSubPowers.Contains(u.PowerDefinition)).ToList();
+
         foreach (var power in toTerminate)
         {
             character.TerminatePower(power);
         }
     }
 
-    private static void TerminateSpells(RulesetCharacter character, SpellDefinition exclude,
+    private static void TerminateSpells(
+        RulesetCharacter character,
+        SpellDefinition exclude,
         IEnumerable<SpellDefinition> spells)
     {
         var allSubSpells = new HashSet<SpellDefinition>();
@@ -146,6 +150,7 @@ public static class GlobalUniqueEffects
         foreach (var spell in spells)
         {
             allSubSpells.Add(spell);
+
             foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements())
             {
                 if (!spell.IsSubSpellOf(allElement))
@@ -166,6 +171,7 @@ public static class GlobalUniqueEffects
         }
 
         var toTerminate = character.SpellsCastByMe.Where(c => allSubSpells.Contains(c.SpellDefinition)).ToList();
+
         foreach (var spell in toTerminate)
         {
             character.TerminateSpell(spell);

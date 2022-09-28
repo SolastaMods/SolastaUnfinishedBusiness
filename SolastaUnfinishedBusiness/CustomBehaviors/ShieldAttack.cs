@@ -7,7 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ShieldAttack
 {
-    public static void UseOffhandForShieldAttackAnimation(RulesetAttackMode attackMode, ref string animation,
+    public static void UseOffhandForShieldAttackAnimation(
+        RulesetAttackMode attackMode,
+        ref string animation,
         ref bool isThrown,
         ref bool leftHand)
     {

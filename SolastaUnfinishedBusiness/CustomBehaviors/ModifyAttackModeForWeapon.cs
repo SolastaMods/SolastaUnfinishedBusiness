@@ -9,7 +9,8 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
 
-    protected ModifyAttackModeForWeaponBase(IsWeaponValidHandler isWeaponValid,
+    protected ModifyAttackModeForWeaponBase(
+        IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
@@ -31,7 +32,9 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
         TryModifyAttackMode(character, attackMode, null);
     }
 
-    protected abstract void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+    protected abstract void TryModifyAttackMode(
+        RulesetCharacter character,
+        RulesetAttackMode attackMode,
         RulesetItem weapon);
 }
 

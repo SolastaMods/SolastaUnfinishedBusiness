@@ -32,6 +32,7 @@ public class PowerPoolDevice
         }
 
         DeviceCache.Remove(hero);
+
         foreach (var device in devices.Values)
         {
             device.Unregister();
@@ -59,6 +60,7 @@ public class PowerPoolDevice
                 .CreateStandardItem(baseItem);
 
             device = item as RulesetItemDevice;
+
             if (device == null)
             {
                 item.Unregister();
@@ -67,7 +69,6 @@ public class PowerPoolDevice
 
             //mark fake device item as unidentified, so that if base item marked as need identification, it wont list all functions in the tooltip
             device.Identified = false;
-
             devices.Add(baseItem.Name, device);
         }
 

@@ -42,6 +42,7 @@ public class CustomItemFilter : ICustomItemFilter
         foreach (var box in panel.allSlotBoxes)
         {
             var item = box.InventorySlot.EquipedItem;
+
             if (item == null)
             {
                 box.ValidForItemSelection = false;

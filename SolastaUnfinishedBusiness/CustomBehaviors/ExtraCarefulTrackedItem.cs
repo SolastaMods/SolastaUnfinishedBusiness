@@ -37,6 +37,7 @@ public class ExtraCarefulTrackedItem
         }
 
         rules.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
+
         foreach (var guid in rules.summonedItemGuidsToProcess)
         {
             if (RulesetEntity.TryGetEntity<RulesetItem>(guid, out var entity))
@@ -65,7 +66,6 @@ public class ExtraCarefulTrackedItem
             //TODO: check if it works with merchants
 
             itemService?.LootItem(trackedItem);
-
             trackedItem.Unregister();
         }
 

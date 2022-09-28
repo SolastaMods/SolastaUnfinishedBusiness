@@ -39,8 +39,7 @@ public static class ShieldStrike
             .Create(WeaponTypeDefinitions.UnarmedStrikeType, "CEShieldStrikeType")
             .AddToDB();
 
-        shieldType.soundEffectOnHitDescription =
-            WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription;
+        shieldType.soundEffectOnHitDescription = WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription;
 
         return shieldType;
     }
@@ -55,6 +54,7 @@ public static class ShieldStrike
             };
 
         var damage = description.EffectDescription.FindFirstDamageForm();
+
         damage.DieType = RuleDefinitions.DieType.D4;
 
         return description;

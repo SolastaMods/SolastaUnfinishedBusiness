@@ -52,7 +52,6 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
     private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
     {
         var attacks = new List<CharacterActionParams>();
-
         var actionParams = effect?.ActionParams;
 
         if (actionParams == null)
@@ -102,7 +101,6 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
 
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
-
             attacks.Add(attackActionParams);
         }
 

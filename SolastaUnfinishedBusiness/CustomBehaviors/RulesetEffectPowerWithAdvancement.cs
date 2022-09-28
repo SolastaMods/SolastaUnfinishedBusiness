@@ -96,19 +96,27 @@ public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         return false;
     }
 
-    public static bool InstantiateActiveDeviceFunction(RulesetImplementationManagerLocation manager,
-        ref RulesetEffect result, RulesetCharacter user, RulesetItemDevice device,
-        RulesetDeviceFunction deviceFunction, int addedCharges, bool delayRegistration)
+    public static bool InstantiateActiveDeviceFunction(
+        RulesetImplementationManagerLocation manager,
+        ref RulesetEffect result,
+        RulesetCharacter user,
+        RulesetItemDevice device,
+        RulesetDeviceFunction deviceFunction,
+        int addedCharges,
+        bool delayRegistration)
     {
         var functionDescription = deviceFunction.DeviceFunctionDescription;
+
         if (functionDescription.Type == DeviceFunctionDescription.FunctionType.Spell || addedCharges == 0)
         {
             return true;
         }
 
         var usablePower = new RulesetUsablePower(functionDescription.FeatureDefinitionPower, null, null);
+
         result = new RulesetEffectPowerWithAdvancement(addedCharges, user, usablePower, device, deviceFunction);
         manager.HandleEffectRegistration(result, delayRegistration);
+
         return false;
     }
 }

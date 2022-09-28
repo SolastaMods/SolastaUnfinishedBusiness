@@ -2,9 +2,13 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public delegate (OperationType, bool) IsContextValidHandler(BaseDefinition definition,
+public delegate (OperationType, bool) IsContextValidHandler(
+    BaseDefinition definition,
     IRestrictedContextProvider provider,
-    RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
+    RulesetCharacter character,
+    ItemDefinition itemDefinition,
+    bool rangedAttack,
+    RulesetAttackMode attackMode,
     RulesetEffect rulesetEffect);
 
 public class RestrictedContextValidator : IRestrictedContextValidator
@@ -21,8 +25,13 @@ public class RestrictedContextValidator : IRestrictedContextValidator
     {
     }
 
-    public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
-        RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
+    public (OperationType, bool) ValidateContext(
+        BaseDefinition definition,
+        IRestrictedContextProvider provider,
+        RulesetCharacter character,
+        ItemDefinition itemDefinition,
+        bool rangedAttack,
+        RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect)
     {
         return validator(definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
