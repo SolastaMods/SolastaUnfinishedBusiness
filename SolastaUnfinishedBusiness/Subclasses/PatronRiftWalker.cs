@@ -24,8 +24,8 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .FinalizeSpells()
             .AddToDB();
 
-        var magicAffinityRiftWalker = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityRiftWalker")
+        var magicAffinityRiftWalkerExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityRiftWalkerExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListRiftWalker)
             .AddToDB();
@@ -75,7 +75,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 "ConditionAffinityRiftWalkerRestrainedImmunity")
             .AddToDB();
 
-        var fadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
+        var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
             .Create(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
                 "DamageAffinityRiftWalkerFadeIntoTheVoid")
             .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
@@ -145,11 +145,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(1,
-                magicAffinityRiftWalker, powerRiftWalkerRiftWalk, powerRiftWalkerBlink)
+                magicAffinityRiftWalkerExpandedSpells, powerRiftWalkerRiftWalk, powerRiftWalkerBlink)
             .AddFeaturesAtLevel(6,
                 conditionAffinityRiftWalkerRestrainedImmunity, damageAffinityRiftWalkerRiftStrike)
             .AddFeaturesAtLevel(10,
-                powerRiftWalkerRiftControl, fadeIntoTheVoid)
+                powerRiftWalkerRiftControl, damageAffinityRiftWalkerFadeIntoTheVoid)
             .AddFeaturesAtLevel(14,
                 bonusCantripRiftWalkWardingBond)
             .AddToDB();

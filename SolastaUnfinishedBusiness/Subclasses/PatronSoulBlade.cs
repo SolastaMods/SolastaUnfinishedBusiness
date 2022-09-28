@@ -15,7 +15,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     internal PatronSoulBlade()
     {
-        var summonPactWeaponPower = FeatureDefinitionPowerBuilder
+        var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
@@ -23,16 +23,16 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
 
-        summonPactWeaponPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+        powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
-        var attackMod = FeatureDefinitionAttackModifierBuilder
+        var attackModifierSoulBladeEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
             .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .AddToDB();
 
-        var empowerWeaponPower = FeatureDefinitionPowerBuilder
+        var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
@@ -59,7 +59,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     .AddEffectForms(new EffectFormBuilder()
                         .SetItemPropertyForm(
                             ItemPropertyUsage.Unlimited,
-                            1, new FeatureUnlockByLevel(attackMod, 0)
+                            1, new FeatureUnlockByLevel(attackModifierSoulBladeEmpowerWeapon, 0)
                         )
                         .Build()
                     )
@@ -67,7 +67,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             )
             .AddToDB();
 
-        var shieldPower = FeatureDefinitionPowerBuilder
+        var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "PowerSoulBladeSoulShield")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .Configure(
@@ -91,7 +91,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     .SetDurationType(DurationType.UntilLongRest))
             .AddToDB();
 
-        var spellList = SpellListDefinitionBuilder
+        var spellListSoulBlade = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListPaladin, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
@@ -103,11 +103,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .FinalizeSpells()
             .AddToDB();
 
-        var extendedSpellList = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
-                "MagicAffinitySoulBladeExtendedSpellList")
+        var magicAffinitySoulBladeExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinitySoulBladeExpandedSpells")
             .SetOrUpdateGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
-            .SetExtendedSpellList(spellList)
+            .SetExtendedSpellList(spellListSoulBlade)
             .AddToDB();
 
         var proficiencySoulBladeArmor = FeatureDefinitionProficiencyBuilder
@@ -127,10 +126,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 proficiencySoulBladeArmor,
                 proficiencySoulBladeWeapon,
-                extendedSpellList,
-                empowerWeaponPower)
-            .AddFeaturesAtLevel(6, summonPactWeaponPower)
-            .AddFeaturesAtLevel(10, shieldPower)
+                magicAffinitySoulBladeExpandedSpells,
+                powerSoulBladeEmpowerWeapon)
+            .AddFeaturesAtLevel(6, powerSoulBladeSummonPactWeapon)
+            .AddFeaturesAtLevel(10, powerSoulBladeSoulShield)
             .AddToDB();
     }
 

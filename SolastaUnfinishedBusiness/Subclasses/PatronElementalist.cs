@@ -74,7 +74,15 @@ internal sealed class PatronElementalist : AbstractSubclass
 
     internal PatronElementalist()
     {
-        var elementalFormPool = FeatureDefinitionPowerPoolBuilder
+        var iconRegular = CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon",
+            Resources.ElementalFormIcon, 24, 24);
+        var iconEnhanced = CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced",
+            Resources.ElementalFormIconEnhanced, 24, 24);
+        var formRegular = CustomIcons.CreateAssetReferenceSprite("ElementalForm", Resources.ElementalForm, 128, 64);
+        var formEnhanced =
+            CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
+
+        var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalFormPool")
             .Configure(
                 1,
@@ -87,13 +95,12 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 AttributeDefinitions.Charisma,
                 new EffectDescription())
-            .SetGuiPresentation(Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("ElementalForm", Resources.ElementalForm, 128, 64))
+            .SetGuiPresentation(Category.Feature, formRegular)
             .SetUsesProficiency()
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
-        var enhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
+        var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalEnhancedFormPool")
             .Configure(
                 1,
@@ -106,17 +113,10 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 AttributeDefinitions.Charisma,
                 new EffectDescription())
-            .SetGuiPresentation(Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Resources.ElementalFormEnhanced, 128,
-                    64))
+            .SetGuiPresentation(Category.Feature, formEnhanced)
             .SetUsesProficiency()
-            .SetOverriddenPower(elementalFormPool)
+            .SetOverriddenPower(powerElementalistElementalFormPool)
             .AddToDB();
-
-        var iconRegular = CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon",
-            Resources.ElementalFormIcon, 24, 24);
-        var iconEnhanced = CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced",
-            Resources.ElementalFormIconEnhanced, 24, 24);
 
         var regularPowers = new List<FeatureDefinitionPower>();
         var enhancedPowers = new List<FeatureDefinitionPower>();
@@ -125,8 +125,8 @@ internal sealed class PatronElementalist : AbstractSubclass
         {
             var (regularPower, enhancedPower) = BuildElementalForm(
                 e.Key,
-                elementalFormPool,
-                enhancedElementalFormPool,
+                powerElementalistElementalFormPool,
+                powerElementalistElementalEnhancedFormPool,
                 e.Value,
                 iconRegular,
                 iconEnhanced);
@@ -135,11 +135,12 @@ internal sealed class PatronElementalist : AbstractSubclass
             enhancedPowers.Add(enhancedPower);
         }
 
-        PowersBundleContext.RegisterPowerBundle(elementalFormPool, true, regularPowers.ToArray());
-        PowersBundleContext.RegisterPowerBundle(enhancedElementalFormPool, true, enhancedPowers.ToArray());
+        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers.ToArray());
+        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true,
+            enhancedPowers.ToArray());
 
-        var elementalistSpellList = SpellListDefinitionBuilder
-            .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellList")
+        var spellListElementalist = SpellListDefinitionBuilder
+            .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "SpellListElementalist")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
@@ -151,10 +152,10 @@ internal sealed class PatronElementalist : AbstractSubclass
             .FinalizeSpells()
             .AddToDB();
 
-        var elementalistMagicAffinityExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("ElementalistMagicAffinityExpandedSpells")
+        var magicAffinityElementalistExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityElementalistExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
-            .SetExtendedSpellList(elementalistSpellList)
+            .SetExtendedSpellList(spellListElementalist)
             .AddToDB();
 
         var featureSetElementalistKnowledge = FeatureDefinitionFeatureSetBuilder
@@ -186,9 +187,9 @@ internal sealed class PatronElementalist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(1, elementalistMagicAffinityExpandedSpells, elementalFormPool)
+            .AddFeaturesAtLevel(1, magicAffinityElementalistExpandedSpells, powerElementalistElementalFormPool)
             .AddFeaturesAtLevel(6, featureSetElementalistKnowledge)
-            .AddFeaturesAtLevel(10, enhancedElementalFormPool)
+            .AddFeaturesAtLevel(10, powerElementalistElementalEnhancedFormPool)
             .AddFeaturesAtLevel(14, minorElementalBonusCantrip)
             .AddToDB();
     }
@@ -210,7 +211,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         AssetReferenceSprite sprite = null)
     {
         var damageType = elementalFormConfig.DamageType.GuiPresentation.Title;
-        var planeText = $"Feature/&ElementalPact{text}Plane";
+        var planeText = $"Feature/&ElementalPatron{text}Plane";
 
         return new GuiPresentationBuilder(
                 Gui.Format($"Feature/&ElementalPatron{type}Title", planeText),
@@ -228,7 +229,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             AssetReferenceSprite iconRegular,
             AssetReferenceSprite iconEnhanced)
     {
-        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageElementalist = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageElementalist" + text)
             .SetGuiPresentation(GuiPresentation("ElementalDamage", text, elementalFormConfig))
             .Configure(
@@ -247,16 +248,16 @@ internal sealed class PatronElementalist : AbstractSubclass
             )
             .AddToDB();
 
-        var conditionElementalist = ConditionDefinitionBuilder
+        var conditionElementalistNormal = ConditionDefinitionBuilder
             .Create("ConditionElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconRegular))
             .SetDuration(DurationType.Minute, 1)
             .SetSilent(Silent.None)
-            .AddFeatures(elementalFormConfig.Resistance, additionalDamage)
+            .AddFeatures(elementalFormConfig.Resistance, additionalDamageElementalist)
             .SetConditionParticleReference(elementalFormConfig.Particles)
             .AddToDB();
 
-        var elementalFormPower = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolElementalistNormal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalForm", text, elementalFormConfig))
             .Configure(
@@ -272,7 +273,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            conditionElementalist,
+                            conditionElementalistNormal,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true
@@ -288,15 +289,15 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconEnhanced))
             .SetDuration(DurationType.Minute, 1)
             .SetSilent(Silent.None)
-            .AddFeatures(elementalFormConfig.Immunity, additionalDamage)
+            .AddFeatures(elementalFormConfig.Immunity, additionalDamageElementalist)
             .SetConditionParticleReference(elementalFormConfig.Particles)
             .SetCharacterShaderReference(elementalFormConfig.Shaders)
             .AddToDB();
 
-        var enhancedElementalFormPower = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolElementalistEnhanced = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolElementalistEnhanced" + text)
             .SetGuiPresentation(GuiPresentation("ElementalFormEnhanced", text, elementalFormConfig))
-            .SetOverriddenPower(elementalFormPower)
+            .SetOverriddenPower(powerSharedPoolElementalistNormal)
             .Configure(
                 enhancedElementalFormPool,
                 RechargeRate.LongRest,
@@ -316,7 +317,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 true)
             .AddToDB();
 
-        return (elementalFormPower, enhancedElementalFormPower);
+        return (powerSharedPoolElementalistNormal, powerSharedPoolElementalistEnhanced);
     }
 
     private sealed class ElementalFormConfig

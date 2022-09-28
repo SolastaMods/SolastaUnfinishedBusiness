@@ -1,9 +1,9 @@
 ﻿Feature/&BonusCantripElementalistMinorElementalDescription=Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
 Feature/&BonusCantripElementalistMinorElementalTitle=Elemental Minions
-Feature/&ElementalPactAirPlane=Air Plane
-Feature/&ElementalPactEarthPlane=Earth Plane
-Feature/&ElementalPactFirePlane=Fire Plane
-Feature/&ElementalPactIcePlane=Ice Plane
+Feature/&ElementalPatronAirPlane=Air Plane
+Feature/&ElementalPatronEarthPlane=Earth Plane
+Feature/&ElementalPatronFirePlane=Fire Plane
+Feature/&ElementalPatronIcePlane=Ice Plane
 Feature/&ElementalPatronElementalConditionDescription=Deal additional {1} damage equal to your proficiency bonus on a first hit each round.
 Feature/&ElementalPatronElementalConditionTitle=Channeling {0}
 Feature/&ElementalPatronElementalDamageDescription=When channeling {0}, deal additional {1} damage equal to your proficiency bonus on a first hit each round.

@@ -37,13 +37,13 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .FinalizeSpells()
             .AddToDB();
 
-        var magicAffinityPatronExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMoonlit")
+        var magicAffinityMoonlitExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityMoonlitExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListMoonlit)
             .AddToDB();
 
-        var moonlitInvisibleCondition = ConditionDefinitionBuilder
+        var conditionMoonlitInvisibility = ConditionDefinitionBuilder
             .Create("ConditionMoonlitInvisibility")
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetGuiPresentationNoContent()
@@ -52,28 +52,28 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
+        Global.CharacterLabelEnabledConditions.Add(conditionMoonlitInvisibility);
 
         var unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
         {
-            lightingState = LocationDefinitions.LightingState.Unlit, condition = moonlitInvisibleCondition
+            lightingState = LocationDefinitions.LightingState.Unlit, condition = conditionMoonlitInvisibility
         };
         var dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
         {
-            lightingState = LocationDefinitions.LightingState.Dim, condition = moonlitInvisibleCondition
+            lightingState = LocationDefinitions.LightingState.Dim, condition = conditionMoonlitInvisibility
         };
         var darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
         {
-            lightingState = LocationDefinitions.LightingState.Darkness, condition = moonlitInvisibleCondition
+            lightingState = LocationDefinitions.LightingState.Darkness, condition = conditionMoonlitInvisibility
         };
 
-        var moonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
+        var lightAffinityMoonlitWeak = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityMoonlitWeak")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(unlit)
             .AddToDB();
 
-        var moonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
+        var lightAffinityMoonlitStrong = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityMoonlitStrong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(dim)
@@ -145,7 +145,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         powerMoonlitDanceOfTheNightSky.EffectDescription.SetTargetParameter(4);
 
-        var moonTouchedCondition = ConditionDefinitionBuilder
+        var conditionMoonlitMoonTouched = ConditionDefinitionBuilder
             .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "ConditionMoonlitMoonTouched")
             .SetGuiPresentation(Category.Condition)
             .SetConditionType(ConditionType.Neutral)
@@ -153,7 +153,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .SetFeatures(MovementAffinityConditionLevitate)
             .AddToDB();
 
-        var moonTouched = FeatureDefinitionPowerBuilder
+        var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
             .Configure(
@@ -190,7 +190,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         new List<SaveAffinityBySenseDescription>())
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            moonTouchedCondition,
+                            conditionMoonlitMoonTouched,
                             ConditionForm.ConditionOperation.Add,
                             false,
                             false,
@@ -209,12 +209,12 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 true)
             .AddToDB();
 
-        var atWillMoonbeam = SpellDefinitionBuilder
+        var moonbeamAtWill = SpellDefinitionBuilder
             .Create(MoonBeam, "MoonbeamAtWill")
             .SetSpellLevel(0)
             .AddToDB();
 
-        var atWillFaerieFire = SpellDefinitionBuilder
+        var faerieFireAtWill = SpellDefinitionBuilder
             .Create(FaerieFire, "FaerieFireAtWill")
             .SetSpellLevel(0)
             .AddToDB();
@@ -223,26 +223,26 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("BonusCantripsMoonlit")
             .SetGuiPresentation(Category.Feature)
             .ClearBonusCantrips()
-            .AddBonusCantrip(atWillMoonbeam)
-            .AddBonusCantrip(atWillFaerieFire)
+            .AddBonusCantrip(moonbeamAtWill)
+            .AddBonusCantrip(faerieFireAtWill)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronMoonlit")
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(1,
-                magicAffinityPatronExpandedSpells,
+                magicAffinityMoonlitExpandedSpells,
                 conditionAffinityMoonlitDarknessImmunity,
                 SenseSuperiorDarkvision)
             //TODO: should this be indeed on 2?
-            .AddFeaturesAtLevel(2, moonLitLightAffinityWeak)
+            .AddFeaturesAtLevel(2, lightAffinityMoonlitWeak)
             .AddFeaturesAtLevel(6,
-                moonLitLightAffinityStrong
+                lightAffinityMoonlitStrong
                 , powerMoonlitDarkMoon,
                 powerMoonlitFullMoon)
             .AddFeaturesAtLevel(10,
                 powerMoonlitDanceOfTheNightSky,
-                moonTouched)
+                powerMoonlitMoonTouched)
             .AddFeaturesAtLevel(14,
                 bonusCantripsMoonlit)
             .AddToDB();
@@ -328,7 +328,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     private static ConditionDefinition BuildInvisibilityCondition()
     {
-        var condition = ConditionDefinitionBuilder
+        var conditionMoonlitInvisible = ConditionDefinitionBuilder
             .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible")
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -340,9 +340,9 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        condition.CancellingConditions.SetRange(RevealedCondition);
+        conditionMoonlitInvisible.CancellingConditions.SetRange(RevealedCondition);
 
-        return condition;
+        return conditionMoonlitInvisible;
     }
 
     // returns true if effect is self teleport or any self targeting spell that is self-buff

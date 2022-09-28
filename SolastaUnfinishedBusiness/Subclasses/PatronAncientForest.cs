@@ -1,8 +1,6 @@
-﻿#if false
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
@@ -25,12 +23,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
     internal PatronAncientForest()
     {
-        Subclass = null;
-    }
-
-        public static CharacterSubclassDefinition Build()
-    {
-        var ancientForestSpelllist = SpellListDefinitionBuilder
+        var spellListAncientForest = SpellListDefinitionBuilder
             .Create(SpellListPaladin, "SpellListAncientForest")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
@@ -43,16 +36,16 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
 
         // necrotic and healing
-        var ancientForestExpandedSpellListAffinity = FeatureDefinitionMagicAffinityBuilder
-            .Create("AncientForestExpandedSpelllistAfinity")
-            .SetGuiPresentation(Category.Feature)
-            .SetExtendedSpellList(ancientForestSpelllist)
+        var magicAffinityAncientForest = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityAncientForest")
+            .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
+            .SetExtendedSpellList(spellListAncientForest)
             .AddToDB();
 
-        const string lifeSapId = "AncientForestLifeSap";
+        const string LIFE_SAP_NAME = "OnMagicalAttackDamageEffectAncientForestLifeSap";
 
         var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
-            .Create(lifeSapId)
+            .Create(LIFE_SAP_NAME)
             .SetGuiPresentation(Category.Feature)
             .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
             {
@@ -66,97 +59,95 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
                 var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
 
-                attacker.UsedSpecialFeatures.TryGetValue(lifeSapId, out var used);
+                attacker.UsedSpecialFeatures.TryGetValue(LIFE_SAP_NAME, out var used);
 
                 if (!belowHalfHealth && used != 0)
                 {
                     return;
                 }
 
-                attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
+                attacker.UsedSpecialFeatures[LIFE_SAP_NAME] = used + 1;
 
                 var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
                 var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
                 var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+                var ability = GuiPresentationBuilder.CreateTitleKey(LIFE_SAP_NAME, Category.Feature);
 
-                var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Feature);
                 GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
                 RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
             })
             .AddToDB();
 
-        var regrowth = FeatureDefinitionPowerBuilder
-            .Create(PowerPaladinLayOnHands, "AncientForestRegrowth")
+        var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
+            .Create(PowerPaladinLayOnHands, "PowerAncientForestRegrowth")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        var AncientForestBonusCantrip = FeatureDefinitionBonusCantripsBuilder
-            .Create("DHAncientForestBonusCantrip")
+        var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
+            .Create("BonusCantripAncientForest")
             .SetGuiPresentation(Category.Feature)
             .ClearBonusCantrips()
             .AddBonusCantrip(Shillelagh)
             .AddBonusCantrip(ChillTouch)
             .AddToDB();
 
-        var herbalBrewPool = FeatureDefinitionPowerPoolBuilder
-            .Create("DH_HerbalBrewPool")
-            .SetGuiPresentation(new GuiPresentationBuilder(
-                "Feature/&HerbalBrewFeatureSetTitle",
-                "Feature/&HerbalBrewDescription",
-                PotionRemedy.GuiPresentation.SpriteReference //TODO: find better icon
-            ).Build())
+        var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
+            .Create("PowerPoolAncientForestHerbalBrew")
+            .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.Rest,
+                1,
+                RechargeRate.LongRest,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                new EffectDescription())
             .SetUsesProficiency()
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetActivation(ActivationTime.Rest, 1)
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(herbalBrewPool, true,
-            BuildHerbalBrew(herbalBrewPool, "Toxifying", Poison_Basic),
-            BuildHerbalBrew(herbalBrewPool, "Healing", PotionOfHealing),
-            BuildHerbalBrew(herbalBrewPool, DamageAffinityAcidResistance, PotionOfSpeed),
-            BuildHerbalBrew(herbalBrewPool, DamageAffinityLightningResistance, Ingredient_RefinedOil),
-            BuildHerbalBrew(herbalBrewPool, DamageAffinityNecroticResistance, PotionOfClimbing),
-            BuildHerbalBrew(herbalBrewPool, DamageAffinityPoisonResistance, PotionOfHeroism),
-            BuildHerbalBrew(herbalBrewPool, DamageAffinityRadiantResistance, PotionOfInvisibility)
+        PowersBundleContext.RegisterPowerBundle(powerPoolAncientForestHerbalBrew, true,
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, "Toxifying", Poison_Basic),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, "Healing", PotionOfHealing),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityAcidResistance, PotionOfSpeed),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityLightningResistance, Ingredient_RefinedOil),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityNecroticResistance, PotionOfClimbing),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityPoisonResistance, PotionOfHeroism),
+            BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityRadiantResistance, PotionOfInvisibility)
         );
 
-        RestActivityDefinitionBuilder
-            .Create("AncientForestToxifyingRestActivity")
+        _ = RestActivityDefinitionBuilder
+            .Create("RestActivityAncientForestToxifying")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 PowersBundleContext.UseCustomRestPowerFunctorName,
-                herbalBrewPool.name)
-            .SetGuiPresentation(herbalBrewPool.GuiPresentation.Title, herbalBrewPool.GuiPresentation.Description)
+                powerPoolAncientForestHerbalBrew.name)
+            .SetGuiPresentation(powerPoolAncientForestHerbalBrew.GuiPresentation)
             .AddToDB();
 
-        var herbalBrewFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
-                "HerbalBrewFeatureSet")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
-            .AddFeatureSet(herbalBrewPool)
-            .AddToDB();
-
-        var photosynthesis = ConditionDefinitionBuilder
-            .Create("AncientForestPhotosynthesis")
-            .SetSilent(Silent.None)
+        var conditionAncientForestPhotosynthesis = ConditionDefinitionBuilder
+            .Create("ConditionAncientForestPhotosynthesis")
             .SetGuiPresentation(Category.Condition)
+            .SetSilent(Silent.None)
             .AddFeatures(DatabaseHelper.FeatureDefinitionRegenerations.RegenerationRing)
             .AddToDB();
 
-        var ancientForestLightAffinity = FeatureDefinitionLightAffinityBuilder
-            .Create("AncientForestLightAffinity")
-            .SetGuiPresentation("AncientForestLightAffinity", Category.Feature)
+        var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
+            .Create("LightAffinityAncientForest")
+            .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Bright, condition = photosynthesis
+                lightingState = LocationDefinitions.LightingState.Bright,
+                condition = conditionAncientForestPhotosynthesis
             })
             .AddToDB();
 
-        var atWillEntanglePower = FeatureDefinitionPowerBuilder
-            .Create("AncientForestAtWillEntangle")
+        var powerAncientForestEntangleAtWill = FeatureDefinitionPowerBuilder
+            .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
             .Configure(
                 1,
@@ -172,18 +163,18 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 true)
             .AddToDB();
 
-        var rootedCondition = ConditionDefinitionBuilder
-            .Create("AncientForestRootedCondition")
+        var conditionAncientForestRooted = ConditionDefinitionBuilder
+            .Create("ConditionAncientForestRooted")
             .SetSilent(Silent.None)
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
             .AddFeatures(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
             .AddFeatures(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging)
-            .AddFeatures(atWillEntanglePower)
+            .AddFeatures(powerAncientForestEntangleAtWill)
             .AddToDB();
 
-        var rootedPower = FeatureDefinitionPowerBuilder
-            .Create("AncientForestRootedPower")
+        var powerAncientForestRooted = FeatureDefinitionPowerBuilder
+            .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
             .Configure(
                 1,
@@ -198,7 +189,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
                         new EffectFormBuilder().SetConditionForm(
-                            rootedCondition,
+                            conditionAncientForestRooted,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true,
@@ -214,73 +205,76 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 true)
             .AddToDB();
 
-        var AncientForestWallofThornsPool = FeatureDefinitionPowerPoolBuilder
-            .Create("DHAncientForestWallofThornsPool")
+        var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
+            .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
             .SetUsesProficiency()
             .SetUsesAbility(1, AttributeDefinitions.Charisma)
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
-        var WallofThornsFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
-                "WallofThornsFeatureSet")
+        var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder.Create(
+                "FeatureSetWallOfThorns")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
             .AddToDB();
 
-        var thornSpells = new List<SpellDefinition> {WallOfThornsWallLine, WallOfThornsWallRing};
+        var thornSpells = new[] { WallOfThornsWallLine, WallOfThornsWallRing };
 
         foreach (var spell in thornSpells)
         {
-            FeatureDefinitionPower WallofThornsPower = new FeatureDefinitionPowerSharedPoolBuilder(
-                "AncientForest" + spell.name,
-                AncientForestWallofThornsPool,
-                RechargeRate.LongRest,
-                ActivationTime.Rest,
-                1,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                spell.EffectDescription,
-                spell.GuiPresentation,
-                false
-            ).AddToDB();
-            
-            WallofThornsFeatureSet.FeatureSet.Add(WallofThornsPower);
-        }
-        // should Use features sets so character saves don't break
+            FeatureDefinitionPower wallOfThorns =
+                FeatureDefinitionPowerSharedPoolBuilder
+                    .Create("PowerSharedPoolAncientForest" + spell.name)
+                    .SetGuiPresentation(spell.GuiPresentation)
+                    .Configure(
+                        powerPoolAncientForestWallOfThorns,
+                        RechargeRate.LongRest,
+                        ActivationTime.Rest,
+                        1,
+                        false,
+                        false,
+                        AttributeDefinitions.Charisma,
+                        spell.EffectDescription,
+                        false)
+                    .AddToDB();
 
-        var ancientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth")
+            featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
+        }
+
+        var attributeModifierAncientForestRegrowth = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierPaladinHealingPoolBase, "AttributeModifierAncientForestRegrowth")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var ancientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolMultiplier,
-                "AncientForestAttributeModifierRegrowthMultiplier")
+        var attributeModifierAncientForestRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierPaladinHealingPoolMultiplier, "AttributeModifierAncientForestRegrowthMultiplier")
             .AddToDB();
 
-        var AncientForestAttributeModifierBarkskin = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin")
+        var attributeModifierAncientForestBarkskin = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierBarkskin, "AttributeModifierAncientForestBarkskin")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        return CharacterSubclassDefinitionBuilder
-            .Create("AncientForest")
-            .SetGuiPresentation("WarlockAncientForest", Category.Subclass,
-                TraditionGreenmage.GuiPresentation.SpriteReference)
-            .AddFeatureAtLevel(ancientForestExpandedSpellListAffinity, 1)
-            .AddFeatureAtLevel(ancientForestAttributeModifierRegrowth, 1)
-            .AddFeatureAtLevel(ancientForestAttributeModifierRegrowthMultiplier, 1)
-            .AddFeatureAtLevel(regrowth, 1)
-            .AddFeatureAtLevel(AncientForestBonusCantrip, 1)
-            .AddFeatureAtLevel(herbalBrewFeatureSet, 6)
-            .AddFeatureAtLevel(lifeSapFeature, 6)
-            .AddFeatureAtLevel(ancientForestLightAffinity, 10)
-            .AddFeatureAtLevel(rootedPower, 10)
-            .AddFeatureAtLevel(AncientForestAttributeModifierBarkskin, 14)
-            .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("PatronAncientForest")
+            .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(1,
+                magicAffinityAncientForest,
+                attributeModifierAncientForestRegrowth,
+                attributeModifierAncientForestRegrowthMultiplier,
+                powerAncientForestRegrowth,
+                bonusCantripAncientForest)
+            .AddFeaturesAtLevel(6,
+                powerPoolAncientForestHerbalBrew,
+                lifeSapFeature)
+            .AddFeaturesAtLevel(10,
+                lightAffinityAncientForest,
+                powerAncientForestRooted)
+            .AddFeaturesAtLevel(14,
+                attributeModifierAncientForestBarkskin,
+                featureSetWallOfThorns)
             .AddToDB();
     }
 
@@ -289,8 +283,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         ItemDefinition baseItem)
     {
         var itemTitle = $"Equipment/&HerbalBrew{type}Title";
-        var itemName = $"AncientForestHerbalBrew{type}Item";
-        var powerName = $"AncientForestHerbalBrew{type}Power";
+        var itemName = $"ItemAncientForestHerbalBrew{type}";
+        var powerName = $"PowerAncientForestHerbalBrew{type}";
 
         var guiPresentation = new GuiPresentationBuilder(
             itemTitle,
@@ -298,7 +292,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             baseItem.GuiPresentation.SpriteReference
         ).Build();
 
-        var food = new FoodDescription {nutritiveCapacity = 0, perishable = true};
+        var food = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName)
             .SetGold(0)
@@ -327,19 +321,20 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 ActionDefinitions.ItemSelectionType.Equiped)
             .Build();
 
-        return new FeatureDefinitionPowerSharedPoolBuilder(
-            powerName,
-            pool,
-            RechargeRate.ShortRest,
-            ActivationTime.NoCost,
-            1,
-            false,
-            false,
-            AttributeDefinitions.Charisma,
-            brewEffect,
-            guiPresentation,
-            false
-        ).AddToDB();
+        return FeatureDefinitionPowerSharedPoolBuilder
+            .Create(powerName)
+            .SetGuiPresentation(guiPresentation)
+            .Configure(
+                pool,
+                RechargeRate.ShortRest,
+                ActivationTime.NoCost,
+                1,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                brewEffect,
+                false)
+            .AddToDB();
     }
 
     private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
@@ -348,8 +343,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
     {
         var resTypeName = resType.Name;
 
-        var itemName = $"AncientForestHerbalBrew{resTypeName}Item";
-        var powerName = $"AncientForestHerbalBrew{resTypeName}Power";
+        var itemName = $"ItemAncientForestHerbalBrew{resTypeName}";
+        var powerName = $"PowerAncientForestHerbalBrew{resTypeName}";
 
         var guiPresentation = new GuiPresentationBuilder(
             $"Equipment/&HerbalBrew{resTypeName}Title",
@@ -358,7 +353,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
         ).Build();
 
         var resistanceCondition = ConditionDefinitionBuilder.Create(
-                $"AncientForestHerbalBrew{resTypeName}Condition")
+                $"ConditionAncientForestHerbalBrew{resTypeName}")
             .SetDuration(DurationType.Hour, 1)
             .SetSilent(Silent.None)
             .SetGuiPresentation(guiPresentation)
@@ -366,7 +361,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
 
         var potionFunction = FeatureDefinitionPowerBuilder
-            .Create($"AncientForestPotion{resTypeName}Function")
+            .Create($"PowerAncientForestPotion{resTypeName}")
             .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation)
                 .SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())
             .Configure(
@@ -398,13 +393,13 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 true)
             .AddToDB();
 
-        var food = new FoodDescription {nutritiveCapacity = 0, perishable = true};
+        var food = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName)
             .SetGold(0)
             .SetGuiPresentation(guiPresentation)
             .MakeMagical()
-            .SetUsableDeviceDescription(potionFunction)
+            .SetUsableDeviceDescription(new[] { potionFunction })
             .AddToDB();
         var description = brewItem.UsableDeviceDescription;
         brewItem.guiPresentation = guiPresentation;
@@ -420,7 +415,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
 
-
         var brewEffect = new EffectDescriptionBuilder()
             .AddEffectForm(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
@@ -434,22 +428,22 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 ActionDefinitions.ItemSelectionType.Equiped)
             .Build();
 
-
-        return new FeatureDefinitionPowerSharedPoolBuilder(
-            powerName,
-            pool,
-            RechargeRate.ShortRest,
-            ActivationTime.NoCost,
-            1,
-            false,
-            false,
-            AttributeDefinitions.Charisma,
-            brewEffect,
-            guiPresentation,
-            false
-        ).AddToDB();
+        return FeatureDefinitionPowerSharedPoolBuilder
+            .Create(powerName)
+            .SetGuiPresentation(guiPresentation)
+            .Configure(
+                pool,
+                RechargeRate.ShortRest,
+                ActivationTime.NoCost,
+                1,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                brewEffect,
+                false)
+            .AddToDB();
     }
-    
+
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
@@ -460,4 +454,3 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return Subclass;
     }
 }
-#endif
