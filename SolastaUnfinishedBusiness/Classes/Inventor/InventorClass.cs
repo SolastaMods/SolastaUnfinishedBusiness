@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -209,6 +210,8 @@ internal static class InventorClass
             #region Level 01
 
             .AddFeaturesAtLevel(1, SpellCasting, BuildInfusions())
+            .AddFeaturesAtLevel(2, TestInvocations())
+            .AddFeaturesAtLevel(3, TestInvocations2())
 
             #endregion
 
@@ -216,6 +219,56 @@ internal static class InventorClass
 
 
         return Class;
+    }
+
+    private static FeatureDefinition TestInvocations()
+    {
+        const string poolType = "Infusion";
+        
+        CustomInvocationDefinitionBuilder
+            .Create("TestLeapInvocation")
+            .SetGuiPresentation(Category.Feature,SpellDefinitions.JumpOtherworldlyLeap)
+            .SetPoolType(poolType)
+            .SetGrantedSpell(SpellDefinitions.JumpOtherworldlyLeap)
+            .AddToDB();
+        
+        CustomInvocationDefinitionBuilder
+            .Create("TestArmorInvocation")
+            .SetGuiPresentation(Category.Feature,SpellDefinitions.MageArmorInvocationArmorShadows)
+            .SetPoolType(poolType)
+            .SetGrantedSpell(SpellDefinitions.MageArmorInvocationArmorShadows)
+            .AddToDB();
+        
+        CustomInvocationDefinitionBuilder
+            .Create("TestBlurInvocation")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Blur)
+            .SetPoolType(poolType)
+            .SetRequierLevel(3)
+            .SetGrantedSpell(SpellDefinitions.Blur)
+            .AddToDB();
+        
+        CustomInvocationDefinitionBuilder
+            .Create("TestTHirstInvocation")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
+            .SetPoolType(poolType)
+            .SetGrantedFeature(FeatureDefinitionAttributeModifiers.AttributeModifierThirstingBladeExtraAttack)
+            .AddToDB();
+
+
+        return CustomInvocationPoolDefinitionBuilder
+            .Create("TestInvocationPool")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
+            .Setup(poolType, 1)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition TestInvocations2()
+    {
+        return CustomInvocationPoolDefinitionBuilder
+            .Create("TestInvocationPoolReplace")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
+            .Setup("Infusion", 1, true)
+            .AddToDB();
     }
 
     private static SpellListDefinition BuildSpellList()
