@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
@@ -21,6 +22,91 @@ internal static class CharacterBuildingManagerPatcher
         {
             //PATCH: registers the hero getting created
             LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "TrainInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class TrainInvocation_Patch
+    {
+        internal static void Prefix([NotNull] CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation,
+            string tag,
+            ref bool checkPool)
+        {
+            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            if (invocation is CustomInvocationDefinition)
+            {
+                checkPool = false;
+            }
+        }
+    }
+
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UnlearnInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UnlearnInvocation_Patch
+    {
+        internal static void Prefix([NotNull] CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation,
+            string tag,
+            ref bool checkPool)
+        {
+            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            if (invocation is CustomInvocationDefinition)
+            {
+                checkPool = false;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UntrainInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UntrainInvocation_Patch
+    {
+        internal static bool Prefix([NotNull] CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation,
+            string tag)
+        {
+            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            if (invocation is not CustomInvocationDefinition)
+            {
+                return true;
+            }
+
+            if (heroBuildingData.LevelupTrainedInvocations.ContainsKey(tag))
+            {
+                heroBuildingData.LevelupTrainedInvocations[tag].Remove(invocation);
+            }
+
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UndoUnlearnInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class UndoUnlearnInvocation_Patch
+    {
+        internal static bool Prefix([NotNull] CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation,
+            string tag)
+        {
+            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            if (invocation is not CustomInvocationDefinition)
+            {
+                return true;
+            }
+
+            if (heroBuildingData.UnlearnedInvocations.ContainsKey(tag))
+            {
+                heroBuildingData.UnlearnedInvocations[tag].Remove(invocation);
+            }
+
+            return false;
         }
     }
 

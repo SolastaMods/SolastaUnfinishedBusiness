@@ -589,15 +589,15 @@ public static class CustomFeaturesContext
     //     return newEffect;
     // }
 
-    // public static bool GetValidationErrors(
-    //     [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
-    //     [NotNull] out List<string> errors)
-    // {
-    //     errors = validators
-    //         .Select(v => v())
-    //         .Where(v => v != null)
-    //         .ToList();
-    //
-    //     return errors.Empty();
-    // }
+    public static bool GetValidationErrors(
+        [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] out List<string> errors)
+    {
+        errors = validators
+            .Select(v => v())
+            .Where(v => v != null)
+            .ToList();
+    
+        return errors.Empty();
+    }
 }

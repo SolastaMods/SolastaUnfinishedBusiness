@@ -8,7 +8,7 @@ public class GuiPresentationBuilder
 {
     public const string NoContentTitle = "Feature/&NoContentTitle";
     public const string EmptyString = "Feature/&Emptystring";
-    private static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
+    public static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
     private readonly GuiPresentation guiPresentation;
 
     public GuiPresentationBuilder(string title = null, string description = null,
