@@ -22,6 +22,7 @@ internal static class InventorClass
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
 
     private static SpellListDefinition _spellList;
+    private static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -268,20 +269,20 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 InfusionPool,
-                BuildTestInfision()
+                BuildTestInfusion()
             )
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildTestInfision()
+    private static FeatureDefinition BuildTestInfusion()
     {
         var testSummonItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestSummonItem")
             .SetGuiPresentation(Category.Feature, ItemDefinitions.Dagger)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetUniqueInstance()
+            // .SetUniqueInstance()
             // .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InfusionLimiter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
@@ -308,6 +309,7 @@ internal static class InventorClass
             .SetUniqueInstance()
             // .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
+                InfusionLimiter,
                 new CustomItemFilter((_, item) => item.ItemDefinition.IsWeapon))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
