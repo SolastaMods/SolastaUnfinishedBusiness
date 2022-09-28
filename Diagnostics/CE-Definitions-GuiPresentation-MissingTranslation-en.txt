@@ -1,11 +1,3 @@
-CastSpellsInventor	Title='Feature/&CastSpellsInventorTitle'.
-CastSpellsInventor	Description='Feature/&CastSpellsInventorDescription'.
-FeatureSetInfusions	Title='Feature/&FeatureSetInfusionsTitle'.
-FeatureSetInfusions	Description='Feature/&FeatureSetInfusionsDescription'.
-PowerInfulionPool	Title='Feature/&PowerInfulionPoolTitle'.
-PowerInfulionPool	Description='Feature/&PowerInfulionPoolDescription'.
-SpellListInventor	Title='Feature/&SpellListInventorTitle'.
-SpellListInventor	Description='Feature/&SpellListInventorDescription'.
 TMPPowerTestInfuseItem	Title='Feature/&TMPPowerTestInfuseItemTitle'.
 TMPPowerTestInfuseItem	Description='Feature/&TMPPowerTestInfuseItemDescription'.
 TMPPowerTestSummonItem	Title='Feature/&TMPPowerTestSummonItemTitle'.

@@ -162,12 +162,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellsInventor:23b47238-099a-5a6a-b3f9-45e59a574d5a",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInfusions:f7b6e4e9-85a1-5eee-b27d-b22ff38f92db",
+      "featureDefinition": "Definition:FeatureSetInventorInfusions:db349abb-6477-5f34-b660-1755ee05f51f",
       "level": 1
     },
     {
@@ -183,6 +178,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PointPoolInventorSkills:b56b95b4-ee37-59a9-850b-36eabec2db65",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellsInventor:23b47238-099a-5a6a-b3f9-45e59a574d5a",
       "level": 1
     },
     {

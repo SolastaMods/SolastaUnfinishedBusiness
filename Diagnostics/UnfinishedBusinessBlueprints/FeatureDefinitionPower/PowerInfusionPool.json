@@ -170,8 +170,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&PowerInfulionPoolTitle",
-    "description": "Feature/&PowerInfulionPoolDescription",
+    "title": "Feature/&PowerInfusionPoolTitle",
+    "description": "Feature/&PowerInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -191,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "79cc9b8b-6685-5e29-ab3e-ccce0e4f0be3",
+  "guid": "1c6f875b-98be-502c-91bc-cee37d423e7f",
   "contentPack": 9999,
-  "name": "PowerInfulionPool"
+  "name": "PowerInfusionPool"
 }

@@ -221,7 +221,7 @@ internal static class InventorClass
     {
         return SpellListDefinitionBuilder
             .Create("SpellListInventor")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true) // spell lists don't need Gui presentation
             .ClearSpells()
             .SetSpellsAtLevel(0,
                 SpellDefinitions.AcidSplash,
@@ -254,7 +254,7 @@ internal static class InventorClass
     private static FeatureDefinitionPower BuildInfusionPool()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("PowerInfulionPool")
+            .Create("PowerInfusionPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(20)
             .SetRechargeRate(RechargeRate.ShortRest)
@@ -264,7 +264,7 @@ internal static class InventorClass
     public static FeatureDefinition BuildInfusions()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetInfusions")
+            .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 InfusionPool,
