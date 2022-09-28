@@ -54,6 +54,7 @@ internal static class SubclassesContext
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
         LoadSubclass(new SorcerousDivineHeart());
+        LoadSubclass(new TraditionZenArcher());
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());

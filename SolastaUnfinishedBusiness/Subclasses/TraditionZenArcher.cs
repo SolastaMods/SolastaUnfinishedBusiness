@@ -1,5 +1,5 @@
 ﻿//TODO: need support to fully integrate this sub with official monk...
-#if false
+
 using System;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -13,7 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class ZenArcher
+internal sealed class TraditionZenArcher : AbstractSubclass
 {
     private const string FlurryTag = "MonkFlurryAttack";
     private const string ZenArrowTag = "ZenArrow";
@@ -28,6 +28,22 @@ public static class ZenArcher
 
     private static FeatureDefinitionPower _distantHandTechnique;
     private static ConditionDefinition _distractedCondition;
+
+    // ReSharper disable once InconsistentNaming
+    private readonly CharacterSubclassDefinition Subclass;
+
+    public TraditionZenArcher()
+    {
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("TraditionZenArcher")
+            .SetOrUpdateGuiPresentation(Category.Subclass,
+                CharacterSubclassDefinitions.RangerMarksman.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(3, BuildLevel03Features())
+            .AddFeaturesAtLevel(6, BuildLevel06Features())
+            .AddFeaturesAtLevel(11, BuildLevel11Features())
+            .AddFeaturesAtLevel(17, BuildLevel17Features())
+            .AddToDB();
+    }
 
     private static AssetReferenceSprite FlurryOfArrows =>
         _flurryOfArrows ??=
@@ -71,19 +87,6 @@ public static class ZenArcher
 
         return MonkWeapons.Contains(typeDefinition)
                || IsMonkWeapon(character, weapon);
-    }
-
-    public static CharacterSubclassDefinition Build()
-    {
-        return CharacterSubclassDefinitionBuilder
-            .Create("ClassMonkTraditionZenArcher")
-            .SetOrUpdateGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.RangerMarksman.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, BuildLevel03Features())
-            .AddFeaturesAtLevel(6, BuildLevel06Features())
-            .AddFeaturesAtLevel(11, BuildLevel11Features())
-            .AddFeaturesAtLevel(17, BuildLevel17Features())
-            .AddToDB();
     }
 
     private static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition item)
@@ -140,7 +143,7 @@ public static class ZenArcher
             ))
             .AddToDB();
 
-        var prone = FeatureDefinitionPowerSharedPoolBuilder
+        var prone = FeatureDefinitionPowerBuilder
             .Create("ClassMonkZenArrowProne")
             .SetGuiPresentation(Category.Feature)
             // .SetSharedPool(Monk.KiPool)
@@ -471,16 +474,6 @@ public static class ZenArcher
         return IsMonkWeapon(character, mainHandItem?.ItemDefinition);
     }
 
-    private sealed class ZenArcherMarker
-    {
-        //Used for easier detection of Zen Archer characters to extend their Monk weapon list
-    }
-
-    public sealed class ZenArcherStunningArrows
-    {
-        //Used for easier detection of Zen Archer characters to allow stunning strike on arrows
-    }
-
     // private class ExtendWeaponRange : IModifyAttackModeForWeapon
     // {
     //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
@@ -499,5 +492,24 @@ public static class ZenArcher
     //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
     //     }
     // }
+
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    {
+        return FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+    }
+
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
+    }
+
+    private sealed class ZenArcherMarker
+    {
+        //Used for easier detection of Zen Archer characters to extend their Monk weapon list
+    }
+
+    public sealed class ZenArcherStunningArrows
+    {
+        //Used for easier detection of Zen Archer characters to allow stunning strike on arrows
+    }
 }
-#endif
