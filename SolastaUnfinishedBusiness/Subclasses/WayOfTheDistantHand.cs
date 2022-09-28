@@ -20,10 +20,10 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string FlurryTag = "MonkFlurryAttack";
     private const string ZenArrowTag = "ZenArrow";
-    
+
     private static FeatureDefinitionPower _distantHandTechnique;
     private static AssetReferenceSprite _zenArrow;
-    
+
     // Zen Archer's Monk weapons are bows and darts ranged weapons.
     private static readonly List<WeaponTypeDefinition> ZenArcherWeapons = new()
     {
@@ -37,7 +37,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfTheDistantHand")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerMarksman.GuiPresentation.SpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Subclass,
+                CharacterSubclassDefinitions.RangerMarksman.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, BuildLevel03Features())
             .AddFeaturesAtLevel(6, BuildLevel06Features())
             .AddFeaturesAtLevel(11, BuildLevel11Features())
@@ -209,7 +210,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowTechnique, true, powerWayOfTheDistantHandZenArrowProne, powerWayOfTheDistantHandZenArrowPush, powerWayOfTheDistantHandZenArrowDistract);
+        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowTechnique, true,
+            powerWayOfTheDistantHandZenArrowProne, powerWayOfTheDistantHandZenArrowPush,
+            powerWayOfTheDistantHandZenArrowDistract);
 
         return powerWayOfTheDistantHandZenArrowTechnique;
     }
@@ -218,7 +221,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         return ConditionDefinitionBuilder
             .Create("ConditionWayOfTheDistantHandDistract")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
             .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetConditionType(ConditionType.Detrimental)
@@ -259,11 +263,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var attackedWithMonkWeapon = ValidatorsCharacter.HasAnyOfConditions(conditionWayOfTheDistantHandAttackedWithMonkWeapon);
+        var attackedWithMonkWeapon =
+            ValidatorsCharacter.HasAnyOfConditions(conditionWayOfTheDistantHandAttackedWithMonkWeapon);
 
         var flurryOfArrowsSprite =
             CustomIcons.CreateAssetReferenceSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
-        
+
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
@@ -284,7 +289,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
                                 ConditionInterruption.AnyBattleTurnEnd)
-                            .SetFeatures(additionalActionWayOfTheDistantHandExtraAttack1, additionalActionWayOfTheDistantHandExtraAttack2)
+                            .SetFeatures(additionalActionWayOfTheDistantHandExtraAttack1,
+                                additionalActionWayOfTheDistantHandExtraAttack2)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add, true, true)
                     .Build())
@@ -434,7 +440,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowUpgradedTechnique, true, powerWayOfTheDistantHandZenArrowUpgradedProne, powerWayOfTheDistantHandUpgradedPush, powerWayOfTheDistantHandUpgradedDistract);
+        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowUpgradedTechnique, true,
+            powerWayOfTheDistantHandZenArrowUpgradedProne, powerWayOfTheDistantHandUpgradedPush,
+            powerWayOfTheDistantHandUpgradedDistract);
 
         return powerWayOfTheDistantHandZenArrowUpgradedTechnique;
     }
