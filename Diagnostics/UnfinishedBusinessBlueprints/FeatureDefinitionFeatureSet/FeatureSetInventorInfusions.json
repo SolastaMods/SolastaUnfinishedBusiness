@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
-    "Definition:TMPTestInfusion:b9f44dec-2ad8-5b71-ab93-b7bc34ca7ca2"
+    "Definition:TMPTestInfusion:b9f44dec-2ad8-5b71-ab93-b7bc34ca7ca2",
+    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
