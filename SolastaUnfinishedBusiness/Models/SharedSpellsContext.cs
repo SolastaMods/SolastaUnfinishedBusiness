@@ -37,10 +37,6 @@ public static class SharedSpellsContext
         { PowerWizardArcaneRecovery.Name, Wizard },
         { Level20Context.PowerWarlockEldritchMasterName, Warlock },
         { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
-        // added during load
-        //{ "ArtisanSpellStoringItem", ArtisanClass },
-        //{ "ArtisanInfusionSpellRefuelingRing", ArtisanClass },
-        //{ "PowerAlchemistSpellBonusRecovery", ArtisanClass }
     };
 
     private static Dictionary<string, CasterType> ClassCasterType { get; } = new()
@@ -53,18 +49,16 @@ public static class SharedSpellsContext
         { Paladin.Name, CasterType.Half },
         { Ranger.Name, CasterType.Half },
         { InventorClass.ClassName, CasterType.HalfRoundUp }
-        // added during load
-        //{ ArtisanClass, CasterType.HalfRoundUp }
     };
 
     private static Dictionary<string, CasterType> SubclassCasterType { get; } = new()
     {
         { MartialSpellblade.Name, CasterType.OneThird },
         { RoguishShadowCaster.Name, CasterType.OneThird },
-        { TraditionLight.Name, CasterType.OneThird }
-        // added during load
-        //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
-        //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
+        { TraditionLight.Name, CasterType.OneThird },
+        { RoguishConArtist.Name, CasterType.OneThird },
+        { MartialSpellShield.Name, CasterType.OneThird },
+        { PathOfTheRageMage.Name, CasterType.OneThird }
     };
 
     public static RulesetCharacterHero GetHero(string name)
@@ -248,10 +242,6 @@ public static class SharedSpellsContext
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster, FullCastingSlots);
 
         // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
-
-        SubclassCasterType.Add(RoguishConArtist.Name, CasterType.OneThird);
-        SubclassCasterType.Add(MartialSpellShield.Name, CasterType.OneThird);
-        SubclassCasterType.Add(PathOfTheRageMage.Name, CasterType.OneThird);
         // RecoverySlots.Add("ArtisanSpellStoringItem", ArtisanClass);
         // RecoverySlots.Add("ArtisanInfusionSpellRefuelingRing", ArtisanClass);
         // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", ArtisanClass);
