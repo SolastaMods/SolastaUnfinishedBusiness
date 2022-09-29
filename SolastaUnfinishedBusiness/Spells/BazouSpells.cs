@@ -16,6 +16,19 @@ internal static class BazouSpells
 {
     internal static void Register()
     {
+        // Condition/&ConditionFrenziedDescription=This creature is frenzied and will attack the closest creature.
+        // Condition/&ConditionFrenziedTitle=Frenzied
+        // Monster/&OwlFamiliarDescription=Owl Familiar.
+        // Monster/&OwlFamiliarTitle=Owl
+        // Spell/&EldritchOrbDescription=You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
+        // Spell/&EldritchOrbTitle=Eldritch Orb
+        // Spell/&FrenzyDescription=With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
+        // Spell/&FrenzyTitle=Frenzy
+        // Spell/&PetalStormDescription=Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
+        // Spell/&PetalStormTitle=Petal Storm
+        // Spell/&ProtectThresholdDescription=Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
+        // Spell/&ProtectThresholdTitle=Protect Threshold
+
         // RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
         // RegisterSpell(BuildFrenzy(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);

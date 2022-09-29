@@ -1,7 +1,5 @@
 ﻿Class/&InventorDescription=Inventor blah-blah class details TODO: Add proper description.
 Class/&InventorTitle=Inventor
-Feature/&PowerInfusionPoolDescription=TODO: add proper text
-Feature/&PowerInfusionPoolTitle=Infusions
 Feature/&CastSpellsInventorDescription=TODO: add proper text
 Feature/&CastSpellsInventorTitle=Inventor Spells
 Feature/&FeatureAlchemyBombsDescription=Spend infusion points to quickly mix and throw a bomb. TODO: add proper text
@@ -15,6 +13,8 @@ Feature/&PowerAlchemyBombSingleDescription=Throw a bomb that deals damage to a s
 Feature/&PowerAlchemyBombSingleTitle=Precise Bomb
 Feature/&PowerAlchemyBombSplashDescription=Throw a bomb that deals damage in a small area TODO: add proper text
 Feature/&PowerAlchemyBombSplashTitle=Explosive Bomb
+Feature/&PowerInfusionPoolDescription=TODO: add proper text
+Feature/&PowerInfusionPoolTitle=Infusions
 Feature/&ProficiencyInventorArmorTitle=Inventor Armor Proficiencies
 Feature/&ProficiencyInventorWeaponTitle=Inventor Weapon Proficiency
 Stage/&SubclassSelectionStageInventorInnovationDescription=Innovation selection description TODO: add proper text
