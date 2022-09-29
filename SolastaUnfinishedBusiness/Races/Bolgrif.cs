@@ -19,21 +19,21 @@ internal static class RaceBolgrifBuilder
         var bolgrifSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
-        var bolgrifAbilityScoreModifierWisdom = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierBolgrifWisdomAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Wisdom, 2)
             .AddToDB();
 
-        var bolgrifAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierBolgrifStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierBolgrifStrengthAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Strength, 1)
             .AddToDB();
 
-        var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
+        var equipmentAffinityBolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
             .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler,
                 "EquipmentAffinityBolgrifPowerfulBuild")
             .SetGuiPresentation(Category.Feature)
@@ -50,7 +50,7 @@ internal static class RaceBolgrifBuilder
 
         bolgrifInvisibilityEffect.EffectAdvancement.Clear();
 
-        var bolgrifInvisibilityPower = FeatureDefinitionPowerBuilder
+        var powerBolgrifInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerBolgrifInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
             .SetEffectDescription(bolgrifInvisibilityEffect)
@@ -60,7 +60,7 @@ internal static class RaceBolgrifBuilder
             .SetShowCasting(true)
             .AddToDB();
 
-        var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
+        var spellListBolgrifMagic = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrifMagic")
             .SetGuiPresentationNoContent()
             .ClearSpells()
@@ -68,14 +68,14 @@ internal static class RaceBolgrifBuilder
             .FinalizeSpells()
             .AddToDB();
 
-        var bolgrifDruidicMagic = FeatureDefinitionCastSpellBuilder
+        var castSpellBolgrifMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellBolgrifMagic")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
-            .SetSpellList(bolgrifDruidicMagicSpellList)
+            .SetSpellList(spellListBolgrifMagic)
             .AddToDB();
 
-        var bolgrifLanguageProficiency = FeatureDefinitionProficiencyBuilder
+        var proficiencyBolgrifLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBolgrifLanguages")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant",
@@ -89,7 +89,7 @@ internal static class RaceBolgrifBuilder
         bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
 
-        var bolgrif = CharacterRaceDefinitionBuilder
+        var raceBolgrif = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceBolgrif")
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
@@ -100,17 +100,17 @@ internal static class RaceBolgrifBuilder
             .SetBaseWeight(170)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                bolgrifAbilityScoreModifierWisdom,
-                bolgrifAbilityScoreModifierStrength,
+                attributeModifierBolgrifWisdomAbilityScoreIncrease,
+                attributeModifierBolgrifStrengthAbilityScoreIncrease,
                 FeatureDefinitionSenses.SenseNormalVision,
-                bolgrifPowerfulBuild,
-                bolgrifInvisibilityPower,
-                bolgrifDruidicMagic,
-                bolgrifLanguageProficiency)
+                equipmentAffinityBolgrifPowerfulBuild,
+                powerBolgrifInvisibility,
+                castSpellBolgrifMagic,
+                proficiencyBolgrifLanguages)
             .AddToDB();
 
-        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(bolgrif.name);
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceBolgrif.name);
 
-        return bolgrif;
+        return raceBolgrif;
     }
 }

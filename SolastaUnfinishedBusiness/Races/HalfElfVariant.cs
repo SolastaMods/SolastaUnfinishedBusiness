@@ -18,47 +18,35 @@ internal static class RaceHalfElfVariantRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
-        var darkelfDarkMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
+        var castSpellDarkelfMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
             .GetElement("CastSpellDarkelfMagic");
 
-        var darkelfFaerieFire = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+        var powerDarkelfFaerieFire = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
             .GetElement("PowerDarkelfFaerieFire");
 
-        var darkelfDarkness = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+        var powerDarkelfDarkness = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
             .GetElement("PowerDarkelfDarkness");
 
         var halfDarkelfSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
-        var halfElfDarkElf = CharacterRaceDefinitionBuilder
-            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "RaceHalfElfDark")
+        var raceHalfElfDark = CharacterRaceDefinitionBuilder
+            .Create(DarkelfSubraceBuilder.SubraceDarkelf, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
-                darkelfDarkMagic,
+                castSpellDarkelfMagic,
                 MoveModeMove6)
-            .AddFeaturesAtLevel(3, darkelfFaerieFire)
-            .AddFeaturesAtLevel(5, darkelfDarkness)
+            .AddFeaturesAtLevel(3, powerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5, powerDarkelfDarkness)
             .AddToDB();
 
         var halfHighSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
-#if false
-        var castSpellHalfElfHigh = FeatureDefinitionCastSpellBuilder
-            .Create(CastSpellElfHigh, "CastSpellHalfElfHigh")
-            .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .AddToDB();
-        // Feature/&CastSpellHalfElfHighDescription=Choose one Wizard cantrip, using Charisma as the spellcasting ability.
-        // Feature/&CastSpellHalfElfHighTitle=High Elf Cantrip
-#endif
-
-        var halfElfHighElf = CharacterRaceDefinitionBuilder
+        var raceHalfElfHigh = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
-                // Main.Settings.HalfHighElfUseCharisma ? castSpellHalfElfHigh : CastSpellElfHigh,
-                // ModUi/&HalfHighElfUseCharisma=<color=#D89555>Half-High Elf</color> uses Charisma instead of Intelligence as the cantrip score ability <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
                 CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
@@ -66,27 +54,27 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfSylvanSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
-        var halfElfSylvanElf = CharacterRaceDefinitionBuilder
+        var raceHalfElfSylvan = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceHalfElfSylvan")
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
                 MoveModeMove7)
             .AddToDB();
 
-        var halfElfVariant = CharacterRaceDefinitionBuilder
+        var raceHalfElfVariant = CharacterRaceDefinitionBuilder
             .Create(HalfElf, "RaceHalfElfVariant")
             .SetOrUpdateGuiPresentation("HalfElf", Category.Race)
             .AddToDB();
 
-        halfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>
+        raceHalfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>
         {
-            halfElfDarkElf, halfElfHighElf, halfElfSylvanElf
+            raceHalfElfDark, raceHalfElfHigh, raceHalfElfSylvan
         });
 
-        halfElfVariant.FeatureUnlocks
+        raceHalfElfVariant.FeatureUnlocks
             .RemoveAll(x => x.FeatureDefinition == PointPoolHalfElfSkillPool
                             || x.FeatureDefinition == MoveModeMove6);
 
-        return halfElfVariant;
+        return raceHalfElfVariant;
     }
 }

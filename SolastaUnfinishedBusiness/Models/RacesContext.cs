@@ -38,9 +38,9 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
+        LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
+        LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
-        LoadRace(DarkelfSubraceBuilder.DarkelfSubrace);
-        LoadRace(GrayDwarfSubraceBuilder.GrayDwarfSubrace);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant); // depends on DarkElf sub race
 
         // sorting

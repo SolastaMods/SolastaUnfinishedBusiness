@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class DarkelfSubraceBuilder
 {
-    internal static CharacterRaceDefinition DarkelfSubrace { get; } = BuildDarkelf();
+    internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
