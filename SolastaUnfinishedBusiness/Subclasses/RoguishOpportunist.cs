@@ -48,7 +48,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     {
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
-        var quickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
+        var onComputeAttackModifierOpportunistQuickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("OnComputeAttackModifierOpportunistQuickStrike")
             .SetGuiPresentation(Category.Feature)
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
@@ -95,7 +95,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
-        var debilitatingStrikePower = FeatureDefinitionPowerBuilder
+        var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerOpportunistDebilitatingStrike")
             .Configure(
                 1,
@@ -115,8 +115,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         return CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, quickStrike)
-            .AddFeaturesAtLevel(9, debilitatingStrikePower)
+            .AddFeaturesAtLevel(3, onComputeAttackModifierOpportunistQuickStrike)
+            .AddFeaturesAtLevel(9, powerOpportunistDebilitatingStrike)
             //.AddFeaturesAtLevel( 13, thugOvercomeCompetition)
             .AddToDB();
     }

@@ -20,7 +20,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
     internal PathOfTheRageMage()
     {
-        var magicAffinity = FeatureDefinitionMagicAffinityBuilder // Adds some rules for magic
+        var magicAffinityPathOfTheRageMage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityPathOfTheRageMage")
             .SetHandsFullCastingModifiers(true, true, true)
             .SetGuiPresentationNoContent(true)
@@ -34,7 +34,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 false)
             .AddToDB();
 
-        var spellCasting = FeatureDefinitionCastSpellBuilder
+        var castSpellPathOfTheRageMage = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellPathOfTheRageMage")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
@@ -44,30 +44,25 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
-            // know 2 cantrips at level 3, gain at rate of third caster
-            .SetKnownCantrips(
-                2,
-                3,
-                FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            // start with 2 level 1 spells, gain at rate of third caster
+            .SetKnownCantrips(2, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .SetKnownSpells(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            // gain spell slots at rate of third caster
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .AddToDB();
 
-        var skillProf = FeatureDefinitionProficiencyBuilder
+        var proficiencyPathOfTheRageMageSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyPathOfTheRageMageSkill")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
 
-        // A general definition of the Supernatural Exploits feature at level up
-        var supernaturalExploits =
+        // a general definition of the Supernatural Exploits feature at level up
+        var pathOfTheRageMageSupernaturalExploits =
             FeatureDefinitionBuilder
                 .Create("PathOfTheRageMageSupernaturalExploits")
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
-        var supernaturalExploitsDarkvision =
+        var powerPathOfTheRageMageSupernaturalExploitsDarkvision =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
                 .SetGuiPresentation(Category.Feature)
@@ -80,7 +75,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .SetShowCasting(true)
                 .AddToDB();
 
-        var supernaturalExploitsFeatherfall =
+        var powerPathOfTheRageMageSupernaturalExploitsFeatherfall =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall.GuiPresentation.SpriteReference)
@@ -92,7 +87,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .SetShowCasting(true)
                 .AddToDB();
 
-        var supernaturalExploitsJump = FeatureDefinitionPowerBuilder
+        var powerPathOfTheRageMageSupernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Jump.EffectDescription.Copy())
@@ -103,7 +98,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        var supernaturalExploitsSeeInvisibility =
+        var powerPathOfTheRageMageSupernaturalExploitsSeeInvisibility =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
@@ -132,7 +127,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
              .AddToDB();
 #endif
 
-        var arcaneExplosion = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamagePathOfTheRageMageArcaneExplosion = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamagePathOfTheRageMageArcaneExplosion")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("ArcaneExplosion")
@@ -159,7 +154,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.Raging)
             .SetSpecificDamageType(DamageTypeForce).AddToDB();
 
-        var enhancedArcaneExplosion = FeatureDefinitionBuilder
+        var pathOfTheRageMageEnhancedArcaneExplosion = FeatureDefinitionBuilder
             .Create("PathOfTheRageMageEnhancedArcaneExplosion")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -168,27 +163,31 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             CharacterSubclassDefinitionBuilder
                 .Create("PathOfTheRageMage")
                 .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
-                .AddFeaturesAtLevel(3, spellCasting.AddToDB())
-                .AddFeaturesAtLevel(3, magicAffinity)
-                .AddFeaturesAtLevel(3, skillProf)
-                .AddFeaturesAtLevel(6, arcaneExplosion)
-                .AddFeaturesAtLevel(10, supernaturalExploits)
-                .AddFeaturesAtLevel(10, supernaturalExploitsDarkvision)
-                .AddFeaturesAtLevel(10, supernaturalExploitsFeatherfall)
-                .AddFeaturesAtLevel(10, supernaturalExploitsJump)
-                .AddFeaturesAtLevel(10, supernaturalExploitsSeeInvisibility)
-                .AddFeaturesAtLevel(14, enhancedArcaneExplosion)
+                .AddFeaturesAtLevel(3,
+                    castSpellPathOfTheRageMage,
+                    magicAffinityPathOfTheRageMage,
+                    proficiencyPathOfTheRageMageSkill)
+                .AddFeaturesAtLevel(6,
+                    additionalDamagePathOfTheRageMageArcaneExplosion)
+                .AddFeaturesAtLevel(10,
+                    pathOfTheRageMageSupernaturalExploits,
+                    powerPathOfTheRageMageSupernaturalExploitsDarkvision,
+                    powerPathOfTheRageMageSupernaturalExploitsFeatherfall,
+                    powerPathOfTheRageMageSupernaturalExploitsJump,
+                    powerPathOfTheRageMageSupernaturalExploitsSeeInvisibility)
+                .AddFeaturesAtLevel(14,
+                    pathOfTheRageMageEnhancedArcaneExplosion)
                 .AddToDB();
     }
 
     internal override FeatureDefinitionSubclassChoice
-        GetSubclassChoiceList() // required method by abstract class, gets which class this subclass belongs to
+        GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
     }
 
     internal override CharacterSubclassDefinition
-        GetSubclass() // required method by abstract class, returns subclass object
+        GetSubclass()
     {
         return Subclass;
     }

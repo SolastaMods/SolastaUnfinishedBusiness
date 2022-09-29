@@ -16,7 +16,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
     internal MartialSpellShield()
     {
-        var magicAffinity = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellShieldConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
@@ -25,7 +25,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 RuleDefinitions.SpellParamsModifierType.FlatValue, true, false, false)
             .AddToDB();
 
-        var spellCasting = FeatureDefinitionCastSpellBuilder
+        var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellSpellShield")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
@@ -39,7 +39,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
 
-        var conditionWarMagic = ConditionDefinitionBuilder
+        var conditionSpellShieldWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic")
             .SetGuiPresentationNoContent(true)
             .AddFeatures(FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
@@ -47,21 +47,23 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var effect = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Self, 0,
+            .SetTargetingData(
+                RuleDefinitions.Side.Enemy,
+                RuleDefinitions.RangeType.Self,
+                0,
                 RuleDefinitions.TargetType.Self)
             .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionWarMagic, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionSpellShieldWarMagic, ConditionForm.ConditionOperation.Add)
                     .Build()
             )
             .Build();
 
         effect.canBePlacedOnCharacter = true;
-        effect.targetExcludeCaster = false;
 
-        var warMagicPower = FeatureDefinitionPowerBuilder
+        var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic")
             .SetGuiPresentation(Category.Feature)
             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
@@ -70,12 +72,12 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddToDB();
 
         // replace attack with cantrip
-        var replaceAttackWithCantrip = FeatureDefinitionReplaceAttackWithCantripBuilder
+        var replaceAttackWithCantripSpellShield = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripSpellShield")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var vigor = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellShieldConcentrationAdvantageVigor = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldConcentrationAdvantageVigor")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new VigorSpellDcModifier(),
@@ -85,7 +87,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 })
             .AddToDB();
 
-        var deflectionCondition = ConditionDefinitionBuilder
+        var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
@@ -107,11 +109,12 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddEffectForm(EffectFormBuilder
                 .Create()
                 .CreatedByCharacter()
-                .SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add, true, true)
+                .SetConditionForm(conditionSpellShieldArcaneDeflection, ConditionForm.ConditionOperation.Add, true,
+                    true)
                 .Build())
             .Build();
 
-        var arcaneDeflectionPower = FeatureDefinitionPowerBuilder
+        var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
@@ -131,12 +134,12 @@ internal sealed class MartialSpellShield : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialSpellShield")
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, magicAffinity)
-            .AddFeaturesAtLevel(3, spellCasting.AddToDB())
-            .AddFeaturesAtLevel(7, warMagicPower)
-            .AddFeaturesAtLevel(7, replaceAttackWithCantrip)
-            .AddFeaturesAtLevel(10, vigor)
-            .AddFeaturesAtLevel(15, arcaneDeflectionPower)
+            .AddFeaturesAtLevel(3, magicAffinitySpellShieldConcentrationAdvantage)
+            .AddFeaturesAtLevel(3, castSpellSpellShield.AddToDB())
+            .AddFeaturesAtLevel(7, powerSpellShieldWarMagic)
+            .AddFeaturesAtLevel(7, replaceAttackWithCantripSpellShield)
+            .AddFeaturesAtLevel(10, magicAffinitySpellShieldConcentrationAdvantageVigor)
+            .AddFeaturesAtLevel(15, powerSpellShieldArcaneDeflection)
             .AddFeaturesAtLevel(18, actionAffinitySpellShieldRangedDefense)
             .AddToDB();
     }

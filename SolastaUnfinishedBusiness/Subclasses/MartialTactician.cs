@@ -1,5 +1,4 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -55,10 +54,9 @@ internal static class TacticianFighterSubclassBuilder
         var newEffectDescription = new EffectDescription();
 
         newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
-        newEffectDescription.EffectForms.Clear();
-        newEffectDescription.EffectForms.Add(healingEffect);
-        newEffectDescription.HasSavingThrow = false;
-        newEffectDescription.DurationType = DurationType.Day;
+        newEffectDescription.SetEffectForms(healingEffect);
+        newEffectDescription.SetHasSavingThrow(false);
+        newEffectDescription.SetDurationType(DurationType.Day);
         newEffectDescription.SetTargetSide(Side.Ally);
         newEffectDescription.SetTargetType(TargetType.Individuals);
         newEffectDescription.SetTargetProximityDistance(12);
@@ -110,9 +108,9 @@ internal static class TacticianFighterSubclassBuilder
         newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
         newEffectDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Strength);
         newEffectDescription.SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency);
-        newEffectDescription.SavingThrowAbility = AttributeDefinitions.Strength;
-        newEffectDescription.HasSavingThrow = true;
-        newEffectDescription.DurationType = DurationType.Round;
+        newEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Strength);
+        newEffectDescription.SetHasSavingThrow(true);
+        newEffectDescription.SetDurationType(DurationType.Round);
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
@@ -149,7 +147,7 @@ internal static class TacticianFighterSubclassBuilder
         var newEffectDescription = new EffectDescription();
 
         newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
-        newEffectDescription.EffectForms.SetRange(damageEffect);
+        newEffectDescription.SetEffectForms(damageEffect);
 
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")

@@ -15,42 +15,42 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
     internal WizardSpellMaster()
     {
-        var prepared = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellMasterPrepared = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterPrepared")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus)
             .AddToDB();
 
-        var extraPrepared = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellMasterExtraPrepared = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterExtraPrepared")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
-        var extraKnown = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellMasterKnowledge = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterKnowledge")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 1, RuleDefinitions.AdvantageType.None,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
-        var knowledgeAffinity = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinitySpellMasterScriber = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterScriber")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, RuleDefinitions.AdvantageType.Advantage,
                 RuleDefinitions.PreparedSpellsModifier.None)
             .AddToDB();
 
-        var bonusCantrips = FeatureDefinitionPointPoolBuilder
+        var pointPoolSpellMasterBonusCantrips = FeatureDefinitionPointPoolBuilder
             .Create("PointPoolSpellMasterBonusCantrips")
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()
             .AddToDB();
 
-        var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
+        var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinitySpellMasterSpellResistance")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
@@ -77,7 +77,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .SetParticleEffectParameters(effectParticleParameters)
             .Build();
 
-        BonusRecovery = FeatureDefinitionPowerBuilder
+        var magicAffinitySpellMasterRecovery = FeatureDefinitionPowerBuilder
             .Create(PowerSpellMasterBonusRecoveryName)
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
                 PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
@@ -93,22 +93,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 bonusRecoveryEffectDescription)
             .AddToDB();
 
-        // UpdateBonusRecovery();
-
-        // Make Spell Master subclass
-        var spellMaster = CharacterSubclassDefinitionBuilder
-            .Create("WizardSpellMaster")
-            .SetGuiPresentation(Category.Subclass,
-                DomainInsight.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, prepared)
-            .AddFeaturesAtLevel(2, extraKnown)
-            .AddFeaturesAtLevel(2, BonusRecovery)
-            .AddFeaturesAtLevel(6, knowledgeAffinity)
-            .AddFeaturesAtLevel(6, bonusCantrips)
-            .AddFeaturesAtLevel(10, extraPrepared)
-            .AddFeaturesAtLevel(14, spellResistance)
-            .AddToDB();
-
         _ = RestActivityDefinitionBuilder
             .Create("SpellMasterArcaneDepth")
             .SetRestData(
@@ -116,15 +100,24 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 RuleDefinitions.RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
-                BonusRecovery.Name)
+                magicAffinitySpellMasterRecovery.Name)
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
                 PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        Subclass = spellMaster;
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("WizardSpellMaster")
+            .SetGuiPresentation(Category.Subclass,
+                DomainInsight.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(2, magicAffinitySpellMasterPrepared)
+            .AddFeaturesAtLevel(2, magicAffinitySpellMasterKnowledge)
+            .AddFeaturesAtLevel(2, magicAffinitySpellMasterRecovery)
+            .AddFeaturesAtLevel(6, magicAffinitySpellMasterScriber)
+            .AddFeaturesAtLevel(6, pointPoolSpellMasterBonusCantrips)
+            .AddFeaturesAtLevel(10, magicAffinitySpellMasterExtraPrepared)
+            .AddFeaturesAtLevel(14, savingThrowAffinitySpellMasterSpellResistance)
+            .AddToDB();
     }
-
-    private static FeatureDefinitionPower BonusRecovery { get; set; }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -135,23 +128,4 @@ internal sealed class WizardSpellMaster : AbstractSubclass
     {
         return Subclass;
     }
-
-    // internal static void UpdateBonusRecovery()
-    // {
-    //     // ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster=Enable unlimited Arcane Recovery on <color=#D89555>Wizard Spell Master</color>
-    //     if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
-    //     {
-    //         BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
-    //             Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-    //         BonusRecovery.costPerUse = 0;
-    //         BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
-    //     }
-    //     else
-    //     {
-    //         BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
-    //             Category.Feature, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-    //         BonusRecovery.costPerUse = 1;
-    //         BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
-    //     }
-    // }
 }

@@ -48,13 +48,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     internal PathOfTheLight()
     {
-        var disadvantageAgainstNonSource = FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-            .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
-            .SetGuiPresentation(Category.Feature)
-            .SetConditionName(ConditionPathOfTheLightIlluminatedName)
-            .AddToDB();
+        var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
+            FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+                .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
+                .SetGuiPresentation(Category.Feature)
+                .SetConditionName(ConditionPathOfTheLightIlluminatedName)
+                .AddToDB();
 
-        var preventInvisibility = FeatureDefinitionFeatureSetBuilder
+        var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
@@ -78,10 +79,11 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetDuration(DurationType.Irrelevant, 1, false)
             .SetSilent(Silent.WhenAdded)
             .SetSpecialDuration(true)
-            .AddFeatures(disadvantageAgainstNonSource, preventInvisibility)
+            .AddFeatures(attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
+                featureSetPathOfTheLightIlluminatedPreventInvisibility)
             .AddToDB();
 
-        var illuminatingStrike = FeatureDefinitionFeatureSetBuilder
+        var featureSetPathOfTheLightIlluminatingStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
@@ -98,7 +100,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var pierceOfTheDarkness = FeatureDefinitionFeatureSetBuilder
+        var featureSetPathOfTheLightPierceTheDarkness = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightPierceTheDarkness")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
@@ -121,7 +123,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var illuminatingStrikeImprovement = FeatureDefinitionBuilder
+        var pathOfTheLightIlluminatingStrikeImprovement = FeatureDefinitionBuilder
             .Create("PathOfTheLightIlluminatingStrikeImprovement")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -165,7 +167,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetEffectDescription(suppressIlluminatingBurstEffect)
             .AddToDB();
 
-        var illuminatingBurst = FeatureDefinitionFeatureSetBuilder
+        var featureSetPathOfTheLightIlluminatingBurst = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingBurst")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
@@ -189,12 +191,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
             .SetGuiPresentation(Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, illuminatingStrike)
-            .AddFeaturesAtLevel(3, pierceOfTheDarkness)
+            .AddFeaturesAtLevel(3, featureSetPathOfTheLightIlluminatingStrike)
+            .AddFeaturesAtLevel(3, featureSetPathOfTheLightPierceTheDarkness)
             .AddFeaturesAtLevel(6, lightsProtection)
             .AddFeaturesAtLevel(10, BuildEyesOfTruth())
-            .AddFeaturesAtLevel(10, illuminatingStrikeImprovement)
-            .AddFeaturesAtLevel(14, illuminatingBurst)
+            .AddFeaturesAtLevel(10, pathOfTheLightIlluminatingStrikeImprovement)
+            .AddFeaturesAtLevel(14, featureSetPathOfTheLightIlluminatingBurst)
             .AddToDB();
     }
 
@@ -212,7 +214,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static FeatureDefinition BuildEyesOfTruth()
     {
-        var seeingInvisibleCondition = ConditionDefinitionBuilder
+        var conditionPathOfTheLightEyesOfTruth = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(false)
@@ -228,7 +230,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             FormType = EffectForm.EffectFormType.Condition,
             ConditionForm = new ConditionForm
             {
-                Operation = ConditionForm.ConditionOperation.Add, ConditionDefinition = seeingInvisibleCondition
+                Operation = ConditionForm.ConditionOperation.Add,
+                ConditionDefinition = conditionPathOfTheLightEyesOfTruth
             }
         };
 
@@ -250,7 +253,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static EffectDescription CreateIlluminatingStrikeInitiatorPowerEffect(
         ConditionDefinition illuminatedCondition)
     {
-        var initiatorCondition = ConditionDefinitionBuilder
+        var conditionPathOfTheLightIlluminatingStrikeInitiator = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
@@ -272,7 +275,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             FormType = EffectForm.EffectFormType.Condition,
             ConditionForm = new ConditionForm
             {
-                Operation = ConditionForm.ConditionOperation.Add, ConditionDefinition = initiatorCondition
+                Operation = ConditionForm.ConditionOperation.Add,
+                ConditionDefinition = conditionPathOfTheLightIlluminatingStrikeInitiator
             }
         };
 
@@ -525,7 +529,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 SavingThrowAffinity = EffectSavingThrowType.Negates
             };
 
-            var illuminatedByBurstCondition = ConditionDefinitionIlluminatedByBurstBuilder
+            var conditionPathOfTheLightIlluminatedByBurst = ConditionDefinitionIlluminatedByBurstBuilder
                 .Create("ConditionPathOfTheLightIlluminatedByBurst")
                 .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
                     ConditionBranded.GuiPresentation.SpriteReference)
@@ -543,7 +547,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     new ConditionForm
                     {
                         Operation = ConditionForm.ConditionOperation.Add,
-                        ConditionDefinition = illuminatedByBurstCondition
+                        ConditionDefinition = conditionPathOfTheLightIlluminatedByBurst
                     },
                 CanSaveToCancel = true,
                 SaveOccurence = TurnOccurenceType.EndOfTurn,

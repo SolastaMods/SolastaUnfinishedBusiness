@@ -31,7 +31,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     private static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         // Create Auto-prepared Spell list
-        var druidForestGuardianMagic = FeatureDefinitionAutoPreparedSpellsBuilder
+        var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsForestGuardian")
             .SetGuiPresentation(Category.Feature)
             .SetPreparedSpellGroups(
@@ -43,20 +43,20 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        var extraAttack = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierForestGuardianExtraAttack = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierForestGuardianExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
             .AddToDB();
 
-        var sylvanResistance = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierForestGuardianSylvanDurability = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierForestGuardianSylvanDurability")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
         // Create Sylvan War Magic
-        var sylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinityForestGuardianSylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
                 "MagicAffinityForestGuardianSylvanWarMagic")
             .SetGuiPresentation(Category.Feature)
@@ -67,18 +67,20 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         return CharacterSubclassDefinitionBuilder
             .Create(ForestGuardianName)
             .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, druidForestGuardianMagic)
-            .AddFeaturesAtLevel(2, sylvanResistance)
-            .AddFeaturesAtLevel(2, sylvanWarMagic)
+            .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian)
+            .AddFeaturesAtLevel(2, attributeModifierForestGuardianSylvanDurability)
+            .AddFeaturesAtLevel(2, magicAffinityForestGuardianSylvanWarMagic)
             .AddFeaturesAtLevel(2, barkWard)
-            .AddFeaturesAtLevel(6, extraAttack)
+            .AddFeaturesAtLevel(6, attributeModifierForestGuardianExtraAttack)
             .AddFeaturesAtLevel(10, improvedBarkWard)
             .AddFeaturesAtLevel(14, superiorBarkWard)
             .AddToDB();
     }
 
     // Create Bark Ward Wild Shape Power (and the two higher variants, improved and superior)
-    private static (FeatureDefinitionPowerSharedPool barkWard, FeatureDefinitionPowerSharedPool improvedBarkWard,
+    private static (
+        FeatureDefinitionPowerSharedPool barkWard,
+        FeatureDefinitionPowerSharedPool improvedBarkWard,
         FeatureDefinitionPowerSharedPool superiorBarkWard) CreateBarkWard()
     {
         var tempHpEffect = EffectFormBuilder
@@ -137,7 +139,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetEffectAdvancement(EffectIncrementMethod.None)
             .Build();
 
-        var barkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
             .Configure(
@@ -145,25 +147,28 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 AttributeDefinitions.Wisdom, barkWardEffectDescription, true)
             .AddToDB();
 
-        var improvedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
             .Configure(
                 PowerDruidWildShape, RechargeRate.ShortRest, ActivationTime.BonusAction, 1, false, false,
                 AttributeDefinitions.Wisdom, improvedBarkWardEffectDescription, true)
-            .SetOverriddenPower(barkWard)
+            .SetOverriddenPower(powerSharedPoolForestGuardianBarkWard)
             .AddToDB();
 
-        var superiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
             .Configure(
                 PowerDruidWildShape, RechargeRate.ShortRest, ActivationTime.BonusAction, 1, false, false,
                 AttributeDefinitions.Wisdom, superiorBarkWardEffectDescription, true)
-            .SetOverriddenPower(improvedBarkWard)
+            .SetOverriddenPower(powerSharedPoolForestGuardianImprovedBarkWard)
             .AddToDB();
 
-        return (barkWard, improvedBarkWard, superiorBarkWard);
+        return (
+            powerSharedPoolForestGuardianBarkWard,
+            powerSharedPoolForestGuardianImprovedBarkWard,
+            powerSharedPoolForestGuardianSuperiorBarkWard);
 
         static ConditionDefinition CreateConditionForestGuardianBarkWard()
         {
@@ -190,21 +195,29 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddEffectForm(damageEffect)
                 .Build();
 
-            var improvedBarkWardDamageRetaliate = FeatureDefinitionPowerBuilder
+            var powerForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
                 .Create("PowerForestGuardianImprovedBarkWard")
                 .SetGuiPresentationNoContent()
                 .Configure(
-                    0, UsesDetermination.Fixed, AttributeDefinitions.Wisdom, ActivationTime.NoCost,
-                    0, RechargeRate.AtWill, false, false, AttributeDefinitions.Wisdom,
-                    improvedBarkWardRetaliationEffect, true)
+                    0,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Wisdom,
+                    ActivationTime.NoCost,
+                    0,
+                    RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    improvedBarkWardRetaliationEffect,
+                    true)
                 .AddToDB();
 
-            var improvedBarkWardDamage = FeatureDefinitionDamageAffinityBuilder
+            var damageAffinityForestGuardianImprovedBarkWard = FeatureDefinitionDamageAffinityBuilder
                 .Create("DamageAffinityForestGuardianImprovedBarkWard")
                 .SetGuiPresentationNoContent()
                 .SetDamageAffinityType(DamageAffinityType.None)
                 .SetDamageType(DamageTypePoison)
-                .SetRetaliate(improvedBarkWardDamageRetaliate, 1, true)
+                .SetRetaliate(powerForestGuardianImprovedBarkWard, 1, true)
                 .SetAncestryDefinesDamageType(false)
                 .AddToDB();
 
@@ -214,7 +227,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .SetAllowMultipleInstances(false)
                 .SetDuration(DurationType.Minute, 10)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                .SetFeatures(improvedBarkWardDamage)
+                .SetFeatures(damageAffinityForestGuardianImprovedBarkWard)
                 .AddToDB();
         }
 
@@ -231,7 +244,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 .AddEffectForm(damageEffect)
                 .Build();
 
-            var powerSuperiorBarkWardRetaliatePower = FeatureDefinitionPowerBuilder
+            var powerForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
                 .Create("PowerForestGuardianSuperiorBarkWard")
                 .SetGuiPresentationNoContent()
                 .Configure(
@@ -240,19 +253,19 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     AttributeDefinitions.Wisdom, superiorBarkWardRetaliationEffect, true)
                 .AddToDB();
 
-            var powerSuperiorBarkWardRetaliateDamageAffinity = FeatureDefinitionDamageAffinityBuilder
+            var damageAffinityForestGuardianSuperiorBarkWard = FeatureDefinitionDamageAffinityBuilder
                 .Create("DamageAffinityForestGuardianSuperiorBarkWard")
                 .SetGuiPresentationNoContent()
                 .SetDamageAffinityType(DamageAffinityType.Immunity)
                 .SetDamageType(DamageTypePoison)
-                .SetRetaliate(powerSuperiorBarkWardRetaliatePower, 1, true)
+                .SetRetaliate(powerForestGuardianSuperiorBarkWard, 1, true)
                 .SetAncestryDefinesDamageType(false)
                 .AddToDB();
 
             return ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianSuperiorBarkWard")
                 .SetOrUpdateGuiPresentation(Category.Condition)
-                .SetFeatures(powerSuperiorBarkWardRetaliateDamageAffinity)
+                .SetFeatures(damageAffinityForestGuardianSuperiorBarkWard)
                 .SetAllowMultipleInstances(false)
                 .SetDuration(DurationType.Minute, 10)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)

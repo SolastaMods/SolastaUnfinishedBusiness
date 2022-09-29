@@ -82,8 +82,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
     }
 
-    // private static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
-
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
         return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
@@ -130,11 +128,4 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
-
-    // internal static void UpdateEnchantWeapon()
-    // {
-    //     EnchantWeapon.rechargeRate = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter
-    //         ? RuleDefinitions.RechargeRate.ShortRest
-    //         : RuleDefinitions.RechargeRate.LongRest;
-    // }
 }
