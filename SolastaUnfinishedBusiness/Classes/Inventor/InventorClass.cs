@@ -23,7 +23,7 @@ internal static class InventorClass
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
 
     private static SpellListDefinition _spellList;
-    private static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
+    public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -31,6 +31,10 @@ internal static class InventorClass
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
+
+    private static CustomInvocationPoolDefinition Learn;
+    private static CustomInvocationPoolDefinition Unlearn;
+
 
     public static CharacterClassDefinition Build()
     {
@@ -41,6 +45,12 @@ internal static class InventorClass
 
         InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
+
+        Learn = BuildLearn();
+        Unlearn = BuildUnlearn();
+
+        TestInvocations();
+        Infusions.Build();
 
         Class = CharacterClassDefinitionBuilder
             .Create(ClassName)
@@ -210,8 +220,96 @@ internal static class InventorClass
             #region Level 01
 
             .AddFeaturesAtLevel(1, SpellCasting, BuildInfusions())
-            .AddFeaturesAtLevel(2, TestInvocations())
-            .AddFeaturesAtLevel(3, TestInvocations2())
+            .AddFeaturesAtLevel(2, Learn)
+            .AddFeaturesAtLevel(3, Learn, Unlearn)
+
+            #endregion
+
+            #region Level 02
+
+            #endregion
+
+            #region Level 03
+
+            #endregion
+
+            #region Level 04
+
+            .AddFeaturesAtLevel(4,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
+            )
+
+            #endregion
+
+            #region Level 05
+
+            #endregion
+
+            #region Level 06
+
+            #endregion
+
+            #region Level 07
+
+            #endregion
+
+            #region Level 08
+            .AddFeaturesAtLevel(8,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
+            )
+            #endregion
+
+            #region Level 09
+
+            #endregion
+
+            #region Level 10
+
+            #endregion
+
+            #region Level 11
+
+            #endregion
+
+            #region Level 12
+            .AddFeaturesAtLevel(12,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
+            )
+            #endregion
+
+            #region Level 13
+
+            #endregion
+
+            #region Level 14
+
+            #endregion
+
+            #region Level 15
+
+            #endregion
+
+            #region Level 16
+            .AddFeaturesAtLevel(16,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
+            )
+            #endregion
+
+            #region Level 17
+
+            #endregion
+
+            #region Level 18
+
+            #endregion
+
+            #region Level 19
+            .AddFeaturesAtLevel(19,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
+            )
+            #endregion
+
+            #region Level 20
 
             #endregion
 
@@ -221,7 +319,7 @@ internal static class InventorClass
         return Class;
     }
 
-    private static FeatureDefinition TestInvocations()
+    private static void TestInvocations()
     {
         var poolType = CustomInvocationPoolType.Pools.Infusion;
 
@@ -229,9 +327,10 @@ internal static class InventorClass
             .Create("TestLeapInvocation")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.JumpOtherworldlyLeap)
             .SetPoolType(poolType)
-            .SetRequiredSpell(SpellDefinitions.Aid)
-            .SetGrantedSpell(SpellDefinitions.JumpOtherworldlyLeap)
+            // .SetRequiredSpell(SpellDefinitions.Aid)
+            .SetGrantedFeature(FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue)
             .AddToDB();
+
 
         CustomInvocationDefinitionBuilder
             .Create("TestArmorInvocation")
@@ -256,16 +355,18 @@ internal static class InventorClass
             .SetPoolType(poolType)
             .SetGrantedFeature(FeatureDefinitionAttributeModifiers.AttributeModifierThirstingBladeExtraAttack)
             .AddToDB();
+    }
 
-
+    private static CustomInvocationPoolDefinition BuildLearn()
+    {
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPool")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup(poolType)
+            .Setup(CustomInvocationPoolType.Pools.Infusion, 1)
             .AddToDB();
     }
 
-    private static FeatureDefinition TestInvocations2()
+    private static CustomInvocationPoolDefinition BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPoolReplace")

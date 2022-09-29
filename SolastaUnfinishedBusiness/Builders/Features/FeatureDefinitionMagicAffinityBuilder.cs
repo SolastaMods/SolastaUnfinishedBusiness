@@ -36,13 +36,13 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(
-        int attackModifier,
-        RuleDefinitions.SpellParamsModifierType attackModifierType,
-        int dcModifier,
-        RuleDefinitions.SpellParamsModifierType dcModifierType,
-        bool noProximityPenalty,
-        bool cantripRetribution,
-        bool halfDamageCantrips)
+        int attackModifier = 0,
+        RuleDefinitions.SpellParamsModifierType attackModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,
+        int dcModifier = 0,
+        RuleDefinitions.SpellParamsModifierType dcModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,
+        bool noProximityPenalty = false,
+        bool cantripRetribution = false,
+        bool halfDamageCantrips = false)
     {
         Definition.spellAttackModifierType = attackModifierType;
         Definition.spellAttackModifier = attackModifier;
