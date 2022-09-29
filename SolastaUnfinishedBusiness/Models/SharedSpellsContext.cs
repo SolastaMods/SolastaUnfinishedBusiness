@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Subclasses;
 using static FeatureDefinitionCastSpell;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -51,6 +52,7 @@ public static class SharedSpellsContext
         { Wizard.Name, CasterType.Full },
         { Paladin.Name, CasterType.Half },
         { Ranger.Name, CasterType.Half },
+        { InventorClass.ClassName, CasterType.HalfRoundUp },
         // added during load
         //{ ArtisanClass, CasterType.HalfRoundUp }
     };
