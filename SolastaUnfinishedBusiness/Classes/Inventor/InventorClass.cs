@@ -223,7 +223,7 @@ internal static class InventorClass
 
     private static FeatureDefinition TestInvocations()
     {
-        const string poolType = "Infusion";
+        var poolType = InvocationPoolTypes.Infusion;
         
         CustomInvocationDefinitionBuilder
             .Create("TestLeapInvocation")
@@ -267,7 +267,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPoolReplace")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup("Infusion", 1, true)
+            .Setup(InvocationPoolTypes.Infusion, 1, true)
             .AddToDB();
     }
 

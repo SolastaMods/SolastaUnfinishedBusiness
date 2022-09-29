@@ -36,9 +36,9 @@ public class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<Cus
     {
     }
 
-    public CustomInvocationDefinitionBuilder SetPoolType(string poolType)
+    public CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
     {
-        Definition.PoolType = poolType;
+        Definition.PoolType = poolType.Name;
         return this;
     }
 }

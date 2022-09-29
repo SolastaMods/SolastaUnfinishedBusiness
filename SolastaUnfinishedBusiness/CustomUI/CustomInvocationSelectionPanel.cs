@@ -129,8 +129,8 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         public int Max { get; set; }
         public int Used { get; set; }
         public int Remaining => Skipped ? 0 : Max - Used;
-        public CustomInvocationPoolDefinition FeatureSet { get; set; }
-        public bool IsReplacer => Id.Unlearn;
+        public CustomInvocationPoolType Type { get; set; }
+        public bool IsUnlearn => Id.Unlearn;
     }
 
     public class PoolId
@@ -176,12 +176,12 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             return r;
         }
 
-        if (a.IsReplacer == b.IsReplacer)
+        if (a.IsUnlearn == b.IsUnlearn)
         {
             return String.CompareOrdinal(a.Id.Name, b.Id.Name);
         }
 
-        if (a.IsReplacer)
+        if (a.IsUnlearn)
         {
             return -1;
         }
@@ -350,7 +350,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         var currentPoolId = allPools[currentPoolIndex].Id;
         var isUnlearnStep = IsUnlearnStep(currentPoolIndex);
         var featurePool = GetPoolById(currentPoolId);
-        var allLevels = featurePool.FeatureSet.AllLevels;
+        var allLevels = featurePool.Type.AllLevels;
         var requiredGroups = allLevels.Count;
 
         while (spellsByLevelTable.childCount < requiredGroups)
@@ -376,7 +376,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             var group = child.GetComponent<SpellsByLevelGroup>();
             var featureLevel = allLevels[i];
-            var lowLevel = !isUnlearnStep && featureLevel > (featurePool.FeatureSet.RequireClassLevels
+            var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels
                 ? gainedClassLevel
                 : gainedCharacterLevel);
 
@@ -386,7 +386,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             if (lowLevel)
             {
-                levelError = featurePool.FeatureSet.RequireClassLevels
+                levelError = featurePool.Type.RequireClassLevels
                     ? Gui.Format("Requirement/&FeatureSelectionRequireClassLevel", $"{featureLevel}",
                         gainedClass.GuiPresentation.Title)
                     : Gui.Format("Requirement/&FeatureSelectionRequireCharacterLevel", $"{featureLevel}");
@@ -400,7 +400,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             group.CustomFeatureBind(
                 currentHero,
-                featurePool.FeatureSet,
+                featurePool.Type,
                 GetOrMakeLearnedList(featurePool.Id),
                 featureLevel,
                 levelError,
@@ -465,7 +465,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             pool.Used--;
             learned.Remove(feature);
 
-            if (pool.IsReplacer)
+            if (pool.IsUnlearn)
             {
                 var poolById = GetPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false));
 
@@ -480,9 +480,9 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             pool.Used++;
             learned.Add(feature);
 
-            if (pool.IsReplacer)
+            if (pool.IsUnlearn)
             {
-                GetOrAddPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false), pool.FeatureSet).Max++;
+                GetOrAddPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false), pool.Type).Max++;
             }
         }
 
@@ -769,7 +769,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         return allPools.FirstOrDefault(p => p.Id.Equals(id));
     }
 
-    private FeaturePool GetOrAddPoolById(PoolId id, CustomInvocationPoolDefinition set)
+    private FeaturePool GetOrAddPoolById(PoolId id, CustomInvocationPoolType type)
     {
         var pool = GetPoolById(id);
 
@@ -778,7 +778,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             return pool;
         }
 
-        pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
+        pool = new FeaturePool(id) {Type = type, Max = 0, Used = 0};
         allPools.Add(pool);
         allPools.Sort(poolCompare);
         BuildLearnSteps();
@@ -788,7 +788,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private bool IsUnlearnStep(int step)
     {
-        return allPools[step].IsReplacer;
+        return allPools[step].IsUnlearn;
     }
 
     private List<CustomInvocationDefinition> GetOrMakeLearnedList(PoolId id)
@@ -854,7 +854,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             if (!tags.ContainsKey(poolId))
             {
-                var pool = new FeaturePool(poolId) {Max = featureSet.Points, Used = 0, FeatureSet = featureSet};
+                var pool = new FeaturePool(poolId) {Max = featureSet.Points, Used = 0, Type = featureSet.PoolType};
                 tags.Add(poolId, pool);
                 allPools.Add(pool);
             }
@@ -901,7 +901,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             );
         }
 
-        gainedCustomFeatures.ForEach(f => f.Item2.Refresh());
+        CustomInvocationPoolType.RefreshAll();
     }
 
     #region UI helpers
@@ -961,13 +961,13 @@ internal static class LearnStepItemExtension
         LearnStepItem.ButtonActivatedHandler onAutoSelectActivated)
     {
         instance.Tag = pool.Id.Tag;
-        instance.PoolType = pool.IsReplacer
+        instance.PoolType = pool.IsUnlearn
             ? HeroDefinitions.PointsPoolType.SpellUnlearn
             : HeroDefinitions.PointsPoolType.Irrelevant;
         instance.rank = rank;
-        instance.ignoreAvailable = pool.IsReplacer;
+        instance.ignoreAvailable = pool.IsUnlearn;
         instance.autoLearnAvailable = false;
-        var header = pool.FeatureSet.FormatTitle();
+        var header = pool.Type.FormatTitle(pool.IsUnlearn);
         instance.headerLabelActive.Text = header;
         instance.headerLabelInactive.Text = header;
         instance.OnBackOneStepActivated = onBackOneStepActivated;
@@ -1004,7 +1004,7 @@ internal static class LearnStepItemExtension
         {
             instance.pointsLabelActive.Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
             instance.remainingPointsGaugeActive.fillAmount = (float)usedPoints / maxPoints;
-            choiceLabel.Text = pool.FeatureSet.FormatDescription();
+            choiceLabel.Text = pool.Type.FormatDescription(pool.IsUnlearn);
             LayoutRebuilder.ForceRebuildLayoutImmediate(choiceLabel.RectTransform);
             var sizeDelta = new Vector2(activeGroup.sizeDelta.x,
                 (float)(choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y +
@@ -1046,7 +1046,7 @@ internal static class SpellsByLevelGroupExtensions
 
     public static void CustomFeatureBind(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolDefinition pool,
+        CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
         int featureLevel,
         string lowLevelError,
@@ -1112,7 +1112,7 @@ internal static class SpellsByLevelGroupExtensions
 
     public static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolDefinition pool,
+        CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
         string lowLevelError,
         List<CustomInvocationDefinition> unlearnedFeatures,
@@ -1141,7 +1141,7 @@ internal static class SpellsByLevelGroupExtensions
                 errors.Add(lowLevelError);
             }
 
-            box.SetupUI(pool.GuiPresentation, errors);
+            box.SetupUI(pool.Sprite, errors);
 
             if (canAcquireFeatures)
             {
@@ -1157,7 +1157,7 @@ internal static class SpellsByLevelGroupExtensions
 
     public static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolDefinition pool,
+        CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> unlearnedSpells,
         bool canUnlearnInvocations)
     {
@@ -1174,7 +1174,7 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
 
-            box.SetupUI(pool.GuiPresentation, null);
+            box.SetupUI(pool.Sprite, null);
 
             if (canUnlearnInvocations)
             {
@@ -1257,7 +1257,7 @@ internal static class SpellBoxExtensions
         instance.Refresh();
     }
 
-    public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors)
+    public static void SetupUI(this SpellBox instance, AssetReferenceSprite sprite, List<string> errors)
     {
         var title = instance.titleLabel;
         var image = instance.spellImage;
@@ -1294,7 +1294,7 @@ internal static class SpellBoxExtensions
 
         if (gui.SpriteReference == null || gui.SpriteReference == GuiPresentationBuilder.EmptySprite)
         {
-            gui.spriteReference = setPresentation.SpriteReference;
+            gui.spriteReference = sprite;
         }
 
         title.Text = gui.Title;
