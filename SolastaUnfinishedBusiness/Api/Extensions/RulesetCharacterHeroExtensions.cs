@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
@@ -94,6 +95,13 @@ public static class RulesetCharacterHeroExtensions
         return classDefinition != null && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
             ? classLevel
             : 0;
+    }
+
+    public static int GetClassLevel(this RulesetCharacterHero hero, string className)
+    {
+        return hero.GetClassLevel(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .GetAllElements()
+            .FirstOrDefault(x => x.Name == className));
     }
 
     public static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
