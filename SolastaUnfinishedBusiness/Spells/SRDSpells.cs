@@ -349,18 +349,6 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordKill()
     {
-        var killForm = new KillForm { killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100 };
-
-        var effectForm = new EffectForm
-        {
-            applyLevel = EffectForm.LevelApplianceType.No,
-            levelMultiplier = 1,
-            levelType = RuleDefinitions.LevelSourceType.ClassLevel,
-            createdByCharacter = true,
-            formType = EffectForm.EffectFormType.Kill,
-            killForm = killForm
-        };
-
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
@@ -371,7 +359,15 @@ public static class SrdSpells
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals)
-            .AddEffectForm(effectForm);
+            .AddEffectForm(new EffectForm
+            {
+                applyLevel = EffectForm.LevelApplianceType.No,
+                levelMultiplier = 1,
+                levelType = RuleDefinitions.LevelSourceType.ClassLevel,
+                createdByCharacter = true,
+                formType = EffectForm.EffectFormType.Kill,
+                killForm = new KillForm { killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100 }
+            });
 
         return SpellDefinitionBuilder
             .Create("PowerWordKill")
@@ -408,18 +404,7 @@ public static class SrdSpells
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Spider_Queen),
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
         );
-
-        var effectForm = new EffectForm
-        {
-            addBonusMode = RuleDefinitions.AddBonusMode.None,
-            applyLevel = EffectForm.LevelApplianceType.No,
-            canSaveToCancel = false,
-            createdByCharacter = true,
-            formType = EffectForm.EffectFormType.ShapeChange,
-            shapeChangeForm = shapeChangeForm
-        };
-
-
+        
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Hour,
@@ -430,7 +415,15 @@ public static class SrdSpells
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Self)
-            .AddEffectForm(effectForm)
+            .AddEffectForm(new EffectForm
+            {
+                addBonusMode = RuleDefinitions.AddBonusMode.None,
+                applyLevel = EffectForm.LevelApplianceType.No,
+                canSaveToCancel = false,
+                createdByCharacter = true,
+                formType = EffectForm.EffectFormType.ShapeChange,
+                shapeChangeForm = shapeChangeForm
+            })
             .SetCreatedByCharacter()
             .SetParticleEffectParameters(PowerDruidWildShape.EffectDescription.EffectParticleParameters);
 
