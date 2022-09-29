@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerDragonbornBreathWeaponBlue:8ae044db5645a5849a9315596a72a2a5",
+  "grantedFeature": "Definition:PowerInfusionEnhanceArcaneFocus:7a30647f-dc94-507b-9a66-3201e9947964",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestLeapInvocationTitle",
-    "description": "Feature/&TestLeapInvocationDescription",
+    "title": "Feature/&InfusionEnhanceArcaneFocusTitle",
+    "description": "Feature/&InfusionEnhanceArcaneFocusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
-      "m_SubObjectName": "Jump",
+      "m_AssetGUID": "2e6a88bd540da2547a91813cfe68abe1",
+      "m_SubObjectName": "HeraldOfPain",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "472e819e-f979-5344-ac6d-e6ced0e762ae",
+  "guid": "d07af81f-7699-57ef-9cab-cb26fd8962a5",
   "contentPack": 9999,
-  "name": "TestLeapInvocation"
+  "name": "InvocationInfusionEnhanceArcaneFocus"
 }

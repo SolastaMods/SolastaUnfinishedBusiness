@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "None",
-  "saveDCModifier": 0,
-  "spellAttackModifierType": "None",
-  "spellAttackModifier": 0,
+  "saveDCModifierType": "FlatValue",
+  "saveDCModifier": 10,
+  "spellAttackModifierType": "FlatValue",
+  "spellAttackModifier": 10,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
   "concentrationAffinity": "None",
@@ -33,7 +33,7 @@
   "warListSpells": [],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
-  "extendedSpellList": "Definition:SpellListRiftWalker:53dc49e6-f8ba-5a3b-9328-ce48751b61b9",
+  "extendedSpellList": null,
   "addBonusToEffectSaveDC": "None",
   "spellWithModifiedSaveDC": null,
   "powerWithModifiedSaveDC": null,
@@ -53,13 +53,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityPatronExpandedSpellsTitle",
-    "description": "Feature/&MagicAffinityPatronExpandedSpellsDescription",
+    "title": "Feature/&InfusionEnhanceArcaneFocusTitle",
+    "description": "Feature/&InfusionEnhanceArcaneFocusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "18a81672-abf4-557e-b8b8-9c8ead0e6545",
+  "guid": "8633cef2-5382-5847-a5cd-5d1cbbe4aad1",
   "contentPack": 9999,
-  "name": "MagicAffinityRiftWalkerExpandedSpells"
+  "name": "MagicAffinityInfusionEnhanceArcaneFocus"
 }

@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerDragonbornBreathWeaponBlue:8ae044db5645a5849a9315596a72a2a5",
+  "grantedFeature": "Definition:PowerInfusionEnhanceWeapon:c4c32237-1e03-5c6d-b39a-fdfd9efd3991",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestLeapInvocationTitle",
-    "description": "Feature/&TestLeapInvocationDescription",
+    "title": "Feature/&InfusionEnhanceWeaponTitle",
+    "description": "Feature/&InfusionEnhanceWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
-      "m_SubObjectName": "Jump",
+      "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
+      "m_SubObjectName": "LightningBlade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "472e819e-f979-5344-ac6d-e6ced0e762ae",
+  "guid": "c67bc641-2497-5ed0-afe1-98b792150d99",
   "contentPack": 9999,
-  "name": "TestLeapInvocation"
+  "name": "InvocationInfusionEnhanceWeapon"
 }

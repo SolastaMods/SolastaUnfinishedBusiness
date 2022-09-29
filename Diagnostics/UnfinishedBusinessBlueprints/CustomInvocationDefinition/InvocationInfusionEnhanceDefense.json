@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerDragonbornBreathWeaponBlue:8ae044db5645a5849a9315596a72a2a5",
+  "grantedFeature": "Definition:PowerInfusionEnhanceDefense:9f51cd64-0359-57c1-a76e-17358842a49e",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestLeapInvocationTitle",
-    "description": "Feature/&TestLeapInvocationDescription",
+    "title": "Feature/&InfusionEnhanceDefenseTitle",
+    "description": "Feature/&InfusionEnhanceDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
-      "m_SubObjectName": "Jump",
+      "m_AssetGUID": "440982b50e15be94cb506abe1f4886b8",
+      "m_SubObjectName": "AuraOfProtection",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "472e819e-f979-5344-ac6d-e6ced0e762ae",
+  "guid": "004ef93a-3aca-5b50-965b-9002c577a9bd",
   "contentPack": 9999,
-  "name": "TestLeapInvocation"
+  "name": "InvocationInfusionEnhanceDefense"
 }
