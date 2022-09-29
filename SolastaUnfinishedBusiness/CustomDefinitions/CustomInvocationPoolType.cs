@@ -9,14 +9,16 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public static class InvocationPoolTypes
-{
-    public static readonly CustomInvocationPoolType Infusion =
-        CustomInvocationPoolType.Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
-}
-
 public class CustomInvocationPoolType
 {
+    public static class Pools
+    {
+        public static readonly CustomInvocationPoolType Infusion =
+            CustomInvocationPoolType.Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
+
+        public static List<CustomInvocationPoolType> All => CustomInvocationPoolType.pools;
+    }
+
     private static readonly List<CustomInvocationPoolType> pools = new();
 
     public string Name { get; private set; }
@@ -40,7 +42,7 @@ public class CustomInvocationPoolType
         return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
     }
 
-    public static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite,
+    public static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
         string requireClassLevel = null)
     {
         var pool = new CustomInvocationPoolType()
@@ -78,6 +80,8 @@ public class CustomInvocationPoolType
     {
         return Gui.Localize(GuiPresentationBuilder.CreateTitleKey(GuiName(unlearn), Category.Feature));
     }
+
+    public string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
     [NotNull]
     public List<CustomInvocationDefinition> GetLevelFeatures(int level)

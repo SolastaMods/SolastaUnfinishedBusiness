@@ -34,3 +34,4 @@ Feature/&InvocationPoolInfusionLearnDescription=Select new Infusion to learn.
 Feature/&InvocationPoolInfusionLearnTitle=Learn Infusion
 Feature/&InvocationPoolInfusionUnlearnDescription=Select known Infusion to replace.
 Feature/&InvocationPoolInfusionUnlearnTitle=Unlearn Infusion
+Screen/&InvocationPoolInfusionHeader=Infusions

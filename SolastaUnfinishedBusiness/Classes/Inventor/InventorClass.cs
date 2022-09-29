@@ -223,24 +223,24 @@ internal static class InventorClass
 
     private static FeatureDefinition TestInvocations()
     {
-        var poolType = InvocationPoolTypes.Infusion;
-        
+        var poolType = CustomInvocationPoolType.Pools.Infusion;
+
         CustomInvocationDefinitionBuilder
             .Create("TestLeapInvocation")
-            .SetGuiPresentation(Category.Feature,SpellDefinitions.JumpOtherworldlyLeap)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.JumpOtherworldlyLeap)
             .SetPoolType(poolType)
             .SetRequiredSpell(SpellDefinitions.Aid)
             .SetGrantedSpell(SpellDefinitions.JumpOtherworldlyLeap)
             .AddToDB();
-        
+
         CustomInvocationDefinitionBuilder
             .Create("TestArmorInvocation")
-            .SetGuiPresentation(Category.Feature,SpellDefinitions.MageArmorInvocationArmorShadows)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MageArmorInvocationArmorShadows)
             .SetPoolType(poolType)
             .SetRequiredLevel(2)
             .SetGrantedSpell(SpellDefinitions.MageArmorInvocationArmorShadows)
             .AddToDB();
-        
+
         CustomInvocationDefinitionBuilder
             .Create("TestBlurInvocation")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Blur)
@@ -249,7 +249,7 @@ internal static class InventorClass
             .SetRequiredPact(FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianExtraAttack)
             .SetGrantedSpell(SpellDefinitions.Blur)
             .AddToDB();
-        
+
         CustomInvocationDefinitionBuilder
             .Create("TestTHirstInvocation")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
@@ -270,7 +270,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPoolReplace")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup(InvocationPoolTypes.Infusion, 1, true)
+            .Setup(CustomInvocationPoolType.Pools.Infusion, 1, true)
             .AddToDB();
     }
 
