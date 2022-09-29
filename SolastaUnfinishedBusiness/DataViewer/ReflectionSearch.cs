@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.Infrastructure.StringExtensions;
 
@@ -238,7 +239,7 @@ public class ReflectionSearch : MonoBehaviour
             }
         }
 
-        if (newTodo.Count > 0 && depth < Main.Settings.MaxSearchDepth)
+        if (newTodo.Count > 0 && depth < GameServicesDisplay.MaxSearchDepth)
         {
             yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updator, resultRoot);
         }

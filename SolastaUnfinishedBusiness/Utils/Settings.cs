@@ -23,14 +23,6 @@ public class Settings : UnityModManager.ModSettings
     public int EnableDiagsDump { get; set; }
 
     //
-    // Blueprints Viewer UI
-    //
-
-    internal int SelectedRawDataType;
-    internal int MaxRows = 20;
-    internal int MaxSearchDepth = 3;
-
-    //
     // SETTINGS UI TOGGLES
     //
 
@@ -104,13 +96,6 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Races, Classes & Subclasses
     //
 
-    // public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
-    // public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
-    // public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 2;
-    // public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-    // public bool ReduceDarkElfLightPenalty { get; set; }
-    // public bool ReduceGrayDwarfLightPenalty { get; set; }
-    // public bool HalfHighElfUseCharisma { get; set; }
     public int RaceSliderPosition { get; set; } = 4;
     public List<string> RaceEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = 4;
@@ -221,16 +206,11 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }
-
     public bool OverrideMinMaxLevel { get; set; }
-
-    // public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    // public List<string> defaultPartyHeroes = new();
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
-    // public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
+
 
     // Debug
     public bool DebugLogDefinitionCreation { get; set; }
@@ -289,13 +269,8 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableHotkeyToggleHud { get; set; }
-
-    // public bool EnableHotkeyToggleIndividualHud { get; set; }
     public bool EnableCharacterExport { get; set; }
-
     public bool EnableHotkeyDebugOverlay { get; set; }
-
-    // public bool EnableHotkeyZoomCamera { get; set; }
     public bool EnableTeleportParty { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }

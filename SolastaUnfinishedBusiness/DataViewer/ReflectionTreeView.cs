@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
@@ -34,7 +35,7 @@ public class ReflectionTreeView
 
     private static float DepthDelta => 30f;
 
-    private static int MaxRows => Main.Settings.MaxRows;
+    private static int MaxRows => GameServicesDisplay.MaxRows;
 
     public object Root => _tree.Root;
 
@@ -133,7 +134,7 @@ public class ReflectionTreeView
                 }
 
                 GUILayout.Space(10f);
-                Main.Settings.MaxRows = GUIHelper.AdjusterButton(Main.Settings.MaxRows, "Max Rows:", 10);
+                GameServicesDisplay.MaxRows = GUIHelper.AdjusterButton(GameServicesDisplay.MaxRows, "Max Rows:", 10);
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
@@ -158,7 +159,7 @@ public class ReflectionTreeView
                     }
                 }, UI.AutoWidth());
                 GUILayout.Space(10f);
-                if (GUIHelper.AdjusterButton(ref Main.Settings.MaxSearchDepth, "Max Depth:", 0))
+                if (GUIHelper.AdjusterButton(ref GameServicesDisplay.MaxSearchDepth, "Max Depth:", 0))
                 {
                     ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
                 }
