@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Subclasses;
 using static FeatureDefinitionCastSpell;
-using static SolastaUnfinishedBusiness.Models.MulticlassIntegrationContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -43,24 +42,24 @@ public static class SharedSpellsContext
         //{ "PowerAlchemistSpellBonusRecovery", ArtisanClass }
     };
 
-    private static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
+    private static Dictionary<string, CasterType> ClassCasterType { get; } = new()
     {
-        { Bard, CasterType.Full },
-        { Cleric, CasterType.Full },
-        { Druid, CasterType.Full },
-        { Sorcerer, CasterType.Full },
-        { Wizard, CasterType.Full },
-        { Paladin, CasterType.Half },
-        { Ranger, CasterType.Half }
+        { Bard.Name, CasterType.Full },
+        { Cleric.Name, CasterType.Full },
+        { Druid.Name, CasterType.Full },
+        { Sorcerer.Name, CasterType.Full },
+        { Wizard.Name, CasterType.Full },
+        { Paladin.Name, CasterType.Half },
+        { Ranger.Name, CasterType.Half },
         // added during load
         //{ ArtisanClass, CasterType.HalfRoundUp }
     };
 
-    private static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
+    private static Dictionary<string, CasterType> SubclassCasterType { get; } = new()
     {
-        { MartialSpellblade, CasterType.OneThird },
-        { RoguishShadowCaster, CasterType.OneThird },
-        { TraditionLight, CasterType.OneThird }
+        { MartialSpellblade.Name, CasterType.OneThird },
+        { RoguishShadowCaster.Name, CasterType.OneThird },
+        { TraditionLight.Name, CasterType.OneThird }
         // added during load
         //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
         //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
@@ -91,8 +90,8 @@ public static class SharedSpellsContext
 
     // supports auto prepared spells scenarios on subs
     private static CasterType GetCasterTypeForClassOrSubclass(
-        [CanBeNull] CharacterClassDefinition characterClassDefinition,
-        CharacterSubclassDefinition characterSubclassDefinition)
+        [CanBeNull] string characterClassDefinition,
+        string characterSubclassDefinition)
     {
         if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
         {
@@ -209,8 +208,15 @@ public static class SharedSpellsContext
             rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
                 out var currentCharacterSubclassDefinition);
 
-            var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition,
-                currentCharacterSubclassDefinition);
+            
+            string subclassName = null;
+            if (currentCharacterSubclassDefinition != null)
+            {
+                subclassName = currentCharacterSubclassDefinition.Name;
+            }
+
+            var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition.Name,
+                subclassName);
 
             casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
         }
@@ -240,9 +246,10 @@ public static class SharedSpellsContext
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster, FullCastingSlots);
 
         // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
-        SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
-        SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
-        SubclassCasterType.Add(PathOfTheRageMageSubclass, CasterType.OneThird);
+        
+        SubclassCasterType.Add(RoguishConArtist.Name, CasterType.OneThird);
+        SubclassCasterType.Add(MartialSpellShield.Name, CasterType.OneThird);
+        SubclassCasterType.Add(PathOfTheRageMage.Name, CasterType.OneThird);
         // RecoverySlots.Add("ArtisanSpellStoringItem", ArtisanClass);
         // RecoverySlots.Add("ArtisanInfusionSpellRefuelingRing", ArtisanClass);
         // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", ArtisanClass);

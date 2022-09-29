@@ -8,6 +8,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishConArtist : AbstractSubclass
 {
+    public const string Name = "RoguishConArtist";
     private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
 
     // ReSharper disable once InconsistentNaming
@@ -87,7 +88,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
 
         // add subclass to db and add subclass to rogue class
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishConArtist")
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, abilityCheckAffinityConArtist)
             .AddFeaturesAtLevel(3, castSpellConArtist.AddToDB())

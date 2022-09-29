@@ -11,6 +11,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {
+    public const string Name = "MartialSpellShield";
+
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
@@ -132,7 +134,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         // Make Spell Shield subclass
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("MartialSpellShield")
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, magicAffinitySpellShieldConcentrationAdvantage)
             .AddFeaturesAtLevel(3, castSpellSpellShield.AddToDB())

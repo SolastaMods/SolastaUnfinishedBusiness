@@ -99,9 +99,6 @@ internal static class BootContext
             // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
             SpellsContext.LateLoad();
 
-            // Integration Context
-            MulticlassIntegrationContext.LateLoad();
-
             // Divine Smite fixes
             SrdAndHouseRulesContext.LateLoad();
 

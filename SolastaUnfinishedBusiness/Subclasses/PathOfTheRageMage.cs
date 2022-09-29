@@ -16,6 +16,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
+    public const string Name = "PathOfTheRageMage";
     private readonly CharacterSubclassDefinition Subclass;
 
     internal PathOfTheRageMage()
@@ -161,7 +162,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         Subclass =
             CharacterSubclassDefinitionBuilder
-                .Create("PathOfTheRageMage")
+                .Create(Name)
                 .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
                 .AddFeaturesAtLevel(3,
                     castSpellPathOfTheRageMage,
