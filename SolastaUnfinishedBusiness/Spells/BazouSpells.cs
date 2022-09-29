@@ -18,8 +18,6 @@ internal static class BazouSpells
     {
         // Condition/&ConditionFrenziedDescription=This creature is frenzied and will attack the closest creature.
         // Condition/&ConditionFrenziedTitle=Frenzied
-        // Monster/&OwlFamiliarDescription=Owl Familiar.
-        // Monster/&OwlFamiliarTitle=Owl
         // Spell/&EldritchOrbDescription=You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
         // Spell/&EldritchOrbTitle=Eldritch Orb
         // Spell/&FrenzyDescription=With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
