@@ -207,12 +207,6 @@ public class EffectDescriptionBuilder
         return this;
     }
 
-    public EffectDescriptionBuilder AddRestrictedCreatureFamily(CharacterFamilyDefinition family)
-    {
-        effect.RestrictedCreatureFamilies.Add(family.Name);
-        return this;
-    }
-
     public EffectDescriptionBuilder AddImmuneCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
         effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));

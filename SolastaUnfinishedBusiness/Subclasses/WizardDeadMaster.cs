@@ -234,7 +234,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 .SetSpellLevel(level)
                 .SetRequiresConcentration(false)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Minute1)
-                .SetSubSpells(spells)
+                .SetSubSpells(spells.ToArray())
                 .AddToDB();
 
             spell.EffectDescription.EffectForms.Clear();

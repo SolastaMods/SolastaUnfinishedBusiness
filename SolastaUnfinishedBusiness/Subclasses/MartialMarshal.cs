@@ -369,7 +369,6 @@ internal static class EternalComradeBuilder
         return MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, EternalComradeName)
             .SetOrUpdateGuiPresentation(Category.Monster)
-            .ClearFeatures()
             .SetFeatures(
                 SenseNormalVision,
                 SenseDarkvision24,

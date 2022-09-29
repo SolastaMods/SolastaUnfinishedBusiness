@@ -389,7 +389,7 @@ internal static class CasterFeats
     }
 
     [NotNull]
-    private static List<FeatureDefinition> AutoPreparedClassLists(
+    private static FeatureDefinition[] AutoPreparedClassLists(
         [NotNull] IEnumerable<CharacterClassDefinition> classes,
         FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
         GuiPresentation learnShadowTouchedPresentation,
@@ -405,7 +405,7 @@ internal static class CasterFeats
                     autoPrepTag,
                     learnShadowTouchedPresentation))
             .Cast<FeatureDefinition>()
-            .ToList();
+            .ToArray();
     }
 
     private static FeatureDefinitionPower BuildMotionFormPower(

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -12,22 +10,12 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
 {
     public TBuilder SetFeatures(params FeatureDefinition[] features)
     {
-        return SetFeatures(features.AsEnumerable());
-    }
-
-    public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
-    {
         Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
     public TBuilder AddFeatures(params FeatureDefinition[] features)
-    {
-        return AddFeatures(features.AsEnumerable());
-    }
-
-    public TBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.Features.AddRange(features);
         Definition.Features.Sort(Sorting.Compare);

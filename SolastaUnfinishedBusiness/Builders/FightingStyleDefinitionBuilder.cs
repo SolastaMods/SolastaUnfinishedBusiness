@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -10,16 +9,11 @@ public abstract class
     where TDefinition : FightingStyleDefinition
     where TBuilder : FightingStyleDefinitionBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+    public TBuilder SetFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.SetRange(features.OrderBy(f => f.Name));
         Definition.Features.Sort(Sorting.Compare);
         return This();
-    }
-
-    public TBuilder SetFeatures(params FeatureDefinition[] features)
-    {
-        return SetFeatures(features.AsEnumerable());
     }
 
     #region Constructors

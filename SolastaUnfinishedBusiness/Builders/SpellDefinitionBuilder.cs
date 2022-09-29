@@ -39,11 +39,6 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
 
     public TBuilder SetSubSpells(params TDefinition[] subspells)
     {
-        return SetSubSpells(subspells.AsEnumerable());
-    }
-
-    public TBuilder SetSubSpells(IEnumerable<TDefinition> subspells)
-    {
         Definition.spellsBundle = true;
         Definition.SubspellsList.SetRange(subspells);
         Definition.spellsBundle = subspells.Any();

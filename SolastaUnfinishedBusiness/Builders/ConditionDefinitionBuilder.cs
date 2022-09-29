@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -94,13 +93,6 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-    public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
-    {
-        Definition.Features.AddRange(value);
-        Definition.Features.Sort(Sorting.Compare);
-        return This();
-    }
-
     public TBuilder AddFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.AddRange(value);
@@ -108,16 +100,11 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-    public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
+    public TBuilder SetFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
-    }
-
-    public TBuilder SetFeatures(params FeatureDefinition[] value)
-    {
-        return SetFeatures(value.AsEnumerable());
     }
 
     public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,

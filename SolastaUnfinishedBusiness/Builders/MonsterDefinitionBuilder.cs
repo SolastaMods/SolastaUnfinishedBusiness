@@ -123,21 +123,11 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
 
     public MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
     {
-        return AddFeatures(features.AsEnumerable());
-    }
-
-    public MonsterDefinitionBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
-    {
         Definition.Features.AddRange(features);
         return this;
     }
 
     public MonsterDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
-    {
-        return SetFeatures(features.AsEnumerable());
-    }
-
-    public MonsterDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
