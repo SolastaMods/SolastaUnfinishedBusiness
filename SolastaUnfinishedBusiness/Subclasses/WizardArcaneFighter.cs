@@ -9,8 +9,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardArcaneFighter : AbstractSubclass
 {
-    // private static FeatureDefinitionPower _enchantWeapon;
-
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 

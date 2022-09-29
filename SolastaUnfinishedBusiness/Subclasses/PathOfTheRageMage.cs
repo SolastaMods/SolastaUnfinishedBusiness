@@ -17,6 +17,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
     public const string Name = "PathOfTheRageMage";
+    
+    // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
     internal PathOfTheRageMage()

@@ -98,6 +98,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         EnableCommandAllUndead();
     }
 
+    // ReSharper disable once InconsistentNaming
     private static CharacterSubclassDefinition Subclass { get; set; }
 
     private static void EnableCommandAllUndead()

@@ -22,7 +22,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         WeaponTypeDefinitions.ShortbowType, WeaponTypeDefinitions.LongbowType
     };
 
-
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 

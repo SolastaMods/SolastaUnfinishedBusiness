@@ -8,8 +8,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishConArtist : AbstractSubclass
 {
-    public const string Name = "RoguishConArtist";
-    private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+    internal const string Name = "RoguishConArtist";
 
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
@@ -79,6 +78,14 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 false, false, AttributeDefinitions.Charisma, feintBuilder.Build() /* unique instance */)
             .AddToDB();
 
+        var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityConArtistDC")
+            .SetGuiPresentation(Category.Feature)
+            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
+                3,
+                RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
+            .AddToDB();
+
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
@@ -93,19 +100,10 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .AddFeaturesAtLevel(3, abilityCheckAffinityConArtist)
             .AddFeaturesAtLevel(3, castSpellConArtist.AddToDB())
             .AddFeaturesAtLevel(9, powerConArtistFeint)
-            .AddFeaturesAtLevel(13, DcIncreaseAffinity)
+            .AddFeaturesAtLevel(13, magicAffinityConArtistDc)
             .AddFeaturesAtLevel(17, proficiencyConArtistMentalSavingThrows)
             .AddToDB();
     }
-
-    private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
-        FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityConArtistDC")
-            .SetGuiPresentation(Category.Feature)
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                3,
-                RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
-            .AddToDB();
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {

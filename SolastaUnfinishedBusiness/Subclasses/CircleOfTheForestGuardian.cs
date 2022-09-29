@@ -16,7 +16,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     private const string ForestGuardianName = "CircleOfTheForestGuardian";
 
     // ReSharper disable once InconsistentNaming
-    private CharacterSubclassDefinition Subclass;
+    private readonly CharacterSubclassDefinition Subclass;
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -25,10 +25,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
     internal override CharacterSubclassDefinition GetSubclass()
     {
-        return Subclass ??= BuildAndAddSubclass();
+        return Subclass;
     }
 
-    private static CharacterSubclassDefinition BuildAndAddSubclass()
+    internal CircleOfTheForestGuardian()
     {
         // Create Auto-prepared Spell list
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
@@ -64,7 +64,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var (barkWard, improvedBarkWard, superiorBarkWard) = CreateBarkWard();
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create(ForestGuardianName)
             .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian)

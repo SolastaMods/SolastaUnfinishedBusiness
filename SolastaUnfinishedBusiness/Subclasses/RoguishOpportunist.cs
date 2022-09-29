@@ -9,42 +9,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishOpportunist : AbstractSubclass
 {
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
-    }
+    // ReSharper disable once InconsistentNaming
+    private readonly CharacterSubclassDefinition Subclass;
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return CreateOpportunist();
-    }
-
-    private static void QuickStrikeOnComputeAttackModifier(
-        RulesetCharacter myself,
-        RulesetCharacter defender,
-        RulesetAttackMode attackMode,
-        ref ActionModifier attackModifier)
-    {
-        if (attackMode == null || defender == null)
-        {
-            return;
-        }
-
-        var hero = GameLocationCharacter.GetFromActor(myself);
-        var target = GameLocationCharacter.GetFromActor(defender);
-
-        // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-        if (hero.LastInitiative <= target.LastInitiative &&
-            attackMode.actionType != ActionDefinitions.ActionType.Reaction)
-        {
-            return;
-        }
-
-        attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
-    }
-
-    private static CharacterSubclassDefinition CreateOpportunist()
+    internal RoguishOpportunist()
     {
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
@@ -112,12 +80,47 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, onComputeAttackModifierOpportunistQuickStrike)
             .AddFeaturesAtLevel(9, powerOpportunistDebilitatingStrike)
             //.AddFeaturesAtLevel( 13, thugOvercomeCompetition)
             .AddToDB();
+    }
+
+    private static void QuickStrikeOnComputeAttackModifier(
+        RulesetCharacter myself,
+        RulesetCharacter defender,
+        RulesetAttackMode attackMode,
+        ref ActionModifier attackModifier)
+    {
+        if (attackMode == null || defender == null)
+        {
+            return;
+        }
+
+        var hero = GameLocationCharacter.GetFromActor(myself);
+        var target = GameLocationCharacter.GetFromActor(defender);
+
+        // grant advantage if attacker is performing an opportunity attack or has higher initiative.
+        if (hero.LastInitiative <= target.LastInitiative &&
+            attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+        {
+            return;
+        }
+
+        attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
+    }
+
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    {
+        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+    }
+
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
     }
 }

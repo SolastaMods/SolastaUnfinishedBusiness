@@ -205,13 +205,14 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
     }
 
+    // ReSharper disable once InconsistentNaming
+    private static CharacterSubclassDefinition Subclass { get; set; }
+
     private static ConditionDefinition ConditionBladeDancerBladeDance { get; set; }
 
     private static ConditionDefinition ConditionBladeDancerDanceOfDefense { get; set; }
 
     private static ConditionDefinition ConditionBladeDancerDanceOfVictory { get; set; }
-
-    private static CharacterSubclassDefinition Subclass { get; set; }
 
     private static bool IsBladeDanceValid(RulesetCharacter hero)
     {
