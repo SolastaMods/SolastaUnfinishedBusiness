@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -413,7 +414,13 @@ internal static class RulesetCharacterHeroPatcher
 
             if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
             {
-                return true;
+                var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
+                    .GetAllElements()
+                    .OfType<CustomInvocationDefinition>()
+                    .Select(i => i.Name)
+                    .ToList();
+
+                __result = __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
             }
 
             __result = new List<string>();
