@@ -202,7 +202,7 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
-
+    
     #region Expertise preference
 
     public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
@@ -271,6 +271,7 @@ internal class CharacterClassDefinitionBuilder
 
     #endregion
 
+#if false
     #region Metamagic preference
 
     public CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
@@ -294,4 +295,5 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
+#endif
 }
