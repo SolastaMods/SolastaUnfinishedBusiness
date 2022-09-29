@@ -1,6 +1,4 @@
-﻿//TODO: need support to fully integrate this sub with official monk...
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -184,6 +182,21 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        var conditionWayOfTheDistantHandDistract = ConditionDefinitionBuilder
+            .Create("ConditionWayOfTheDistantHandDistract")
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
+            .SetDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                .Create("CombatAffinityWayOfTheDistantHandDistract")
+                .SetGuiPresentationNoContent(true)
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .AddToDB())
+            .AddToDB();
+
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
@@ -205,34 +218,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetConditionForm(BuildDistractedCondition(), ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionWayOfTheDistantHandDistract, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowTechnique, true,
-            powerWayOfTheDistantHandZenArrowProne, powerWayOfTheDistantHandZenArrowPush,
+            powerWayOfTheDistantHandZenArrowProne,
+            powerWayOfTheDistantHandZenArrowPush,
             powerWayOfTheDistantHandZenArrowDistract);
 
         return powerWayOfTheDistantHandZenArrowTechnique;
-    }
-
-    private static ConditionDefinition BuildDistractedCondition()
-    {
-        return ConditionDefinitionBuilder
-            .Create("ConditionWayOfTheDistantHandDistract")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
-            .SetDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create("CombatAffinityWayOfTheDistantHandDistract")
-                .SetGuiPresentationNoContent(true)
-                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                .AddToDB())
-            .AddToDB();
     }
 
     private static FeatureDefinition[] BuildLevel06Features()
@@ -367,7 +363,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetFeatures(FeatureDefinitionMovementAffinityBuilder
                                 .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
                                 .SetGuiPresentationNoContent(true)
-                                //TODO: check if zero on diags... .SetBaseSpeedMultiplicativeModifier(0)
+                                .SetBaseSpeedMultiplicativeModifier(0)
                                 .AddToDB())
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .Build())
@@ -441,7 +437,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowUpgradedTechnique, true,
-            powerWayOfTheDistantHandZenArrowUpgradedProne, powerWayOfTheDistantHandUpgradedPush,
+            powerWayOfTheDistantHandZenArrowUpgradedProne,
+            powerWayOfTheDistantHandUpgradedPush,
             powerWayOfTheDistantHandUpgradedDistract);
 
         return powerWayOfTheDistantHandZenArrowUpgradedTechnique;

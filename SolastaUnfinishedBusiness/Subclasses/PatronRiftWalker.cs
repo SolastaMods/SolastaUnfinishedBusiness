@@ -65,6 +65,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
+        //TODO: refactor into a builder
         powerRiftWalkerBlink.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
         powerRiftWalkerBlink.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
         powerRiftWalkerBlink.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
@@ -99,6 +100,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
+        //TODO: refactor into a builder
         powerRiftWalkerRiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
         powerRiftWalkerRiftStrike.EffectDescription.DurationParameter = 2;
         powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
@@ -145,11 +147,15 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(1,
-                magicAffinityRiftWalkerExpandedSpells, powerRiftWalkerRiftWalk, powerRiftWalkerBlink)
+                magicAffinityRiftWalkerExpandedSpells,
+                powerRiftWalkerRiftWalk,
+                powerRiftWalkerBlink)
             .AddFeaturesAtLevel(6,
-                conditionAffinityRiftWalkerRestrainedImmunity, damageAffinityRiftWalkerRiftStrike)
+                conditionAffinityRiftWalkerRestrainedImmunity,
+                damageAffinityRiftWalkerRiftStrike)
             .AddFeaturesAtLevel(10,
-                powerRiftWalkerRiftControl, damageAffinityRiftWalkerFadeIntoTheVoid)
+                powerRiftWalkerRiftControl,
+                damageAffinityRiftWalkerFadeIntoTheVoid)
             .AddFeaturesAtLevel(14,
                 bonusCantripRiftWalkWardingBond)
             .AddToDB();

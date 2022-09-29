@@ -74,13 +74,14 @@ internal sealed class PatronElementalist : AbstractSubclass
 
     internal PatronElementalist()
     {
-        var iconRegular = CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon",
-            Resources.ElementalFormIcon, 24, 24);
-        var iconEnhanced = CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced",
-            Resources.ElementalFormIconEnhanced, 24, 24);
-        var formRegular = CustomIcons.CreateAssetReferenceSprite("ElementalForm", Resources.ElementalForm, 128, 64);
-        var formEnhanced =
-            CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
+        var iconRegular = CustomIcons.CreateAssetReferenceSprite(
+            "ElementalFormIcon", Resources.ElementalFormIcon, 24, 24);
+        var iconEnhanced = CustomIcons.CreateAssetReferenceSprite(
+            "ElementalFormIconEnhanced", Resources.ElementalFormIconEnhanced, 24, 24);
+        var formRegular = CustomIcons.CreateAssetReferenceSprite(
+            "ElementalForm", Resources.ElementalForm, 128, 64);
+        var formEnhanced = CustomIcons.CreateAssetReferenceSprite(
+            "ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
 
         var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalFormPool")
@@ -135,7 +136,8 @@ internal sealed class PatronElementalist : AbstractSubclass
             enhancedPowers.Add(enhancedPower);
         }
 
-        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers.ToArray());
+        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true,
+            regularPowers.ToArray());
         PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true,
             enhancedPowers.ToArray());
 

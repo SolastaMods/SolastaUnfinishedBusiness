@@ -7,7 +7,7 @@
   "additiveModifierByLevelTable": [],
   "forceMinimalBaseSpeed": false,
   "minimalBaseSpeed": 6,
-  "baseSpeedMultiplicativeModifier": 1.0,
+  "baseSpeedMultiplicativeModifier": 0.0,
   "minMaxMoves": 0,
   "speedAddBase": false,
   "fastClimber": false,

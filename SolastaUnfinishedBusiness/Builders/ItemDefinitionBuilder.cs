@@ -146,6 +146,13 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         return this;
     }
 
+    public ItemDefinitionBuilder SetFoodDescription(FoodDescription foodDescription)
+    {
+        Definition.IsFood = true;
+        Definition.foodDescription = foodDescription;
+        return this;
+    }
+
     public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
     {
         Definition.IsUsableDevice = true;

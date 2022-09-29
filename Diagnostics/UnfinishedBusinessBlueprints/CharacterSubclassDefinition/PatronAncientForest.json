@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityAncientForest:f4218af2-2d51-5fce-aa4f-6db9e1807be4",
+      "featureDefinition": "Definition:MagicAffinityAncientForestExpandedSpells:4aad1f84-f733-5a96-a23d-6949e84b1566",
       "level": 1
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityAncientForest:06f414c0-38cb-516b-a7e3-6beee1f15d7f",
+      "featureDefinition": "Definition:LightAffinityAncientForestPhotosynthesis:6a1fe8de-c83b-5fd1-8cf7-702c54af21eb",
       "level": 10
     },
     {

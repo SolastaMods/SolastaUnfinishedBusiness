@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityAncientForestTitle",
-    "description": "Feature/&LightAffinityAncientForestDescription",
+    "title": "Feature/&LightAffinityAncientForestPhotosynthesisTitle",
+    "description": "Feature/&LightAffinityAncientForestPhotosynthesisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "06f414c0-38cb-516b-a7e3-6beee1f15d7f",
+  "guid": "6a1fe8de-c83b-5fd1-8cf7-702c54af21eb",
   "contentPack": 9999,
-  "name": "LightAffinityAncientForest"
+  "name": "LightAffinityAncientForestPhotosynthesis"
 }

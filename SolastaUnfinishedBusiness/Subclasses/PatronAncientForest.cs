@@ -35,9 +35,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .FinalizeSpells()
             .AddToDB();
 
-        // necrotic and healing
-        var magicAffinityAncientForest = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityAncientForest")
+        var magicAffinityAncientForestExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityAncientForestExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListAncientForest)
             .AddToDB();
@@ -137,7 +136,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityAncientForest")
+            .Create("LightAffinityAncientForestPhotosynthesis")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
@@ -213,32 +212,31 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
-        var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder.Create(
-                "FeatureSetWallOfThorns")
+        var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWallOfThorns")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
             .AddToDB();
 
-        var thornSpells = new[] { WallOfThornsWallLine, WallOfThornsWallRing };
+        var wallOfThornsSpells = new[] { WallOfThornsWallLine, WallOfThornsWallRing };
 
-        foreach (var spell in thornSpells)
+        foreach (var spell in wallOfThornsSpells)
         {
-            FeatureDefinitionPower wallOfThorns =
-                FeatureDefinitionPowerSharedPoolBuilder
-                    .Create("PowerSharedPoolAncientForest" + spell.name)
-                    .SetGuiPresentation(spell.GuiPresentation)
-                    .Configure(
-                        powerPoolAncientForestWallOfThorns,
-                        RechargeRate.LongRest,
-                        ActivationTime.Rest,
-                        1,
-                        false,
-                        false,
-                        AttributeDefinitions.Charisma,
-                        spell.EffectDescription,
-                        false)
-                    .AddToDB();
+            FeatureDefinitionPower wallOfThorns = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("PowerSharedPoolAncientForest" + spell.name)
+                .SetGuiPresentation(spell.GuiPresentation)
+                .Configure(
+                    powerPoolAncientForestWallOfThorns,
+                    RechargeRate.LongRest,
+                    ActivationTime.Rest,
+                    1,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    spell.EffectDescription,
+                    false)
+                .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
         }
@@ -261,7 +259,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PatronAncientForest")
             .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(1,
-                magicAffinityAncientForest,
+                magicAffinityAncientForestExpandedSpells,
                 attributeModifierAncientForestRegrowth,
                 attributeModifierAncientForestRegrowthMultiplier,
                 powerAncientForestRegrowth,
@@ -278,7 +276,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
+    private static FeatureDefinitionPower BuildHerbalBrew(
+        FeatureDefinitionPower pool,
         string type,
         ItemDefinition baseItem)
     {
@@ -292,16 +291,15 @@ internal sealed class PatronAncientForest : AbstractSubclass
             baseItem.GuiPresentation.SpriteReference
         ).Build();
 
-        var food = new FoodDescription { nutritiveCapacity = 0, perishable = true };
+        var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
-        var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName)
+        var brewItem = ItemDefinitionBuilder
+            .Create(baseItem, itemName)
+            .SetGuiPresentation(guiPresentation)
+            .SetFoodDescription(foodDescription)
+            .SetUsableDeviceDescription(baseItem.UsableDeviceDescription)
             .SetGold(0)
             .AddToDB();
-        brewItem.guiPresentation = guiPresentation;
-        brewItem.isFood = true;
-        brewItem.foodDescription = food;
-        brewItem.IsUsableDevice = true;
-        brewItem.usableDeviceDescription = baseItem.UsableDeviceDescription;
 
         var brewForm = new EffectFormBuilder()
             .SetSummonItemForm(brewItem, 1)
@@ -337,33 +335,34 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
-        FeatureDefinitionDamageAffinity resType,
+    private static FeatureDefinitionPower BuildHerbalBrew(
+        FeatureDefinitionPower pool,
+        FeatureDefinition featureDefinitionDamageAffinity,
         ItemDefinition baseItem)
     {
-        var resTypeName = resType.Name;
-
-        var itemName = $"ItemAncientForestHerbalBrew{resTypeName}";
-        var powerName = $"PowerAncientForestHerbalBrew{resTypeName}";
+        var name = featureDefinitionDamageAffinity.Name;
+        var itemName = $"ItemAncientForestHerbalBrew{name}";
+        var powerName = $"PowerAncientForestHerbalBrew{name}";
 
         var guiPresentation = new GuiPresentationBuilder(
-            $"Equipment/&HerbalBrew{resTypeName}Title",
-            $"Equipment/&HerbalBrew{resTypeName}Description",
+            $"Equipment/&HerbalBrew{name}Title",
+            $"Equipment/&HerbalBrew{name}Description",
             baseItem.GuiPresentation.SpriteReference
         ).Build();
 
-        var resistanceCondition = ConditionDefinitionBuilder.Create(
-                $"ConditionAncientForestHerbalBrew{resTypeName}")
+        var conditionAncientForestHerbalBrew = ConditionDefinitionBuilder.Create(
+                $"ConditionAncientForestHerbalBrew{name}")
             .SetDuration(DurationType.Hour, 1)
             .SetSilent(Silent.None)
             .SetGuiPresentation(guiPresentation)
-            .AddFeatures(resType)
+            .AddFeatures(featureDefinitionDamageAffinity)
             .AddToDB();
 
-        var potionFunction = FeatureDefinitionPowerBuilder
-            .Create($"PowerAncientForestPotion{resTypeName}")
+        var powerAncientForestPotion = FeatureDefinitionPowerBuilder
+            .Create($"PowerAncientForestPotion{name}")
             .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation)
-                .SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())
+                .SetTitle("Equipment/&FunctionPotionDrinkTitle")
+                .Build())
             .Configure(
                 1,
                 UsesDetermination.Fixed,
@@ -377,7 +376,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
                         new EffectFormBuilder().SetConditionForm(
-                            resistanceCondition,
+                            conditionAncientForestHerbalBrew,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true
@@ -393,22 +392,17 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 true)
             .AddToDB();
 
-        var food = new FoodDescription { nutritiveCapacity = 0, perishable = true };
+        var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName)
             .SetGold(0)
             .SetGuiPresentation(guiPresentation)
             .MakeMagical()
-            .SetUsableDeviceDescription(new[] { potionFunction })
+            .SetFoodDescription(foodDescription)
+            .SetUsableDeviceDescription(new[] { powerAncientForestPotion })
+            .SetItemRarity(ItemRarity.Common)
+            .SetRequiresIdentification(false)
             .AddToDB();
-        var description = brewItem.UsableDeviceDescription;
-        brewItem.guiPresentation = guiPresentation;
-        brewItem.isFood = true;
-        brewItem.itemRarity = ItemRarity.Common;
-        brewItem.foodDescription = food;
-        brewItem.IsUsableDevice = true;
-        brewItem.requiresIdentification = false;
-        brewItem.usableDeviceDescription = description;
 
         var brewForm = new EffectFormBuilder()
             .SetSummonItemForm(brewItem, 1)
