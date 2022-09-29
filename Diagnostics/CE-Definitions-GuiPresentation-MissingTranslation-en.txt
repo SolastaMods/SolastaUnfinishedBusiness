@@ -1,3 +1,15 @@
+TestArmorInvocation	Title='Feature/&TestArmorInvocationTitle'.
+TestArmorInvocation	Description='Feature/&TestArmorInvocationDescription'.
+TestBlurInvocation	Title='Feature/&TestBlurInvocationTitle'.
+TestBlurInvocation	Description='Feature/&TestBlurInvocationDescription'.
+TestInvocationPool	Title='Feature/&TestInvocationPoolTitle'.
+TestInvocationPool	Description='Feature/&TestInvocationPoolDescription'.
+TestInvocationPoolReplace	Title='Feature/&TestInvocationPoolReplaceTitle'.
+TestInvocationPoolReplace	Description='Feature/&TestInvocationPoolReplaceDescription'.
+TestLeapInvocation	Title='Feature/&TestLeapInvocationTitle'.
+TestLeapInvocation	Description='Feature/&TestLeapInvocationDescription'.
+TestTHirstInvocation	Title='Feature/&TestTHirstInvocationTitle'.
+TestTHirstInvocation	Description='Feature/&TestTHirstInvocationDescription'.
 TMPPowerTestInfuseItem	Title='Feature/&TMPPowerTestInfuseItemTitle'.
 TMPPowerTestInfuseItem	Description='Feature/&TMPPowerTestInfuseItemDescription'.
 TMPPowerTestSummonItem	Title='Feature/&TMPPowerTestSummonItemTitle'.

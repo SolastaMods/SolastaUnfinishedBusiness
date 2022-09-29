@@ -194,6 +194,16 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorSavingThrow:3ffcc425-4240-5532-839c-5214a75f337d",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TestInvocationPool:f9563a06-3c76-5b98-99f6-a77ab93e9b1b",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "level": 3
     }
   ],
   "personalityFlagOccurences": [],

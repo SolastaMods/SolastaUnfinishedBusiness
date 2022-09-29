@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": "Definition:Aid:d2af062b671377f449bad1b3f920d331",
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:JumpOtherworldlyLeap:851795e0c0bef444797b51d4688951f6",
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TestLeapInvocationTitle",
+    "description": "Feature/&TestLeapInvocationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
+      "m_SubObjectName": "Jump",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "472e819e-f979-5344-ac6d-e6ced0e762ae",
+  "contentPack": 9999,
+  "name": "TestLeapInvocation"
+}
