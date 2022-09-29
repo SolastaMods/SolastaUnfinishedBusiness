@@ -422,8 +422,11 @@ internal static class RulesetCharacterHeroPatcher
 
                 __result = __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
             }
+            else
+            {
+                __result = new List<string>();
+            }
 
-            __result = new List<string>();
 
             return false;
         }
