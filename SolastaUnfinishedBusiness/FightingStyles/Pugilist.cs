@@ -37,7 +37,7 @@ internal sealed class Pugilist : AbstractFightingStyle
             return instance;
         }
 
-        var actionAffinityPugilist = FeatureDefinitionActionAffinityBuilder
+        var actionAffinityFightingStylePugilist = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityFightingStylePugilist")
             .SetGuiPresentation("Pugilist", Category.FightingStyle)
             .SetDefaultAllowedActonTypes()
@@ -51,7 +51,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 
         instance = CustomizableFightingStyleBuilder
             .Create("Pugilist")
-            .SetFeatures(actionAffinityPugilist)
+            .SetFeatures(actionAffinityFightingStylePugilist)
             .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
             .SetIsActive(_ => true)
             .AddToDB();

@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Merciless : AbstractFightingStyle
 {
-    private static FeatureDefinitionPower _powerMerciless;
+    private static FeatureDefinitionPower _powerFightingStyleMerciless;
     private CustomFightingStyleDefinition instance;
 
     [NotNull]
@@ -34,7 +34,7 @@ internal sealed class Merciless : AbstractFightingStyle
             return instance;
         }
 
-        _powerMerciless = FeatureDefinitionPowerBuilder
+        _powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
             .Create("PowerFightingStyleMerciless")
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
@@ -50,17 +50,17 @@ internal sealed class Merciless : AbstractFightingStyle
                 DatabaseHelper.SpellDefinitions.Fear.EffectDescription.Copy())
             .AddToDB();
 
-        _powerMerciless.effectDescription.targetParameter = 1;
-        _powerMerciless.effectDescription.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
-        _powerMerciless.effectDescription.durationType = RuleDefinitions.DurationType.Round;
-        _powerMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
+        _powerFightingStyleMerciless.effectDescription.targetParameter = 1;
+        _powerFightingStyleMerciless.effectDescription.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
+        _powerFightingStyleMerciless.effectDescription.durationType = RuleDefinitions.DurationType.Round;
+        _powerFightingStyleMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
 
-        var additionalActionMerciless = FeatureDefinitionAdditionalActionBuilder
+        var additionalActionFightingStyleMerciless = FeatureDefinitionAdditionalActionBuilder
             .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
             .SetGuiPresentationNoContent()
             .AddToDB();
 
-        var onCharacterKillMerciless = FeatureDefinitionOnCharacterKillBuilder
+        var onCharacterKillFightingStyleMerciless = FeatureDefinitionOnCharacterKillBuilder
             .Create("OnCharacterKillFightingStyleMerciless")
             .SetGuiPresentationNoContent()
             .SetOnCharacterKill(OnMercilessKill)
@@ -70,7 +70,7 @@ internal sealed class Merciless : AbstractFightingStyle
             .Create("Merciless")
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
-            .SetFeatures(additionalActionMerciless, onCharacterKillMerciless)
+            .SetFeatures(additionalActionFightingStyleMerciless, onCharacterKillFightingStyleMerciless)
             .AddToDB();
 
         return instance;
@@ -102,7 +102,8 @@ internal sealed class Merciless : AbstractFightingStyle
         var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
         var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-        var usablePower = new RulesetUsablePower(_powerMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
+        var usablePower = new RulesetUsablePower(_powerFightingStyleMerciless, attacker.RaceDefinition,
+            attacker.ClassesHistory[0]);
         var effectPower = new RulesetEffectPower(attacker, usablePower);
 
         usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);

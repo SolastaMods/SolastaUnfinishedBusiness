@@ -33,24 +33,24 @@ internal sealed class Crippling : AbstractFightingStyle
         //+ Reduce speed by 10 until end of next turn
         //+ Must be a successful melee attack
         //+ NO LIMIT per round (wow!)
-        var conditionDefinition = ConditionDefinitionBuilder
+        var conditionFightingStyleCrippling = ConditionDefinitionBuilder
             .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
             .SetGuiPresentationNoContent()
             .AddToDB();
 
-        conditionDefinition.allowMultipleInstances = true;
+        conditionFightingStyleCrippling.allowMultipleInstances = true;
 
         var conditionOperation = new ConditionOperationDescription
         {
             canSaveToCancel = false,
-            conditionDefinition = conditionDefinition,
+            conditionDefinition = conditionFightingStyleCrippling,
             hasSavingThrow = false,
             operation = ConditionOperationDescription.ConditionOperation.Add,
             saveAffinity = RuleDefinitions.EffectSavingThrowType.None,
             saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn
         };
 
-        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageCrippling = FeatureDefinitionAdditionalDamageBuilder
             .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,
                 "AdditionalDamageCrippling")
             .SetGuiPresentation(Category.Feature)
@@ -67,7 +67,7 @@ internal sealed class Crippling : AbstractFightingStyle
             .SetGuiPresentation(
                 Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.RangerShadowTamer.GuiPresentation.SpriteReference)
-            .SetFeatures(additionalDamage)
+            .SetFeatures(additionalDamageCrippling)
             .AddToDB();
 
         return instance;
