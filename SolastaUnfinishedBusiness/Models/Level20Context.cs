@@ -24,7 +24,7 @@ internal static class Level20Context
 {
     internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
 
-    internal const int MaxSpellLevel = 9;
+    private const int MaxSpellLevel = 9;
 
     internal const int ModMaxLevel = 20;
     internal const int GameMaxLevel = 12;

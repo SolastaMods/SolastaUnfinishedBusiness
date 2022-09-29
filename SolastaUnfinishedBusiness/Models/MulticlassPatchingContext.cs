@@ -102,13 +102,12 @@ internal static class MulticlassPatchingContext
     // ClassLevel patching support
     //
 
-    // ReSharper disable once UnusedMember.Global
-    public static IEnumerable<CodeInstruction> ClassLevelTranspiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    private static IEnumerable<CodeInstruction> ClassLevelTranspiler(
+        [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
-        var getClassLevelMethod = typeof(LevelUpContext).GetMethod("GetSelectedClassLevel");
-
+        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
         var instructionsToBypass = 0;
 
         foreach (var instruction in instructions)
@@ -149,7 +148,9 @@ internal static class MulticlassPatchingContext
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler = typeof(MulticlassPatchingContext).GetMethod("ClassLevelTranspiler");
+        var transpiler =
+            new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(
+                ClassLevelTranspiler).Method;
 
         try
         {
@@ -168,8 +169,7 @@ internal static class MulticlassPatchingContext
     // Equipment patching support
     //
 
-    // ReSharper disable once UnusedMember.Global
-    public static bool ShouldEquipmentBeAssigned([NotNull] CharacterHeroBuildingData heroBuildingData)
+    private static bool ShouldEquipmentBeAssigned([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
         var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
@@ -189,7 +189,7 @@ internal static class MulticlassPatchingContext
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var prefix = typeof(MulticlassPatchingContext).GetMethod("ShouldEquipmentBeAssigned");
+        var prefix = new Func<CharacterHeroBuildingData, bool>(ShouldEquipmentBeAssigned).Method;
 
         try
         {
@@ -206,7 +206,7 @@ internal static class MulticlassPatchingContext
 
     private static void PatchFeatureUnlocks()
     {
-        var patches = new List<(MethodInfo, HeroContext)>
+        var patches = new[]
         {
             // CharacterStageClassSelectionPanel
             (
@@ -303,7 +303,8 @@ internal static class MulticlassPatchingContext
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler = typeof(MulticlassPatchingContext).GetMethod("FeatureUnlocksTranspiler");
+        var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>
+            (FeatureUnlocksTranspiler).Method;
 
         try
         {
@@ -366,16 +367,18 @@ internal static class MulticlassPatchingContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(
+    private static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
         var classFilteredFeatureUnlocksMethod =
-            typeof(MulticlassPatchingContext).GetMethod("ClassFilteredFeatureUnlocks");
+            new Func<CharacterClassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
+                ClassFilteredFeatureUnlocks).Method;
 
         var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
         var subclassFilteredFeatureUnlocksMethod =
-            typeof(MulticlassPatchingContext).GetMethod("SubclassFilteredFeatureUnlocks");
+            new Func<CharacterSubclassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
+                SubclassFilteredFeatureUnlocks).Method;
 
         foreach (var instruction in instructions)
         {
@@ -405,8 +408,7 @@ internal static class MulticlassPatchingContext
     }
 
     // support class filtered feature unlocks
-    // ReSharper disable once UnusedMember.Global
-    public static IEnumerable<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
+    private static IEnumerable<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
         CharacterClassDefinition characterClassDefinition, [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var firstClass = rulesetCharacterHero.ClassesHistory[0];
@@ -477,8 +479,7 @@ internal static class MulticlassPatchingContext
     }
 
     // support subclass filtered feature unlocks
-    // ReSharper disable once MemberCanBePrivate.Global
-    public static IEnumerable<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
+    private static IEnumerable<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
         [NotNull] CharacterSubclassDefinition characterSubclassDefinition, RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))
