@@ -206,11 +206,6 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
     public FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
     {
-        return SetScribed(scribedCount.AsEnumerable());
-    }
-
-    public FeatureDefinitionCastSpellBuilder SetScribed(IEnumerable<int> scribedCount)
-    {
         Definition.ScribedSpells.SetRange(scribedCount);
         return this;
     }
@@ -362,11 +357,6 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
     public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
     {
-        return SetKnownSpells(spellsCount.AsEnumerable());
-    }
-
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(IEnumerable<int> spellsCount)
-    {
         Definition.KnownSpells.SetRange(spellsCount);
         return this;
     }
@@ -378,11 +368,6 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     }
 
     public FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
-    {
-        return SetReplacedSpells(spellsCount.AsEnumerable());
-    }
-
-    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(IEnumerable<int> spellsCount)
     {
         Definition.ReplacedSpells.SetRange(spellsCount);
         return this;
@@ -397,16 +382,9 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
         params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
     {
-        return SetSlotsPerLevel(slotsPerLevels.AsEnumerable());
-    }
-
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
-        IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
-    {
         Definition.SlotsPerLevels.SetRange(slotsPerLevels);
         return this;
     }
-
 
     public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
     {

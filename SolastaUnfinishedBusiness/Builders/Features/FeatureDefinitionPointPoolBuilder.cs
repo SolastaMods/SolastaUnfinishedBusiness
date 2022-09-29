@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -10,6 +8,7 @@ public abstract class
     where TDefinition : FeatureDefinitionPointPool
     where TBuilder : FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder>
 {
+#if false
     public TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
         bool uniqueChoices, params string[] choices)
     {
@@ -21,6 +20,7 @@ public abstract class
 
         return This();
     }
+#endif
 
     public TBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
     {
@@ -30,11 +30,6 @@ public abstract class
     }
 
     public TBuilder RestrictChoices(params string[] choices)
-    {
-        return RestrictChoices(choices.AsEnumerable());
-    }
-
-    public TBuilder RestrictChoices(IEnumerable<string> choices)
     {
         Definition.RestrictedChoices.AddRange(choices);
         Definition.RestrictedChoices.Sort();

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -10,26 +8,7 @@ public abstract class
     where TDefinition : FeatureDefinitionBonusCantrips
     where TBuilder : FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder>
 {
-    public TBuilder ClearBonusCantrips()
-    {
-        Definition.BonusCantrips.Clear();
-        return This();
-    }
-
-    public TBuilder AddBonusCantrip(SpellDefinition spellDefinition)
-    {
-        Definition.BonusCantrips.Add(spellDefinition);
-        Definition.BonusCantrips.Sort(Sorting.Compare);
-        return This();
-    }
-
     public TBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
-    {
-        SetBonusCantrips(spellDefinitions.AsEnumerable());
-        return This();
-    }
-
-    public TBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
     {
         Definition.BonusCantrips.SetRange(spellDefinitions);
         Definition.BonusCantrips.Sort(Sorting.Compare);

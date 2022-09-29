@@ -85,9 +85,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripAncientForest")
             .SetGuiPresentation(Category.Feature)
-            .ClearBonusCantrips()
-            .AddBonusCantrip(Shillelagh)
-            .AddBonusCantrip(ChillTouch)
+            .SetBonusCantrips(Shillelagh, ChillTouch)
             .AddToDB();
 
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder

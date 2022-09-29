@@ -183,7 +183,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         var minorElementalBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripElementalistMinorElemental")
             .SetGuiPresentation(Category.Feature)
-            .AddBonusCantrip(conjureMinorElementalsAtWill)
+            .SetBonusCantrips(conjureMinorElementalsAtWill)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)

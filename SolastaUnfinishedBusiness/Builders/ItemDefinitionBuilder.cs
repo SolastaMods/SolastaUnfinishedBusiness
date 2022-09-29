@@ -9,13 +9,6 @@ namespace SolastaUnfinishedBusiness.Builders;
 public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
 {
     public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
-        params ContentFragmentDescription[] contentFragments)
-    {
-        SetDocumentInformation(recipeDefinition, contentFragments.AsEnumerable());
-        return this;
-    }
-
-    public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
         IEnumerable<ContentFragmentDescription> contentFragments)
     {
         Definition.IsDocument = true;

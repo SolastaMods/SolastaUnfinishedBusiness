@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using static CharacterClassDefinition;
+﻿using static CharacterClassDefinition;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -12,6 +10,7 @@ public static class EquipmentOptionsBuilder
         return itemOption;
     }
 
+#if false
     public static HeroEquipmentOption Option(string defaultChoice, string optionType, int number)
     {
         var itemOption =
@@ -23,4 +22,5 @@ public static class EquipmentOptionsBuilder
     {
         return options.AsEnumerable();
     }
+#endif
 }

@@ -222,9 +222,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var bonusCantripsMoonlit = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripsMoonlit")
             .SetGuiPresentation(Category.Feature)
-            .ClearBonusCantrips()
-            .AddBonusCantrip(moonbeamAtWill)
-            .AddBonusCantrip(faerieFireAtWill)
+            .SetBonusCantrips(moonbeamAtWill, faerieFireAtWill)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

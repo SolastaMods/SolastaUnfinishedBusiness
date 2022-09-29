@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -20,16 +19,7 @@ public abstract class
         int diceNumber,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
-        return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber, abilityProficiencyPairs.AsEnumerable());
-    }
-
-    public TBuilder BuildAndSetAffinityGroups(
-        CharacterAbilityCheckAffinity affinityType,
-        DieType dieType,
-        int diceNumber,
-        IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs)
-    {
-        SetAffinityGroups(
+        Definition.AffinityGroups.SetRange(
             abilityProficiencyPairs.Select(pair => new AbilityCheckAffinityGroup
             {
                 abilityScoreName = pair.abilityScoreName,
@@ -38,20 +28,8 @@ public abstract class
                 abilityCheckModifierDiceNumber = diceNumber,
                 abilityCheckModifierDieType = dieType
             }));
-
-        return This();
-    }
-
-    public TBuilder SetAffinityGroups(IEnumerable<AbilityCheckAffinityGroup> affinityGroups)
-    {
-        Definition.AffinityGroups.SetRange(affinityGroups);
         Definition.AffinityGroups.Sort(Sorting.Compare);
         return This();
-    }
-
-    public TBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
-    {
-        return SetAffinityGroups(affinityGroups.AsEnumerable());
     }
 
     #region Constructors

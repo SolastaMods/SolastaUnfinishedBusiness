@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -12,12 +10,6 @@ internal class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<Fe
 {
     public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
         params string[] proficiencies)
-    {
-        return SetProficiencies(type, proficiencies.AsEnumerable());
-    }
-
-    public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
-        IEnumerable<string> proficiencies)
     {
         Definition.proficiencyType = type;
         Definition.Proficiencies.SetRange(proficiencies);

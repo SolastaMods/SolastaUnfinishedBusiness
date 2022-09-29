@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -55,12 +54,6 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
     {
         Definition.ritual = true;
         Definition.ritualCastingTime = ritualCastingTime;
-        return This();
-    }
-
-    public TBuilder SetUniqueInstance(bool unique = true)
-    {
-        Definition.uniqueInstance = unique;
         return This();
     }
 
