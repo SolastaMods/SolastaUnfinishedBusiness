@@ -23,20 +23,31 @@ public abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Defin
         name, definitionGuid)
     {
     }
-    
-    public TBuilder SetRequierLevel(int level)
+
+    public TBuilder SetRequiredLevel(int level)
     {
         Definition.requiredLevel = level;
         return This();
     }
-    
+
+    public TBuilder SetRequiredSpell(SpellDefinition spell)
+    {
+        Definition.requiredKnownSpell = spell;
+        return This();
+    }
+
+    public TBuilder SetRequiredPact(FeatureDefinition pact)
+    {
+        Definition.requiredPact = pact;
+        return This();
+    }
+
     public TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
     {
         Definition.grantedFeature = featureDefinition;
         return This();
     }
-    
-    
+
     public TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
     {
         Definition.grantedSpell = spell;

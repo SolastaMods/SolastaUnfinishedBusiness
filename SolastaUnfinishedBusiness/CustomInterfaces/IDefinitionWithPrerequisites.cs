@@ -3,10 +3,10 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IFeatureDefinitionWithPrerequisites
+public interface IDefinitionWithPrerequisites
 {
     [CanBeNull]
-    public delegate string Validate();
+    public delegate string Validate(RulesetCharacter character, BaseDefinition definition);
 
     public List<Validate> Validators { get; }
 }

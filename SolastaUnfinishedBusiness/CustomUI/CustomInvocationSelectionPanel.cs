@@ -376,26 +376,14 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             var group = child.GetComponent<SpellsByLevelGroup>();
             var featureLevel = allLevels[i];
-            var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels
-                ? gainedClassLevel
+            var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels != null
+                ? currentHero.GetClassLevel(featurePool.Type.RequireClassLevels)
                 : gainedCharacterLevel);
 
             group.Selected = !IsFinalStep && !lowLevel;
 
-            var levelError = string.Empty;
-
-            if (lowLevel)
-            {
-                levelError = featurePool.Type.RequireClassLevels
-                    ? Gui.Format("Requirement/&FeatureSelectionRequireClassLevel", $"{featureLevel}",
-                        gainedClass.GuiPresentation.Title)
-                    : Gui.Format("Requirement/&FeatureSelectionRequireCharacterLevel", $"{featureLevel}");
-            }
-
             var unlearnedFeatures = isUnlearnStep
                 ? GetOrMakeLearnedList(featurePool.Id)
-                // .Select(f => f is FeatureDefinitionRemover r ? r.FeatureToRemove : f)
-                // .ToList()
                 : GetOrMakeUnlearnedList(featurePool.Id);
 
             group.CustomFeatureBind(
@@ -403,7 +391,6 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
                 featurePool.Type,
                 GetOrMakeLearnedList(featurePool.Id),
                 featureLevel,
-                levelError,
                 unlearnedFeatures,
                 group.Selected,
                 isUnlearnStep,
@@ -740,8 +727,9 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             for (var i = 0; i < learned.Count;)
             {
-                if (learned[i] is IFeatureDefinitionWithPrerequisites feature
-                    && !CustomFeaturesContext.GetValidationErrors(feature.Validators, out _))
+                var feature = learned[i];
+                if (feature is IDefinitionWithPrerequisites requirements
+                    && !CustomFeaturesContext.GetValidationErrors(currentHero, feature, requirements.Validators, out _))
                 {
                     dirty = true;
                     learned.RemoveAt(i);
@@ -1049,7 +1037,6 @@ internal static class SpellsByLevelGroupExtensions
         CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
         int featureLevel,
-        string lowLevelError,
         List<CustomInvocationDefinition> unlearned,
         bool canAcquireFeatures,
         bool unlearn,
@@ -1106,7 +1093,7 @@ internal static class SpellsByLevelGroupExtensions
         }
         else
         {
-            instance.RefreshLearning(hero, pool, learned, lowLevelError, unlearned, canAcquireFeatures);
+            instance.RefreshLearning(hero, pool, learned, unlearned, canAcquireFeatures);
         }
     }
 
@@ -1114,7 +1101,6 @@ internal static class SpellsByLevelGroupExtensions
         RulesetCharacterHero hero,
         CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
-        string lowLevelError,
         List<CustomInvocationDefinition> unlearnedFeatures,
         bool canAcquireFeatures)
     {
@@ -1134,12 +1120,7 @@ internal static class SpellsByLevelGroupExtensions
             var canLearn =
                 !selected
                 && !alreadyHas
-                && CustomFeaturesContext.GetValidationErrors(boxFeature.Validators, out errors);
-
-            if (!string.IsNullOrEmpty(lowLevelError))
-            {
-                errors.Add(lowLevelError);
-            }
+                && CustomFeaturesContext.GetValidationErrors(hero, boxFeature, boxFeature.Validators, out errors);
 
             box.SetupUI(pool.Sprite, errors);
 

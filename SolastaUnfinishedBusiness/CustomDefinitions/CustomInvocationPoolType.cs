@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -11,7 +12,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 public static class InvocationPoolTypes
 {
     public static readonly CustomInvocationPoolType Infusion =
-        CustomInvocationPoolType.Register("Infusion", DatabaseHelper.SpellDefinitions.Fly);
+        CustomInvocationPoolType.Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
 }
 
 public class CustomInvocationPoolType
@@ -21,7 +22,7 @@ public class CustomInvocationPoolType
     public string Name { get; private set; }
 
     /**Are level requirements in character levels or class levels?*/
-    public bool RequireClassLevels { get; private set; }
+    public string RequireClassLevels { get; private set; }
 
     public AssetReferenceSprite Sprite { get; private set; }
 
@@ -34,13 +35,13 @@ public class CustomInvocationPoolType
     {
     }
 
-    public static CustomInvocationPoolType Register(string name, BaseDefinition sprite, bool requireClassLevel = true)
+    public static CustomInvocationPoolType Register(string name, BaseDefinition sprite, string requireClassLevel = null)
     {
         return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
     }
 
     public static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite,
-        bool requireClassLevel = true)
+        string requireClassLevel = null)
     {
         var pool = new CustomInvocationPoolType()
         {
@@ -88,7 +89,7 @@ public class CustomInvocationPoolType
 
     private void Refresh(List<CustomInvocationDefinition> invocations)
     {
-        AllFeatures.SetRange(invocations.Where(d => d.PoolType == Name));
+        AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
 
         featuresByLevel.Clear();
         AllFeatures.ForEach(f => GetOrMakeLevelFeatures(f.requiredLevel).Add(f));

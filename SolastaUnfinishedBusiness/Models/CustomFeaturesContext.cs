@@ -590,11 +590,13 @@ public static class CustomFeaturesContext
     // }
 
     public static bool GetValidationErrors(
-        [NotNull] IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] RulesetCharacter character,
+        [NotNull] BaseDefinition feature,
+        [NotNull] IEnumerable<IDefinitionWithPrerequisites.Validate> validators,
         [NotNull] out List<string> errors)
     {
         errors = validators
-            .Select(v => v())
+            .Select(v => v(character, feature))
             .Where(v => v != null)
             .ToList();
     

@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
 internal static class InventorClass
 {
-    private const string ClassName = "Inventor";
+    public const string ClassName = "Inventor";
 
     private static readonly AssetReferenceSprite Sprite =
         CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference;
