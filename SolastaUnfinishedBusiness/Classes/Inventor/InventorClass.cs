@@ -229,6 +229,7 @@ internal static class InventorClass
             .Create("TestLeapInvocation")
             .SetGuiPresentation(Category.Feature,SpellDefinitions.JumpOtherworldlyLeap)
             .SetPoolType(poolType)
+            .SetRequiredSpell(SpellDefinitions.Aid)
             .SetGrantedSpell(SpellDefinitions.JumpOtherworldlyLeap)
             .AddToDB();
         
@@ -236,6 +237,7 @@ internal static class InventorClass
             .Create("TestArmorInvocation")
             .SetGuiPresentation(Category.Feature,SpellDefinitions.MageArmorInvocationArmorShadows)
             .SetPoolType(poolType)
+            .SetRequiredLevel(2)
             .SetGrantedSpell(SpellDefinitions.MageArmorInvocationArmorShadows)
             .AddToDB();
         
@@ -243,7 +245,8 @@ internal static class InventorClass
             .Create("TestBlurInvocation")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Blur)
             .SetPoolType(poolType)
-            .SetRequierLevel(3)
+            .SetRequiredLevel(3)
+            .SetRequiredPact(FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianExtraAttack)
             .SetGrantedSpell(SpellDefinitions.Blur)
             .AddToDB();
         
