@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -140,6 +141,7 @@ public static class MulticlassInOutRulesContext
                 return dexterity >= 13;
 
             case RuleDefinitions.WizardClass:
+            case InventorClass.ClassName:
                 // case IntegrationContext.ClassArtisan:
                 return intelligence >= 13;
 
