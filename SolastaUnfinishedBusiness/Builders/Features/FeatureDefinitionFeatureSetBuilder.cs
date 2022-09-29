@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -99,44 +97,6 @@ internal class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetB
 
     protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name,
         string definitionGuid) : base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-public class FeatureDefinitionFeatureSetWithPreRequisitesBuilder : FeatureDefinitionFeatureSetBuilder<
-    FeatureDefinitionFeatureSetWithPreRequisites, FeatureDefinitionFeatureSetWithPreRequisitesBuilder>
-{
-    public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(
-        params IFeatureDefinitionWithPrerequisites.Validate[] validators)
-    {
-        Definition.Validators.AddRange(validators);
-
-        return this;
-    }
-
-    #region Constructors
-
-    protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, Guid namespaceGuid) : base(name,
-        namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(
-        FeatureDefinitionFeatureSetWithPreRequisites original, string name, Guid namespaceGuid) : base(original,
-        name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(
-        FeatureDefinitionFeatureSetWithPreRequisites original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 
