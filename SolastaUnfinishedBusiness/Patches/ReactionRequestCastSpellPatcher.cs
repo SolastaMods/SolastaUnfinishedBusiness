@@ -14,7 +14,9 @@ internal static class ReactionRequestCastSpellPatcher
     {
         public static void Postfix(ReactionRequestCastSpell __instance)
         {
-            if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero)
+            if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero
+                || SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null
+                && !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
@@ -51,6 +53,13 @@ internal static class ReactionRequestCastSpellPatcher
                 return true;
             }
 
+            if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero
+                || SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null
+                && !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return true;
+            }
+            
             spellEffect.SlotLevel = __instance.SubOptionsAvailability.Keys.ToArray()[option];
             return false;
         }
@@ -68,6 +77,13 @@ internal static class ReactionRequestCastSpellPatcher
                 return true;
             }
 
+            if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero
+                || SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null
+                && !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return true;
+            }
+            
             __result = __instance.SubOptionsAvailability.Keys.ToList().FindIndex(v => v == spellEffect.SlotLevel);
 
             return false;
