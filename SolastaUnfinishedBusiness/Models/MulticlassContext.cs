@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -103,51 +102,6 @@ internal static class MulticlassContext
                 SkillDefinitions.Stealth
             )
             .AddToDB();
-
-    internal static void Load()
-    {
-        // required to ensure level 20 and multiclass will work correctly on higher level heroes
-        var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
-
-        foreach (var spellListDefinition in spellListDefinitions)
-        {
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < Level20Context.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
-
-        // required to avoid some trace error messages that might affect multiplayer sessions and prevent level up from 19 to 20
-        var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
-
-        foreach (var castSpellDefinition in castSpellDefinitions)
-        {
-            while (castSpellDefinition.KnownCantrips.Count < Level20Context.ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownCantrips.Add(0);
-            }
-
-            while (castSpellDefinition.KnownSpells.Count < Level20Context.ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.ModMaxLevel + 1)
-            {
-                castSpellDefinition.ReplacedSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ScribedSpells.Count < Level20Context.ModMaxLevel + 1)
-            {
-                castSpellDefinition.ScribedSpells.Add(0);
-            }
-        }
-    }
 
     internal static void LateLoad()
     {

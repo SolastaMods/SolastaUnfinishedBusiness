@@ -55,7 +55,6 @@ internal static class BootContext
         InitialChoicesContext.Load();
         InventoryManagementContext.Load();
         ItemCraftingContext.Load();
-        Level20Context.Load();
         PickPocketContext.Load();
         PowersBundleContext.Load();
         RespecContext.Load();
@@ -75,8 +74,8 @@ internal static class BootContext
         // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
         SubclassesContext.Load();
 
-        // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
-        MulticlassContext.Load();
+        // Level 20 must always load after classes and subclasses
+        Level20Context.Load();
 
         // Load SRD and House rules last in case they change previous blueprints
         SrdAndHouseRulesContext.Load();

@@ -70,6 +70,48 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
         TraditionLightLoad();
+
+        // required to ensure level 20 and multiclass will work correctly on higher level heroes
+        var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
+
+        foreach (var spellListDefinition in spellListDefinitions)
+        {
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+
+        // required to avoid some trace error messages that might affect multiplayer sessions and prevent level up from 19 to 20
+        var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
+
+        foreach (var castSpellDefinition in castSpellDefinitions)
+        {
+            while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownCantrips.Add(0);
+            }
+
+            while (castSpellDefinition.KnownSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ReplacedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ReplacedSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ScribedSpells.Add(0);
+            }
+        }
     }
 
     internal static void LateLoad()
