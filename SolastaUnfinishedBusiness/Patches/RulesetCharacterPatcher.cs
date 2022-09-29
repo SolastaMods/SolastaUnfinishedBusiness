@@ -510,6 +510,70 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RefreshSpellRepertoires_Patch
     {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(CustomEnumerate).Method;
+
+            foreach (var instruction in instructions)
+            {
+                //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+                if (instruction.opcode == OpCodes.Callvirt &&
+                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, enumerate);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+        
+        private static void CustomEnumerate(RulesetCharacter __instance, List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+            if (__instance is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
+            {
+                var slot = keyValuePair.Value;
+                if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
+                {
+                    continue;
+                }
+
+                var equipedItem = slot.EquipedItem;
+
+                foreach (RulesetItemProperty dynamicItemProperty in equipedItem.DynamicItemProperties)
+                {
+                    var definition = dynamicItemProperty.FeatureDefinition;
+                    if (definition == null || definition is not ISpellCastingAffinityProvider)
+                    {
+                        continue;
+                    }
+
+                    featuresToBrowse.Add(definition);
+                    if (featuresOrigin.ContainsKey(definition))
+                    {
+                        continue;
+                    }
+
+                    featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
+                        RuleDefinitions.FeatureSourceType.Equipment, definition.Name,
+                        null, definition.ParseSpecialFeatureTags()));
+                }
+            }
+        }
+
         public static void Postfix(RulesetCharacter __instance)
         {
             if (__instance is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
