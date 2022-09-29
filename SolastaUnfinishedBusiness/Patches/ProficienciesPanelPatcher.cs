@@ -34,10 +34,12 @@ public class ProficienciesPanelPatcher
             if (__instance.toggleGroup != null)
             {
                 var childCount = __instance.toggleGroup.childCount;
-                for (int i = (int)ProficienciesPanel.ProficiencyType.Max; i < childCount; i++)
+
+                for (var i = (int)ProficienciesPanel.ProficiencyType.Max; i < childCount; i++)
                 {
-                    CharacterInspectionToggle proficiencyToggle =
+                    var proficiencyToggle =
                         __instance.toggleGroup.GetChild(i).GetComponent<CharacterInspectionToggle>();
+
                     proficiencyToggle.Unbind();
 
                     yield return __instance.subPanels[i].Unload();

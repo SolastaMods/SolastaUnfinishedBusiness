@@ -1,23 +1,20 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ILimitedEffectInstances
-{
-    string Name { get; }
-    int GetLimit(RulesetCharacter character);
-}
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class LimitedEffectInstances : ILimitedEffectInstances
 {
     public delegate int GetEffectLimit(RulesetCharacter character);
 
     private readonly GetEffectLimit _handler;
-    public string Name { get; }
 
     public LimitedEffectInstances(string name, GetEffectLimit handler)
     {
         _handler = handler;
         Name = name;
     }
+
+    public string Name { get; }
 
     public int GetLimit(RulesetCharacter character)
     {

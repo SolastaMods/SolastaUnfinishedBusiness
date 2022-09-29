@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -18,6 +17,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         name = $"CustomSubPanel<{type.Name}>";
 
         var title = transform.Find("ProficiencySectionHeader/Title");
+
         if (title != null)
         {
             title.GetComponent<GuiLabel>().Text = type.PanelTitle;
@@ -30,6 +30,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
             .Where(x => !x.GuiPresentation.Hidden);
 
         IEnumerable<InvocationDefinition> invocations;
+
         var custom = panel.GetComponent<CustomInvocationSubPanel>();
 
         if (custom != null)
@@ -44,6 +45,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         var table = panel.Table;
         var relevantInvocations = panel.relevantInvocations;
+
         relevantInvocations.SetRange(invocations);
 
         // get missing children from pool
@@ -74,18 +76,22 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         var index = panel.subPanels.Length;
         var poolTypes = CustomInvocationPoolType.Pools.All;
+
         Array.Resize(ref panel.subPanels, index + poolTypes.Count);
 
         foreach (var pool in poolTypes)
         {
-            var extra = Object.Instantiate(invocationsSubPanel, root);
+            var extra = Instantiate(invocationsSubPanel, root);
+
             extra.gameObject.AddComponent<CustomInvocationSubPanel>().Setup(pool);
             extra.transform.SetSiblingIndex(siblingIndex);
             panel.subPanels[index] = extra;
 
             var groupPrefab = panel.proficiencyTogglePrefab;
             var group = Gui.GetPrefabFromPool(groupPrefab, panel.toggleGroup);
+
             group.transform.SetSiblingIndex(siblingIndex);
+
             var proficiencyToggle = group.GetComponent<ProficiencyToggle>();
 
             proficiencyToggle.Bind(pool.PanelTitle, false, index, panel.ProficiencyToggleChanged);

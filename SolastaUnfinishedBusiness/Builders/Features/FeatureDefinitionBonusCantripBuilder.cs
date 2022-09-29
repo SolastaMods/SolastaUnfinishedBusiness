@@ -84,4 +84,3 @@ public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantr
 
     #endregion
 }
-

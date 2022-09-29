@@ -12,6 +12,7 @@ internal class FeatureDefinitionMovementAffinityBuilder
         Definition.baseSpeedMultiplicativeModifier = value;
         return This();
     }
+
     #region Constructors
 
     protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

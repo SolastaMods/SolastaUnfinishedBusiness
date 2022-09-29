@@ -6,7 +6,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -19,6 +18,555 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 {
     private const float ScrollDuration = 0.3f;
     private const float SpellsByLevelMargin = 10.0f;
+
+    private readonly List<FeaturePool> allPools = new();
+    private readonly List<(string, CustomInvocationPoolDefinition)> gainedCustomFeatures = new();
+
+    private readonly Dictionary<PoolId, List<CustomInvocationDefinition>> learnedInvocations = new();
+
+    private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
+    {
+        var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
+
+        if (r != 0)
+        {
+            return r;
+        }
+
+        if (a.IsUnlearn == b.IsUnlearn)
+        {
+            return String.CompareOrdinal(a.Id.Name, b.Id.Name);
+        }
+
+        if (a.IsUnlearn)
+        {
+            return -1;
+        }
+
+        return 1;
+    };
+
+    private int currentLearnStep;
+    private int gainedCharacterLevel;
+    private CharacterClassDefinition gainedClass;
+    private int gainedClassLevel;
+    private CharacterSubclassDefinition gainedSubclass;
+    private bool wasClicked;
+
+    private bool IsFinalStep => currentLearnStep >= allPools.Count;
+
+    private void OnFeatureSelected(SpellBox spellbox)
+    {
+        if (wasClicked)
+        {
+            return;
+        }
+
+        wasClicked = true;
+
+        var feature = spellbox.GetFeature();
+        var pool = allPools[currentLearnStep];
+        var learned = GetOrMakeLearnedList(pool.Id);
+
+        if (learned.Contains(feature))
+        {
+            pool.Used--;
+            learned.Remove(feature);
+
+            if (pool.IsUnlearn)
+            {
+                var poolById = GetPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false));
+
+                if (poolById != null)
+                {
+                    poolById.Max--;
+                }
+            }
+        }
+        else
+        {
+            pool.Used++;
+            learned.Add(feature);
+
+            if (pool.IsUnlearn)
+            {
+                GetOrAddPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false), pool.Type).Max++;
+            }
+        }
+
+        GrantAcquiredFeatures(() =>
+        {
+            CommonData.AbilityScoresListingPanel.RefreshNow();
+            CommonData.CharacterStatsPanel.RefreshNow();
+
+            // don't use ? on Unity Objects
+            if (CommonData.AttackModesPanel != null)
+            {
+                CommonData.AttackModesPanel.RefreshNow();
+            }
+
+            // don't use ? on Unity Objects
+            if (CommonData.PersonalityMapPanel != null)
+            {
+                CommonData.PersonalityMapPanel.RefreshNow();
+            }
+
+            OnPreRefresh();
+            RefreshNow();
+
+            if (pool.Remaining == 0)
+            {
+                MoveToNextLearnStep();
+            }
+
+            ResetWasClickedFlag();
+        });
+    }
+
+    private void BuildLearnSteps()
+    {
+        // Register all steps
+        if (allPools is not { Count: > 0 })
+        {
+            return;
+        }
+
+        while (learnStepsTable.childCount < allPools.Count)
+        {
+            Gui.GetPrefabFromPool(learnStepPrefab, learnStepsTable);
+        }
+
+        for (var i = 0; i < learnStepsTable.childCount; i++)
+        {
+            var child = learnStepsTable.GetChild(i);
+
+            if (i < allPools.Count)
+            {
+                var learnStepItem = child.GetComponent<LearnStepItem>();
+
+                child.gameObject.SetActive(true);
+                learnStepItem.CustomBind(i, allPools[i],
+                    OnLearnBack,
+                    OnLearnReset,
+                    OnSkipRemaining
+                );
+            }
+            else
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
+
+    public void OnLearnBack()
+    {
+        if (wasClicked)
+        {
+            return;
+        }
+
+        wasClicked = true;
+
+        MoveToPreviousLearnStep(true, ResetWasClickedFlag);
+    }
+
+    public void OnLearnReset()
+    {
+        if (wasClicked)
+        {
+            return;
+        }
+
+        wasClicked = true;
+
+        if (IsFinalStep)
+        {
+            currentLearnStep = allPools.Count - 1;
+        }
+
+        ResetLearnings(currentLearnStep, () =>
+        {
+            OnPreRefresh();
+            RefreshNow();
+            ResetWasClickedFlag();
+        });
+    }
+
+    public void OnSkipRemaining()
+    {
+        if (wasClicked)
+        {
+            return;
+        }
+
+        wasClicked = true;
+
+        if (IsUnlearnStep(currentLearnStep))
+        {
+            allPools[currentLearnStep].Skipped = true;
+            MoveToNextLearnStep();
+        }
+
+        ResetWasClickedFlag();
+    }
+
+    private void ResetLearnings(int stepNumber, Action onDone = null)
+    {
+        var pool = allPools[stepNumber];
+
+        pool.Used = 0;
+        pool.Skipped = false;
+        GetOrMakeLearnedList(pool.Id).Clear();
+
+        GrantAcquiredFeatures(onDone);
+    }
+
+
+    public void MoveToNextLearnStep()
+    {
+        currentLearnStep++;
+
+        while (!IsFinalStep && allPools[currentLearnStep].Remaining == 0)
+        {
+            currentLearnStep++;
+        }
+
+        LevelSelected(0);
+        OnPreRefresh();
+        RefreshNow();
+    }
+
+    public void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
+    {
+        var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
+
+        if (currentLearnStep > 0)
+        {
+            if (!IsFinalStep)
+            {
+                ResetLearnings(currentLearnStep);
+            }
+
+            currentLearnStep--;
+            ResetLearnings(currentLearnStep);
+            if (IsUnlearnStep(currentLearnStep))
+            {
+                heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
+                {
+                    CollectTags();
+                    BuildLearnSteps();
+                });
+            }
+        }
+
+        heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
+        {
+            LevelSelected(0);
+            OnPreRefresh();
+            RefreshNow();
+            ResetWasClickedFlag();
+        });
+    }
+
+
+    private void GrantAcquiredFeatures(Action onDone = null)
+    {
+        var hero = currentHero;
+        var heroBuildingData = hero.GetHeroBuildingData();
+        var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
+
+        //remove all trained custom invocations
+        var entries = heroBuildingData.levelupTrainedInvocations.ToList();
+
+        foreach (var entry in entries)
+        {
+            var currentTag = entry.Key;
+            var invocations = new List<InvocationDefinition>(entry.Value);
+
+            foreach (var invocation in invocations)
+            {
+                if (invocation is not CustomInvocationDefinition custom)
+                {
+                    continue;
+                }
+
+                command.UntrainCharacterFeature(hero, currentTag, custom.Name,
+                    HeroDefinitions.PointsPoolType.Invocation);
+            }
+        }
+
+        //remove all unlearned custom invocations
+        entries = heroBuildingData.unlearnedInvocations.ToList();
+
+        foreach (var entry in entries)
+        {
+            var currentTag = entry.Key;
+            var invocations = new List<InvocationDefinition>(entry.Value);
+
+            foreach (var invocation in invocations)
+            {
+                if (invocation is not CustomInvocationDefinition custom)
+                {
+                    continue;
+                }
+
+                command.UndoUnlearnInvocation(hero, currentTag, custom.Name);
+            }
+        }
+
+        //add all learned/unlearned custom invocations
+        foreach (var keyValuePair in learnedInvocations)
+        {
+            var poolId = keyValuePair.Key;
+
+            foreach (var invocation in keyValuePair.Value)
+            {
+                if (poolId.Unlearn)
+                {
+                    command.UnlearnInvocation(hero, poolId.Tag, invocation.Name);
+                }
+                else
+                {
+                    command.TrainCharacterFeature(hero, poolId.Tag, invocation.Name,
+                        HeroDefinitions.PointsPoolType.Invocation);
+                }
+            }
+        }
+
+        command.RefreshHero(currentHero);
+        command.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
+        {
+            RemoveInvalidFeatures(onDone);
+        });
+    }
+
+    private void RemoveInvalidFeatures(Action onDone = null)
+    {
+        var dirty = false;
+
+        foreach (var e in learnedInvocations)
+        {
+            var id = e.Key;
+            var learned = e.Value;
+            var pool = GetPoolById(id);
+
+            for (var i = 0; i < learned.Count;)
+            {
+                var feature = learned[i];
+
+                if (!CustomFeaturesContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
+                {
+                    dirty = true;
+                    learned.RemoveAt(i);
+                    pool.Used--;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+
+        if (dirty)
+        {
+            GrantAcquiredFeatures(onDone);
+        }
+        else
+        {
+            onDone?.Invoke();
+        }
+    }
+
+    private FeaturePool GetPoolById(PoolId id)
+    {
+        return allPools.FirstOrDefault(p => p.Id.Equals(id));
+    }
+
+    private FeaturePool GetOrAddPoolById(PoolId id, CustomInvocationPoolType type)
+    {
+        var pool = GetPoolById(id);
+
+        if (pool != null)
+        {
+            return pool;
+        }
+
+        pool = new FeaturePool(id) { Type = type, Max = 0, Used = 0 };
+
+        allPools.Add(pool);
+        allPools.Sort(poolCompare);
+        BuildLearnSteps();
+
+        return pool;
+    }
+
+    private bool IsUnlearnStep(int step)
+    {
+        return allPools[step].IsUnlearn;
+    }
+
+    private List<CustomInvocationDefinition> GetOrMakeLearnedList(PoolId id)
+    {
+        if (learnedInvocations.ContainsKey(id))
+        {
+            return learnedInvocations[id];
+        }
+
+        var learned = new List<CustomInvocationDefinition>();
+
+        learnedInvocations.Add(id, learned);
+        return learned;
+    }
+
+    private List<CustomInvocationDefinition> GetOrMakeUnlearnedList(PoolId id)
+    {
+        return GetOrMakeLearnedList(new PoolId(id.Name, id.Tag, true));
+    }
+
+
+    private void UpdateGainedClassDetails()
+    {
+        // Determine the last class and level
+        CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
+        gainedCharacterLevel = currentHero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
+        if (gainedClass == null)
+        {
+            return;
+        }
+
+        // Was there already a subclass?
+        gainedSubclass = null;
+
+        if (currentHero.ClassesAndSubclasses.ContainsKey(gainedClass))
+        {
+            gainedSubclass = currentHero.ClassesAndSubclasses[gainedClass];
+        }
+    }
+
+    private string GetClassTag()
+    {
+        return AttributeDefinitions.GetClassTag(gainedClass, gainedClassLevel);
+    }
+
+    private string GetSubClassTag()
+    {
+        return gainedSubclass == null
+            ? null
+            : AttributeDefinitions.GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass);
+    }
+
+    private void CollectTags()
+    {
+        Dictionary<PoolId, FeaturePool> tags = new();
+
+        UpdateGrantedFeatures();
+        allPools.Clear();
+
+        foreach (var (poolTag, featureSet) in gainedCustomFeatures)
+        {
+            var poolId = new PoolId(featureSet.Name, poolTag, featureSet.IsUnlearn);
+
+            if (!tags.ContainsKey(poolId))
+            {
+                var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
+
+                tags.Add(poolId, pool);
+                allPools.Add(pool);
+            }
+            else
+            {
+                tags[poolId].Max++;
+            }
+        }
+
+        allPools.Sort(poolCompare);
+
+        initialized = true;
+    }
+
+    private void UpdateGrantedFeatures()
+    {
+        UpdateGainedClassDetails();
+
+        gainedCustomFeatures.Clear();
+
+        if (gainedClass == null)
+        {
+            return;
+        }
+
+        var poolTag = GetClassTag();
+
+        gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
+            .Where(f => f.Level == gainedClassLevel)
+            .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
+            .Where(f => f != null)
+            .Select(f => (poolTag, f))
+        );
+
+        poolTag = GetSubClassTag();
+
+        if (poolTag != null)
+        {
+            gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
+                .Where(f => f.Level == gainedClassLevel)
+                .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
+                .Where(f => f != null)
+                .Select(f => (poolTag, f))
+            );
+        }
+
+        CustomInvocationPoolType.RefreshAll();
+    }
+
+
+    public class FeaturePool
+    {
+        public bool Skipped;
+        public FeaturePool(PoolId id) { Id = id; }
+        public PoolId Id { get; }
+        public int Max { get; set; }
+        public int Used { get; set; }
+        public int Remaining => Skipped ? 0 : Max - Used;
+        public CustomInvocationPoolType Type { get; set; }
+        public bool IsUnlearn => Id.Unlearn;
+    }
+
+    public class PoolId
+    {
+        public PoolId(string name, string tag, bool unlearn)
+        {
+            Name = name;
+            Tag = tag;
+            Unlearn = unlearn;
+        }
+
+        public string Name { get; }
+        public string Tag { get; }
+        public bool Unlearn { get; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not PoolId pool)
+            {
+                return false;
+            }
+
+            return Name == pool.Name && Tag == pool.Tag && Unlearn == pool.Unlearn;
+        }
+
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"<{Name}[{Tag}]:{Unlearn}>";
+        }
+    }
 
     #region Fields from CharacterStageSpellSelectionPanel
 
@@ -105,89 +653,6 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     }
 
     #endregion
-
-    private int currentLearnStep;
-    private int gainedCharacterLevel;
-    private CharacterClassDefinition gainedClass;
-    private int gainedClassLevel;
-    private CharacterSubclassDefinition gainedSubclass;
-    private bool wasClicked;
-
-    private readonly List<FeaturePool> allPools = new();
-    private readonly List<(string, CustomInvocationPoolDefinition)> gainedCustomFeatures = new();
-
-    private readonly Dictionary<PoolId, List<CustomInvocationDefinition>> learnedInvocations = new();
-
-    private bool IsFinalStep => currentLearnStep >= allPools.Count;
-
-
-    public class FeaturePool
-    {
-        public bool Skipped;
-        public FeaturePool(PoolId id) { Id = id; }
-        public PoolId Id { get; }
-        public int Max { get; set; }
-        public int Used { get; set; }
-        public int Remaining => Skipped ? 0 : Max - Used;
-        public CustomInvocationPoolType Type { get; set; }
-        public bool IsUnlearn => Id.Unlearn;
-    }
-
-    public class PoolId
-    {
-        public PoolId(string name, string tag, bool unlearn)
-        {
-            Name = name;
-            Tag = tag;
-            Unlearn = unlearn;
-        }
-
-        public string Name { get; }
-        public string Tag { get; }
-        public bool Unlearn { get; }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is not PoolId pool)
-            {
-                return false;
-            }
-
-            return Name == pool.Name && Tag == pool.Tag && Unlearn == pool.Unlearn;
-        }
-
-        public override int GetHashCode()
-        {
-            return ToString().GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return $"<{Name}[{Tag}]:{Unlearn}>";
-        }
-    }
-
-    private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
-    {
-        var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
-
-        if (r != 0)
-        {
-            return r;
-        }
-
-        if (a.IsUnlearn == b.IsUnlearn)
-        {
-            return String.CompareOrdinal(a.Id.Name, b.Id.Name);
-        }
-
-        if (a.IsUnlearn)
-        {
-            return -1;
-        }
-
-        return 1;
-    };
 
     #region Base Class Overrides
 
@@ -433,463 +898,6 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     }
 
     #endregion
-
-    private void OnFeatureSelected(SpellBox spellbox)
-    {
-        if (wasClicked)
-        {
-            return;
-        }
-
-        wasClicked = true;
-
-        var feature = spellbox.GetFeature();
-        var pool = allPools[currentLearnStep];
-        var learned = GetOrMakeLearnedList(pool.Id);
-
-        if (learned.Contains(feature))
-        {
-            pool.Used--;
-            learned.Remove(feature);
-
-            if (pool.IsUnlearn)
-            {
-                var poolById = GetPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false));
-
-                if (poolById != null)
-                {
-                    poolById.Max--;
-                }
-            }
-        }
-        else
-        {
-            pool.Used++;
-            learned.Add(feature);
-
-            if (pool.IsUnlearn)
-            {
-                GetOrAddPoolById(new PoolId(pool.Id.Name, pool.Id.Tag, false), pool.Type).Max++;
-            }
-        }
-
-        GrantAcquiredFeatures(() =>
-        {
-            CommonData.AbilityScoresListingPanel.RefreshNow();
-            CommonData.CharacterStatsPanel.RefreshNow();
-
-            // don't use ? on Unity Objects
-            if (CommonData.AttackModesPanel != null)
-            {
-                CommonData.AttackModesPanel.RefreshNow();
-            }
-
-            // don't use ? on Unity Objects
-            if (CommonData.PersonalityMapPanel != null)
-            {
-                CommonData.PersonalityMapPanel.RefreshNow();
-            }
-
-            OnPreRefresh();
-            RefreshNow();
-
-            if (pool.Remaining == 0)
-            {
-                MoveToNextLearnStep();
-            }
-
-            ResetWasClickedFlag();
-        });
-    }
-
-    private void BuildLearnSteps()
-    {
-        // Register all steps
-        if (allPools is not {Count: > 0})
-        {
-            return;
-        }
-
-        while (learnStepsTable.childCount < allPools.Count)
-        {
-            Gui.GetPrefabFromPool(learnStepPrefab, learnStepsTable);
-        }
-
-        for (var i = 0; i < learnStepsTable.childCount; i++)
-        {
-            var child = learnStepsTable.GetChild(i);
-
-            if (i < allPools.Count)
-            {
-                var learnStepItem = child.GetComponent<LearnStepItem>();
-
-                child.gameObject.SetActive(true);
-                learnStepItem.CustomBind(i, allPools[i],
-                    OnLearnBack,
-                    OnLearnReset,
-                    OnSkipRemaining
-                );
-            }
-            else
-            {
-                child.gameObject.SetActive(false);
-            }
-        }
-    }
-
-
-    public void OnLearnBack()
-    {
-        if (wasClicked)
-        {
-            return;
-        }
-
-        wasClicked = true;
-
-        MoveToPreviousLearnStep(true, ResetWasClickedFlag);
-    }
-
-    public void OnLearnReset()
-    {
-        if (wasClicked)
-        {
-            return;
-        }
-
-        wasClicked = true;
-
-        if (IsFinalStep)
-        {
-            currentLearnStep = allPools.Count - 1;
-        }
-
-        ResetLearnings(currentLearnStep, () =>
-        {
-            OnPreRefresh();
-            RefreshNow();
-            ResetWasClickedFlag();
-        });
-    }
-
-    public void OnSkipRemaining()
-    {
-        if (wasClicked)
-        {
-            return;
-        }
-
-        wasClicked = true;
-
-        if (IsUnlearnStep(currentLearnStep))
-        {
-            allPools[currentLearnStep].Skipped = true;
-            MoveToNextLearnStep();
-        }
-
-        ResetWasClickedFlag();
-    }
-
-    private void ResetLearnings(int stepNumber, Action onDone = null)
-    {
-        var pool = allPools[stepNumber];
-
-        pool.Used = 0;
-        pool.Skipped = false;
-        GetOrMakeLearnedList(pool.Id).Clear();
-
-        GrantAcquiredFeatures(onDone);
-    }
-
-
-    public void MoveToNextLearnStep()
-    {
-        currentLearnStep++;
-
-        while (!IsFinalStep && allPools[currentLearnStep].Remaining == 0)
-        {
-            currentLearnStep++;
-        }
-
-        LevelSelected(0);
-        OnPreRefresh();
-        RefreshNow();
-    }
-
-    public void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
-    {
-        var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
-
-        if (currentLearnStep > 0)
-        {
-            if (!IsFinalStep)
-            {
-                ResetLearnings(currentLearnStep);
-            }
-
-            currentLearnStep--;
-            ResetLearnings(currentLearnStep);
-            if (IsUnlearnStep(currentLearnStep))
-            {
-                heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
-                {
-                    CollectTags();
-                    BuildLearnSteps();
-                });
-            }
-        }
-
-        heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
-        {
-            LevelSelected(0);
-            OnPreRefresh();
-            RefreshNow();
-            ResetWasClickedFlag();
-        });
-    }
-
-
-    private void GrantAcquiredFeatures(Action onDone = null)
-    {
-        var hero = this.currentHero;
-        var heroBuildingData = hero.GetHeroBuildingData();
-        var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
-
-
-        //remove all trained custom invocations
-        var entries = heroBuildingData.levelupTrainedInvocations.ToList();
-        foreach (var entry in entries)
-        {
-            var currentTag = entry.Key;
-            var invocations = new List<InvocationDefinition>(entry.Value);
-            foreach (var invocation in invocations)
-            {
-                if (invocation is not CustomInvocationDefinition custom)
-                {
-                    continue;
-                }
-
-                command.UntrainCharacterFeature(hero, currentTag, custom.Name,
-                    HeroDefinitions.PointsPoolType.Invocation);
-            }
-        }
-
-        //remove all unlearned custom invocations
-        entries = heroBuildingData.unlearnedInvocations.ToList();
-        foreach (var entry in entries)
-        {
-            var currentTag = entry.Key;
-            var invocations = new List<InvocationDefinition>(entry.Value);
-            foreach (var invocation in invocations)
-            {
-                if (invocation is not CustomInvocationDefinition custom)
-                {
-                    continue;
-                }
-
-                command.UndoUnlearnInvocation(hero, currentTag, custom.Name);
-            }
-        }
-
-        //add all learned/unlearned custom invocations
-        foreach (var keyValuePair in learnedInvocations)
-        {
-            var poolId = keyValuePair.Key;
-            foreach (var invocation in keyValuePair.Value)
-            {
-                if (poolId.Unlearn)
-                {
-                    command.UnlearnInvocation(hero, poolId.Tag, invocation.Name);
-                }
-                else
-                {
-                    command.TrainCharacterFeature(hero, poolId.Tag, invocation.Name,
-                        HeroDefinitions.PointsPoolType.Invocation);
-                }
-            }
-        }
-
-        command.RefreshHero(currentHero);
-        command.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
-        {
-            RemoveInvalidFeatures(onDone);
-        });
-    }
-
-    private void RemoveInvalidFeatures(Action onDone = null)
-    {
-        var dirty = false;
-        foreach (var e in learnedInvocations)
-        {
-            var id = e.Key;
-            var learned = e.Value;
-            var pool = GetPoolById(id);
-
-            for (var i = 0; i < learned.Count;)
-            {
-                var feature = learned[i];
-                if (!CustomFeaturesContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
-                {
-                    dirty = true;
-                    learned.RemoveAt(i);
-                    pool.Used--;
-                }
-                else
-                {
-                    i++;
-                }
-            }
-        }
-
-        if (dirty)
-        {
-            GrantAcquiredFeatures(onDone);
-        }
-        else
-        {
-            onDone?.Invoke();
-        }
-    }
-
-    private FeaturePool GetPoolById(PoolId id)
-    {
-        return allPools.FirstOrDefault(p => p.Id.Equals(id));
-    }
-
-    private FeaturePool GetOrAddPoolById(PoolId id, CustomInvocationPoolType type)
-    {
-        var pool = GetPoolById(id);
-
-        if (pool != null)
-        {
-            return pool;
-        }
-
-        pool = new FeaturePool(id) {Type = type, Max = 0, Used = 0};
-        allPools.Add(pool);
-        allPools.Sort(poolCompare);
-        BuildLearnSteps();
-
-        return pool;
-    }
-
-    private bool IsUnlearnStep(int step)
-    {
-        return allPools[step].IsUnlearn;
-    }
-
-    private List<CustomInvocationDefinition> GetOrMakeLearnedList(PoolId id)
-    {
-        if (learnedInvocations.ContainsKey(id))
-        {
-            return learnedInvocations[id];
-        }
-
-        var learned = new List<CustomInvocationDefinition>();
-        learnedInvocations.Add(id, learned);
-        return learned;
-    }
-
-    private List<CustomInvocationDefinition> GetOrMakeUnlearnedList(PoolId id)
-    {
-        return GetOrMakeLearnedList(new PoolId(id.Name, id.Tag, true));
-    }
-
-
-    private void UpdateGainedClassDetails()
-    {
-        // Determine the last class and level
-        CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
-        gainedCharacterLevel = currentHero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-
-        if (gainedClass == null)
-        {
-            return;
-        }
-
-        // Was there already a subclass?
-        gainedSubclass = null;
-
-        if (currentHero.ClassesAndSubclasses.ContainsKey(gainedClass))
-        {
-            gainedSubclass = currentHero.ClassesAndSubclasses[gainedClass];
-        }
-    }
-
-    private string GetClassTag()
-    {
-        return AttributeDefinitions.GetClassTag(gainedClass, gainedClassLevel);
-    }
-
-    private string GetSubClassTag()
-    {
-        return gainedSubclass == null
-            ? null
-            : AttributeDefinitions.GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass);
-    }
-
-    private void CollectTags()
-    {
-        Dictionary<PoolId, FeaturePool> tags = new();
-
-        UpdateGrantedFeatures();
-        allPools.Clear();
-
-        foreach (var (poolTag, featureSet) in gainedCustomFeatures)
-        {
-            var poolId = new PoolId(featureSet.Name, poolTag, featureSet.IsUnlearn);
-
-            if (!tags.ContainsKey(poolId))
-            {
-                var pool = new FeaturePool(poolId) {Max = featureSet.Points, Used = 0, Type = featureSet.PoolType};
-                tags.Add(poolId, pool);
-                allPools.Add(pool);
-            }
-            else
-            {
-                tags[poolId].Max++;
-            }
-        }
-
-        allPools.Sort(poolCompare);
-
-        initialized = true;
-    }
-
-    private void UpdateGrantedFeatures()
-    {
-        UpdateGainedClassDetails();
-
-        gainedCustomFeatures.Clear();
-
-        if (gainedClass == null)
-        {
-            return;
-        }
-
-        var poolTag = GetClassTag();
-
-        gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
-            .Where(f => f.Level == gainedClassLevel)
-            .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-            .Where(f => f != null)
-            .Select(f => (poolTag, f))
-        );
-
-        poolTag = GetSubClassTag();
-
-        if (poolTag != null)
-        {
-            gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
-                .Where(f => f.Level == gainedClassLevel)
-                .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-                .Where(f => f != null)
-                .Select(f => (poolTag, f))
-            );
-        }
-
-        CustomInvocationPoolType.RefreshAll();
-    }
 
     #region UI helpers
 

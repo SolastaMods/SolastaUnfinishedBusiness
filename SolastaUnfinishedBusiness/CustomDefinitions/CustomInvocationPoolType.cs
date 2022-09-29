@@ -11,15 +11,13 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 public class CustomInvocationPoolType
 {
-    public static class Pools
-    {
-        public static readonly CustomInvocationPoolType Infusion =
-            CustomInvocationPoolType.Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
-
-        public static List<CustomInvocationPoolType> All => CustomInvocationPoolType.pools;
-    }
-
     private static readonly List<CustomInvocationPoolType> pools = new();
+
+    private readonly Dictionary<int, List<CustomInvocationDefinition>> featuresByLevel = new();
+
+    private CustomInvocationPoolType()
+    {
+    }
 
     public string Name { get; private set; }
 
@@ -31,11 +29,7 @@ public class CustomInvocationPoolType
     [NotNull] public List<int> AllLevels { get; } = new();
     public List<CustomInvocationDefinition> AllFeatures { get; } = new();
 
-    private readonly Dictionary<int, List<CustomInvocationDefinition>> featuresByLevel = new();
-
-    private CustomInvocationPoolType()
-    {
-    }
+    public string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
     public static CustomInvocationPoolType Register(string name, BaseDefinition sprite, string requireClassLevel = null)
     {
@@ -45,7 +39,7 @@ public class CustomInvocationPoolType
     public static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
         string requireClassLevel = null)
     {
-        var pool = new CustomInvocationPoolType()
+        var pool = new CustomInvocationPoolType
         {
             Name = name, Sprite = sprite, RequireClassLevels = requireClassLevel
         };
@@ -81,8 +75,6 @@ public class CustomInvocationPoolType
         return Gui.Localize(GuiPresentationBuilder.CreateTitleKey(GuiName(unlearn), Category.Feature));
     }
 
-    public string PanelTitle => $"Screen/&InvocationPool{Name}Header";
-
     [NotNull]
     public List<CustomInvocationDefinition> GetLevelFeatures(int level)
     {
@@ -114,5 +106,13 @@ public class CustomInvocationPoolType
         }
 
         return levelFeatures;
+    }
+
+    public static class Pools
+    {
+        public static readonly CustomInvocationPoolType Infusion =
+            Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
+
+        public static List<CustomInvocationPoolType> All => pools;
     }
 }

@@ -52,7 +52,7 @@ public static class SharedSpellsContext
         { Wizard.Name, CasterType.Full },
         { Paladin.Name, CasterType.Half },
         { Ranger.Name, CasterType.Half },
-        { InventorClass.ClassName, CasterType.HalfRoundUp },
+        { InventorClass.ClassName, CasterType.HalfRoundUp }
         // added during load
         //{ ArtisanClass, CasterType.HalfRoundUp }
     };
@@ -210,7 +210,7 @@ public static class SharedSpellsContext
             rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
                 out var currentCharacterSubclassDefinition);
 
-            
+
             string subclassName = null;
             if (currentCharacterSubclassDefinition != null)
             {
@@ -248,7 +248,7 @@ public static class SharedSpellsContext
             FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster, FullCastingSlots);
 
         // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
-        
+
         SubclassCasterType.Add(RoguishConArtist.Name, CasterType.OneThird);
         SubclassCasterType.Add(MartialSpellShield.Name, CasterType.OneThird);
         SubclassCasterType.Add(PathOfTheRageMage.Name, CasterType.OneThird);

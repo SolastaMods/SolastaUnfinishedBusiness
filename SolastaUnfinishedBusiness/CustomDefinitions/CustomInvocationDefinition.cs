@@ -14,7 +14,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
 
     //TODO: add validator setter
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
-        new List<IDefinitionWithPrerequisites.Validate>() {CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact};
+        new() { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
     public static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
@@ -27,6 +27,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         }
 
         var requiredLevel = invocation.RequiredLevel;
+
         if (requiredLevel <= 1)
         {
             return true;
@@ -34,6 +35,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
 
         int level;
         var requiredClassName = invocation.PoolType.RequireClassLevels;
+
         if (requiredClassName != null)
         {
             var requiredClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
@@ -41,8 +43,10 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
                 .FirstOrDefault(x => x.Name == requiredClassName);
 
             level = hero.GetClassLevel(requiredClass);
+
             var levelText = requiredLevel.ToString();
             var classText = "<UNKNOWN>";
+
             if (requiredClass != null)
             {
                 classText = requiredClass.FormatTitle();
@@ -58,7 +62,9 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         else
         {
             level = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
             var levelText = level.ToString();
+
             if (level < requiredLevel)
             {
                 levelText = Gui.Colorize(levelText, Gui.ColorFailure);
@@ -74,6 +80,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         out string requirement)
     {
         requirement = null;
+
         if (character is not RulesetCharacterHero hero
             || definition is not CustomInvocationDefinition invocation)
         {
@@ -81,6 +88,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         }
 
         var requiredSpell = invocation.RequiredKnownSpell;
+
         if (requiredSpell == null)
         {
             return true;
@@ -88,6 +96,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
 
         var text = requiredSpell.FormatTitle();
         var valid = hero.spellRepertoires.Any(r => r.HasKnowledgeOfSpell(requiredSpell));
+
         if (!valid)
         {
             text = Gui.Colorize(text, Gui.ColorFailure);
@@ -101,6 +110,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
     private static bool CheckRequiredPact(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
         requirement = null;
+
         if (character is not RulesetCharacterHero hero
             || definition is not CustomInvocationDefinition invocation)
         {
@@ -108,6 +118,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         }
 
         var requiredPact = invocation.RequiredPact;
+
         if (requiredPact == null)
         {
             return true;
@@ -115,6 +126,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
 
         var text = requiredPact.FormatTitle();
         var valid = hero.HasAnyFeature(requiredPact);
+
         if (!valid)
         {
             text = Gui.Colorize(text, Gui.ColorFailure);
@@ -137,15 +149,13 @@ public class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<Cus
     {
     }
 
-    internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, Guid namespaceGuid) :
-        base(
-            original, name, namespaceGuid)
+    internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 
     internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, string definitionGuid)
-        :
-        base(original, name, definitionGuid)
+        : base(original, name, definitionGuid)
     {
     }
 

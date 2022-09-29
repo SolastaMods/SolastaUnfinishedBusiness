@@ -261,7 +261,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPool")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup(poolType, 1)
+            .Setup(poolType)
             .AddToDB();
     }
 
