@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
             FeatureDefinitionPower => "UI/&CustomFeatureSelectionTooltipTypePower",
             FeatureDefinitionBonusCantrips => "UI/&CustomFeatureSelectionTooltipTypeCantrip",
             FeatureDefinitionProficiency => "UI/&CustomFeatureSelectionTooltipTypeProficiency",
+            CustomInvocationDefinition f => $"UI/&CustomFeatureSelectionTooltipType{f.PoolType.Name}",
             _ => "UI/&CustomFeatureSelectionTooltipTypeFeature"
         };
     }
@@ -49,7 +51,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
             image.sprite = null;
         }
 
-        if (_guiPresentation is { SpriteReference: { } } && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
+        if (_guiPresentation is {SpriteReference: { }} && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
         {
             image.gameObject.SetActive(true);
             image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);

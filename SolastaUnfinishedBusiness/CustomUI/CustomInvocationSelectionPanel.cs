@@ -1122,7 +1122,7 @@ internal static class SpellsByLevelGroupExtensions
                 && !alreadyHas
                 && CustomFeaturesContext.GetValidationErrors(hero, boxFeature, boxFeature.Validators, out errors);
 
-            box.SetupUI(pool.Sprite, errors);
+            box.SetupUI(hero, pool.Sprite, errors);
 
             if (canAcquireFeatures)
             {
@@ -1155,7 +1155,7 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
 
-            box.SetupUI(pool.Sprite, null);
+            box.SetupUI(hero, pool.Sprite, null);
 
             if (canUnlearnInvocations)
             {
@@ -1238,7 +1238,7 @@ internal static class SpellBoxExtensions
         instance.Refresh();
     }
 
-    public static void SetupUI(this SpellBox instance, AssetReferenceSprite sprite, List<string> errors)
+    public static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite, List<string> errors)
     {
         var title = instance.titleLabel;
         var image = instance.spellImage;
@@ -1267,7 +1267,7 @@ internal static class SpellBoxExtensions
                 dataProvider.SetPrerequisites(errors);
                 tooltip.TooltipClass = "FeatDefinition";
                 tooltip.Content = feature.GuiPresentation.Description;
-                tooltip.Context = Global.ActiveLevelUpHero;
+                tooltip.Context = hero;
                 tooltip.DataProvider = dataProvider;
                 break;
             }
