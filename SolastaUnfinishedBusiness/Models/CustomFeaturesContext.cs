@@ -589,17 +589,28 @@ public static class CustomFeaturesContext
     //     return newEffect;
     // }
 
-    public static bool GetValidationErrors(
+    public static bool ValidatePrerequisites(
         [NotNull] RulesetCharacter character,
         [NotNull] BaseDefinition feature,
         [NotNull] IEnumerable<IDefinitionWithPrerequisites.Validate> validators,
-        [NotNull] out List<string> errors)
+        [NotNull] out List<string> prerequisites)
     {
-        errors = validators
-            .Select(v => v(character, feature))
-            .Where(v => v != null)
-            .ToList();
-    
-        return errors.Empty();
+        var result = true;
+        prerequisites = new List<string>();
+
+        foreach (var validator in validators)
+        {
+            if (!validator(character, feature, out var line))
+            {
+                result = false;
+            }
+
+            if (line != null)
+            {
+                prerequisites.Add(line);
+            }
+        }
+
+        return result;
     }
 }

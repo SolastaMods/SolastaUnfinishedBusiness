@@ -9,6 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
 {
+    public const string REQUIRE_CHARACTER_LEVEL = "Requirement/&FeatureSelectionRequireCharacterLevel";
+    public const string REQUIRE_CLASS_LEVEL = "Requirement/&FeatureSelectionRequireClassLevel";
+
     private readonly GuiPresentation _guiPresentation;
     private string _prerequisites = string.Empty;
     private string _subtitle;
@@ -71,7 +74,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
     {
         _prerequisites = missingRequirements == null || missingRequirements.Empty()
             ? string.Empty
-            : Gui.Colorize(String.Join("\n", missingRequirements.Select(e => Gui.Localize(e))), Gui.ColorNegative);
+            : String.Join("\n", missingRequirements.Select(e => Gui.Localize(e)));
 
         return this;
     }

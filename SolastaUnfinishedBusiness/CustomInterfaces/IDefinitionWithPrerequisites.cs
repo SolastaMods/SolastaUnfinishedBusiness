@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IDefinitionWithPrerequisites
 {
     [CanBeNull]
-    public delegate string Validate(RulesetCharacter character, BaseDefinition definition);
+    public delegate bool Validate(RulesetCharacter character, BaseDefinition definition, out string requirement);
 
     public List<Validate> Validators { get; }
 }

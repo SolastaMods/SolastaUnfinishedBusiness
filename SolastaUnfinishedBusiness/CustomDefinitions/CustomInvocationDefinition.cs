@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -15,18 +16,20 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
         new List<IDefinitionWithPrerequisites.Validate>() {CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact};
 
-    public static string CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition)
+    public static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
+        requirement = null;
+
         if (character is not RulesetCharacterHero hero
             || definition is not CustomInvocationDefinition invocation)
         {
-            return null;
+            return true;
         }
 
         var requiredLevel = invocation.RequiredLevel;
         if (requiredLevel <= 1)
         {
-            return null;
+            return true;
         }
 
         int level;
@@ -38,64 +41,88 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
                 .FirstOrDefault(x => x.Name == requiredClassName);
 
             level = hero.GetClassLevel(requiredClass);
+            var levelText = requiredLevel.ToString();
+            var classText = "<UNKNOWN>";
+            if (requiredClass != null)
+            {
+                classText = requiredClass.FormatTitle();
+            }
+
+            if (level < requiredLevel)
+            {
+                levelText = Gui.Colorize(levelText, Gui.ColorFailure);
+            }
+
+            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CLASS_LEVEL, levelText, classText);
         }
         else
         {
             level = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var levelText = level.ToString();
+            if (level < requiredLevel)
+            {
+                levelText = Gui.Colorize(levelText, Gui.ColorFailure);
+            }
+
+            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CHARACTER_LEVEL, levelText);
         }
 
-        if (level < requiredLevel)
-        {
-            return Gui.Format(GuiInvocationDefinition.InvocationPrerequisiteLevelFormat, requiredLevel.ToString());
-        }
-
-        return null;
+        return level >= requiredLevel;
     }
 
-    private static string CheckRequiredSpell(RulesetCharacter character, BaseDefinition definition)
+    private static bool CheckRequiredSpell(RulesetCharacter character, BaseDefinition definition,
+        out string requirement)
     {
+        requirement = null;
         if (character is not RulesetCharacterHero hero
             || definition is not CustomInvocationDefinition invocation)
         {
-            return null;
+            return true;
         }
 
         var requiredSpell = invocation.RequiredKnownSpell;
         if (requiredSpell == null)
         {
-            return null;
+            return true;
         }
 
-        if (!hero.spellRepertoires.Any(r => r.HasKnowledgeOfSpell(requiredSpell)))
+        var text = requiredSpell.FormatTitle();
+        var valid = hero.spellRepertoires.Any(r => r.HasKnowledgeOfSpell(requiredSpell));
+        if (!valid)
         {
-            return Gui.Format(GuiInvocationDefinition.InvocationPrerequisiteKnownSpellFormat,
-                Gui.Localize(requiredSpell.GuiPresentation.Title));
+            text = Gui.Colorize(text, Gui.ColorFailure);
         }
 
-        return null;
+        requirement = Gui.Format(GuiInvocationDefinition.InvocationPrerequisiteKnownSpellFormat, text);
+
+        return valid;
     }
 
-    private static string CheckRequiredPact(RulesetCharacter character, BaseDefinition definition)
+    private static bool CheckRequiredPact(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
+        requirement = null;
         if (character is not RulesetCharacterHero hero
             || definition is not CustomInvocationDefinition invocation)
         {
-            return null;
+            return true;
         }
 
         var requiredPact = invocation.RequiredPact;
         if (requiredPact == null)
         {
-            return null;
+            return true;
         }
 
-        if (!hero.HasAnyFeature(requiredPact))
+        var text = requiredPact.FormatTitle();
+        var valid = hero.HasAnyFeature(requiredPact);
+        if (!valid)
         {
-            return Gui.Format(GuiInvocationDefinition.InvocationPrerequisitePactFormat,
-                Gui.Localize(requiredPact.GuiPresentation.Title));
+            text = Gui.Colorize(text, Gui.ColorFailure);
         }
 
-        return null;
+        requirement = Gui.Format(GuiInvocationDefinition.InvocationPrerequisitePactFormat, text);
+
+        return valid;
     }
 }
 

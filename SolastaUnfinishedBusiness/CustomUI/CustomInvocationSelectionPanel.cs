@@ -728,8 +728,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             for (var i = 0; i < learned.Count;)
             {
                 var feature = learned[i];
-                if (feature is IDefinitionWithPrerequisites requirements
-                    && !CustomFeaturesContext.GetValidationErrors(currentHero, feature, requirements.Validators, out _))
+                if (!CustomFeaturesContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
                 {
                     dirty = true;
                     learned.RemoveAt(i);
@@ -1116,13 +1115,11 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var selected = learned.Contains(boxFeature);
             var isUnlearned = unlearnedFeatures != null && unlearnedFeatures.Contains(boxFeature);
-            var errors = new List<string>();
-            var canLearn =
-                !selected
-                && !alreadyHas
-                && CustomFeaturesContext.GetValidationErrors(hero, boxFeature, boxFeature.Validators, out errors);
+            var isValid = CustomFeaturesContext
+                .ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
+            var canLearn = !selected && !alreadyHas && isValid;
 
-            box.SetupUI(hero, pool.Sprite, errors);
+            box.SetupUI(hero, pool.Sprite, requirements);
 
             if (canAcquireFeatures)
             {
@@ -1154,8 +1151,9 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
+            CustomFeaturesContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
 
-            box.SetupUI(hero, pool.Sprite, null);
+            box.SetupUI(hero, pool.Sprite, requirements);
 
             if (canUnlearnInvocations)
             {
@@ -1238,40 +1236,22 @@ internal static class SpellBoxExtensions
         instance.Refresh();
     }
 
-    public static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite, List<string> errors)
+    public static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite,
+        List<string> requirements)
     {
         var title = instance.titleLabel;
         var image = instance.spellImage;
         var tooltip = instance.tooltip;
         var feature = instance.GetFeature();
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
-        var hasErrors = errors != null && !errors.Empty();
 
-        switch (hasErrors)
-        {
-            //TODO: try add custom tooltip depending on invocation feature
-            // case false when feature is FeatureDefinitionPower power:
-            //     ServiceRepository.GetService<IGuiWrapperService>()
-            //         .GetGuiPowerDefinition(power.Name)
-            //         .SetupTooltip(tooltip);
-            //     break;
-            // case false when feature is FeatureDefinitionBonusCantrips cantrips && cantrips.BonusCantrips.Count == 1:
-            //     ServiceRepository.GetService<IGuiWrapperService>()
-            //         .GetGuiSpellDefinition(cantrips.BonusCantrips[0].Name)
-            //         .SetupTooltip(tooltip, Global.ActiveLevelUpHero);
-            //     break;
-            default:
-            {
-                var dataProvider = new CustomTooltipProvider(feature, gui);
+        var dataProvider = new CustomTooltipProvider(feature, gui);
 
-                dataProvider.SetPrerequisites(errors);
-                tooltip.TooltipClass = "FeatDefinition";
-                tooltip.Content = feature.GuiPresentation.Description;
-                tooltip.Context = hero;
-                tooltip.DataProvider = dataProvider;
-                break;
-            }
-        }
+        dataProvider.SetPrerequisites(requirements);
+        tooltip.TooltipClass = "FeatDefinition";
+        tooltip.Content = feature.GuiPresentation.Description;
+        tooltip.Context = hero;
+        tooltip.DataProvider = dataProvider;
 
         if (gui.SpriteReference == null || gui.SpriteReference == GuiPresentationBuilder.EmptySprite)
         {
