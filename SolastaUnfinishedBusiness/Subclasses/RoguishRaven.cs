@@ -28,7 +28,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new EwFeats.StopPowerConcentrationProvider("HeartSeekingShot",
+        var concentrationProvider = new StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));

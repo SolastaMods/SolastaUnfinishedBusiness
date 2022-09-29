@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -17,7 +16,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 public static class EwFeats
 {
     public const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
-
     public const string SentinelFeat = "FeatSentinel";
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
@@ -249,45 +247,6 @@ public static class EwFeats
             .AddToDB();
 
         return warcaster;
-    }
-
-    public sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
-    {
-        public FeatureDefinitionPower StopPower;
-
-        public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
-        {
-            Name = name;
-            Tooltip = tooltip;
-            Icon = icon;
-        }
-
-        public string Name { get; }
-        public string Tooltip { get; }
-        public AssetReferenceSprite Icon { get; }
-
-        public void Stop(RulesetCharacter character)
-        {
-            if (StopPower == null)
-            {
-                return;
-            }
-
-            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-            var usable = UsablePowersProvider.Get(StopPower, character);
-            var locationCharacter = GameLocationCharacter.GetFromActor(character);
-            var actionParams = new CharacterActionParams(locationCharacter,
-                ActionDefinitions.Id.PowerNoCost)
-            {
-                SkipAnimationsAndVFX = true,
-                TargetCharacters = { locationCharacter },
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
-            };
-
-            ServiceRepository.GetService<ICommandService>()
-                .ExecuteAction(actionParams, _ => { }, false);
-        }
     }
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
