@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,55 +17,27 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class RangerArcanist : AbstractSubclass
 {
     private const string ArcanistMarkTag = "ArcanistMark";
-    private static ConditionDefinition _markedByArcanist;
 
     // ReSharper disable once InconsistentNaming
-    private CharacterSubclassDefinition Subclass;
+    private readonly CharacterSubclassDefinition Subclass;
 
-    private static ConditionDefinition MarkedByArcanist => _markedByArcanist ??= ConditionDefinitionBuilder
-        .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
-        .SetOrUpdateGuiPresentation(Category.Condition)
-        .SetAllowMultipleInstances(false)
-        .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
-        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-        .SetPossessive(true)
-        .SetSpecialDuration(true)
-        .AddToDB();
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    internal RangerArcanist()
     {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass ??= BuildAndAddSubclass();
-    }
-
-    private static CharacterSubclassDefinition BuildAndAddSubclass()
-    {
-        var rangerArcanistMagic = CreateRangerArcanistMagic();
-        var arcanistMark = CreateArcanistMark();
-        var arcaneDetonation = CreateArcaneDetonation();
-        var arcaneDetonationUpgrade = CreateArcaneDetonationUpgrade();
-        var (arcanePulseAction, arcanePulseUpgradeAction) = CreatePowerArcanistArcanePulsePowers();
-
-        return CharacterSubclassDefinitionBuilder
-            .Create("RangerArcanist")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, rangerArcanistMagic)
-            .AddFeaturesAtLevel(3, arcanistMark)
-            .AddFeaturesAtLevel(3, arcaneDetonation)
-            .AddFeaturesAtLevel(7, arcanePulseAction)
-            .AddFeaturesAtLevel(11, arcaneDetonationUpgrade)
-            .AddFeaturesAtLevel(15, arcanePulseUpgradeAction)
+        var conditionMarkedByArcanist = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetAllowMultipleInstances(false)
+            .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetPossessive(true)
+            .SetSpecialDuration(true)
             .AddToDB();
-    }
 
-    [NotNull]
-    private static FeatureDefinition[] CreateRangerArcanistMagic()
-    {
-        var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+        //
+        // LEVEL 03
+        //
+
+        var autoPreparedSpellsArcanist = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsArcanist")
             .SetGuiPresentation(Category.Feature)
             .SetCastingClass(CharacterClassDefinitions.Ranger)
@@ -78,55 +49,51 @@ internal sealed class RangerArcanist : AbstractSubclass
                 BuildSpellGroup(17, HoldMonster))
             .AddToDB();
 
-        var arcanistAffinity = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinityRangerArcanist = FeatureDefinitionMagicAffinityBuilder
             .Create(MagicAffinityBattleMagic, "MagicAffinityRangerArcanist")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        return new FeatureDefinition[] { preparedSpells, arcanistAffinity };
-    }
-
-    private static FeatureDefinitionAdditionalDamage CreateArcanistMark()
-    {
-        return FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageArcanistMark = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark")
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 0)
             .SetNotificationTag(ArcanistMarkTag)
-            .SetTargetCondition(MarkedByArcanist,
+            .SetTargetCondition(conditionMarkedByArcanist,
                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
             .SetNoAdvancement()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    ConditionDefinition = MarkedByArcanist,
+                    ConditionDefinition = conditionMarkedByArcanist,
                     Operation = ConditionOperationDescription.ConditionOperation.Add
                 }
             )
             .AddToDB();
-    }
 
-    private static FeatureDefinitionAdditionalDamage CreateArcaneDetonation()
-    {
+        //
+        // LEVEL 07
+        //
+
         var assetReference = new AssetReference();
 
         assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
-        return FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
             .SetGuiPresentation(Category.Feature)
             .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
             .SetNotificationTag(ArcanistMarkTag)
-            .SetTargetCondition(MarkedByArcanist,
+            .SetTargetCondition(conditionMarkedByArcanist,
                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .SetNoSave()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    ConditionDefinition = MarkedByArcanist,
+                    ConditionDefinition = conditionMarkedByArcanist,
                     Operation = ConditionOperationDescription.ConditionOperation.Remove
                 }
             )
@@ -155,28 +122,20 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
             .SetImpactParticleReference(assetReference)
             .AddToDB();
-    }
 
-    private static FeatureDefinition CreateArcaneDetonationUpgrade()
-    {
-        // This is a blank feature. It does nothing except create a description for what happens at level 11.
-        return FeatureDefinitionBuilder
-            .Create("AdditionalDamageArcanistArcaneDetonationUpgrade")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-    }
+        //
+        // LEVEL 07
+        //
 
-    private static (FeatureDefinitionPower arcane_pulse_action, FeatureDefinitionPower arcane_pulse_upgrade_action)
-        CreatePowerArcanistArcanePulsePowers()
-    {
-        var markedEffect = new EffectForm
+        var arcanistMarkedEffect = new EffectForm
         {
             ConditionForm = new ConditionForm(), FormType = EffectForm.EffectFormType.Condition
         };
-        markedEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        markedEffect.ConditionForm.ConditionDefinition = MarkedByArcanist;
 
-        var damageEffect = new EffectForm
+        arcanistMarkedEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
+        arcanistMarkedEffect.ConditionForm.ConditionDefinition = conditionMarkedByArcanist;
+
+        var arcanistDamageEffect = new EffectForm
         {
             DamageForm = new DamageForm
             {
@@ -188,7 +147,25 @@ internal sealed class RangerArcanist : AbstractSubclass
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
 
-        var damageUpgradeEffect = new EffectForm
+        var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
+            "PowerArcanistArcanePulse",
+            arcanistMarkedEffect,
+            arcanistDamageEffect);
+
+        //
+        // LEVEL 11
+        //
+
+        var additionalDamageArcanistArcaneDetonationUpgrade = FeatureDefinitionBuilder
+            .Create("AdditionalDamageArcanistArcaneDetonationUpgrade")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        //
+        // LEVEL 15
+        //
+
+        var arcanistDamageUpgradeEffect = new EffectForm
         {
             DamageForm = new DamageForm
             {
@@ -200,26 +177,31 @@ internal sealed class RangerArcanist : AbstractSubclass
             SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
         };
 
-        var arcanePulseAction = CreatePowerArcanistArcanePulse(
-            "PowerArcanistArcanePulse",
-            "PowerArcanistArcanePulse",
-            markedEffect,
-            damageEffect);
-
-        var arcanePulseUpgradeAction = CreatePowerArcanistArcanePulse(
+        var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulseUpgrade",
-            "PowerArcanistArcanePulse",
-            markedEffect, damageUpgradeEffect);
-        arcanePulseUpgradeAction.overriddenPower = arcanePulseAction;
+            arcanistMarkedEffect,
+            arcanistDamageUpgradeEffect,
+            powerArcanistArcanePulse);
 
-        return (arcanePulseAction, arcanePulseUpgradeAction);
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("RangerArcanist")
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(3,
+                autoPreparedSpellsArcanist,
+                magicAffinityRangerArcanist,
+                additionalDamageArcanistMark,
+                additionalDamageArcanistArcaneDetonation)
+            .AddFeaturesAtLevel(7, powerArcanistArcanePulse)
+            .AddFeaturesAtLevel(11, additionalDamageArcanistArcaneDetonationUpgrade)
+            .AddFeaturesAtLevel(15, powerArcanistArcanePulseUpgrade)
+            .AddToDB();
     }
 
     private static FeatureDefinitionPower CreatePowerArcanistArcanePulse(
         string name,
-        string term,
         EffectForm markedEffect,
-        EffectForm damageEffect)
+        EffectForm damageEffect,
+        FeatureDefinitionPower overriddenPower = null)
     {
         var pulseDescription = new EffectDescription();
 
@@ -234,7 +216,7 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         return FeatureDefinitionPowerBuilder
             .Create(name)
-            .SetGuiPresentation($"Feature/&{term}Title", $"Feature/&{term}Description",
+            .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
             .SetUsesAbility(0, AttributeDefinitions.Wisdom)
             .SetShowCasting(true)
@@ -243,6 +225,17 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetEffectDescription(pulseDescription)
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
+            .SetOverriddenPower(overriddenPower)
             .AddToDB();
+    }
+
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    {
+        return FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
+    }
+
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
     }
 }
