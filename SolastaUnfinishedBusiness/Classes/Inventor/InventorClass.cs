@@ -25,8 +25,7 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
-    private static CustomInvocationPoolDefinition Learn;
-    private static CustomInvocationPoolDefinition Unlearn;
+    private static CustomInvocationPoolDefinition Learn2, Learn4, Unlearn;
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -46,13 +45,13 @@ internal static class InventorClass
         InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
 
-        Learn = BuildLearn();
+        Learn2 = BuildLearn(2);
+        Learn4 = BuildLearn(4);
         Unlearn = BuildUnlearn();
 
-        TestInvocations();
         Infusions.Build();
 
-        Class = CharacterClassDefinitionBuilder
+        var builder = CharacterClassDefinitionBuilder
             .Create(ClassName)
 
             #region Presentation
@@ -219,13 +218,13 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting, BuildInfusions())
-            .AddFeaturesAtLevel(2, Learn)
-            .AddFeaturesAtLevel(3, Learn, Unlearn)
+            .AddFeaturesAtLevel(1, SpellCasting)
 
             #endregion
 
             #region Level 02
+
+            .AddFeaturesAtLevel(2, Learn4, InfusionPool)
 
             #endregion
 
@@ -247,6 +246,8 @@ internal static class InventorClass
 
             #region Level 06
 
+            .AddFeaturesAtLevel(6, Learn2)
+
             #endregion
 
             #region Level 07
@@ -266,6 +267,8 @@ internal static class InventorClass
             #endregion
 
             #region Level 10
+
+            .AddFeaturesAtLevel(10, Learn2)
 
             #endregion
 
@@ -287,6 +290,8 @@ internal static class InventorClass
 
             #region Level 14
 
+            .AddFeaturesAtLevel(14, Learn2)
+
             #endregion
 
             #region Level 15
@@ -307,70 +312,39 @@ internal static class InventorClass
 
             #region Level 18
 
+            .AddFeaturesAtLevel(18, Learn2)
+
             #endregion
 
             #region Level 19
 
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            )
+            );
 
-            #endregion
+        #endregion
 
-            #region Level 20
+        #region Level 20
 
-            #endregion
+        #endregion
 
-            .AddToDB();
 
+        for (var i = 3; i <= 20; i++)
+        {
+            builder.AddFeaturesAtLevel(i, Unlearn);
+        }
+
+        Class = builder.AddToDB();
 
         return Class;
     }
 
-    private static void TestInvocations()
-    {
-        var poolType = CustomInvocationPoolType.Pools.Infusion;
-
-        CustomInvocationDefinitionBuilder
-            .Create("TestLeapInvocation")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.JumpOtherworldlyLeap)
-            .SetPoolType(poolType)
-            // .SetRequiredSpell(SpellDefinitions.Aid)
-            .SetGrantedFeature(FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue)
-            .AddToDB();
-
-
-        CustomInvocationDefinitionBuilder
-            .Create("TestArmorInvocation")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.MageArmorInvocationArmorShadows)
-            .SetPoolType(poolType)
-            .SetRequiredLevel(2)
-            .SetGrantedSpell(SpellDefinitions.MageArmorInvocationArmorShadows)
-            .AddToDB();
-
-        CustomInvocationDefinitionBuilder
-            .Create("TestBlurInvocation")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Blur)
-            .SetPoolType(poolType)
-            .SetRequiredLevel(3)
-            .SetRequiredPact(FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianExtraAttack)
-            .SetGrantedSpell(SpellDefinitions.Blur)
-            .AddToDB();
-
-        CustomInvocationDefinitionBuilder
-            .Create("TestTHirstInvocation")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetPoolType(poolType)
-            .SetGrantedFeature(FeatureDefinitionAttributeModifiers.AttributeModifierThirstingBladeExtraAttack)
-            .AddToDB();
-    }
-
-    private static CustomInvocationPoolDefinition BuildLearn()
+    private static CustomInvocationPoolDefinition BuildLearn(int points)
     {
         return CustomInvocationPoolDefinitionBuilder
-            .Create("TestInvocationPool")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup(CustomInvocationPoolType.Pools.Infusion)
+            .Create("InvocationPoolInfusionLearn" + points)
+            .SetGuiPresentation(Category.Feature)
+            .Setup(CustomInvocationPoolType.Pools.Infusion, points)
             .AddToDB();
     }
 
@@ -424,113 +398,6 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(20)
             .SetRechargeRate(RechargeRate.ShortRest)
-            .AddToDB();
-    }
-
-    public static FeatureDefinition BuildInfusions()
-    {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetInventorInfusions")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                InfusionPool,
-                BuildTestInfusion()
-            )
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildTestInfusion()
-    {
-        var testSummonItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestSummonItem")
-            .SetGuiPresentation(Category.Feature, ItemDefinitions.Dagger)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
-            // .SetUniqueInstance()
-            // .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InfusionLimiter)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
-                .SetSavingThrowData(
-                    false,
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.Bless)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetSummonItemForm(ItemDefinitions.Dagger, 1, true)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        var testInfuseItem = FeatureDefinitionPowerBuilder.Create("TMPPowerTestInfuseItem")
-            .SetGuiPresentation(Category.Feature, ItemDefinitions.BONEKEEP_MagicRune)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
-            .SetUniqueInstance()
-            // .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
-                InfusionLimiter,
-                new CustomItemFilter((_, item) => item.ItemDefinition.IsWeapon))
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalSpellLevelPerIncrement: 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetSavingThrowData(
-                    false,
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
-                        new FeatureUnlockByLevel
-                        {
-                            level = 0,
-                            featureDefinition = FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3
-                        })
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        //TODO: make some builder for these fake items
-        var testItem = ItemDefinitionBuilder
-            .Create("TMPTestItem")
-            .SetGuiPresentation(Category.Feature, ItemDefinitions.ArwinMertonSword)
-            .SetRequiresIdentification(true)
-            .SetWeight(0)
-            .SetItemPresentation(CustomWeaponsContext.BuildPresentation("TMPTestItemUnid",
-                ItemDefinitions.ScrollFly.itemPresentation))
-            .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
-                .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
-                .SetRecharge(RechargeRate.ShortRest)
-                .SetSaveDc(-1) //Set to -1 so that it will calculate based on actual powers
-                .AddFunctions(
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetPower(testSummonItem, true)
-                        .Build(),
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetPower(testInfuseItem, true)
-                        .Build()
-                )
-                .Build())
-            .AddToDB();
-
-        return FeatureDefinitionBuilder
-            .Create("TMPTestInfusion")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PowerPoolDevice(testItem, InfusionPool))
             .AddToDB();
     }
 }

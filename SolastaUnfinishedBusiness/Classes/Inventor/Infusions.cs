@@ -21,12 +21,12 @@ internal static class Infusions
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .SetCastingModifiers(10, dcModifier: 10)
+                .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
         name = "InfusionEnhanceDefense";
         BuildInfuseItemPowerInvocation(name,
-            FeatureDefinitionPowers.PowerPaladinAuraOfProtection.GuiPresentation.SpriteReference, IsArmor,
+            SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
             FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -35,12 +35,23 @@ internal static class Infusions
 
         name = "InfusionEnhanceWeapon";
         BuildInfuseItemPowerInvocation(name,
-            FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference, IsWeapon,
+            SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference, IsWeapon,
             FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .Configure(attackRollModifier: 1, damageRollModifier: 1)
                 .AddToDB());
+        
+        //TODO: find a ay to generate name from item, and add item description to power's description
+        name = "InfusionCreateBagOfHolding";
+        BuildCreateItemPowerInvocation(name, ItemDefinitions.Backpack_Bag_Of_Holding);//TODO: create copy that is not sellable
+        
+        name = "InfusionCreateWandOfMagicDetection";
+        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfMagicDetection);//TODO: create copy that is not sellable
+        
+        name = "InfusionCreateWandOfIdentify";
+        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfIdentify);//TODO: create copy that is not sellable
+        
     }
 
     private static void BuildInfuseItemPowerInvocation(string name, AssetReferenceSprite icon,
@@ -51,6 +62,16 @@ internal static class Infusions
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
             .SetGrantedFeature(BuildInfuseItemPower(name, icon, filter, features))
+            .AddToDB();
+    }
+    
+    private static void BuildCreateItemPowerInvocation(string name, ItemDefinition item)
+    {
+        CustomInvocationDefinitionBuilder
+            .Create($"Invocation{name}")
+            .SetGuiPresentation(name, Category.Feature, item)
+            .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
+            .SetGrantedFeature(BuildCreateItemPower(name, item))
             .AddToDB();
     }
 
@@ -76,6 +97,28 @@ internal static class Infusions
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetItemPropertyForm(features.Select(f => new FeatureUnlockByLevel(f, 0)),
                         ItemPropertyUsage.Unlimited, 1)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(string name, ItemDefinition item)
+    {
+        return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, item)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetUniqueInstance()
+            .SetSharedPool(InventorClass.InfusionPool)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
+                .SetParticleEffectParameters(SpellDefinitions.Bless)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(new EffectFormBuilder()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetSummonItemForm(item, 1, true)
                     .Build())
                 .Build())
             .AddToDB();
