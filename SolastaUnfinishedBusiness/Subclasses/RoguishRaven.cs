@@ -15,15 +15,66 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishRaven : AbstractSubclass
 {
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    internal RoguishRaven()
     {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+        // proficient with all two handed range weapons
+        // ignore cover and long range disadvantage
+        var featureSetRavenSharpShooter = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetRavenSharpShooter")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
+                FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyRavenRangeWeapon")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
+                        WeaponTypeDefinitions.HeavyCrossbowType.Name,
+                        WeaponTypeDefinitions.LongbowType.Name)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityRavenRangeAttack")
+                    .SetGuiPresentationNoContent(true)
+                    .SetIgnoreCover()
+                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .AddToDB()
+            )
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddToDB();
+
+        // killing spree 
+        // bonus range attack from main and can sneak attack after killing an enemies
+        var additionalActionRavenKillingSpree = FeatureDefinitionAdditionalActionBuilder
+            .Create("AdditionalActionRavenKillingSpree")
+            .SetGuiPresentation(Category.Feature)
+            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetMaxAttacksNumber(1)
+            .SetCustomSubFeatures(new RefreshSneakAttackOnKill())
+            .AddToDB();
+
+        // pain maker
+        // reroll any 1 when roll damage but need to use the new roll
+        var dieRollModifierRavenPainMaker = FeatureDefinitionDieRollModifierBuilder
+            .Create("DieRollModifierRavenPainMaker")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1,
+                "Feature/&DieRollModifierRavenPainMakerReroll")
+            .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
+            .AddToDB();
+
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("RoguishRaven")
+            .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(3, featureSetRavenSharpShooter)
+            .AddFeaturesAtLevel(3, BuildHeartSeekingShot())
+            .AddFeaturesAtLevel(9, 
+                additionalActionRavenKillingSpree
+                , dieRollModifierRavenPainMaker)
+            .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return CreateRaven();
-    }
+    // ReSharper disable once InconsistentNaming
+    private static CharacterSubclassDefinition Subclass { get; set; }
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
@@ -32,7 +83,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
-        var triggerCondition = ConditionDefinitionBuilder
+        var conditionRavenHeartSeekingShotTrigger = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -45,9 +96,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
-        var heartSeekingShotCondition = ConditionDefinitionBuilder
+        var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(
@@ -103,7 +153,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             )
             .AddToDB();
 
-        var turnOnPower = FeatureDefinitionPowerBuilder
+        var powerRavenHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
@@ -118,18 +168,18 @@ internal sealed class RoguishRaven : AbstractSubclass
                 .SetDurationData(RuleDefinitions.DurationType.Permanent)
                 .SetEffectForms(
                     new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Add)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(turnOnPower);
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
 
-        var turnOffPower = FeatureDefinitionPowerBuilder
+        var powerRavenTurnOffHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenTurnOffHeartSeekingShot")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
@@ -142,80 +192,34 @@ internal sealed class RoguishRaven : AbstractSubclass
                 .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
                 .SetEffectForms(
                     new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(conditionRavenHeartSeekingShotTrigger,
+                            ConditionForm.ConditionOperation.Remove)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(heartSeekingShotCondition, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(turnOffPower);
-        concentrationProvider.StopPower = turnOffPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
+        concentrationProvider.StopPower = powerRavenTurnOffHeartSeekingShot;
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(turnOnPower, turnOffPower)
+            .AddFeatureSet(powerRavenHeartSeekingShot, powerRavenTurnOffHeartSeekingShot)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
 
-    private static CharacterSubclassDefinition CreateRaven()
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
-        // proficient with all two handed range weapons
-        // ignore cover and long range disadvantage
-        var sharpShooter = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetRavenSharpShooter")
-            .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
-                FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyRavenRangeWeapon")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
-                        WeaponTypeDefinitions.HeavyCrossbowType.Name,
-                        WeaponTypeDefinitions.LongbowType.Name)
-                    .AddToDB(),
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityRavenRangeAttack")
-                    .SetGuiPresentationNoContent(true)
-                    .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                    .AddToDB()
-            )
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .AddToDB();
+        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+    }
 
-        // killing spree 
-        // bonus range attack from main and can sneak attack after killing an enemies
-        var killingSpree = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionRavenKillingSpree")
-            .SetGuiPresentation(Category.Feature)
-            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-            .SetMaxAttacksNumber(1)
-            .SetCustomSubFeatures(new RefreshSneakAttackOnKill())
-            .AddToDB();
-
-        // pain maker
-        // reroll any 1 when roll damage but need to use the new roll
-        var painMaker = FeatureDefinitionDieRollModifierBuilder
-            .Create("DieRollModifierRavenPainMaker")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1,
-                "Feature/&DieRollModifierRavenPainMakerReroll")
-            .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
-            .AddToDB();
-
-        return CharacterSubclassDefinitionBuilder
-            .Create("RoguishRaven")
-            .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, sharpShooter)
-            .AddFeaturesAtLevel(3, BuildHeartSeekingShot())
-            .AddFeaturesAtLevel(9, killingSpree)
-            .AddFeaturesAtLevel(9, painMaker)
-            .AddToDB();
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
     }
 
     // marker to reroll any damage die including sneak attack

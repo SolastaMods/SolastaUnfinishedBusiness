@@ -33,13 +33,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
-        var featureStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
+        var onCharacterKillDeadMasterStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
             .Create("OnCharacterKillDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
             .SetOnCharacterKill(OnStarkHarvestKill)
             .AddToDB();
 
-        var featureUndeadChains = FeatureDefinitionOnCharacterKillBuilder
+        var onCharacterKillDeadMasterUndeadChains = FeatureDefinitionOnCharacterKillBuilder
             .Create("OnCharacterKillDeadMasterUndeadChains")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -53,7 +53,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 .AddToDB();
         }
 
-        var featureHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
+        var damageAffinityDeadMasterHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -88,10 +88,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardDeadMaster")
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, autoPreparedSpellsDeadMaster)
-            .AddFeaturesAtLevel(2, featureStarkHarvest)
-            .AddFeaturesAtLevel(6, featureUndeadChains)
-            .AddFeaturesAtLevel(10, featureHardenToNecrotic)
+            .AddFeaturesAtLevel(2, 
+                autoPreparedSpellsDeadMaster
+                , onCharacterKillDeadMasterStarkHarvest)
+            .AddFeaturesAtLevel(6, onCharacterKillDeadMasterUndeadChains)
+            .AddFeaturesAtLevel(10, damageAffinityDeadMasterHardenToNecrotic)
             .AddFeaturesAtLevel(14, powerDeadMasterCommandUndead)
             .AddToDB();
 
