@@ -55,20 +55,22 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetConditionName(ConditionPathOfTheLightIlluminatedName)
                 .AddToDB();
 
+        var invisibleConditions = InvisibleConditions
+            .Select(x => FeatureDefinitionConditionAffinityBuilder
+                .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
+                        x.Name.Replace("Condition", string.Empty))
+                .SetGuiPresentationNoContent(true)
+                .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                .SetConditionType(x)
+                .AddToDB());
+        
         var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .AddFeatureSet(InvisibleConditions
-                .Select(x => FeatureDefinitionConditionAffinityBuilder
-                    .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
-                            x.Name.Replace("Condition", string.Empty))
-                    .SetGuiPresentationNoContent(true)
-                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                    .SetConditionType(x)
-                    .AddToDB()))
+            .AddFeatureSet(invisibleConditions.OfType<FeatureDefinition>().ToArray())
             .AddToDB();
 
         var conditionPathOfTheLightIlluminated = ConditionDefinitionIlluminatedBuilder

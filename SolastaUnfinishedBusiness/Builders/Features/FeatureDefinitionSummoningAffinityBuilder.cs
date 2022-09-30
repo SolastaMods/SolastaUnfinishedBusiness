@@ -25,12 +25,6 @@ internal class FeatureDefinitionSummoningAffinityBuilder
 
     public FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(params ConditionDefinition[] value)
     {
-        SetAddedConditions(value.AsEnumerable());
-        return this;
-    }
-
-    public FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(IEnumerable<ConditionDefinition> value)
-    {
         Definition.AddedConditions.SetRange(value);
         Definition.AddedConditions.Sort(Sorting.Compare);
         return this;

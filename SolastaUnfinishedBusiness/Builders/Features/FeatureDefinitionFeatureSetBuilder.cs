@@ -13,22 +13,12 @@ public abstract class
 {
     public TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
     {
-        return SetFeatureSet(featureDefinitions.AsEnumerable());
-    }
-
-    public TBuilder SetFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
-    {
         Definition.FeatureSet.SetRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return (TBuilder)this;
     }
 
     public TBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
-    {
-        return AddFeatureSet(featureDefinitions.AsEnumerable());
-    }
-
-    public TBuilder AddFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
     {
         Definition.FeatureSet.AddRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);

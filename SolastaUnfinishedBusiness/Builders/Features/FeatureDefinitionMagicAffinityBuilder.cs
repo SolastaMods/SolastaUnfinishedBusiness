@@ -59,13 +59,6 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         int levelBonus,
         params SpellDefinition[] spells)
     {
-        return SetWarList(levelBonus, spells.AsEnumerable());
-    }
-
-    public FeatureDefinitionMagicAffinityBuilder SetWarList(
-        int levelBonus,
-        IEnumerable<SpellDefinition> spells)
-    {
         Definition.usesWarList = true;
         Definition.warListSlotBonus = levelBonus;
         Definition.WarListSpells.AddRange(spells.Select(s => s.Name));

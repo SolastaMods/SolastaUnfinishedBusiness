@@ -22,11 +22,6 @@ public class FeatureDefinitionSubclassChoiceBuilder
 
     public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(params CharacterSubclassDefinition[] subclasses)
     {
-        return SetSubclasses(subclasses.AsEnumerable());
-    }
-
-    public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(IEnumerable<CharacterSubclassDefinition> subclasses)
-    {
         Definition.Subclasses.SetRange(subclasses.Select(sc => sc.Name));
         Definition.Subclasses.Sort();
         return this;
