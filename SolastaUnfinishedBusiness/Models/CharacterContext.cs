@@ -4,20 +4,21 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class InitialChoicesContext
+internal static class CharacterContext
 {
     internal const int MinInitialFeats = 0;
     internal const int MaxInitialFeats = 2; // don't increase this value to avoid issue reports on crazy scenarios
@@ -30,6 +31,7 @@ internal static class InitialChoicesContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
+    private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
     internal static void Load()
     {
@@ -44,18 +46,55 @@ internal static class InitialChoicesContext
                 .AddToDB();
         }
 
-        LoadAdditionalNames();
-        LoadFaceUnlock();
+        LoadHelpPower();
         LoadEpicArray();
-        LoadVision();
+        LoadAdditionalNames();
+        LoadVisuals();
     }
 
     internal static void LateLoad()
     {
+        SwitchHelpPower();
+        FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+        FlexibleRacesContext.SwitchFlexibleRaces();
+        SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
-        SwitchFirstLevelTotalFeats();
     }
+
+    private static void LoadHelpPower()
+    {
+        var effectDescription = TrueStrike.EffectDescription.Copy();
+
+        effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+        effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+        effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+
+        var conditionDistractedByAlly = ConditionDefinitionBuilder
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDistractedByAlly;
+
+        FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
+            .Create("PowerHelp")
+            .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
+            .Configure(
+                1,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                RuleDefinitions.ActivationTime.Action,
+                0,
+                RuleDefinitions.RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                effectDescription,
+                true)
+            .AddToDB();
+    }
+
 
     private static void LoadAdditionalNames()
     {
@@ -89,7 +128,7 @@ internal static class InitialChoicesContext
         }
     }
 
-    private static void LoadFaceUnlock()
+    private static void LoadVisuals()
     {
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
@@ -186,6 +225,7 @@ internal static class InitialChoicesContext
             : new[] { 15, 14, 13, 12, 10, 8 };
     }
 
+#if false
     private static void LoadVision()
     {
         if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
@@ -207,10 +247,37 @@ internal static class InitialChoicesContext
                     x.FeatureDefinition.name == "SenseSuperiorDarkvision");
             }
         }
+    }
+#endif
 
-        if (Main.Settings.IncreaseSenseNormalVision > SrdAndHouseRulesContext.DefaultVisionRange)
+
+    internal static void SwitchHelpPower()
+    {
+        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        var subRaces = dbCharacterRaceDefinition
+            .SelectMany(x => x.SubRaces);
+        var races = dbCharacterRaceDefinition
+            .Where(x => !subRaces.Contains(x));
+
+        if (Main.Settings.AddHelpActionToAllRaces)
         {
-            SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
+            foreach (var characterRaceDefinition in races
+                         .Where(a => !a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
+            {
+                characterRaceDefinition.FeatureUnlocks.Add(
+                    new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
+            }
+        }
+        else
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                    x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using static SolastaUnfinishedBusiness.Models.ItemCraftingContext;
+using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
 

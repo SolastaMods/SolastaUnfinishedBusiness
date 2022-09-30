@@ -192,7 +192,7 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
-            ItemOptionsContext.SwitchCrownOfTheMagister();
+            GameUiContext.SwitchCrownOfTheMagister();
         }
 
         UI.Label("");
@@ -202,11 +202,11 @@ internal static class GameUiDisplay
             UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
 
             intValue = Main.Settings.EmpressGarbAppearanceIndex;
-            if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances,
-                    ItemOptionsContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
+            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
+                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
             {
                 Main.Settings.EmpressGarbAppearanceIndex = intValue;
-                ItemOptionsContext.SwitchEmpressGarb();
+                GameUiContext.SwitchEmpressGarb();
             }
         }
 

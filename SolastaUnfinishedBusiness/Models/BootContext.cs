@@ -30,40 +30,35 @@ internal static class BootContext
         EffectFormVerification.Load();
 #endif
 
-        // Translations must load first
-        Translations.Load();
-
-        // Resources must load second
-        ResourceLocatorContext.Load();
-
-        // Cache TA definitions for diagnostics and export
+        // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
 
-        // Needs to be after CacheTADefinitions
+        // Load Translations and Resources Locator after
+        Translations.Load();
+        ResourceLocatorContext.Load();
+
+        // Create our Content Pack for anything that gets further created
         CeContentPackContext.Load();
 
         // Cache all Merchant definitions and what item types they sell
         MerchantTypeContext.Load();
 
-        // These can be loaded in any order so we bump them at the beginning
+        // can be loaded in any order so we bump them at the beginning
         CharacterExportContext.Load();
+        RespecContext.Load();
+
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
-        DmProEditorContext.Load();
-        FlexibleBackgroundsContext.Load();
-        GameUiContext.Load();
-        InitialChoicesContext.Load();
-        InventoryManagementContext.Load();
-        ItemCraftingContext.Load();
-        PickPocketContext.Load();
         PowersBundleContext.Load();
-        RespecContext.Load();
+
+        DmProEditorContext.Load();
+        GameUiContext.Load();
+        
+        // Start will all options under Character
+        CharacterContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
-
-        // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
-        PowersContext.Load();
 
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
@@ -81,24 +76,20 @@ internal static class BootContext
         SrdAndHouseRulesContext.Load();
 
         // Item Options must be loaded after Item Crafting
-        ItemOptionsContext.Load();
+        ItemCraftingMerchantContext.Load();
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {
             // Late initialized to allow feats and races from other mods
-            FlexibleRacesContext.LateLoad();
-            InitialChoicesContext.LateLoad();
+            CharacterContext.LateLoad();
 
             // There are feats that need all character classes loaded before they can properly be setup.
             FeatsContext.LateLoad();
 
-            // Generally available powers need all classes in the db before they are initialized here.
-            PowersContext.LateLoad();
-
             // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
             SpellsContext.LateLoad();
 
-            // Divine Smite fixes
+            // Divine Smite fixes and final switches
             SrdAndHouseRulesContext.LateLoad();
 
             // Level 20

@@ -69,12 +69,7 @@ internal static class FlexibleRacesContext
         unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
     }
 
-    internal static void LateLoad()
-    {
-        Switch();
-    }
-
-    internal static void Switch()
+    internal static void SwitchFlexibleRaces()
     {
         var enabled = Main.Settings.EnableFlexibleRaces;
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();

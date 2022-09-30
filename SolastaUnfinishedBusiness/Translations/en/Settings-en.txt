@@ -1,6 +1,6 @@
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races
+ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 feet of you]</color></i>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
@@ -39,8 +39,6 @@ ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active 
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen

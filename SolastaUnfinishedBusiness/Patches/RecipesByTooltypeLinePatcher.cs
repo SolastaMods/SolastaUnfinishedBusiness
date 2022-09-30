@@ -28,7 +28,7 @@ internal static class RecipesByTooltypeLinePatcher
         internal static void Prefix(ref List<RecipeDefinition> knownRecipes)
         {
             //PATCH: adds a filter to the crafting panel screen
-            ItemCraftingContext.FilterRecipes(ref knownRecipes);
+            CraftingContext.FilterRecipes(ref knownRecipes);
         }
     }
 }

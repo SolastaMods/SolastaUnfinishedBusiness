@@ -177,7 +177,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
+        Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
 
         var powerRavenTurnOffHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenTurnOffHeartSeekingShot")
@@ -201,7 +201,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
+        Global.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
         concentrationProvider.StopPower = powerRavenTurnOffHeartSeekingShot;
 
         return FeatureDefinitionFeatureSetBuilder

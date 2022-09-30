@@ -12,7 +12,7 @@ using System.Text;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class ItemCraftingContext
+internal static class CraftingContext
 {
     public static readonly List<string> BaseGameItemsCategories = new()
     {

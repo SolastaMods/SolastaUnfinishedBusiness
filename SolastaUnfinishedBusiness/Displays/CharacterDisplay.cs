@@ -15,8 +15,41 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddHelpActionToAllRaces = toggle;
-            PowersContext.Switch();
+            CharacterContext.SwitchHelpPower();
         }
+
+        toggle = Main.Settings.EnableFlexibleBackgrounds;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlexibleBackgrounds = toggle;
+            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+        }
+
+        toggle = Main.Settings.EnableFlexibleRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlexibleRaces = toggle;
+            FlexibleRacesContext.SwitchFlexibleRaces();
+        }
+
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label("");
+
+        toggle = Main.Settings.EnableEpicPointsAndArray;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableEpicPointsAndArray = toggle;
+        }
+
+#if false
+        // ModUi/&DisableSenseDarkVisionFromAllRaces = Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+        // ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces = Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
@@ -29,47 +62,17 @@ internal static class CharacterDisplay
         {
             Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
         }
+#endif
 
         UI.Label("");
 
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
         if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
-                InitialChoicesContext.MinInitialFeats, InitialChoicesContext.MaxInitialFeats, 0, "",
+                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
                 UI.AutoWidth()))
         {
             Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
-            InitialChoicesContext.SwitchFirstLevelTotalFeats();
-        }
-
-        UI.Label("");
-
-        toggle = Main.Settings.EnableEpicPointsAndArray;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableEpicPointsAndArray = toggle;
-        }
-
-        UI.Label("");
-
-        toggle = Main.Settings.EnableFlexibleBackgrounds;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFlexibleBackgrounds = toggle;
-            FlexibleBackgroundsContext.Switch();
-        }
-
-        toggle = Main.Settings.EnableFlexibleRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFlexibleRaces = toggle;
-            FlexibleRacesContext.Switch();
-        }
-
-        toggle = Main.Settings.EnableAlternateHuman;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableAlternateHuman = toggle;
-            InitialChoicesContext.SwitchFirstLevelTotalFeats();
+            CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label("");
@@ -80,14 +83,14 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablesAsiAndFeat = toggle;
-            InitialChoicesContext.SwitchAsiAndFeat();
+            CharacterContext.SwitchAsiAndFeat();
         }
 
         toggle = Main.Settings.EnableFeatsAtEvenLevels;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFeatsAtEvenLevels = toggle;
-            InitialChoicesContext.SwitchEvenLevelFeats();
+            CharacterContext.SwitchEvenLevelFeats();
         }
 
         toggle = Main.Settings.EnableLevel20;

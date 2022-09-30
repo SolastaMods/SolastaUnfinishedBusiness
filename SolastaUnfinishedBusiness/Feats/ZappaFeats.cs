@@ -103,7 +103,7 @@ internal static class ZappaFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerDeadeye);
+        Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
 
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffDeadeye")
@@ -126,7 +126,7 @@ internal static class ZappaFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerTurnOffDeadeye);
+        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffDeadeye);
         concentrationProvider.StopPower = powerTurnOffDeadeye;
 
         return FeatDefinitionBuilder

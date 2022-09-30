@@ -61,7 +61,10 @@ public static class Global
     public static bool CriticalHit { get; set; }
 
     // conditions that should display on char panel even if set to silent
-    public static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
+    internal static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
+
+    // special case for our powers that add a turn off stop provider
+    internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)

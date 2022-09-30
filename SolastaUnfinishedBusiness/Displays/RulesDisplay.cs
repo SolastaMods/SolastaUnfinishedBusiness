@@ -124,14 +124,14 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
-            ItemOptionsContext.SwitchUniversalSylvanArmorAndLightbringer();
+            SrdAndHouseRulesContext.SwitchUniversalSylvanArmorAndLightbringer();
         }
 
         toggle = Main.Settings.AllowDruidToWearMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            ItemOptionsContext.SwitchDruidAllowMetalArmor();
+            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
         toggle = Main.Settings.FullyControlConjurations;
@@ -145,7 +145,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
-            ItemOptionsContext.SwitchMagicStaffFoci();
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
         UI.Label("");

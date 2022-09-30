@@ -15,7 +15,7 @@ internal static class CharacterActionUsePowerPatcher
         internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
-            return !PowersContext.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
+            return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
         }
     }
 
@@ -26,7 +26,7 @@ internal static class CharacterActionUsePowerPatcher
         internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
-            return !PowersContext.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
+            return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
         }
     }
 
@@ -73,6 +73,7 @@ internal static class CharacterActionUsePowerPatcher
             foreach (var usableFunction in usableDevice.UsableFunctions)
             {
                 var functionDescription = usableFunction.DeviceFunctionDescription;
+
                 if (functionDescription.Type != DeviceFunctionDescription.FunctionType.Power
                     || functionDescription.FeatureDefinitionPower != power.PowerDefinition)
                 {

@@ -3,7 +3,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Models;
-using static SolastaUnfinishedBusiness.Models.ItemCraftingContext;
+using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
 

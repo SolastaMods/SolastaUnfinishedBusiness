@@ -193,7 +193,7 @@ public static class EwFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerAttack);
+        Global.PowersThatIgnoreInterruptions.Add(powerAttack);
 
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffPowerAttack")
@@ -217,7 +217,7 @@ public static class EwFeats
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
+        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
         concentrationProvider.StopPower = powerTurnOffPowerAttack;
 
         return FeatDefinitionBuilder

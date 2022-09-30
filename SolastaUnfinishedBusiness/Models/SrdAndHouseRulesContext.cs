@@ -15,6 +15,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -29,7 +32,8 @@ internal static class SrdAndHouseRulesContext
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplyAcNonStackingRules();
         ApplySrdWeightToFoodRations();
-        ConjurationsContext.Load();
+        ConjurationsContext.BuildConjureElementalInvisibleStalker();
+        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
     }
 
     public static void LateLoad()
@@ -38,6 +42,62 @@ internal static class SrdAndHouseRulesContext
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
+        SwitchUniversalSylvanArmorAndLightbringer();
+        SwitchDruidAllowMetalArmor();
+        SwitchMagicStaffFoci();
+        ConjurationsContext.SwitchEnableUpcastConjureElementalAndFey();
+        ConjurationsContext.SwitchFullyControlConjurations();
+    }
+
+
+    internal static void SwitchUniversalSylvanArmorAndLightbringer()
+    {
+        GreenmageArmor.RequiredAttunementClasses.Clear();
+        WizardClothes_Alternate.RequiredAttunementClasses.Clear();
+
+        if (Main.Settings.AllowAnyClassToWearSylvanArmor)
+        {
+            return;
+        }
+
+        GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
+        WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
+    }
+
+    internal static void SwitchDruidAllowMetalArmor()
+    {
+        var active = Main.Settings.AllowDruidToWearMetalArmor;
+
+        if (active)
+        {
+            FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
+        }
+        else
+        {
+            if (!FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(
+                    TagsDefinitions.ItemTagMetal))
+            {
+                FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(
+                    TagsDefinitions.ItemTagMetal);
+            }
+        }
+    }
+
+    internal static void SwitchMagicStaffFoci()
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(x => x.IsWeapon) // WeaponDescription could be null
+                     .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
+                     .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
+        {
+            if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
+            {
+                continue;
+            }
+
+            item.IsFocusItem = true;
+            item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
+        }
     }
 
     /**
@@ -145,8 +205,8 @@ internal static class SrdAndHouseRulesContext
 
     internal static void ApplySrdWeightToFoodRations()
     {
-        var foodSrdWeight = ItemDefinitions.Food_Ration;
-        var foodForagedSrdWeight = ItemDefinitions.Food_Ration_Foraged;
+        var foodSrdWeight = Food_Ration;
+        var foodForagedSrdWeight = Food_Ration_Foraged;
 
         if (Main.Settings.ApplySrdWeightToFoodRations)
         {
@@ -388,14 +448,7 @@ internal static class ConjurationsContext
     /// <summary>
     ///     Allow conjurations to fully controlled party members instead of AI controlled.
     /// </summary>
-    internal static void Load()
-    {
-        BuildConjureElementalInvisibleStalker();
-        SwitchEnableUpcastConjureElementalAndFey(); // depends on BuildConjureElementalInvisibleStalker
-        SwitchFullyControlConjurations();
-    }
-
-    private static void BuildConjureElementalInvisibleStalker()
+    internal static void BuildConjureElementalInvisibleStalker()
     {
         ConjureElementalInvisibleStalker = SpellDefinitionBuilder
             .Create(ConjureElementalFire, InvisibleStalkerSubspellName)

@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -17,6 +18,8 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class GameUiContext
 {
     private static readonly List<RectTransform> SpellLineTables = new();
+
+    private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
     // private static bool EnableDebugCamera { get; set; }
 
@@ -544,8 +547,76 @@ internal static class GameUiContext
         }
     }
 
+    internal static void SwitchCrownOfTheMagister()
+    {
+        var crowns = new[]
+        {
+            CrownOfTheMagister, CrownOfTheMagister01, CrownOfTheMagister02, CrownOfTheMagister03,
+            CrownOfTheMagister04, CrownOfTheMagister05, CrownOfTheMagister06, CrownOfTheMagister07,
+            CrownOfTheMagister08, CrownOfTheMagister09, CrownOfTheMagister10, CrownOfTheMagister11,
+            CrownOfTheMagister12
+        };
+
+        foreach (var itemPresentation in crowns.Select(x => x.ItemPresentation))
+        {
+            var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
+
+            maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
+                ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
+                : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
+        }
+    }
+
+    internal static void SwitchEmpressGarb()
+    {
+        EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
+
+        switch (Main.Settings.EmpressGarbAppearanceIndex)
+        {
+            case 0: //"Normal":
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
+                break;
+
+            case 1: // Barbarian Clothes
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
+                break;
+
+            case 2: // Druid Leather
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
+                break;
+
+            case 3: // Elven Chain
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
+                break;
+
+            case 4: // Plain Shirt
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
+                break;
+
+            case 5: // Sorcerer's Armor
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
+                break;
+
+            case 6: // Studded Leather
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
+                break;
+
+            case 7: // Sylvan Armor
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
+                break;
+
+            case 8: // Wizard Clothes
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
+                break;
+        }
+    }
+
     internal static void Load()
     {
+        InventoryManagementContext.Load();
+        SwitchCrownOfTheMagister();
+        SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
 
         var inputService = ServiceRepository.GetService<IInputService>();

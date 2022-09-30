@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine.AddressableAssets;
@@ -13,25 +12,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MerchantDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class ItemOptionsContext
+internal static class ItemCraftingMerchantContext
 {
-    private static readonly List<ItemDefinition> Crowns = new()
-    {
-        CrownOfTheMagister,
-        CrownOfTheMagister01,
-        CrownOfTheMagister02,
-        CrownOfTheMagister03,
-        CrownOfTheMagister04,
-        CrownOfTheMagister05,
-        CrownOfTheMagister06,
-        CrownOfTheMagister07,
-        CrownOfTheMagister08,
-        CrownOfTheMagister09,
-        CrownOfTheMagister10,
-        CrownOfTheMagister11,
-        CrownOfTheMagister12
-    };
-
     internal static string[] EmpressGarbAppearances { get; } =
     {
         Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
@@ -41,8 +23,6 @@ internal static class ItemOptionsContext
         Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
         Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
     };
-
-    private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
     private static void LoadClothingGorimStock()
     {
@@ -99,6 +79,7 @@ internal static class ItemOptionsContext
         valleyNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Valley";
     }
 
+
     internal static void SwitchSetBeltOfDwarvenKindBeardChances()
     {
         CharacterPresentationBeltOfDwarvenKind.occurencePercentage =
@@ -106,82 +87,6 @@ internal static class ItemOptionsContext
         CharacterPresentationBeltOfDwarvenKind.GuiPresentation.description = Gui.Format(
             "Feature/&AlwaysBeardDescription",
             Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString());
-    }
-
-    internal static void SwitchCrownOfTheMagister()
-    {
-        foreach (var itemPresentation in Crowns.Select(x => x.ItemPresentation))
-        {
-            var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
-
-            maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
-                ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
-                : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
-        }
-    }
-
-    internal static void SwitchDruidAllowMetalArmor()
-    {
-        var active = Main.Settings.AllowDruidToWearMetalArmor;
-
-        if (active)
-        {
-            DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
-        }
-        else
-        {
-            if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(
-                    TagsDefinitions.ItemTagMetal))
-            {
-                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(
-                    TagsDefinitions.ItemTagMetal);
-            }
-        }
-    }
-
-    internal static void SwitchEmpressGarb()
-    {
-        EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
-
-        switch (Main.Settings.EmpressGarbAppearanceIndex)
-        {
-            case 0: //"Normal":
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
-                break;
-
-            case 1: // Barbarian Clothes
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
-                break;
-
-            case 2: // Druid Leather
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
-                break;
-
-            case 3: // Elven Chain
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
-                break;
-
-            case 4: // Plain Shirt
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
-                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
-                break;
-
-            case 5: // Sorcerer's Armor
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
-                break;
-
-            case 6: // Studded Leather
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
-                break;
-
-            case 7: // Sylvan Armor
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
-                break;
-
-            case 8: // Wizard Clothes
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
-                break;
-        }
     }
 
     internal static void SwitchFociItems()
@@ -214,23 +119,6 @@ internal static class ItemOptionsContext
         FocusDefinitionBuilder.DruidicAmulet.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
         FocusDefinitionBuilder.LivewoodClub.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
         FocusDefinitionBuilder.LivewoodStaff.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
-    }
-
-    internal static void SwitchMagicStaffFoci()
-    {
-        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
-                     .Where(x => x.IsWeapon) // WeaponDescription could be null
-                     .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
-                     .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
-        {
-            if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
-            {
-                continue;
-            }
-
-            item.IsFocusItem = true;
-            item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
-        }
     }
 
     internal static void SwitchAttuneArcaneShieldstaff()
@@ -299,19 +187,6 @@ internal static class ItemOptionsContext
         }
     }
 
-    internal static void SwitchUniversalSylvanArmorAndLightbringer()
-    {
-        GreenmageArmor.RequiredAttunementClasses.Clear();
-        WizardClothes_Alternate.RequiredAttunementClasses.Clear();
-
-        if (Main.Settings.AllowAnyClassToWearSylvanArmor)
-        {
-            return;
-        }
-
-        GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
-        WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
-    }
 
     private static void LoadRemoveIdentification()
     {
@@ -338,21 +213,19 @@ internal static class ItemOptionsContext
 
     internal static void Load()
     {
+        // sort of same sequence as Mod UI
+        CraftingContext.Load();
+        PickPocketContext.Load();
         LoadRemoveIdentification();
-        LoadClothingGorimStock();
+        SwitchAttuneArcaneShieldstaff();
         SwitchSetBeltOfDwarvenKindBeardChances();
-        SwitchCrownOfTheMagister();
-        SwitchDruidAllowMetalArmor();
-        SwitchEmpressGarb();
+        LoadClothingGorimStock();
         SwitchFociItems();
         SwitchFociItemsDungeonMaker();
-        SwitchMagicStaffFoci();
         SwitchRestockAntiquarian();
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
-        SwitchUniversalSylvanArmorAndLightbringer();
-        SwitchAttuneArcaneShieldstaff();
     }
 
     private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
