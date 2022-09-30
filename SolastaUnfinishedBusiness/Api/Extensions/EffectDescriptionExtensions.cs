@@ -16,6 +16,14 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 public static class EffectDescriptionExtensions
 {
     [NotNull]
+    public static T Create<T>([NotNull] this T entity, T copy)
+        where T : EffectDescription
+    {
+        entity.Copy(copy);
+        return entity;
+    }
+
+    [NotNull]
     public static T SetDuration<T>([NotNull] this T entity, DurationType type, int? duration = null)
         where T : EffectDescription
     {

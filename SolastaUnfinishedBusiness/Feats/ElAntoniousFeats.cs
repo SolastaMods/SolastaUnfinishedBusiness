@@ -13,9 +13,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ElAntoniousFeats
 {
-    private static ConditionDefinition _conditionDualFlurryApply;
-    private static ConditionDefinition _conditionDualFlurryGrant;
-
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildFeatDualFlurry());
@@ -24,7 +21,7 @@ internal static class ElAntoniousFeats
 
     private static FeatDefinition BuildFeatDualFlurry()
     {
-        _conditionDualFlurryApply = ConditionDefinitionBuilder
+        var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentation(Category.Condition)
             .SetDuration(DurationType.Round, 0, false)
@@ -34,7 +31,7 @@ internal static class ElAntoniousFeats
             .SetConditionType(ConditionType.Beneficial)
             .AddToDB();
 
-        _conditionDualFlurryGrant = ConditionDefinitionBuilder
+        var conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
             .SetDuration(DurationType.Round, 0, false)
@@ -51,6 +48,38 @@ internal static class ElAntoniousFeats
                     .AddToDB())
             .AddToDB();
 
+        void AfterOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            [CanBeNull] RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            if (rangedAttack || attackMode == null)
+            {
+                return;
+            }
+
+            var condition =
+                attacker.RulesetCharacter.HasConditionOfType(conditionDualFlurryApply.Name)
+                    ? conditionDualFlurryGrant
+                    : conditionDualFlurryApply;
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                condition, DurationType.Round, 0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+
         return FeatDefinitionBuilder
             .Create("FeatDualFlurry")
             .SetGuiPresentation(Category.Feat)
@@ -61,38 +90,6 @@ internal static class ElAntoniousFeats
                     .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
                     .AddToDB())
             .AddToDB();
-    }
-
-    private static void AfterOnAttackDamage(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        [CanBeNull] RulesetAttackMode attackMode,
-        bool rangedAttack,
-        AdvantageType advantageType,
-        List<EffectForm> actualEffectForms,
-        RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget)
-    {
-        if (rangedAttack || attackMode == null)
-        {
-            return;
-        }
-
-        var condition =
-            attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
-                ? _conditionDualFlurryGrant
-                : _conditionDualFlurryApply;
-
-        var rulesetCondition = RulesetCondition.CreateActiveCondition(
-            attacker.RulesetCharacter.Guid,
-            condition, DurationType.Round, 0,
-            TurnOccurenceType.EndOfTurn,
-            attacker.RulesetCharacter.Guid,
-            attacker.RulesetCharacter.CurrentFaction.Name);
-
-        attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
     }
 
     private static FeatDefinition BuildFeatTorchbearer()
@@ -107,24 +104,22 @@ internal static class ElAntoniousFeats
             }
         };
 
-        var burnDescription = new EffectDescription();
-
-        burnDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
-        burnDescription.SetCreatedByCharacter(true);
-        burnDescription.SetTargetSide(Side.Enemy);
-        burnDescription.SetTargetType(TargetType.Individuals);
-        burnDescription.SetTargetParameter(1);
-        burnDescription.SetRangeType(RangeType.Touch);
-        burnDescription.SetDurationType(DurationType.Round);
-        burnDescription.SetDurationParameter(3);
-        burnDescription.SetCanBePlacedOnCharacter(false);
-        burnDescription.SetHasSavingThrow(true);
-        burnDescription.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
-        burnDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
-        burnDescription.SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency);
-        burnDescription.SetSpeedType(SpeedType.Instant);
-        burnDescription.EffectForms.Clear();
-        burnDescription.EffectForms.Add(burnEffect);
+        var burnDescription = new EffectDescription()
+            .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
+            .SetCreatedByCharacter(true)
+            .SetTargetSide(Side.Enemy)
+            .SetTargetType(TargetType.Individuals)
+            .SetTargetParameter(1)
+            .SetRangeType(RangeType.Touch)
+            .SetDurationType(DurationType.Round)
+            .SetDurationParameter(3)
+            .SetCanBePlacedOnCharacter(false)
+            .SetHasSavingThrow(true)
+            .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
+            .SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity)
+            .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+            .SetSpeedType(SpeedType.Instant)
+            .SetEffectForms(burnEffect);
 
         var powerTorchbearer = FeatureDefinitionPowerBuilder
             .Create("PowerTorchbearer")

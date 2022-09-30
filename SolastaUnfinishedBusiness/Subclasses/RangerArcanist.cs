@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine.AddressableAssets;
@@ -203,16 +202,15 @@ internal sealed class RangerArcanist : AbstractSubclass
         EffectForm damageEffect,
         FeatureDefinitionPower overriddenPower = null)
     {
-        var pulseDescription = new EffectDescription();
-
-        pulseDescription.Copy(MagicMissile.EffectDescription);
-        pulseDescription.SetCreatedByCharacter(true);
-        pulseDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
-        pulseDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
-        pulseDescription.SetTargetParameter(3);
-        pulseDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-        pulseDescription.SetRangeParameter(30);
-        pulseDescription.EffectForms.SetRange(damageEffect, markedEffect);
+        var pulseDescription = new EffectDescription()
+            .Create(MagicMissile.EffectDescription)
+            .SetCreatedByCharacter(true)
+            .SetTargetSide(RuleDefinitions.Side.Enemy)
+            .SetTargetType(RuleDefinitions.TargetType.Sphere)
+            .SetTargetParameter(3)
+            .SetRangeType(RuleDefinitions.RangeType.Distance)
+            .SetRangeParameter(30)
+            .SetEffectForms(damageEffect, markedEffect);
 
         return FeatureDefinitionPowerBuilder
             .Create(name)

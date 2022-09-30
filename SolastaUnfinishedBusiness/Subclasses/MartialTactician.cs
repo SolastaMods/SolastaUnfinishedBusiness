@@ -51,17 +51,16 @@ internal static class TacticianFighterSubclassBuilder
         };
 
         //Add to our new effect
-        var newEffectDescription = new EffectDescription();
-
-        newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
-        newEffectDescription.SetEffectForms(healingEffect);
-        newEffectDescription.SetHasSavingThrow(false);
-        newEffectDescription.SetDurationType(DurationType.Day);
-        newEffectDescription.SetTargetSide(Side.Ally);
-        newEffectDescription.SetTargetType(TargetType.Individuals);
-        newEffectDescription.SetTargetProximityDistance(12);
-        newEffectDescription.SetCanBePlacedOnCharacter(true);
-        newEffectDescription.SetRangeType(RangeType.Distance);
+        var newEffectDescription = new EffectDescription()
+            .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription)
+            .SetEffectForms(healingEffect)
+            .SetHasSavingThrow(false)
+            .SetDurationType(DurationType.Day)
+            .SetTargetSide(Side.Ally)
+            .SetTargetType(TargetType.Individuals)
+            .SetTargetProximityDistance(12)
+            .SetCanBePlacedOnCharacter(true)
+            .SetRangeType(RangeType.Distance);
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
@@ -144,10 +143,9 @@ internal static class TacticianFighterSubclassBuilder
         };
 
         //Add to our new effect
-        var newEffectDescription = new EffectDescription();
-
-        newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
-        newEffectDescription.SetEffectForms(damageEffect);
+        var newEffectDescription = new EffectDescription()
+            .Create(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription)
+            .SetEffectForms(damageEffect);
 
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
