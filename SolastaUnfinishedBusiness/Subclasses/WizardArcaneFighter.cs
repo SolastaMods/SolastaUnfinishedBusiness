@@ -9,14 +9,11 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardArcaneFighter : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal WizardArcaneFighter()
     {
         // Make Melee Wizard subclass
 
-        var weaponProficiency = FeatureDefinitionProficiencyBuilder
+        var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
@@ -25,13 +22,13 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
             .AddToDB();
 
-        var extraAttack = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierArcaneFighterExtraAttack = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierArcaneFighterExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
@@ -39,7 +36,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 AttributeDefinitions.AttacksNumber, 1)
             .AddToDB();
 
-        var bonusSpell = FeatureDefinitionAdditionalActionBuilder
+        var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionArcaneFighter")
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
@@ -48,7 +45,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 
-        var bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageArcaneFighterBonusWeapon")
             .Configure(
                 "AdditionalDamageArcaneFighterBonusWeapon",
@@ -73,22 +70,23 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("WizardArcaneFighter")
             .SetGuiPresentation(Category.Subclass,
                 MartialSpellblade.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, weaponProficiency, concentrationAffinity, enchantWeapon)
-            .AddFeaturesAtLevel(6, extraAttack)
-            .AddFeaturesAtLevel(10, bonusSpell)
-            .AddFeaturesAtLevel(14, bonusWeaponDamage)
+            .AddFeaturesAtLevel(2,
+                proficiencyArcaneFighterSimpleWeapons,
+                magicAffinityArcaneFighterConcentrationAdvantage,
+                enchantWeapon)
+            .AddFeaturesAtLevel(6,
+                attributeModifierArcaneFighterExtraAttack)
+            .AddFeaturesAtLevel(10,
+                additionalActionArcaneFighter)
+            .AddFeaturesAtLevel(14,
+                additionalDamageArcaneFighterBonusWeapon)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
     private static FeatureDefinitionPower BuildEnchantWeapon()
     {

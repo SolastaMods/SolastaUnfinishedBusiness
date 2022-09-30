@@ -15,9 +15,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
     private const string ForestGuardianName = "CircleOfTheForestGuardian";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal CircleOfTheForestGuardian()
     {
         // Create Auto-prepared Spell list
@@ -57,25 +54,24 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(ForestGuardianName)
             .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian)
-            .AddFeaturesAtLevel(2, attributeModifierForestGuardianSylvanDurability)
-            .AddFeaturesAtLevel(2, magicAffinityForestGuardianSylvanWarMagic)
-            .AddFeaturesAtLevel(2, barkWard)
-            .AddFeaturesAtLevel(6, attributeModifierForestGuardianExtraAttack)
-            .AddFeaturesAtLevel(10, improvedBarkWard)
-            .AddFeaturesAtLevel(14, superiorBarkWard)
+            .AddFeaturesAtLevel(2,
+                autoPreparedSpellsForestGuardian,
+                attributeModifierForestGuardianSylvanDurability,
+                magicAffinityForestGuardianSylvanWarMagic,
+                barkWard)
+            .AddFeaturesAtLevel(6,
+                attributeModifierForestGuardianExtraAttack)
+            .AddFeaturesAtLevel(10,
+                improvedBarkWard)
+            .AddFeaturesAtLevel(14,
+                superiorBarkWard)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
 
     // Create Bark Ward Wild Shape Power (and the two higher variants, improved and superior)
     private static (

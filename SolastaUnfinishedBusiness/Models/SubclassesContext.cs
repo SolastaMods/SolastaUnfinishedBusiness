@@ -80,11 +80,11 @@ internal static class SubclassesContext
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
     {
-        var subclass = subclassBuilder.GetSubclass();
+        var subclass = subclassBuilder.Subclass;
 
         if (!Subclasses.Contains(subclass))
         {
-            SubclassesChoiceList.Add(subclass, subclassBuilder.GetSubclassChoiceList());
+            SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
             Subclasses.Add(subclass);
         }
 

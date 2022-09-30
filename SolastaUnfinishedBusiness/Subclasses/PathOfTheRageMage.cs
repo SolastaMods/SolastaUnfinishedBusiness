@@ -18,9 +18,6 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 {
     public const string Name = "PathOfTheRageMage";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal PathOfTheRageMage()
     {
         var magicAffinityPathOfTheRageMage = FeatureDefinitionMagicAffinityBuilder
@@ -181,15 +178,8 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice
-        GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition
-        GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 }

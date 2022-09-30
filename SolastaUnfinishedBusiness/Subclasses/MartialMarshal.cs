@@ -30,9 +30,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialMarshal : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal MartialMarshal()
     {
         Subclass = CharacterSubclassDefinitionBuilder
@@ -40,8 +37,8 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3,
                 MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack(),
-                FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
-                , PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower())
+                FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet(),
+                PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower())
             .AddFeaturesAtLevel(7,
                 EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade())
             .AddFeaturesAtLevel(10,
@@ -50,15 +47,10 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 }
 
 internal static class FeatureSetMarshalKnowYourEnemyBuilder

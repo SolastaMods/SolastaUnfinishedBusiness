@@ -69,9 +69,6 @@ internal sealed class PatronElementalist : AbstractSubclass
         }
     };
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal PatronElementalist()
     {
         var iconRegular = CustomIcons.CreateAssetReferenceSprite(
@@ -189,22 +186,22 @@ internal sealed class PatronElementalist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(1, magicAffinityElementalistExpandedSpells, powerElementalistElementalFormPool)
-            .AddFeaturesAtLevel(6, featureSetElementalistKnowledge)
-            .AddFeaturesAtLevel(10, powerElementalistElementalEnhancedFormPool)
-            .AddFeaturesAtLevel(14, minorElementalBonusCantrip)
+            .AddFeaturesAtLevel(1,
+                magicAffinityElementalistExpandedSpells,
+                powerElementalistElementalFormPool)
+            .AddFeaturesAtLevel(6,
+                featureSetElementalistKnowledge)
+            .AddFeaturesAtLevel(10,
+                powerElementalistElementalEnhancedFormPool)
+            .AddFeaturesAtLevel(14,
+                minorElementalBonusCantrip)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
+        .SubclassChoiceWarlockOtherworldlyPatrons;
 
     private static GuiPresentation GuiPresentation(
         string type,

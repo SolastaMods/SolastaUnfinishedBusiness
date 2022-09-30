@@ -10,9 +10,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronSoulBlade : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal PatronSoulBlade()
     {
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
@@ -128,18 +125,15 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 proficiencySoulBladeWeapon,
                 magicAffinitySoulBladeExpandedSpells,
                 powerSoulBladeEmpowerWeapon)
-            .AddFeaturesAtLevel(6, powerSoulBladeSummonPactWeapon)
-            .AddFeaturesAtLevel(10, powerSoulBladeSoulShield)
+            .AddFeaturesAtLevel(6,
+                powerSoulBladeSummonPactWeapon)
+            .AddFeaturesAtLevel(10,
+                powerSoulBladeSoulShield)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 }

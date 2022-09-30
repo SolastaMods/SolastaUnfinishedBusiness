@@ -22,9 +22,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         WeaponTypeDefinitions.ShortbowType, WeaponTypeDefinitions.LongbowType
     };
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     public WayOfTheDistantHand()
     {
         var zenArrow =
@@ -387,6 +384,30 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    // private class ExtendWeaponRange : IModifyAttackModeForWeapon
+    // {
+    //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    //     {
+    //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
+    //         {
+    //             return;
+    //         }
+    //
+    //         if (!Monk.IsMonkWeapon(character, attackMode))
+    //         {
+    //             return;
+    //         }
+    //
+    //         attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
+    //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
+    //     }
+    // }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
+
     private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
     {
         return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);
@@ -449,35 +470,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
 
         return IsZenArcherWeapon(character, mainHandItem?.ItemDefinition);
-    }
-
-    // private class ExtendWeaponRange : IModifyAttackModeForWeapon
-    // {
-    //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-    //     {
-    //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
-    //         {
-    //             return;
-    //         }
-    //
-    //         if (!Monk.IsMonkWeapon(character, attackMode))
-    //         {
-    //             return;
-    //         }
-    //
-    //         attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
-    //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
-    //     }
-    // }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 
     private sealed class ZenArcherMarker

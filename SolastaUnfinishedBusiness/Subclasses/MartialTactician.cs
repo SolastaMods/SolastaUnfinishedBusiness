@@ -12,22 +12,6 @@ internal sealed class MartialTactician : AbstractSubclass
 {
     internal const string CounterStrikeTag = "CounterStrike";
 
-    // ReSharper disable once InconsistentNaming
-    private CharacterSubclassDefinition Subclass;
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass ??= TacticianFighterSubclassBuilder.BuildAndAddSubclass();
-    }
-}
-
-internal static class TacticianFighterSubclassBuilder
-{
     private static readonly FeatureDefinitionPower PowerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
         .Create("PowerPoolTacticianGambit")
         .Configure(
@@ -37,6 +21,34 @@ internal static class TacticianFighterSubclassBuilder
             RechargeRate.ShortRest)
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
+
+    internal MartialTactician()
+    {
+        var powerPoolTacticianGambitAdd = BuildPowerPoolTacticianGambitAdd();
+
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("MartialTactician")
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(3,
+                PowerPoolTacticianGambit,
+                BuildPowerSharedPoolTacticianKnockDown(),
+                BuildPowerSharedPoolTacticianInspire(),
+                BuildPowerSharedPoolTacticianCounterStrike())
+            .AddFeaturesAtLevel(7,
+                FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete)
+            .AddFeaturesAtLevel(10,
+                powerPoolTacticianGambitAdd)
+            .AddFeaturesAtLevel(15,
+                powerPoolTacticianGambitAdd)
+            .AddFeaturesAtLevel(18,
+                powerPoolTacticianGambitAdd)
+            .AddToDB();
+    }
+
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
     private static FeatureDefinitionPowerSharedPool BuildPowerSharedPoolTacticianInspire()
     {
@@ -176,24 +188,6 @@ internal static class TacticianFighterSubclassBuilder
                 UsesDetermination.Fixed,
                 AttributeDefinitions.Dexterity,
                 PowerPoolTacticianGambit)
-            .AddToDB();
-    }
-
-    internal static CharacterSubclassDefinition BuildAndAddSubclass()
-    {
-        var powerPoolTacticianGambitAdd = BuildPowerPoolTacticianGambitAdd();
-
-        return CharacterSubclassDefinitionBuilder
-            .Create("MartialTactician")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, PowerPoolTacticianGambit)
-            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianKnockDown())
-            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianInspire())
-            .AddFeaturesAtLevel(3, BuildPowerSharedPoolTacticianCounterStrike())
-            .AddFeaturesAtLevel(7, FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete)
-            .AddFeaturesAtLevel(10, powerPoolTacticianGambitAdd)
-            .AddFeaturesAtLevel(15, powerPoolTacticianGambitAdd)
-            .AddFeaturesAtLevel(18, powerPoolTacticianGambitAdd)
             .AddToDB();
     }
 }

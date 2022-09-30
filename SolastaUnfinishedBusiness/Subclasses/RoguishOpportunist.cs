@@ -9,9 +9,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishOpportunist : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal RoguishOpportunist()
     {
         // Grant advantage when attack enemies whose initiative is lower than your
@@ -83,11 +80,18 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, onComputeAttackModifierOpportunistQuickStrike)
-            .AddFeaturesAtLevel(9, powerOpportunistDebilitatingStrike)
+            .AddFeaturesAtLevel(3,
+                onComputeAttackModifierOpportunistQuickStrike)
+            .AddFeaturesAtLevel(9,
+                powerOpportunistDebilitatingStrike)
             //.AddFeaturesAtLevel( 13, thugOvercomeCompetition)
             .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
     private static void QuickStrikeOnComputeAttackModifier(
         RulesetCharacter myself,
@@ -112,15 +116,5 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
             RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 }

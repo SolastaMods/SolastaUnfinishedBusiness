@@ -8,8 +8,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronRiftWalker : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
     internal PatronRiftWalker()
     {
@@ -136,8 +135,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripRiftWalkWardingBond")
             .SetGuiPresentation(Category.Feature)
-            .ClearBonusCantrips()
-            .AddBonusCantrip(SpellDefinitionBuilder
+            .SetBonusCantrips(SpellDefinitionBuilder
                 .Create(WardingBond, "WardingBondAtWill")
                 .SetSpellLevel(0)
                 .AddToDB())
@@ -162,14 +160,6 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 }
 #endif

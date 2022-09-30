@@ -18,9 +18,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronAncientForest : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal PatronAncientForest()
     {
         var spellListAncientForest = SpellListDefinitionBuilder
@@ -274,6 +271,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
+        .SubclassChoiceWarlockOtherworldlyPatrons;
+
     private static FeatureDefinitionPower BuildHerbalBrew(
         FeatureDefinitionPower pool,
         string type,
@@ -434,15 +436,5 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 brewEffect,
                 false)
             .AddToDB();
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 }

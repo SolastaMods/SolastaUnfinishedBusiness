@@ -18,6 +18,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardDeadMaster : AbstractSubclass
 {
+    private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadSpellPrefix = "CreateDead";
     private const string AttackModifierDeadMasterUndeadChainsPrefix = "AttackModifierDeadMasterUndeadChains";
 
@@ -86,21 +87,26 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardDeadMaster")
+            .Create(WizardDeadMasterName)
             .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2,
-                autoPreparedSpellsDeadMaster
-                , onCharacterKillDeadMasterStarkHarvest)
-            .AddFeaturesAtLevel(6, onCharacterKillDeadMasterUndeadChains)
-            .AddFeaturesAtLevel(10, damageAffinityDeadMasterHardenToNecrotic)
-            .AddFeaturesAtLevel(14, powerDeadMasterCommandUndead)
+                autoPreparedSpellsDeadMaster,
+                onCharacterKillDeadMasterStarkHarvest)
+            .AddFeaturesAtLevel(6,
+                onCharacterKillDeadMasterUndeadChains)
+            .AddFeaturesAtLevel(10,
+                damageAffinityDeadMasterHardenToNecrotic)
+            .AddFeaturesAtLevel(14
+                , powerDeadMasterCommandUndead)
             .AddToDB();
 
         EnableCommandAllUndead();
     }
 
-    // ReSharper disable once InconsistentNaming
-    private static CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
     private static void EnableCommandAllUndead()
     {
@@ -126,7 +132,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         if (caster == null
             || !caster.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Wizard, out var subclassDefinition)
-            || subclassDefinition != Subclass)
+            || subclassDefinition.Name != WizardDeadMasterName)
         {
             return;
         }
@@ -254,15 +260,5 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         return result;
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 }

@@ -201,21 +201,26 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 proficiencyBladeDancerLightArmor,
                 proficiencyBladeDancerMartialWeapon,
                 featureSetBladeDancerBladeDance)
-            .AddFeaturesAtLevel(6, replaceAttackWithCantripBladeDancer)
-            .AddFeaturesAtLevel(6, FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
-            .AddFeaturesAtLevel(10, featureSetBladeDancerDanceOfDefense)
-            .AddFeaturesAtLevel(14, featureSetBladeDancerDanceOfVictory)
+            .AddFeaturesAtLevel(6,
+                replaceAttackWithCantripBladeDancer,
+                FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
+            .AddFeaturesAtLevel(10,
+                featureSetBladeDancerDanceOfDefense)
+            .AddFeaturesAtLevel(14,
+                featureSetBladeDancerDanceOfVictory)
             .AddToDB();
     }
 
-    // ReSharper disable once InconsistentNaming
-    private static CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
     private static ConditionDefinition ConditionBladeDancerBladeDance { get; set; }
 
     private static ConditionDefinition ConditionBladeDancerDanceOfDefense { get; set; }
 
     private static ConditionDefinition ConditionBladeDancerDanceOfVictory { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
     private static bool IsBladeDanceValid(RulesetCharacter hero)
     {
@@ -249,15 +254,5 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
                 new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
         }
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 }

@@ -10,9 +10,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 {
     internal const string PowerSpellMasterBonusRecoveryName = "PowerSpellMasterBonusRecovery";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal WizardSpellMaster()
     {
         var magicAffinitySpellMasterPrepared = FeatureDefinitionMagicAffinityBuilder
@@ -109,23 +106,22 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Create("WizardSpellMaster")
             .SetGuiPresentation(Category.Subclass,
                 DomainInsight.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, magicAffinitySpellMasterPrepared)
-            .AddFeaturesAtLevel(2, magicAffinitySpellMasterKnowledge)
-            .AddFeaturesAtLevel(2, magicAffinitySpellMasterRecovery)
-            .AddFeaturesAtLevel(6, magicAffinitySpellMasterScriber)
-            .AddFeaturesAtLevel(6, pointPoolSpellMasterBonusCantrips)
-            .AddFeaturesAtLevel(10, magicAffinitySpellMasterExtraPrepared)
-            .AddFeaturesAtLevel(14, savingThrowAffinitySpellMasterSpellResistance)
+            .AddFeaturesAtLevel(2,
+                magicAffinitySpellMasterPrepared,
+                magicAffinitySpellMasterKnowledge,
+                magicAffinitySpellMasterRecovery)
+            .AddFeaturesAtLevel(6,
+                magicAffinitySpellMasterScriber,
+                pointPoolSpellMasterBonusCantrips)
+            .AddFeaturesAtLevel(10,
+                magicAffinitySpellMasterExtraPrepared)
+            .AddFeaturesAtLevel(14,
+                savingThrowAffinitySpellMasterSpellResistance)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 }

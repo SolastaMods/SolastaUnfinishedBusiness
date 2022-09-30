@@ -10,9 +10,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
 {
     internal const string Name = "RoguishConArtist";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal RoguishConArtist()
     {
         // Make Con Artist subclass
@@ -40,7 +37,8 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetReplacedSpells(4, 1)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .AddToDB();
 
         var feintBuilder = EffectDescriptionBuilder
             .Create()
@@ -96,21 +94,20 @@ internal sealed class RoguishConArtist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, abilityCheckAffinityConArtist)
-            .AddFeaturesAtLevel(3, castSpellConArtist.AddToDB())
-            .AddFeaturesAtLevel(9, powerConArtistFeint)
-            .AddFeaturesAtLevel(13, magicAffinityConArtistDc)
-            .AddFeaturesAtLevel(17, proficiencyConArtistMentalSavingThrows)
+            .AddFeaturesAtLevel(3,
+                abilityCheckAffinityConArtist,
+                castSpellConArtist)
+            .AddFeaturesAtLevel(9,
+                powerConArtistFeint)
+            .AddFeaturesAtLevel(13,
+                magicAffinityConArtistDc)
+            .AddFeaturesAtLevel(17,
+                proficiencyConArtistMentalSavingThrows)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 }

@@ -13,9 +13,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
 {
     public const string Name = "MartialSpellShield";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal MartialSpellShield()
     {
         var magicAffinitySpellShieldConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
@@ -39,7 +36,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetReplacedSpells(4, 1)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster);
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .AddToDB();
 
         var conditionSpellShieldWarMagic = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldWarMagic")
@@ -136,25 +134,25 @@ internal sealed class MartialSpellShield : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, magicAffinitySpellShieldConcentrationAdvantage)
-            .AddFeaturesAtLevel(3, castSpellSpellShield.AddToDB())
-            .AddFeaturesAtLevel(7, powerSpellShieldWarMagic)
-            .AddFeaturesAtLevel(7, replaceAttackWithCantripSpellShield)
-            .AddFeaturesAtLevel(10, magicAffinitySpellShieldConcentrationAdvantageVigor)
-            .AddFeaturesAtLevel(15, powerSpellShieldArcaneDeflection)
-            .AddFeaturesAtLevel(18, actionAffinitySpellShieldRangedDefense)
+            .AddFeaturesAtLevel(3,
+                magicAffinitySpellShieldConcentrationAdvantage,
+                castSpellSpellShield)
+            .AddFeaturesAtLevel(7,
+                powerSpellShieldWarMagic,
+                replaceAttackWithCantripSpellShield)
+            .AddFeaturesAtLevel(10,
+                magicAffinitySpellShieldConcentrationAdvantageVigor)
+            .AddFeaturesAtLevel(15,
+                powerSpellShieldArcaneDeflection)
+            .AddFeaturesAtLevel(18,
+                actionAffinitySpellShieldRangedDefense)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
     private static int CalculateModifier([NotNull] RulesetCharacter myself)
     {

@@ -20,9 +20,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronMoonlit : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal PatronMoonlit()
     {
         var spellListMoonlit = SpellListDefinitionBuilder
@@ -246,15 +243,10 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
+        .SubclassChoiceWarlockOtherworldlyPatrons;
 }
 
 internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,

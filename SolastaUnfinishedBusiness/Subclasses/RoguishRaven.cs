@@ -65,16 +65,19 @@ internal sealed class RoguishRaven : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, featureSetRavenSharpShooter)
-            .AddFeaturesAtLevel(3, BuildHeartSeekingShot())
+            .AddFeaturesAtLevel(3,
+                featureSetRavenSharpShooter,
+                BuildHeartSeekingShot())
             .AddFeaturesAtLevel(9,
-                additionalActionRavenKillingSpree
-                , dieRollModifierRavenPainMaker)
+                additionalActionRavenKillingSpree,
+                dieRollModifierRavenPainMaker)
             .AddToDB();
     }
 
-    // ReSharper disable once InconsistentNaming
-    private static CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
@@ -210,16 +213,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .AddFeatureSet(powerRavenHeartSeekingShot, powerRavenTurnOffHeartSeekingShot)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 
     // marker to reroll any damage die including sneak attack

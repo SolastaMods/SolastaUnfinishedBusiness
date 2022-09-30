@@ -191,26 +191,23 @@ internal sealed class PathOfTheLight : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
             .SetGuiPresentation(Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(3, featureSetPathOfTheLightIlluminatingStrike)
-            .AddFeaturesAtLevel(3, featureSetPathOfTheLightPierceTheDarkness)
-            .AddFeaturesAtLevel(6, lightsProtection)
-            .AddFeaturesAtLevel(10, BuildEyesOfTruth())
-            .AddFeaturesAtLevel(10, pathOfTheLightIlluminatingStrikeImprovement)
-            .AddFeaturesAtLevel(14, featureSetPathOfTheLightIlluminatingBurst)
+            .AddFeaturesAtLevel(3,
+                featureSetPathOfTheLightIlluminatingStrike,
+                featureSetPathOfTheLightPierceTheDarkness)
+            .AddFeaturesAtLevel(6,
+                lightsProtection)
+            .AddFeaturesAtLevel(10,
+                BuildEyesOfTruth(),
+                pathOfTheLightIlluminatingStrikeImprovement)
+            .AddFeaturesAtLevel(14,
+                featureSetPathOfTheLightIlluminatingBurst)
             .AddToDB();
     }
 
-    private CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
     private static FeatureDefinition BuildEyesOfTruth()
     {

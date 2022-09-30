@@ -8,9 +8,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardMasterManipulator : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal WizardMasterManipulator()
     {
         // Make Control Master subclass
@@ -68,20 +65,19 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardMasterManipulator")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2, magicAffinityMasterManipulatorControlHeightened)
-            .AddFeaturesAtLevel(6, magicAffinityMasterManipulatorDc)
-            .AddFeaturesAtLevel(10, proficiencyMasterManipulatorMentalSavingThrows)
-            .AddFeaturesAtLevel(14, powerMasterManipulatorDominatePerson)
+            .AddFeaturesAtLevel(2,
+                magicAffinityMasterManipulatorControlHeightened)
+            .AddFeaturesAtLevel(6,
+                magicAffinityMasterManipulatorDc)
+            .AddFeaturesAtLevel(10,
+                proficiencyMasterManipulatorMentalSavingThrows)
+            .AddFeaturesAtLevel(14,
+                powerMasterManipulatorDominatePerson)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 }

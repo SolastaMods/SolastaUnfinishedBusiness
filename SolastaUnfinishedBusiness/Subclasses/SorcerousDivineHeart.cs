@@ -10,9 +10,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class SorcerousDivineHeart : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal SorcerousDivineHeart()
     {
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
@@ -132,22 +129,21 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("SorcerousDivineHeart")
             .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(1, featureSetDivineHeartDeityChoice)
-            .AddFeaturesAtLevel(1, attributeModifierDivineHeartDivineFortitude)
-            .AddFeaturesAtLevel(1, magicAffinityDivineHeartClericSpellsList)
-            .AddFeaturesAtLevel(6, powerDivineHeartEmpoweredHealing)
-            .AddFeaturesAtLevel(14, powerDivineHeartPlanarPortal)
-            .AddFeaturesAtLevel(18, powerDivineHeartDivineRecovery)
+            .AddFeaturesAtLevel(1,
+                featureSetDivineHeartDeityChoice,
+                attributeModifierDivineHeartDivineFortitude,
+                magicAffinityDivineHeartClericSpellsList)
+            .AddFeaturesAtLevel(6,
+                powerDivineHeartEmpoweredHealing)
+            .AddFeaturesAtLevel(14,
+                powerDivineHeartPlanarPortal)
+            .AddFeaturesAtLevel(18,
+                powerDivineHeartDivineRecovery)
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
 }

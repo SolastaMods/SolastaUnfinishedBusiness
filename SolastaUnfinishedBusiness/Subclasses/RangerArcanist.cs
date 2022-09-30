@@ -17,9 +17,6 @@ internal sealed class RangerArcanist : AbstractSubclass
 {
     private const string ArcanistMarkTag = "ArcanistMark";
 
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal RangerArcanist()
     {
         var conditionMarkedByArcanist = ConditionDefinitionBuilder
@@ -190,11 +187,19 @@ internal sealed class RangerArcanist : AbstractSubclass
                 magicAffinityRangerArcanist,
                 additionalDamageArcanistMark,
                 additionalDamageArcanistArcaneDetonation)
-            .AddFeaturesAtLevel(7, powerArcanistArcanePulse)
-            .AddFeaturesAtLevel(11, additionalDamageArcanistArcaneDetonationUpgrade)
-            .AddFeaturesAtLevel(15, powerArcanistArcanePulseUpgrade)
+            .AddFeaturesAtLevel(7,
+                powerArcanistArcanePulse)
+            .AddFeaturesAtLevel(11,
+                additionalDamageArcanistArcaneDetonationUpgrade)
+            .AddFeaturesAtLevel(15,
+                powerArcanistArcanePulseUpgrade)
             .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; set; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
     private static FeatureDefinitionPower CreatePowerArcanistArcanePulse(
         string name,
@@ -225,15 +230,5 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
-    }
-
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
     }
 }

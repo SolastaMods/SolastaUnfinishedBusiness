@@ -8,9 +8,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardLifeTransmuter : AbstractSubclass
 {
-    // ReSharper disable once InconsistentNaming
-    private readonly CharacterSubclassDefinition Subclass;
-
     internal WizardLifeTransmuter()
     {
         var magicAffinityLifeTransmuterHeightened = FeatureDefinitionMagicAffinityBuilder
@@ -224,15 +221,10 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
+    internal override CharacterSubclassDefinition Subclass { get; set; }
 
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
     private static ConditionDefinitionBuilder BuildCondition(RuleDefinitions.DurationType durationType,
         int durationParameter,
