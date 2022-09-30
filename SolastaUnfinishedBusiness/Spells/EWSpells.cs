@@ -21,6 +21,7 @@ internal static class EwSpells
 {
     internal static void Register()
     {
+        // cantrips
         RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
             InventorClass.SpellList);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,

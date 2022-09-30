@@ -14,10 +14,10 @@ public static class SgSpells
 {
     internal static void Register()
     {
-        //cantrip
+        // cantrips
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
 
-        //level 1
+        // 1st level
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
     }

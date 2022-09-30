@@ -16,6 +16,12 @@ internal static class BazouSpells
 {
     internal static void Register()
     {
+        // cantrips
+        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
+
+        // 1st level
+        RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
+        
         // Condition/&ConditionFrenziedDescription=This creature is frenzied and will attack the closest creature.
         // Condition/&ConditionFrenziedTitle=Frenzied
         // Spell/&EldritchOrbDescription=You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
@@ -28,9 +34,7 @@ internal static class BazouSpells
         // Spell/&ProtectThresholdTitle=Protect Threshold
 
         // RegisterSpell(BuildEldritchOrb(), 0, SpellListWarlock);
-        RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
         // RegisterSpell(BuildFrenzy(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
         // RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         // RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
     }

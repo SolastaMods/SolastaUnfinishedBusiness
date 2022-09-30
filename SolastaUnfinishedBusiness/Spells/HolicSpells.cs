@@ -17,10 +17,13 @@ internal static class HolicSpells
 {
     internal static void Register()
     {
+        // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        
+        // 3rd level
         RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
             SpellListDruid);
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
