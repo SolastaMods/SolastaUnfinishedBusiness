@@ -198,8 +198,7 @@ public static class LevelUpContext
                && levelUpData.RequiresDeity;
     }
 
-    // also referenced by 4 transpiler in PatchingContext (KEEP PUBLIC)
-    public static int GetSelectedClassLevel([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetSelectedClassLevel([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);
 
@@ -361,9 +360,9 @@ public static class LevelUpContext
         var thisClassCastingFeatures = rulesetCharacterHero.ActiveFeatures
             .Where(x => x.Key.Contains(selectedClassName))
             .SelectMany(x => x.Value);
-
         var classCastingFeatures =
             thisClassCastingFeatures as FeatureDefinition[] ?? thisClassCastingFeatures.ToArray();
+        
         levelUpData.AllowedSpells = CacheAllowedSpells(classCastingFeatures);
         levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(classCastingFeatures);
         levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);

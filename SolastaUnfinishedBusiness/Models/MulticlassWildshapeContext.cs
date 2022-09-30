@@ -54,7 +54,7 @@ internal static class MulticlassWildshapeContext
             mod.ApplyModifiers(monster.Attributes, TagWildShape);
         }
 
-        //TA copies only base values of hero, let's copy current value to not tackle modifiers
+        // TA copies only base values of hero, let's copy current value to not tackle modifiers
         if (keepMentalAbilityScores)
         {
             foreach (var attribute in MentalAttributes)
@@ -93,6 +93,7 @@ internal static class MulticlassWildshapeContext
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
             10, TagMonsterBase
         );
+        
         ac.AddModifier(mod);
 
         //natural armor of the monster
@@ -100,6 +101,7 @@ internal static class MulticlassWildshapeContext
             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
             monster.MonsterDefinition.ArmorClass, TagNaturalAc
         );
+        
         mod.tags.Add(ExclusiveAcBonus.TagNaturalArmor);
         ac.AddModifier(mod);
 
@@ -110,13 +112,16 @@ internal static class MulticlassWildshapeContext
             AttributeDefinitions.TagAbilityScore,
             AttributeDefinitions.Dexterity
         );
+        
         ac.AddModifier(mod);
     }
 
     public static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+        
         ac.RemoveModifiersByTags(TagWildShape);
+        
         monster.FeaturesToBrowse.Clear();
         monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
         monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,

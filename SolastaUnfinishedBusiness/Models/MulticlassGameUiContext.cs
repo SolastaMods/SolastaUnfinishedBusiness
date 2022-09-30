@@ -28,16 +28,15 @@ public static class MulticlassGameUiContext
         }
 
         var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-        var stagePanelPrefabs =
-            characterCreationScreen.stagePanelPrefabs;
+        var stagePanelPrefabs = characterCreationScreen.stagePanelPrefabs;
         var classSelectionPanel = Gui
             .GetPrefabFromPool(stagePanelPrefabs[1], characterEditionScreen.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
         var deitySelectionPanel = Gui
             .GetPrefabFromPool(stagePanelPrefabs[2], characterEditionScreen.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
-        var newLevelUpSequence =
-            new Dictionary<string, CharacterStagePanel> { { "ClassSelection", classSelectionPanel } };
+        var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
+            { { "ClassSelection", classSelectionPanel } };
 
         foreach (var stagePanel in characterEditionScreen.stagePanelsByName)
         {

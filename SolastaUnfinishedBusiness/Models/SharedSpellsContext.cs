@@ -260,7 +260,6 @@ public static class SharedSpellsContext
             typeof(GuiCharacter).GetMethod("DisplayUniqueLevelSpellSlots"),
             typeof(ItemMenuModal).GetMethod("SetupFromItem"),
             typeof(RulesetCharacter).GetMethod("EnumerateUsableSpells", PrivateBinding),
-            // we also have a custom bool Prefix for this one
             typeof(RulesetCharacterHero).GetMethod("EnumerateUsableRitualSpells"),
             typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell")
         };

@@ -17,7 +17,7 @@ public static class PickPocketContext
 
     internal static void CreateFeats([NotNull] ICollection<FeatDefinition> feats)
     {
-        var pickpocketCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
+        var abilityCheckAffinityFeatPickPocket = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
                 "AbilityCheckAffinityFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
@@ -30,26 +30,26 @@ public static class PickPocketContext
             affinity = CharacterAbilityCheckAffinity.Advantage
         };
 
-        pickpocketCheckAffinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
+        abilityCheckAffinityFeatPickPocket.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
-        var pickpocketProficiency = FeatureDefinitionProficiencyBuilder
+        var proficiencyFeatPickPocket = FeatureDefinitionProficiencyBuilder
             .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
             .AddToDB();
 
-        pickpocketProficiency.proficiencyType = ProficiencyType.SkillOrExpertise;
-        pickpocketProficiency.Proficiencies.Clear();
-        pickpocketProficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
+        proficiencyFeatPickPocket.proficiencyType = ProficiencyType.SkillOrExpertise;
+        proficiencyFeatPickPocket.Proficiencies.Clear();
+        proficiencyFeatPickPocket.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
-        var pickPocketFeat = FeatDefinitionBuilder
+        var featPickPocket = FeatDefinitionBuilder
             .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket")
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
-        pickPocketFeat.Features.SetRange(pickpocketCheckAffinity, pickpocketProficiency);
+        featPickPocket.Features.SetRange(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket);
 
-        feats.Add(pickPocketFeat);
+        feats.Add(featPickPocket);
     }
 
     internal static void Load()

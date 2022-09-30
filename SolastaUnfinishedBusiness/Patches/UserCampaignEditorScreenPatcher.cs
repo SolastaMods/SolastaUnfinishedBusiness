@@ -31,7 +31,7 @@ internal static class UserCampaignEditorScreenPatcher
         }
     }
 
-//PATCH: Allows Campaigns to be created with max level 20 requirement (DMP)
+    //PATCH: Allows Campaigns to be created with max level 20 requirement (DMP)
     [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnMaxLevelEndEdit_Patch

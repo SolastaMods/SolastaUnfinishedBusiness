@@ -16,6 +16,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomWeaponsContext
 {
+    internal const string CeHandXbowType = "CEHandXbowType";
     private const string PolearmWeaponTag = "PolearmWeapon";
     public static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
@@ -455,7 +456,7 @@ public static class CustomWeaponsContext
     {
         var scale = new CustomScale(0.5f);
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType")
+            .Create(WeaponTypeDefinitions.LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")

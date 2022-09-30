@@ -44,11 +44,7 @@ internal static class Level20Context
         }
 
         code
-            .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameFinalMaxLevel)
-            .ForEach(x => x.operand = ModMaxLevel);
-
-        code
-            .FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GameMaxLevel)
+            .FindAll(x => x.opcode.Name == "ldc.i4.s" && (Convert.ToInt32(x.operand) == GameFinalMaxLevel || Convert.ToInt32(x.operand) == GameMaxLevel))
             .ForEach(x => x.operand = ModMaxLevel);
 
         return code;

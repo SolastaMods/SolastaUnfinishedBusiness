@@ -630,7 +630,7 @@ internal static class ArmorClassStacking
 
         //setup for getting top formula of each type
         var topFormulas = new List<(float, RulesetAttributeModifier, string)>();
-        var DEX = AttributeDefinitions.ComputeAbilityScoreModifier(
+        var dexterity = AttributeDefinitions.ComputeAbilityScoreModifier(
             character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
         void TryAddFormula(List<RulesetAttributeModifier> mods, float baseStat, string tag)
@@ -645,9 +645,9 @@ internal static class ArmorClassStacking
         }
 
         //get top formula of each type
-        TryAddFormula(armor, DEX, ExclusiveAcBonus.TagLikeArmor);
+        TryAddFormula(armor, dexterity, ExclusiveAcBonus.TagLikeArmor);
         TryAddFormula(natural, 0, ExclusiveAcBonus.TagNaturalArmor);
-        TryAddFormula(unarmored, 10 + DEX, ExclusiveAcBonus.TagUnarmoredDefense);
+        TryAddFormula(unarmored, 10 + dexterity, ExclusiveAcBonus.TagUnarmoredDefense);
 
         //remove all modifiers corresponding to formulas
         modifiers.RemoveAll(m => armor.Contains(m));
@@ -682,7 +682,7 @@ internal static class ArmorClassStacking
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 
-    public static IEnumerable<CodeInstruction> AddACTrendsToMonsterACRefreshTranspiler(
+    public static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefreshTranspiler(
         IEnumerable<CodeInstruction> instructions)
     {
         var sort = new Action<
@@ -692,7 +692,7 @@ internal static class ArmorClassStacking
         var unstack = new Action<
             List<RulesetAttributeModifier>,
             RulesetCharacterMonster
-        >(ProcessWildShapeAC).Method;
+        >(ProcessWildShapeAc).Method;
 
         foreach (var instruction in instructions)
         {
@@ -708,7 +708,7 @@ internal static class ArmorClassStacking
         }
     }
 
-    private static void ProcessWildShapeAC(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
+    private static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
     {
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 

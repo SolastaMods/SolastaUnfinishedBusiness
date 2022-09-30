@@ -100,7 +100,7 @@ internal static class FightingStyleContext
                     if (rulesetInventorySlot.EquipedItem != null
                         && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
                         && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
-                        "CEHandXbowType")
+                        CustomWeaponsContext.CeHandXbowType)
                     {
                         isActive = true;
                     }

@@ -79,7 +79,6 @@ internal static class ItemCraftingMerchantContext
         valleyNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Valley";
     }
 
-
     internal static void SwitchSetBeltOfDwarvenKindBeardChances()
     {
         CharacterPresentationBeltOfDwarvenKind.occurencePercentage =
@@ -186,7 +185,6 @@ internal static class ItemCraftingMerchantContext
             stock.reassortAmount = 1;
         }
     }
-
 
     private static void LoadRemoveIdentification()
     {
