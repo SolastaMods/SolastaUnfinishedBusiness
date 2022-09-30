@@ -192,12 +192,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda",
+      "featureDefinition": "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
+      "featureDefinition": "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda",
       "level": 2
     },
     {
@@ -222,12 +222,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
       "level": 6
     },
     {
@@ -252,12 +252,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
       "level": 10
     },
     {
@@ -282,12 +282,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
       "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
       "level": 14
     },
     {
@@ -312,12 +312,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
       "level": 18
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
       "level": 18
     },
     {

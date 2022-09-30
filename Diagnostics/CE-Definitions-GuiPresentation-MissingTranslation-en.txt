@@ -1,6 +1,2 @@
-InvocationPoolInfusionLearn2	Title='Feature/&InvocationPoolInfusionLearn2Title'.
-InvocationPoolInfusionLearn2	Description='Feature/&InvocationPoolInfusionLearn2Description'.
-InvocationPoolInfusionLearn4	Title='Feature/&InvocationPoolInfusionLearn4Title'.
-InvocationPoolInfusionLearn4	Description='Feature/&InvocationPoolInfusionLearn4Description'.
 TestInvocationPoolReplace	Title='Feature/&TestInvocationPoolReplaceTitle'.
 TestInvocationPoolReplace	Description='Feature/&TestInvocationPoolReplaceDescription'.
