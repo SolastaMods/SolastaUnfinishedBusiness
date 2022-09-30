@@ -17,7 +17,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
     public const string Name = "PathOfTheRageMage";
-    
+
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
@@ -32,9 +32,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 SpellParamsModifierType.None,
                 0,
                 SpellParamsModifierType.FlatValue,
-                true,
-                false,
-                false)
+                true)
             .AddToDB();
 
         var castSpellPathOfTheRageMage = FeatureDefinitionCastSpellBuilder

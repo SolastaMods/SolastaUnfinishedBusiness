@@ -34,11 +34,12 @@ public static class EwFeats
 
     private static FeatDefinition BuildSentinel()
     {
-        var restrained = ConditionDefinitions.ConditionRestrained;
+        var conditionRestrained = ConditionDefinitions.ConditionRestrained;
 
-        var stopMovementCondition = ConditionDefinitionBuilder
+        var conditionSentinelStopMovement = ConditionDefinitionBuilder
             .Create("ConditionSentinelStopMovement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, restrained.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+                conditionRestrained.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
@@ -73,7 +74,7 @@ public static class EwFeats
 
                     character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
                         RulesetCondition.CreateActiveCondition(character.Guid,
-                            stopMovementCondition,
+                            conditionSentinelStopMovement,
                             DurationType.Round,
                             1,
                             TurnOccurenceType.StartOfTurn,
@@ -143,7 +144,7 @@ public static class EwFeats
             "Tooltip/&PowerAttackConcentration", CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
                 Resources.PowerAttackConcentrationIcon, 64, 64));
 
-        var triggerCondition = ConditionDefinitionBuilder
+        var conditionPowerAttackTrigger = ConditionDefinitionBuilder
             .Create("ConditionPowerAttackTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -155,7 +156,7 @@ public static class EwFeats
                 .AddToDB())
             .AddToDB();
 
-        var powerAttackCondition = ConditionDefinitionBuilder
+        var conditionPowerAttack = ConditionDefinitionBuilder
             .Create("ConditionPowerAttack")
             .SetGuiPresentation("PowerAttack", Category.Feature,
                 ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
@@ -170,7 +171,7 @@ public static class EwFeats
             .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
-        var powerAttackPower = FeatureDefinitionPowerBuilder
+        var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
@@ -184,17 +185,17 @@ public static class EwFeats
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerAttackPower);
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerAttack);
 
-        var powerTurnOffPowerAttackPower = FeatureDefinitionPowerBuilder
+        var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffPowerAttack")
             .SetGuiPresentationNoContent(true)
             .SetActivationTime(ActivationTime.NoCost)
@@ -207,24 +208,24 @@ public static class EwFeats
                 .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
                     new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                         .Build()
                 )
                 .Build())
             .AddToDB();
 
-        PowersContext.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttackPower);
-        concentrationProvider.StopPower = powerTurnOffPowerAttackPower;
+        PowersContext.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
+        concentrationProvider.StopPower = powerTurnOffPowerAttack;
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                powerAttackPower,
-                powerTurnOffPowerAttackPower
+                powerAttack,
+                powerTurnOffPowerAttack
             )
             .AddToDB();
     }
@@ -238,7 +239,7 @@ public static class EwFeats
                     .Create(MagicAffinityWarcaster)
                     .SetGuiPresentation(WarcasterFeat, Category.Feat)
                     .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
-                        SpellParamsModifierType.None, false, false, false)
+                        SpellParamsModifierType.None)
                     .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())

@@ -202,7 +202,7 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
-    
+
     #region Expertise preference
 
     public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)

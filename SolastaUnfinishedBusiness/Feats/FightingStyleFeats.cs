@@ -11,13 +11,13 @@ internal static class FightingStyleFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
-        var styles = DatabaseRepository
+        var fightingStyles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Select(BuildFightingStyleFeat)
             .ToList();
 
-        GroupFeats.MakeGroup("FeatGroupFightingStyle", null, styles);
-        feats.AddRange(styles);
+        GroupFeats.MakeGroup("FeatGroupFightingStyle", null, fightingStyles);
+        feats.AddRange(fightingStyles);
     }
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)

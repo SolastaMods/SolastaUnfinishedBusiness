@@ -38,11 +38,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .SetCastingModifiers(
                 0,
                 RuleDefinitions.SpellParamsModifierType.None,
-                2, // Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc,
-                RuleDefinitions.SpellParamsModifierType.FlatValue,
-                false,
-                false,
-                false)
+                2)
             .AddToDB();
 
         var proficiencyMasterManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder

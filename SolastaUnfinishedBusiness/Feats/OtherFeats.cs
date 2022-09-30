@@ -11,23 +11,24 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    private const string FeatSavageAttackerName = "FeatSavageAttacker";
     internal const string FeatShieldExpertName = "FeatShieldExpert";
 
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
         // Savage Attacker
-        var savageAttacker = FeatDefinitionBuilder
-            .Create("FeatSavageAttacker")
+        var featSavageAttacker = FeatDefinitionBuilder
+            .Create(FeatSavageAttackerName)
             .SetFeatures(
-                BuildDieRollModifier("DieRollModifierFeatSavageAttacker",
+                BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageAttacker",
                     AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */),
-                BuildDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
+                BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
                     MagicDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */))
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // Improved Critical
-        var improvedCritical = FeatDefinitionBuilder
+        var featImprovedCritical = FeatDefinitionBuilder
             .Create("FeatImprovedCritical")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -39,7 +40,7 @@ internal static class OtherFeats
             .AddToDB();
 
         // Tough
-        var tough = FeatDefinitionBuilder
+        var featTough = FeatDefinitionBuilder
             .Create("FeatTough")
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -51,7 +52,7 @@ internal static class OtherFeats
             .AddToDB();
 
         // Shield Expert
-        var shieldExpert = FeatDefinitionBuilder
+        var featShieldExpert = FeatDefinitionBuilder
             .Create(FeatShieldExpertName)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
@@ -83,16 +84,16 @@ internal static class OtherFeats
             .SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.ShieldCategory)
             .AddToDB();
 
-        feats.AddRange(savageAttacker, tough, improvedCritical, shieldExpert);
+        feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featShieldExpert);
     }
 
-    private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
-        RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
+    private static FeatureDefinitionDieRollModifier BuildFeatSavageAttackerDieRollModifier(
+        string name, RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
     {
         return FeatureDefinitionDieRollModifierBuilder
             .Create(name)
             .SetModifiers(context, rerollCount, minRerollValue, "Feat/&FeatSavageAttackerReroll")
-            .SetGuiPresentation("FeatSavageAttacker", Category.Feat)
+            .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
             .AddToDB();
     }
 }

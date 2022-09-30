@@ -67,7 +67,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3, featureSetRavenSharpShooter)
             .AddFeaturesAtLevel(3, BuildHeartSeekingShot())
-            .AddFeaturesAtLevel(9, 
+            .AddFeaturesAtLevel(9,
                 additionalActionRavenKillingSpree
                 , dieRollModifierRavenPainMaker)
             .AddToDB();

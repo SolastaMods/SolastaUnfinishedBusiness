@@ -366,7 +366,10 @@ public static class SrdSpells
                 levelType = RuleDefinitions.LevelSourceType.ClassLevel,
                 createdByCharacter = true,
                 formType = EffectForm.EffectFormType.Kill,
-                killForm = new KillForm { killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100 }
+                killForm = new KillForm
+                {
+                    killCondition = RuleDefinitions.KillCondition.UnderHitPoints, hitPoints = 100
+                }
             });
 
         return SpellDefinitionBuilder
@@ -404,7 +407,7 @@ public static class SrdSpells
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Spider_Queen),
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
         );
-        
+
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Hour,

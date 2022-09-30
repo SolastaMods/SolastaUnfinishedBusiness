@@ -18,16 +18,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     // ReSharper disable once InconsistentNaming
     private readonly CharacterSubclassDefinition Subclass;
 
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
-    }
-
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }
-
     internal CircleOfTheForestGuardian()
     {
         // Create Auto-prepared Spell list
@@ -75,6 +65,16 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddFeaturesAtLevel(10, improvedBarkWard)
             .AddFeaturesAtLevel(14, superiorBarkWard)
             .AddToDB();
+    }
+
+    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+    {
+        return FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
+    }
+
+    internal override CharacterSubclassDefinition GetSubclass()
+    {
+        return Subclass;
     }
 
     // Create Bark Ward Wild Shape Power (and the two higher variants, improved and superior)

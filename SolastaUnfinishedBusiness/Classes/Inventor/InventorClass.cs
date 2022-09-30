@@ -25,15 +25,15 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
+    private static CustomInvocationPoolDefinition Learn;
+    private static CustomInvocationPoolDefinition Unlearn;
+
     private static CharacterClassDefinition Class { get; set; }
 
     public static FeatureDefinitionPower InfusionPool { get; private set; }
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
-
-    private static CustomInvocationPoolDefinition Learn;
-    private static CustomInvocationPoolDefinition Unlearn;
 
 
     public static CharacterClassDefinition Build()
@@ -254,9 +254,11 @@ internal static class InventorClass
             #endregion
 
             #region Level 08
+
             .AddFeaturesAtLevel(8,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
+
             #endregion
 
             #region Level 09
@@ -272,9 +274,11 @@ internal static class InventorClass
             #endregion
 
             #region Level 12
+
             .AddFeaturesAtLevel(12,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
+
             #endregion
 
             #region Level 13
@@ -290,9 +294,11 @@ internal static class InventorClass
             #endregion
 
             #region Level 16
+
             .AddFeaturesAtLevel(16,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
+
             #endregion
 
             #region Level 17
@@ -304,9 +310,11 @@ internal static class InventorClass
             #endregion
 
             #region Level 19
+
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
+
             #endregion
 
             #region Level 20
@@ -362,7 +370,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("TestInvocationPool")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
-            .Setup(CustomInvocationPoolType.Pools.Infusion, 1)
+            .Setup(CustomInvocationPoolType.Pools.Infusion)
             .AddToDB();
     }
 

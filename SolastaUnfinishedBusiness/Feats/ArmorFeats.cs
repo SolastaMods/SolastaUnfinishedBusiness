@@ -14,26 +14,26 @@ internal static class ArmorFeats
 {
     public static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
-        var lightArmorProficiency = BuildProficiency("ProficiencyFeatLightArmor",
+        var proficiencyFeatLightArmor = BuildProficiency("ProficiencyFeatLightArmor",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
-        var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, AttributeModifierCreed_Of_Misaye);
+        var featLightArmor = BuildFeat("FeatLightArmor", proficiencyFeatLightArmor, AttributeModifierCreed_Of_Misaye);
 
-        var mediumArmorProficiency = BuildProficiency("ProficiencyFeatMediumArmor",
+        var proficiencyFeatMediumArmor = BuildProficiency("ProficiencyFeatMediumArmor",
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
-        var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
-            mediumArmorProficiency, AttributeModifierCreed_Of_Misaye);
-        var mediumStrArmorFeat = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
-            mediumArmorProficiency, AttributeModifierCreed_Of_Einar);
+        var featMediumArmorDex = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
+            proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye);
+        var featMediumArmorStr = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
+            proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar);
 
-        var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
+        var featHeavyArmorMaster = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
             DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance,
             DamageAffinityPiercingResistance);
 
-        feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrArmorFeat, heavyArmorMasterFeat);
+        feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr, featHeavyArmorMaster);
 
-        GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
-            mediumDexArmorFeat,
-            mediumStrArmorFeat);
+        _ = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
+            featMediumArmorDex,
+            featMediumArmorStr);
     }
 
     private static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,

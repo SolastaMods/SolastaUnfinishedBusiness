@@ -82,8 +82,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .Create("MagicAffinityConArtistDC")
             .SetGuiPresentation(Category.Feature)
             .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                3,
-                RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
+                3)
             .AddToDB();
 
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder

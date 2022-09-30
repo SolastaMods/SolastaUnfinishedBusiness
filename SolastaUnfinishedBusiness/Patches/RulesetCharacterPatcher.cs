@@ -532,7 +532,7 @@ internal static class RulesetCharacterPatcher
                 }
             }
         }
-        
+
         private static void CustomEnumerate(RulesetCharacter __instance, List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
@@ -553,7 +553,7 @@ internal static class RulesetCharacterPatcher
 
                 var equipedItem = slot.EquipedItem;
 
-                foreach (RulesetItemProperty dynamicItemProperty in equipedItem.DynamicItemProperties)
+                foreach (var dynamicItemProperty in equipedItem.DynamicItemProperties)
                 {
                     var definition = dynamicItemProperty.FeatureDefinition;
                     if (definition == null || definition is not ISpellCastingAffinityProvider)

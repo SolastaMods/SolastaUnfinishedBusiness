@@ -19,26 +19,18 @@ public static class GroupFeats
         feats.AddRange(Groups);
     }
 
-    public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
-    {
-        return MakeGroup(name, family, feats.ToList());
-    }
-
-    private static FeatDefinition MakeGroup(FeatDefinition group)
-    {
-        Groups.Add(group);
-
-        return group;
-    }
-
-    public static FeatDefinition MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
+    public static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
     {
         group.SetCustomSubFeatures(new GroupedFeat(feats));
-
-        return MakeGroup(group);
+        Groups.Add(group);
     }
 
-    public static FeatDefinition MakeGroup(string name, string family, List<FeatDefinition> feats)
+    public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
+    {
+        return MakeGroup(name, family, feats.AsEnumerable());
+    }
+
+    public static FeatDefinition MakeGroup(string name, string family, IEnumerable<FeatDefinition> feats)
     {
         var group = FeatDefinitionBuilder
             .Create(name)

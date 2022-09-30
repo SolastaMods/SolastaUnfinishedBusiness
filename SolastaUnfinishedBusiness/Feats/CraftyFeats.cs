@@ -16,14 +16,14 @@ public static class CraftyFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var craftyArcana = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyArcana")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyArcanaDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Arcana.Name)
             .AddToDB();
 
-        var craftyMedicine = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyMedicine")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle",
                 "Feature/&ProficiencyCraftyMedicineDescription")
@@ -31,14 +31,14 @@ public static class CraftyFeats
                 DatabaseHelper.SkillDefinitions.Medecine.Name)
             .AddToDB();
 
-        var craftyNature = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyNature = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyNature")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyNatureDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
                 DatabaseHelper.SkillDefinitions.Nature.Name)
             .AddToDB();
 
-        var craftyHerbalismKit = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyHerbalismKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
@@ -46,7 +46,7 @@ public static class CraftyFeats
                 ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
-        var craftyManacalonRosary = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyManacalonRosary = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyManacalonRosary")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
@@ -54,7 +54,7 @@ public static class CraftyFeats
                 ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
-        var craftyPoisonersKit = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyPoisonersKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyPoisonersKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
@@ -62,7 +62,7 @@ public static class CraftyFeats
                 ToolTypeDefinitions.PoisonersKitType.Name)
             .AddToDB();
 
-        var craftyScrollKit = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyScrollKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyScrollKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyScribeTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
@@ -70,7 +70,7 @@ public static class CraftyFeats
                 ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
-        var craftySmithsTools = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftySmithsTools = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftySmithsTools")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
@@ -78,7 +78,7 @@ public static class CraftyFeats
                 ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
             .AddToDB();
 
-        var craftyBows = FeatureDefinitionProficiencyBuilder
+        var proficiencyCraftyBows = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyBows")
             .SetGuiPresentation("Feature/&ProficiencyCraftyBowsTitle", "Feature/&ProficiencyCraftyBowsDescription")
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name,
@@ -86,57 +86,58 @@ public static class CraftyFeats
                 HeavyCrossbowType.Name)
             .AddToDB();
 
-        var apothecaryIntFeat = FeatDefinitionBuilder
+        var featApothecaryInt = FeatDefinitionBuilder
             .Create(ArmorMaster, "FeatApothecaryInt")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyHerbalismKit, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyHerbalismKit, proficiencyCraftyArcana)
             .AddToDB();
 
-        var apothecaryWisFeat = FeatDefinitionBuilder
+        var featApothecaryWis = FeatDefinitionBuilder
             .Create(ArmorMaster, "FeatApothecaryWis")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyHerbalismKit, craftyMedicine)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .AddToDB();
 
         GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
-            apothecaryIntFeat,
-            apothecaryWisFeat);
+            featApothecaryInt,
+            featApothecaryWis);
 
-        var manacalonCrafter = FeatDefinitionBuilder
+        var featManacalonCrafter = FeatDefinitionBuilder
             .Create(MasterEnchanter, "FeatManacalonCrafter")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyManacalonRosary, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyManacalonRosary, proficiencyCraftyArcana)
             .AddToDB();
 
-        var toxicologistInt = FeatDefinitionBuilder
+        var featToxicologistInt = FeatDefinitionBuilder
             .Create(ArmorMaster, "FeatToxicologistInt")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyPoisonersKit, craftyNature)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
             .AddToDB();
 
-        var toxicologistWis = FeatDefinitionBuilder
+        var featToxicologistWis = FeatDefinitionBuilder
             .Create(ArmorMaster, "FeatToxicologistWis")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike, craftyPoisonersKit, craftyMedicine)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyPoisonersKit, proficiencyCraftyMedicine)
             .AddToDB();
 
         GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
-            toxicologistInt,
-            toxicologistWis);
+            featToxicologistInt,
+            featToxicologistWis);
 
-        var craftyScribe = FeatDefinitionBuilder
+        var featCraftyScribe = FeatDefinitionBuilder
             .Create(MasterEnchanter, "FeatCraftyScribe")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, craftyScrollKit, craftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
-        var craftyFletcher = FeatDefinitionBuilder
+        var featCraftyFletcher = FeatDefinitionBuilder
             .Create(ArmorMaster, "FeatCraftyFletcher")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, craftySmithsTools, craftyBows)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, proficiencyCraftySmithsTools, proficiencyCraftyBows)
             .AddToDB();
 
-        feats.AddRange(apothecaryIntFeat, apothecaryWisFeat, manacalonCrafter, toxicologistInt, toxicologistWis,
-            craftyScribe, craftyFletcher);
+        feats.AddRange(featApothecaryInt, featApothecaryWis, featManacalonCrafter, featToxicologistInt,
+            featToxicologistWis,
+            featCraftyScribe, featCraftyFletcher);
     }
 }

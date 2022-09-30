@@ -21,7 +21,7 @@ internal static class Infusions
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .SetCastingModifiers(attackModifier: 10, dcModifier: 10)
+                .SetCastingModifiers(10, dcModifier: 10)
                 .AddToDB());
 
         name = "InfusionEnhanceDefense";
@@ -89,7 +89,7 @@ internal static class Infusions
         var staffType = WeaponTypeDefinitions.QuarterstaffType.Name;
         return !definition.Magical
                && (definition.IsFocusItem
-                   || definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType);
+                   || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType));
     }
 
     private static bool IsWeapon(RulesetCharacter _, RulesetItem item)
