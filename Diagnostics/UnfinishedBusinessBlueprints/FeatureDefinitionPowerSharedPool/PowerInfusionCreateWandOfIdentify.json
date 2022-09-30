@@ -6,8 +6,8 @@
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Item",
-    "itemSelectionType": "Carried",
+    "targetType": "Self",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -29,7 +29,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "All",
     "durationType": "Permanent",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ItemProperty",
+        "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,17 +74,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "itemPropertyForm": {
-          "$type": "ItemPropertyForm, Assembly-CSharp",
-          "featureBySlotLevel": [
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttributeModifierInfusionEnhanceDefense:fcbad6d4-7420-5c63-ae55-8a5bca4b0209",
-              "level": 0
-            }
-          ],
-          "usageLimitation": "Unlimited",
-          "useAmount": 1
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "InventoryItem",
+          "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+          "trackItem": true,
+          "monsterDefinitionName": "",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": true,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
         },
         "hasFilterId": false,
         "filterId": 0
@@ -116,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a7d48cc4b007b62429d59fdbebeb9df9",
+        "m_AssetGUID": "c61bb30a4b6e80642a36538c6ff1d675",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f4489c0ea1762ec4dbe7fedbbcf0d4a8",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,21 +261,21 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3b107035e3bdbc6418aedb674221f5e3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "forceApplyZoneParticle": false,
-      "applyEmissionColorOnWeapons": true,
+      "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 2.99607849,
-        "g": 2.32156873,
-        "b": 1.082353,
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
         "a": 0.0
       },
-      "emissionColorFadeInDuration": 1.0,
-      "emissionColorFadeOutDuration": 1.0
+      "emissionColorFadeInDuration": 0.0,
+      "emissionColorFadeOutDuration": 0.0
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
@@ -326,12 +326,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionEnhanceDefenseTitle",
-    "description": "Feature/&InfusionEnhanceDefenseDescription",
+    "title": "Feature/&InfusionCreateWandOfIdentifyTitle",
+    "description": "Feature/&InfusionCreateWandOfIdentifyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
-      "m_SubObjectName": "MageArmor",
+      "m_AssetGUID": "b0f6ef3b7a1e2564992bc5e38f678a11",
+      "m_SubObjectName": "WandOfIdentify",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f51cd64-0359-57c1-a76e-17358842a49e",
+  "guid": "0b520173-db4a-5984-9d70-09823eddb438",
   "contentPack": 9999,
-  "name": "PowerInfusionEnhanceDefense"
+  "name": "PowerInfusionCreateWandOfIdentify"
 }

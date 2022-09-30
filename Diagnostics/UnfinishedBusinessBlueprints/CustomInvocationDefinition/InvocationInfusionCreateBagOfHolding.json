@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AttributeModifierThirstingBladeExtraAttack:c8fdab391be03a149b811bc58ff75512",
+  "grantedFeature": "Definition:PowerInfusionCreateBagOfHolding:7ee211b8-3317-5cbe-9337-cee7684178e4",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestTHirstInvocationTitle",
-    "description": "Feature/&TestTHirstInvocationDescription",
+    "title": "Feature/&InfusionCreateBagOfHoldingTitle",
+    "description": "Feature/&InfusionCreateBagOfHoldingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cdbd83e68b3d8d44eb03f6852a7fd63b",
-      "m_SubObjectName": "MagicWeapon",
+      "m_AssetGUID": "6f2db45d4201fb74185496d103c147eb",
+      "m_SubObjectName": "Bag_of_Holding",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5f43412b-1304-5d9f-8889-2995b6a6bf2f",
+  "guid": "e20817f7-c08c-5e9c-b2ea-a223dcc12e0f",
   "contentPack": 9999,
-  "name": "TestTHirstInvocation"
+  "name": "InvocationInfusionCreateBagOfHolding"
 }

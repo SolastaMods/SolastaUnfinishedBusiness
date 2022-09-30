@@ -3,13 +3,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestInvocationPoolTitle",
-    "description": "Feature/&TestInvocationPoolDescription",
+    "title": "Feature/&InvocationPoolInfusionLearn4Title",
+    "description": "Feature/&InvocationPoolInfusionLearn4Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
-      "m_SubObjectName": "Fly",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f9563a06-3c76-5b98-99f6-a77ab93e9b1b",
+  "guid": "3eb04c23-5397-5a01-b78e-579982b25bda",
   "contentPack": 9999,
-  "name": "TestInvocationPool"
+  "name": "InvocationPoolInfusionLearn4"
 }

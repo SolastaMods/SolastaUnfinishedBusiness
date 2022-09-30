@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerDragonbornBreathWeaponBlue:8ae044db5645a5849a9315596a72a2a5",
+  "grantedFeature": "Definition:PowerInfusionCreateWandOfIdentify:0b520173-db4a-5984-9d70-09823eddb438",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestLeapInvocationTitle",
-    "description": "Feature/&TestLeapInvocationDescription",
+    "title": "Feature/&InfusionCreateWandOfIdentifyTitle",
+    "description": "Feature/&InfusionCreateWandOfIdentifyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
-      "m_SubObjectName": "Jump",
+      "m_AssetGUID": "b0f6ef3b7a1e2564992bc5e38f678a11",
+      "m_SubObjectName": "WandOfIdentify",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "472e819e-f979-5344-ac6d-e6ced0e762ae",
+  "guid": "9f4eb231-6c49-55e1-8811-8eb3fd35ec2c",
   "contentPack": 9999,
-  "name": "TestLeapInvocation"
+  "name": "InvocationInfusionCreateWandOfIdentify"
 }

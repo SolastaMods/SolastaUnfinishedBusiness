@@ -1,22 +1,22 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": null,
-  "grantedSpell": "Definition:MageArmorInvocationArmorShadows:2f7bcd95edac88f48a89aa323ec77aab",
+  "grantedFeature": "Definition:PowerInfusionCreateWandOfMagicDetection:65cd7a65-1c33-53d8-b550-008e84408ac4",
+  "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TestArmorInvocationTitle",
-    "description": "Feature/&TestArmorInvocationDescription",
+    "title": "Feature/&InfusionCreateWandOfMagicDetectionTitle",
+    "description": "Feature/&InfusionCreateWandOfMagicDetectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
-      "m_SubObjectName": "MageArmor",
+      "m_AssetGUID": "3b3e608ea3b926042ace08cedcf6dad5",
+      "m_SubObjectName": "StandardWand",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c6705d5c-3ec8-5755-b307-3bc43d297443",
+  "guid": "567598c0-85e4-5175-ac03-129279994ae7",
   "contentPack": 9999,
-  "name": "TestArmorInvocation"
+  "name": "InvocationInfusionCreateWandOfMagicDetection"
 }
