@@ -24,7 +24,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 CloudKill) // conjuration)
             .AddToDB();
 
-        // Add transmuter stone like abilities.
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
             .Configure(
@@ -35,7 +34,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // Make a power that grants darkvision
         var conditionLifeTransmuterDarkvision = BuildCondition(
                 RuleDefinitions.DurationType.UntilLongRest,
                 1,
@@ -81,7 +79,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 ConditionDefinitions.ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        // Make a power that gives resistance to an elemental damage
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
                 powerSharedPoolLifeTransmuterHealingPool,
                 RuleDefinitions.RechargeRate.LongRest,
@@ -101,7 +98,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        // Make a power that gives proficiency to constitution saves
         var conditionLifeTransmuterConstitution = BuildCondition(
                 RuleDefinitions.DurationType.UntilLongRest,
                 1,
@@ -221,7 +217,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;

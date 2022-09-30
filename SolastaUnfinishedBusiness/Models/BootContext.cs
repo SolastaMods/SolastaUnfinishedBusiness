@@ -53,7 +53,7 @@ internal static class BootContext
 
         DmProEditorContext.Load();
         GameUiContext.Load();
-        
+
         // Start will all options under Character
         CharacterContext.Load();
 

@@ -41,17 +41,18 @@ internal static class Infusions
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .Configure(attackRollModifier: 1, damageRollModifier: 1)
                 .AddToDB());
-        
+
         //TODO: find a ay to generate name from item, and add item description to power's description
         name = "InfusionCreateBagOfHolding";
-        BuildCreateItemPowerInvocation(name, ItemDefinitions.Backpack_Bag_Of_Holding);//TODO: create copy that is not sellable
-        
+        BuildCreateItemPowerInvocation(name,
+            ItemDefinitions.Backpack_Bag_Of_Holding); //TODO: create copy that is not sellable
+
         name = "InfusionCreateWandOfMagicDetection";
-        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfMagicDetection);//TODO: create copy that is not sellable
-        
+        BuildCreateItemPowerInvocation(name,
+            ItemDefinitions.WandOfMagicDetection); //TODO: create copy that is not sellable
+
         name = "InfusionCreateWandOfIdentify";
-        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfIdentify);//TODO: create copy that is not sellable
-        
+        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfIdentify); //TODO: create copy that is not sellable
     }
 
     private static void BuildInfuseItemPowerInvocation(string name, AssetReferenceSprite icon,
@@ -64,7 +65,7 @@ internal static class Infusions
             .SetGrantedFeature(BuildInfuseItemPower(name, icon, filter, features))
             .AddToDB();
     }
-    
+
     private static void BuildCreateItemPowerInvocation(string name, ItemDefinition item)
     {
         CustomInvocationDefinitionBuilder

@@ -211,7 +211,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     private static ConditionDefinition ConditionBladeDancerBladeDance { get; set; }
 

@@ -384,7 +384,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     // private class ExtendWeaponRange : IModifyAttackModeForWeapon
     // {

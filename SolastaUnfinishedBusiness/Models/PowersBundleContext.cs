@@ -225,7 +225,7 @@ public static class PowersBundleContext
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
-        
+
         subpowerSelectionModal.Bind(bundle.SubPowers, instance.Hero, (rulesetPower, _) =>
         {
             instance.button.interactable = false;
@@ -233,7 +233,7 @@ public static class PowersBundleContext
             var power = rulesetPower.powerDefinition.Name;
             ServiceRepository.GetService<IGameRestingService>().ExecuteAsync(ExecuteAsync(instance, power), power);
         }, instance.RectTransform);
-        
+
         subpowerSelectionModal.Show();
 
         return false;
@@ -296,7 +296,7 @@ public static class PowersBundleContext
             Repertoire.KnownSpells.AddRange(subSpells);
 
             var masterSpell = RegisterPower(masterPower);
-            
+
             masterSpell.SubspellsList.AddRange(subSpells);
         }
 
@@ -340,23 +340,23 @@ internal sealed class FunctorUseCustomRestPower : Functor
         {
             var fromActor = GameLocationCharacter.GetFromActor(ruleChar);
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-            
+
             if (fromActor != null)
             {
                 functor.powerUsed = false;
                 ServiceRepository.GetService<IGameLocationActionService>();
-                
+
                 var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
-                
+
                 actionParams.TargetCharacters.Add(fromActor);
                 actionParams.ActionModifiers.Add(new ActionModifier());
                 actionParams.RulesetEffect =
                     rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
                 actionParams.SkipAnimationsAndVFX = true;
-                
+
                 ServiceRepository.GetService<ICommandService>()
                     .ExecuteAction(actionParams, functor.ActionExecuted, false);
-                
+
                 while (!functor.powerUsed)
                 {
                     yield return null;
@@ -365,7 +365,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
             else
             {
                 var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-                
+
                 formsParams.FillSourceAndTarget(ruleChar, ruleChar);
                 formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
                 formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;

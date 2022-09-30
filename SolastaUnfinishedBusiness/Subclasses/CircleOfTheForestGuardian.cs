@@ -17,7 +17,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
     internal CircleOfTheForestGuardian()
     {
-        // Create Auto-prepared Spell list
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsForestGuardian")
             .SetGuiPresentation(Category.Feature)
@@ -42,7 +41,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
-        // Create Sylvan War Magic
         var magicAffinityForestGuardianSylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
             .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
                 "MagicAffinityForestGuardianSylvanWarMagic")
@@ -68,7 +66,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;

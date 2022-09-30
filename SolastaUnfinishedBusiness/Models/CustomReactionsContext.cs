@@ -103,12 +103,12 @@ public static class CustomReactionsContext
     public static void SetupForcePreferredToggle(RectTransform parent)
     {
         PersonalityFlagToggle toggle;
-        
+
         if (parent.childCount < 3)
         {
             var prefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterEdition/PersonalityFlagToggle");
             var asset = Object.Instantiate(prefab, parent, false);
-            
+
             asset.name = "ForcePreferredToggle";
 
             var transform = asset.GetComponent<RectTransform>();
@@ -120,22 +120,22 @@ public static class CustomReactionsContext
             transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 25);
 
             var title = parent.GetChild(0);
-            
+
             title.localPosition = new Vector3(-100, 55);
 
             var group = parent.GetChild(1).GetComponent<RectTransform>();
-            
+
             group.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 25);
             group.localPosition = new Vector3(-100, 5);
 
             toggle = asset.GetComponent<PersonalityFlagToggle>();
 
             var guiLabel = toggle.titleLabel;
-            
+
             guiLabel.Text = "UI/&ForcePreferredCantripTitle";
 
             var tooltip = toggle.tooltip;
-            
+
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
             // toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
@@ -163,7 +163,7 @@ public static class CustomReactionsContext
             new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
 
         var containsIndex = -1;
-        
+
         //TODO: is there a better way to detect proper placement?
         for (var i = 0; i < codes.Count; i++)
         {
@@ -187,7 +187,7 @@ public static class CustomReactionsContext
             }
 
             containsIndex = i;
-            
+
             break;
         }
 
@@ -206,7 +206,7 @@ public static class CustomReactionsContext
         }
 
         readied.RemoveAll(c => c != preferred);
-        
+
         return !readied.Empty();
     }
 }

@@ -36,7 +36,9 @@ public static class MulticlassGameUiContext
             .GetPrefabFromPool(stagePanelPrefabs[2], characterEditionScreen.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
         var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
-            { { "ClassSelection", classSelectionPanel } };
+        {
+            { "ClassSelection", classSelectionPanel }
+        };
 
         foreach (var stagePanel in characterEditionScreen.stagePanelsByName)
         {

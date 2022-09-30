@@ -178,7 +178,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;

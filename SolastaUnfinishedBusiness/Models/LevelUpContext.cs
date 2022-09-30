@@ -362,7 +362,7 @@ public static class LevelUpContext
             .SelectMany(x => x.Value);
         var classCastingFeatures =
             thisClassCastingFeatures as FeatureDefinition[] ?? thisClassCastingFeatures.ToArray();
-        
+
         levelUpData.AllowedSpells = CacheAllowedSpells(classCastingFeatures);
         levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(classCastingFeatures);
         levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);

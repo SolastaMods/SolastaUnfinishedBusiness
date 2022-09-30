@@ -358,7 +358,7 @@ All settings start disabled by default. On first start the mod will display an w
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
                 GenerateDescription(SpellsContext.Spells),
-                ItemCraftingContext.GenerateItemsDescription());
+                CraftingContext.GenerateItemsDescription());
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
             sw.WriteLine(descriptionData);

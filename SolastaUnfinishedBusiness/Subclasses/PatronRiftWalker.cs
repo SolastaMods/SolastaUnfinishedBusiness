@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronRiftWalker : AbstractSubclass
 {
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal PatronRiftWalker()
     {

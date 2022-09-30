@@ -142,7 +142,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;

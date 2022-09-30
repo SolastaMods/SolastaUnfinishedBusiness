@@ -64,32 +64,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var enchantWeapon = BuildEnchantWeapon();
-
-        Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardArcaneFighter")
-            .SetGuiPresentation(Category.Subclass,
-                MartialSpellblade.GuiPresentation.SpriteReference)
-            .AddFeaturesAtLevel(2,
-                proficiencyArcaneFighterSimpleWeapons,
-                magicAffinityArcaneFighterConcentrationAdvantage,
-                enchantWeapon)
-            .AddFeaturesAtLevel(6,
-                attributeModifierArcaneFighterExtraAttack)
-            .AddFeaturesAtLevel(10,
-                additionalActionArcaneFighter)
-            .AddFeaturesAtLevel(14,
-                additionalDamageArcaneFighterBonusWeapon)
-            .AddToDB();
-    }
-
-    internal override CharacterSubclassDefinition Subclass { get; set; }
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-
-    private static FeatureDefinitionPower BuildEnchantWeapon()
-    {
         var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierArcaneFighterIntBonus")
             .SetGuiPresentation(Category.Feature,
@@ -114,7 +88,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             )
             .Build();
 
-        return FeatureDefinitionPowerBuilder
+        var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
@@ -123,5 +97,26 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 AttributeDefinitions.Intelligence, effect)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
+
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create("WizardArcaneFighter")
+            .SetGuiPresentation(Category.Subclass,
+                MartialSpellblade.GuiPresentation.SpriteReference)
+            .AddFeaturesAtLevel(2,
+                proficiencyArcaneFighterSimpleWeapons,
+                magicAffinityArcaneFighterConcentrationAdvantage,
+                powerArcaneFighterEnchantWeapon)
+            .AddFeaturesAtLevel(6,
+                attributeModifierArcaneFighterExtraAttack)
+            .AddFeaturesAtLevel(10,
+                additionalActionArcaneFighter)
+            .AddFeaturesAtLevel(14,
+                additionalDamageArcaneFighterBonusWeapon)
+            .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 }

@@ -24,7 +24,15 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
-        var powerPoolTacticianGambitAdd = BuildPowerPoolTacticianGambitAdd();
+        var powerPoolTacticianGambitAdd = FeatureDefinitionPowerPoolModifierBuilder
+            .Create("PowerPoolTacticianGambitAdd")
+            .SetGuiPresentation(Category.Feature)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Dexterity,
+                PowerPoolTacticianGambit)
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
@@ -45,7 +53,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterSubclassDefinition Subclass { get; set; }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
@@ -176,18 +184,5 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         return powerSharedPoolTacticianCounterStrike;
-    }
-
-    private static FeatureDefinitionPowerPoolModifier BuildPowerPoolTacticianGambitAdd()
-    {
-        return FeatureDefinitionPowerPoolModifierBuilder
-            .Create("PowerPoolTacticianGambitAdd")
-            .SetGuiPresentation(Category.Feature)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
-                PowerPoolTacticianGambit)
-            .AddToDB();
     }
 }
