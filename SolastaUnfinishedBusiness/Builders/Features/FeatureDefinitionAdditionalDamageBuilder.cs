@@ -48,12 +48,6 @@ public abstract class
     }
 
     public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
-        params DiceByRank[] diceByRanks)
-    {
-        return SetAdvancement(advancement, diceByRanks.AsEnumerable());
-    }
-
-    public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> diceByRanks)
     {
         Definition.damageAdvancement = advancement;
@@ -74,11 +68,6 @@ public abstract class
     }
 
     public TBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
-    {
-        return SetConditionOperations(operations.AsEnumerable());
-    }
-
-    public TBuilder SetConditionOperations(IEnumerable<ConditionOperationDescription> operations)
     {
         Definition.ConditionOperations.SetRange(operations);
         return This();

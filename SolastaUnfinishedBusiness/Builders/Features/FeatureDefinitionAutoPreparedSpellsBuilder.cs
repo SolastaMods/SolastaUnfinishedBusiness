@@ -14,12 +14,6 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
     public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
         params AutoPreparedSpellsGroup[] autoSpellLists)
     {
-        return SetPreparedSpellGroups(autoSpellLists.AsEnumerable());
-    }
-
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
-        IEnumerable<AutoPreparedSpellsGroup> autoSpellLists)
-    {
         Definition.AutoPreparedSpellsGroups.SetRange(autoSpellLists);
         return this;
     }

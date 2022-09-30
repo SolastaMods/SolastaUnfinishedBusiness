@@ -399,7 +399,7 @@ internal static class CasterFeats
         return classes
             .Select(klass =>
                 BuildAutoPreparedSpells(
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> { spellGroup },
+                    spellGroup,
                     klass,
                     namePrefix + klass.Name,
                     autoPrepTag,
@@ -476,7 +476,7 @@ internal static class CasterFeats
     }
 
     private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
-        IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autoSpellLists,
+        FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup,
         CharacterClassDefinition characterClass,
         string name,
         string tag,
@@ -485,7 +485,7 @@ internal static class CasterFeats
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create(name)
             .SetGuiPresentation(guiPresentation)
-            .SetPreparedSpellGroups(autoSpellLists)
+            .SetPreparedSpellGroups(autoPreparedSpellsGroup)
             .SetCastingClass(characterClass)
             .SetAutoTag(tag)
             .AddToDB();

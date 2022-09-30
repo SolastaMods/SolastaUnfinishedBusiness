@@ -32,12 +32,6 @@ internal class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuild
     public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
         params ActionDefinitions.Id[] restrictedActions)
     {
-        return SetRestrictedActions(restrictedActions.AsEnumerable());
-    }
-
-    public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
-        IEnumerable<ActionDefinitions.Id> restrictedActions)
-    {
         Definition.RestrictedActions.SetRange(restrictedActions);
         Definition.RestrictedActions.Sort();
         return this;

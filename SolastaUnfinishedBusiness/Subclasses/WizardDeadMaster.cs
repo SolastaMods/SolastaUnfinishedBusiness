@@ -193,7 +193,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     }
 
     [NotNull]
-    private static IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>
+    private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[]
         GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
     {
         var createDeadSpellMonsters = new Dictionary<int, List<MonsterDefinition>>
@@ -259,6 +259,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             result.Add(autoPreparedSpellsGroup);
         }
 
-        return result;
+        return result.ToArray();
     }
 }
