@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FightingStyleChampionAdditional:c0050d22dd09eb84b80bb9bce244fe85",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

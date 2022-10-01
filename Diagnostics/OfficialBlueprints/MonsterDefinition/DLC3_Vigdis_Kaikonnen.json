@@ -4,7 +4,7 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "Antiquarians",
+  "defaultFaction": "DLC3_Faction_SouthernClan",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulGood",
@@ -165,8 +165,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Vigdis:dd7c148c5798b4344ba983d366adba20"
     ],
@@ -200,6 +199,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

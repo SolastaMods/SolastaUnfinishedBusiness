@@ -4,6 +4,8 @@
   "encounterNoSurpriseInCamp": false,
   "awakeWhenCampAttacked": false,
   "sleepDurationOverride": 4,
+  "ignoreFoodConsumption": false,
+  "fastBardicInspirationRecovery": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

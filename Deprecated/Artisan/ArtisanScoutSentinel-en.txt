@@ -1,0 +1,4 @@
+﻿Subclass/&ArtisanScoutSentinelDescription=A Scout Sentinel Artisan modifies armor to enhance it's function, providing enhanced protection and mobility.
+Subclass/&ArtisanScoutSentinelTitle=Scout Sentinel
+Feature/&AutoPreparedSpellsArtisanScoutSentinelDescription={0}.
+Feature/&AutoPreparedSpellsArtisanScoutSentinelTitle=Learn Scout Sentinel Spells

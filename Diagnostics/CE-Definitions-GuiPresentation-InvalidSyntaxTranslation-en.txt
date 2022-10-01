@@ -1,80 +1,203 @@
-DH_ElementalForm_Air	Title='Air Plane'.
-DH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_AirAdditionalDamage	Title='Elemental Damage: Air Plane'.
-DH_ElementalForm_AirAdditionalDamage	Description='When channeling Air Plane, deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_AirCondition	Title='Channeling Air Plane'.
-DH_ElementalForm_AirCondition	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Earth	Title='Earth Plane'.
-DH_ElementalForm_Earth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_EarthAdditionalDamage	Title='Elemental Damage: Earth Plane'.
-DH_ElementalForm_EarthAdditionalDamage	Description='When channeling Earth Plane, deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_EarthCondition	Title='Channeling Earth Plane'.
-DH_ElementalForm_EarthCondition	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Fire	Title='Fire Plane'.
-DH_ElementalForm_Fire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_FireAdditionalDamage	Title='Elemental Damage: Fire Plane'.
-DH_ElementalForm_FireAdditionalDamage	Description='When channeling Fire Plane, deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_FireCondition	Title='Channeling Fire Plane'.
-DH_ElementalForm_FireCondition	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Ice	Title='Ice Plane'.
-DH_ElementalForm_Ice	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_IceAdditionalDamage	Title='Elemental Damage: Ice Plane'.
-DH_ElementalForm_IceAdditionalDamage	Description='When channeling Ice Plane, deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_IceCondition	Title='Channeling Ice Plane'.
-DH_ElementalForm_IceCondition	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Air	Title='Channeling Air Plane'.
-DH_EnhancedElementalForm_Air	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_AirCondition	Title='Channeling Air Plane'.
-DH_EnhancedElementalForm_AirCondition	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Earth	Title='Channeling Earth Plane'.
-DH_EnhancedElementalForm_Earth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_EarthCondition	Title='Channeling Earth Plane'.
-DH_EnhancedElementalForm_EarthCondition	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Fire	Title='Channeling Fire Plane'.
-DH_EnhancedElementalForm_Fire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_FireCondition	Title='Channeling Fire Plane'.
-DH_EnhancedElementalForm_FireCondition	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Ice	Title='Channeling Ice Plane'.
-DH_EnhancedElementalForm_Ice	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_IceCondition	Title='Channeling Ice Plane'.
-DH_EnhancedElementalForm_IceCondition	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-EldritchInvocationBane	Description='Cast Bane once until long rest.'.
-EldritchInvocationBaneRemover	Description='Cast Bane once until long rest.'.
-EldritchInvocationConfusion	Description='Cast Confusion once until long rest.'.
-EldritchInvocationConfusionRemover	Description='Cast Confusion once until long rest.'.
-EldritchInvocationDetectMagic	Description='Cast Detect Magic at will.'.
-EldritchInvocationDetectMagicRemover	Description='Cast Detect Magic at will.'.
-EldritchInvocationFalseLife	Description='Cast False Life at will.'.
-EldritchInvocationFalseLifeRemover	Description='Cast False Life at will.'.
-EldritchInvocationFreedomOfMovement	Description='Cast Freedom of Movement once until long rest.'.
-EldritchInvocationFreedomOfMovementRemover	Description='Cast Freedom of Movement once until long rest.'.
-EldritchInvocationHoldMonster	Description='Cast Hold Monster at will.'.
-EldritchInvocationHoldMonsterRemover	Description='Cast Hold Monster at will.'.
-EldritchInvocationInvisibility	Description='Cast Invisibility at will.'.
-EldritchInvocationInvisibilityRemover	Description='Cast Invisibility at will.'.
-EldritchInvocationJump	Description='Cast Jump at will.'.
-EldritchInvocationJumpRemover	Description='Cast Jump at will.'.
-EldritchInvocationLevitate	Description='Cast Levitate at will.'.
-EldritchInvocationLevitateRemover	Description='Cast Levitate at will.'.
-EldritchInvocationMageArmor	Description='Cast Mage Armor at will.'.
-EldritchInvocationMageArmorRemover	Description='Cast Mage Armor at will.'.
-EldritchInvocationSlow	Description='Cast Slow once until long rest.'.
-EldritchInvocationSlowRemover	Description='Cast Slow once until long rest.'.
-MagicAffinityMasterManipulatorDC	Description='It is harder for opponents to resist your spells. The save DC increases by 2.'.
-MagicAffinityRoguishConArtistDC	Description='Your spell save DC increases by 3.'.
-SpellDH_ElementalForm_Air	Title='Air Plane'.
-SpellDH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Earth	Title='Earth Plane'.
-SpellDH_ElementalForm_Earth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Fire	Title='Fire Plane'.
-SpellDH_ElementalForm_Fire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Ice	Title='Ice Plane'.
-SpellDH_ElementalForm_Ice	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Air	Title='Channeling Air Plane'.
-SpellDH_EnhancedElementalForm_Air	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Earth	Title='Channeling Earth Plane'.
-SpellDH_EnhancedElementalForm_Earth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Fire	Title='Channeling Fire Plane'.
-SpellDH_EnhancedElementalForm_Fire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Ice	Title='Channeling Ice Plane'.
-SpellDH_EnhancedElementalForm_Ice	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+AdditionalDamageElementalistAir	Title='Elemental Damage: Air Plane'.
+AdditionalDamageElementalistAir	Description='When channeling Air Plane, deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
+AdditionalDamageElementalistEarth	Title='Elemental Damage: Earth Plane'.
+AdditionalDamageElementalistEarth	Description='When channeling Earth Plane, deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
+AdditionalDamageElementalistFire	Title='Elemental Damage: Fire Plane'.
+AdditionalDamageElementalistFire	Description='When channeling Fire Plane, deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
+AdditionalDamageElementalistIce	Title='Elemental Damage: Ice Plane'.
+AdditionalDamageElementalistIce	Description='When channeling Ice Plane, deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistEnhancedAir	Title='Channeling Air Plane'.
+ConditionElementalistEnhancedAir	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistEnhancedEarth	Title='Channeling Earth Plane'.
+ConditionElementalistEnhancedEarth	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistEnhancedFire	Title='Channeling Fire Plane'.
+ConditionElementalistEnhancedFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistEnhancedIce	Title='Channeling Ice Plane'.
+ConditionElementalistEnhancedIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistNormalAir	Title='Channeling Air Plane'.
+ConditionElementalistNormalAir	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistNormalEarth	Title='Channeling Earth Plane'.
+ConditionElementalistNormalEarth	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
+ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
+ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
+ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+InfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+InfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+InfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+InfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+InfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+InfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+InfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+InfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+InfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+InfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+InfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+InfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+InfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+InvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+InvocationCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+InvocationCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+InvocationCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+InvocationCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+InvocationCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+InvocationCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+InvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+InvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+InvocationCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+InvocationCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+InvocationCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+InvocationCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+InvocationCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+InvocationCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+InvocationCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+InvocationCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+InvocationCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+InvocationCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+InvocationCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+InvocationCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+InvocationCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+InvocationCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+InvocationCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+InvocationCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+InvocationCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InvocationCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+InvocationCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InvocationCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+InvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+InvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+InvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+InvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
+InvocationCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+InvocationCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+InvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+PowerCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+PowerCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+PowerCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+PowerCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+PowerCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+PowerCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+PowerCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+PowerCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+PowerCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+PowerCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+PowerCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+PowerCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+PowerCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+PowerCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+PowerCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+PowerCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+PowerCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
+PowerCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+PowerCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+PowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
+PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
+PowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
+PowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
+PowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalAir	Title='Air Plane'.
+PowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
+PowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
+PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
+PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
+SpellPowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
+SpellPowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
+SpellPowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
+SpellPowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalAir	Title='Air Plane'.
+SpellPowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
+SpellPowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
+SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
+SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.

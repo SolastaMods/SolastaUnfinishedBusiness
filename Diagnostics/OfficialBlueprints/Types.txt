@@ -20,6 +20,8 @@ CharacterRaceDefinition
 CharacterSizeDefinition
 CharacterSubclassDefinition
 CharacterTemplateDefinition
+CharacterToLootPackMapDefinition
+ClueDefinition
 ConditionDefinition
 ContentPackDefinition
 CurrencyDefinition
@@ -75,6 +77,7 @@ FeatureDefinitionPointPool
 FeatureDefinitionPower
 FeatureDefinitionProficiency
 FeatureDefinitionRegeneration
+FeatureDefinitionRestHealingModifier
 FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSchoolSavant
 FeatureDefinitionSense
@@ -88,6 +91,8 @@ GadgetBlueprint
 GadgetDefinition
 HumanoidMonsterPresentationDefinition
 InventoryDefinition
+InvestigationDefinition
+InvocationDefinition
 ItemDefinition
 ItemFlagDefinition
 KnowledgeLevelDefinition
@@ -106,6 +111,7 @@ MonsterPresentationDefinition
 MorphotypeCategoryDefinition
 MorphotypeElementDefinition
 MoviePlaybackDefinition
+MusicalInstrumentTypeDefinition
 MusicalStateDefinition
 NamedPlaceDefinition
 NotificationDefinition

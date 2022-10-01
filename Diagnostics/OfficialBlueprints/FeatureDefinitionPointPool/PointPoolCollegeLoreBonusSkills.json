@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Skill",
+  "poolAmount": 3,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PointPoolCollegeLoreBonusSkillsTitle",
+    "description": "Feature/&PointPoolCollegeLoreBonusSkillsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a43794a774c9b4a40b7b4c84fdfeb80a",
+  "contentPack": "BaseGame",
+  "name": "PointPoolCollegeLoreBonusSkills"
+}

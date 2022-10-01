@@ -1,0 +1,59 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeyTeleport",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeyTeleportationBarbarian:ed874892-edcc-59ee-916e-e2b8aaee2123",
+    "Definition:AutoPreparedSpellsFeyTeleportationBard:80f4aa79-e153-5fc9-be54-a667214f83ed",
+    "Definition:AutoPreparedSpellsFeyTeleportationCleric:089c6774-3104-51e9-a2b5-9fb2d2a0a2cd",
+    "Definition:AutoPreparedSpellsFeyTeleportationDruid:f834316f-21f6-5f0d-9e7d-c4fcfa0b06fd",
+    "Definition:AutoPreparedSpellsFeyTeleportationFighter:f206b0de-c0a0-5a45-9f8a-5a61a82734ca",
+    "Definition:AutoPreparedSpellsFeyTeleportationInventor:a64cc638-53c5-5ac4-b2ce-aadcfdf3f159",
+    "Definition:AutoPreparedSpellsFeyTeleportationMonk:e7ebcd18-e594-5663-9ec9-db256353fcf8",
+    "Definition:AutoPreparedSpellsFeyTeleportationPaladin:96875839-c841-5a81-9c3e-de961c6ce4d3",
+    "Definition:AutoPreparedSpellsFeyTeleportationRanger:78edbdf0-828d-5ebb-960c-286f522e5e81",
+    "Definition:AutoPreparedSpellsFeyTeleportationRogue:de2fe24f-751b-5adf-ad21-d770b640c362",
+    "Definition:AutoPreparedSpellsFeyTeleportationSorcerer:60979914-7a64-57cf-8ce0-44bd5b0b6d70",
+    "Definition:AutoPreparedSpellsFeyTeleportationWarlock:fd326c67-9a53-556a-878c-a817abcaae4d",
+    "Definition:AutoPreparedSpellsFeyTeleportationWizard:8821300a-4908-5f30-bdd9-dde2ced6b23b",
+    "Definition:PowerFeatFeyTeleportationMistyStep:ef9535e7-1456-510b-b522-8b64eda41124",
+    "Definition:ProficiencyFeatFeyTeleportationTirmarian:9cdd9f9d-6d92-51aa-acf7-3e56efcfa083"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatFeyTeleportationIntTitle",
+    "description": "Feat/&FeatFeyTeleportationIntDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "91e5b51d-6083-504b-a886-1c53015d7813",
+  "contentPack": 9999,
+  "name": "FeatFeyTeleportationInt"
+}

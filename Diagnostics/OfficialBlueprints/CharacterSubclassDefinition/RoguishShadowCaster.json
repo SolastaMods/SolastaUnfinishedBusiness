@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityShadowRetribution:b817d5d5fc773bf44bfc818e31e9bea6",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRoguishShadowcasterShadowCasting:ca444b9c3ec2fb74bb71e2dcfde6df0b",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],

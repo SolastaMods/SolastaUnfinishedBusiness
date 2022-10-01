@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "tag": "draconic",
+  "damageType": "DamageFire",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_04",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryDragonbornDraconicGoldTitle",
+    "description": "Feature/&AncestryDragonbornDraconicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "44e10b05bc6a49f4297207e6c1af3ddb",
+  "contentPack": "BaseGame",
+  "name": "AncestryDragonbornDraconicGold"
+}

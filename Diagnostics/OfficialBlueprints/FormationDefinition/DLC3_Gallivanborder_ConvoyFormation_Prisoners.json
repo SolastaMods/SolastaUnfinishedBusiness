@@ -1,0 +1,51 @@
+{
+  "$type": "FormationDefinition, Assembly-CSharp",
+  "defaultFormation": false,
+  "formationPositions": [
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9d892d01290b5ae4097e9fb428a99882",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Gallivanborder_ConvoyFormation_Prisoners"
+}

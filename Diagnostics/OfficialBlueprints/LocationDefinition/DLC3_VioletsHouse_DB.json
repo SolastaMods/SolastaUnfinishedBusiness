@@ -170,7 +170,7 @@
         "a": 1.0
       },
       "ambientFadeDuration": 1.0,
-      "dayAtmosphereThickness": 1.35,
+      "dayAtmosphereThickness": 2.59,
       "nightAtmosphereThickness": 0.5,
       "name": "Mansion_Location_DayCycleProfile"
     },
@@ -178,34 +178,35 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
-    "unchartedDescription": "Map/&Location_Presentation_DLC3_Telema_Description",
-    "knownTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
-    "knownDescription": "Map/&Location_Presentation_DLC3_Telema_Description",
-    "exploredTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
-    "exploredDescription": "Map/&Location_Presentation_DLC3_Telema_Description"
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_VioletsHouse_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_VioletsHouse_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_VioletsHouse_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_VioletsHouse_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_VioletsHouse_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_VioletsHouse_Description"
   },
   "challengeRating": 13,
-  "focusWhenRevealed": false,
+  "focusWhenRevealed": true,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": true,
   "useDirectionalLightInCutscene": false,
   "useNewSectorCullingAlgorithm": false,
   "keepSectorCullingResultsWhenInactive": false,
-  "setCurrentCampaignNodeWhenLeaving": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&Location_Presentation_DLC3_Telema_Title",
-    "description": "Map/&Location_Presentation_DLC3_Telema_Description",
+    "title": "Map/&Location_Presentation_DLC3_VioletsHouse_Title",
+    "description": "Map/&Location_Presentation_DLC3_VioletsHouse_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e5800f130a9e314c83bb310523f67f9",
-      "m_SubObjectName": "DLC3_Ruins_Of_Telema",
+      "m_AssetGUID": "ce9344f03273e254c927c36f5e6b09f9",
+      "m_SubObjectName": "DLC3_VioletsHouse",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

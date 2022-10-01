@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityTraditionGreenMageLeafScales:fb454fe6a27595447800cb857f7c437f",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerTraditionGreenmageWeakeningEntanglingShot:7f6ef0f6c9d14954cb9f9b0b4865dcf5",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

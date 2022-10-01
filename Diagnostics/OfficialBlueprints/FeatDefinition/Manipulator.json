@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ProficiencyFeatManipulatorSkillOrExpertise:d0e0c050dbe9c4a4e9128966a168fe53"

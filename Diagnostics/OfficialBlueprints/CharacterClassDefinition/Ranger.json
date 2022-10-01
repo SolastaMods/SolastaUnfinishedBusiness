@@ -248,6 +248,21 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerFavoredEnemyChoice:2a798d74282db5d4bb4247c6ffe14b63",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityRangerVanish:9ea1a220e0620c54d84cd754b1365239",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
     }
   ],
   "personalityFlagOccurences": [
@@ -303,6 +318,7 @@
     "Robust",
     "Lockbreaker"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 10,
   "classPictogramReference": {
@@ -314,6 +330,10 @@
   "defaultBattleDecisions": "Definition:DefaultRangeWithBackupMeleeDecisions:a938084b17b2aad46bffadc07456119a",
   "classAnimationId": "Ranger",
   "vocalSpellSemeClass": "Natura",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -3,9 +3,11 @@
   "editorOnly": false,
   "isUserCampaign": true,
   "multiplayer": false,
+  "canLoadEndGameSave": false,
   "partySize": 4,
   "minStartLevel": 1,
   "maxStartLevel": 1,
+  "maxLevelImport": 12,
   "levelCap": 12,
   "predefinedParty": [
     "Level1_Paladin_Berden_Redstone",
@@ -1700,6 +1702,10 @@
     "name": "Location"
   },
   "namedPlacesPath": "Campaign/COTM_NamedPlaces",
+  "recommendedCampaign": null,
+  "recommendedSceneNameStartsWith": "",
+  "variablesToImport": [],
+  "questStatusToImport": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -1,0 +1,366 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "MusicalInstrument",
+              "itemReference": "Definition:Lute:bf3245124743f6340804f14ffb022fa1",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "MusicalInstrumentChoice",
+              "itemReference": null,
+              "defaultChoice": "Flute",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
+              "defaultChoice": "Longsword",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:Bard_Armor:d041a8030f0a2f34abc7df69f32bd8c5",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:DiplomatPack:6184c71b7ad361c4c8ab004d3c66e579",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D8",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Charisma",
+    "Dexterity",
+    "Constitution",
+    "Intelligence",
+    "Strength",
+    "Wisdom"
+  ],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyBardSavingThrow:cfc942ca41203a84a86c56e20bf0223c",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyBardArmor:e0f5013ce6685dd41a597955b0fae00e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyBardWeapon:7a40cff719b5f204bad64cb9452914b2",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBardSkillPoints:76d1562c4e823814984a0ab2d47f1e30",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetBardicInspiration:06e2b36a863298547af3116f9bec50b6",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetBardRitualCasting:4fc0f3ab8b68e4c46b034e88031fa28f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellBard:b97ce84dfc41a2b4488e97d9f4767a48",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RestHealingModifierBardSongOfRest:e95ee9a28dfbfee48a06cb153bd32ef0",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AbilityCheckAffinityBardJackOfAllTrades:a61f9dae164b10b4d8c11ea83135fab3",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBardExpertiseLevel3:1d0f836dadaecb64b85e1d1a28343f11",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceBardColleges:4d80f84b48f5bb3478785d358674b50a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierBardicInspirationDieD8:9c5ea60f1fad3254f81b036901201312",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CampAffinityBardFontOfInspiration:62b71bfaba7744343a949f91eea9454d",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardCountercharm:b45d84885b928b94aa41092cee886e89",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierBardicInspirationDieD10:040b2d763e35261409b08ce10e8d5aa7",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBardExpertiseLevel10:c9924d8f1efd829469539ff0dc9d39a7",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBardMagicalSecrets10:570e2f16b7521134fb509807314b640e",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBardMagicalSecrets14:c83024f13d1596342adcb1968dca7286",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierBardicInspirationDieD12:4f9d08c9701e37e46adcf014a271977e",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 15,
+      "personalityFlag": "Friendliness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Formal"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Cynicism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Greed"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassRogueFlag"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "GpCombat"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpExplorer"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpStealth"
+    }
+  ],
+  "skillAutolearnPreference": [
+    "Acrobatics",
+    "Persuasion",
+    "Perception",
+    "Deception",
+    "SleightOfHand",
+    "Performance",
+    "Stealth",
+    "History",
+    "Arcana",
+    "Insight"
+  ],
+  "toolAutolearnPreference": [
+    "MusicalInstrumentLyreType",
+    "HerbalismKitType",
+    "EnchantingToolType"
+  ],
+  "expertiseAutolearnPreference": [
+    "Acrobatics",
+    "Persuasion",
+    "Perception",
+    "Stealth",
+    "Performance"
+  ],
+  "featAutolearnPreference": [
+    "PowerfulCantrip",
+    "Robust",
+    "Lockbreaker"
+  ],
+  "invocationAutolearnPreference": [],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 5,
+  "classPictogramReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "e563c246e66d8ff4897902a4e1220e7e",
+    "m_SubObjectName": "class_bard",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "defaultBattleDecisions": "Definition:RogueCombatDecisions:c261d934de0fe154d8205afceb17ed6b",
+  "classAnimationId": "Bard",
+  "vocalSpellSemeClass": "Arcana",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&BardTitle",
+    "description": "Class/&BardDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c9c0c0bec470a574ab63afe8d0fd0ec6",
+      "m_SubObjectName": "Bard",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "8d8eb73e8e6c7d24789c3381ab0acccb",
+  "contentPack": "InnerStrength",
+  "name": "Bard"
+}

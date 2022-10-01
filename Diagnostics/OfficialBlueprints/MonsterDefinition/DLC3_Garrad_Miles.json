@@ -4,8 +4,8 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "Antiquarians",
-  "fullyControlledWhenAllied": true,
+  "defaultFaction": "DLC3_Faction_Principality",
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulNeutral",
   "armorClass": 22,
@@ -76,7 +76,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
+  "defaultBattleDecisionPackage": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -160,8 +160,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Garrad:6558dcd2307719f4284204c4ae09ee5d"
     ],
@@ -195,6 +194,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -280,7 +281,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
-  "guid": "bec685a5453cbac43a15ca6aff56a3d4",
+  "guid": "8dee5c30c7127024abd063c6f2144c42",
   "contentPack": "PalaceOfIce",
   "name": "DLC3_Garrad_Miles"
 }

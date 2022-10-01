@@ -37,7 +37,8 @@
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
-    "grantedConditionOnSave": null,
+    "grantedConditionOnSave": "Definition:ConditionFrightenedByDragonImmunity:327b8f12731d98f4ab7bea8b5c0cd1b6",
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
@@ -65,6 +66,7 @@
         "applyLevel": "AddBonus",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -75,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionBlessed",
-          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
+          "conditionDefinition": "Definition:ConditionFrightenedByDragon:b23ec7a1b181e254e8f925eab73acb52",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -205,6 +207,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -259,6 +262,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -275,20 +279,30 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation1"
+    "animationMagicEffect": "Animation1",
+    "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "BonusAction",
+  "autoActivationRequiredTargetSenseType": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "autoActivationPowerTag": "",
+  "triggeringPower": null,
+  "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "None",
   "costPerUse": 1,
   "spellcastingFeature": null,
@@ -306,7 +320,6 @@
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
-  "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

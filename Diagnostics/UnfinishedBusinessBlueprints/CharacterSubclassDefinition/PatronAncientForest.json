@@ -1,0 +1,89 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripAncientForest:3caea6e1-5db7-5273-b4ce-4cbb5e34794f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityAncientForestExpandedSpells:4aad1f84-f733-5a96-a23d-6949e84b1566",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowth:cdd058d8-d63b-5851-b7b5-fbfd6750653c",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowthMultiplier:06645235-a6d5-510b-aa64-266f04b17886",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerAncientForestRegrowth:c9471903-1408-52f6-9aa5-8dd80d38e3bd",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolAncientForestHerbalBrew:88ad425f-64b4-5c73-8537-224c623faad1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:OnMagicalAttackDamageEffectAncientForestLifeSap:4a62c455-7736-5127-8d8d-3312d7384908",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityAncientForestPhotosynthesis:6a1fe8de-c83b-5fd1-8cf7-702c54af21eb",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerAncientForestRooted:276b897b-e7a5-5e7b-b93d-c0aaa35510ca",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierAncientForestBarkskin:328e1ab2-fb19-579d-a1ce-9c62ddfc924f",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWallOfThorns:bb67ac7d-82bd-5eda-b5ea-7a2641ff2821",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PatronAncientForestTitle",
+    "description": "Subclass/&PatronAncientForestDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "05db759cf66168b4495b148ea71ec6c5",
+      "m_SubObjectName": "Wizard_Sylvan_Mage",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "84d79ba0-7e72-59d4-a030-d172573bebf5",
+  "contentPack": 9999,
+  "name": "PatronAncientForest"
+}

@@ -313,11 +313,12 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&Location_Presentation_Title_Complex",
-    "description": "Map/&Location_Presentation_Description_Complex",
+    "title": "Map/&Location_Presentation_Title_Marches",
+    "description": "Map/&Location_Presentation_Description_Marches",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "89e3250eebc2bad47b760cc0ee0d9d74",

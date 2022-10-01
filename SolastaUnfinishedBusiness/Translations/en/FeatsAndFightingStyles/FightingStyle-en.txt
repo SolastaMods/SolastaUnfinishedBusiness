@@ -1,0 +1,12 @@
+FightingStyle/&CripplingDescription=Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+FightingStyle/&CripplingTitle=Crippling
+FightingStyle/&MercilessDescription=When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+FightingStyle/&MercilessTitle=Merciless
+FightingStyle/&PugilistDescription=Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have free hand, you can shove as a bonus action.
+FightingStyle/&PugilistTitle=Pugilist
+FightingStyle/&TitanDescription=You gain a +2 hit against creatures of size Large or bigger.
+FightingStyle/&TitanTitle=Titan Fighting
+Feature/&AdditionalDamageCripplingDescription=Crippling Damage.
+Feature/&AdditionalDamageCripplingTitle=Crippling
+Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!
+Feedback/&AdditionalDamageCripplingLine={0} attacks {1} with +{2} crippling damage.

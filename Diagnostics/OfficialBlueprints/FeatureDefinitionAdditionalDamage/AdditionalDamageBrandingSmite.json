@@ -2,6 +2,9 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "BrandingSmite",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": false,
@@ -9,7 +12,9 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 2,
   "additionalDamageType": "Specific",
@@ -44,6 +49,7 @@
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [
     {

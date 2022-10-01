@@ -1,10 +1,12 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifierType2": "MultiplyByClassLevel",
   "modifiedAttribute": "HealingPool",
+  "modifierOperation": "MultiplyByClassLevel",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

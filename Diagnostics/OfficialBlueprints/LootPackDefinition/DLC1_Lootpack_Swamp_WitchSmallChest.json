@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_WitchHunterletter:b430b46d9a16f27488f48f809fa15eca",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83",
-      "treasureTableDefinition": "Definition:RandomTreasureTableL_Legendary:389b4cc748a4bd14ea38a77d8eafe86e"
+      "treasureTableDefinition": "Definition:RandomTreasureTableL_Legendary:389b4cc748a4bd14ea38a77d8eafe86e",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

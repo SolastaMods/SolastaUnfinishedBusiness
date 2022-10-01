@@ -5,6 +5,7 @@
     "Definition:PowerMartialCommanderCoordinatedDefense:1db8bd5a73378824a91b63a2a2128eef"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

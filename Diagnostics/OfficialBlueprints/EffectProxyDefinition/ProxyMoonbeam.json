@@ -6,6 +6,7 @@
   "canAttack": false,
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
+  "incrementalDamageDice": 0,
   "actionId": "ProxyMoonBeam",
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",

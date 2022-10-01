@@ -1,0 +1,37 @@
+{
+  "$type": "MapWaypointDefinition, Assembly-CSharp",
+  "allowFastTravel": true,
+  "locationExit": false,
+  "destinationUserLocation": "",
+  "longRestAvailable": true,
+  "forceCameraOrientation": false,
+  "cameraAngle": 0.0,
+  "fastTravelFromSameSectorOnly": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&DLC3_WhiteCity_Long_Rest",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d7783f205c5856f42bc54177d329dc7a",
+  "contentPack": "PrimalCalling",
+  "name": "MapWaypointDefinition_DLC3_WhiteCity_Long_Rest"
+}

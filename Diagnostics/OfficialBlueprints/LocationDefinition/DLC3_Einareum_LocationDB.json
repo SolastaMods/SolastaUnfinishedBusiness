@@ -1,7 +1,7 @@
 {
   "$type": "LocationDefinition, Assembly-CSharp",
   "isUserLocation": false,
-  "alwaysHidden": true,
+  "alwaysHidden": false,
   "registeredFactions": [],
   "registeredVariables": [],
   "sceneFilePath": "",
@@ -170,10 +170,10 @@
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Feature/&Emptystring",
     "unchartedDescription": "Feature/&Emptystring",
-    "knownTitle": "Map/&Location_Einarium_Title",
-    "knownDescription": "Feature/&Emptystring",
-    "exploredTitle": "Map/&Location_Einarium_Title",
-    "exploredDescription": "Feature/&Emptystring"
+    "knownTitle": "Map/&Location_Presentation_DLC3_Einarium_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Einarium_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Einarium_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Einarium_Description"
   },
   "challengeRating": -1,
   "focusWhenRevealed": false,
@@ -187,11 +187,12 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Map/&Location_Einarium_Title",
-    "description": "Feature/&Emptystring",
+    "title": "Map/&Location_Presentation_DLC3_Einarium_Title",
+    "description": "Map/&Location_Presentation_DLC3_Einarium_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "411289542cfcead41839ee70cd27f6a6",

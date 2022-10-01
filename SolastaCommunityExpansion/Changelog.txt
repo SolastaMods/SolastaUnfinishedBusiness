@@ -1,9 +1,1 @@
-﻿ATTENTION:
-
-- Last update before Tactical Adventures releases Bard, Monk and Warlock
-- NONE of your heroes or save games will be compatible with CE3
-- Gentle reminder to delete them as well as uninstall this mod
-
-Sincerely, 
-
-The Central Scrutinizer
+﻿

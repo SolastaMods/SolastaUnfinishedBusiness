@@ -32,9 +32,11 @@
   "requiresIdentification": true,
   "requiredAttunementClasses": [
     "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985"
+    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916"
   ],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -67,6 +69,11 @@
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -225,6 +232,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

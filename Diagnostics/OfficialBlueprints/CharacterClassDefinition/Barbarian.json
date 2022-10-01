@@ -217,6 +217,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBarbarianPersistentRageStart:55b04337ae3b3c243aa098067aadcc7d",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierBarbarianRageDamageAdd:9125b022f68e4fd47a784a3c77f7eb3e",
       "level": 16
     },
@@ -249,12 +254,12 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 6,
+      "weight": 12,
       "personalityFlag": "GpCombat"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
+      "weight": 4,
       "personalityFlag": "GpStealth"
     },
     {
@@ -282,6 +287,7 @@
     "Robust",
     "RushToBattle"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 7,
   "classPictogramReference": {
@@ -293,6 +299,10 @@
   "defaultBattleDecisions": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
   "classAnimationId": "Fighter",
   "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

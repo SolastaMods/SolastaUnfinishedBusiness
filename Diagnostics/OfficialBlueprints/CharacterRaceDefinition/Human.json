@@ -48,6 +48,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Human",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Human",
     "morphotypeAssetPrefix": "Human",
     "maleNameOptions": [
       "Race/&HumanMaleName1Title",
@@ -87,8 +89,25 @@
       "Race/&HumanSurName12Title",
       "Race/&HumanSurName13Title"
     ],
+    "availableMorphotypeCategories": [
+      "Origin",
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Musculature",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": true,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_CA",
       "Origin_AS",
@@ -210,6 +229,18 @@
       "HairShape_AA",
       "HairShape_None"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_None",
       "BeardShape_D",
@@ -222,6 +253,10 @@
       "BeardShape_P",
       "BeardShape_C"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM1",

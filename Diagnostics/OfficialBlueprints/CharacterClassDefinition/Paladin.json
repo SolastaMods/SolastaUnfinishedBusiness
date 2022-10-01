@@ -251,9 +251,24 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPaladinCleansingTouch:ae9ae1623b2187d47aadecb04c5f6f54",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
     }
   ],
   "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassPaladinFlag"
+    },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
@@ -276,7 +291,7 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 4,
+      "weight": 9,
       "personalityFlag": "GpCombat"
     },
     {
@@ -286,13 +301,8 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 3,
+      "weight": 6,
       "personalityFlag": "GpSpellcaster"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "ClassPaladinFlag"
     }
   ],
   "skillAutolearnPreference": [
@@ -311,6 +321,7 @@
     "Robust",
     "Robust"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 5,
   "classPictogramReference": {
@@ -322,6 +333,10 @@
   "defaultBattleDecisions": "Definition:PaladinCombatDecisions:783db54f0bcd65e4bb557758d6d0bc3d",
   "classAnimationId": "Paladin",
   "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

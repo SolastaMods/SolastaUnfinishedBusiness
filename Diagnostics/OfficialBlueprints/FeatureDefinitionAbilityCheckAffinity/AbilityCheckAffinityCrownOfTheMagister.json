@@ -7,6 +7,7 @@
       "abilityScoreName": "Charisma",
       "proficiencyName": "Intimidation",
       "affinity": "None",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 2,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
@@ -17,12 +18,14 @@
       "abilityScoreName": "Charisma",
       "proficiencyName": "Persuasion",
       "affinity": "None",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 2,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
       "lightingContext": "Irrelevant"
     }
   ],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

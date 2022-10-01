@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "FeyTeleport",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&MistyStepTitle",
+    "description": "Spell/&MistyStepDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
+      "m_SubObjectName": "MistyStep",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "60979914-7a64-57cf-8ce0-44bd5b0b6d70",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsFeyTeleportationSorcerer"
+}

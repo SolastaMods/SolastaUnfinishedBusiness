@@ -1,7 +1,13 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SmiteTheHiddenDarkvision",
+  "notificationTag": "SmiteTheHidden",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [
+    "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenShapeChanger:2cd4ec71f4c3ac64f807238cc6a8110d",
+    "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenSuperiorDarkvision:5b75a61a854822447b51387ab6f266cd"
+  ],
   "triggerCondition": "TargetHasSenseType",
   "requiredProperty": "None",
   "attackModeOnly": false,
@@ -9,7 +15,9 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
@@ -23,6 +31,7 @@
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [],
   "addLightSource": false,

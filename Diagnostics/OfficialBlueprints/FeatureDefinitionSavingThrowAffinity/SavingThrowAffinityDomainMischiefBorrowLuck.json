@@ -5,6 +5,7 @@
   "affinityGroups": [],
   "indomitableSavingThrows": 0,
   "canBorrowLuck": true,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

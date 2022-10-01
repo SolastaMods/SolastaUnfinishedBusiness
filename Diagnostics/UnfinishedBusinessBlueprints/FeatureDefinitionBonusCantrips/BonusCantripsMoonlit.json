@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:FaerieFireAtWill:0a6bf80d-2182-5bf1-bdc7-e2d089e5fccc",
+    "Definition:MoonbeamAtWill:2a613d33-c3de-5b98-9dcb-6adb03548937"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BonusCantripsMoonlitTitle",
+    "description": "Feature/&BonusCantripsMoonlitDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3586c490-6d1f-5882-8ee0-f9004dcf4a7a",
+  "contentPack": 9999,
+  "name": "BonusCantripsMoonlit"
+}

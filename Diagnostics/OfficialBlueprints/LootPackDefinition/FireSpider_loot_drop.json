@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_DeepSpiderVenomGland:714d148bc6e7d9342a373164062b9649",
-      "treasureTableDefinition": "Definition:Random_FireSpider_Table:407f7355a2d93924a877f336dbdbbff2"
+      "treasureTableDefinition": "Definition:Random_FireSpider_Table:407f7355a2d93924a877f336dbdbbff2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

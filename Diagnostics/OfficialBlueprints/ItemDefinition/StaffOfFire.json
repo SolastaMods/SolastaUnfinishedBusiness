@@ -33,10 +33,13 @@
   "requiresAttunement": true,
   "requiresIdentification": true,
   "requiredAttunementClasses": [
-    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985"
+    "Definition:Druid:df2da915a153d7a48a896041cf318953",
+    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
   ],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": true,
@@ -87,9 +90,10 @@
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
-      "difficultyClassComputation": "FixedValue",
+      "difficultyClassComputation": "SpellCastingFeature",
       "savingThrowDifficultyAbility": "Wisdom",
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
@@ -114,6 +118,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 0,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": false,
@@ -126,6 +131,7 @@
             "versatile": true,
             "diceNumber": 1,
             "dieType": "D6",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D8",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
@@ -260,6 +266,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -314,6 +321,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -330,9 +338,11 @@
         "aoeScoreMultiplier": 1.0,
         "cooldownForCaster": 0,
         "cooldownForBattle": 0,
+        "sortingScoreMultiplier": 1.0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     },
     "ammunitionType": "ArrowType"
   },
@@ -399,13 +409,18 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
   "isFocusItem": true,
   "focusItemDefinition": {
     "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
+    "focusType": "Universal",
     "shownAsFocus": true
   },
   "isWealthPile": false,
@@ -540,6 +555,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

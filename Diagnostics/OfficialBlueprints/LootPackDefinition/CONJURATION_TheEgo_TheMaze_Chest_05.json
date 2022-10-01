@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",
@@ -39,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
-  "guid": "b4e7fce9810161c43b2af4bd0384f405",
+  "guid": "affa35cb7c802a64cb5b5b63726a4814",
   "contentPack": "BaseGame",
   "name": "CONJURATION_TheEgo_TheMaze_Chest_05"
 }

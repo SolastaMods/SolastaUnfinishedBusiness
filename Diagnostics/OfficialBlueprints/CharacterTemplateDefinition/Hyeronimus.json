@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Hyeronimus",
   "surName": "Bash",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 100.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_CA_A",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlack",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
   "subClass": "Definition:OathOfTirmar:c14f1d650aaf1994eae74f2c6063bb63",
   "deity": "Definition:Pakri:4fc11f376c1b755439fe6d9fd37fa352",
@@ -64,6 +69,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -74,6 +80,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:BrandingSmite:1da57f03be1764642968c141460fe859",
     "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
@@ -83,6 +90,8 @@
   "sex": "Male",
   "pronoun": "Male",
   "age": 30,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

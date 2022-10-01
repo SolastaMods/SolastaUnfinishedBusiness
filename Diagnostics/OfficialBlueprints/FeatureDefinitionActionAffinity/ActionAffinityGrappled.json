@@ -19,11 +19,12 @@
   "specialBehaviour": "None",
   "randomBehaviorDie": "D10",
   "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&ActionAffinityBlackTentaclesTitle",
-    "description": "Feature/&ActionAffinityBlackTentaclesDescription",
+    "hidden": true,
+    "title": "Rules/&ConditionGrappledTitle",
+    "description": "Rules/&ConditionGrappledDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

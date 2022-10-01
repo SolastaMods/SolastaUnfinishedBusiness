@@ -115,8 +115,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_Citizen_Human_Sorak_Infiltrator01:db74f575d342283419d39b4c6e5f123c",
       "Definition:NPC_Presentation_Generic_Citizen_Human_Sorak_Infiltrator02:3ea62e93a96c2fd4785943bda3ca0b58",
@@ -157,6 +156,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSorcererDraconicElementalResistance:073aefb4cc1a7c74faf281f79e19fa7f",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcererDraconicDragonWings:838847a9d4199fb419c1f34212f93af9",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

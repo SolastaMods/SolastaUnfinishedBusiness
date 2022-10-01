@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Intelligence",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:CraftingAffinityFeatMasterAlchemist:cf54d8ef8f1436948884038c6480f789",

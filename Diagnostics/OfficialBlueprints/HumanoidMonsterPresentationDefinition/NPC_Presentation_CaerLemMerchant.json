@@ -7,6 +7,8 @@
   "skinMorphotype": "FaceAndSkinObsidian",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_F",
   "hairShapeMorphotype": "HairShape_D",
   "hairColorMorphotype": "HairColor_21",
@@ -15,7 +17,9 @@
   "eyeColorMorphotype": "EyeColorBlue",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "armorDefinition": "ChainShirt",
   "helmetDefinition": "",
   "tabardDefinition": "",
@@ -59,7 +63,7 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c57a93d4c77d9704390c93cdb83280dc",
-      "m_SubObjectName": "CustomPortrait_CaerLemMerchant",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_CaerLemMerchant",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

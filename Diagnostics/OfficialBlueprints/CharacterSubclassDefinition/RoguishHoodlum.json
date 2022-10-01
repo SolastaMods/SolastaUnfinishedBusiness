@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRoguishHoodlumMenacing:d7b456e884cef5049b38d0bf7aa20603",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishHoodlumDirtyFighting:8dd9852ac5ed7914b8f9268bf5df1c27",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],

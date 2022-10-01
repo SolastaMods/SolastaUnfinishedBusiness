@@ -1,0 +1,112 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.Api.Extensions;
+
+public static class RulesetCharacterHeroExtensions
+{
+    [NotNull]
+    public static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero) where T : class
+    {
+        var list = new List<(string, T)>();
+
+        foreach (var pair in hero.ActiveFeatures)
+        {
+            list.AddRange(GetTaggedFeatures<T>(pair.Key, pair.Value));
+        }
+
+        return list;
+    }
+
+    [NotNull]
+    private static IEnumerable<(string, T)> GetTaggedFeatures<T>(
+        string tag,
+        [NotNull] IEnumerable<FeatureDefinition> features)
+        where T : class
+    {
+        var list = new List<(string, T)>();
+        foreach (var feature in features)
+        {
+            switch (feature)
+            {
+                case FeatureDefinitionFeatureSet { Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union } set:
+                    list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
+                    break;
+
+                case T typedFeature:
+                    list.Add((tag, typedFeature));
+                    break;
+            }
+        }
+
+        return list;
+    }
+
+    public static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
+               && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
+    }
+
+    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
+               && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
+    }
+
+    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
+    {
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
+
+        if (equipedItem != null && equipedItem.ItemDefinition.IsWeapon)
+        {
+            return equipedItem.ItemDefinition.activeTags.Contains("TwoHanded");
+        }
+
+        return false;
+    }
+
+    public static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    {
+        return classDefinition != null && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
+            ? classLevel
+            : 0;
+    }
+
+    public static int GetClassLevel(this RulesetCharacterHero hero, string className)
+    {
+        return hero.GetClassLevel(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .GetAllElements()
+            .FirstOrDefault(x => x.Name == className));
+    }
+
+    public static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
+    {
+        var slotsByName = hero.CharacterInventory.InventorySlotsByName;
+        return slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+    }
+}

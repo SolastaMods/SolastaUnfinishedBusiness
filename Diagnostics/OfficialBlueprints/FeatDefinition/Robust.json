@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Constitution",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatRobust:41f073d623177ec4aaf94f800e50b1ff",

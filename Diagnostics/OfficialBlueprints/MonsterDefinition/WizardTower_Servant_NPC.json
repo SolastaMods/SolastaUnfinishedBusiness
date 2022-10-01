@@ -96,8 +96,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_WizardTower_Servant01:b4fc4825d1dba544abb5c7bf2409cea1",
       "Definition:NPC_Presentation_WizardTower_Servant02:1f0e2b33f32a4084faf5b4fa9e5b8f73",
@@ -138,6 +137,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "62a22b407b0619549997a357f6344630",

@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_SpiderQueen_Venom:d4837cc6a3c181142b498c3011ae5e8b",
-      "treasureTableDefinition": "Definition:Random_FireSpider_Table:407f7355a2d93924a877f336dbdbbff2"
+      "treasureTableDefinition": "Definition:Random_FireSpider_Table:407f7355a2d93924a877f336dbdbbff2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

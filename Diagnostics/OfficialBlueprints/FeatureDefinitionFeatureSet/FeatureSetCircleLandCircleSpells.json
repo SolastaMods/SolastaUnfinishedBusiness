@@ -10,6 +10,7 @@
     "Definition:AutoPreparedSpellsCircleLandArctic:65db062fbb963db459bd54d4d4ed180b"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": true,

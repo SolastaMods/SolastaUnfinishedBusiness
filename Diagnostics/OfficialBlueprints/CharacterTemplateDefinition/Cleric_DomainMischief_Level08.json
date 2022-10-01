@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Mischief8",
   "surName": "Cleric",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlond",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainMischief:ddd19f644f2ce1742bc12c9efb4adab2",
   "deity": "Definition:Arun:9fe6be99f689cc94683098b128c799d8",
@@ -66,6 +71,7 @@
     "GamingSetDiceType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -82,6 +88,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
@@ -107,12 +114,16 @@
     "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
     "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
     "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
-    "Definition:SpiritGuardians:e44bc16c38bca35458599d87cf6def2d"
+    "Definition:SpiritGuardians:e44bc16c38bca35458599d87cf6def2d",
+    "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+    "Definition:DeathWard:5791cc9bac327d444bd26ece3c2e150e"
   ],
   "preparedSubclassSpells": [],
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -151,7 +162,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

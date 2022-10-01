@@ -2,16 +2,16 @@
   "$type": "MonsterAttackDefinition, Assembly-CSharp",
   "displayedInEditor": true,
   "methodName": "",
-  "actionType": "Bonus",
+  "actionType": "Main",
   "toHitBonus": 8,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": -1,
-  "proximity": "Melee",
+  "proximity": "Range",
   "reachRange": 1,
-  "closeRange": 10,
-  "maxRange": 20,
-  "magical": false,
+  "closeRange": 6,
+  "maxRange": 12,
+  "magical": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -50,6 +50,7 @@
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -77,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -89,8 +91,9 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D4",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
-          "bonusDamage": 2,
+          "bonusDamage": 6,
           "damageType": "DamagePiercing",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -223,6 +226,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -277,6 +281,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -293,9 +298,11 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
@@ -303,6 +310,7 @@
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -364,8 +372,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5345011f93d2d144fb13c4d856190f30",
-      "m_SubObjectName": "StandardDagger",
+      "m_AssetGUID": "b937299dddfb7c743a534c0b5338f0a1",
+      "m_SubObjectName": "Dagger+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

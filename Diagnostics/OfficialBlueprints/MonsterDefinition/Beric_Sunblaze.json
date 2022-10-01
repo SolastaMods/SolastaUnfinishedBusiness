@@ -8,47 +8,67 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 13,
-  "armor": "",
-  "hitDice": 3,
-  "hitDiceType": "D8",
-  "hitPointsBonus": 6,
-  "standardHitPoints": 24,
+  "armorClass": 20,
+  "armor": "HalfPlate",
+  "hitDice": 12,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 36,
+  "standardHitPoints": 100,
   "abilityScores": [
-    12,
     18,
-    13,
-    14,
-    13,
-    14
+    12,
+    17,
+    12,
+    20,
+    16
   ],
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 4
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
-      "bonus": 6
+      "bonus": 1
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 3
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
-      "bonus": 4
+      "bonus": 1
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 7
     }
   ],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Acrobatics",
-      "bonus": 6
+      "skillName": "Survival",
+      "bonus": 5
     },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
-      "bonus": 3
+      "bonus": 4
     },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Stealth",
-      "bonus": 8
+      "bonus": 1
     }
   ],
   "legendaryCreature": false,
@@ -60,8 +80,8 @@
   "threatEvaluatorDefinition": null,
   "languages": [
     "Language_Common",
-    "Language_Elvish",
-    "Language_Dwarvish"
+    "Language_Tirmarian",
+    "Language_Elvish"
   ],
   "audioSwitches": [
     {
@@ -95,25 +115,19 @@
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 6.0,
   "challengeRating": 0.5,
-  "noExperienceGain": false,
+  "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Daliat_Dagger:1c826132a22a0bc4e9e563ce69c6b651"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Daliat_Shortbow:72f4984cbce73eb4bb2732bdacc34a90"
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_ArmoredFighter_Longsword:78fdcb8572844664dbbbe39ec0f81d95"
     }
   ],
   "sneakStance": "Stealth",
@@ -146,8 +160,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Beric_Sunblaze:3daeb305f80491c4cb9eb5a448cc9b65"
     ],
@@ -181,6 +194,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

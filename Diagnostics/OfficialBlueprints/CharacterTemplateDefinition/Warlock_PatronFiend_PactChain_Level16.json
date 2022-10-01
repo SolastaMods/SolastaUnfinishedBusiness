@@ -1,0 +1,192 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "WarlockFiendChain16",
+  "surName": "Fiend",
+  "abilityScores": [
+    10,
+    15,
+    16,
+    12,
+    12,
+    18
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:HalfElf:bf7685e7b813d8c46a7d903080d23541",
+  "subRace": null,
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_HalfElf_D",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "mainClass": "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+  "subClass": "Definition:PatronFiend:6f4a40075c00bd04e9d0b8b013caed2d",
+  "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
+  "background": "Definition:Wanderer:6e2e429b693317945887cb99508990df",
+  "backgroundPersonalityFlag1": "Self-Preservation",
+  "backgroundPersonalityFlag2": "Pragmatism",
+  "alignment": "ChaoticGood",
+  "alignmentPersonalityFlag1": "Cynicism",
+  "alignmentPersonalityFlag2": "Selfishness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:ArcaneFocusOrb:9ea374b3079d52a4d882e271157e040b",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941"
+  ],
+  "startingMoney": [
+    0,
+    98,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Deception",
+    "Religion"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "invocationsOverride": [
+    "AgonizingBlast",
+    "BookAncientSecrets",
+    "OneWithShadows",
+    "MinionsChaos",
+    "RepellingBlast",
+    "ChainsCarceri"
+  ],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 16,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
+    "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+    "Definition:HellishRebuke:ce1fe7c80c29bfc438c6f8150658083b",
+    "Definition:Malediction:1aeeac9ea6f521b46892438da2948664",
+    "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+    "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+    "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+    "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+    "Definition:VampiricTouch:149a2d0a835fda54b99a710e0dabfd53",
+    "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+    "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc",
+    "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+    "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+    "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [
+    {
+      "$type": "ExtraSpellsByTag, Assembly-CSharp",
+      "tag": "PactTome",
+      "extraSpells": [
+        "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571",
+        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee",
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
+      ]
+    },
+    {
+      "$type": "ExtraSpellsByTag, Assembly-CSharp",
+      "tag": "PactTomeRitual",
+      "extraSpells": [
+        "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
+        "Definition:Identify:e398d34493329f147bae4902122057c2"
+      ]
+    },
+    {
+      "$type": "ExtraSpellsByTag, Assembly-CSharp",
+      "tag": "MysticArcanum",
+      "extraSpells": [
+        "Definition:CircleOfDeath:0fd4c89f6c07713499242fe6529aa816",
+        "Definition:FingerOfDeath:facc856c4a4e5d54090b481bef1441a4"
+      ]
+    }
+  ],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 30,
+  "preferredAncestry": null,
+  "featurePreferences": [
+    {
+      "$type": "PreferenceGroupDescription, Assembly-CSharp",
+      "level": 3,
+      "featureSet": "Definition:FeatureSetPactSelection:963a6bb7e0f97a041a0cbef786b2c8f6",
+      "preferredFeature": "Definition:FeatureSetPactChain:101749129eb42a74583471b1f8dc44b7"
+    }
+  ],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Warlock",
+    "description": "Fiend",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ef3be013783f32442807a5503e2a3347",
+      "m_SubObjectName": "Garrad",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 99,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d60c1d540c766d247a06572ce1a326fa",
+  "contentPack": "BaseGame",
+  "name": "Warlock_PatronFiend_PactChain_Level16"
+}

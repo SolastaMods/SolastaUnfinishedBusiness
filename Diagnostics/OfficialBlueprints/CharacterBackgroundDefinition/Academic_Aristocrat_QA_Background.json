@@ -94,6 +94,7 @@
     "Selfishness"
   ],
   "forbiddenAlignments": [],
+  "hasBackgroundQuest": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

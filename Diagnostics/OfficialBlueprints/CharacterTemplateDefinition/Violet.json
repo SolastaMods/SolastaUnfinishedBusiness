@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Violet",
   "surName": "Goodcheer",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinBronze",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_A",
   "hairColorMorphotype": "HairColorBrown",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
   "subClass": "Definition:TraditionShockArcanist:6f400ff2620a4c14cabd9f8fd450eee1",
   "deity": null,
@@ -63,6 +68,7 @@
     "ScrollKitType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -89,6 +95,7 @@
     "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
   ],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
     "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
@@ -102,6 +109,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

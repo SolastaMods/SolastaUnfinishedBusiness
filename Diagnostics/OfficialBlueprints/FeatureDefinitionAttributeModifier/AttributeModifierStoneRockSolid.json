@@ -1,10 +1,12 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifierType2": "SurroundingEnemies",
   "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "AddSurroundingEnemies",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "RagingSurroundedByEnemies",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

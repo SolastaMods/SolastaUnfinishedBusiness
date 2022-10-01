@@ -1100,7 +1100,7 @@
       "reassortRateType": "Day",
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Mask",
-      "factionStatus": "Hatred"
+      "factionStatus": "Alliance"
     },
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
@@ -1114,7 +1114,21 @@
       "reassortRateType": "Day",
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Mask",
-      "factionStatus": "Hatred"
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:500_GP_Black_Pearl_Powder:9a301225fb86c7f4aa99439fa2465c68",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Mask",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

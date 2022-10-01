@@ -1,0 +1,60 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "ShadowTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedBarbarian:5fc5a825-7241-5ee2-b05d-05cd41c9e367",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedBard:d9730fbf-2a28-5af2-b8b1-969b784146d1",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedCleric:47eaba1b-20a1-59bf-afcb-9a493f924fdc",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedDruid:3cee7ab0-d8e2-501e-95a2-9a86a33eabc4",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedFighter:96ae53f8-33af-5b90-93a3-df18d109a469",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedInventor:76b4be3a-d3ab-58f0-b9c3-d8c865377ca2",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedMonk:9a162f45-5f99-52f9-bf1d-b71f4348eba7",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedPaladin:29ee1bb7-3398-5f4b-9fc0-174a77639154",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedRanger:67f6e925-346b-5dd6-94d6-e20d533f8bab",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedRogue:0d08a100-8e19-5e05-9292-37ee8c09c905",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedSorcerer:2f48882f-794e-56a3-8804-4297cf718a03",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedWarlock:a3399b46-05da-5ef7-9c89-8072d2cc4a83",
+    "Definition:AutoPreparedSpellsFeatShadowTouchedWizard:eb176128-006d-580d-ae93-1047cdb5e68f",
+    "Definition:PowerFeatShadowTouchedFalseLife:f8b87645-627d-5980-8610-5b217ce702dc",
+    "Definition:PowerFeatShadowTouchedInflictWoundsInt:e4143e24-50de-5655-9a3c-ede4665a7b78",
+    "Definition:PowerFeatShadowTouchedInvisibility:e23cb8d8-af6d-561b-9d61-aa5b566c6c38"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatShadowTouchedIntTitle",
+    "description": "Feat/&FeatShadowTouchedIntDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b3d92fa6-273c-51c1-8a12-fd52fa5003da",
+  "contentPack": 9999,
+  "name": "FeatShadowTouchedInt"
+}

@@ -3,6 +3,7 @@
   "type": "Battle",
   "challengeRating": 18,
   "locationOverride": null,
+  "locationBlacklist": [],
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",

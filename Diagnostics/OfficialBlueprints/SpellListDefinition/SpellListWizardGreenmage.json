@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 7,
+  "maxSpellLevel": 8,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -36,6 +36,7 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "spells": [
+        "Definition:CallLightning:bbb46df8e1040014ea6bdaf36cc1e82b",
         "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
         "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b",
         "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
@@ -46,8 +47,9 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
-        "Definition:GiantInsect:752353d60e1c84c4cb0955798995a954",
+        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
         "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c",
+        "Definition:GiantInsect:752353d60e1c84c4cb0955798995a954",
         "Definition:IdentifyCreatures:8cf2f383cc3d0704e860b4fd6fc7659f"
       ]
     },
@@ -62,14 +64,33 @@
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 6,
-      "spells": []
+      "spells": [
+        "Definition:ConjureFey:83cdb7051d75bfe4c9a09008b28b1a91",
+        "Definition:HeroesFeast:2df9af96f1ce6ee4aa3d1b9ecdb67b1f",
+        "Definition:WallOfThorns:1ce3e76ff87b4d84ab97b8d2b8357c75"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": []
+      "spells": [
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a",
+        "Definition:Regenerate:11ce287bdf5b59d46bc8a992186ed349",
+        "Definition:Resurrection:f796a243f664c73409cca137f137f5f3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e"
+      ]
     }
   ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

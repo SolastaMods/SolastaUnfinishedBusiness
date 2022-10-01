@@ -20,6 +20,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
+  "medecineStabilizeTo1HitPoint": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

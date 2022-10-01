@@ -3,6 +3,7 @@
   "type": "Event",
   "challengeRating": 2,
   "locationOverride": "Definition:Caravan_LocationDB:c1aed56b10acc6a4bb0614aafc82fe52",
+  "locationBlacklist": [],
   "monsterOccurences": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

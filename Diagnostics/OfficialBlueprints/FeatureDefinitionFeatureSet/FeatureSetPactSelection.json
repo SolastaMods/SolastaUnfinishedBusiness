@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FeatureSetPactTome:8b33a6d5c658687478e1fdd190df8fa6",
+    "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
+    "Definition:FeatureSetPactChain:101749129eb42a74583471b1f8dc44b7"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPactSelectionTitle",
+    "description": "Feature/&FeatureSetPactSelectionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "963a6bb7e0f97a041a0cbef786b2c8f6",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetPactSelection"
+}

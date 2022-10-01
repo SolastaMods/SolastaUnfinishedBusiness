@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": true,
   "armorProficiencyCategory": "LightArmorCategory",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierSturdinessOfTheTundra:c96e7b756d1f29a4897a547d6902f4d8",

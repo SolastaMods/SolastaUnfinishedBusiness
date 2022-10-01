@@ -2,6 +2,9 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "Poisonous",
   "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "MeleeWeapon",
   "attackModeOnly": true,
@@ -9,7 +12,9 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 2,
   "additionalDamageType": "Specific",
@@ -23,6 +28,7 @@
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
   "savingThrowDC": 13,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "Negates",
   "conditionOperations": [
     {

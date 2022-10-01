@@ -180,7 +180,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": true
               },
-              "name": "FavorAttackableBestEnemyWithReachSlightlyAtPosition"
+              "name": "FavorAttackableBestEnemyWithReachAtPosition"
             },
             "weight": 1.0
           }

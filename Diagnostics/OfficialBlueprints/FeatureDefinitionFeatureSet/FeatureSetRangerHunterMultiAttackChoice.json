@@ -5,6 +5,7 @@
     "Definition:ActionAffinityRangerHunterWhirlwindAttack:5bff74324aa4f5f48b17b5127be56ffe"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": true,
   "enumerateInDescription": false,

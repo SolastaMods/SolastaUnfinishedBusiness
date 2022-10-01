@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "tag": "draconic",
+  "damageType": "DamageCold",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_01",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryDragonbornDraconicSilverTitle",
+    "description": "Feature/&AncestryDragonbornDraconicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b2cf7162e98ebe54fbca0fb23f66be49",
+  "contentPack": "BaseGame",
+  "name": "AncestryDragonbornDraconicSilver"
+}

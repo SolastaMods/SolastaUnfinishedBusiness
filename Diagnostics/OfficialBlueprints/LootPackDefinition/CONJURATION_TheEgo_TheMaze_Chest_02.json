@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:CONJURATION_SecretSpellBook3:4c2f0380bedf4b041b15a670e03f777c",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_MithralStone:e0d9029154ac2a14c89ad240597b4ac0",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

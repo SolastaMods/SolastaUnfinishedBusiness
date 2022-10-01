@@ -5,6 +5,7 @@
     "Definition:PointPoolHalfElfLanguageChoice:cf3d31f4c63ec0f46a9a427a354a4be4"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

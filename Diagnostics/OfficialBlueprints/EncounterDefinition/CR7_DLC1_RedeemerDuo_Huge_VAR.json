@@ -3,6 +3,7 @@
   "type": "Battle",
   "challengeRating": 7,
   "locationOverride": "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+  "locationBlacklist": [],
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",

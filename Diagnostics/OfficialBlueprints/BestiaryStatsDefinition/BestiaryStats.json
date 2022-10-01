@@ -33,8 +33,8 @@
             "m_SubscriptOffset": -12.5,
             "m_SubscriptSize": 0.5,
             "m_UnderlineOffset": -5.0,
-            "m_UnderlineThickness": 2.5,
-            "m_StrikethroughOffset": 10.0,
+            "m_UnderlineThickness": 10.0,
+            "m_StrikethroughOffset": 15.0,
             "m_StrikethroughThickness": 2.5,
             "m_TabWidth": 10.0
           },

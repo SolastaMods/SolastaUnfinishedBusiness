@@ -51,7 +51,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:HezrouCombatDecisions:44a17a2e9afb5de4b994e3531e215beb",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -73,13 +73,28 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeDamageDealers"
   },
   "languages": [
     "Language_Abyssal"
   ],
   "audioSwitches": [],
-  "audioSwitchesOnHands": [],
+  "audioSwitchesOnHands": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioRaceRTPCValue": 0.0,
   "challengeRating": 8.0,
   "noExperienceGain": false,
@@ -96,18 +111,15 @@
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86"
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3",
+    "Definition:PowerHezrouPoisonBolt:0f4e39d744cb27348b7825aa3ca0d408"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Hezrou_Bite:bcf3cc398d2ac0645a13e4b80ef4c74c"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Hezrou_Claw:9234088e40f201141b73b9f814df4fac"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
@@ -145,8 +157,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -178,9 +189,11 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "062b4a0dc85a6464991d3dcc5527190b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -194,18 +207,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.3,
+    "maleModelScale": 1.0,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 1.3,
+    "femaleModelScale": 0.656,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -242,8 +255,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&GhoulTitle",
-    "description": "Monster/&GhoulTitle",
+    "title": "Monster/&Hezrou_Title",
+    "description": "Monster/&Hezrou_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4808f1dc23e22504b800d3b5295050b5",

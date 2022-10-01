@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "MagicDevice",
   "weight": 2.0,
   "slotTypes": [
@@ -32,8 +32,11 @@
   "magical": true,
   "requiresAttunement": true,
   "requiresIdentification": true,
-  "requiredAttunementClasses": [],
+  "requiredAttunementClasses": [
+    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb"
+  ],
   "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
@@ -41,9 +44,9 @@
   "isUsableDevice": true,
   "usableDeviceDescription": {
     "$type": "UsableDeviceDescription, Assembly-CSharp",
-    "usage": "Single",
+    "usage": "Charges",
     "chargesCapital": "Fixed",
-    "chargesCapitalNumber": 1,
+    "chargesCapitalNumber": 10,
     "chargesCapitalDie": "D1",
     "chargesCapitalBonus": 0,
     "rechargeRate": "Dawn",
@@ -52,8 +55,21 @@
     "rechargeBonus": 0,
     "outOfChargesConsequence": "Persist",
     "magicAttackBonus": 0,
-    "saveDC": 10,
-    "deviceFunctions": [],
+    "saveDC": 15,
+    "deviceFunctions": [
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 1,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:Power_HornOfBlasting:117e943843bc8de43a009efea1708b49"
+      }
+    ],
     "usableDeviceTags": [],
     "onUseParticle": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -63,6 +79,11 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -199,6 +220,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -224,6 +247,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "c78c577570a72964e8ecb4668b6e5d22",
-  "contentPack": "BaseGame",
+  "contentPack": "InnerStrength",
   "name": "HornOfBlasting"
 }

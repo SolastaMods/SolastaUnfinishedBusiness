@@ -7,6 +7,7 @@
     "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

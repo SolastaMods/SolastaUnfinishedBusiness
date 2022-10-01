@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:6D6_Copper_Coins:40e84944944a7ce43b5c907053cf580f",
-      "treasureTableDefinition": "Definition:RandomTreasureTableL_Legendary:389b4cc748a4bd14ea38a77d8eafe86e"
+      "treasureTableDefinition": "Definition:RandomTreasureTableL_Legendary:389b4cc748a4bd14ea38a77d8eafe86e",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

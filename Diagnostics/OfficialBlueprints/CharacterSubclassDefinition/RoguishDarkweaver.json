@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageDarkweaverPoisonous:e5f22ebd6cc24ea4b9a19a1f8ccb6c5b",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetShadowy:53243a12e36f5e04fa491e330d77c29d",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],

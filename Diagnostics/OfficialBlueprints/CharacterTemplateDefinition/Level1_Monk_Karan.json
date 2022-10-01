@@ -1,0 +1,148 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Race/&DragonbornMaleName9Title",
+  "surName": "Race/&DragonbornSurName1Title",
+  "abilityScores": [
+    10,
+    18,
+    14,
+    10,
+    15,
+    7
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",
+  "subRace": null,
+  "originMorphotype": "Origin_Dragonborn",
+  "skinMorphotype": "FaceAndSkin_Dragonborn_06",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_D",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColor_018",
+  "eyeMorphotype": "Eye_Dragonborn",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_A",
+  "tailMorphotype": "Tail_A",
+  "mainClass": "Definition:Monk:c324ef1e442a1474ebf361413dee9432",
+  "subClass": null,
+  "deity": null,
+  "background": "Definition:Aescetic_Background:44826b4ed6895b94b8dbc098d240ed01",
+  "backgroundPersonalityFlag1": "Pragmatism",
+  "backgroundPersonalityFlag2": "Self-Preservation",
+  "alignment": "LawfulNeutral",
+  "alignmentPersonalityFlag1": "Lawfulness",
+  "alignmentPersonalityFlag2": "Self-Preservation",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:CraftingStarterPack:9a568dd5f63486a44b5f8607441b3b36",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+    "Definition:ArtisanToolSmithTools:46c6058109cc8c8419c546419a74281b",
+    "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+    "Definition:Ingredient_Projectile_Parts:1d2354616922cfd4484960a2ab0affc1"
+  ],
+  "startingMoney": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Acrobatics",
+    "Athletics",
+    "Survival",
+    "Insight"
+  ],
+  "toolsOverride": [
+    "ArtisanToolSmithToolsType",
+    "HerbalismKitType"
+  ],
+  "featsOverride": [],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Orc"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 25,
+  "preferredAncestry": "Definition:AncestryDragonbornDraconicGold:44e10b05bc6a49f4297207e6c1af3ddb",
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "28bd47b0fd2153b4ba829c35b89ba733",
+      "m_SubObjectName": "Level1_Monk_Karan",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "39b9074e4adb1b348bc5cd0219627529",
+  "contentPack": "InnerStrength",
+  "name": "Level1_Monk_Karan"
+}

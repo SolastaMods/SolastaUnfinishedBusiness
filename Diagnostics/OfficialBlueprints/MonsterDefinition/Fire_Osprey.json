@@ -77,7 +77,8 @@
     "Definition:ConditionAffinityGrappledImmunity:c71d4f4faab7c754fbe9d52fa8ca428b",
     "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
     "Definition:PowerFireOspreyBlast:6eca83971f554a1479caf89bd97f59ae",
-    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430"
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c"
   ],
   "attackIterations": [
     {
@@ -116,8 +117,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -149,6 +149,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b9c56a0d75716c647ba511a54958c5eb",

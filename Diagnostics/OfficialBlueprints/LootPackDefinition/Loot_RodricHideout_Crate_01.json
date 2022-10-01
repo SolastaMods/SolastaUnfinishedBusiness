@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Primed Plate:52acc8997c4a38f438d2b87af0ec6872",
-      "treasureTableDefinition": "Definition:RandomTreasureTableM_Primed_Item:46f69d1cb692f514c9808e9273980f8c"
+      "treasureTableDefinition": "Definition:RandomTreasureTableM_Primed_Item:46f69d1cb692f514c9808e9273980f8c",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 1,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 1,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Rodric_Hideout_Note:dc7fc48c46b5f3e46ae9c98e959057f2",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 1,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Rodric_Hideout_Note:dc7fc48c46b5f3e46ae9c98e959057f2",
-      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e"
+      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

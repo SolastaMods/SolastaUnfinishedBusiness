@@ -1,6 +1,8 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "tag": "sorcerer",
   "damageType": "DamageLightning",
+  "associatedFaceAndSkinColor": "",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

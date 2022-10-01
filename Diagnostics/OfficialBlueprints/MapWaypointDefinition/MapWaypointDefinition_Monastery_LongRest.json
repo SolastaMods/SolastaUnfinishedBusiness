@@ -3,7 +3,7 @@
   "allowFastTravel": true,
   "locationExit": false,
   "destinationUserLocation": "",
-  "longRestAvailable": false,
+  "longRestAvailable": true,
   "forceCameraOrientation": false,
   "cameraAngle": 0.0,
   "fastTravelFromSameSectorOnly": false,

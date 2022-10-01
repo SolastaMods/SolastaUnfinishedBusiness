@@ -5,8 +5,11 @@
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
   "damageAffinityType": "Immunity",
+  "flatDamageReduction": 0,
+  "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
   "tagsIgnoringAffinity": [
-    "Magical"
+    "MagicalWeapon",
+    "MagicalEffect"
   ],
   "situationalContext": "None",
   "healsBack": false,
@@ -15,12 +18,14 @@
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
   "retaliatePower": null,
+  "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,
   "knockOutRequiredCondition": null,
   "knockOutDCAttribute": "RelentlessRageDC",
   "knockOutAddDC": 5,
   "instantDeathImmunity": false,
+  "activatePowerWhenDamaged": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

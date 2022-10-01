@@ -5,6 +5,7 @@
     "Definition:AdditionalDamageBarbarianBrutalCritical:cec43a27eb2890742aa67fbdcee0bf3b"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

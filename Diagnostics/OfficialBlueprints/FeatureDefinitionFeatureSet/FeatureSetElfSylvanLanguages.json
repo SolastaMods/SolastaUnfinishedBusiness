@@ -4,6 +4,7 @@
     "Definition:ProficiencyElfSylvanStaticLanguages:ede392a046aa25a42a4e35e9d6fcf993"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

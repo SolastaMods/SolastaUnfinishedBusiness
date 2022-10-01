@@ -1,0 +1,60 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "CelestialTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedBarbarian:7e0a1361-6633-54db-91d2-6b435b9e91a5",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedBard:2255cb4f-5e12-5dc3-b895-e493862acc60",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedCleric:95f07978-68e1-53b7-b9e9-78acb1755148",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedDruid:f4ffb3d2-354a-5f37-9e10-edc358d424c8",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedFighter:8e9b409d-084c-5ad9-9100-44b332363471",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedInventor:c4796e94-e2f0-52a6-8796-399b069e07ed",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedMonk:aa843e32-8558-5915-81c4-feba26059914",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedPaladin:ef0a6b4f-5822-5c93-b5ba-746656eff5dd",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedRanger:854c1e61-90c8-59cd-9f86-5f3469199efd",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedRogue:8afbc563-7b10-5827-91be-89a995468fea",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedSorcerer:81420ae3-e211-5f2c-b05f-88593a184e66",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedWarlock:9f247eee-ac2f-512a-9e9a-629d8f0e3829",
+    "Definition:AutoPreparedSpellsFeatCelestialTouchedWizard:efc9d5ec-aafb-5039-b9f6-2cb32e6a0e99",
+    "Definition:PowerFeatCelestialTouchedCureWounds:aa8d828b-c78e-5311-aded-236fc00f15d6",
+    "Definition:PowerFeatCelestialTouchedHealingWord:15163270-3265-5040-87d0-d3dcb7a82d64",
+    "Definition:PowerFeatCelestialTouchedLesserRestoration:d4f00e93-c3e3-55d3-821f-3e73eb3767c7"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatCelestialTouchedWisTitle",
+    "description": "Feat/&FeatCelestialTouchedWisDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b2bdd560-b1d8-5038-86db-b0d9d1fa5955",
+  "contentPack": 9999,
+  "name": "FeatCelestialTouchedWis"
+}

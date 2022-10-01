@@ -87,6 +87,7 @@
     "ChaoticNeutral",
     "ChaoticGood"
   ],
+  "hasBackgroundQuest": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

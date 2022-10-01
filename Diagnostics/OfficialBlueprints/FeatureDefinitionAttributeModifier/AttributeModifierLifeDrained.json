@@ -1,15 +1,17 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifierType2": "Additive",
   "modifiedAttribute": "HitPoints",
+  "modifierOperation": "Additive",
   "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Rules/&ConditionLifeDrainedDescription",
+    "description": "Rules/&ConditionLifeDrainedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

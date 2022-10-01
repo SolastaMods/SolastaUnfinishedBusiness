@@ -5,6 +5,7 @@
     "Definition:MovementAffinityChampionRemarkableAthlete:d3d2876542e9a6e4684b6ecda441b5b7"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

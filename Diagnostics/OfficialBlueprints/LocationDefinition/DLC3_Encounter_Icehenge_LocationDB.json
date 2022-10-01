@@ -7,7 +7,7 @@
   "sceneFilePath": "",
   "sceneReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "56796fae8c784da4fba37d1cc469c999",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -38,9 +38,9 @@
     "skyboxMaterial": null,
     "ambientLight": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
       "a": 1.0
     },
     "fog": false,
@@ -57,7 +57,7 @@
     "auraBaseSettings": {
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
-      "density": 0.251,
+      "density": 0.05,
       "useScattering": true,
       "scattering": 0.5,
       "useAmbientLighting": true,
@@ -165,12 +165,12 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "",
-    "unchartedDescription": "",
-    "knownTitle": "",
-    "knownDescription": "",
-    "exploredTitle": "",
-    "exploredDescription": ""
+    "unchartedTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "unchartedDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
+    "knownTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "knownDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
+    "exploredTitle": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "exploredDescription": "Maps/&Location_Presentation_DLC3_Undermountain_Description"
   },
   "challengeRating": 1,
   "focusWhenRevealed": false,
@@ -184,15 +184,16 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Maps/&Location_Presentation_DLC3_Undermountain_Title",
+    "description": "Maps/&Location_Presentation_DLC3_Undermountain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "530e49daef4ba354d9e8951e5c9232b7",
-      "m_SubObjectName": "DLC3_Encounter_Icehenge",
+      "m_AssetGUID": "edfc074809178684c80a14bd12df1a42",
+      "m_SubObjectName": "DLC3_Undermountain",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

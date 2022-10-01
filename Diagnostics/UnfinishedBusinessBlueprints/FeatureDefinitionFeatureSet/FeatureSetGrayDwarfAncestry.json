@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:SavingThrowAffinityGrayDwarfIllusion:a792f4fd-c7aa-5803-9fae-6fda9fbe175b",
+    "Definition:ConditionAffinityGrayDwarfParalyzedAdvantage:e7b5e170-5ced-5242-bc3a-5b2bb689d2cd",
+    "Definition:ConditionAffinityGrayDwarfCharm:6af82f51-d3f5-55e1-ae2f-0873c50c278b",
+    "Definition:ConditionAffinityGrayDwarfCharmedByHypnoticPattern:16ff7c64-5aa5-508d-a02b-1e912203079b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetGrayDwarfAncestryTitle",
+    "description": "Feature/&FeatureSetGrayDwarfAncestryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "48f08b34-9ff9-5055-accb-d2d8adc27cb4",
+  "contentPack": 9999,
+  "name": "FeatureSetGrayDwarfAncestry"
+}

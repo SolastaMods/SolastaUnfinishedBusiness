@@ -35,14 +35,17 @@
   "requiresAttunement": true,
   "requiresIdentification": false,
   "requiredAttunementClasses": [
-    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
+    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
     "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+    "Definition:Druid:df2da915a153d7a48a896041cf318953",
     "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
     "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
-    "Definition:Druid:df2da915a153d7a48a896041cf318953",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985"
+    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
   ],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
@@ -85,6 +88,11 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -226,6 +234,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

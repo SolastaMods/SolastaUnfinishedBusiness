@@ -11,6 +11,7 @@
   "spellReadyness": "Prepared",
   "spellPreparationCount": "AbilityBonusPlusHalfLevel",
   "slotsRecharge": "LongRest",
+  "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
   "knownCantrips": [
     0,
@@ -79,6 +80,9 @@
     0
   ],
   "replacedSpells": [
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -243,8 +247,8 @@
       "slots": [
         4,
         3,
+        3,
         1,
-        0,
         0
       ]
     },
@@ -254,8 +258,8 @@
       "slots": [
         4,
         3,
+        3,
         2,
-        0,
         0
       ]
     },
@@ -265,8 +269,8 @@
       "slots": [
         4,
         3,
+        3,
         2,
-        0,
         0
       ]
     },
@@ -316,6 +320,7 @@
     }
   ],
   "focusType": "Divine",
+  "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

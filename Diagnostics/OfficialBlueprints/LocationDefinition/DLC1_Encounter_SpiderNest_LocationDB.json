@@ -182,11 +182,11 @@
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "LocationType/&DLC1_Encounter_SpiderNest_Title",
-    "unchartedDescription": "Feature/&Emptystring",
+    "unchartedDescription": "LocationType/&DLC1_Encounter_SpiderNest_Description",
     "knownTitle": "LocationType/&DLC1_Encounter_SpiderNest_Title",
-    "knownDescription": "Feature/&Emptystring",
+    "knownDescription": "LocationType/&DLC1_Encounter_SpiderNest_Description",
     "exploredTitle": "LocationType/&DLC1_Encounter_SpiderNest_Title",
-    "exploredDescription": "Map/&Encounter_Jungle_Village_Description"
+    "exploredDescription": "LocationType/&DLC1_Encounter_SpiderNest_Description"
   },
   "challengeRating": 6,
   "focusWhenRevealed": false,
@@ -200,6 +200,7 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

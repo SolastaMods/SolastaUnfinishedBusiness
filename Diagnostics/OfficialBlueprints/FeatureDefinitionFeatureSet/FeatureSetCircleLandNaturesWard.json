@@ -8,6 +8,7 @@
     "Definition:DamageAffinityCircleLandNaturesWardPoison:08b1a67d1be57334e85f2fb289145ea4"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

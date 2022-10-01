@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierRangerExtraAttack:d09c1238730338c449bb56bc81b4e039",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerSwiftBladeUncatchable:5c0ea49f8e509a74896e01ee718ee5ed",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

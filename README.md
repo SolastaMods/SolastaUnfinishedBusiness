@@ -1,6 +1,6 @@
-# Solasta Community Expansion
+# Solasta Unfinished Business
 
-This is a [collection of work](https://github.com/SolastaMods/SolastaCommunityExpansion/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a [collection of work](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 # How to contribute
 
@@ -37,7 +37,7 @@ NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.mi
 		player-connection-debug=1
 		```
 2. Download and install [7zip](https://www.7-zip.org/a/7z1900-x64.exe)
-3. Download [Unity Editor 2019.4.32](https://download.unity3d.com/download_unity/f88bf0bee961/Windows64EditorInstaller/UnitySetup64-2019.4.32f1.exe)
+3. Download [Unity Editor 2019.4.37](https://download.unity3d.com/download_unity/019e31cfdb15/Windows64EditorInstaller/UnitySetup64-2019.4.37f1.exe)
 4. Open Downloads folder
 	* Right-click UnitySetup64-2019.4.32f1.exe, 7Zip -> Extract Here
 	* Navigate to Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\win64_development_mono

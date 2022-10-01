@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Battle16",
   "surName": "Cleric",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlond",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainBattle:bf3c54c59b182fd4a84e5df0656c161c",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
@@ -44,7 +49,6 @@
     "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
     "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
     "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
-    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
     "Definition:Candle:f32994a2227137f4684c54cb148faff5",
     "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
     "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
@@ -81,6 +85,7 @@
   "featsOverride": [
     "EagerForBattle"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -100,6 +105,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
@@ -147,12 +153,23 @@
     "Definition:Harm:78d4369a08495d74f9a681f5f508c477",
     "Definition:Heal:daa623d899a2bed43963b3bf60f731eb",
     "Definition:HeroesFeast:2df9af96f1ce6ee4aa3d1b9ecdb67b1f",
-    "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
+    "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
+    "Definition:Resurrection:f796a243f664c73409cca137f137f5f3",
+    "Definition:ConjureCelestial:2e51ca6269386154a8d8ed0db63f866b",
+    "Definition:DivineWord:c9f85f76897179c4baabdc7c45f1930d",
+    "Definition:Symbol:8c8ce37ddf59f72449ac2a6f384d34ea",
+    "Definition:HolyAura:164c25acb1cabd242b98b7974abfb7a0",
+    "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+    "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e",
+    "Definition:SpellWard:bf6cbb4f462c5fe4db090980b9126a43",
+    "Definition:DivineBlade:3a3cc601892613e4b8eac2d3c168efc9"
   ],
   "preparedSubclassSpells": [],
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -191,12 +208,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "b981d688a199eae46a3accc4dc952766",
+  "guid": "1da438cab2c6d8f40a361eb1dc3928c2",
   "contentPack": "BaseGame",
   "name": "Cleric_DomainBattle_Level16"
 }

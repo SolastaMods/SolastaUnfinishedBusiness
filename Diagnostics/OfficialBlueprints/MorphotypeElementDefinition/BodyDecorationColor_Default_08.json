@@ -31,7 +31,14 @@
     "minValue": 0.0,
     "maxValue": 100.0
   },
-  "originAllowed": [],
+  "originAllowed": [
+    "Origin_NonHuman",
+    "Origin_AF",
+    "Origin_AS",
+    "Origin_CA",
+    "Origin_HO",
+    "Origin_Dragonborn"
+  ],
   "subClassFilterMask": 14,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

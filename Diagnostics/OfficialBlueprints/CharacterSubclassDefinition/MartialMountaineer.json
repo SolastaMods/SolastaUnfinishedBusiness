@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityMountaineerShieldCharge:2f1c83db23c1c984aa6a962d74e800d1",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CombatAffinityMartialMountaineerPackStriker:cbdb711692139eb48b59f4e4ec2aa5be",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],
