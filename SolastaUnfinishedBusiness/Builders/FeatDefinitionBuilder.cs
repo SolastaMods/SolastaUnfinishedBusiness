@@ -52,10 +52,10 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         return This();
     }
 
-    public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category)
+    public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category = null)
     {
-        Definition.armorProficiencyPrerequisite = true;
-        Definition.armorProficiencyCategory = category.Name;
+        Definition.armorProficiencyPrerequisite = category != null;
+        Definition.armorProficiencyCategory = category == null ? String.Empty : category.Name;
         return This();
     }
 
