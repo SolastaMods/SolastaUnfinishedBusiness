@@ -7,8 +7,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronRiftWalker : AbstractSubclass
 {
-    internal override CharacterSubclassDefinition Subclass { get; }
-
     internal PatronRiftWalker()
     {
         var spellListRiftWalker = SpellListDefinitionBuilder
@@ -64,15 +62,15 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
-        //TODO: refactor into a builder
         powerRiftWalkerBlink.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        powerRiftWalkerBlink.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
         powerRiftWalkerBlink.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
         powerRiftWalkerBlink.EffectDescription.HasSavingThrow = false;
+        powerRiftWalkerBlink.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,
                 "ConditionAffinityRiftWalkerRestrainedImmunity")
+            .SetGuiPresentation(Category.Condition)
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
@@ -87,7 +85,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.Fixed,
+                RuleDefinitions.UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.Reaction,
                 1,
@@ -99,19 +97,10 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
-        //TODO: refactor into a builder
         powerRiftWalkerRiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        powerRiftWalkerRiftStrike.EffectDescription.DurationParameter = 2;
         powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
         powerRiftWalkerRiftStrike.EffectDescription.HasSavingThrow = false;
         powerRiftWalkerRiftStrike.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
-
-        var damageAffinityRiftWalkerRiftStrike = FeatureDefinitionDamageAffinityBuilder
-            .Create("DamageAffinityRiftWalkerRiftStrike")
-            .SetGuiPresentation("PowerRiftWalkerRiftStrike", Category.Feature)
-            .SetDamageAffinityType(RuleDefinitions.DamageAffinityType.None)
-            .SetRetaliate(powerRiftWalkerRiftStrike, 1, true)
-            .AddToDB();
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftControl")
@@ -150,7 +139,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 powerRiftWalkerBlink)
             .AddFeaturesAtLevel(6,
                 conditionAffinityRiftWalkerRestrainedImmunity,
-                damageAffinityRiftWalkerRiftStrike)
+                powerRiftWalkerRiftStrike)
             .AddFeaturesAtLevel(10,
                 powerRiftWalkerRiftControl,
                 damageAffinityRiftWalkerFadeIntoTheVoid)
@@ -159,5 +148,8 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .AddToDB();
     }
 
-    internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 }
