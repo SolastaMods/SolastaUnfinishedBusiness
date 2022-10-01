@@ -125,10 +125,10 @@
     <value>..\Resources\Spells\AirBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <!-- <data name="Artisan" type="System.Resources.ResXFileRef, System.Windows.Forms"> -->
-  <!--   <value>..\Resources\Artisan.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, -->
-  <!--     PublicKeyToken=b77a5c561934e089</value> -->
-  <!-- </data> -->
+  <data name="Inventor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inventor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Bolgrif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Races\Bolgrif.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>

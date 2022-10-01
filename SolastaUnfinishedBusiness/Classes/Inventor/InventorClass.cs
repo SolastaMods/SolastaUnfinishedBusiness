@@ -5,6 +5,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -16,7 +18,7 @@ internal static class InventorClass
     public const string ClassName = "Inventor";
 
     private static readonly AssetReferenceSprite Sprite =
-        CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference;
+        CustomIcons.CreateAssetReferenceSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
