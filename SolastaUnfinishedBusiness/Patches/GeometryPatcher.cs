@@ -60,6 +60,7 @@ internal static class CursorLocationGeometricShapePatcher
             }
 
             var transform = __instance.cubeRenderer.transform;
+
             transform.SetPositionAndRotation(origin + vector3, Quaternion.identity);
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
         }

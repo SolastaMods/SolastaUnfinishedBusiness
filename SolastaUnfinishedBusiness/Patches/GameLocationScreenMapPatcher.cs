@@ -69,6 +69,7 @@ internal static class GameLocationScreenMapPatcher
                     }
 
                     ++__instance.activeMapGadgetItems;
+
                     for (var index = __instance.mapGadgetItems.Count - 1;
                          index < __instance.activeMapGadgetItems;
                          ++index)

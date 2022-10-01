@@ -15,7 +15,8 @@ internal static class DeviceOverchargePanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
-        internal static bool Prefix(DeviceOverchargePanel __instance,
+        internal static bool Prefix(
+            DeviceOverchargePanel __instance,
             RulesetItemDevice usableDevice,
             RulesetDeviceFunction usableDeviceFunction,
             DeviceOverchargeBox.OnActivateHandler onActivateAdvanced)
@@ -34,6 +35,7 @@ internal static class DeviceOverchargePanelPatcher
             var power = functionDescription.FeatureDefinitionPower;
             var provider = power.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
             (int, int)[] overcharge;
+
             if (provider != null)
             {
                 overcharge = provider.OverchargeSteps(Global.CurrentGuiCharacter);
@@ -42,6 +44,7 @@ internal static class DeviceOverchargePanelPatcher
             else
             {
                 overcharge = new (int, int)[num];
+
                 for (var i = 0; i < num; i++)
                 {
                     overcharge[i] = (i + 1, i + 1);
@@ -49,6 +52,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var boxesTable = __instance.overchargeBoxesTable;
+
             while (boxesTable.childCount < num)
             {
                 Gui.GetPrefabFromPool(__instance.overchargetBoxPrefab, boxesTable);
@@ -57,7 +61,9 @@ internal static class DeviceOverchargePanelPatcher
             for (var index = 0; index < boxesTable.childCount; ++index)
             {
                 var child = boxesTable.GetChild(index);
+
                 child.gameObject.SetActive(index < num);
+
                 if (!child.gameObject.activeSelf)
                 {
                     continue;
@@ -74,11 +80,14 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(boxesTable);
+
             var movingGroup = __instance.movingGroup;
             var size = boxesTable.rect.height + boxesTable.anchoredPosition.y;
+
             movingGroup.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
 
             var rect = __instance.movingGroup.rect;
+
             __instance.movingPanelModifier.StartPosition = new Vector3(0.0f, -rect.height, 0.0f);
             __instance.movingPanelModifier.EndPosition = new Vector3(0.0f, 0.0f, 0.0f);
             __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rect.height);
@@ -105,6 +114,7 @@ internal static class DeviceOverchargePanelPatcher
                 : "Action/&UseFunctionAdditionalChargePlural", addedCharges.ToString());
             box.tooltip.Content += FormatEnhancementEffect(magic.EffectDescription, slotDelta);
             box.lastChargeGroup.gameObject.SetActive(lastChargeWarning);
+
             if (!lastChargeWarning)
             {
                 return;
@@ -117,7 +127,7 @@ internal static class DeviceOverchargePanelPatcher
             box.tooltip.Content += "\n" + box.lastChargeTooltip.Content;
         }
 
-        public static string FormatEnhancementEffect(EffectDescription effect, int slotDelta)
+        private static string FormatEnhancementEffect(EffectDescription effect, int slotDelta)
         {
             if (effect.EffectAdvancement.EffectIncrementMethod == RuleDefinitions.EffectIncrementMethod.None)
             {
@@ -126,6 +136,7 @@ internal static class DeviceOverchargePanelPatcher
 
             var result = string.Empty;
             var targetsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTargetsBySlotDelta(slotDelta);
+
             if (targetsBySlotDelta > 0)
             {
                 result = result + "\n" +
@@ -135,6 +146,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var additionalDiceBySlotDelta = effect.EffectAdvancement.ComputeAdditionalDiceBySlotDelta(slotDelta);
+
             if (additionalDiceBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format(additionalDiceBySlotDelta == 1
@@ -143,6 +155,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var levelBySlotDelta = effect.EffectAdvancement.ComputeAdditionalSpellLevelBySlotDelta(slotDelta);
+
             if (levelBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format(levelBySlotDelta == 1
@@ -152,6 +165,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var summonsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalSummonsBySlotDelta(slotDelta);
+
             if (summonsBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format(summonsBySlotDelta == 1
@@ -161,6 +175,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var additionalHpBySlotDelta = effect.EffectAdvancement.ComputeAdditionalHPBySlotDelta(slotDelta);
+
             if (additionalHpBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddHPTile",
@@ -168,6 +183,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var tempHpBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTempHPBySlotDelta(slotDelta);
+
             if (tempHpBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddTempHPTile",
@@ -175,6 +191,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var cellsBySlotDelta = effect.EffectAdvancement.ComputeAdditionalTargetCellsBySlotDelta(slotDelta);
+
             if (cellsBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddTargetCellsTile",
@@ -182,6 +199,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             var bonusBySlotDelta = effect.EffectAdvancement.ComputeAdditionalItemBonusBySlotDelta(slotDelta);
+
             if (bonusBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddItemBonusTile",
@@ -189,6 +207,7 @@ internal static class DeviceOverchargePanelPatcher
             }
 
             effect.EffectAdvancement.ComputeAdditionalWeaponDieBySlotDelta(slotDelta);
+
             if (bonusBySlotDelta > 0)
             {
                 result = result + "\n" + Gui.Format("Action/&CastSpellHigherSlotAddWeaponDieTile",

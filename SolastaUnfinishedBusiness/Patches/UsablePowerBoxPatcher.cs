@@ -34,12 +34,14 @@ internal static class UsablePowerBoxPatcher
             //PATCH: make power icons fit into box, instead of stretching
             var img = __instance.image;
             var aspect = img.GetComponent<AspectRatioFitter>();
+
             if (aspect == null)
             {
                 return;
             }
 
             var rect = img.sprite.rect;
+
             //Set aspect ratio to natural for the sprite, to remove stretching
             aspect.aspectRatio = rect.width / rect.height;
             //Set mode that would fill parent

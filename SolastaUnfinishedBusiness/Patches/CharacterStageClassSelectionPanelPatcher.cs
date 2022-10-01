@@ -76,7 +76,8 @@ internal static class CharacterStageClassSelectionPanelPatcher
     internal static class FillClassFeatures_Patch
     {
         //PATCH: hides the features list for already acquired classes (MULTICLASS)
-        private static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel,
+        private static int Level(
+            [NotNull] FeatureUnlockByLevel featureUnlockByLevel,
             [NotNull] RulesetCharacterHero hero)
         {
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);

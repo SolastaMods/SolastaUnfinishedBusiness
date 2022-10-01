@@ -124,8 +124,7 @@ internal static class RulesetCharacterHeroPatcher
     internal static class AcknowledgeAttackUse_Patch
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Prefix(RulesetCharacterHero __instance,
-            RulesetAttackMode mode)
+        internal static void Prefix(RulesetCharacterHero __instance, RulesetAttackMode mode)
         {
             //PATCH: supports turning Produced Flame into a weapon
             //destroys Produced Flame after attacking with it

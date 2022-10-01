@@ -15,7 +15,8 @@ internal static class SlotStatusTablePatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Bind_Patch
     {
-        private static bool UniqueLevelSlots(FeatureDefinitionCastSpell featureDefinitionCastSpell,
+        private static bool UniqueLevelSlots(
+            FeatureDefinitionCastSpell featureDefinitionCastSpell,
             RulesetSpellRepertoire rulesetSpellRepertoire)
         {
             var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);

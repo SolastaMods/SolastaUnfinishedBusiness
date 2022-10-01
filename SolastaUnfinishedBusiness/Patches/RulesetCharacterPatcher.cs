@@ -71,8 +71,7 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class AcknowledgeAttackedCharacter_Patch
     {
-        internal static void Postfix(RulesetCharacter __instance, RulesetCharacter target,
-            RuleDefinitions.AttackProximity proximity)
+        internal static void Postfix(RulesetCharacter target)
         {
             //PATCH: Allows condition interruption after target was attacked
             target.ProcessConditionsMatchingInterruption(
@@ -84,8 +83,8 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsComponentSomaticValid_Patch
     {
-        internal static void Postfix(RulesetCharacter __instance, ref bool __result,
-            SpellDefinition spellDefinition, ref string failure)
+        internal static void Postfix(
+            RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
             //PATCH: Allows valid Somatic component if specific material component is held in main hand or off hand slots
             // allows casting somatic spells with full hands if one of the hands holds material component for the spell
@@ -117,8 +116,8 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class IsComponentMaterialValid_Patch
     {
-        internal static void Postfix(RulesetCharacter __instance, ref bool __result,
-            SpellDefinition spellDefinition, ref string failure)
+        internal static void Postfix(
+            RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
             //PATCH: Allow spells to satisfy material components by using stack of equal or greater value
             StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
@@ -136,11 +135,14 @@ internal static class RulesetCharacterPatcher
 
             List<RulesetItem> items = new();
             __instance.CharacterInventory.EnumerateAllItems(items);
+
             var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
+
             foreach (var rulesetItem in items)
             {
                 tagsMap.Clear();
                 rulesetItem.FillTags(tagsMap, __instance, true);
+
                 var itemItemDefinition = rulesetItem.ItemDefinition;
                 var costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
 
@@ -195,8 +197,8 @@ internal static class RulesetCharacterPatcher
     internal static class IsSubjectToAttackOfOpportunity_Patch
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Postfix(RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker,
-            float distance)
+        internal static void Postfix(
+            RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker, float distance)
         {
             //PATCH: allows custom exceptions for attack of opportunity triggering
             //Mostly for Sentinel feat
@@ -782,8 +784,8 @@ internal static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeAutopreparedSpells_Patch
     {
-        internal static bool Prefix([NotNull] RulesetCharacter __instance,
-            [NotNull] RulesetSpellRepertoire spellRepertoire)
+        internal static bool Prefix(
+            [NotNull] RulesetCharacter __instance, [NotNull] RulesetSpellRepertoire spellRepertoire)
         {
             //BEGIN PATCH
             var spellcastingClass = spellRepertoire.SpellCastingClass;

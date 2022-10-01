@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -10,14 +9,10 @@ internal static class RulesetItemDevicePatcher
     [HarmonyPatch(typeof(RulesetItemDevice), "IsFunctionAvailable")]
     internal static class IsFunctionAvailable_Patch
     {
-        internal static void Postfix([NotNull] RulesetItemDevice __instance,
+        internal static void Postfix(
             ref bool __result,
             RulesetDeviceFunction function,
-            RulesetCharacter character,
-            bool inCombat,
-            bool usedMainSpell,
-            bool usedBonusSpell,
-            ref string failureFlag)
+            RulesetCharacter character)
         {
             if (!__result)
             {
@@ -25,13 +20,13 @@ internal static class RulesetItemDevicePatcher
             }
 
             var power = function.DeviceFunctionDescription?.FeatureDefinitionPower;
+
             if (power == null)
             {
                 return;
             }
 
             var validator = power.GetFirstSubFeatureOfType<IPowerUseValidity>();
-
 
             if (validator == null)
             {

@@ -24,7 +24,7 @@ internal static class GuiPowerDefinitionPatcher
         internal static void Postfix(GuiPowerDefinition __instance, ref EffectDescription __result)
         {
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
-            // makes tooltips show modified efefcts
+            // makes tooltips show modified effects
             __result = CustomFeaturesContext.ModifyMagicEffectGui(__result, __instance.PowerDefinition);
         }
     }

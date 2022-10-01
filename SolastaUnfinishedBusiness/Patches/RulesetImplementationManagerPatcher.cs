@@ -55,6 +55,7 @@ internal static class RulesetImplementationManagerPatcher
             //used to properly track items summoned by Inventor
 
             var summonForm = effectForm.SummonForm;
+
             if (summonForm.SummonType != SummonForm.Type.InventoryItem
                 || summonForm.ItemDefinition == null
                 || summonForm.Number != 1
@@ -104,6 +105,7 @@ internal static class RulesetImplementationManagerPatcher
             if (activeEffect is { TrackedLightSourceGuids.Count: > 0 })
             {
                 var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
+
                 foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
                 {
                     var rulesetLightSource = (RulesetLightSource)null;
@@ -115,7 +117,9 @@ internal static class RulesetImplementationManagerPatcher
                     }
 
                     rulesetLightSource.LightSourceExtinguished -= activeEffect.LightSourceExtinguished;
+
                     RulesetCharacter bearer;
+
                     if (rulesetLightSource.TargetItemGuid != 0UL &&
                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
                     {
@@ -127,6 +131,7 @@ internal static class RulesetImplementationManagerPatcher
                         }
 
                         var fromActor = GameLocationCharacter.GetFromActor(bearer);
+
                         service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
                         rulesetItem.RulesetLightSource?.Unregister();
                         rulesetItem.RulesetLightSource = null;
@@ -135,7 +140,9 @@ internal static class RulesetImplementationManagerPatcher
                              RulesetEntity.TryGetEntity(rulesetLightSource.TargetGuid, out bearer))
                     {
                         var fromActor = GameLocationCharacter.GetFromActor(bearer);
+
                         service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
+
                         if (rulesetLightSource.UseSpecificLocationPosition)
                         {
                             if (bearer is RulesetCharacterEffectProxy proxy)
@@ -162,6 +169,7 @@ internal static class RulesetImplementationManagerPatcher
             {
                 var rulesetItemProperty = (RulesetItemProperty)null;
                 ref var local = ref rulesetItemProperty;
+
                 if (!RulesetEntity.TryGetEntity(itemPropertyGuid, out local) || rulesetItemProperty == null)
                 {
                     continue;

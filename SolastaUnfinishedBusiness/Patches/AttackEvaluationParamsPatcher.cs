@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -12,14 +11,8 @@ internal static class AttackEvaluationParamsPatcher
     internal static class FillForMagicTouchAttack_Patch
     {
         internal static void Postfix(
-            ref BattleDefinitions.AttackEvaluationParams __instance,
-            GameLocationCharacter attacker,
-            int3 attackPosition,
+            BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
-            string effectName,
-            GameLocationCharacter defender,
-            int3 defenderPosition,
-            ActionModifier attackModifier,
             MetamagicOptionDefinition metamagicOption
         )
         {
@@ -38,14 +31,8 @@ internal static class AttackEvaluationParamsPatcher
     internal static class FillForMagicReachAttack_Patch
     {
         internal static void Postfix(
-            ref BattleDefinitions.AttackEvaluationParams __instance,
-            GameLocationCharacter attacker,
-            int3 attackPosition,
+            BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
-            string effectName,
-            GameLocationCharacter defender,
-            int3 defenderPosition,
-            ActionModifier attackModifier,
             MetamagicOptionDefinition metamagicOption
         )
         {

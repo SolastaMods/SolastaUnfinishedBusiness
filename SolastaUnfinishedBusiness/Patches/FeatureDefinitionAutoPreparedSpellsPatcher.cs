@@ -16,7 +16,7 @@ internal static class FeatureDefinitionAutoPreparedSpellsPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FormatDescription_Patch
     {
-        internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, ref string __result)
+        internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, out string __result)
         {
             //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
             var spells = new Dictionary<int, List<SpellDefinition>>();

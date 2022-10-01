@@ -19,6 +19,7 @@ internal static class GuiCharacterPatcher
     internal static class DisplayUniqueLevelSpellSlots_Patch
     {
         internal static void Postfix(
+            GuiCharacter __instance,
             RulesetSpellRepertoire spellRepertoire,
             RectTransform uniqueLevelSlotsGroup)
         {
@@ -38,7 +39,7 @@ internal static class GuiCharacterPatcher
                 return;
             }
 
-            var hero = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+            var hero = __instance.RulesetCharacterHero;
 
             if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
             {

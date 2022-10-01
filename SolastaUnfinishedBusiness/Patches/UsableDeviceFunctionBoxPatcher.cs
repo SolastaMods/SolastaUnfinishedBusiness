@@ -18,7 +18,6 @@ internal static class UsableDeviceFunctionBoxPatcher
         {
             var deviceDescription = usableDevice.UsableDeviceDescription;
             var functionDescription = usableDeviceFunction.DeviceFunctionDescription;
-
             var power = functionDescription.FeatureDefinitionPower;
 
             IMagicEffect magic = functionDescription.Type == DeviceFunctionDescription.FunctionType.Spell
@@ -26,16 +25,17 @@ internal static class UsableDeviceFunctionBoxPatcher
                 : power;
 
             var advancement = magic.EffectDescription.EffectAdvancement;
-
             var canOvercharge = functionDescription.CanOverchargeSpell;
             var minCharge = 1;
 
             if (power != null)
             {
                 var provider = power.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
+
                 if (provider != null)
                 {
                     var steps = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+
                     if (steps == null || steps.Length < 1)
                     {
                         canOvercharge = false;

@@ -77,8 +77,7 @@ internal static class RulesetImplementationManagerLocationPatcher
             RulesetItemDevice usableDevice,
             RulesetDeviceFunction usableDeviceFunction,
             int addedCharges,
-            bool delayRegistration,
-            int subSpellIndex)
+            bool delayRegistration)
         {
             //PATCH: support `RulesetEffectPowerWithAdvancement` by creating custom instance when needed
             return RulesetEffectPowerWithAdvancement.InstantiateActiveDeviceFunction(__instance, ref __result, user,
