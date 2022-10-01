@@ -77,26 +77,28 @@ internal static class MulticlassPatchingContext
         PatchClassLevel();
         PatchEquipmentAssignment();
         PatchFeatureUnlocks();
-        // AddNonOfficialBlueprintsToFeaturesCollections();
+        AddNonOfficialBlueprintsToFeaturesCollections();
     }
 
-    // private static void AddNonOfficialBlueprintsToFeaturesCollections()
-    // {
-    //     var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
-    //     var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
-    //
-    //     //
-    //     // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
-    //     //
-    //
-    //     FeaturesToExclude.Add(ArtisanClass,
-    //         new List<FeatureDefinition>
-    //         {
-    //             dbFeatureDefinitionPointPool.GetElement("PointPoolArtisanSkillPoints"),
-    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponArtisan"),
-    //             dbFeatureDefinitionProficiency.GetElement("ProficiencyArtisanSavingThrow")
-    //         });
-    // }
+    private static void AddNonOfficialBlueprintsToFeaturesCollections()
+    {
+        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+
+        if (!dbCharacterClassDefinition.TryGetElement("Inventor", out var inventorClass))
+        {
+            return;
+        }
+
+        var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
+        var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
+
+        FeaturesToExclude.Add(inventorClass,
+            new List<FeatureDefinition>
+            {
+                dbFeatureDefinitionPointPool.GetElement("PointPoolInventorSkills"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyInventorSavingThrow")
+            });
+    }
 
     //
     // ClassLevel patching support

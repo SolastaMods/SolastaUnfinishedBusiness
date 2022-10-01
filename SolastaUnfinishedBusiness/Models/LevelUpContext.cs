@@ -79,6 +79,10 @@ public static class LevelUpContext
 
         levelUpData.GrantedItems = new HashSet<ItemDefinition>();
 
+        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+
+        dbCharacterClassDefinition.TryGetElement("Inventor", out var inventorClass);
+
         // Holy Symbol
         var required = (
                            levelUpData.SelectedClass == Cleric ||
@@ -109,15 +113,15 @@ public static class LevelUpContext
                 levelUpData.SelectedClass == Ranger ||
                 levelUpData.SelectedClass == Sorcerer ||
                 levelUpData.SelectedClass == Warlock ||
-                levelUpData.SelectedClass == Wizard //||
-                // levelUpData.SelectedClass == ArtisanClass
+                levelUpData.SelectedClass == Wizard ||
+                (inventorClass != null && levelUpData.SelectedClass == inventorClass)
             ) &&
             !(
                 classesAndLevels.ContainsKey(Ranger) ||
                 classesAndLevels.ContainsKey(Sorcerer) ||
                 classesAndLevels.ContainsKey(Warlock) ||
-                classesAndLevels.ContainsKey(Wizard) //||
-                // classesAndLevels.ContainsKey(ArtisanClass)
+                classesAndLevels.ContainsKey(Wizard) ||
+                (inventorClass != null && classesAndLevels.ContainsKey(inventorClass))
             );
 
         if (required)
