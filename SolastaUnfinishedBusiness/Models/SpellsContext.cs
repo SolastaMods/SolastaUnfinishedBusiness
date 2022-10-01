@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -116,13 +115,8 @@ internal static class SpellsContext
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
-        // registers unofficial spells
-        // AceHighSpells.Register();
-        BazouSpells.Register();
-        HolicSpells.Register();
-        SrdSpells.Register();
-        EwSpells.Register();
-        SgSpells.Register();
+        // register unofficial spells
+        SpellsBuildersContext.Register();
 
         // official spells tweaks
         SrdAndHouseRulesContext.AddBleedingToRestoration();
