@@ -81,12 +81,12 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
                 "DieRollModifierDivineHeartEmpoweredHealing")
             .SetGuiPresentation("PowerDivineHeartEmpoweredHealing", Category.Feature)
+            .SetModifiers(
+                RollContext.HealValueRoll,
+                1,
+                2,
+                "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription")
             .AddToDB();
-
-        //TODO: create builders for these
-        dieRollModifierDivineHeartEmpoweredHealing.validityContext = RollContext.HealValueRoll;
-        dieRollModifierDivineHeartEmpoweredHealing.rerollLocalizationKey =
-            "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
 
         var conditionDivineHeartEmpoweredHealing = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing")
