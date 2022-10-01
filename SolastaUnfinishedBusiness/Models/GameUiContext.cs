@@ -422,7 +422,7 @@ internal static class GameUiContext
             return;
         }
 
-        var activator = DatabaseHelper.GetDefinition<GadgetDefinition>("Activator");
+        var activator = DatabaseHelper.GadgetDefinitions.Activator;
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
         var feedbackPosition = __instance.GameGadget.FeedbackPosition;

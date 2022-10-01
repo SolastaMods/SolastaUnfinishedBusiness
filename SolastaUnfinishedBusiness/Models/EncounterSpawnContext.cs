@@ -169,17 +169,16 @@ internal static class EncountersSpawnContext
                          {
                              BattleStartBehavior =
                                  GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                             DecisionPackageDefinition = IdleGuard_Default,
+                             DecisionPackageDefinition = IdleGuardDefault,
                              EncounterId = EncounterId++,
                              FormationDefinition = EncounterCharacters.Count > 1
-                                 ? DatabaseHelper.GetDefinition<FormationDefinition>("Squad4")
-                                 : DatabaseHelper.GetDefinition<FormationDefinition>("SingleCreature")
+                                 ? DatabaseHelper.FormationDefinitions.Squad4
+                                 : DatabaseHelper.FormationDefinitions.SingleCreature
                          })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();
-            gameLocationCharacter.RulesetCharacter.SetBaseFaction(
-                DatabaseHelper.GetDefinition<FactionDefinition>("HostileMonsters"));
+            gameLocationCharacter.RulesetCharacter.SetBaseFaction(DatabaseHelper.FactionDefinitions.HostileMonsters);
             characters.Add(gameLocationCharacter);
         }
 

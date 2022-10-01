@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Api;
 public static partial class DatabaseHelper
 {
     [NotNull]
-    public static T GetDefinition<T>(string key) where T : BaseDefinition
+    private static T GetDefinition<T>(string key) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
@@ -35,12 +35,19 @@ public static partial class DatabaseHelper
         if (key == null || db == null)
         {
             definition = null;
+
             return false;
         }
 
         definition = db.TryGetElement(key, string.Empty);
 
         return definition != null;
+    }
+
+    public static class CampaignDefinitions
+    {
+        public static CampaignDefinition UserCampaign { get; } =
+            GetDefinition<CampaignDefinition>("UserCampaign");
     }
 
     public static class DecisionPackageDefinitions
@@ -54,13 +61,49 @@ public static partial class DatabaseHelper
         public static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
 
-        public static DecisionPackageDefinition Idle { get; } =
-            GetDefinition<DecisionPackageDefinition>("Idle");
-
-        public static DecisionPackageDefinition IdleGuard_Default { get; } =
+        public static DecisionPackageDefinition IdleGuardDefault { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+    }
 
-        public static DecisionPackageDefinition IdleGuard_Default_CanAttackNPC { get; } =
-            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default_CanAttackNPC");
+    public static class FactionDefinitions
+    {
+        public static FactionDefinition HostileMonsters { get; } =
+            GetDefinition<FactionDefinition>("HostileMonsters");
+    }
+
+    public static class FormationDefinitions
+    {
+        public static FormationDefinition Squad4 { get; } =
+            GetDefinition<FormationDefinition>("Squad4");
+
+        public static FormationDefinition SingleCreature { get; } =
+            GetDefinition<FormationDefinition>("SingleCreature");
+    }
+
+    public static class GadgetDefinitions
+    {
+        public static GadgetDefinition Activator { get; } =
+            GetDefinition<GadgetDefinition>("Activator");
+    }
+
+    public static class LootPackDefinitions
+    {
+        public static LootPackDefinition PickpocketGenericLootLowMoney { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_LowMoney");
+
+        public static LootPackDefinition PickpocketGenericLootMedMoney { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_MedMoney");
+    }
+
+    public static class MonsterAttackDefinitions
+    {
+        public static MonsterAttackDefinition AttackGenericGuardLongsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
+    }
+
+    public static class ReactionDefinitions
+    {
+        public static ReactionDefinition OpportunityAttack { get; } =
+            GetDefinition<ReactionDefinition>("OpportunityAttack");
     }
 }
