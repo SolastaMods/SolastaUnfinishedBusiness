@@ -92,7 +92,7 @@ internal static class OtherFeats
     {
         return FeatureDefinitionDieRollModifierBuilder
             .Create(name)
-            .SetModifiers(context, rerollCount, minRerollValue, "Feat/&FeatSavageAttackerReroll")
+            .SetModifiers(context, rerollCount, minRerollValue, minRerollValue, "Feat/&FeatSavageAttackerReroll")
             .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
             .AddToDB();
     }

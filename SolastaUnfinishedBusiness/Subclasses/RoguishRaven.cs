@@ -58,7 +58,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var dieRollModifierRavenPainMaker = FeatureDefinitionDieRollModifierBuilder
             .Create("DieRollModifierRavenPainMaker")
             .SetGuiPresentation(Category.Feature)
-            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1,
+            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
