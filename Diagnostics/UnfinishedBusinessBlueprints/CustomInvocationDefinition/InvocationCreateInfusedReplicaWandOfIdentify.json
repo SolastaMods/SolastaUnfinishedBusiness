@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 2,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInfusionCreateWandOfIdentify:0b520173-db4a-5984-9d70-09823eddb438",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaWandOfIdentify:129e4a79-7791-5336-b169-eb31550331ea",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionCreateWandOfIdentifyTitle",
-    "description": "Feature/&InfusionCreateWandOfIdentifyDescription",
+    "title": "Replica Wand of Identify",
+    "description": "Create replica <b>Wand of Identify</b>:\nA magic wand capable of revealing the hidden properties of unidentified magic items.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0f6ef3b7a1e2564992bc5e38f678a11",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f4eb231-6c49-55e1-8811-8eb3fd35ec2c",
+  "guid": "b144213e-170b-55b6-9828-6ab723d31800",
   "contentPack": 9999,
-  "name": "InvocationInfusionCreateWandOfIdentify"
+  "name": "InvocationCreateInfusedReplicaWandOfIdentify"
 }

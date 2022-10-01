@@ -77,7 +77,7 @@
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "InventoryItem",
-          "itemDefinition": "Definition:Backpack_Bag_Of_Holding:54f669dd16ccccd49b9e272f0de207ce",
+          "itemDefinition": "Definition:InfusedReplicaWandOfMagicDetection:19d3fd89-b8c6-5e6d-b4d2-ba516e85e5f6",
           "trackItem": true,
           "monsterDefinitionName": "",
           "number": 1,
@@ -326,12 +326,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionCreateBagOfHoldingTitle",
-    "description": "Feature/&InfusionCreateBagOfHoldingDescription",
+    "title": "Replica Wand of Magic Detection",
+    "description": "Create replica <b>Wand of Magic Detection</b>:\nCasts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6f2db45d4201fb74185496d103c147eb",
-      "m_SubObjectName": "Bag_of_Holding",
+      "m_AssetGUID": "3b3e608ea3b926042ace08cedcf6dad5",
+      "m_SubObjectName": "StandardWand",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7ee211b8-3317-5cbe-9337-cee7684178e4",
+  "guid": "1063c283-b5d1-5db7-b33e-efbe5ab55ac8",
   "contentPack": 9999,
-  "name": "PowerInfusionCreateBagOfHolding"
+  "name": "PowerCreateInfusedReplicaWandOfMagicDetection"
 }

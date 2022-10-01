@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 2,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInfusionCreateWandOfMagicDetection:65cd7a65-1c33-53d8-b550-008e84408ac4",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBackpack_Bag_Of_Holding:41031a48-4461-5e48-8a60-f7da9a7bd597",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionCreateWandOfMagicDetectionTitle",
-    "description": "Feature/&InfusionCreateWandOfMagicDetectionDescription",
+    "title": "Replica Bag of Holding",
+    "description": "Create replica <b>Bag of Holding</b>:\nThis item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3b3e608ea3b926042ace08cedcf6dad5",
-      "m_SubObjectName": "StandardWand",
+      "m_AssetGUID": "6f2db45d4201fb74185496d103c147eb",
+      "m_SubObjectName": "Bag_of_Holding",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "567598c0-85e4-5175-ac03-129279994ae7",
+  "guid": "b8e3ee6d-7a41-5003-ad51-482832679276",
   "contentPack": 9999,
-  "name": "InvocationInfusionCreateWandOfMagicDetection"
+  "name": "InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding"
 }

@@ -191,6 +191,20 @@
       "Tail_None"
     ],
     "maleBeardShapeOptions": [
+      "BeardShape_A",
+      "BeardShape_B",
+      "BeardShape_E",
+      "BeardShape_F",
+      "BeardShape_G",
+      "BeardShape_C",
+      "BeardShape_D",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
       "BeardShape_None"
     ],
     "showHelmet": true,

@@ -22,6 +22,27 @@ ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
 ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
 ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+InfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+InvocationCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+InvocationCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+InvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+PowerCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+PowerCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
 PowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
 PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.

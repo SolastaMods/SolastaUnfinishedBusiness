@@ -77,7 +77,7 @@
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "InventoryItem",
-          "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+          "itemDefinition": "Definition:InfusedReplicaWandOfIdentify:74d03cf6-31ed-54db-9270-62a3a90f860b",
           "trackItem": true,
           "monsterDefinitionName": "",
           "number": 1,
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionCreateWandOfIdentifyTitle",
-    "description": "Feature/&InfusionCreateWandOfIdentifyDescription",
+    "title": "Replica Wand of Identify",
+    "description": "Create replica <b>Wand of Identify</b>:\nA magic wand capable of revealing the hidden properties of unidentified magic items.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0f6ef3b7a1e2564992bc5e38f678a11",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b520173-db4a-5984-9d70-09823eddb438",
+  "guid": "129e4a79-7791-5336-b169-eb31550331ea",
   "contentPack": 9999,
-  "name": "PowerInfusionCreateWandOfIdentify"
+  "name": "PowerCreateInfusedReplicaWandOfIdentify"
 }
