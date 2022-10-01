@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 10,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsOfStridingAndSpringing:72fc9ef4-5ac2-5a14-8fc0-f0531ece3bbc",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Boots of Striding and Springing",
+    "description": "Create replica <b>Boots of Striding and Springing</b>:\nDefineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. ",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "996298a6ee823934faf7eff18218a09b",
+      "m_SubObjectName": "BootsOfStridingAndSpringing",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e2c31d2f-8fd3-5ebb-9d8c-fed786cdc69c",
+  "contentPack": 9999,
+  "name": "InvocationCreateInfusedReplicaBootsOfStridingAndSpringing"
+}

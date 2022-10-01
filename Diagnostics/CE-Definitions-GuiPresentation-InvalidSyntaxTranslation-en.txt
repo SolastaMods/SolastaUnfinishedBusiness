@@ -22,21 +22,147 @@ ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
 ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
 ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+InfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+InfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+InfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+InfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+InfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+InfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+InfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+InfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+InfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+InfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+InfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+InfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
 InfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+InvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
 InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 InvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
 This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+InvocationCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+InvocationCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+InvocationCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+InvocationCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+InvocationCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+InvocationCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+InvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+InvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+InvocationCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+InvocationCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+InvocationCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+InvocationCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+InvocationCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+InvocationCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+InvocationCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+InvocationCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+InvocationCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+InvocationCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+InvocationCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+InvocationCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+InvocationCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+InvocationCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+InvocationCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+InvocationCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+InvocationCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InvocationCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+InvocationCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InvocationCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+InvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+InvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+InvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+InvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
 InvocationCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
 InvocationCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
 A magic wand capable of revealing the hidden properties of unidentified magic items.'.
 InvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
 InvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
 Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
 PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
 This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+PowerCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+PowerCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+PowerCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+PowerCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+PowerCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+PowerCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+PowerCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+PowerCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+PowerCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+PowerCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+PowerCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+PowerCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+PowerCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+PowerCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+PowerCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+PowerCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+PowerCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
 PowerCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
 PowerCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
 A magic wand capable of revealing the hidden properties of unidentified magic items.'.
