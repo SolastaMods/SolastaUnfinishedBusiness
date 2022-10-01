@@ -1247,10 +1247,20 @@ internal static class SpellBoxExtensions
         var feature = instance.GetFeature();
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
 
-        var dataProvider = new CustomTooltipProvider(feature, gui);
+        var item = feature.Item;
+        CustomTooltipProvider dataProvider;
+
+        if (item == null)
+        {
+            dataProvider = new CustomTooltipProvider(feature, gui);
+        }
+        else
+        {
+            dataProvider = new CustomItemTooltipProvider(feature, gui, item);
+        }
 
         dataProvider.SetPrerequisites(requirements);
-        tooltip.TooltipClass = "FeatDefinition";
+        tooltip.TooltipClass = dataProvider.TooltipClass;
         tooltip.Content = feature.GuiPresentation.Description;
         tooltip.Context = hero;
         tooltip.DataProvider = dataProvider;

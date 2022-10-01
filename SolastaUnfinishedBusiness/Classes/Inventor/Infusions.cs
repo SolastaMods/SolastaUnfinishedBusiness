@@ -74,6 +74,7 @@ internal static class Infusions
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
             .AddToDB();
 
+        invocation.Item = replica;
         invocation.GuiPresentation.title = replica.FormatTitle();
         invocation.GuiPresentation.description = description;
     }

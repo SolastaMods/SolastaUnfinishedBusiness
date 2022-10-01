@@ -11,6 +11,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
 {
     public CustomInvocationPoolType PoolType { get; set; }
+    
+    /**Used for tooltip in selection screen*/
+    public ItemDefinition Item { get; set; } 
 
     //TODO: add validator setter
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
