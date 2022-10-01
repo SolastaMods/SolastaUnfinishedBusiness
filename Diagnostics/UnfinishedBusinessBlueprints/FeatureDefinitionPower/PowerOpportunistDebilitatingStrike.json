@@ -80,9 +80,9 @@
           "conditionDefinition": "Definition:ConditionOpportunistDebilitated:82bdfadb-65b4-52e9-867e-bcdcbbb7ee20",
           "operation": "AddRandom",
           "conditionsList": [
-            "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
             "Definition:ConditionBaned:5c3098b02cf041744b22475397b7d514",
             "Definition:ConditionBleeding:41cc47e6108652246905e39381332cc5",
+            "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
             "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0"
           ],
           "applyToSelf": false,
