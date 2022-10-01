@@ -5,6 +5,7 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -83,7 +84,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .AddToDB();
 
         //TODO: create builders for these
-        dieRollModifierDivineHeartEmpoweredHealing.validityContext = RuleDefinitions.RollContext.HealValueRoll;
+        dieRollModifierDivineHeartEmpoweredHealing.validityContext = RollContext.HealValueRoll;
         dieRollModifierDivineHeartEmpoweredHealing.rerollLocalizationKey =
             "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription";
 
@@ -105,9 +106,9 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetEffectDescription(DimensionDoor.EffectDescription.Copy())
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
@@ -116,15 +117,15 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create("PowerDivineHeartDivineRecovery")
             .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
             .SetEffectDescription(Heal.EffectDescription.Copy())
-            .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
+            .SetActivationTime(ActivationTime.BonusAction)
             .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
-        powerDivineHeartDivineRecovery.EffectDescription.rangeType = RuleDefinitions.RangeType.Self;
-        powerDivineHeartDivineRecovery.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
+        powerDivineHeartDivineRecovery.EffectDescription.rangeType = RangeType.Self;
+        powerDivineHeartDivineRecovery.EffectDescription.targetType = TargetType.Self;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("SorcerousDivineHeart")

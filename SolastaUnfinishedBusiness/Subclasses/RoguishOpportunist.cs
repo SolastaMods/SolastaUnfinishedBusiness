@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -21,14 +22,14 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
             .SetDurationData(
-                RuleDefinitions.DurationType.Round,
+                DurationType.Round,
                 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                TurnOccurenceType.EndOfTurn)
             .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.MeleeHit,
+                Side.Enemy,
+                RangeType.MeleeHit,
                 0, // I think this parameter is irrelevant if range type is melee hit.
-                RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
+                TargetType.Individuals, // allow multiple effect stack ?
                 0,
                 0)
             .SetSavingThrowData(
@@ -36,7 +37,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 false,
                 AttributeDefinitions.Constitution,
                 true,
-                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20,
                 false,
@@ -52,10 +53,13 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                     false,
                     new List<ConditionDefinition>
                     {
-                        ConditionBlinded, ConditionBaned, ConditionBleeding, ConditionStunned
+                        ConditionBaned,
+                        ConditionBleeding,
+                        ConditionDefinitions.ConditionBlinded,
+                        ConditionDefinitions.ConditionStunned
                     })
-                .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .HasSavingThrow(EffectSavingThrowType.Negates)
+                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build());
 
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
@@ -64,11 +68,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create("PowerOpportunistDebilitatingStrike")
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.Fixed,
+                UsesDetermination.Fixed,
                 AttributeDefinitions.Dexterity,
-                RuleDefinitions.ActivationTime.OnSneakAttackHitAuto,
+                ActivationTime.OnSneakAttackHitAuto,
                 1,
-                RuleDefinitions.RechargeRate.AtWill,
+                RechargeRate.AtWill,
                 false,
                 false,
                 AttributeDefinitions.Dexterity,
@@ -114,7 +118,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             return;
         }
 
-        attackModifier.attackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", null));
+        attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
+            FeatureSourceType.CharacterFeature, "QuickStrike", null));
     }
 }

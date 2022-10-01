@@ -12,7 +12,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -50,7 +50,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             _ = FeatureDefinitionAttackModifierBuilder
                 .Create($"{AttackModifierDeadMasterUndeadChainsPrefix}{i}")
                 .SetGuiPresentation("OnCharacterKillDeadMasterUndeadChains", Category.Feature)
-                .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, i)
+                .Configure(AttackModifierMethod.FlatValue, i)
                 .AddToDB();
         }
 
@@ -64,26 +64,25 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .Configure(
                 0,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.Action,
+                ActivationTime.Action,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
                 DominateBeast.EffectDescription)
-            .SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.Explicit)
+            .SetAbilityScoreDetermination(AbilityScoreDetermination.Explicit)
             .AddToDB();
 
         var commandUndeadEffect = powerDeadMasterCommandUndead.EffectDescription;
 
         commandUndeadEffect.restrictedCreatureFamilies = new List<string> { CharacterFamilyDefinitions.Undead.Name };
-        commandUndeadEffect.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
+        commandUndeadEffect.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
         commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
         commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-        commandUndeadEffect.difficultyClassComputation =
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        commandUndeadEffect.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
         commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -96,8 +95,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 onCharacterKillDeadMasterUndeadChains)
             .AddFeaturesAtLevel(10,
                 damageAffinityDeadMasterHardenToNecrotic)
-            .AddFeaturesAtLevel(14
-                , powerDeadMasterCommandUndead)
+            .AddFeaturesAtLevel(14,
+                powerDeadMasterCommandUndead)
             .AddToDB();
 
         EnableCommandAllUndead();
@@ -186,7 +185,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
-        var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy.Name;
+        var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic ==
+                           SchoolOfMagicDefinitions.SchoolNecromancy.Name;
         var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
 
         attacker.ReceiveHealing(healingReceived, true, attacker.Guid);
@@ -217,19 +217,18 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .Create(ConjureFey, $"CreateDead{monster.name}")
                     .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description,
                         spriteReference)
-                    .SetSchoolOfMagic(SchoolNecromancy)
+                    .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                     .SetSpellLevel(level)
                     .SetRequiresConcentration(false)
-                    .SetCastingTime(RuleDefinitions.ActivationTime.Minute1)
+                    .SetCastingTime(ActivationTime.Minute1)
                     .SetSubSpells()
                     .AddToDB();
 
                 monster.fullyControlledWhenAllied = true;
                 subSpell.EffectDescription.rangeParameter = 1;
                 subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
-                subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod =
-                    RuleDefinitions.EffectIncrementMethod.None;
-                subSpell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
+                subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
+                subSpell.EffectDescription.durationType = DurationType.UntilAnyRest;
 
                 spells.Add(subSpell);
             }
@@ -237,18 +236,18 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             var spell = SpellDefinitionBuilder
                 .Create(ConjureFey, $"CreateDead{level}")
                 .SetGuiPresentation(Category.Spell, spriteReference)
-                .SetSchoolOfMagic(SchoolNecromancy)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                 .SetSpellLevel(level)
                 .SetRequiresConcentration(false)
-                .SetCastingTime(RuleDefinitions.ActivationTime.Minute1)
+                .SetCastingTime(ActivationTime.Minute1)
                 .SetSubSpells(spells.ToArray())
                 .AddToDB();
 
             spell.EffectDescription.EffectForms.Clear();
             spell.EffectDescription.rangeParameter = 1;
             spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
-                RuleDefinitions.EffectIncrementMethod.None;
-            spell.EffectDescription.durationType = RuleDefinitions.DurationType.UntilAnyRest;
+                EffectIncrementMethod.None;
+            spell.EffectDescription.durationType = DurationType.UntilAnyRest;
 
             var autoPreparedSpellsGroup =
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup

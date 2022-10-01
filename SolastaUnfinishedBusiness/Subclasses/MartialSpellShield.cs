@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -18,10 +19,10 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var magicAffinitySpellShieldConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0,
-                RuleDefinitions.SpellParamsModifierType.FlatValue, true)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 0,
+                SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
@@ -30,9 +31,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
-            .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
-            .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
@@ -48,11 +49,11 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var effect = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Self,
+                Side.Enemy,
+                RangeType.Self,
                 0,
-                RuleDefinitions.TargetType.Self)
-            .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                TargetType.Self)
+            .SetDurationData(DurationType.Round, 0, false)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -66,9 +67,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(effect)
-            .SetActivationTime(RuleDefinitions.ActivationTime.OnSpellCast)
+            .SetActivationTime(ActivationTime.OnSpellCast)
             .AddToDB();
 
         // replace attack with cantrip
@@ -83,7 +84,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetCustomSubFeatures(new VigorSpellDcModifier(),
                 new VigorSpellAttackModifier
                 {
-                    sourceName = "VigorSpell", sourceType = RuleDefinitions.FeatureSourceType.ExplicitFeature
+                    sourceName = "VigorSpell", sourceType = FeatureSourceType.ExplicitFeature
                 })
             .AddToDB();
 
@@ -97,15 +98,15 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition,
                     ConditionShielded.GuiPresentation.SpriteReference)
                 .AddToDB())
-            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+            .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
-            .SetDuration(RuleDefinitions.DurationType.Round, 1)
+            .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
         var arcaneDeflection = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self, 1, 0)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                TargetType.Self, 1, 0)
             .AddEffectForm(EffectFormBuilder
                 .Create()
                 .CreatedByCharacter()
@@ -118,8 +119,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
+                0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
+                ActivationTime.Reaction, 0, RechargeRate.AtWill,
                 false, false, AttributeDefinitions.Intelligence, arcaneDeflection /* unique instance */)
             .AddToDB();
 
@@ -185,7 +186,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             return CalculateModifier(caster);
         }
 
-        public RuleDefinitions.FeatureSourceType sourceType { get; set; }
+        public FeatureSourceType sourceType { get; set; }
         public string sourceName { get; set; }
     }
 }

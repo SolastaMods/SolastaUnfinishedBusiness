@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -26,7 +27,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyRavenRangeWeapon")
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
+                    .SetProficiencies(ProficiencyType.Weapon,
                         WeaponTypeDefinitions.HeavyCrossbowType.Name,
                         WeaponTypeDefinitions.LongbowType.Name)
                     .AddToDB(),
@@ -45,7 +46,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var additionalActionRavenKillingSpree = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionRavenKillingSpree")
             .SetGuiPresentation(Category.Feature)
-            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+            .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
             .SetMaxAttacksNumber(1)
@@ -57,7 +58,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var dieRollModifierRavenPainMaker = FeatureDefinitionDieRollModifierBuilder
             .Create("DieRollModifierRavenPainMaker")
             .SetGuiPresentation(Category.Feature)
-            .SetModifiers(RuleDefinitions.RollContext.AttackDamageValueRoll, 1, 1,
+            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
@@ -90,7 +91,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("RavenHeartSeekingShotTriggerFeature")
@@ -115,24 +116,24 @@ internal sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature)
-                    .Configure(RuleDefinitions.AttackModifierMethod.FlatValue, -4)
+                    .Configure(AttackModifierMethod.FlatValue, -4)
                     .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
                         ValidatorsCharacter.HasTwoHandedRangeWeapon))
-                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature)
-                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
-                    .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
+                    .SetFrequencyLimit(FeatureLimitedUsage.None)
+                    .SetTriggerCondition(AdditionalDamageTriggerCondition.CriticalHit)
+                    .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
                         ValidatorsCharacter.HasTwoHandedRangeWeapon))
-                    .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.RangeWeapon)
-                    .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
-                    .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+                    .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(
-                        (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
+                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
@@ -161,14 +162,14 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
                     Resources.DeadeyeIcon, 128, 64))
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Add)
@@ -185,14 +186,14 @@ internal sealed class RoguishRaven : AbstractSubclass
         var powerRavenTurnOffHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenTurnOffHeartSeekingShot")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(conditionRavenHeartSeekingShotTrigger,

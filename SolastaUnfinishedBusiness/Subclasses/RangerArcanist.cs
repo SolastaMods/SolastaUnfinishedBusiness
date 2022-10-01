@@ -10,6 +10,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAddit
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -23,8 +24,8 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetAllowMultipleInstances(false)
-            .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
-            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDuration(DurationType.Permanent, 1, false)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive(true)
             .SetSpecialDuration(true)
             .AddToDB();
@@ -53,11 +54,11 @@ internal sealed class RangerArcanist : AbstractSubclass
         var additionalDamageArcanistMark = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark")
             .SetGuiPresentation(Category.Feature)
-            .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-            .SetDamageDice(RuleDefinitions.DieType.D6, 0)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetDamageDice(DieType.D6, 0)
             .SetNotificationTag(ArcanistMarkTag)
             .SetTargetCondition(conditionMarkedByArcanist,
-                RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
+                AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
             .SetNoAdvancement()
             .SetConditionOperations(
@@ -80,11 +81,11 @@ internal sealed class RangerArcanist : AbstractSubclass
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
             .SetGuiPresentation(Category.Feature)
-            .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-            .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetDamageDice(DieType.D6, 1)
             .SetNotificationTag(ArcanistMarkTag)
             .SetTargetCondition(conditionMarkedByArcanist,
-                RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
+                AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .SetNoSave()
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -94,7 +95,7 @@ internal sealed class RangerArcanist : AbstractSubclass
                 }
             )
             .SetAdvancement(
-                RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
+                AdditionalDamageAdvancement.ClassLevel,
                 (1, 1),
                 (2, 1),
                 (3, 1),
@@ -115,7 +116,7 @@ internal sealed class RangerArcanist : AbstractSubclass
                 (18, 2),
                 (19, 2),
                 (20, 2))
-            .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+            .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetImpactParticleReference(assetReference)
             .AddToDB();
 
@@ -135,12 +136,12 @@ internal sealed class RangerArcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = RuleDefinitions.DamageTypeForce,
-                DieType = RuleDefinitions.DieType.D8,
+                DamageType = DamageTypeForce,
+                DieType = DieType.D8,
                 DiceNumber = 4,
-                healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never
+                healFromInflictedDamage = HealFromInflictedDamage.Never
             },
-            SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
+            SavingThrowAffinity = EffectSavingThrowType.None
         };
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
@@ -165,12 +166,12 @@ internal sealed class RangerArcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = RuleDefinitions.DamageTypeForce,
-                DieType = RuleDefinitions.DieType.D8,
+                DamageType = DamageTypeForce,
+                DieType = DieType.D8,
                 DiceNumber = 8,
-                healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never
+                healFromInflictedDamage = HealFromInflictedDamage.Never
             },
-            SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
+            SavingThrowAffinity = EffectSavingThrowType.None
         };
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
@@ -210,10 +211,10 @@ internal sealed class RangerArcanist : AbstractSubclass
         var pulseDescription = new EffectDescription()
             .Create(MagicMissile.EffectDescription)
             .SetCreatedByCharacter(true)
-            .SetTargetSide(RuleDefinitions.Side.Enemy)
-            .SetTargetType(RuleDefinitions.TargetType.Sphere)
+            .SetTargetSide(Side.Enemy)
+            .SetTargetType(TargetType.Sphere)
             .SetTargetParameter(3)
-            .SetRangeType(RuleDefinitions.RangeType.Distance)
+            .SetRangeType(RangeType.Distance)
             .SetRangeParameter(30)
             .SetEffectForms(damageEffect, markedEffect);
 
@@ -223,9 +224,9 @@ internal sealed class RangerArcanist : AbstractSubclass
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
             .SetUsesAbility(0, AttributeDefinitions.Wisdom)
             .SetShowCasting(true)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetActivationTime(ActivationTime.Action)
             .SetEffectDescription(pulseDescription)
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetOverriddenPower(overriddenPower)

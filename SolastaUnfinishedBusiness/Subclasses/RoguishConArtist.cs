@@ -40,17 +40,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .AddToDB();
 
-        var feintBuilder = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
-                RuleDefinitions.TargetType.Individuals, 1, 0)
-            .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetSavingThrowData(
-                true, false, AttributeDefinitions.Wisdom, true,
-                RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
-                15);
-
         var conditionConArtistFeint = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint")
             .SetGuiPresentation(Category.Feature,
@@ -59,34 +48,53 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
             .AddToDB();
 
-        feintBuilder.AddEffectForm(
-            EffectFormBuilder
-                .Create()
-                .CreatedByCharacter()
-                .SetConditionForm(
-                    conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
-                .Build());
+        var feintEffect = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(
+                RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
+                RuleDefinitions.TargetType.Individuals, 1, 0)
+            .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetSavingThrowData(
+                true, false, AttributeDefinitions.Wisdom, true,
+                RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
+                15)
+            .AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .CreatedByCharacter()
+                    .SetConditionForm(
+                        conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
+                    .Build())
+            .Build();
 
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Charisma, feintBuilder.Build() /* unique instance */)
+                0,
+                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                AttributeDefinitions.Charisma,
+                RuleDefinitions.ActivationTime.BonusAction,
+                0,
+                RuleDefinitions.RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                feintEffect)
             .AddToDB();
 
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityConArtistDC")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                3)
+            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 3)
             .AddToDB();
 
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
+            .SetProficiencies(
+                RuleDefinitions.ProficiencyType.SavingThrow,
+                AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();
 

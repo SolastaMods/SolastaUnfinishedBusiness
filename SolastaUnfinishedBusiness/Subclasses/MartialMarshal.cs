@@ -363,6 +363,7 @@ internal static class EternalComradeBuilder
                 }
             )
             .Build();
+
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
@@ -545,8 +546,8 @@ internal static class EncourageBuilder
                     .Create()
                     .CreatedByCharacter()
                     .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false, false)
-                    .Build()
-            ).Build();
+                    .Build())
+            .Build();
 
         effect.SetCanBePlacedOnCharacter(true);
 

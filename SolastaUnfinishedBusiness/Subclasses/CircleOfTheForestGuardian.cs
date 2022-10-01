@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
-    private const string ForestGuardianName = "CircleOfTheForestGuardian";
+    private const string CircleOfTheForestGuardianName = "CircleOfTheForestGuardian";
 
     internal CircleOfTheForestGuardian()
     {
@@ -50,7 +50,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var (barkWard, improvedBarkWard, superiorBarkWard) = CreateBarkWard();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(ForestGuardianName)
+            .Create(CircleOfTheForestGuardianName)
             .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,

@@ -114,13 +114,13 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         _ = RestActivityDefinitionBuilder
             .Create("RestActivityAncientForestToxifying")
+            .SetGuiPresentation(powerPoolAncientForestHerbalBrew.GuiPresentation)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 PowersBundleContext.UseCustomRestPowerFunctorName,
                 powerPoolAncientForestHerbalBrew.name)
-            .SetGuiPresentation(powerPoolAncientForestHerbalBrew.GuiPresentation)
             .AddToDB();
 
         var conditionAncientForestPhotosynthesis = ConditionDefinitionBuilder
@@ -182,12 +182,14 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
-                        new EffectFormBuilder().SetConditionForm(
-                            conditionAncientForestRooted,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true,
-                            new List<ConditionDefinition>()).Build())
+                        new EffectFormBuilder()
+                            .SetConditionForm(
+                                conditionAncientForestRooted,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true,
+                                new List<ConditionDefinition>())
+                            .Build())
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(
                         Side.Ally,
@@ -345,13 +347,13 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerName = $"PowerAncientForestHerbalBrew{name}";
 
         var guiPresentation = new GuiPresentationBuilder(
-            $"Equipment/&HerbalBrew{name}Title",
-            $"Equipment/&HerbalBrew{name}Description",
-            baseItem.GuiPresentation.SpriteReference
-        ).Build();
+                $"Equipment/&HerbalBrew{name}Title",
+                $"Equipment/&HerbalBrew{name}Description",
+                baseItem.GuiPresentation.SpriteReference)
+            .Build();
 
-        var conditionAncientForestHerbalBrew = ConditionDefinitionBuilder.Create(
-                $"ConditionAncientForestHerbalBrew{name}")
+        var conditionAncientForestHerbalBrew = ConditionDefinitionBuilder
+            .Create($"ConditionAncientForestHerbalBrew{name}")
             .SetDuration(DurationType.Hour, 1)
             .SetSilent(Silent.None)
             .SetGuiPresentation(guiPresentation)
@@ -375,12 +377,13 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
-                        new EffectFormBuilder().SetConditionForm(
-                            conditionAncientForestHerbalBrew,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true
-                        ).Build())
+                        new EffectFormBuilder()
+                            .SetConditionForm(
+                                conditionAncientForestHerbalBrew,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(
                         Side.Ally,
@@ -394,7 +397,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
-        var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName)
+        var brewItem = ItemDefinitionBuilder
+            .Create(baseItem, itemName)
             .SetGold(0)
             .SetGuiPresentation(guiPresentation)
             .MakeMagical()

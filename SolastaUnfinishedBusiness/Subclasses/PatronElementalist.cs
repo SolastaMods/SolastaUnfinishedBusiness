@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -116,11 +117,12 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetOverriddenPower(powerElementalistElementalFormPool)
             .AddToDB();
 
-        var regularPowers = new List<FeatureDefinitionPower>();
-        var enhancedPowers = new List<FeatureDefinitionPower>();
+        var regularPowers = new FeatureDefinitionPower[ElementalFormConfigs.Count];
+        var enhancedPowers = new FeatureDefinitionPower[ElementalFormConfigs.Count];
 
-        foreach (var e in ElementalFormConfigs)
+        for (var i = 0; i < ElementalFormConfigs.Count; i++)
         {
+            var e = ElementalFormConfigs.ElementAt(i);
             var (regularPower, enhancedPower) = BuildElementalForm(
                 e.Key,
                 powerElementalistElementalFormPool,
@@ -129,14 +131,12 @@ internal sealed class PatronElementalist : AbstractSubclass
                 iconRegular,
                 iconEnhanced);
 
-            regularPowers.Add(regularPower);
-            enhancedPowers.Add(enhancedPower);
+            regularPowers[i] = regularPower;
+            enhancedPowers[i] = enhancedPower;
         }
 
-        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true,
-            regularPowers.ToArray());
-        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true,
-            enhancedPowers.ToArray());
+        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers);
+        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
 
         var spellListElementalist = SpellListDefinitionBuilder
             .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "SpellListElementalist")
@@ -328,6 +328,5 @@ internal sealed class PatronElementalist : AbstractSubclass
         internal FeatureDefinitionDamageAffinity Resistance;
 
         internal AssetReference Shaders;
-        // internal AssetReferenceSprite Sprite;
     }
 }

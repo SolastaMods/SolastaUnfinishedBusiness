@@ -42,8 +42,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         var conditionMoonlitInvisibility = ConditionDefinitionBuilder
             .Create("ConditionMoonlitInvisibility")
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionMoonlitInvisibility.Build())
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
@@ -380,52 +380,59 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     private static void BecomeRevealed(RulesetCharacter hero)
     {
-        hero.AddConditionOfCategory(CategoryRevealed, RulesetCondition.CreateActiveCondition(hero.Guid,
-            RevealedCondition, DurationType.Round,
-            1,
-            TurnOccurenceType.StartOfTurn,
-            hero.Guid,
-            hero.CurrentFaction.Name
-        ));
+        hero.AddConditionOfCategory(CategoryRevealed,
+            RulesetCondition.CreateActiveCondition(
+                hero.Guid,
+                RevealedCondition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                hero.Guid,
+                hero.CurrentFaction.Name
+            ));
     }
 
     private static void BecomeInvisible(RulesetCharacter hero)
     {
-        hero.AddConditionOfCategory(CategoryHidden, RulesetCondition.CreateActiveCondition(hero.Guid,
-            InvisibilityCondition,
-            DurationType.Permanent,
-            0,
-            TurnOccurenceType.EndOfTurn,
-            hero.Guid,
-            hero.CurrentFaction.Name
-        ), false);
+        hero.AddConditionOfCategory(CategoryHidden,
+            RulesetCondition.CreateActiveCondition(
+                hero.Guid,
+                InvisibilityCondition,
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                hero.Guid,
+                hero.CurrentFaction.Name),
+            false);
     }
 
     [UsedImplicitly]
-    private class FeatureDefinitionMoonlitInvisibilityBuilder : FeatureDefinitionBuilder<
-        FeatureDefinitionMoonlitInvisibility,
-        FeatureDefinitionMoonlitInvisibilityBuilder>
+    private class FeatureDefinitionMoonlitInvisibilityBuilder :
+        FeatureDefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
     {
         #region Constructors
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(string name, Guid namespaceGuid) : base(name,
-            namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionMoonlitInvisibilityBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original,
+        public FeatureDefinitionMoonlitInvisibilityBuilder(
             string name,
-            Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+            Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original,
+        public FeatureDefinitionMoonlitInvisibilityBuilder(
+            string name,
+            string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionMoonlitInvisibilityBuilder(
+            FeatureDefinitionMoonlitInvisibility original,
+            string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionMoonlitInvisibilityBuilder(
+            FeatureDefinitionMoonlitInvisibility original,
             string name,
             string definitionGuid) : base(original, name, definitionGuid)
         {

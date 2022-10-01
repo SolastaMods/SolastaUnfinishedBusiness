@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -17,7 +18,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.Weapon,
+                ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -25,7 +26,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
         var attributeModifierArcaneFighterExtraAttack = FeatureDefinitionAttributeModifierBuilder
@@ -42,23 +43,23 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
             .SetMaxAttacksNumber(-1)
-            .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+            .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageArcaneFighterBonusWeapon")
             .Configure(
                 "AdditionalDamageArcaneFighterBonusWeapon",
-                RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
-                RuleDefinitions.AdditionalDamageValueDetermination.Die,
-                RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                RuleDefinitions.RestrictedContextRequiredProperty.None,
+                FeatureLimitedUsage.OncePerTurn,
+                AdditionalDamageValueDetermination.Die,
+                AdditionalDamageTriggerCondition.AlwaysActive,
+                RestrictedContextRequiredProperty.None,
                 true /* attack only */,
-                RuleDefinitions.DieType.D8,
+                DieType.D8,
                 1 /* dice number */,
-                RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
+                AdditionalDamageType.SameAsBaseDamage,
                 string.Empty,
-                RuleDefinitions.AdditionalDamageAdvancement.None,
+                AdditionalDamageAdvancement.None,
                 new List<DiceByRank>())
             .SetNotificationTag("ArcaneFighter")
             .SetGuiPresentation(Category.Feature)
@@ -68,21 +69,21 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("AttackModifierArcaneFighterIntBonus")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var effect = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */,
-                RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
+                TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 10 /* duration */,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Minute, 10 /* duration */,
+                TurnOccurenceType.EndOfTurn)
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0,
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                         new FeatureUnlockByLevel(weaponUseIntModifier, 0))
                     .Build()
             )
@@ -92,8 +93,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.ShortRest, false, false,
+            .Configure(0, UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
+                ActivationTime.BonusAction, 1, RechargeRate.ShortRest, false, false,
                 AttributeDefinitions.Intelligence, effect)
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
