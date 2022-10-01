@@ -16,17 +16,22 @@ internal static class ArmorFeats
     {
         var proficiencyFeatLightArmor = BuildProficiency("ProficiencyFeatLightArmor",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
-        var featLightArmor = BuildFeat("FeatLightArmor", proficiencyFeatLightArmor, AttributeModifierCreed_Of_Misaye);
 
         var proficiencyFeatMediumArmor = BuildProficiency("ProficiencyFeatMediumArmor",
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
+
+        var featLightArmor = BuildFeat("FeatLightArmor", null,
+            proficiencyFeatLightArmor, AttributeModifierCreed_Of_Misaye);
+
         var featMediumArmorDex = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
             proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye);
+
         var featMediumArmorStr = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
             proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar);
 
         var featHeavyArmorMaster = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
-            DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance,
+            DamageAffinityBludgeoningResistance,
+            DamageAffinitySlashingResistance,
             DamageAffinityPiercingResistance);
 
         feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr, featHeavyArmorMaster);
@@ -44,15 +49,6 @@ internal static class ArmorFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .SetArmorProficiencyPrerequisite(prerequisite)
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
-    {
-        return FeatDefinitionBuilder
-            .Create(name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(features)
             .AddToDB();
     }
 

@@ -36,18 +36,10 @@ internal static class FightingStyleFeats
                 var hasFightingStyle = hero.TrainedFightingStyles
                     .Any(x => x.Name == fightingStyle.Name);
 
-                if (!hasFightingStyle)
-                {
-                    return (true,
-                        Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
-                            fightingStyle.FormatTitle()));
-                }
+                var guiFormat = Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                    fightingStyle.FormatTitle());
 
-                return (false,
-                    Gui.Colorize(
-                        Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
-                            fightingStyle.FormatTitle()),
-                        "EA7171"));
+                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, "EA7171")) : (true, guiFormat);
             })
             .SetGuiPresentation(fightingStyle.GuiPresentation)
             .AddToDB();

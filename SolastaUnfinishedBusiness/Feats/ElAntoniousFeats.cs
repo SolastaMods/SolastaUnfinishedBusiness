@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,12 +15,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 internal static class ElAntoniousFeats
 {
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
-    {
-        feats.Add(BuildFeatDualFlurry());
-        feats.Add(BuildFeatTorchbearer());
-    }
-
-    private static FeatDefinition BuildFeatDualFlurry()
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
@@ -72,7 +67,9 @@ internal static class ElAntoniousFeats
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,
-                condition, DurationType.Round, 0,
+                condition,
+                DurationType.Round,
+                0,
                 TurnOccurenceType.EndOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
@@ -80,7 +77,7 @@ internal static class ElAntoniousFeats
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
 
-        return FeatDefinitionBuilder
+        var featDualFlurry = FeatDefinitionBuilder
             .Create("FeatDualFlurry")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -90,52 +87,45 @@ internal static class ElAntoniousFeats
                     .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
                     .AddToDB())
             .AddToDB();
-    }
 
-    private static FeatDefinition BuildFeatTorchbearer()
-    {
-        var burnEffect = new EffectForm
-        {
-            formType = EffectForm.EffectFormType.Condition,
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
-            }
-        };
-
-        var burnDescription = new EffectDescription()
-            .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-            .SetCreatedByCharacter(true)
-            .SetTargetSide(Side.Enemy)
-            .SetTargetType(TargetType.Individuals)
-            .SetTargetParameter(1)
-            .SetRangeType(RangeType.Touch)
-            .SetDurationType(DurationType.Round)
-            .SetDurationParameter(3)
-            .SetCanBePlacedOnCharacter(false)
-            .SetHasSavingThrow(true)
-            .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
-            .SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity)
-            .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-            .SetSpeedType(SpeedType.Instant)
-            .SetEffectForms(burnEffect);
-
-        var powerTorchbearer = FeatureDefinitionPowerBuilder
-            .Create("PowerTorchbearer")
-            .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetEffectDescription(burnDescription)
-            .SetUsesFixed(1)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetShowCasting(false)
-            .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
-            .AddToDB();
-
-        return FeatDefinitionBuilder
+        var featTorchbearer = FeatDefinitionBuilder
             .Create("FeatTorchbearer")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerTorchbearer)
+            .SetFeatures(FeatureDefinitionPowerBuilder
+                .Create("PowerTorchbearer")
+                .SetGuiPresentation(Category.Feature)
+                .SetActivationTime(ActivationTime.BonusAction)
+                .SetEffectDescription(new EffectDescription()
+                    .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
+                    .SetCreatedByCharacter(true)
+                    .SetTargetSide(Side.Enemy)
+                    .SetTargetType(TargetType.Individuals)
+                    .SetTargetParameter(1)
+                    .SetRangeType(RangeType.Touch)
+                    .SetDurationType(DurationType.Round)
+                    .SetDurationParameter(3)
+                    .SetCanBePlacedOnCharacter(false)
+                    .SetHasSavingThrow(true)
+                    .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
+                    .SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity)
+                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSpeedType(SpeedType.Instant)
+                    .SetEffectForms(new EffectForm
+                    {
+                        formType = EffectForm.EffectFormType.Condition,
+                        ConditionForm = new ConditionForm
+                        {
+                            Operation = ConditionForm.ConditionOperation.Add,
+                            ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
+                        }
+                    }))
+                .SetUsesFixed(1)
+                .SetRechargeRate(RechargeRate.AtWill)
+                .SetShowCasting(false)
+                .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
+                .AddToDB())
             .AddToDB();
+
+        feats.AddRange(featTorchbearer, featDualFlurry);
     }
 }

@@ -15,7 +15,7 @@ internal static class CasterFeats
 {
     public static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var newFeats = new List<FeatDefinition>();
+        var groupFeats = new List<FeatDefinition>();
         var groups = new List<FeatDefinition>();
         var classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
@@ -114,9 +114,9 @@ internal static class CasterFeats
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
 
-        newFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
-        groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, newFeats));
-        feats.AddRange(newFeats);
+        groupFeats.SetRange(intTelekineticFeat, chaTelekineticFeat, wisTelekineticFeat);
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, groupFeats));
+        feats.AddRange(groupFeats);
 
         // Fey Teleportation
         const string FEY_TELEPORT = "FeyTeleport";
@@ -140,7 +140,7 @@ internal static class CasterFeats
                 RuleDefinitions.ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 
-        newFeats.SetRange(
+        groupFeats.SetRange(
             // fey teleportation int
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt")
@@ -170,8 +170,8 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", FEY_TELEPORT, newFeats));
-        feats.AddRange(newFeats);
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", FEY_TELEPORT, groupFeats));
+        feats.AddRange(groupFeats);
 
         // celestial touched
 
@@ -203,7 +203,7 @@ internal static class CasterFeats
             LesserRestoration.EffectDescription, "PowerFeatCelestialTouchedLesserRestoration",
             LesserRestoration.GuiPresentation);
 
-        newFeats.SetRange(
+        groupFeats.SetRange(
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt")
@@ -233,8 +233,8 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL_TOUCHED, newFeats));
-        feats.AddRange(newFeats);
+        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL_TOUCHED, groupFeats));
+        feats.AddRange(groupFeats);
 
         // flame touched
 
@@ -279,7 +279,7 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             ScorchingRay.EffectDescription, "PowerFeatFlameTouchedScorchingRayCha", ScorchingRay.GuiPresentation);
 
-        newFeats.SetRange(
+        groupFeats.SetRange(
             // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt")
@@ -309,8 +309,8 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupFlameTouched", FLAME_TOUCHED, newFeats));
-        feats.AddRange(newFeats);
+        groups.Add(GroupFeats.MakeGroup("FeatGroupFlameTouched", FLAME_TOUCHED, groupFeats));
+        feats.AddRange(groupFeats);
 
         // shadow touched
 
@@ -350,7 +350,7 @@ internal static class CasterFeats
             true, true, AttributeDefinitions.Charisma,
             InflictWounds.EffectDescription, "PowerFeatShadowTouchedInflictWoundsCha", InflictWounds.GuiPresentation);
 
-        newFeats.SetRange(
+        groupFeats.SetRange(
             // shadow touched int
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedInt")
@@ -380,8 +380,8 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW_TOUCHED, newFeats));
-        feats.AddRange(newFeats);
+        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW_TOUCHED, groupFeats));
+        feats.AddRange(groupFeats);
 
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
@@ -396,16 +396,18 @@ internal static class CasterFeats
     {
         return classes
             .Select(klass =>
-                BuildAutoPreparedSpells(
-                    spellGroup,
-                    klass,
-                    namePrefix + klass.Name,
-                    autoPrepTag,
-                    learnShadowTouchedPresentation))
+                FeatureDefinitionAutoPreparedSpellsBuilder
+                    .Create(namePrefix + klass.Name)
+                    .SetGuiPresentation(learnShadowTouchedPresentation)
+                    .SetPreparedSpellGroups(spellGroup)
+                    .SetCastingClass(klass)
+                    .SetAutoTag(autoPrepTag)
+                    .AddToDB())
             .Cast<FeatureDefinition>()
             .ToArray();
     }
 
+    [NotNull]
     private static FeatureDefinitionPower BuildMotionFormPower(
         int usesPerRecharge,
         RuleDefinitions.UsesDetermination usesDetermination,
@@ -427,30 +429,28 @@ internal static class CasterFeats
         string name,
         GuiPresentation guiPresentation)
     {
-        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-        effectDescriptionBuilder.SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0);
-        effectDescriptionBuilder.SetCreatedByCharacter();
-        effectDescriptionBuilder.SetSavingThrowData(
-            hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
-            savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass);
-
-        var particleParams = new EffectParticleParameters();
-
-        particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
-
-        var effectFormBuilder = new EffectFormBuilder();
-
-        effectFormBuilder.SetMotionForm(motionType, motionDistance);
-        effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-        effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-        effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
         return BuildPowerFromEffectDescription(usesPerRecharge, usesDetermination, activationTime, costPerUse,
             recharge,
-            false, false, savingThrowDifficultyAbility, effectDescriptionBuilder.Build(), name, guiPresentation);
+            false,
+            false,
+            savingThrowDifficultyAbility,
+            new EffectDescriptionBuilder()
+                .SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0)
+                .SetCreatedByCharacter()
+                .SetSavingThrowData(
+                    hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
+                    savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetMotionForm(motionType, motionDistance)
+                    .Build())
+                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
+                .Build(),
+            name,
+            guiPresentation);
     }
 
+    [NotNull]
     private static FeatureDefinitionPower BuildPowerFromEffectDescription(
         int usesPerRecharge,
         RuleDefinitions.UsesDetermination usesDetermination,
@@ -469,23 +469,7 @@ internal static class CasterFeats
             .SetGuiPresentation(guiPresentation)
             .Configure(
                 usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge,
-                proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription /* unique */)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
-        FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup,
-        CharacterClassDefinition characterClass,
-        string name,
-        string tag,
-        GuiPresentation guiPresentation)
-    {
-        return FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create(name)
-            .SetGuiPresentation(guiPresentation)
-            .SetPreparedSpellGroups(autoPreparedSpellsGroup)
-            .SetCastingClass(characterClass)
-            .SetAutoTag(tag)
+                proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription)
             .AddToDB();
     }
 }
