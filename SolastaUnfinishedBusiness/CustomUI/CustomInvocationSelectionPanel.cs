@@ -126,7 +126,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     private void BuildLearnSteps()
     {
         // Register all steps
-        if (allPools is not { Count: > 0 })
+        if (allPools is not {Count: > 0})
         {
             return;
         }
@@ -392,7 +392,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             return pool;
         }
 
-        pool = new FeaturePool(id) { Type = type, Max = 0, Used = 0 };
+        pool = new FeaturePool(id) {Type = type, Max = 0, Used = 0};
 
         allPools.Add(pool);
         allPools.Sort(poolCompare);
@@ -470,7 +470,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
             if (!tags.ContainsKey(poolId))
             {
-                var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
+                var pool = new FeaturePool(poolId) {Max = featureSet.Points, Used = 0, Type = featureSet.PoolType};
 
                 tags.Add(poolId, pool);
                 allPools.Add(pool);
@@ -1028,17 +1028,12 @@ internal static class SpellLevelButtonExtension
     {
         instance.Level = level;
         instance.LevelSelected = levelSelected;
-        instance.label.Text = $"{level}";
+        instance.label.Text = level > 0 ? Gui.ToRoman(level) : $"{level}";
     }
 }
 
 internal static class SpellsByLevelGroupExtensions
 {
-    public static RectTransform GetSpellsTable(this SpellsByLevelGroup instance)
-    {
-        return instance.spellsTable;
-    }
-
     public static void CustomFeatureBind(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         CustomInvocationPoolType pool,
@@ -1056,7 +1051,7 @@ internal static class SpellsByLevelGroupExtensions
 
         allFeatures.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
 
-        var spellsTable = instance.GetSpellsTable();
+        var spellsTable = instance.spellsTable;
         var spellPrefab = instance.spellPrefab;
 
         while (spellsTable.childCount < allFeatures.Count)
@@ -1076,7 +1071,6 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearned.Contains(feature);
             var bindMode = unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning;
 
-            // box.Bind(guiSpellDefinition1, null, false, null, isUnlearned, bindMode, spellBoxChanged);
             box.CustomFeatureBind(feature, isUnlearned, bindMode, spellBoxChanged);
         }
 
@@ -1111,7 +1105,7 @@ internal static class SpellsByLevelGroupExtensions
         List<CustomInvocationDefinition> unlearnedFeatures,
         bool canAcquireFeatures)
     {
-        foreach (Transform transform in instance.GetSpellsTable())
+        foreach (Transform transform in instance.spellsTable)
         {
             if (!transform.gameObject.activeSelf)
             {
@@ -1147,7 +1141,7 @@ internal static class SpellsByLevelGroupExtensions
         List<CustomInvocationDefinition> unlearnedSpells,
         bool canUnlearnInvocations)
     {
-        foreach (Transform transform in instance.GetSpellsTable())
+        foreach (Transform transform in instance.spellsTable)
         {
             if (!transform.gameObject.activeSelf)
             {
@@ -1178,7 +1172,7 @@ internal static class SpellsByLevelGroupExtensions
     {
         instance.SpellRepertoire = null;
 
-        var spellsTable = instance.GetSpellsTable();
+        var spellsTable = instance.spellsTable;
 
         foreach (Component component in spellsTable)
         {
