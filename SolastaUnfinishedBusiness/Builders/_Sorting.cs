@@ -63,11 +63,4 @@ internal static class Sorting
         return String.Compare(x.MonsterAttackDefinition.Name, y.MonsterAttackDefinition.Name,
             StringComparison.CurrentCultureIgnoreCase);
     }
-
-#pragma warning disable IDE0060 // Remove unused parameter
-    internal static int Compare(LegendaryActionDescription x, LegendaryActionDescription y)
-#pragma warning restore IDE0060 // Remove unused parameter
-    {
-        return 0; // TODO:
-    }
 }

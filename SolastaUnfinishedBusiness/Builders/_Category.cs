@@ -1,7 +1,7 @@
 ﻿namespace SolastaUnfinishedBusiness.Builders;
 
 /// <summary>
-///     Localization string categories.  Eg Class/&WitchTitle, Class/&WitchDescription
+///     Localization string categories.
 /// </summary>
 public enum Category
 {

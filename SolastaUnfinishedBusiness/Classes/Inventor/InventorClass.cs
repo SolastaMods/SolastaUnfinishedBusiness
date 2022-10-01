@@ -114,19 +114,15 @@ internal static class InventorClass
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
                 }
             )
-            .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
-            {
+            .AddEquipmentRow(
                 EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow,
                     EquipmentDefinitions.OptionWeapon, 1),
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt,
                     EquipmentDefinitions.OptionAmmoPack, 1)
-            })
+            )
             .AddEquipmentRow(
-                new List<CharacterClassDefinition.HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
-                        EquipmentDefinitions.OptionFocus, 1)
-                }
+                EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
+                    EquipmentDefinitions.OptionFocus, 1)
             )
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {

@@ -27,6 +27,7 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
+#if false
     public CharacterClassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
     {
         Definition.PersonalityFlagOccurences.Add(
@@ -41,7 +42,14 @@ internal class CharacterClassDefinitionBuilder
 
         return this;
     }
-
+    
+    public CharacterClassDefinitionBuilder RequireDeity()
+    {
+        Definition.requiresDeity = true;
+        return this;
+    }
+#endif
+    
     public CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
     {
         Definition.ingredientGatheringOdds = odds;
@@ -66,20 +74,8 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-    public CharacterClassDefinitionBuilder RequireDeity()
-    {
-        Definition.requiresDeity = true;
-        return this;
-    }
-
     public CharacterClassDefinitionBuilder AddEquipmentRow(
         params CharacterClassDefinition.HeroEquipmentOption[] equipmentList)
-    {
-        return AddEquipmentRow(equipmentList.AsEnumerable());
-    }
-
-    public CharacterClassDefinitionBuilder AddEquipmentRow(
-        IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentList)
     {
         var equipmentColumn = new CharacterClassDefinition.HeroEquipmentColumn();
         equipmentColumn.EquipmentOptions.AddRange(equipmentList);
@@ -151,20 +147,7 @@ internal class CharacterClassDefinitionBuilder
 
     #region Tool preference
 
-    public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
-    {
-        Definition.ToolAutolearnPreference.Add(toolType.Name);
-        Definition.ToolAutolearnPreference.Sort();
-        return this;
-    }
-
     public CharacterClassDefinitionBuilder AddToolPreferences(params ToolTypeDefinition[] toolTypes)
-    {
-        AddToolPreferences(toolTypes.AsEnumerable());
-        return this;
-    }
-
-    public CharacterClassDefinitionBuilder AddToolPreferences(IEnumerable<ToolTypeDefinition> toolTypes)
     {
         Definition.ToolAutolearnPreference.AddRange(toolTypes.Select(tt => tt.Name));
         Definition.ToolAutolearnPreference.Sort();
@@ -175,16 +158,9 @@ internal class CharacterClassDefinitionBuilder
 
     #region Skill preference
 
-    public CharacterClassDefinitionBuilder AddSkillPreference(SkillDefinition skillType)
-    {
-        Definition.SkillAutolearnPreference.Add(skillType.Name);
-        Definition.SkillAutolearnPreference.Sort();
-        return this;
-    }
-
     public CharacterClassDefinitionBuilder AddSkillPreferences(params SkillDefinition[] skillTypes)
     {
-        AddSkillPreferences(skillTypes.AsEnumerable());
+        Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
         return this;
     }
 
@@ -194,51 +170,18 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-    public CharacterClassDefinitionBuilder AddSkillPreferences(IEnumerable<SkillDefinition> skillTypes)
-    {
-        Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
-        Definition.SkillAutolearnPreference.Sort();
-        return this;
-    }
-
     #endregion
 
     #region Expertise preference
 
-    public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
-    {
-        Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
-        Definition.ExpertiseAutolearnPreference.Sort();
-        return this;
-    }
-
-    public CharacterClassDefinitionBuilder AddExpertisePreference(ToolTypeDefinition toolType)
-    {
-        Definition.ExpertiseAutolearnPreference.Add(toolType.Name);
-        Definition.ExpertiseAutolearnPreference.Sort();
-        return this;
-    }
-
     public CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
-    {
-        AddExpertisePreferences(skillTypes.AsEnumerable());
-        return this;
-    }
-
-    public CharacterClassDefinitionBuilder AddExpertisePreferences(params ToolTypeDefinition[] toolTypes)
-    {
-        AddExpertisePreferences(toolTypes.AsEnumerable());
-        return this;
-    }
-
-    public CharacterClassDefinitionBuilder AddExpertisePreferences(IEnumerable<SkillDefinition> skillTypes)
     {
         Definition.ExpertiseAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
 
-    public CharacterClassDefinitionBuilder AddExpertisePreferences(IEnumerable<ToolTypeDefinition> toolTypes)
+    public CharacterClassDefinitionBuilder AddExpertisePreferences(params ToolTypeDefinition[] toolTypes)
     {
         Definition.ExpertiseAutolearnPreference.AddRange(toolTypes.Select(tt => tt.Name));
         Definition.ExpertiseAutolearnPreference.Sort();
@@ -249,20 +192,7 @@ internal class CharacterClassDefinitionBuilder
 
     #region Feat preference
 
-    public CharacterClassDefinitionBuilder AddFeatPreference(FeatDefinition featType)
-    {
-        Definition.FeatAutolearnPreference.Add(featType.Name);
-        Definition.FeatAutolearnPreference.Sort();
-        return this;
-    }
-
     public CharacterClassDefinitionBuilder AddFeatPreferences(params FeatDefinition[] featTypes)
-    {
-        AddFeatPreferences(featTypes.AsEnumerable());
-        return this;
-    }
-
-    public CharacterClassDefinitionBuilder AddFeatPreferences(IEnumerable<FeatDefinition> featTypes)
     {
         Definition.FeatAutolearnPreference.AddRange(featTypes.Select(ft => ft.Name));
         Definition.FeatAutolearnPreference.Sort();
