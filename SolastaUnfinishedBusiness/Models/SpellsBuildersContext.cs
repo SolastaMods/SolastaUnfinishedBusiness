@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -17,58 +16,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
-using static SolastaUnfinishedBusiness.Models.SpellsContext;
 using static EffectForm;
 using static RuleDefinitions;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class SpellsBuildersContext
+internal static class SpellsBuildersContext
 {
-    internal static void Register()
-    {
-        // cantrips
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
-            InventorClass.SpellList);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
-            InventorClass.SpellList);
-        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
-        RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
-        RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
-        RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-        RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
-        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-
-        // 1st level
-        RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
-        RegisterSpell(BuildMule(), 0, SpellListWizard);
-
-        // 3rd level
-        RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
-        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
-            SpellListDruid);
-
-        // 7th level
-        RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
-
-        // 8th level
-        RegisterSpell(BuildMindBlank(), 0, SpellListWarlock, SpellListWizard);
-
-        // 9th level
-        RegisterSpell(BuildForesight(), 0, SpellListWarlock, SpellListDruid, SpellListWizard);
-        RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
-        RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildPowerWordHeal(), 0, SpellListCleric);
-        RegisterSpell(BuildPowerWordKill(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
-        RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
-    }
-
-    private static SpellDefinition BuildSunlightBlade()
+    internal static SpellDefinition BuildSunlightBlade()
     {
         var highlight = new ConditionOperationDescription
         {
@@ -190,7 +146,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildResonatingStrike()
+    internal static SpellDefinition BuildResonatingStrike()
     {
         var resonanceHighLevel = new EffectDescriptionBuilder()
             .SetParticleEffectParameters(AcidSplash)
@@ -246,9 +202,9 @@ public static class SpellsBuildersContext
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
+            //TODO: replace sprite with actual image
             .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike,
-                    128, 128)) //TODO: replace sprite with actual image
+                CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(true)
@@ -326,7 +282,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildMinorLifesteal()
+    internal static SpellDefinition BuildMinorLifesteal()
     {
         var spell = SpellDefinitionBuilder
             .Create("MinorLifesteal")
@@ -357,7 +313,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildIlluminatingSphere()
+    internal static SpellDefinition BuildIlluminatingSphere()
     {
         const string NAME = "IlluminatingSphere";
 
@@ -375,7 +331,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildRadiantMotes()
+    internal static SpellDefinition BuildRadiantMotes()
     {
         const string NAME = "RadiantMotes";
 
@@ -407,7 +363,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildAcidClaw()
+    internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
         const string CONDITION = "ConditionAcidClaws";
@@ -455,7 +411,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildAirBlast()
+    internal static SpellDefinition BuildAirBlast()
     {
         const string NAME = "AirBlast";
 
@@ -497,7 +453,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildBurstOfRadiance()
+    internal static SpellDefinition BuildBurstOfRadiance()
     {
         const string NAME = "BurstOfRadiance";
 
@@ -535,7 +491,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildThunderStrike()
+    internal static SpellDefinition BuildThunderStrike()
     {
         const string NAME = "ThunderStrike";
 
@@ -573,7 +529,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildFindFamiliar()
+    internal static SpellDefinition BuildFindFamiliar()
     {
         var familiarMonsterBuilder = MonsterDefinitionBuilder
             .Create(Eagle_Matriarch, "Owl")
@@ -652,7 +608,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildMule()
+    internal static SpellDefinition BuildMule()
     {
         const string NAME = "Mule";
 
@@ -717,7 +673,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildEarthTremor()
+    internal static SpellDefinition BuildEarthTremor()
     {
         const string NAME = "EarthTremor";
 
@@ -770,7 +726,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildWinterBreath()
+    internal static SpellDefinition BuildWinterBreath()
     {
         const string NAME = "WinterBreath";
 
@@ -813,7 +769,7 @@ public static class SpellsBuildersContext
         return spell;
     }
 
-    private static SpellDefinition BuildReverseGravity()
+    internal static SpellDefinition BuildReverseGravity()
     {
         const string ReverseGravityName = "ReverseGravity";
 
@@ -878,7 +834,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildMindBlank()
+    internal static SpellDefinition BuildMindBlank()
     {
         var effectDescription = new EffectDescriptionBuilder();
         effectDescription.SetDurationData(
@@ -925,7 +881,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildForesight()
+    internal static SpellDefinition BuildForesight()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -972,7 +928,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildMassHeal()
+    internal static SpellDefinition BuildMassHeal()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1008,7 +964,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildMeteorSwarmSingleTarget()
+    internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1071,7 +1027,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildPowerWordHeal()
+    internal static SpellDefinition BuildPowerWordHeal()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1127,7 +1083,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildPowerWordKill()
+    internal static SpellDefinition BuildPowerWordKill()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1162,7 +1118,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildShapechange()
+    internal static SpellDefinition BuildShapechange()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1225,7 +1181,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildTimeStop()
+    internal static SpellDefinition BuildTimeStop()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1268,7 +1224,7 @@ public static class SpellsBuildersContext
             .AddToDB();
     }
 
-    private static SpellDefinition BuildWeird()
+    internal static SpellDefinition BuildWeird()
     {
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(

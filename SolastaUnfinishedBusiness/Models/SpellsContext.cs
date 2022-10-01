@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Classes.Inventor;
+using static SolastaUnfinishedBusiness.Models.SpellsBuildersContext;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -115,8 +117,43 @@ internal static class SpellsContext
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
-        // register unofficial spells
-        SpellsBuildersContext.Register();
+        // cantrips
+        RegisterSpell(BuildSunlightBlade(), 0,
+            SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0,
+            SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
+        RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
+        RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
+        RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
+
+        // 1st level
+        RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
+        RegisterSpell(BuildMule(), 0, SpellListWizard);
+
+        // 3rd level
+        RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
+        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
+            SpellListDruid);
+
+        // 7th level
+        RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
+
+        // 8th level
+        RegisterSpell(BuildMindBlank(), 0, SpellListWarlock, SpellListWizard);
+
+        // 9th level
+        RegisterSpell(BuildForesight(), 0, SpellListWarlock, SpellListDruid, SpellListWizard);
+        RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
+        RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildPowerWordHeal(), 0, SpellListCleric);
+        RegisterSpell(BuildPowerWordKill(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
+        RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
 
         // official spells tweaks
         SrdAndHouseRulesContext.AddBleedingToRestoration();
@@ -148,12 +185,12 @@ internal static class SpellsContext
         Spells.Add(spellDefinition);
 
         //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-        DatabaseHelper.SpellListDefinitions.SpellListAllSpells.AddSpell(spellDefinition);
+        SpellListAllSpells.AddSpell(spellDefinition);
 
         //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
         if (spellDefinition.SpellLevel == 0)
         {
-            DatabaseHelper.SpellListDefinitions.SpellListAllCantrips.AddSpell(spellDefinition);
+            SpellListAllCantrips.AddSpell(spellDefinition);
         }
 
         for (var i = 0; i < registeredSpellLists.Length; i++)
