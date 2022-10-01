@@ -192,12 +192,13 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfRacePresentation = Dwarf.RacePresentation.DeepCopy();
 
-        grayDwarfRacePresentation.femaleNameOptions = DwarfHill.RacePresentation.FemaleNameOptions;
-        grayDwarfRacePresentation.maleNameOptions = DwarfHill.RacePresentation.MaleNameOptions;
         grayDwarfRacePresentation.needBeard = false;
-        grayDwarfRacePresentation.MaleBeardShapeOptions.SetRange(MorphotypeElementDefinitions.BeardShape_None.Name);
+        grayDwarfRacePresentation.MaleBeardShapeOptions.Add("BeardShape_None");
         grayDwarfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
         grayDwarfRacePresentation.preferedHairColors = new RangedInt(35, 41);
+
+        grayDwarfRacePresentation.femaleNameOptions = DwarfHill.RacePresentation.FemaleNameOptions;
+        grayDwarfRacePresentation.maleNameOptions = DwarfHill.RacePresentation.MaleNameOptions;
 
         var raceGrayDwarf = CharacterRaceDefinitionBuilder
             .Create(DwarfHill, "RaceGrayDwarf")

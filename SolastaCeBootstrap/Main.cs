@@ -247,7 +247,11 @@ namespace SolastaCeBootstrap
                 "Alignment",
                 "Formation",
                 "Language",
-                "LootPack"
+                "LootPack",
+                "FightingStyle",
+                "MorphotypeElement",
+                "GadgetBlueprint",
+                "TreasureTable"
             };
             var definitions = new Dictionary<string, List<Asset>>();
 
