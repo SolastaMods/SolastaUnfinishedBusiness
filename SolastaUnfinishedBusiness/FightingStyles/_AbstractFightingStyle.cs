@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal abstract class AbstractFightingStyle
 {
-    internal abstract FightingStyleDefinition GetStyle();
+    internal abstract FightingStyleDefinition FightingStyle { get; }
 
-    internal abstract List<FeatureDefinitionFightingStyleChoice> GetChoiceLists();
+    internal abstract List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice { get; }
 }

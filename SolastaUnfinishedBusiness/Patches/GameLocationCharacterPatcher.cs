@@ -175,7 +175,7 @@ internal static class GameLocationCharacterPatcher
 
             //PATCH: Support for Pugilist Fighting Style
             // Removes check that makes `ShoveBonus` action unavailable if character has no shield
-            PugilistFightingStyle.RemoveShieldRequiredForBonusPush(codes);
+            Pugilist.RemoveShieldRequiredForBonusPush(codes);
 
             return codes.AsEnumerable();
         }

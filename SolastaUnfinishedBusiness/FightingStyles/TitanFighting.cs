@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -11,18 +10,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class TitanFighting : AbstractFightingStyle
 {
-    private CustomFightingStyleDefinition instance;
-
-    [NotNull]
-    internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
-    {
-        return new List<FeatureDefinitionFightingStyleChoice>
-        {
-            FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
-        };
-    }
-
-    internal override FightingStyleDefinition GetStyle()
+    internal TitanFighting()
     {
         void TitanFightingComputeAttackModifier(
             RulesetCharacter myself,
@@ -49,24 +37,24 @@ internal sealed class TitanFighting : AbstractFightingStyle
                     "Titan", this));
         }
 
-        if (instance != null)
-        {
-            return instance;
-        }
-
         var onComputeAttackModifierFightingStyleTitan = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("OnComputeAttackModifierFightingStyleTitan")
             .SetGuiPresentationNoContent()
             .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
             .AddToDB();
 
-        instance = CustomizableFightingStyleBuilder
+        FightingStyle = CustomizableFightingStyleBuilder
             .Create("Titan")
             .SetGuiPresentation(Category.FightingStyle,
                 PathBerserker.GuiPresentation.SpriteReference)
             .SetFeatures(onComputeAttackModifierFightingStyleTitan)
             .AddToDB();
-
-        return instance;
     }
+
+    internal override FightingStyleDefinition FightingStyle { get; }
+
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
+    {
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
+    };
 }

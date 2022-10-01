@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -10,33 +9,15 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Pugilist : AbstractFightingStyle
 {
-    private CustomFightingStyleDefinition instance;
-
-    [NotNull]
-    internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
+    internal Pugilist()
     {
-        return new List<FeatureDefinitionFightingStyleChoice>
-        {
-            FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
-            FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-            FeatureDefinitionFightingStyleChoices.FightingStyleRanger
-        };
-    }
-
-    internal override FightingStyleDefinition GetStyle()
-    {
-        if (instance != null)
-        {
-            return instance;
-        }
-
         var actionAffinityFightingStylePugilist = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityFightingStylePugilist")
             .SetGuiPresentation("Pugilist", Category.FightingStyle)
@@ -49,45 +30,21 @@ internal sealed class Pugilist : AbstractFightingStyle
             )
             .AddToDB();
 
-        instance = CustomizableFightingStyleBuilder
+        FightingStyle = CustomizableFightingStyleBuilder
             .Create("Pugilist")
             .SetFeatures(actionAffinityFightingStylePugilist)
             .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
             .SetIsActive(_ => true)
             .AddToDB();
-
-        return instance;
     }
 
-    private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
+    internal override FightingStyleDefinition FightingStyle { get; }
+
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode))
-            {
-                return;
-            }
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
+    };
 
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
-
-            if (k < 0 || damage == null)
-            {
-                return;
-            }
-
-            var additionalDice = new EffectFormBuilder()
-                .SetDamageForm(diceNumber: 1, dieType: DieType.D4, damageType: damage.damageType)
-                .Build();
-
-            effectDescription.EffectForms.Insert(k + 1, additionalDice);
-        }
-    }
-}
-
-internal static class PugilistFightingStyle
-{
     // Removes check that makes `ShoveBonus` action unavailable if character has no shield
     // Replaces call to RulesetActor.IsWearingShield with custom method that always returns true
     public static void RemoveShieldRequiredForBonusPush(List<CodeInstruction> codes)
@@ -115,5 +72,31 @@ internal static class PugilistFightingStyle
     private static bool CustomMethod(RulesetActor actor)
     {
         return true;
+    }
+
+    private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode))
+            {
+                return;
+            }
+
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
+
+            if (k < 0 || damage == null)
+            {
+                return;
+            }
+
+            var additionalDice = new EffectFormBuilder()
+                .SetDamageForm(diceNumber: 1, dieType: DieType.D4, damageType: damage.damageType)
+                .Build();
+
+            effectDescription.EffectForms.Insert(k + 1, additionalDice);
+        }
     }
 }

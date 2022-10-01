@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,24 +10,8 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Crippling : AbstractFightingStyle
 {
-    private CustomFightingStyleDefinition instance;
-
-    [NotNull]
-    internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
+    internal Crippling()
     {
-        return new List<FeatureDefinitionFightingStyleChoice>
-        {
-            FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
-        };
-    }
-
-    internal override FightingStyleDefinition GetStyle()
-    {
-        if (instance != null)
-        {
-            return instance;
-        }
-
         //? Prevent Dash until end of next turn -> how? it's not an action, but has a lot of dedicated code
         //+ Reduce speed by 10 until end of next turn
         //+ Must be a successful melee attack
@@ -36,9 +19,8 @@ internal sealed class Crippling : AbstractFightingStyle
         var conditionFightingStyleCrippling = ConditionDefinitionBuilder
             .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
             .SetGuiPresentationNoContent()
+            .SetAllowMultipleInstances(true)
             .AddToDB();
-
-        conditionFightingStyleCrippling.allowMultipleInstances = true;
 
         var conditionOperation = new ConditionOperationDescription
         {
@@ -62,14 +44,19 @@ internal sealed class Crippling : AbstractFightingStyle
             .SetConditionOperations(conditionOperation)
             .AddToDB();
 
-        instance = CustomizableFightingStyleBuilder
+        FightingStyle = CustomizableFightingStyleBuilder
             .Create("Crippling")
             .SetGuiPresentation(
                 Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.RangerShadowTamer.GuiPresentation.SpriteReference)
             .SetFeatures(additionalDamageCrippling)
             .AddToDB();
-
-        return instance;
     }
+
+    internal override FightingStyleDefinition FightingStyle { get; }
+
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
+    {
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
+    };
 }

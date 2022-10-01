@@ -34,11 +34,11 @@ internal static class FightingStyleContext
 
     private static void LoadStyle([NotNull] AbstractFightingStyle styleBuilder)
     {
-        var style = styleBuilder.GetStyle();
+        var style = styleBuilder.FightingStyle;
 
         if (!FightingStyles.Contains(style))
         {
-            FightingStylesChoiceList.Add(style, styleBuilder.GetChoiceLists());
+            FightingStylesChoiceList.Add(style, styleBuilder.FightingStyleChoice);
             FightingStyles.Add(style);
         }
 

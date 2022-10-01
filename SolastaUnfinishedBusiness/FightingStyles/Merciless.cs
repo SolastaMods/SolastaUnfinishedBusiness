@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,26 +14,9 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Merciless : AbstractFightingStyle
 {
-    private static FeatureDefinitionPower _powerFightingStyleMerciless;
-    private CustomFightingStyleDefinition instance;
-
-    [NotNull]
-    internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
+    internal Merciless()
     {
-        return new List<FeatureDefinitionFightingStyleChoice>
-        {
-            FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
-        };
-    }
-
-    internal override FightingStyleDefinition GetStyle()
-    {
-        if (instance != null)
-        {
-            return instance;
-        }
-
-        _powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
+        var powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
             .Create("PowerFightingStyleMerciless")
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
@@ -50,10 +32,51 @@ internal sealed class Merciless : AbstractFightingStyle
                 DatabaseHelper.SpellDefinitions.Fear.EffectDescription.Copy())
             .AddToDB();
 
-        _powerFightingStyleMerciless.effectDescription.targetParameter = 1;
-        _powerFightingStyleMerciless.effectDescription.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
-        _powerFightingStyleMerciless.effectDescription.durationType = RuleDefinitions.DurationType.Round;
-        _powerFightingStyleMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
+        powerFightingStyleMerciless.effectDescription.targetParameter = 1;
+        powerFightingStyleMerciless.effectDescription.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
+        powerFightingStyleMerciless.effectDescription.durationType = RuleDefinitions.DurationType.Round;
+        powerFightingStyleMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
+
+        void OnMercilessKill(GameLocationCharacter character)
+        {
+            if (Global.CurrentAction is not CharacterActionAttack actionAttack)
+            {
+                return;
+            }
+
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
+
+            if (battle == null)
+            {
+                return;
+            }
+
+            var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
+                           ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
+                               RulesetCharacterHero;
+
+            if (attacker == null || attacker.IsWieldingRangedWeapon())
+            {
+                return;
+            }
+
+            var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+            var usablePower = new RulesetUsablePower(powerFightingStyleMerciless, attacker.RaceDefinition,
+                attacker.ClassesHistory[0]);
+            var effectPower = new RulesetEffectPower(attacker, usablePower);
+
+            usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+
+            foreach (var enemy in battle.EnemyContenders
+                         .Where(enemy =>
+                             enemy != character
+                             && int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
+            {
+                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
+            }
+        }
 
         var additionalActionFightingStyleMerciless = FeatureDefinitionAdditionalActionBuilder
             .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
@@ -66,54 +89,18 @@ internal sealed class Merciless : AbstractFightingStyle
             .SetOnCharacterKill(OnMercilessKill)
             .AddToDB();
 
-        instance = CustomizableFightingStyleBuilder
+        FightingStyle = CustomizableFightingStyleBuilder
             .Create("Merciless")
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
             .SetFeatures(additionalActionFightingStyleMerciless, onCharacterKillFightingStyleMerciless)
             .AddToDB();
-
-        return instance;
     }
 
-    private static void OnMercilessKill(GameLocationCharacter character)
+    internal override FightingStyleDefinition FightingStyle { get; }
+
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        if (Global.CurrentAction is not CharacterActionAttack actionAttack)
-        {
-            return;
-        }
-
-        var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
-
-        if (battle == null)
-        {
-            return;
-        }
-
-        var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-                       ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
-                           RulesetCharacterHero;
-
-        if (attacker == null || attacker.IsWieldingRangedWeapon())
-        {
-            return;
-        }
-
-        var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-        var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-        var usablePower = new RulesetUsablePower(_powerFightingStyleMerciless, attacker.RaceDefinition,
-            attacker.ClassesHistory[0]);
-        var effectPower = new RulesetEffectPower(attacker, usablePower);
-
-        usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-
-        foreach (var enemy in battle.EnemyContenders
-                     .Where(enemy =>
-                         enemy != character
-                         && int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
-        {
-            effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-        }
-    }
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+    };
 }
