@@ -48,6 +48,33 @@ internal static class Infusions
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify);
+        
+        //RAW they are level 6, but at that level you get Cloak Of Elvenkind which is better
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind); 
+         
+        //Level 06
+        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, 6);
+        
+        //Level 10
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BroochOfShielding, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfProtection, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GauntletsOfOgrePower, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GlovesOfMissileSnaring, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, 10);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, 10);
+        
+        //Level 14
+        BuildCreateItemPowerInvocation(ItemDefinitions.AmuletOfHealth, 14);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BeltOfGiantHillStrength, 14);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 14);//move to earlier level?
+        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Defense, 14);
+        BuildCreateItemPowerInvocation(ItemDefinitions.RingProtectionPlus1, 14);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GemOfSeeing, 14);
+        BuildCreateItemPowerInvocation(ItemDefinitions.HornOfBlasting, 14);
+        
     }
 
     private static void BuildInfuseItemPowerInvocation(int level, string name, AssetReferenceSprite icon,
