@@ -90,6 +90,7 @@ public class CustomInvocationPoolType
         featuresByLevel.Clear();
         AllFeatures.ForEach(f => GetOrMakeLevelFeatures(f.requiredLevel).Add(f));
         AllLevels.SetRange(featuresByLevel.Select(e => e.Key));
+        AllLevels.Sort();
     }
 
     private List<CustomInvocationDefinition> GetOrMakeLevelFeatures(int level)
