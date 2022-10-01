@@ -8,6 +8,8 @@ using System.Text;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
 #if DEBUG
@@ -120,6 +122,7 @@ internal static class BootContext
             Load();
 
             ExpandColorTables();
+            AddExtraTooltipDefinitions();
             Main.Enable();
         };
     }
@@ -134,6 +137,32 @@ internal static class BootContext
         {
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
             Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
+        }
+    }
+
+    private static void AddExtraTooltipDefinitions()
+    {
+        if (ServiceRepository.GetService<IGuiService>() is not GuiManager gui)
+        {
+            return;
+        }
+
+        GuiTooltipClassDefinition featDef = gui.tooltipClassDefinitions["FeatDefinition"];
+
+        var prerequisites = featDef.tooltipFeatures.FindIndex(f =>
+            f.scope == TooltipDefinitions.Scope.All &&
+            f.featurePrefab.GetComponent<TooltipFeature>() is TooltipFeaturePrerequisites);
+
+        if (prerequisites >= 0)
+        {
+            var custom = GuiTooltipClassDefinitionBuilder
+                .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPrereqsTooltip)
+                .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
+                //TODO: figure out why only background widens, but not content
+                // .SetPanelWidth(400f) //items have 340f by default
+                .AddToDB();
+
+            gui.tooltipClassDefinitions.Add(custom.Name, custom);
         }
     }
 
@@ -198,7 +227,7 @@ internal static class BootContext
     {
         const string BASE_URL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness";
 
-        var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
+        var destFiles = new[] {"Info.json", "SolastaUnfinishedBusiness.dll"};
 
         using var wc = new WebClient();
 
@@ -294,7 +323,7 @@ internal static class BootContext
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
