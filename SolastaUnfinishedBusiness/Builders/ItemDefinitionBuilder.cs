@@ -64,6 +64,12 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         Definition.ItemTags.SetRange(tags);
         return this;
     }
+    
+    public ItemDefinitionBuilder AddItemTags(params string[] tags)
+    {
+        Definition.ItemTags.AddRange(tags);
+        return this;
+    }
 
     public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
     {

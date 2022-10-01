@@ -12,10 +12,13 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
 internal static class Infusions
 {
+    private const string ReplicaItemTitleFormat = $"Item/&ReplicaItemFormatTitle";
+    private const string ReplicaItemTitleDescription = $"Item/&ReplicaItemFormatDescription";
+
     public static void Build()
     {
         var name = "InfusionEnhanceArcaneFocus";
-        BuildInfuseItemPowerInvocation(name,
+        BuildInfuseItemPowerInvocation(2, name,
             FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain.GuiPresentation.SpriteReference, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
@@ -25,7 +28,7 @@ internal static class Infusions
                 .AddToDB());
 
         name = "InfusionEnhanceDefense";
-        BuildInfuseItemPowerInvocation(name,
+        BuildInfuseItemPowerInvocation(2, name,
             SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
             FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{name}")
@@ -34,7 +37,7 @@ internal static class Infusions
                 .AddToDB());
 
         name = "InfusionEnhanceWeapon";
-        BuildInfuseItemPowerInvocation(name,
+        BuildInfuseItemPowerInvocation(2, name,
             SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference, IsWeapon,
             FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
@@ -42,38 +45,37 @@ internal static class Infusions
                 .Configure(attackRollModifier: 1, damageRollModifier: 1)
                 .AddToDB());
 
-        //TODO: find a ay to generate name from item, and add item description to power's description
-        name = "InfusionCreateBagOfHolding";
-        BuildCreateItemPowerInvocation(name,
-            ItemDefinitions.Backpack_Bag_Of_Holding); //TODO: create copy that is not sellable
-
-        name = "InfusionCreateWandOfMagicDetection";
-        BuildCreateItemPowerInvocation(name,
-            ItemDefinitions.WandOfMagicDetection); //TODO: create copy that is not sellable
-
-        name = "InfusionCreateWandOfIdentify";
-        BuildCreateItemPowerInvocation(name, ItemDefinitions.WandOfIdentify); //TODO: create copy that is not sellable
+        BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
+        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
+        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify);
     }
 
-    private static void BuildInfuseItemPowerInvocation(string name, AssetReferenceSprite icon,
+    private static void BuildInfuseItemPowerInvocation(int level, string name, AssetReferenceSprite icon,
         IsValidItemHandler filter, params FeatureDefinition[] features)
     {
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
+            .SetRequiredLevel(level)
             .SetGrantedFeature(BuildInfuseItemPower(name, icon, filter, features))
             .AddToDB();
     }
 
-    private static void BuildCreateItemPowerInvocation(string name, ItemDefinition item)
+    private static void BuildCreateItemPowerInvocation(ItemDefinition item, int level = 2)
     {
-        CustomInvocationDefinitionBuilder
-            .Create($"Invocation{name}")
-            .SetGuiPresentation(name, Category.Feature, item)
+        var replica = BuildItemReplica(item);
+        var description = BuildReplicaDescription(item);
+        var invocation = CustomInvocationDefinitionBuilder
+            .Create($"InvocationCreate{replica.name}")
+            .SetGuiPresentation(Category.Feature, replica)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
-            .SetGrantedFeature(BuildCreateItemPower(name, item))
+            .SetRequiredLevel(level)
+            .SetGrantedFeature(BuildCreateItemPower(replica, description))
             .AddToDB();
+
+        invocation.GuiPresentation.title = replica.FormatTitle();
+        invocation.GuiPresentation.description = description;
     }
 
     private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name,
@@ -103,10 +105,10 @@ internal static class Infusions
             .AddToDB();
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(string name, ItemDefinition item)
+    private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(ItemDefinition item, string description)
     {
-        return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, item)
+        var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
+            .SetGuiPresentation(Category.Feature, item)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetUniqueInstance()
@@ -123,6 +125,34 @@ internal static class Infusions
                     .Build())
                 .Build())
             .AddToDB();
+
+        power.GuiPresentation.title = item.FormatTitle();
+        power.GuiPresentation.description = description;
+
+        return power;
+    }
+
+    private static ItemDefinition BuildItemReplica(ItemDefinition baseItem)
+    {
+        var replica = ItemDefinitionBuilder
+            .Create(baseItem, $"InfusedReplica{baseItem.name}")
+            .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custon tag, instead of quest
+            .SetGold(0)
+            .AddToDB();
+
+        replica.GuiPresentation.title = GuiReplicaTitle(baseItem);
+
+        return replica;
+    }
+
+    private static string GuiReplicaTitle(ItemDefinition item)
+    {
+        return Gui.Format(ReplicaItemTitleFormat, item.FormatTitle());
+    }
+
+    private static string BuildReplicaDescription(ItemDefinition item)
+    {
+        return Gui.Format(ReplicaItemTitleDescription, item.FormatTitle(), item.FormatDescription());
     }
 
     #region Item Filters
