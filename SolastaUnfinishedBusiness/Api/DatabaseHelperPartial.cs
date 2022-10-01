@@ -45,15 +45,6 @@ public static partial class DatabaseHelper
 
     public static class DecisionPackageDefinitions
     {
-        public static DecisionPackageDefinition DefaultFlyingBeastWithBackupRangeCombatDecisions { get; } =
-            GetDefinition<DecisionPackageDefinition>("DefaultFlyingBeastWithBackupRangeCombatDecisions");
-
-        public static DecisionPackageDefinition DefaultMeleeBeastCombatDecisions { get; } =
-            GetDefinition<DecisionPackageDefinition>("DefaultMeleeBeastCombatDecisions");
-
-        public static DecisionPackageDefinition DefaultMeleeBeastWithBackupRangeCombatDecisions { get; } =
-            GetDefinition<DecisionPackageDefinition>("DefaultMeleeBeastWithBackupRangeCombatDecisions");
-
         public static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
 

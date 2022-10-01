@@ -29,7 +29,7 @@ public static class CustomReactionsContext
     private static void MakeReactDefinition(string name)
     {
         ReactionDefinitionBuilder
-            .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name)
+            .Create(DatabaseHelper.GetDefinition<ReactionDefinition>("OpportunityAttack"), name)
             .SetGuiPresentation(Category.Reaction)
             .AddToDB();
     }
@@ -138,7 +138,6 @@ public static class CustomReactionsContext
 
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
-            // toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
             toggle.PersonalityFlagDefinition =
                 DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
 

@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FormationDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -172,7 +171,9 @@ internal static class EncountersSpawnContext
                                  GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
                              DecisionPackageDefinition = IdleGuard_Default,
                              EncounterId = EncounterId++,
-                             FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
+                             FormationDefinition = EncounterCharacters.Count > 1
+                                 ? DatabaseHelper.GetDefinition<FormationDefinition>("Squad4")
+                                 : DatabaseHelper.GetDefinition<FormationDefinition>("SingleCreature")
                          })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);

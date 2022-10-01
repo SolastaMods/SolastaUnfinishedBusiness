@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -87,13 +86,13 @@ public static class CraftyFeats
             .AddToDB();
 
         var featApothecaryInt = FeatDefinitionBuilder
-            .Create(ArmorMaster, "FeatApothecaryInt")
+            .Create("FeatApothecaryInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyHerbalismKit, proficiencyCraftyArcana)
             .AddToDB();
 
         var featApothecaryWis = FeatDefinitionBuilder
-            .Create(ArmorMaster, "FeatApothecaryWis")
+            .Create("FeatApothecaryWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .AddToDB();
@@ -103,19 +102,20 @@ public static class CraftyFeats
             featApothecaryWis);
 
         var featManacalonCrafter = FeatDefinitionBuilder
-            .Create(MasterEnchanter, "FeatManacalonCrafter")
+            .Create("FeatManacalonCrafter")
             .SetGuiPresentation(Category.Feat)
+            .SetMustCastSpellsPrerequisite()
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyManacalonRosary, proficiencyCraftyArcana)
             .AddToDB();
 
         var featToxicologistInt = FeatDefinitionBuilder
-            .Create(ArmorMaster, "FeatToxicologistInt")
+            .Create("FeatToxicologistInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
             .AddToDB();
 
         var featToxicologistWis = FeatDefinitionBuilder
-            .Create(ArmorMaster, "FeatToxicologistWis")
+            .Create("FeatToxicologistWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyPoisonersKit, proficiencyCraftyMedicine)
             .AddToDB();
@@ -125,13 +125,14 @@ public static class CraftyFeats
             featToxicologistWis);
 
         var featCraftyScribe = FeatDefinitionBuilder
-            .Create(MasterEnchanter, "FeatCraftyScribe")
+            .Create("FeatCraftyScribe")
             .SetGuiPresentation(Category.Feat)
+            .SetMustCastSpellsPrerequisite()
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
         var featCraftyFletcher = FeatDefinitionBuilder
-            .Create(ArmorMaster, "FeatCraftyFletcher")
+            .Create("FeatCraftyFletcher")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Misaye, proficiencyCraftySmithsTools, proficiencyCraftyBows)
             .AddToDB();

@@ -223,14 +223,31 @@ namespace SolastaCeBootstrap
                 "Voice",
 
                 // 2022-09-17
-                "AmmunitionTypeDefinition",
-                "CampaignDefinition",
-                "CharacterToLootPackMapDefinition",
+                "AmmunitionType",
+                "Campaign",
+                "CharacterToLootPackMap",
                 "FactionDefinition",
-                "LootableContainerDefinition",
-                "PersonalityFlagDefinition",
-                "TerrainTypeDefinition",
-                "ToolCategoryDefinition"
+                "LootableContainer",
+                "PersonalityFlag",
+                "TerrainType",
+                "ToolCategory",
+
+                // 2022-09-30
+                "SmartAttribute",
+                "RestActivity",
+                "Reaction",
+                "MusicalInstrumentType",
+                "MorphotypeCategory",
+                "Clue",
+                "Investigation",
+                "MonsterAttack",
+                "MonsterPresentation",
+                "ArmorType",
+                "EffectProxy",
+                "Alignment",
+                "Formation",
+                "Language",
+                "LootPack"
             };
             var definitions = new Dictionary<string, List<Asset>>();
 

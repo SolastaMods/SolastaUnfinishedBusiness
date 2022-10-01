@@ -52,10 +52,10 @@ public static class SrdSpells
             .SetSavingThrowData(
                 true,
                 false,
-                SmartAttributeDefinitions.Dexterity.name,
+                AttributeDefinitions.Dexterity,
                 true,
                 RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                SmartAttributeDefinitions.Dexterity.name,
+                AttributeDefinitions.Dexterity,
                 20,
                 false,
                 new List<SaveAffinityBySenseDescription>())
@@ -269,10 +269,10 @@ public static class SrdSpells
             .SetSavingThrowData(
                 true,
                 false,
-                SmartAttributeDefinitions.Dexterity.name,
+                AttributeDefinitions.Dexterity,
                 true,
                 RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                SmartAttributeDefinitions.Dexterity.name,
+                AttributeDefinitions.Dexterity,
                 20,
                 false,
                 new List<SaveAffinityBySenseDescription>())
@@ -504,10 +504,10 @@ public static class SrdSpells
             .SetSavingThrowData(
                 true,
                 false,
-                SmartAttributeDefinitions.Wisdom.name,
+                AttributeDefinitions.Wisdom,
                 true,
                 RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                SmartAttributeDefinitions.Constitution.name,
+                AttributeDefinitions.Constitution,
                 20,
                 false,
                 new List<SaveAffinityBySenseDescription>())

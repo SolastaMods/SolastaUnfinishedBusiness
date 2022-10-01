@@ -21,7 +21,7 @@ internal static class BazouSpells
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
-        
+
         // Condition/&ConditionFrenziedDescription=This creature is frenzied and will attack the closest creature.
         // Condition/&ConditionFrenziedTitle=Frenzied
         // Spell/&EldritchOrbDescription=You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
@@ -128,7 +128,7 @@ internal static class BazouSpells
             .SetHitPointsBonus(-1)
             .SetStandardHitPoints(1)
             .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
-            .SetAlignment(AlignmentDefinitions.Neutral.Name)
+            .SetAlignment("Neutral")
             .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)

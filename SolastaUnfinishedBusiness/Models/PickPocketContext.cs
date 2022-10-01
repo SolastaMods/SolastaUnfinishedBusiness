@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.LootPackDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.TreasureTableDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -113,32 +112,37 @@ public static class PickPocketContext
             additiveModifier = 0
         };
 
+        var pickpocketGenericLootLowMoney =
+            DatabaseHelper.GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_LowMoney");
+        var pickpocketGenericLootMedMoney =
+            DatabaseHelper.GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_MedMoney");
+
         var pickPocketableLootA = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_A")
+            .Create(pickpocketGenericLootLowMoney, "CE_PickpocketableLoot_A")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootB = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_B")
+            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_B")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow)
             .AddToDB();
 
         var pickPocketableLootC = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_C")
+            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_C")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableMed)
             .AddToDB();
 
         var pickPocketableLootD = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_MedMoney, "CE_PickpocketableLoot_D")
+            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_D")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableLow, lootPickpocketTableMed)
             .AddToDB();
 
         var pickPocketableLootUndead = LootPackDefinitionBuilder
-            .Create(Pickpocket_generic_loot_LowMoney, "CE_PickpocketableLoot_Undead")
+            .Create(pickpocketGenericLootLowMoney, "CE_PickpocketableLoot_Undead")
             .SetGuiPresentationNoContent()
             .SetItemOccurrencesList(lootPickpocketTableUndead)
             .AddToDB();
@@ -152,7 +156,7 @@ public static class PickPocketContext
                 {
                     if (monster.ChallengeRating < 1.0)
                     {
-                        monster.stealableLootDefinition = Pickpocket_generic_loot_LowMoney;
+                        monster.stealableLootDefinition = pickpocketGenericLootLowMoney;
                     }
 
                     if (monster.ChallengeRating > 0.9 &&

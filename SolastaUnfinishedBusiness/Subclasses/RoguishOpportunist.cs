@@ -34,10 +34,10 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetSavingThrowData(
                 true,
                 false,
-                SmartAttributeDefinitions.Constitution.name,
+                AttributeDefinitions.Constitution,
                 true,
                 RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                SmartAttributeDefinitions.Dexterity.name,
+                AttributeDefinitions.Dexterity,
                 20,
                 false,
                 new List<SaveAffinityBySenseDescription>())

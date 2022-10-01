@@ -14,7 +14,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -367,7 +366,8 @@ internal static class EternalComradeBuilder
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
-            .Create(Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
+            .Create(GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword"),
+                "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -407,7 +407,7 @@ internal static class EternalComradeBuilder
             )
             .SetAttackIterations(marshalEternalComradeAttackInteraction)
             .SetArmorClass(16)
-            .SetAlignment(AlignmentDefinitions.Neutral.Name)
+            .SetAlignment("Neutral")
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)

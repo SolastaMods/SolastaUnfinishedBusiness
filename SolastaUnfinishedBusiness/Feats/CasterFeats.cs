@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -138,8 +137,7 @@ internal static class CasterFeats
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.Language,
-                DatabaseHelper.LanguageDefinitions.Language_Tirmarian.Name)
+                RuleDefinitions.ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 
         newFeats.SetRange(

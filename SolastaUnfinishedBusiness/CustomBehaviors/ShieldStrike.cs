@@ -29,7 +29,7 @@ public static class ShieldStrike
 
         var armorDescription = item.ArmorDescription;
 
-        return armorDescription.ArmorType == ArmorTypeDefinitions.ShieldType.Name;
+        return armorDescription.ArmorType == "ShieldType";
     }
 
     [NotNull]
