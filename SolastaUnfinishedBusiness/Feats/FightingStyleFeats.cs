@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -39,7 +40,7 @@ internal static class FightingStyleFeats
                 var guiFormat = Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
                     fightingStyle.FormatTitle());
 
-                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, "EA7171")) : (true, guiFormat);
+                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Global.ErrorColor)) : (true, guiFormat);
             })
             .SetGuiPresentation(fightingStyle.GuiPresentation)
             .AddToDB();

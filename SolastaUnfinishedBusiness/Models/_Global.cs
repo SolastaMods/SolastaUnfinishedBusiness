@@ -7,6 +7,8 @@ namespace SolastaUnfinishedBusiness.Models;
 // keep public for sidecars
 public static class Global
 {
+    internal const string ErrorColor = "EA7171";
+
     // true if in a multiplayer game
     public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
@@ -37,7 +39,7 @@ public static class Global
 
             var battle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-            return battle.Visible 
+            return battle.Visible
                 ? battle.CharacterControlPanel.GuiCharacter?.GameLocationCharacter
                 : null;
         }

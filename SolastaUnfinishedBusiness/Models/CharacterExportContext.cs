@@ -69,7 +69,7 @@ internal static class CharacterExportContext
 
             if (string.IsNullOrEmpty(newFirstName))
             {
-                Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
+                Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", Global.ErrorColor, 5);
             }
             else
             {
@@ -87,7 +87,8 @@ internal static class CharacterExportContext
 
                 if (usedNames.Contains(newFirstName))
                 {
-                    Gui.GuiService.ShowAlert("Message/&CharacterExportDuplicateNameErrorDescription", "EA7171", 5);
+                    Gui.GuiService.ShowAlert("Message/&CharacterExportDuplicateNameErrorDescription", Global.ErrorColor,
+                        5);
                 }
                 else
                 {

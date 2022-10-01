@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -21,7 +22,7 @@ internal static class ValidatorsFeat
 
         return isElf
             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
-            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), "EA7171"));
+            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), Global.ErrorColor));
     }
 
     [NotNull]
@@ -39,7 +40,7 @@ internal static class ValidatorsFeat
 
             return (false,
                 Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()),
-                    "EA7171"));
+                    Global.ErrorColor));
         };
     }
 
@@ -55,7 +56,7 @@ internal static class ValidatorsFeat
     //
     //         return isRace
     //             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName))
-    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), "EA7171"));
+    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), Global.ErrorColor));
     //     };
     // }
 
@@ -71,7 +72,7 @@ internal static class ValidatorsFeat
 
             return isNotClass
                 ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className), "EA7171"));
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className), Global.ErrorColor));
         };
     }
 
@@ -85,6 +86,6 @@ internal static class ValidatorsFeat
     //
     //     return hasStealthAttack
     //         ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
-    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
+    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), Global.ErrorColor));
     // }
 }
