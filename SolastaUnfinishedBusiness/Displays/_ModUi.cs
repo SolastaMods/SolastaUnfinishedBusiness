@@ -174,6 +174,7 @@ namespace SolastaUnfinishedBusiness.Displays
         }
     }
 
+    [UsedImplicitly]
     public class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;
@@ -190,6 +191,7 @@ namespace SolastaUnfinishedBusiness.Displays
         }
     }
 
+    [UsedImplicitly]
     public class InterfaceViewer : IMenuSelectablePage
     {
         private int interfaceSelectedPane;
@@ -206,6 +208,7 @@ namespace SolastaUnfinishedBusiness.Displays
         }
     }
 
+    [UsedImplicitly]
     public class EncountersViewer : IMenuSelectablePage
     {
         private int encountersSelectedPane;
@@ -222,6 +225,7 @@ namespace SolastaUnfinishedBusiness.Displays
         }
     }
 
+    [UsedImplicitly]
     public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         private int creditsSelectedPane;

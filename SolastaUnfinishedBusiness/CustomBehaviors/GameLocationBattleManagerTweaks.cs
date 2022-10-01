@@ -820,14 +820,14 @@ internal static class GameLocationBattleManagerTweaks
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
                         when (firstTarget || !provider.FirstTargetOnly) &&
-                             rulesetEffect is RulesetEffectSpell &&
-                             (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic ==
+                             rulesetEffect is RulesetEffectSpell spell &&
+                             spell.SpellDefinition.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
                         when (firstTarget || !provider.FirstTargetOnly) &&
-                             rulesetEffect is RulesetEffectPower &&
-                             (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null &&
-                             (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
+                             rulesetEffect is RulesetEffectPower power &&
+                             power.PowerDefinition.SurrogateToSpell != null &&
+                             power.PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
                         when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
@@ -836,11 +836,11 @@ internal static class GameLocationBattleManagerTweaks
                         break;
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
-                        when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell:
+                        when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell spell:
                     {
                         // This check is for Warlock / invocation / agonizing blast
                         if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
-                            (rulesetEffect as RulesetEffectSpell).SpellDefinition)
+                            spell.SpellDefinition)
                         {
                             validTrigger = true;
                         }

@@ -24,7 +24,7 @@ public static class Global
     // active player character
     public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
 
-    public static GameLocationCharacter ControlledPlayerCharacter
+    private static GameLocationCharacter ControlledPlayerCharacter
     {
         get
         {
@@ -37,12 +37,9 @@ public static class Global
 
             var battle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-            if (battle.Visible)
-            {
-                return battle.CharacterControlPanel.GuiCharacter?.GameLocationCharacter;
-            }
-
-            return null;
+            return battle.Visible 
+                ? battle.CharacterControlPanel.GuiCharacter?.GameLocationCharacter
+                : null;
         }
     }
 

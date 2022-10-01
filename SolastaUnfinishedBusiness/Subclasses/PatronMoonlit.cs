@@ -338,6 +338,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
     // returns true if effect is self teleport or any self targeting spell that is self-buff
     private static bool IsAllowedEffect(EffectDescription effect)
     {
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (effect.TargetType)
         {
             case TargetType.Position:
@@ -355,6 +356,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
             {
                 foreach (var form in effect.EffectForms)
                 {
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (form.FormType)
                     {
                         case EffectForm.EffectFormType.Damage:

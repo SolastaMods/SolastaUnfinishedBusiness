@@ -45,7 +45,7 @@ internal static class RulesetImplementationManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ApplySummonForm_Patch
     {
-        public static bool Prefix(RulesetImplementationManager __instance,
+        public static bool Prefix(
             EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {

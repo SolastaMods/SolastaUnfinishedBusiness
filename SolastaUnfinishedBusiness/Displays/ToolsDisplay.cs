@@ -12,7 +12,7 @@ internal static class ToolsDisplay
 {
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
     {
-        (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), a => true),
+        (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true),
         (Gui.Localize("Equipment/&ItemTypeAmmunitionTitle"), a => a.IsAmmunition),
         (Gui.Localize("MerchantCategory/&ArmorTitle"), a => a.IsArmor),
         (Gui.Localize("MerchantCategory/&DocumentTitle"), a => a.IsDocument),
@@ -33,7 +33,7 @@ internal static class ToolsDisplay
         TagsDefinitions.AllItemTags
             .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
                 (Gui.Localize($"Tooltip/&Tag{x}Title"), a => a.ItemTags.Contains(x)))
-            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true))
             .OrderBy(x => x.Item1)
             .ToArray();
 
@@ -44,7 +44,7 @@ internal static class ToolsDisplay
             .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
                 (Gui.Localize($"Tooltip/&Tag{x}Title"),
                     a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
-            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true))
             .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"),
                 a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
             .OrderBy(x => x.Item1)

@@ -24,7 +24,7 @@ public abstract class DefinitionBuilder
     private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
         GetAllDefinitionNames();
 
-    public static string CreateGuid(Guid guid, string name)
+    protected static string CreateGuid(Guid guid, string name)
     {
         return GuidHelper.Create(guid, name).ToString();
     }

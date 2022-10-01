@@ -26,7 +26,7 @@ internal static class RulesetImplementationManagerLocationPatcher
             //disables sunlight blade twinning, since it is not supported for now
             //plus fixes vanilla code not accounting for things possible in MC
             if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
-                || caster is not RulesetCharacterHero hero)
+                || caster is not RulesetCharacterHero)
             {
                 return;
             }

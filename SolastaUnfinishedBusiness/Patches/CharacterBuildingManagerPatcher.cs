@@ -29,10 +29,8 @@ internal static class CharacterBuildingManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class TrainInvocation_Patch
     {
-        internal static void Prefix([NotNull] CharacterBuildingManager __instance,
-            CharacterHeroBuildingData heroBuildingData,
+        internal static void Prefix(
             InvocationDefinition invocation,
-            string tag,
             ref bool checkPool)
         {
             //PATCH: do not chec or modify point pools when dealing with custom invocations
@@ -48,10 +46,8 @@ internal static class CharacterBuildingManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UnlearnInvocation_Patch
     {
-        internal static void Prefix([NotNull] CharacterBuildingManager __instance,
-            CharacterHeroBuildingData heroBuildingData,
+        internal static void Prefix(
             InvocationDefinition invocation,
-            string tag,
             ref bool checkPool)
         {
             //PATCH: do not chec or modify point pools when dealing with custom invocations
@@ -66,7 +62,7 @@ internal static class CharacterBuildingManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UntrainInvocation_Patch
     {
-        internal static bool Prefix([NotNull] CharacterBuildingManager __instance,
+        internal static bool Prefix(
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             string tag)
@@ -90,7 +86,7 @@ internal static class CharacterBuildingManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UndoUnlearnInvocation_Patch
     {
-        internal static bool Prefix([NotNull] CharacterBuildingManager __instance,
+        internal static bool Prefix(
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             string tag)

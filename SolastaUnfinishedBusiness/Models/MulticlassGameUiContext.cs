@@ -559,25 +559,31 @@ public static class MulticlassGameUiContext
         CharacterHeroBuildingData heroBuildingData)
     {
         var tag = string.Empty;
+        
         for (var index = 0; index < panel.learnStepsTable.childCount; ++index)
         {
             var child = panel.learnStepsTable.GetChild(index);
-            if (child.gameObject.activeSelf)
+
+            if (!child.gameObject.activeSelf)
             {
-                var component = child.GetComponent<LearnStepItem>();
-                var status = index != panel.currentLearnStep
-                    ? index != panel.currentLearnStep - 1
-                        ? LearnStepItem.Status.Locked
-                        : LearnStepItem.Status.Previous
-                    : LearnStepItem.Status.InProgress;
-                if (status == LearnStepItem.Status.InProgress)
-                {
-                    tag = component.Tag;
-                }
+                continue;
+            }
+
+            var component = child.GetComponent<LearnStepItem>();
+            var status = index != panel.currentLearnStep
+                ? index != panel.currentLearnStep - 1
+                    ? LearnStepItem.Status.Locked
+                    : LearnStepItem.Status.Previous
+                : LearnStepItem.Status.InProgress;
+                
+            if (status == LearnStepItem.Status.InProgress)
+            {
+                tag = component.Tag;
             }
         }
 
         HeroDefinitions.PointsPoolType poolType;
+        
         if (panel.IsFinalStep)
         {
             tag = panel.allTags[panel.allTags.Count - 1];

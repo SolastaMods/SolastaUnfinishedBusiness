@@ -122,7 +122,7 @@ internal static class SignificantDigits
 
     private static double RoundSignificantDigits(double value, int significantDigits, out int roundingPosition)
     {
-        // this method will return a rounded double value at a number of signifigant figures.
+        // this method will return a rounded double value at a number of significant figures.
         // the sigFigures parameter must be between 0 and 15, exclusive.
 
         roundingPosition = 0;

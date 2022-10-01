@@ -217,7 +217,8 @@ internal static class RulesetSpellRepertoirePatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CanUpcastSpell_Patch
     {
-        internal static void Postfix(RulesetSpellRepertoire __instance, SpellDefinition spellDefinition,
+        internal static void Postfix(
+            RulesetSpellRepertoire __instance,
             List<int> availableSlotLevels)
         {
             if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)

@@ -34,12 +34,12 @@ internal static class GuiWrapperContext
     {
         var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
 
-        if (guiWrapperService is not { } guiWrapperManager)
+        if (guiWrapperService is not { })
         {
             return;
         }
 
-        guiWrapperManager.featDefinitionsMap.Clear();
-        guiWrapperManager.LoadFeatDefinitions();
+        guiWrapperService.featDefinitionsMap.Clear();
+        guiWrapperService.LoadFeatDefinitions();
     }
 }

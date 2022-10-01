@@ -145,12 +145,12 @@ internal static class SaveByLocationContext
 
         // get all user locations
         var userLocationPoolService = ServiceRepository.GetService<IUserLocationPoolService>();
-        userLocationPoolService.EnumeratePool(out var _, new List<string>());
+        userLocationPoolService.EnumeratePool(out _, new List<string>());
         var allLocations = userLocationPoolService.AllLocations;
 
         // get all user campaigns
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
-        userCampaignPoolService.EnumeratePool(out var _, new List<string>());
+        userCampaignPoolService.EnumeratePool(out _, new List<string>());
         var allCampaigns = userCampaignPoolService.AllCampaigns;
 
         // populate the dropdown

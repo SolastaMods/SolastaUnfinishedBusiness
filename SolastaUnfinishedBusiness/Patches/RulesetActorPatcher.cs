@@ -172,23 +172,16 @@ internal static class RulesetActorPatcher
                                  is AttributeModifierOperation.MultiplyByClassLevel
                                  or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
-                    var level = 0;
-
-                    switch (attribute.Key)
+                    var level = attribute.Key switch
                     {
-                        case AttributeDefinitions.HealingPool:
-                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin);
-
-                            break;
-                        case AttributeDefinitions.KiPoints:
-                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
-
-                            break;
-                        case AttributeDefinitions.SorceryPoints:
-                            level = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Sorcerer);
-
-                            break;
-                    }
+                        AttributeDefinitions.HealingPool =>
+                            hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin),
+                        AttributeDefinitions.KiPoints => 
+                            hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk),
+                        AttributeDefinitions.SorceryPoints => 
+                            hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Sorcerer),
+                        _ => 0
+                    };
 
                     if (level > 0)
                     {

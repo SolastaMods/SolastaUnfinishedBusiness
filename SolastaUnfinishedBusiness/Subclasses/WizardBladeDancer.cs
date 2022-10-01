@@ -230,7 +230,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWieldingTwoHandedWeapon();
     }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem _)
+    // ReSharper disable once UnusedParameter.Global
+    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem rulesetItem)
     {
         if (IsBladeDanceValid(hero))
         {

@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class GameServicesDisplay
 {
-    internal static int SelectedRawDataType;
+    private static int _selectedRawDataType;
     internal static int MaxRows = 20;
     internal static int MaxSearchDepth = 3;
 
@@ -55,7 +55,7 @@ internal static class GameServicesDisplay
 
     private static void ResetTree()
     {
-        var getTarget = TargetList[TargetNames[SelectedRawDataType]];
+        var getTarget = TargetList[TargetNames[_selectedRawDataType]];
 
         if (getTarget == null)
         {
@@ -77,10 +77,10 @@ internal static class GameServicesDisplay
             }
 
             // target selection
-            GUIHelper.SelectionGrid(ref SelectedRawDataType, TargetNames, 8, ResetTree);
+            GUIHelper.SelectionGrid(ref _selectedRawDataType, TargetNames, 8, ResetTree);
 
             // tree view
-            if (SelectedRawDataType == 0)
+            if (_selectedRawDataType == 0)
             {
                 return;
             }
@@ -91,7 +91,7 @@ internal static class GameServicesDisplay
         }
         catch
         {
-            SelectedRawDataType = 0;
+            _selectedRawDataType = 0;
             TreeView?.Clear();
         }
     }

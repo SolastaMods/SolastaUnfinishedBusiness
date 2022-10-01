@@ -57,7 +57,7 @@ internal static class RulesetCharacterHeroPatcher
             callRefresh = false;
         }
 
-        internal static void Postfix(RulesetCharacterHero __instance, bool callRefresh = false)
+        internal static void Postfix(RulesetCharacterHero __instance)
         {
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
@@ -435,9 +435,9 @@ internal static class RulesetCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class EnumerateAvailableDevices_Patch
     {
-        internal static void Postfix(RulesetCharacterHero __instance,
-            ref IEnumerable<RulesetItemDevice> __result,
-            bool includeContainer)
+        internal static void Postfix(
+            RulesetCharacterHero __instance,
+            ref IEnumerable<RulesetItemDevice> __result)
         {
             //PATCH: enabled `PowerPoolDevice` by adding fake device to hero's usable devices list
             if (__instance.UsableDeviceFromMenu != null)

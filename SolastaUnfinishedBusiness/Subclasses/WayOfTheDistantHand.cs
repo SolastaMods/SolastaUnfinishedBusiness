@@ -423,7 +423,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         return weapon == null || IsMonkWeapon(character, weapon.ItemDefinition);
     }
 
-    private static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition weapon)
+    private static bool IsMonkWeapon(RulesetActor character, ItemDefinition weapon)
     {
         if (weapon == null)
         {
