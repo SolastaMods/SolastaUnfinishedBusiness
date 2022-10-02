@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:WardingBondAtWill:3bc0ce6e-59d8-5097-a565-dc03a1973b44"
+    "Definition:AtWillWardingBond:f9cf5a06-1274-5606-8762-f726ee8ec761"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

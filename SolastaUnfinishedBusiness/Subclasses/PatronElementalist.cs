@@ -83,6 +83,7 @@ internal sealed class PatronElementalist : AbstractSubclass
 
         var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalFormPool")
+            .SetGuiPresentation(Category.Feature, formRegular)
             .Configure(
                 1,
                 UsesDetermination.Fixed,
@@ -94,13 +95,13 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 AttributeDefinitions.Charisma,
                 new EffectDescription())
-            .SetGuiPresentation(Category.Feature, formRegular)
             .SetUsesProficiency()
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
         var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalEnhancedFormPool")
+            .SetGuiPresentation(Category.Feature, formEnhanced)
             .Configure(
                 1,
                 UsesDetermination.Fixed,
@@ -112,7 +113,6 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 AttributeDefinitions.Charisma,
                 new EffectDescription())
-            .SetGuiPresentation(Category.Feature, formEnhanced)
             .SetUsesProficiency()
             .SetOverriddenPower(powerElementalistElementalFormPool)
             .AddToDB();
@@ -162,25 +162,22 @@ internal sealed class PatronElementalist : AbstractSubclass
                 "FeatureSetElementalistKnowledge")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
-                .ConditionAffinityCircleLandNaturesWardCharmed)
-            .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
-                .ConditionAffinityCircleLandNaturesWardFrightened)
+                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental,
+                DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil,
+                DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed,
+                DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .AddToDB();
-
-        var conjureMinorElementalsAtWill = SpellDefinitionBuilder
-            .Create(ConjureMinorElementals, "ConjureMinorElementalAtWill")
-            .SetSpellLevel(0)
             .AddToDB();
 
         var minorElementalBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripElementalistMinorElemental")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(conjureMinorElementalsAtWill)
+            .SetBonusCantrips(
+                SpellDefinitionBuilder
+                    .Create(ConjureMinorElementals, "AtWillConjureMinorElemental")
+                    .SetSpellLevel(0)
+                    .AddToDB())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)

@@ -126,11 +126,13 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         var arcanistMarkedEffect = new EffectForm
         {
-            ConditionForm = new ConditionForm(), FormType = EffectForm.EffectFormType.Condition
+            ConditionForm = new ConditionForm
+            {
+                Operation = ConditionForm.ConditionOperation.Add,
+                ConditionDefinition = conditionMarkedByArcanist
+            },
+            FormType = EffectForm.EffectFormType.Condition
         };
-
-        arcanistMarkedEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        arcanistMarkedEffect.ConditionForm.ConditionDefinition = conditionMarkedByArcanist;
 
         var arcanistDamageEffect = new EffectForm
         {
@@ -146,6 +148,7 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulse",
+            null,
             arcanistMarkedEffect,
             arcanistDamageEffect);
 
@@ -176,9 +179,10 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulseUpgrade",
+            powerArcanistArcanePulse,
             arcanistMarkedEffect,
-            arcanistDamageUpgradeEffect,
-            powerArcanistArcanePulse);
+            arcanistDamageUpgradeEffect
+        );
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerArcanist")
@@ -204,20 +208,9 @@ internal sealed class RangerArcanist : AbstractSubclass
 
     private static FeatureDefinitionPower CreatePowerArcanistArcanePulse(
         string name,
-        EffectForm markedEffect,
-        EffectForm damageEffect,
-        FeatureDefinitionPower overriddenPower = null)
+        FeatureDefinitionPower overriddenPower = null,
+        params EffectForm[] effectForms)
     {
-        var pulseDescription = new EffectDescription()
-            .Create(MagicMissile.EffectDescription)
-            .SetCreatedByCharacter(true)
-            .SetTargetSide(Side.Enemy)
-            .SetTargetType(TargetType.Sphere)
-            .SetTargetParameter(3)
-            .SetRangeType(RangeType.Distance)
-            .SetRangeParameter(30)
-            .SetEffectForms(damageEffect, markedEffect);
-
         return FeatureDefinitionPowerBuilder
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
@@ -227,7 +220,15 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetActivationTime(ActivationTime.Action)
-            .SetEffectDescription(pulseDescription)
+            .SetEffectDescription(new EffectDescription()
+                .Create(MagicMissile.EffectDescription)
+                .SetCreatedByCharacter(true)
+                .SetTargetSide(Side.Enemy)
+                .SetTargetType(TargetType.Sphere)
+                .SetTargetParameter(3)
+                .SetRangeType(RangeType.Distance)
+                .SetRangeParameter(30)
+                .SetEffectForms(effectForms))
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();

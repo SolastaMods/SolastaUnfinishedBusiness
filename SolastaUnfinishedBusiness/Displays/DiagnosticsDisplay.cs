@@ -21,11 +21,21 @@ namespace SolastaUnfinishedBusiness.Displays
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
-[size=4][b]Credits[/b][/size]
+[size=4][b]How to Report Bugs[/b][/size]
 
 [list]
-{0}
+[*] The versions of Solasta and this mod.
+[*] A list of other mods you have installed [you shouldn't have any].
+[*] A short description of the bug.
+[*] A step-by-step procedure to reproduce it.
+[*] The save, character and log files.
 [/list]
+
+[b]HINT:[/b] Check the folder [i]C:\Users\[b]YOUR_USER_NAME[/b]\AppData\LocalLow\Tactical Adventures\Solasta[/i] for the info we need.
+
+[size=4][b]How to Contribute[/b][/size]
+
+You can contribute to this work at [url=https://github.com/SolastaMods/SolastaUnfinishedBusiness]Source Code (MIT License)[/url].
 
 [size=4][b]How to Install - Windows[/b][/size]
 
@@ -68,6 +78,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*] Paste here the contents folder from the clipboard. CHOOSE MERGE!
 
     [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/macos-02.png?raw=true[/img]
+
 [/list]
 
 [b]STEP 2:[/b] Install Unfinished Business (CE):
@@ -76,26 +87,6 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*] Create the folder [b]/Applications/Mods[/b]
 [*] Download CE from the files section, unzip and copy it under above folder
 [/list]
-
-[size=4][b]Multiplayer[/b][/size]
-
-We did all possible efforts to ensure this Mod will work under a multiplayer session. You must ensure all players have this mod installed and at least all settings under CE Mod UI > Gameplay matches across all players. The easiest way to achieve that is ask the host to share his Mod settings.xml file with guests before a session.
-
-[size=4][b]How to Report Bugs[/b][/size]
-
-[list]
-[*] The versions of Solasta and this mod.
-[*] A list of other mods you have installed [you shouldn't have any].
-[*] A short description of the bug.
-[*] A step-by-step procedure to reproduce it.
-[*] The save, character and log files.
-[/list]
-
-[b]HINT:[/b] Check the folder [i]C:\Users\[b]YOUR_USER_NAME[/b]\AppData\LocalLow\Tactical Adventures\Solasta[/i] for the info we need.
-
-[size=4][b]Source Code[/b][/size]
-
-You can contribute to this work at [url=https://github.com/SolastaMods/SolastaUnfinishedBusiness]Source Code (MIT License)[/url].
 
 [size=4][b]Features[/b][/size]
 
@@ -113,13 +104,11 @@ All settings start disabled by default. On first start the mod will display an w
 {2}
 [/list]
 
-[size=3][b]Mod Classes Subclasses[/b][/size]
-
 [list=1]
 {3}
 [/list]
 
-[size=3][b]Official Classes Subclasses[/b][/size]
+[size=3][b]Subclasses[/b][/size]
 
 [list=1]
 {4}
@@ -181,6 +170,12 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
+
+[size=4][b]Credits[/b][/size]
+
+[list]
+{0}
+[/list]
 ";
 
         internal static void DisplayDiagnostics()

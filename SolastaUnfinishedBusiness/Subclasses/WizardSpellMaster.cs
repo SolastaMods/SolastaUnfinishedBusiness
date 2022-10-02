@@ -61,19 +61,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             )
             .AddToDB();
 
-        var effectParticleParameters = new EffectParticleParameters();
-
-        effectParticleParameters.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
-
-        var bonusRecoveryEffectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0)
-            .SetCreatedByCharacter()
-            .AddEffectForm(EffectFormBuilder.Create().SetSpellForm(9).Build())
-            .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(effectParticleParameters)
-            .Build();
-
         var magicAffinitySpellMasterRecovery = FeatureDefinitionPowerBuilder
             .Create(PowerSpellMasterBonusRecoveryName)
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
@@ -87,7 +74,14 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
-                bonusRecoveryEffectDescription)
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0)
+                    .SetCreatedByCharacter()
+                    .AddEffectForm(EffectFormBuilder.Create().SetSpellForm(9).Build())
+                    .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
+                    .Build())
             .AddToDB();
 
         _ = RestActivityDefinitionBuilder

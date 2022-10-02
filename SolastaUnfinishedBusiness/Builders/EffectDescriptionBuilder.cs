@@ -12,14 +12,11 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder()
     {
-        var effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 };
-        var particleParams = new EffectParticleParameters();
-
-        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-
         effect = new EffectDescription
         {
-            effectAdvancement = effectAdvancement, effectParticleParameters = particleParams
+            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
+            effectParticleParameters =
+                DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
 
@@ -40,7 +37,13 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder SetCreatedByCharacter()
     {
-        effect.SetCreatedByCharacter(true);
+        effect.createdByCharacter = true;
+        return this;
+    }
+
+    public EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
+    {
+        effect.canBePlacedOnCharacter = true;
         return this;
     }
 
@@ -57,15 +60,19 @@ public class EffectDescriptionBuilder
     }
 
     public EffectDescriptionBuilder SetEffectAdvancement(
-        RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier = 1,
+        RuleDefinitions.EffectIncrementMethod effectIncrementMethod,
+        int incrementMultiplier = 1,
         int additionalTargetsPerIncrement = 0,
-        int additionalDicePerIncrement = 0, int additionalSpellLevelPerIncrement = 0,
-        int additionalSummonsPerIncrement = 0, int additionalHPPerIncrement = 0,
+        int additionalDicePerIncrement = 0,
+        int additionalSpellLevelPerIncrement = 0,
+        int additionalSummonsPerIncrement = 0,
+        int additionalHPPerIncrement = 0,
         int additionalTempHPPerIncrement = 0,
-        int additionalTargetCellsPerIncrement = 0, int additionalItemBonus = 0,
+        int additionalTargetCellsPerIncrement = 0,
+        int additionalItemBonus = 0,
         RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
     {
-        var effectAdvancement = new EffectAdvancement
+        effect.effectAdvancement = new EffectAdvancement
         {
             effectIncrementMethod = effectIncrementMethod,
             incrementMultiplier = incrementMultiplier,
@@ -80,22 +87,25 @@ public class EffectDescriptionBuilder
             alteredDuration = alteredDuration
         };
 
-        effect.SetEffectAdvancement(effectAdvancement);
         return this;
     }
 
-    public EffectDescriptionBuilder SetTargetingData(RuleDefinitions.Side targetSide,
-        RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType,
-        int targetParameter = 1, int targetParameter2 = 1,
+    public EffectDescriptionBuilder SetTargetingData(
+        RuleDefinitions.Side targetSide,
+        RuleDefinitions.RangeType rangeType,
+        int rangeParameter,
+        RuleDefinitions.TargetType targetType,
+        int targetParameter = 1,
+        int targetParameter2 = 1,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
     {
-        effect.TargetSide = targetSide;
-        effect.RangeType = rangeType;
-        effect.SetRangeParameter(rangeParameter);
-        effect.TargetType = targetType;
-        effect.SetTargetParameter(targetParameter);
-        effect.SetTargetParameter2(targetParameter2);
-        effect.SetItemSelectionType(itemSelectionType);
+        effect.targetSide = targetSide;
+        effect.rangeType = rangeType;
+        effect.rangeParameter = rangeParameter;
+        effect.targetType = targetType;
+        effect.targetParameter = targetParameter;
+        effect.targetParameter2 = targetParameter2;
+        effect.itemSelectionType = itemSelectionType;
         return this;
     }
 
@@ -113,15 +123,16 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder ExcludeCaster()
     {
-        effect.SetTargetExcludeCaster(true);
+        effect.targetExcludeCaster = true;
         return this;
     }
 
-    public EffectDescriptionBuilder SetTargetProximityData(bool requiresTargetProximity,
+    public EffectDescriptionBuilder SetTargetProximityData(
+        bool requiresTargetProximity,
         int targetProximityDistance)
     {
-        effect.SetRequiresTargetProximity(requiresTargetProximity);
-        effect.SetTargetProximityDistance(targetProximityDistance);
+        effect.requiresTargetProximity = requiresTargetProximity;
+        effect.targetProximityDistance = targetProximityDistance;
         return this;
     }
 
@@ -132,36 +143,40 @@ public class EffectDescriptionBuilder
         RuleDefinitions.DieType poolFilterDieType = RuleDefinitions.DieType.D1
     )
     {
-        effect.SetTargetFilteringMethod(targetFilteringMethod);
-        effect.SetTargetFilteringTag(targetFilteringTag);
-        effect.SetPoolFilterDiceNumber(poolFilterDiceNumber);
-        effect.SetPoolFilterDieType(poolFilterDieType);
+        effect.targetFilteringMethod = targetFilteringMethod;
+        effect.targetFilteringTag = targetFilteringTag;
+        effect.poolFilterDiceNumber = poolFilterDiceNumber;
+        effect.poolFilterDieType = poolFilterDieType;
         return this;
     }
 
     public EffectDescriptionBuilder SetRecurrentEffect(RuleDefinitions.RecurrentEffect recurrentEffect)
     {
-        effect.SetRecurrentEffect(recurrentEffect);
+        effect.recurrentEffect = recurrentEffect;
         return this;
     }
 
     public EffectDescriptionBuilder SetRequiredCondition(ConditionDefinition targetConditionAsset)
     {
-        effect.SetTargetConditionAsset(targetConditionAsset);
-        effect.SetTargetConditionName(targetConditionAsset.Name);
+        effect.targetConditionAsset = targetConditionAsset;
+        effect.targetConditionName = targetConditionAsset.Name;
         return this;
     }
 
-    public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType,
-        int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
+    public EffectDescriptionBuilder SetDurationData(
+        RuleDefinitions.DurationType durationType,
+        int durationParameter,
+        RuleDefinitions.TurnOccurenceType endOfEffect)
     {
-        effect.SetDurationType(durationType);
-        effect.SetDurationParameter(durationParameter);
-        effect.SetEndOfEffect(endOfEffect);
+        effect.durationParameter = durationParameter;
+        effect.durationType = durationType;
+        effect.endOfEffect = endOfEffect;
         return this;
     }
 
-    public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0,
+    public EffectDescriptionBuilder SetDurationData(
+        RuleDefinitions.DurationType type,
+        int duration = 0,
         bool validate = true)
     {
         if (validate)
@@ -169,41 +184,54 @@ public class EffectDescriptionBuilder
             Preconditions.IsValidDuration(type, duration);
         }
 
-        effect.SetDurationParameter(duration);
-        effect.SetDurationType(type);
+        effect.durationParameter = duration;
+        effect.durationType = type;
 
         return this;
     }
 
-    public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies,
-        string savingThrowAbility, bool ignoreCover,
+    public EffectDescriptionBuilder SetSavingThrowData(
+        bool hasSavingThrow,
+        bool disableSavingThrowOnAllies,
+        string savingThrowAbility,
+        bool ignoreCover,
         RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
         string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
-        int fixedSavingThrowDifficultyClass = 10, bool advantageForEnemies = false,
+        int fixedSavingThrowDifficultyClass = 10,
+        bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {
         return SetSavingThrowData(
-            hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility,
-            ignoreCover, difficultyClassComputation, savingThrowDifficultyAbility,
-            fixedSavingThrowDifficultyClass, advantageForEnemies, savingThrowAffinitiesBySense.AsEnumerable());
+            hasSavingThrow, disableSavingThrowOnAllies,
+            savingThrowAbility,
+            ignoreCover,
+            difficultyClassComputation,
+            savingThrowDifficultyAbility,
+            fixedSavingThrowDifficultyClass,
+            advantageForEnemies,
+            savingThrowAffinitiesBySense.AsEnumerable());
     }
 
-    public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies,
-        string savingThrowAbility, bool ignoreCover,
+    public EffectDescriptionBuilder SetSavingThrowData(
+        bool hasSavingThrow,
+        bool disableSavingThrowOnAllies,
+        string savingThrowAbility,
+        bool ignoreCover,
         RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
         string savingThrowDifficultyAbility,
-        int fixedSavingThrowDifficultyClass, bool advantageForEnemies,
+        int fixedSavingThrowDifficultyClass,
+        bool advantageForEnemies,
         IEnumerable<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense)
     {
-        effect.HasSavingThrow = hasSavingThrow;
-        effect.SetDisableSavingThrowOnAllies(disableSavingThrowOnAllies);
-        effect.SavingThrowAbility = savingThrowAbility;
-        effect.IgnoreCover = ignoreCover;
-        effect.SetDifficultyClassComputation(difficultyClassComputation);
-        effect.SetSavingThrowDifficultyAbility(savingThrowDifficultyAbility);
-        effect.FixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
-        effect.AdvantageForEnemies = advantageForEnemies;
-        effect.SavingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
+        effect.hasSavingThrow = hasSavingThrow;
+        effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
+        effect.savingThrowAbility = savingThrowAbility;
+        effect.ignoreCover = ignoreCover;
+        effect.difficultyClassComputation = difficultyClassComputation;
+        effect.savingThrowDifficultyAbility = savingThrowDifficultyAbility;
+        effect.fixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
+        effect.advantageForEnemies = advantageForEnemies;
+        effect.savingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
         return this;
     }
 
@@ -215,8 +243,8 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder SetSpeed(RuleDefinitions.SpeedType speedType, float speedParameter)
     {
-        effect.SetSpeedType(speedType);
-        effect.SetSpeedParameter(speedParameter);
+        effect.speedType = speedType;
+        effect.speedParameter = speedParameter;
         return this;
     }
 

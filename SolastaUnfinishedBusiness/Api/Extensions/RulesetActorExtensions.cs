@@ -72,17 +72,7 @@ public static class RulesetActorExtensions
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
     }
 
-    public static bool HasAnyFeature(this RulesetActor actor, IEnumerable<FeatureDefinition> features)
-    {
-        return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
-    }
-
     public static bool HasAllFeatures(this RulesetActor actor, [NotNull] params FeatureDefinition[] features)
-    {
-        return HasAllFeatures(actor, features.ToList());
-    }
-
-    public static bool HasAllFeatures(this RulesetActor actor, [NotNull] IEnumerable<FeatureDefinition> features)
     {
         var all = FeaturesByType<FeatureDefinition>(actor);
         return FlattenFeatureList(features).All(f => all.Contains(f));

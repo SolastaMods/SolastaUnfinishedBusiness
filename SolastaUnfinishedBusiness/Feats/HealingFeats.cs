@@ -10,7 +10,6 @@ internal static class HealingFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
-        // Inspiring Leader- pre req charisma 13, spend 10 minutes inspiring folks to fit temp hp == level + charisma modifier (1/short rest)
         var inspiringLeaderPresentation = GuiPresentationBuilder.Build(
             "FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
@@ -20,7 +19,7 @@ internal static class HealingFeats
             EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0,
             RuleDefinitions.DieType.D1, 0, 1);
 
-        var inspiringPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var powerFeatInspiringLeader = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1,
             RuleDefinitions.RechargeRate.ShortRest,
             false, false, AttributeDefinitions.Charisma, inspiringEffect,
@@ -28,13 +27,10 @@ internal static class HealingFeats
 
         feats.Add(FeatDefinitionBuilder
             .Create("FeatInspiringLeader")
-            .SetFeatures(inspiringPower)
+            .SetFeatures(powerFeatInspiringLeader)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetGuiPresentation(inspiringLeaderPresentation)
             .AddToDB());
-
-        // Healer- use a healer's kit to stabilize to 1hp, use an action to restore 1d6+4 hp, plus additional hp equal to creature's level (can only heal a given creature once per day)
-        // thoughts- grant a stabilize power that sets them to 1hp (unlimited uses), prof per day a heal that does 1d6+4+"caster" level
 
         var medKitPresentation = GuiPresentationBuilder.Build(
             "PowerFeatHealerMedKit", Category.Feature,
@@ -46,7 +42,7 @@ internal static class HealingFeats
             EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, false, 4,
             RuleDefinitions.DieType.D6, 1, 1);
 
-        var medKitPower = BuildPowerFromEffectDescription(0,
+        var powerFeatHealerMedKit = BuildPowerFromEffectDescription(0,
             RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
             RuleDefinitions.RechargeRate.ShortRest,
@@ -62,7 +58,7 @@ internal static class HealingFeats
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
             12 /* seconds since death */);
 
-        var resuscitatePower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+        var powerFeatHealerResuscitate = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
             RuleDefinitions.RechargeRate.LongRest,
             false, false, AttributeDefinitions.Wisdom, resuscitateEffect,
@@ -71,7 +67,7 @@ internal static class HealingFeats
         var stabilizePresentation = GuiPresentationBuilder.Build(
             "PowerFeatHealerStabilize", Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
-        var stabilizePower = BuildPowerFromEffectDescription(0,
+        var powerFeatHealerStabilize = BuildPowerFromEffectDescription(0,
             RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
             RuleDefinitions.RechargeRate.ShortRest,
@@ -79,7 +75,7 @@ internal static class HealingFeats
             DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription,
             "PowerFeatHealerStabilize", stabilizePresentation);
 
-        FeatureDefinition medicineKnowledge = FeatureDefinitionProficiencyBuilder
+        FeatureDefinition proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .SetGuiPresentation(Category.Feature)
@@ -87,81 +83,11 @@ internal static class HealingFeats
 
         feats.Add(FeatDefinitionBuilder
             .Create("FeatHealer")
-            .SetFeatures(medicineKnowledge, medKitPower, resuscitatePower, stabilizePower)
+            .SetFeatures(proficiencyFeatHealerMedicine, powerFeatHealerMedKit, powerFeatHealerResuscitate,
+                powerFeatHealerStabilize)
             .SetGuiPresentation(Category.Feat,
                 PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
             .AddToDB());
-
-        // // Chef: con/wis, short rest ability, everyone regains 1d8 (supposed to be only if they spend hit dice)
-        // //     once per long rest cook treats that grant temp hp (prof bonus # treats and #thp)
-        //
-        // // define power(s) that treats have
-        // var treatEatPresentation = GuiPresentationBuilder.Build(
-        //     "ProfChefTreatAction", Category.Feat, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
-        //
-        // var treatEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Self, 1,
-        //     RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0,
-        //     RuleDefinitions.TurnOccurenceType.EndOfTurn,
-        //     EffectForm.LevelApplianceType.No, RuleDefinitions.LevelSourceType.CharacterLevel, false, 5,
-        //     RuleDefinitions.DieType.D1, 0, 1);
-        // var treatPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-        //     AttributeDefinitions.Wisdom,
-        //     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.None, false, false,
-        //     AttributeDefinitions.Wisdom,
-        //     treatEffect, "PowerChefTreatEat", treatEatPresentation);
-        //
-        // // define treats
-        // var treat = ItemDefinitionBuilder
-        //     .Create(DatabaseHelper.ItemDefinitions.Berry_Ration, "ChefSnackTreat")
-        //     .SetOrUpdateGuiPresentation("ProfChefTreat", Category.Feat)
-        //     .SetUsableDeviceDescription(treatPower)
-        //     .AddToDB();
-        //
-        // // make summon effect description
-        // var cookTreatsEffect = BuildEffectDescriptionSummonForm(RuleDefinitions.RangeType.Self, 1,
-        //     RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0,
-        //     RuleDefinitions.TurnOccurenceType.EndOfTurn,
-        //     treat, 5);
-        //
-        // // make power using summon effect to make treats
-        // var treatCookPresentation = GuiPresentationBuilder.Build(
-        //     "ProfChefTreatCook", Category.Feat, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
-        //
-        // var cookTreatsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-        //     AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1,
-        //     RuleDefinitions.RechargeRate.LongRest,
-        //     false, false, AttributeDefinitions.Wisdom, cookTreatsEffect,
-        //     "PowerFeatChefCookTreats", treatCookPresentation);
-        //
-        // // short rest activated ability to heal 1d8 (limit number of times this can be done)
-        // var shortRestFeastPresentation = GuiPresentationBuilder.Build(
-        //     "ChefShortRestFeast", Category.Feat,
-        //     PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
-        //
-        // var shortRestFeastEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Distance, 10,
-        //     RuleDefinitions.TargetType.Individuals, 4, RuleDefinitions.DurationType.Permanent, 0,
-        //     RuleDefinitions.TurnOccurenceType.EndOfTurn,
-        //     EffectForm.LevelApplianceType.No, RuleDefinitions.LevelSourceType.CharacterLevel, false, 0,
-        //     RuleDefinitions.DieType.D8, 1, 1);
-        // var shortRestFeast = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-        //     AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1,
-        //     RuleDefinitions.RechargeRate.ShortRest,
-        //     false, false, AttributeDefinitions.Wisdom, shortRestFeastEffect,
-        //     "PowerFeatChefShortRestFeast", shortRestFeastPresentation);
-        //
-        // feats.Add(FeatDefinitionBuilder
-        //     .Create("FeatChefCon")
-        //     .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
-        //         shortRestFeast, cookTreatsPower)
-        //     .SetGuiPresentation("ChefCon", Category.Feat)
-        //     .AddToDB());
-        //
-        // feats.Add(FeatDefinitionBuilder
-        //     .Create("FeatChefWis")
-        //     .SetFeatures(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
-        //         shortRestFeast, cookTreatsPower)
-        //     .SetGuiPresentation("ChefWis", Category.Feat)
-        //     .AddToDB());
     }
 
     private static FeatureDefinitionPower BuildPowerFromEffectDescription(
@@ -183,7 +109,7 @@ internal static class HealingFeats
             .Configure(
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
                 proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription /* unique instance */)
+                abilityScoreBonusToAttack, abilityScore, effectDescription)
             .AddToDB();
     }
 
@@ -203,33 +129,25 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-        effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
-            targetParameter, 0);
-        effectDescriptionBuilder.SetCreatedByCharacter();
-        effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
-
-        var effectFormBuilder = new EffectFormBuilder();
-
-        effectFormBuilder.SetTempHPForm(bonusHitPoints, dieType, diceNumber);
-        effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
+        var effectFormBuilder = new EffectFormBuilder()
+            .SetTempHPForm(bonusHitPoints, dieType, diceNumber)
+            .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
+            .CreatedByCharacter();
 
         if (applyAbilityBonus)
         {
             effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
         }
 
-        effectFormBuilder.CreatedByCharacter();
-        effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-        effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-
-        var particleParams = new EffectParticleParameters();
-
-        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-        effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-        return effectDescriptionBuilder.Build();
+        return new EffectDescriptionBuilder()
+            .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
+            .SetCreatedByCharacter()
+            .SetDurationData(durationType, durationParameter, endOfEffect)
+            .AddEffectForm(effectFormBuilder.Build())
+            .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription
+                .EffectParticleParameters)
+            .Build();
     }
 
     private static EffectDescription BuildEffectDescriptionHealingForm(
@@ -248,34 +166,31 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-        effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
-            targetParameter, 0);
-        effectDescriptionBuilder.SetCreatedByCharacter();
-        effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
-
-        var effectFormBuilder = new EffectFormBuilder();
-
-        effectFormBuilder.SetHealingForm(RuleDefinitions.HealingComputation.Dice, bonusHitPoints, dieType,
-            diceNumber, false, RuleDefinitions.HealingCap.MaximumHitPoints);
-        effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
+        var effectFormBuilder = new EffectFormBuilder()
+            .SetHealingForm(
+                RuleDefinitions.HealingComputation.Dice,
+                bonusHitPoints,
+                dieType,
+                diceNumber,
+                false,
+                RuleDefinitions.HealingCap.MaximumHitPoints)
+            .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
+            .CreatedByCharacter();
 
         if (applyAbilityBonus)
         {
             effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
         }
 
-        effectFormBuilder.CreatedByCharacter();
-        effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-        effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-
-        var particleParams = new EffectParticleParameters();
-
-        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-        effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-        return effectDescriptionBuilder.Build();
+        return new EffectDescriptionBuilder()
+            .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
+            .SetCreatedByCharacter()
+            .SetDurationData(durationType, durationParameter, endOfEffect)
+            .AddEffectForm(effectFormBuilder.Build())
+            .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+            .SetParticleEffectParameters(
+                DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters)
+            .Build();
     }
 
     private static EffectDescription BuildEffectDescriptionReviveForm(
@@ -288,62 +203,33 @@ internal static class HealingFeats
         RuleDefinitions.TurnOccurenceType endOfEffect,
         int secondsSinceDeath)
     {
-        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-        effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
-            targetParameter, 0);
-        effectDescriptionBuilder.SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly,
-            RuleDefinitions.TargetFilteringTag.No, 5, RuleDefinitions.DieType.D8);
-        effectDescriptionBuilder.SetCreatedByCharacter();
-        effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
-        effectDescriptionBuilder.SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead);
-
-        var effectFormBuilder = new EffectFormBuilder();
-
-        effectFormBuilder.SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One,
-            new List<ConditionDefinition>());
-        effectFormBuilder.CreatedByCharacter();
-        effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-        effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-
-        var particleParams = new EffectParticleParameters();
-
-        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-        effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-        return effectDescriptionBuilder.Build();
+        return new EffectDescriptionBuilder()
+            .SetTargetingData(
+                RuleDefinitions.Side.Ally,
+                rangeType,
+                rangeParameter,
+                targetType,
+                targetParameter,
+                0)
+            .SetTargetFiltering(
+                RuleDefinitions.TargetFilteringMethod.CharacterOnly,
+                RuleDefinitions.TargetFilteringTag.No,
+                5,
+                RuleDefinitions.DieType.D8)
+            .SetCreatedByCharacter()
+            .SetDurationData(durationType, durationParameter, endOfEffect)
+            .SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead)
+            .AddEffectForm(
+                new EffectFormBuilder()
+                    .SetReviveForm(
+                        secondsSinceDeath,
+                        RuleDefinitions.ReviveHitPoints.One,
+                        new List<ConditionDefinition>())
+                    .CreatedByCharacter()
+                    .Build())
+            .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon
+                .EffectDescription.EffectParticleParameters)
+            .Build();
     }
-
-    // private static EffectDescription BuildEffectDescriptionSummonForm(
-    //     RuleDefinitions.RangeType rangeType,
-    //     int rangeParameter,
-    //     RuleDefinitions.TargetType targetType,
-    //     int targetParameter,
-    //     RuleDefinitions.DurationType durationType,
-    //     int durationParameter,
-    //     RuleDefinitions.TurnOccurenceType endOfEffect,
-    //     ItemDefinition item,
-    //     int number)
-    // {
-    //     var effectDescriptionBuilder = new EffectDescriptionBuilder();
-    //     effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType,
-    //         targetParameter, 0);
-    //     effectDescriptionBuilder.SetCreatedByCharacter();
-    //     effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
-    //
-    //     var effectFormBuilder = new EffectFormBuilder();
-    //     effectFormBuilder.SetSummonForm(SummonForm.Type.InventoryItem, item, number, "", null, true, null,
-    //         ScriptableObject.CreateInstance<EffectProxyDefinition>());
-    //
-    //     effectFormBuilder.CreatedByCharacter();
-    //
-    //     effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-    //     effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-    //
-    //     var particleParams = new EffectParticleParameters();
-    //     particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-    //     effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-    //
-    //     return effectDescriptionBuilder.Build();
-    // }
 }

@@ -130,17 +130,6 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 {
     public static FeatureDefinitionPower BuildStudyEnemyPower()
     {
-        var effectDescription = IdentifyCreatures.EffectDescription
-            .Copy()
-            .SetDuration(DurationType.Instantaneous)
-            .SetHasSavingThrow(false)
-            .SetRange(RangeType.Distance, 12)
-            .SetTargetType(TargetType.Individuals)
-            .SetTargetSide(Side.Enemy)
-            .SetTargetParameter(1)
-            .ClearRestrictedCreatureFamilies()
-            .SetEffectForms(new StudyEnemyEffectDescription());
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature, IdentifyCreatures.GuiPresentation.SpriteReference)
@@ -148,7 +137,16 @@ internal static class PowerMarshalStudyYourEnemyBuilder
             .SetCostPerUse(1)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.BonusAction)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(IdentifyCreatures.EffectDescription
+                .Copy()
+                .SetDuration(DurationType.Instantaneous)
+                .SetHasSavingThrow(false)
+                .SetRange(RangeType.Distance, 12)
+                .SetTargetType(TargetType.Individuals)
+                .SetTargetSide(Side.Enemy)
+                .SetTargetParameter(1)
+                .ClearRestrictedCreatureFamilies()
+                .SetEffectForms(new StudyEnemyEffectDescription()))
             .AddToDB();
     }
 
@@ -364,6 +362,7 @@ internal static class EternalComradeBuilder
             )
             .Build();
 
+        //TODO: create a builder for this
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
@@ -371,9 +370,8 @@ internal static class EternalComradeBuilder
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
+        //TODO: create a builder for this
         attackMarshalEternalComrade.magical = true;
-
-        var marshalEternalComradeAttackInteraction = new MonsterAttackIteration(attackMarshalEternalComrade, 1);
 
         return MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, EternalComradeName)
@@ -405,7 +403,8 @@ internal static class EternalComradeBuilder
                 DamageAffinityThunderResistance,
                 ConditionAffinityHinderedByFrostImmunity
             )
-            .SetAttackIterations(marshalEternalComradeAttackInteraction)
+            .SetAttackIterations(
+                new MonsterAttackIteration(attackMarshalEternalComrade, 1))
             .SetArmorClass(16)
             .SetAlignment("Neutral")
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
@@ -419,12 +418,6 @@ internal static class EternalComradeBuilder
 
     internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
-        var summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name };
-        var effectForm = new EffectForm
-        {
-            formType = EffectForm.EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
-        };
-
         //TODO: make this use concentration and reduce the duration to may be 3 rounds
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
@@ -440,7 +433,12 @@ internal static class EternalComradeBuilder
                     .Create(ConjureAnimalsOneBeast.EffectDescription.Copy())
                     .SetDurationData(DurationType.Round, 10)
                     .ClearEffectForms()
-                    .AddEffectForm(effectForm)
+                    .AddEffectForm(new EffectForm
+                    {
+                        formType = EffectForm.EffectFormType.Summon,
+                        createdByCharacter = true,
+                        summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name }
+                    })
                     .Build()
             )
             .AddToDB();
@@ -465,7 +463,7 @@ internal static class EternalComradeBuilder
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
-        var hitConditionDefinition = ConditionDefinitionBuilder
+        var conditionMarshalEternalComradeHit = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit")
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
@@ -478,7 +476,7 @@ internal static class EternalComradeBuilder
             .SetAllowMultipleInstances(true)
             .AddToDB();
 
-        // Find a better place to put this in?
+        //TODO: create a builder for this
         conditionMarshalEternalComradeHp.additionalDamageType = FighterClass;
 
         var summoningAffinityMarshalEternalComrade = FeatureDefinitionSummoningAffinityBuilder
@@ -489,7 +487,7 @@ internal static class EternalComradeBuilder
                 conditionMarshalEternalComradeAc,
                 conditionMarshalEternalComradeSavingThrow,
                 conditionMarshalEternalComradeDamage,
-                hitConditionDefinition,
+                conditionMarshalEternalComradeHit,
                 conditionMarshalEternalComradeHp,
                 conditionMarshalEternalComradeHp)
             .AddToDB();
@@ -508,9 +506,9 @@ internal static class FeatureSetMarshalFearlessCommanderBuilder
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetMarshalFearlessCommander")
+            .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(ConditionAffinityFrightenedImmunity)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
 }
@@ -535,22 +533,6 @@ internal static class EncourageBuilder
         // this allows the condition to still display as a label on character panel
         Global.CharacterLabelEnabledConditions.Add(conditionMarshalEncouraged);
 
-        var effect = EffectDescriptionBuilder
-            .Create()
-            .SetCreatedByCharacter()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
-            .SetDurationData(DurationType.Permanent)
-            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .CreatedByCharacter()
-                    .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false, false)
-                    .Build())
-            .Build();
-
-        effect.SetCanBePlacedOnCharacter(true);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
@@ -564,7 +546,28 @@ internal static class EncourageBuilder
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                effect)
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetCreatedByCharacter()
+                    .SetCanBePlacedOnCharacter(true)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        0,
+                        TargetType.Cube,
+                        5,
+                        2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
+                                false)
+                            .Build())
+                    .Build())
             .SetShowCasting(false)
             .AddToDB();
     }

@@ -123,10 +123,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripRiftWalkWardingBond")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(SpellDefinitionBuilder
-                .Create(WardingBond, "WardingBondAtWill")
-                .SetSpellLevel(0)
-                .AddToDB())
+            .SetBonusCantrips(
+                SpellDefinitionBuilder
+                    .Create(WardingBond, "AtWillWardingBond")
+                    .SetSpellLevel(0)
+                    .AddToDB())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
