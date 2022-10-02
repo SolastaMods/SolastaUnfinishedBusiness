@@ -42,9 +42,9 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
-            .SetKnownCantrips(2, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetKnownSpells(3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownCantrips(2, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetKnownSpells(3, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .AddToDB();
 
         var proficiencyPathOfTheRageMageSkill = FeatureDefinitionProficiencyBuilder

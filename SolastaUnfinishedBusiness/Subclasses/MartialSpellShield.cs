@@ -35,9 +35,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
-            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .AddToDB();
 
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder

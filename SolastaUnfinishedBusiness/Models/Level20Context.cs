@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -170,16 +171,16 @@ internal static class Level20Context
             // TODO 20: Bard Superior Inspiration
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
             CastSpellBard.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+        EnumerateKnownSpells(
             4,
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CasterProgression.Full,
             CastSpellBard.KnownSpells);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 1, CastSpellBard.ReplacedSpells);
 
         SpellListBard.maxSpellLevel = 9;
@@ -204,11 +205,11 @@ internal static class Level20Context
             // Solasta handles divine intervention on subclasses below
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
             CastSpellCleric.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 1, CastSpellCleric.ReplacedSpells);
 
         SpellListCleric.maxSpellLevel = 9;
@@ -267,11 +268,11 @@ internal static class Level20Context
             // TODO 20: Druid Arch Druid
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
             CastSpellDruid.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 1, CastSpellDruid.ReplacedSpells);
 
         SpellListDruid.maxSpellLevel = 9;
@@ -350,11 +351,11 @@ internal static class Level20Context
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
             });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Half,
             CastSpellPaladin.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             3, 1, CastSpellPaladin.ReplacedSpells);
 
         SpellListPaladin.maxSpellLevel = 5;
@@ -374,16 +375,16 @@ internal static class Level20Context
             // TODO 20: Ranger Foe Slayer
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Half,
             CastSpellRanger.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+        EnumerateKnownSpells(
             2,
-            FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster,
+            CasterProgression.Half,
             CastSpellRanger.KnownSpells);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             3, 1, CastSpellRanger.ReplacedSpells);
 
         SpellListRanger.maxSpellLevel = 5;
@@ -448,16 +449,16 @@ internal static class Level20Context
                 20)
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
             CastSpellSorcerer.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+        EnumerateKnownSpells(
             2,
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CasterProgression.Full,
             CastSpellSorcerer.KnownSpells);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 1, CastSpellSorcerer.ReplacedSpells);
 
         SpellListSorcerer.maxSpellLevel = 9;
@@ -485,7 +486,7 @@ internal static class Level20Context
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 1, CastSpellWarlock.ReplacedSpells);
 
         SpellListWarlock.maxSpellLevel = 9;
@@ -500,16 +501,16 @@ internal static class Level20Context
             // TODO 20: Signature Spells
         });
 
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
             CastSpellWizard.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateKnownSpells(
+        EnumerateKnownSpells(
             6,
-            FeatureDefinitionCastSpellBuilder.CasterProgression.FullCaster,
+            CasterProgression.Full,
             CastSpellWizard.KnownSpells);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             2, 0, CastSpellWizard.ReplacedSpells);
 
         SpellListWizard.maxSpellLevel = 9;
@@ -517,31 +518,31 @@ internal static class Level20Context
 
     private static void MartialSpellBladeLoad()
     {
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.OneThird,
             CastSpellMartialSpellBlade.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             4, 1, CastSpellMartialSpellBlade.ReplacedSpells);
     }
 
     private static void RoguishShadowcasterLoad()
     {
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.OneThird,
             CastSpellShadowcaster.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             4, 1, CastSpellShadowcaster.ReplacedSpells);
     }
 
     private static void TraditionLightLoad()
     {
-        FeatureDefinitionCastSpellBuilder.EnumerateSlotsPerLevel(
-            FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster,
+        EnumerateSlotsPerLevel(
+            CasterProgression.OneThird,
             CastSpellTraditionLight.SlotsPerLevels);
 
-        FeatureDefinitionCastSpellBuilder.EnumerateReplacedSpells(
+        EnumerateReplacedSpells(
             4, 1, CastSpellTraditionLight.ReplacedSpells);
     }
 }

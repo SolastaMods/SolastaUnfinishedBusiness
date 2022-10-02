@@ -49,14 +49,14 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 21; level++)
                 {
                     knownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[level]);
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
                 for (; level < 21; level++)
                 {
                     // +1 here because half casters effectively round up the spells known
@@ -64,7 +64,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 21; level++)
                 {
                     knownSpells.Add(startingAmount +
@@ -101,7 +101,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -113,7 +113,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -125,7 +125,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -256,7 +256,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 4; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -277,7 +277,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
                 for (; level < 10; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -298,7 +298,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 10; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -401,9 +401,11 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
     internal enum CasterProgression
     {
-        FullCaster = 1,
-        HalfCaster = 2,
-        ThirdCaster = 3
+        None = 0,
+        Full = 2,
+        Half = 4,
+        HalfRoundUp = 5,
+        OneThird = 6
     }
 
     #region SpellSlots
