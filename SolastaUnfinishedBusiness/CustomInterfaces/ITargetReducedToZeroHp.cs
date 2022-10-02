@@ -2,9 +2,9 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface ITargetReducedToZeroHP
+public interface ITargetReducedToZeroHp
 {
-    internal IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker,
+    public IEnumerator HandleCharacterReducedToZeroHp(GameLocationCharacter attacker,
         GameLocationCharacter downedCreature,
         RulesetAttackMode attackMode, RulesetEffect activeEffect);
 }

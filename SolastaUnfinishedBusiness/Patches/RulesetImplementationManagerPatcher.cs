@@ -327,7 +327,7 @@ public static class RulesetImplementationManagerPatcher
             RulesetEffect rulesetEffect)
         {
             //PATCH: support for `IRestrictedContextValidator` feature
-            __result = IRestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
+            __result = RestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
                 rangedAttack, attackMode, rulesetEffect);
         }
     }

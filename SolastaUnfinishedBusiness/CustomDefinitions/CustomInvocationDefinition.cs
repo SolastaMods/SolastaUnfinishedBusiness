@@ -19,7 +19,7 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
         new() { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
-    internal static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
+    private static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
         requirement = null;
 

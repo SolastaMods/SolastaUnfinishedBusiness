@@ -1,7 +1,7 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface ICustomConditionFeature
+public interface ICustomConditionFeature
 {
-    internal void ApplyFeature(RulesetCharacter hero);
-    internal void RemoveFeature(RulesetCharacter hero);
+    public void ApplyFeature(RulesetCharacter hero);
+    public void RemoveFeature(RulesetCharacter hero);
 }

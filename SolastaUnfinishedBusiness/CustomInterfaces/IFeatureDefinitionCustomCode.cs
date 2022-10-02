@@ -1,10 +1,10 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IFeatureDefinitionCustomCode
+public interface IFeatureDefinitionCustomCode
 {
     // Use this to add the feature to the character.
-    internal void ApplyFeature(RulesetCharacterHero hero, string tag);
+    public void ApplyFeature(RulesetCharacterHero hero, string tag);
 
     // Use this to remove the feature from the character. In particular this is used to allow level down functionality.
-    internal void RemoveFeature(RulesetCharacterHero hero, string tag);
+    public void RemoveFeature(RulesetCharacterHero hero, string tag);
 }

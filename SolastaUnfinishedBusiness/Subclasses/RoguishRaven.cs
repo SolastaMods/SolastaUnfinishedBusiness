@@ -221,9 +221,9 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHP
+    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHp
     {
-        public IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker,
+        public IEnumerator HandleCharacterReducedToZeroHp(GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {

@@ -333,12 +333,12 @@ public static class GameLocationBattleManagerPatcher
                 yield return __result.Current;
             }
 
-            var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHP>();
+            var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>();
 
             foreach (var feature in features)
             {
                 var extraEvents =
-                    feature.HandleCharacterReducedToZeroHP(attacker, downedCreature, rulesetAttackMode, activeEffect);
+                    feature.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode, activeEffect);
 
                 while (extraEvents.MoveNext())
                 {

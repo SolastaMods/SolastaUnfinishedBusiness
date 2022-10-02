@@ -1,9 +1,9 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IReduceDamage
+public interface IReduceDamage
 {
-    internal string NotificationTag { get; set; }
-    internal int ReducedDamage { get; set; }
-    internal string SourceName { get; set; }
-    internal RuleDefinitions.FeatureSourceType SourceType { get; set; }
+    public string NotificationTag { get; set; }
+    public int ReducedDamage { get; set; }
+    public string SourceName { get; set; }
+    public RuleDefinitions.FeatureSourceType SourceType { get; set; }
 }
