@@ -1207,6 +1207,7 @@ internal static class SpellBoxExtensions
         instance.hovered = false;
         instance.ritualSpell = false;
         instance.autoPrepared = false;
+        instance.extraSpell = false;
         instance.unlearnedSpell = unlearned;
         instance.spellImage.color = Color.white;
         instance.transform.localScale = new Vector3(1f, 1f, 1f);
