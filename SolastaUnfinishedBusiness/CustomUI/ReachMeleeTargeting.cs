@@ -22,7 +22,7 @@ internal static class ReachMeleeTargeting
         }
 
         var method = typeof(ReachMeleeTargeting)
-            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.Public);
+            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
         instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
         instructions.InsertRange(insertionIndex,
