@@ -4,15 +4,14 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-// keep internal for sidecars
 internal static class Global
 {
     // true if in a multiplayer game
     internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
-    // active level up hero
+    // level up hero
     [CanBeNull]
-    internal static RulesetCharacterHero ActiveLevelUpHero =>
+    internal static RulesetCharacterHero LevelUpHero =>
         ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 
     // last level up hero name
@@ -22,9 +21,9 @@ internal static class Global
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
     // active player character
-    internal static GameLocationCharacter ActivePlayerCharacter { get; private set; }
+    internal static GameLocationCharacter ActionCharacter { get; private set; }
 
-    private static GameLocationCharacter ControlledPlayerCharacter
+    private static GameLocationCharacter ControlledLocationCharacter
     {
         get
         {
@@ -43,10 +42,10 @@ internal static class Global
         }
     }
 
-    internal static RulesetCharacter CurrentGuiCharacter => InspectedHero
-                                                            ?? ActiveLevelUpHero
-                                                            ?? ControlledPlayerCharacter?.RulesetCharacter
-                                                            ?? ActivePlayerCharacter?.RulesetCharacter;
+    internal static RulesetCharacter CurrentCharacter => InspectedHero
+                                                         ?? LevelUpHero
+                                                         ?? ControlledLocationCharacter?.RulesetCharacter
+                                                         ?? ActionCharacter?.RulesetCharacter;
 
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }
@@ -69,15 +68,15 @@ internal static class Global
         Main.Logger.Log(characterAction.ActionDefinition.Name);
 
         CurrentAction = characterAction;
-        ActivePlayerCharacter = characterAction.ActingCharacter;
+        ActionCharacter = characterAction.ActingCharacter;
         CastedSpell = null;
 
         switch (characterAction)
         {
             case CharacterActionCastSpell actionCastSpell:
                 CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
-                // Hold the state of the SHIFT key on BOOL PARAM 5
-                // Used to determine which slot to use on MC Warlock
+
+                // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
                 characterAction.actionParams.BoolParameter5 =
                     Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 

@@ -126,8 +126,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return;
         }
 
-        var caster = Global.ActivePlayerCharacter.RulesetCharacter as RulesetCharacterHero
-                     ?? Global.ActivePlayerCharacter.RulesetCharacter.OriginalFormCharacter as
+        var caster = Global.ActionCharacter.RulesetCharacter as RulesetCharacterHero
+                     ?? Global.ActionCharacter.RulesetCharacter.OriginalFormCharacter as
                          RulesetCharacterHero;
 
         if (caster == null

@@ -38,7 +38,7 @@ public static class DeviceOverchargePanelPatcher
 
             if (provider != null)
             {
-                overcharge = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+                overcharge = provider.OverchargeSteps(Global.CurrentCharacter);
                 num = overcharge.Length;
             }
             else

@@ -488,7 +488,7 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: IOnCharacterKill
-            var attacker = Global.ActivePlayerCharacter?.RulesetCharacter;
+            var attacker = Global.ActionCharacter?.RulesetCharacter;
 
             if (attacker == null)
             {

@@ -43,7 +43,7 @@ internal static class CharacterExportContext
 
     internal static void ExportInspectedCharacter()
     {
-        if (Global.ActivePlayerCharacter?.RulesetCharacter is not RulesetCharacterHero hero)
+        if (Global.ActionCharacter?.RulesetCharacter is not RulesetCharacterHero hero)
         {
             return;
         }

@@ -12,7 +12,7 @@ public static class HigherLevelFeaturesModalPatcher
     {
         public static void Prefix(ref int achievementLevel)
         {
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
 
             if (hero == null)
             {

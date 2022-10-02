@@ -17,7 +17,7 @@ public static class ArchetypesPreviewModalPatcher
         //PATCH: filters out on subclass display features already taken (MULTICLASS)
         private static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel)
         {
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
 
             if (hero == null)
             {
@@ -65,7 +65,7 @@ public static class ArchetypesPreviewModalPatcher
         public static void Prefix(ref List<string> subclasses)
         {
             //PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
 
             if (hero != null)
             {

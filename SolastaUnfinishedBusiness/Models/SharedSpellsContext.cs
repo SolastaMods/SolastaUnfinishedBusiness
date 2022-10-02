@@ -69,7 +69,7 @@ internal static class SharedSpellsContext
         if (gameCampaign == null)
         {
             // gets hero on inspection or falls back to level up
-            return Global.InspectedHero ?? Global.ActiveLevelUpHero;
+            return Global.InspectedHero ?? Global.LevelUpHero;
         }
 
         var gameCampaignCharacter =
@@ -81,7 +81,7 @@ internal static class SharedSpellsContext
         }
 
         // gets hero on inspection or falls back to level up
-        return Global.InspectedHero ?? Global.ActiveLevelUpHero;
+        return Global.InspectedHero ?? Global.LevelUpHero;
     }
 
     // supports auto prepared spells scenarios on subs

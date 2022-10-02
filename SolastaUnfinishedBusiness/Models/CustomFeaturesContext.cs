@@ -575,7 +575,7 @@ internal static class CustomFeaturesContext
     internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
-        return ModifyMagicEffect(original, definition, Global.CurrentGuiCharacter);
+        return ModifyMagicEffect(original, definition, Global.CurrentCharacter);
     }
 
     // [NotNull]

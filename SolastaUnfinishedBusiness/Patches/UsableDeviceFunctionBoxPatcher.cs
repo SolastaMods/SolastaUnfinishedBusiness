@@ -34,7 +34,7 @@ public static class UsableDeviceFunctionBoxPatcher
 
                 if (provider != null)
                 {
-                    var steps = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+                    var steps = provider.OverchargeSteps(Global.CurrentCharacter);
 
                     if (steps == null || steps.Length < 1)
                     {

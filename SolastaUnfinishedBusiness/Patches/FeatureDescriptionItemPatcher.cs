@@ -14,7 +14,7 @@ public static class FeatureDescriptionItemPatcher
     {
         public static void Postfix([NotNull] FeatureDescriptionItem __instance)
         {
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
 
             if (hero == null)
             {
