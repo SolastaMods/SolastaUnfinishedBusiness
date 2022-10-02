@@ -22,7 +22,7 @@ internal static class ValidatorsFeat
 
         return isElf
             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
-            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), Global.ErrorColor));
+            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), Gui.ColorFailure));
     }
 
     [NotNull]
@@ -40,7 +40,7 @@ internal static class ValidatorsFeat
 
             return (false,
                 Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()),
-                    Global.ErrorColor));
+                    Gui.ColorFailure));
         };
     }
 
@@ -56,7 +56,7 @@ internal static class ValidatorsFeat
     //
     //         return isRace
     //             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName))
-    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), Global.ErrorColor));
+    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), Gui.ColorFailure));
     //     };
     // }
 
@@ -72,7 +72,7 @@ internal static class ValidatorsFeat
 
             return isNotClass
                 ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className), Global.ErrorColor));
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className), Gui.ColorFailure));
         };
     }
 
@@ -86,6 +86,6 @@ internal static class ValidatorsFeat
     //
     //     return hasStealthAttack
     //         ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
-    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), Global.ErrorColor));
+    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), Gui.ColorFailure));
     // }
 }

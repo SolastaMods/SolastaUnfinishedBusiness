@@ -7,8 +7,6 @@ namespace SolastaUnfinishedBusiness.Models;
 // keep internal for sidecars
 internal static class Global
 {
-    internal const string ErrorColor = "EA7171";
-
     // true if in a multiplayer game
     internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
