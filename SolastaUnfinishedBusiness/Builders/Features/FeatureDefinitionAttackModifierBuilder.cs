@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -9,10 +10,10 @@ internal class FeatureDefinitionAttackModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
     internal FeatureDefinitionAttackModifierBuilder Configure(
-        RuleDefinitions.AttackModifierMethod attackRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
+        AttackModifierMethod attackRollModifierMethod = AttackModifierMethod.None,
         int attackRollModifier = 0,
         string attackRollAbilityScore = "",
-        RuleDefinitions.AttackModifierMethod damageRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
+        AttackModifierMethod damageRollModifierMethod = AttackModifierMethod.None,
         int damageRollModifier = 0,
         string damageRollAbilityScore = "",
         bool canAddAbilityBonusToSecondary = false,
@@ -30,9 +31,25 @@ internal class FeatureDefinitionAttackModifierBuilder
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
-        RuleDefinitions.AbilityScoreReplacement replacement)
+        AbilityScoreReplacement replacement)
     {
         Definition.abilityScoreReplacement = replacement;
+        return This();
+    }
+
+    internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(int value,
+        AttackModifierMethod method = AttackModifierMethod.FlatValue)
+    {
+        Definition.attackRollModifierMethod = method;
+        Definition.attackRollModifier = value;
+        return This();
+    }
+
+    internal FeatureDefinitionAttackModifierBuilder SetDamageRollModifier(int value,
+        AttackModifierMethod method = AttackModifierMethod.FlatValue)
+    {
+        Definition.damageRollModifierMethod = method;
+        Definition.damageRollModifier = value;
         return This();
     }
 
@@ -49,7 +66,7 @@ internal class FeatureDefinitionAttackModifierBuilder
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetRequiredProperty(
-        RuleDefinitions.RestrictedContextRequiredProperty property)
+        RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
         return This();

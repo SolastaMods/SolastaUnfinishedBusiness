@@ -44,8 +44,8 @@ internal static class Infusions
             FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                //TODO: make it +2/+2 on level 10
-                .Configure(attackRollModifier: 1, damageRollModifier: 1)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
                 .AddToDB());
 
         name = "InfusionMindSharpener";
@@ -65,7 +65,8 @@ internal static class Infusions
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
                 .SetCustomSubFeatures(ReturningWeapon.Instance)
-                .Configure(attackRollModifier: 1, damageRollModifier: 1)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
                 .AddToDB());
 
         //Level 02
