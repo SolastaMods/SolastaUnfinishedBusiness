@@ -48,7 +48,7 @@ internal static class SharedSpellsContext
         { Wizard.Name, CasterType.Full },
         { Paladin.Name, CasterType.Half },
         { Ranger.Name, CasterType.Half },
-        { InventorClass.ClassName, CasterType.Half }
+        { InventorClass.ClassName, CasterType.HalfRoundUp }
     };
 
     private static Dictionary<string, CasterType> SubclassCasterType { get; } = new()

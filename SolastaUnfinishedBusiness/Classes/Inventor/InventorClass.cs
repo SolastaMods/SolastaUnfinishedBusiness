@@ -444,7 +444,7 @@ internal static class InventorClass
 
     private static FeatureDefinitionCastSpell BuildSpellCasting()
     {
-        return FeatureDefinitionCastSpellBuilder
+        var castSpellsInventor = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
@@ -456,6 +456,24 @@ internal static class InventorClass
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellList)
             .AddToDB();
+        
+        //TODO: this is a hack
+        castSpellsInventor.SlotsPerLevels[0].slots = new List<int>()
+        {
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        };
+
+        return castSpellsInventor;
     }
 
     private static FeatureDefinitionBonusCantrips BuildBonuscantrips()
