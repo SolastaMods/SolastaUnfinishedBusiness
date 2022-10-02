@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -47,16 +48,7 @@ internal class CharacterRaceDefinitionBuilder
 
     public CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
-        Definition.FeatureUnlocks.Clear();
-
-        AddFeaturesAtLevel(level, features);
-
-        return this;
-    }
-
-    public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
-    {
-        Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
+        Definition.FeatureUnlocks.SetRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
@@ -69,7 +61,6 @@ internal class CharacterRaceDefinitionBuilder
 
         return this;
     }
-
 
     #region Constructors
 

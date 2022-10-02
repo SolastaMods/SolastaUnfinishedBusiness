@@ -27,9 +27,9 @@ public class UsableDeviceDescriptionBuilder
         };
     }
 
-    public UsableDeviceDescriptionBuilder SetSaveDc(int DC)
+    public UsableDeviceDescriptionBuilder SetSaveDc(int dc)
     {
-        description.saveDC = DC;
+        description.saveDC = dc;
         return this;
     }
 
@@ -51,7 +51,7 @@ public class UsableDeviceDescriptionBuilder
     }
 
     #region Charge
-
+#if false
     public UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
@@ -88,7 +88,7 @@ public class UsableDeviceDescriptionBuilder
         description.chargesCapitalBonus = bonus;
         return this;
     }
-
+#endif
     #endregion
 
     #region Recharge
@@ -106,6 +106,7 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
+#if false    
     public UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         description.rechargeRate = rate;
@@ -129,6 +130,6 @@ public class UsableDeviceDescriptionBuilder
         description.rechargeBonus = bonus;
         return this;
     }
-
+#endif
     #endregion
 }
