@@ -10,15 +10,15 @@ public interface IGroupedFeat
     public List<FeatDefinition> GetSubFeats();
 }
 
-internal class GroupedFeat : IGroupedFeat
+public class GroupedFeat : IGroupedFeat
 {
     private readonly List<FeatDefinition> feats = new();
 
-    internal GroupedFeat(params FeatDefinition[] feats) : this(feats.ToList())
+    public GroupedFeat(params FeatDefinition[] feats) : this(feats.ToList())
     {
     }
 
-    internal GroupedFeat(IEnumerable<FeatDefinition> feats)
+    public GroupedFeat(IEnumerable<FeatDefinition> feats)
     {
         this.feats.AddRange(feats);
         this.feats.Sort(FeatsContext.CompareFeats);

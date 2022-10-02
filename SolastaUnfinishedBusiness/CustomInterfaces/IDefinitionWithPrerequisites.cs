@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IDefinitionWithPrerequisites
+public interface IDefinitionWithPrerequisites
 {
     [CanBeNull]
     public delegate bool Validate(RulesetCharacter character, BaseDefinition definition, out string requirement);

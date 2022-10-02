@@ -2,33 +2,33 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface ICharacterTurnStartListener
+public interface ICharacterTurnStartListener
 {
     void OnCharacterTurnStarted(GameLocationCharacter locationCharacter);
 }
 
-internal interface ICharacterTurnEndListener
+public interface ICharacterTurnEndListener
 {
     void OnCharacterTurnEnded(GameLocationCharacter locationCharacter);
 }
 
-internal interface ICharacterBattleStartedListener
+public interface ICharacterBattleStartedListener
 {
     void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
 }
 
-internal interface ICharacterBattleEndedListener
+public interface ICharacterBattleEndedListener
 {
     void OnCharacterBattleEnded(GameLocationCharacter locationCharacter);
 }
 
-internal static class CharacterBattleListenersPatch
+public static class CharacterBattleListenersPatch
 {
     /**
      * Patch implementation
      * notifies custom features that character's combat turn has starter
      */
-    internal static void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+    public static void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -53,7 +53,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat turn has ended
      */
-    internal static void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+    public static void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -78,7 +78,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat has starter
      */
-    internal static void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+    public static void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -103,7 +103,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat has ended
      */
-    internal static void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
+    public static void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {

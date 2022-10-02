@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface ICustomPortraitPointPoolProvider
+public interface ICustomPortraitPointPoolProvider
 {
     public string Name { get; }
     public string Tooltip { get; }

@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IAddExtraAttack
+public interface IAddExtraAttack
 {
     public void TryAddExtraAttack(RulesetCharacterHero hero);
 }

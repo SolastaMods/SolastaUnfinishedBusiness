@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IOnComputeAttackModifier
+public interface IOnComputeAttackModifier
 {
     public void ComputeAttackModifier(
         RulesetCharacter myself,
@@ -9,7 +9,7 @@ internal interface IOnComputeAttackModifier
         ref ActionModifier attackModifier);
 }
 
-internal delegate void OnComputeAttackModifier(
+public delegate void OnComputeAttackModifier(
     RulesetCharacter myself,
     RulesetCharacter defender,
     RulesetAttackMode attackMode,

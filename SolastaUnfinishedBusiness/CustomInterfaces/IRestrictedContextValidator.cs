@@ -17,7 +17,7 @@ public enum OperationType
  * Note: RestrictedProperty on feature that needs modifying should not be `None` or context validation won't happen
  * Note: for now supports only single modification per feature - only first `IRestictedContextValidator` would apply
  */
-internal interface IRestrictedContextValidator
+public interface IRestrictedContextValidator
 {
     public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
         RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
@@ -25,9 +25,9 @@ internal interface IRestrictedContextValidator
 }
 
 //TODO: try to find better place for this code
-internal static class RestrictedContextValidatorPatch
+public static class RestrictedContextValidatorPatch
 {
-    internal static bool ModifyResult(bool def, IRestrictedContextProvider provider, RulesetCharacter character,
+    public static bool ModifyResult(bool def, IRestrictedContextProvider provider, RulesetCharacter character,
         ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode, RulesetEffect rulesetEffect)
     {
         if (provider is not BaseDefinition definition)

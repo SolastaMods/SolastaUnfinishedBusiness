@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IBonusSlotLevels
+public interface IBonusSlotLevels
 {
     public int GetBonusSlotLevels(RulesetCharacter caster);
 }

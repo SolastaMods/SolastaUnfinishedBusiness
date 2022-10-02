@@ -4,7 +4,7 @@
 ///     Implement on a ConditionDefinition to be notified when a condition is removed, or when a creature is about to die
 ///     with a condition.
 /// </summary>
-internal interface INotifyConditionRemoval
+public interface INotifyConditionRemoval
 {
     public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition);
     public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition);

@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IHeroRefreshedListener
+public interface IHeroRefreshedListener
 {
     public void OnHeroRefreshed(RulesetCharacter character);
 }
