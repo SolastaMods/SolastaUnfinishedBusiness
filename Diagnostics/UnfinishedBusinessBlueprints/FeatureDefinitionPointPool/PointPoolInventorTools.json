@@ -1,15 +1,13 @@
 {
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
-  "poolType": "Skill",
-  "poolAmount": 2,
+  "poolType": "Tool",
+  "poolAmount": 1,
   "restrictedChoices": [
-    "Arcana",
-    "History",
-    "Investigation",
-    "Medecine",
-    "Nature",
-    "Perception",
-    "SleightOfHand"
+    "DisguiseKitType",
+    "EnchantingToolType",
+    "HerbalismKitType",
+    "PoisonersKitType",
+    "ScrollKitType"
   ],
   "uniqueChoices": true,
   "spellListOverride": null,
@@ -20,8 +18,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PointPoolInventorSkillsTitle",
-    "description": "Feature/&SkillGainChoicesPluralDescription",
+    "title": "Feature/&PointPoolInventorToolsTitle",
+    "description": "Feature/&ToolGainChoicesSingleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b56b95b4-ee37-59a9-850b-36eabec2db65",
+  "guid": "a216b8c6-b717-5552-bc9e-e5813f2b4e48",
   "contentPack": 9999,
-  "name": "PointPoolInventorSkills"
+  "name": "PointPoolInventorTools"
 }

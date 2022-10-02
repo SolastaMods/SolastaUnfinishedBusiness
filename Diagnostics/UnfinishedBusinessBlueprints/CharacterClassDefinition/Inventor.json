@@ -162,11 +162,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorArmor:cdce92cb-aebe-5adb-b62d-9463d2ddf46c",
       "level": 1
     },
@@ -178,6 +173,16 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellsInventor:23b47238-099a-5a6a-b3f9-45e59a574d5a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInventorTools:1b5f20ba-4554-5425-a7be-f61aefb9accc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolInventorTools:a216b8c6-b717-5552-bc9e-e5813f2b4e48",
       "level": 1
     },
     {
@@ -203,6 +208,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
       "level": 3
     },
     {

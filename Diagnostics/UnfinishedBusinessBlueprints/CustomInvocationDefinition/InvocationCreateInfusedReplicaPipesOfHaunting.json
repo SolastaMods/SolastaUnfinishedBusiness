@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 6,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsLevitation:574c3b35-fce2-5e5b-90e2-7a264532c31c",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaPipesOfHaunting:44a566b7-89b1-56a4-af0a-8cd4b3954921",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Boots of Levitation",
-    "description": "Create replica <b>Boots of Levitation</b>:\nAfter a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! ",
+    "title": "Replica Pipes of Haunting",
+    "description": "Create replica <b>Pipes of Haunting</b>:\nThese pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a29c34b230a0bad4a921cc2050a5723b",
-      "m_SubObjectName": "BootsOfLevitation",
+      "m_AssetGUID": "6e112e8a73c5cae40be6a6d8b2ab161b",
+      "m_SubObjectName": "DLC2.5-PipesOfHaunting",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "94456a65-8f03-5924-aa66-5b6c3fe58b6f",
+  "guid": "7de0477a-1b3e-5428-aeb1-2e64bbe8ddfe",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBootsLevitation"
+  "name": "InvocationCreateInfusedReplicaPipesOfHaunting"
 }

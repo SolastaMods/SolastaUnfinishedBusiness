@@ -14,8 +14,8 @@
     "description": "Feature/&InfusionEnhanceDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
+      "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",
+      "m_SubObjectName": "ConditionShielded",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

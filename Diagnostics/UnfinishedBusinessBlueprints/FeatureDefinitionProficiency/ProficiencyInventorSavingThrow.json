@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "SavingThrow",
   "proficiencies": [
-    "Dexterity",
+    "Constitution",
     "Intelligence"
   ],
   "forbiddenItemTags": [],

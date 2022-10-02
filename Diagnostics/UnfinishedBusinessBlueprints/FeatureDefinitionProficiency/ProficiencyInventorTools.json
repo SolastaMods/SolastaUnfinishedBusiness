@@ -1,27 +1,16 @@
 {
-  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
-  "poolType": "Skill",
-  "poolAmount": 2,
-  "restrictedChoices": [
-    "Arcana",
-    "History",
-    "Investigation",
-    "Medecine",
-    "Nature",
-    "Perception",
-    "SleightOfHand"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Tool",
+  "proficiencies": [
+    "ArtisanToolSmithToolsType",
+    "ThievesToolsType"
   ],
-  "uniqueChoices": true,
-  "spellListOverride": null,
-  "ritualOnly": false,
-  "minSpellLevel": 0,
-  "maxSpellLevel": 9,
-  "extraSpellsTag": "",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PointPoolInventorSkillsTitle",
-    "description": "Feature/&SkillGainChoicesPluralDescription",
+    "title": "Feature/&ProficiencyInventorToolsTitle",
+    "description": "Feature/&ToolProficiencyPluralDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b56b95b4-ee37-59a9-850b-36eabec2db65",
+  "guid": "1b5f20ba-4554-5425-a7be-f61aefb9accc",
   "contentPack": 9999,
-  "name": "PointPoolInventorSkills"
+  "name": "ProficiencyInventorTools"
 }
