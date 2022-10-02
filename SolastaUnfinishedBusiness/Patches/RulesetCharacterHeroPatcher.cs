@@ -124,11 +124,18 @@ internal static class RulesetCharacterHeroPatcher
     internal static class AcknowledgeAttackUse_Patch
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Prefix(RulesetCharacterHero __instance, RulesetAttackMode mode)
+        internal static void Prefix(RulesetCharacterHero __instance,
+            RulesetAttackMode mode,
+            ref RuleDefinitions.AttackProximity proximity)
         {
             //PATCH: supports turning Produced Flame into a weapon
             //destroys Produced Flame after attacking with it
             CustomWeaponsContext.ProcessProducedFlameAttack(__instance, mode);
+
+            //PATCH: Support for returning weapons
+            //Sets proximity to `Melee` if this was ranged attack with thrown weapon that has returning sub-feature
+            //this will skip removal of the weapon from hand and attempt to get new one from inventory
+            proximity = ReturningWeapon.Process(__instance, mode, proximity);
         }
     }
 

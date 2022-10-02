@@ -16,21 +16,24 @@ public static class GameConsoleHelper
             ? power.GuiPresentation.Title
             : power.ShortTitleOverride;
 
-        LogCharacterActivatesAbility(character, abilityName, text, indent);
+        LogCharacterActivatesAbility(character, abilityName, text, indent, power.Name, "PowerDefinition");
     }
 
     public static void LogCharacterActivatesAbility(
         [NotNull] RulesetCharacter character,
         string abilityName,
         string text = DefaultUseText,
-        bool indent = false)
+        bool indent = false,
+        string tooltipContent = null,
+        string tooltipClass = null)
     {
         var console = Gui.Game.GameConsole;
         var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
+            tooltipContent: tooltipContent, tooltipClass: tooltipClass);
         console.AddEntry(entry);
     }
 
@@ -42,7 +45,7 @@ public static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);

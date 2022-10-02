@@ -68,3 +68,4 @@ Requirement/&FeatureSelectionRequireCharacterLevel=Level {0}
 Requirement/&FeatureSelectionRequireClassLevel=Level {0} of {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
+Feedback/&ReturningWeaponActivates={1} returns to {0}!
