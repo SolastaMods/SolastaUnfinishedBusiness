@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
@@ -49,7 +48,7 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 #endif
-    
+
     internal CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
     {
         Definition.ingredientGatheringOdds = odds;

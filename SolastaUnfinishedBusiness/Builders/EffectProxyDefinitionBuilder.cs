@@ -50,25 +50,25 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
         Definition.isEmptyPresentation = value;
         return this;
     }
-    
+
     internal EffectProxyDefinitionBuilder SetCanMove()
     {
         Definition.canMove = true;
         return this;
     }
-    
+
     internal EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
     {
         Definition.canMoveOnCharacters = true;
         return this;
     }
-    
+
     internal EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
     {
         Definition.actionId = actionId;
         return this;
     }
-    
+
     internal EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
     {
         Definition.attackMethod = proxyAttackMethod;

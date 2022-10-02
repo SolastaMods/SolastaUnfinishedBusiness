@@ -13,12 +13,12 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
 internal static class Infusions
 {
-    private const string ReplicaItemTitleFormat = $"Item/&ReplicaItemFormatTitle";
-    private const string ReplicaItemTitleDescription = $"Item/&ReplicaItemFormatDescription";
+    private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
+    private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
 
     public static readonly FeatureDefinitionFeatureSet ImprovedInfusions = FeatureDefinitionFeatureSetBuilder
         .Create("FeatureSetInfusionUpgrade")
-        .SetGuiPresentationNoContent(hidden: true)
+        .SetGuiPresentationNoContent(true)
         .AddToDB();
 
     public static void Build()

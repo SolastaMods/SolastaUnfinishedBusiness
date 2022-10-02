@@ -7,7 +7,8 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal static class RulesetCharacterHeroExtensions
 {
     [NotNull]
-    internal static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero) where T : class
+    internal static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero)
+        where T : class
     {
         var list = new List<(string, T)>();
 

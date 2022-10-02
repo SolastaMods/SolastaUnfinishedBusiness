@@ -270,7 +270,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             if (isRestricted)
             {
                 var hasRestrictedFeats = false;
-                
+
                 foreach (var restrictedChoice in restrictedChoices)
                 {
                     if (DatabaseRepository.GetDatabase<FeatDefinition>()

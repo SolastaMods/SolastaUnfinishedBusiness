@@ -63,14 +63,12 @@ namespace SolastaUnfinishedBusiness.DataViewer;
      */
 internal class ReflectionSearch : MonoBehaviour
 {
-    internal delegate void SearchProgress(int visitCount, int depth, int breadth);
-
     private static readonly HashSet<int> VisitedInstanceIDs = new();
     private static ReflectionSearch _shared;
     private IEnumerator searchCoroutine;
 
     internal bool IsSearching => searchCoroutine != null;
-    internal static int SequenceNumber { get; private set; }
+    private static int SequenceNumber { get; set; }
 
     internal static ReflectionSearch Shared
     {
@@ -101,6 +99,7 @@ internal class ReflectionSearch : MonoBehaviour
         resultRoot.Node = node;
         StopAllCoroutines();
         updator(0, 0, 1);
+
         if (node == null)
         {
             return;
@@ -147,6 +146,7 @@ internal class ReflectionSearch : MonoBehaviour
             var foundMatch = false;
             var instanceID = node.InstanceID;
             var alreadyVisted = false;
+
             if (instanceID is { } instID)
             {
                 if (VisitedInstanceIDs.Contains(instID))
@@ -248,4 +248,6 @@ internal class ReflectionSearch : MonoBehaviour
             Stop();
         }
     }
+
+    internal delegate void SearchProgress(int visitCount, int depth, int breadth);
 }

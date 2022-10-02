@@ -31,7 +31,8 @@ internal class CustomInvocationPoolType
 
     internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
-    internal static CustomInvocationPoolType Register(string name, BaseDefinition sprite, string requireClassLevel = null)
+    internal static CustomInvocationPoolType Register(string name, BaseDefinition sprite,
+        string requireClassLevel = null)
     {
         return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
     }

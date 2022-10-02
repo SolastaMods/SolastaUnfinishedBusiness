@@ -46,9 +46,9 @@ internal static class Global
     }
 
     internal static RulesetCharacter CurrentGuiCharacter => InspectedHero
-                                                          ?? ActiveLevelUpHero
-                                                          ?? ControlledPlayerCharacter?.RulesetCharacter
-                                                          ?? ActivePlayerCharacter?.RulesetCharacter;
+                                                            ?? ActiveLevelUpHero
+                                                            ?? ControlledPlayerCharacter?.RulesetCharacter
+                                                            ?? ActivePlayerCharacter?.RulesetCharacter;
 
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }

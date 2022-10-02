@@ -155,7 +155,8 @@ internal static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    internal static T SetAnimationMagicEffect<T>([NotNull] this T entity, AnimationDefinitions.AnimationMagicEffect value)
+    internal static T SetAnimationMagicEffect<T>([NotNull] this T entity,
+        AnimationDefinitions.AnimationMagicEffect value)
         where T : EffectDescription
     {
         entity.animationMagicEffect = value;

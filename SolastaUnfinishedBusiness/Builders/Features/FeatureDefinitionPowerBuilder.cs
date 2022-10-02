@@ -86,7 +86,8 @@ internal abstract class
         return This();
     }
 
-    internal TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true, bool proficiencyBonusToAttack = false)
+    internal TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true,
+        bool proficiencyBonusToAttack = false)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;

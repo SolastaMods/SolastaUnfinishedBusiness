@@ -64,7 +64,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         Definition.ItemTags.SetRange(tags);
         return this;
     }
-    
+
     internal ItemDefinitionBuilder AddItemTags(params string[] tags)
     {
         Definition.ItemTags.AddRange(tags);

@@ -226,7 +226,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWearingShield()
                && !hero.IsWieldingTwoHandedWeapon();
     }
-    
+
     internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem rulesetItem)
     {
         if (IsBladeDanceValid(hero))

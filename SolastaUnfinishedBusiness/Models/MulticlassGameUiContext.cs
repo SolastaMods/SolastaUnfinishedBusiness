@@ -559,7 +559,7 @@ internal static class MulticlassGameUiContext
         CharacterHeroBuildingData heroBuildingData)
     {
         var tag = string.Empty;
-        
+
         for (var index = 0; index < panel.learnStepsTable.childCount; ++index)
         {
             var child = panel.learnStepsTable.GetChild(index);
@@ -575,7 +575,7 @@ internal static class MulticlassGameUiContext
                     ? LearnStepItem.Status.Locked
                     : LearnStepItem.Status.Previous
                 : LearnStepItem.Status.InProgress;
-                
+
             if (status == LearnStepItem.Status.InProgress)
             {
                 tag = component.Tag;
@@ -583,7 +583,7 @@ internal static class MulticlassGameUiContext
         }
 
         HeroDefinitions.PointsPoolType poolType;
-        
+
         if (panel.IsFinalStep)
         {
             tag = panel.allTags[panel.allTags.Count - 1];

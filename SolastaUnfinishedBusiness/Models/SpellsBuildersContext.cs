@@ -27,7 +27,7 @@ internal static class SpellsBuildersContext
     //
     // cantrips
     //
-    
+
     internal static SpellDefinition BuildSunlightBlade()
     {
         var highlight = new ConditionOperationDescription
@@ -678,7 +678,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildPetalStorm()
     {
         const string ProxyPetalStormName = "ProxyPetalStorm";
-        
+
         //TODO: move this over to DB partial
         TryGetDefinition<EffectProxyDefinition>("ProxyInsectPlague", out var proxyInsectPlague);
 
@@ -726,16 +726,16 @@ internal static class SpellsBuildersContext
         spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
         spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
         spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
-        
+
         spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
 
         return spell;
     }
-    
+
     //
     // LEVEL 03
     //
-    
+
     internal static SpellDefinition BuildEarthTremor()
     {
         const string NAME = "EarthTremor";

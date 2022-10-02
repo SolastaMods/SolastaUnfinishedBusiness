@@ -51,6 +51,7 @@ internal class UsableDeviceDescriptionBuilder
     }
 
     #region Charge
+
 #if false
     internal UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
@@ -89,6 +90,7 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 #endif
+
     #endregion
 
     #region Recharge
@@ -106,7 +108,7 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 
-#if false    
+#if false
     internal UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         description.rechargeRate = rate;
@@ -131,5 +133,6 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 #endif
+
     #endregion
 }

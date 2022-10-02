@@ -695,7 +695,8 @@ internal static class CustomWeaponsContext
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(item, primed));
     }
 
-    internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero, [NotNull] RulesetAttackMode mode)
+    internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,
+        [NotNull] RulesetAttackMode mode)
     {
         var num = hero.characterInventory.CurrentConfiguration;
         var configurations = hero.characterInventory.WieldedItemsConfigurations;

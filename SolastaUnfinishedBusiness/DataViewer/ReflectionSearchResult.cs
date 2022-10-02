@@ -22,7 +22,6 @@ internal abstract class ResultNode
 
 internal class ResultNode<TNode> : ResultNode where TNode : class
 {
-    internal delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     protected const BindingFlags ALL_FLAGS =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
@@ -106,6 +105,8 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
     {
         return BuildString(new StringBuilder().Append('\n'), 0).ToString();
     }
+
+    internal delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 }
 
 internal class ReflectionSearchResult : ResultNode<Node>

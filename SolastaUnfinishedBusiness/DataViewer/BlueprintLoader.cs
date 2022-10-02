@@ -8,8 +8,6 @@ namespace SolastaUnfinishedBusiness.DataViewer;
 
 internal sealed class BlueprintLoader : MonoBehaviour
 {
-    internal delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
-
     private static BlueprintLoader _shared;
 
     private LoadBlueprintsCallback callback;
@@ -104,4 +102,6 @@ internal sealed class BlueprintLoader : MonoBehaviour
     {
         return coroutine != null;
     }
+
+    internal delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
 }

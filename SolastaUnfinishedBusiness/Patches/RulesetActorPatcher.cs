@@ -176,9 +176,9 @@ public static class RulesetActorPatcher
                     {
                         AttributeDefinitions.HealingPool =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin),
-                        AttributeDefinitions.KiPoints => 
+                        AttributeDefinitions.KiPoints =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk),
-                        AttributeDefinitions.SorceryPoints => 
+                        AttributeDefinitions.SorceryPoints =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Sorcerer),
                         _ => 0
                     };

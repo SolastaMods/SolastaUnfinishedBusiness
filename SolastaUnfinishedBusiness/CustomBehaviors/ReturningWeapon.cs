@@ -8,11 +8,12 @@ public class ReturningWeapon
 {
     private const string ActiveteReturningFormat = "Feedback/&ReturningWeaponActivates";
     private const string TagReturningWeapon = "ReturningWeapon";
-    public static ReturningWeapon Instance { get; } = new();
 
     private ReturningWeapon()
     {
     }
+
+    public static ReturningWeapon Instance { get; } = new();
 
     public static RuleDefinitions.AttackProximity Process(RulesetCharacterHero hero, RulesetAttackMode mode,
         RuleDefinitions.AttackProximity proximity)
@@ -50,7 +51,7 @@ public class ReturningWeapon
         {
             proximity = RuleDefinitions.AttackProximity.Melee;
             GameConsoleHelper.LogCharacterActivatesAbility(hero, droppedItem.ItemDefinition.GuiPresentation.Title,
-                text: ActiveteReturningFormat, tooltipClass: "ItemDefinition", tooltipContent: droppedItem.Name);
+                ActiveteReturningFormat, tooltipClass: "ItemDefinition", tooltipContent: droppedItem.Name);
         }
 
         return proximity;

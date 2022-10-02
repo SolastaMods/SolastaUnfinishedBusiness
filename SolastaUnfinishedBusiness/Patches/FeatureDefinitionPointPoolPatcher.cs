@@ -21,11 +21,13 @@ public static class FeatureDefinitionPointPoolPatcher
 
             var builder = new StringBuilder();
             var separator = Gui.ListSeparator();
-            foreach (string restrictedChoice in choices)
+            foreach (var restrictedChoice in choices)
             {
                 if (builder.Length > 0)
+                {
                     builder.Append(separator);
-                
+                }
+
                 var tool = DatabaseRepository.GetDatabase<ToolTypeDefinition>().GetElement(restrictedChoice);
                 builder.Append(Gui.Localize(tool.GuiPresentation.Title));
             }

@@ -147,7 +147,7 @@ internal static class BootContext
             return;
         }
 
-        GuiTooltipClassDefinition featDef = gui.tooltipClassDefinitions["FeatDefinition"];
+        var featDef = gui.tooltipClassDefinitions["FeatDefinition"];
 
         var prerequisites = featDef.tooltipFeatures.FindIndex(f =>
             f.scope == TooltipDefinitions.Scope.All &&
@@ -227,7 +227,7 @@ internal static class BootContext
     {
         const string BASE_URL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness";
 
-        var destFiles = new[] {"Info.json", "SolastaUnfinishedBusiness.dll"};
+        var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
 
@@ -323,7 +323,7 @@ internal static class BootContext
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {

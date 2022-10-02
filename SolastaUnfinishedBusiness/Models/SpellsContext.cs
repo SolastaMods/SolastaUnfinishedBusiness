@@ -136,7 +136,7 @@ internal static class SpellsContext
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
-        
+
         // 3rd level
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
         RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
@@ -235,7 +235,7 @@ internal static class SpellsContext
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
-                                              && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
+                                                && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
         internal void CalculateAllSpells()
         {

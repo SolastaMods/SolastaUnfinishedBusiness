@@ -148,7 +148,7 @@ public static class ValidatorsCharacter
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     }
-    
+
     [NotNull]
     public static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
     {
