@@ -5,43 +5,43 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 public enum ExtraEffectFormType
 {
-    Damage = EffectForm.EffectFormType.Damage,
-    Healing = EffectForm.EffectFormType.Healing,
-    Condition = EffectForm.EffectFormType.Condition,
-    LightSource = EffectForm.EffectFormType.LightSource,
-    Summon = EffectForm.EffectFormType.Summon,
-    Counter = EffectForm.EffectFormType.Counter,
-    TemporaryHitPoints = EffectForm.EffectFormType.TemporaryHitPoints,
-    Motion = EffectForm.EffectFormType.Motion,
-    SpellSlots = EffectForm.EffectFormType.SpellSlots,
-    Divination = EffectForm.EffectFormType.Divination,
-    ItemProperty = EffectForm.EffectFormType.ItemProperty,
-    Alteration = EffectForm.EffectFormType.Alteration,
-    Topology = EffectForm.EffectFormType.Topology,
-    Revive = EffectForm.EffectFormType.Revive,
-    Kill = EffectForm.EffectFormType.Kill,
-    ShapeChange = EffectForm.EffectFormType.ShapeChange,
+    // Damage = EffectForm.EffectFormType.Damage,
+    // Healing = EffectForm.EffectFormType.Healing,
+    // Condition = EffectForm.EffectFormType.Condition,
+    // LightSource = EffectForm.EffectFormType.LightSource,
+    // Summon = EffectForm.EffectFormType.Summon,
+    // Counter = EffectForm.EffectFormType.Counter,
+    // TemporaryHitPoints = EffectForm.EffectFormType.TemporaryHitPoints,
+    // Motion = EffectForm.EffectFormType.Motion,
+    // SpellSlots = EffectForm.EffectFormType.SpellSlots,
+    // Divination = EffectForm.EffectFormType.Divination,
+    // ItemProperty = EffectForm.EffectFormType.ItemProperty,
+    // Alteration = EffectForm.EffectFormType.Alteration,
+    // Topology = EffectForm.EffectFormType.Topology,
+    // Revive = EffectForm.EffectFormType.Revive,
+    // Kill = EffectForm.EffectFormType.Kill,
+    // ShapeChange = EffectForm.EffectFormType.ShapeChange,
     Custom = 9000
 }
 
 public enum ExtraRitualCasting
 {
-    None = RitualCasting.None,
-    Prepared = RitualCasting.Prepared,
-    Spellbook = RitualCasting.Spellbook,
+    // None = RitualCasting.None,
+    // Prepared = RitualCasting.Prepared,
+    // Spellbook = RitualCasting.Spellbook,
     Known = 9000
 }
 
 public enum ExtraOriginOfAmount
 {
-    None = ConditionDefinition.OriginOfAmount.None,
-    SourceDamage = ConditionDefinition.OriginOfAmount.SourceDamage,
-    SourceGain = ConditionDefinition.OriginOfAmount.SourceGain,
-    AddDice = ConditionDefinition.OriginOfAmount.AddDice,
-    Fixed = ConditionDefinition.OriginOfAmount.Fixed,
-    SourceHalfHitPoints = ConditionDefinition.OriginOfAmount.SourceHalfHitPoints,
-    SourceSpellCastingAbility = ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility,
-    SourceSpellAttack = ConditionDefinition.OriginOfAmount.SourceSpellAttack,
+    // None = ConditionDefinition.OriginOfAmount.None,
+    // SourceDamage = ConditionDefinition.OriginOfAmount.SourceDamage,
+    // SourceGain = ConditionDefinition.OriginOfAmount.SourceGain,
+    // AddDice = ConditionDefinition.OriginOfAmount.AddDice,
+    // Fixed = ConditionDefinition.OriginOfAmount.Fixed,
+    // SourceHalfHitPoints = ConditionDefinition.OriginOfAmount.SourceHalfHitPoints,
+    // SourceSpellCastingAbility = ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility,
+    // SourceSpellAttack = ConditionDefinition.OriginOfAmount.SourceSpellAttack,
     SourceProficiencyBonus = 9000,
     SourceCharacterLevel = 9001,
     SourceClassLevel = 9002
@@ -66,21 +66,21 @@ public enum ExtraTurnOccurenceType
 
 public enum ExtraAdditionalDamageAdvancement
 {
-    None = AdditionalDamageAdvancement.None,
-    ClassLevel = AdditionalDamageAdvancement.ClassLevel,
-    SlotLevel = AdditionalDamageAdvancement.SlotLevel,
+    // None = AdditionalDamageAdvancement.None,
+    // ClassLevel = AdditionalDamageAdvancement.ClassLevel,
+    // SlotLevel = AdditionalDamageAdvancement.SlotLevel,
     CharacterLevel = 9000
 }
 
 public enum ExtraAdvancementDuration
 {
-    None = AdvancementDuration.None,
-
-    // ReSharper disable once InconsistentNaming
-    Hours_1_8_24 = AdvancementDuration.Hours_1_8_24,
-
-    // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
+    // None = AdvancementDuration.None,
+    //
+    // // ReSharper disable once InconsistentNaming
+    // Hours_1_8_24 = AdvancementDuration.Hours_1_8_24,
+    //
+    // // ReSharper disable once InconsistentNaming
+    // Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
     DominateBeast = 9000,
     DominatePerson = 9001,
     DominateMonster = 9002

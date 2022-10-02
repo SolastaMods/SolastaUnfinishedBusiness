@@ -133,7 +133,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(
-                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ClassLevel,
+                        AdditionalDamageAdvancement.ClassLevel,
                         (3, 2),
                         (4, 2),
                         (5, 2),
