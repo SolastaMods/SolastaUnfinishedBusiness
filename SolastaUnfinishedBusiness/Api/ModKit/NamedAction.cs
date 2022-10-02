@@ -4,14 +4,14 @@ using System;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public sealed class NamedAction
+internal sealed class NamedAction
 {
-    public NamedAction(string name, Action action)
+    internal NamedAction(string name, Action action)
     {
         Name = name;
         Action = action;
     }
 
-    public string Name { get; }
-    public Action Action { get; }
+    internal string Name { get; }
+    internal Action Action { get; }
 }

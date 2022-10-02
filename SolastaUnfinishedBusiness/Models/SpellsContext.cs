@@ -216,7 +216,7 @@ internal static class SpellsContext
 
     internal sealed class SpellListContext
     {
-        public SpellListContext(SpellListDefinition spellListDefinition)
+        internal SpellListContext(SpellListDefinition spellListDefinition)
         {
             SpellList = spellListDefinition;
             AllSpells = new HashSet<SpellDefinition>();
@@ -226,18 +226,18 @@ internal static class SpellsContext
 
         private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
         private SpellListDefinition SpellList { get; }
-        public HashSet<SpellDefinition> AllSpells { get; }
-        public HashSet<SpellDefinition> MinimumSpells { get; }
-        public HashSet<SpellDefinition> SuggestedSpells { get; }
+        internal HashSet<SpellDefinition> AllSpells { get; }
+        internal HashSet<SpellDefinition> MinimumSpells { get; }
+        internal HashSet<SpellDefinition> SuggestedSpells { get; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
+        internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
+        internal bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
                                               && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
-        public void CalculateAllSpells()
+        internal void CalculateAllSpells()
         {
             var minSpellLevel = SpellList.HasCantrips ? 0 : 1;
             var maxSpellLevel = SpellList.MaxSpellLevel;
@@ -252,7 +252,7 @@ internal static class SpellsContext
             }
         }
 
-        public void SelectAllSetInternal(bool toggle)
+        internal void SelectAllSetInternal(bool toggle)
         {
             foreach (var spell in AllSpells)
             {
@@ -260,7 +260,7 @@ internal static class SpellsContext
             }
         }
 
-        public void SelectSuggestedSetInternal(bool toggle)
+        internal void SelectSuggestedSetInternal(bool toggle)
         {
             if (toggle)
             {
@@ -273,7 +273,7 @@ internal static class SpellsContext
             }
         }
 
-        public void Switch([NotNull] SpellDefinition spellDefinition, bool active)
+        internal void Switch([NotNull] SpellDefinition spellDefinition, bool active)
         {
             var spellListName = SpellList.Name;
             var spellName = spellDefinition.Name;

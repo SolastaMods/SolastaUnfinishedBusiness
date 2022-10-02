@@ -4,27 +4,27 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-// keep public for sidecars
-public static class Global
+// keep internal for sidecars
+internal static class Global
 {
     internal const string ErrorColor = "EA7171";
 
     // true if in a multiplayer game
-    public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
     // active level up hero
     [CanBeNull]
-    public static RulesetCharacterHero ActiveLevelUpHero =>
+    internal static RulesetCharacterHero ActiveLevelUpHero =>
         ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 
     // last level up hero name
-    public static string LastLevelUpHeroName { get; set; }
+    internal static string LastLevelUpHeroName { get; set; }
 
     // inspected hero on both location and pool
-    [CanBeNull] public static RulesetCharacterHero InspectedHero { get; set; }
+    [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
     // active player character
-    public static GameLocationCharacter ActivePlayerCharacter { get; private set; }
+    internal static GameLocationCharacter ActivePlayerCharacter { get; private set; }
 
     private static GameLocationCharacter ControlledPlayerCharacter
     {
@@ -45,19 +45,19 @@ public static class Global
         }
     }
 
-    public static RulesetCharacter CurrentGuiCharacter => InspectedHero
+    internal static RulesetCharacter CurrentGuiCharacter => InspectedHero
                                                           ?? ActiveLevelUpHero
                                                           ?? ControlledPlayerCharacter?.RulesetCharacter
                                                           ?? ActivePlayerCharacter?.RulesetCharacter;
 
     // current action from any character on the map
-    public static CharacterAction CurrentAction { get; private set; }
+    internal static CharacterAction CurrentAction { get; private set; }
 
     // casted spell
-    public static SpellDefinition CastedSpell { get; private set; }
+    internal static SpellDefinition CastedSpell { get; private set; }
 
     // last attack was a critical hit
-    public static bool CriticalHit { get; set; }
+    internal static bool CriticalHit { get; set; }
 
     // conditions that should display on char panel even if set to silent
     internal static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
@@ -95,7 +95,7 @@ public static class Global
         }
     }
 
-    // public static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
+    // internal static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
     // {
     //     var hero = ActiveLevelUpHero;
     //
@@ -108,14 +108,14 @@ public static class Global
     //            || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
     // }
 
-    // public static bool ActiveLevelUpHeroHasSubclass(string subclass)
+    // internal static bool ActiveLevelUpHeroHasSubclass(string subclass)
     // {
     //     var hero = ActiveLevelUpHero;
     //
     //     return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
     // }
 
-    // public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
+    // internal static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
     // {
     //     var hero = ActiveLevelUpHero;
     //

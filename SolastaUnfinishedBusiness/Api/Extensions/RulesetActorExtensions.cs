@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
-public static class RulesetActorExtensions
+internal static class RulesetActorExtensions
 {
     /// <summary>
     ///     Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
@@ -17,7 +17,7 @@ public static class RulesetActorExtensions
     /// </param>
     /// <param name="featuresOrigin"></param>
     [NotNull]
-    public static ICollection<T> EnumerateFeaturesToBrowse<T>(
+    internal static ICollection<T> EnumerateFeaturesToBrowse<T>(
         [NotNull] this RulesetActor actor,
         bool populateActorFeaturesToBrowse = false,
         [CanBeNull] Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
@@ -43,13 +43,13 @@ public static class RulesetActorExtensions
     }
 
     [NotNull]
-    public static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
+    internal static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
     {
         return FeaturesByType<T>(actor);
     }
 
 #if false
-    public static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
+    internal static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
     {
         return hero.ActiveFeatures
             .Where(e => e.Key.Contains(tag))
@@ -67,12 +67,12 @@ public static class RulesetActorExtensions
     }
 #endif
 
-    public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
+    internal static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
     {
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
     }
 
-    public static bool HasAllFeatures(this RulesetActor actor, [NotNull] params FeatureDefinition[] features)
+    internal static bool HasAllFeatures(this RulesetActor actor, [NotNull] params FeatureDefinition[] features)
     {
         var all = FeaturesByType<FeatureDefinition>(actor);
         return FlattenFeatureList(features).All(f => all.Contains(f));
@@ -88,14 +88,14 @@ public static class RulesetActorExtensions
     }
 
     [NotNull]
-    public static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
+    internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
     {
         return FeaturesByType<FeatureDefinition>(actor)
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
     }
 
-    public static bool HasSubFeatureOfType<T>(this RulesetActor actor) where T : class
+    internal static bool HasSubFeatureOfType<T>(this RulesetActor actor) where T : class
     {
         return FeaturesByType<FeatureDefinition>(actor)
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())

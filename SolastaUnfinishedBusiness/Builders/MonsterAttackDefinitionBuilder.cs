@@ -3,13 +3,13 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class
+internal abstract class
     MonsterAttackDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : MonsterAttackDefinition
     where TBuilder : MonsterAttackDefinitionBuilder<TDefinition, TBuilder>
 
 {
-    public TBuilder SetEffectDescription(EffectDescription effect)
+    internal TBuilder SetEffectDescription(EffectDescription effect)
     {
         Definition.EffectDescription = effect;
         return This();
@@ -44,20 +44,20 @@ internal class MonsterAttackDefinitionBuilder : MonsterAttackDefinitionBuilder<M
 {
     #region Constructors
 
-    public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    internal MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    public MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    internal MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
     {
     }
 
-    public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(
+    internal MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(
         original, name, namespaceGuid)
     {
     }
 
-    public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string definitionGuid) :
+    internal MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string definitionGuid) :
         base(original, name, definitionGuid)
     {
     }

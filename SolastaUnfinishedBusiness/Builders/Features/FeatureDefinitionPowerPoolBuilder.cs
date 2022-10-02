@@ -33,7 +33,7 @@ internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder
             $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
     }
 
-    public FeatureDefinitionPowerPoolBuilder Configure(
+    internal FeatureDefinitionPowerPoolBuilder Configure(
         int usesPerRecharge,
         RuleDefinitions.UsesDetermination usesDetermination,
         string usesAbilityScoreName,
@@ -48,7 +48,7 @@ internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder
         return This();
     }
 
-    public FeatureDefinitionPowerPoolBuilder SetUsesProficiency()
+    internal FeatureDefinitionPowerPoolBuilder SetUsesProficiency()
     {
         Definition.proficiencyBonusToAttack = true;
         return This();

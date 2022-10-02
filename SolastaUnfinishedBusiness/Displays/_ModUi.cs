@@ -26,7 +26,7 @@ using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 namespace SolastaUnfinishedBusiness.Displays
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class ModUi : IMenuSelectablePage
+    internal class ModUi : IMenuSelectablePage
     {
         internal const float PixelsPerColumn = 220;
         private int characterSelectedPane;
@@ -175,7 +175,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    public class GameplayViewer : IMenuSelectablePage
+    internal class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;
         public string Name => Gui.Localize("ModUi/&Gameplay");
@@ -192,7 +192,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    public class InterfaceViewer : IMenuSelectablePage
+    internal class InterfaceViewer : IMenuSelectablePage
     {
         private int interfaceSelectedPane;
         public string Name => Gui.Localize("ModUi/&Interface");
@@ -209,7 +209,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    public class EncountersViewer : IMenuSelectablePage
+    internal class EncountersViewer : IMenuSelectablePage
     {
         private int encountersSelectedPane;
         public string Name => Gui.Localize("ModUi/&Encounters");
@@ -226,7 +226,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
+    internal class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         private int creditsSelectedPane;
         public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");

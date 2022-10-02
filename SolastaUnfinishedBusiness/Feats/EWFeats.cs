@@ -13,16 +13,16 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
-public static class EwFeats
+internal static class EwFeats
 {
-    public const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
-    public const string SentinelFeat = "FeatSentinel";
+    internal const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
+    internal const string SentinelFeat = "FeatSentinel";
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
     private const string RecklessAttackFeat = "FeatRecklessAttack";
     private const string WarcasterFeat = "FeatWarCaster";
 
-    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildSentinel());
         feats.Add(BuildPolearmExpert());

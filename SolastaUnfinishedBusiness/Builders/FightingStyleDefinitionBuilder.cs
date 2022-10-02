@@ -4,12 +4,12 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class
+internal abstract class
     FightingStyleDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FightingStyleDefinition
     where TBuilder : FightingStyleDefinitionBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetFeatures(params FeatureDefinition[] features)
+    internal TBuilder SetFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.SetRange(features.OrderBy(f => f.Name));
         Definition.Features.Sort(Sorting.Compare);

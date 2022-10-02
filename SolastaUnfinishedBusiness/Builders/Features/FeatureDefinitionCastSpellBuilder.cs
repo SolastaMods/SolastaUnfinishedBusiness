@@ -150,50 +150,50 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         SetSlotsZero();
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
+    internal FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
     {
         Definition.spellCastingOrigin = origin;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
+    internal FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
     {
         Definition.spellcastingAbility = attribute;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
+    internal FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
     {
         Definition.spellListDefinition = spellList;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
+    internal FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
     {
         Definition.spellKnowledge = knowledge;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
+    internal FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
     {
         Definition.spellReadyness = readyness;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
+    internal FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
     {
         Definition.slotsRecharge = slotRecharge;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
+    internal FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
     {
         Definition.RestrictedSchools.Add(school.Name);
         Definition.RestrictedSchools.Sort();
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
+    internal FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
     {
         foreach (var school in schools)
         {
@@ -204,7 +204,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
+    internal FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
     {
         Definition.ScribedSpells.SetRange(scribedCount);
         return this;
@@ -219,18 +219,18 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
     {
         return SetKnownCantrips(cantripsCount.AsEnumerable());
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
     {
         Definition.KnownCantrips.SetRange(cantripsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(
         int startingAmount,
         int startingLevel,
         CasterProgression progression)
@@ -355,38 +355,38 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
     {
         Definition.KnownSpells.SetRange(spellsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
+    internal FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
     {
         EnumerateKnownSpells(startingAmount, progression, Definition.KnownSpells);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
+    internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
     {
         Definition.ReplacedSpells.SetRange(spellsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
+    internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
     {
         EnumerateReplacedSpells(startingLevel, replaces, Definition.ReplacedSpells);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
+    internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
         params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
     {
         Definition.SlotsPerLevels.SetRange(slotsPerLevels);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
+    internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
     {
         EnumerateSlotsPerLevel(progression, Definition.SlotsPerLevels);
         return this;

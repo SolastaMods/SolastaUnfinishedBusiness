@@ -1345,7 +1345,7 @@ internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
     private readonly string _notificationTag;
     private readonly SpellDefinition _spell;
 
-    public ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+    internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
     {
         _spell = spell;
         _notificationTag = notificationTag;

@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
+internal class
     GuiTooltipClassDefinitionBuilder : DefinitionBuilder<GuiTooltipClassDefinition, GuiTooltipClassDefinitionBuilder>
 {
     #region Constructors
@@ -29,20 +29,20 @@ public class
 
     #endregion
 
-    public GuiTooltipClassDefinitionBuilder SetTooltipFeatures(IEnumerable<TooltipDefinitions.FeatureInfo> features)
+    internal GuiTooltipClassDefinitionBuilder SetTooltipFeatures(IEnumerable<TooltipDefinitions.FeatureInfo> features)
     {
         Definition.tooltipFeatures.SetRange(features);
         return this;
     }
 
-    public GuiTooltipClassDefinitionBuilder AddTooltipFeature(TooltipDefinitions.FeatureInfo feature)
+    internal GuiTooltipClassDefinitionBuilder AddTooltipFeature(TooltipDefinitions.FeatureInfo feature)
     {
         Definition.tooltipFeatures.Add(feature);
         return this;
     }
 
 
-    public GuiTooltipClassDefinitionBuilder SetPanelWidth(float width)
+    internal GuiTooltipClassDefinitionBuilder SetPanelWidth(float width)
     {
         Definition.panelWidth = width;
         return this;

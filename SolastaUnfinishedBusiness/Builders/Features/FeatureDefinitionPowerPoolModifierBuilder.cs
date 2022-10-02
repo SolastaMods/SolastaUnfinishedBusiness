@@ -41,7 +41,7 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
             $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
     }
 
-    public FeatureDefinitionPowerPoolModifierBuilder Configure(
+    internal FeatureDefinitionPowerPoolModifierBuilder Configure(
         int powerPoolModifier,
         RuleDefinitions.UsesDetermination usesDetermination,
         string usesAbilityScoreName,

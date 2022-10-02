@@ -3,17 +3,17 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : WeaponTypeDefinition
     where TBuilder : WeaponTypeDefinitionBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetWeaponCategory(WeaponCategoryDefinition category)
+    internal TBuilder SetWeaponCategory(WeaponCategoryDefinition category)
     {
         Definition.weaponCategory = category.Name;
         return This();
     }
 
-    public TBuilder SetAnimationTag(string tag)
+    internal TBuilder SetAnimationTag(string tag)
     {
         Definition.animationTag = tag;
         return This();
@@ -48,20 +48,20 @@ internal class WeaponTypeDefinitionBuilder
 {
     #region Constructors
 
-    public WeaponTypeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    internal WeaponTypeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    public WeaponTypeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    internal WeaponTypeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
     {
     }
 
-    public WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, Guid namespaceGuid) : base(original,
+    internal WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
     {
     }
 
-    public WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, string definitionGuid) : base(
+    internal WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, string definitionGuid) : base(
         original, name, definitionGuid)
     {
     }

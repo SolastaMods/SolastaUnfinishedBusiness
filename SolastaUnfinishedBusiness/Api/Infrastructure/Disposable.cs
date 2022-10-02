@@ -3,7 +3,7 @@ using System;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public abstract class Disposable : IDisposable
+internal abstract class Disposable : IDisposable
 {
     #region Public Methods and Operators
 

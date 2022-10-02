@@ -19,14 +19,14 @@ internal static class RulesetitemExtensions
     }
 
     [NotNull]
-    public static List<T> GetSubFeaturesByType<T>(this RulesetItem item) where T : class
+    internal static List<T> GetSubFeaturesByType<T>(this RulesetItem item) where T : class
     {
         return FeaturesByType<FeatureDefinition>(item)
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
     }
 
-    public static bool HasSubFeatureOfType<T>(this RulesetItem item) where T : class
+    internal static bool HasSubFeatureOfType<T>(this RulesetItem item) where T : class
     {
         return FeaturesByType<FeatureDefinition>(item)
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())

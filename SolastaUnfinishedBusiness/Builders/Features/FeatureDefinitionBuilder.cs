@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class FeatureDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal abstract class FeatureDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinition
     where TBuilder : FeatureDefinitionBuilder<TDefinition, TBuilder>
 {

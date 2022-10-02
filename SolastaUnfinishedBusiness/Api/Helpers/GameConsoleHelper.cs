@@ -2,11 +2,11 @@
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-public static class GameConsoleHelper
+internal static class GameConsoleHelper
 {
     private const string DefaultUseText = "Feedback/&ActivatePowerLine";
 
-    public static void LogCharacterUsedPower(
+    internal static void LogCharacterUsedPower(
         [NotNull] RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power,
         string text = DefaultUseText,
@@ -19,7 +19,7 @@ public static class GameConsoleHelper
         LogCharacterActivatesAbility(character, abilityName, text, indent, power.Name, "PowerDefinition");
     }
 
-    public static void LogCharacterActivatesAbility(
+    internal static void LogCharacterActivatesAbility(
         [NotNull] RulesetCharacter character,
         string abilityName,
         string text = DefaultUseText,
@@ -37,7 +37,7 @@ public static class GameConsoleHelper
         console.AddEntry(entry);
     }
 
-    public static void LogCharacterAffectsTarget(
+    internal static void LogCharacterAffectsTarget(
         [NotNull] RulesetCharacter character,
         [NotNull] RulesetCharacter target,
         string notificationTag,

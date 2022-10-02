@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public enum CasterType
+internal enum CasterType
 {
     None = 0,
     Full = 2,
@@ -24,14 +24,14 @@ public enum CasterType
     OneThird = 6
 }
 
-public static class SharedSpellsContext
+internal static class SharedSpellsContext
 {
     internal const int PactMagicSlotsTab = -1;
 
     // supports custom MaxSpellLevelOfSpellCastLevel behaviors
     internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
 
-    public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
+    internal static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
     {
         { PowerCircleLandNaturalRecovery.Name, Druid },
         { PowerWizardArcaneRecovery.Name, Wizard },
@@ -61,7 +61,7 @@ public static class SharedSpellsContext
         { PathOfTheRageMage.Name, CasterType.OneThird }
     };
 
-    public static RulesetCharacterHero GetHero(string name)
+    internal static RulesetCharacterHero GetHero(string name)
     {
         // try to get hero from game campaign
         var gameCampaign = Gui.GameCampaign;
@@ -103,7 +103,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    public static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool IsMulticaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero != null
                && rulesetCharacterHero.SpellRepertoires
@@ -111,7 +111,7 @@ public static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    public static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero != null
                && rulesetCharacterHero.SpellRepertoires
@@ -161,14 +161,14 @@ public static class SharedSpellsContext
             : 0;
     }
 
-    public static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 
         return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
     }
 
-    public static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
 
@@ -183,12 +183,12 @@ public static class SharedSpellsContext
     }
 
     [CanBeNull]
-    public static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static RulesetSpellRepertoire GetWarlockSpellRepertoire([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
     }
 
-    public static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero?.ClassesAndLevels == null)
         {
@@ -220,7 +220,7 @@ public static class SharedSpellsContext
         return casterLevelContext.GetCasterLevel();
     }
 
-    public static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
         if (!IsSharedcaster(rulesetCharacterHero))
         {
@@ -316,7 +316,7 @@ public static class SharedSpellsContext
     {
         private readonly Dictionary<CasterType, int> levels;
 
-        public CasterLevelContext()
+        internal CasterLevelContext()
         {
             levels = new Dictionary<CasterType, int>
             {
@@ -328,12 +328,12 @@ public static class SharedSpellsContext
             };
         }
 
-        public void IncrementCasterLevel(CasterType casterType, int increment)
+        internal void IncrementCasterLevel(CasterType casterType, int increment)
         {
             levels[casterType] += increment;
         }
 
-        public int GetCasterLevel()
+        internal int GetCasterLevel()
         {
             var casterLevel = 0;
 

@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ElAntoniousFeats
 {
-    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")

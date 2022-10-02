@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class MulticlassGameUiContext
+internal static class MulticlassGameUiContext
 {
     private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
     private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
     private static readonly float[] FontSizes = { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
 
-    public static float GetFontSize(int classesCount)
+    internal static float GetFontSize(int classesCount)
     {
         return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
     }
@@ -115,7 +115,7 @@ public static class MulticlassGameUiContext
         LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.spellsByLevelTable);
     }
 
-    public static void PaintPactSlots(
+    internal static void PaintPactSlots(
         [NotNull] RulesetCharacterHero hero,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
@@ -210,7 +210,7 @@ public static class MulticlassGameUiContext
     }
 
     // reaction and flexible panels should paint white slots first
-    public static void PaintPactSlotsAlternate(
+    internal static void PaintPactSlotsAlternate(
         [NotNull] RulesetCharacterHero hero,
         int totalSlotsCount,
         int totalSlotsRemainingCount,
@@ -271,7 +271,7 @@ public static class MulticlassGameUiContext
         }
     }
 
-    public static void PaintSlotsWhite([NotNull] RectTransform rectTransform)
+    internal static void PaintSlotsWhite([NotNull] RectTransform rectTransform)
     {
         for (var index = 0; index < rectTransform.childCount; ++index)
         {
@@ -283,7 +283,7 @@ public static class MulticlassGameUiContext
     }
 
     /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
-    public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
+    internal static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
         [NotNull] RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
     {
         var selectedSlot = -1;
@@ -325,7 +325,7 @@ public static class MulticlassGameUiContext
     }
 
     [CanBeNull]
-    public static string GetAllClassesLabel([CanBeNull] GuiCharacter character, char separator)
+    internal static string GetAllClassesLabel([CanBeNull] GuiCharacter character, char separator)
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var builder = new StringBuilder();
@@ -388,7 +388,7 @@ public static class MulticlassGameUiContext
     }
 
     [NotNull]
-    public static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
+    internal static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
     {
         Assert.IsNotNull(character, nameof(character));
 
@@ -420,7 +420,7 @@ public static class MulticlassGameUiContext
         return builder.Remove(builder.Length - 1, 1).ToString();
     }
 
-    public static void SpellsByLevelGroupBindLearning(
+    internal static void SpellsByLevelGroupBindLearning(
         [NotNull] SpellsByLevelGroup group,
         [NotNull] ICharacterBuildingService characterBuildingService,
         FeatureDefinitionCastSpell spellFeature,
@@ -680,7 +680,7 @@ public static class MulticlassGameUiContext
     }
 
     [CanBeNull]
-    public static string GetLevelAndExperienceTooltip([NotNull] GuiCharacter character)
+    internal static string GetLevelAndExperienceTooltip([NotNull] GuiCharacter character)
     {
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;

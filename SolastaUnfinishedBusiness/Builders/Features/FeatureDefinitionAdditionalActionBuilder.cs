@@ -10,26 +10,26 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction,
     FeatureDefinitionAdditionalActionBuilder>
 {
-    public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
+    internal FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
     {
         Definition.actionType = actionType;
         return this;
     }
 
-    public FeatureDefinitionAdditionalActionBuilder SetMaxAttacksNumber(int maxAttacksNumber)
+    internal FeatureDefinitionAdditionalActionBuilder SetMaxAttacksNumber(int maxAttacksNumber)
     {
         Definition.maxAttacksNumber = maxAttacksNumber;
         return this;
     }
 
-    public FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
+    internal FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
         RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
     {
         Definition.triggerCondition = triggerCondition;
         return this;
     }
 
-    public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
+    internal FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
         params ActionDefinitions.Id[] restrictedActions)
     {
         Definition.RestrictedActions.SetRange(restrictedActions);

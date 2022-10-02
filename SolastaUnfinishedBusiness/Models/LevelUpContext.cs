@@ -9,7 +9,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class LevelUpContext
+internal static class LevelUpContext
 {
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
@@ -601,20 +601,20 @@ public static class LevelUpContext
     // keeps the multiclass level up context
     private sealed class LevelUpData
     {
-        public CharacterClassDefinition SelectedClass;
-        public CharacterSubclassDefinition SelectedSubclass;
+        internal CharacterClassDefinition SelectedClass;
+        internal CharacterSubclassDefinition SelectedSubclass;
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsClassSelectionStage { get; set; }
+        internal bool IsClassSelectionStage { get; set; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsLevelingUp { get; set; }
+        internal bool IsLevelingUp { get; set; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool RequiresDeity { get; set; }
-        public HashSet<ItemDefinition> GrantedItems { get; set; }
-        public HashSet<SpellDefinition> AllowedSpells { get; set; }
-        public HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
-        public HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
+        internal bool RequiresDeity { get; set; }
+        internal HashSet<ItemDefinition> GrantedItems { get; set; }
+        internal HashSet<SpellDefinition> AllowedSpells { get; set; }
+        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
+        internal HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
     }
 }

@@ -140,7 +140,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
     }
 }
 
-public class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
+internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
     CustomInvocationDefinitionBuilder>
 {
     internal CustomInvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

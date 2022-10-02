@@ -97,7 +97,7 @@ public abstract class Node
     }
 
     [Obsolete("TODO - move this into a proper view model", false)]
-    public ToggleState Expanded { get; set; }
+    internal ToggleState Expanded { get; set; }
 
     [Obsolete("TODO - move this into a proper view model", false)]
     public bool Matches { get; set; }

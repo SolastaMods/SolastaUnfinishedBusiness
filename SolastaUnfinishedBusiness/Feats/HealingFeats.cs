@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class HealingFeats
 {
-    public static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats(List<FeatDefinition> feats)
     {
         var inspiringLeaderPresentation = GuiPresentationBuilder.Build(
             "FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);

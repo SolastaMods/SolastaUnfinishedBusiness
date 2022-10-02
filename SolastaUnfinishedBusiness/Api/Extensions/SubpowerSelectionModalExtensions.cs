@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal static class SubpowerSelectionModalExtensions
 {
     //Re-implements native method, but uses lust of powers instead of feature set
-    public static void Bind(this SubpowerSelectionModal instance,
+    internal static void Bind(this SubpowerSelectionModal instance,
         List<FeatureDefinitionPower> powers,
         RulesetCharacter caster,
         SubpowerSelectionModal.SubpowerEngagedHandler subpowerEngaged,

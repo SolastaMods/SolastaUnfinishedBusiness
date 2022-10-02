@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionOnMagicalAttackDamageEffect, FeatureDefinitionOnMagicalAttackDamageEffectBuilder>
 {
-    public FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegates(
+    internal FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegates(
         OnMagicalAttackDamageDelegate before, OnMagicalAttackDamageDelegate after)
     {
         Definition.SetOnMagicalAttackDamageDelegates(before, after);

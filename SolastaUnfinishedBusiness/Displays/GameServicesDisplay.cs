@@ -67,7 +67,7 @@ internal static class GameServicesDisplay
         }
     }
 
-    public static void DisplayGameServices()
+    internal static void DisplayGameServices()
     {
         try
         {

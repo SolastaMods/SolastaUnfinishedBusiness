@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Testing
 {
-    public static class Tests
+    internal static class Tests
     {
         internal static void CheckDatabaseDefinitions()
         {
@@ -374,7 +374,7 @@ namespace SolastaUnfinishedBusiness.Api.Testing
 
         private sealed class TestObj
         {
-            public TestObj(string testValue)
+            internal TestObj(string testValue)
             {
                 TestProp = testValue;
             }

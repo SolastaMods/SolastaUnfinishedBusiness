@@ -217,7 +217,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     }
 
     // marker to reroll any damage die including sneak attack
-    public sealed class RavenRerollAnyDamageDieMarker
+    internal sealed class RavenRerollAnyDamageDieMarker
     {
     }
 

@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition, LootPackDefinitionBuilder>
 {
-    public LootPackDefinitionBuilder SetItemOccurrencesList([NotNull] params ItemOccurence[] occurrences)
+    internal LootPackDefinitionBuilder SetItemOccurrencesList([NotNull] params ItemOccurence[] occurrences)
     {
         Definition.ItemOccurencesList.SetRange(occurrences);
         return this;

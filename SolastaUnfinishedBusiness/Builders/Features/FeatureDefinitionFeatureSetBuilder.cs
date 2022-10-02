@@ -6,38 +6,38 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionFeatureSet
     where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
+    internal TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
     {
         Definition.FeatureSet.SetRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return (TBuilder)this;
     }
 
-    public TBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
+    internal TBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
     {
         Definition.FeatureSet.AddRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return (TBuilder)this;
     }
 
-    public TBuilder SetEnumerateInDescription(bool value)
+    internal TBuilder SetEnumerateInDescription(bool value)
     {
         Definition.enumerateInDescription = value;
         return (TBuilder)this;
     }
 
-    public TBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
+    internal TBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
         Definition.mode = mode;
         return (TBuilder)this;
     }
 
-    public TBuilder SetUniqueChoices(bool uniqueChoice)
+    internal TBuilder SetUniqueChoices(bool uniqueChoice)
     {
         Definition.uniqueChoices = uniqueChoice;
         return (TBuilder)this;

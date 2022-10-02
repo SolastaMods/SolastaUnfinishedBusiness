@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class PlayerControllerContext
+internal static class PlayerControllerContext
 {
     private const int PlayerControllerID = 1;
 

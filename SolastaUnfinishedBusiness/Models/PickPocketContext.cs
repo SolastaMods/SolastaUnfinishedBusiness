@@ -10,7 +10,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.TreasureTableDefinitio
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class PickPocketContext
+internal static class PickPocketContext
 {
     private static bool _initialized;
 

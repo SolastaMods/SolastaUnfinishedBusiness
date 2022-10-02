@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    public class PushValue<T> : Disposable
+    internal class PushValue<T> : Disposable
     {
         private readonly T oldValue;
         private Action<T> setValue;

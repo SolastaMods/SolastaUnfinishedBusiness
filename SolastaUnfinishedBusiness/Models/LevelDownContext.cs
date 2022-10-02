@@ -190,7 +190,7 @@ internal static class LevelDownContext
 
     internal sealed class FunctorLevelDown : Functor
     {
-        public override IEnumerator Execute(
+        internal override IEnumerator Execute(
             FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
         {

@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class StockUnitDescriptionBuilder
+internal class StockUnitDescriptionBuilder
 {
     private string _factionStatus = DatabaseHelper.FactionStatusDefinitions.Alliance.Name;
     private int _initialAmount = 1;
@@ -16,13 +16,13 @@ public class StockUnitDescriptionBuilder
     private string _requiredFaction = string.Empty;
     private int _stackCount = 1;
 
-    public StockUnitDescriptionBuilder SetItem(ItemDefinition itemDefinition)
+    internal StockUnitDescriptionBuilder SetItem(ItemDefinition itemDefinition)
     {
         _itemDefinition = itemDefinition;
         return this;
     }
 
-    public StockUnitDescriptionBuilder SetStock(int stackCount = 1, int initialAmount = 0,
+    internal StockUnitDescriptionBuilder SetStock(int stackCount = 1, int initialAmount = 0,
         int minAmount = 0, int maxAmount = 1)
     {
         _stackCount = stackCount;
@@ -32,7 +32,7 @@ public class StockUnitDescriptionBuilder
         return this;
     }
 
-    public StockUnitDescriptionBuilder SetRestock(int reassortAmount = 0,
+    internal StockUnitDescriptionBuilder SetRestock(int reassortAmount = 0,
         RuleDefinitions.DurationType reassortRateType = RuleDefinitions.DurationType.Day, int reassortRateValue = 1)
     {
         _reassortAmount = reassortAmount;
@@ -41,14 +41,14 @@ public class StockUnitDescriptionBuilder
         return this;
     }
 
-    public StockUnitDescriptionBuilder SetFaction(string faction, string status)
+    internal StockUnitDescriptionBuilder SetFaction(string faction, string status)
     {
         _requiredFaction = faction;
         _factionStatus = status;
         return this;
     }
 
-    public StockUnitDescription Build()
+    internal StockUnitDescription Build()
     {
         if (_itemDefinition == null)
         {

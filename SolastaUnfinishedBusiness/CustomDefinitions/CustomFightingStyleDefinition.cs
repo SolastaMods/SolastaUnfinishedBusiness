@@ -24,7 +24,7 @@ public sealed class CustomFightingStyleDefinition : FightingStyleDefinition, ICu
 }
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
+internal class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     CustomFightingStyleDefinition,
     CustomizableFightingStyleBuilder>
 {

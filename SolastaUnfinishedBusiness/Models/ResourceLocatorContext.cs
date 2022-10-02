@@ -13,14 +13,14 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class ResourceLocatorContext
 {
-    public static void Load()
+    internal static void Load()
     {
-        // Add our resource provider - no public API?
+        // Add our resource provider - no internal API?
         Addressables.ResourceManager
             .GetField<IList<IResourceProvider>>("m_ResourceProviders")
             .TryAdd(SpriteResourceProvider.Instance);
 
-        // Add our resource locator - there is a public API.
+        // Add our resource locator - there is a internal API.
         Addressables.AddResourceLocator(SpriteResourceLocator.Instance);
     }
 }
@@ -29,7 +29,7 @@ internal static class ResourceLocatorContext
 internal sealed class SpriteResourceProvider : ResourceProviderBase
 {
     private SpriteResourceProvider() { }
-    public static SpriteResourceProvider Instance { get; } = new();
+    internal static SpriteResourceProvider Instance { get; } = new();
 
     public override void Provide(ProvideHandle provideHandle)
     {
@@ -60,7 +60,7 @@ internal sealed class SpriteResourceLocator : IResourceLocator
 
     private SpriteResourceLocator() { }
 
-    public static SpriteResourceLocator Instance { get; } = new();
+    internal static SpriteResourceLocator Instance { get; } = new();
 
     // These two properties don't seem to be used
     [CanBeNull] public string LocatorId => GetType().FullName;
@@ -93,11 +93,11 @@ internal sealed class SpriteResourceLocator : IResourceLocator
 // ResourceLocation of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
 internal sealed class SpriteResourceLocation : ResourceLocationBase
 {
-    public SpriteResourceLocation(Sprite sprite, string name, string id)
+    internal SpriteResourceLocation(Sprite sprite, string name, string id)
         : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
     {
         Sprite = sprite;
     }
 
-    public Sprite Sprite { get; }
+    internal Sprite Sprite { get; }
 }

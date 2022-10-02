@@ -11,19 +11,19 @@ internal class FeatureDefinitionSummoningAffinityBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity,
         FeatureDefinitionSummoningAffinityBuilder>
 {
-    public FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
+    internal FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
     {
         Definition.EffectForms.Clear();
         return this;
     }
 
-    public FeatureDefinitionSummoningAffinityBuilder SetRequiredMonsterTag(string tag)
+    internal FeatureDefinitionSummoningAffinityBuilder SetRequiredMonsterTag(string tag)
     {
         Definition.requiredMonsterTag = tag;
         return this;
     }
 
-    public FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(params ConditionDefinition[] value)
+    internal FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(params ConditionDefinition[] value)
     {
         Definition.AddedConditions.SetRange(value);
         Definition.AddedConditions.Sort(Sorting.Compare);

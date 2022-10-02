@@ -11,27 +11,27 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAutoPreparedSpellsBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
 {
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
+    internal FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
         params AutoPreparedSpellsGroup[] autoSpellLists)
     {
         Definition.AutoPreparedSpellsGroups.SetRange(autoSpellLists);
         return this;
     }
 
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(
+    internal FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(
         CharacterClassDefinition castingClass)
     {
         Definition.spellcastingClass = castingClass;
         return this;
     }
 
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetAutoTag(string tag)
+    internal FeatureDefinitionAutoPreparedSpellsBuilder SetAutoTag(string tag)
     {
         Definition.autopreparedTag = tag;
         return this;
     }
 
-    public FeatureDefinitionAutoPreparedSpellsBuilder SetSpellcastingClass(CharacterClassDefinition characterClass)
+    internal FeatureDefinitionAutoPreparedSpellsBuilder SetSpellcastingClass(CharacterClassDefinition characterClass)
     {
         Definition.spellcastingClass = characterClass;
         return this;
@@ -62,14 +62,14 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
     #endregion
 }
 
-public static class AutoPreparedSpellsGroupBuilder
+internal static class AutoPreparedSpellsGroupBuilder
 {
-    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellNames)
+    internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellNames)
     {
         return BuildSpellGroup(classLevel, spellNames.AsEnumerable());
     }
 
-    public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellNames)
+    internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellNames)
     {
         return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellNames.ToList() };
     }

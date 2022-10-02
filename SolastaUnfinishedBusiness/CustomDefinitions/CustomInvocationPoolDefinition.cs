@@ -16,7 +16,7 @@ public class CustomInvocationPoolDefinition : FeatureDefinition
 }
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class CustomInvocationPoolDefinitionBuilder : FeatureDefinitionBuilder
+internal class CustomInvocationPoolDefinitionBuilder : FeatureDefinitionBuilder
     <CustomInvocationPoolDefinition, CustomInvocationPoolDefinitionBuilder>
 {
     protected CustomInvocationPoolDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

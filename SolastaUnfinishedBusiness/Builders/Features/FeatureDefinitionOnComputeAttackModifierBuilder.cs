@@ -10,7 +10,7 @@ internal class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefiniti
     FeatureDefinitionOnComputeAttackModifier,
     FeatureDefinitionOnComputeAttackModifierBuilder>
 {
-    public FeatureDefinitionOnComputeAttackModifierBuilder SetOnComputeAttackModifierDelegate(
+    internal FeatureDefinitionOnComputeAttackModifierBuilder SetOnComputeAttackModifierDelegate(
         OnComputeAttackModifier del)
     {
         Definition.SetOnRollAttackModeDelegate(del);

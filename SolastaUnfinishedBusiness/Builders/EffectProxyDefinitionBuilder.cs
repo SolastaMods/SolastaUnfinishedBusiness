@@ -27,49 +27,49 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
     {
     }
 
-    public EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
+    internal EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
         Definition.hasPortrait = true;
         Definition.portraitSpriteReference = portraitSpriteReference;
         return this;
     }
 
-    public EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
+    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
     {
         return AddAdditionalFeatures(features.AsEnumerable());
     }
 
-    public EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
+    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.AdditionalFeatures.AddRange(features);
         return this;
     }
 
-    public EffectProxyDefinitionBuilder SetIsEmptyPresentation(bool value)
+    internal EffectProxyDefinitionBuilder SetIsEmptyPresentation(bool value)
     {
         Definition.isEmptyPresentation = value;
         return this;
     }
     
-    public EffectProxyDefinitionBuilder SetCanMove()
+    internal EffectProxyDefinitionBuilder SetCanMove()
     {
         Definition.canMove = true;
         return this;
     }
     
-    public EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
+    internal EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
     {
         Definition.canMoveOnCharacters = true;
         return this;
     }
     
-    public EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
+    internal EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
     {
         Definition.actionId = actionId;
         return this;
     }
     
-    public EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
+    internal EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
     {
         Definition.attackMethod = proxyAttackMethod;
         return this;

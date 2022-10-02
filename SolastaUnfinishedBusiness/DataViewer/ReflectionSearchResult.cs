@@ -32,11 +32,11 @@ public class ResultNode<TNode> : ResultNode where TNode : class
 
     public HashSet<TNode> matches => Children.Select(c => c.Node).ToHashSet();
 
-    public List<ResultNode<TNode>> Children { get; } = new();
+    internal List<ResultNode<TNode>> Children { get; } = new();
 
-    public ToggleState ToggleState { get; set; } = ToggleState.Off;
+    internal ToggleState ToggleState { get; set; } = ToggleState.Off;
 
-    public ToggleState ShowSiblings { get; set; } = ToggleState.Off;
+    internal ToggleState ShowSiblings { get; set; } = ToggleState.Off;
 
     public int Count { get; set; }
 

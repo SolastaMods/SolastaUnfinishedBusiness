@@ -8,29 +8,29 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
-public static class GroupFeats
+internal static class GroupFeats
 {
     private static readonly List<FeatDefinition> Groups = new();
 
-    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
         feats.AddRange(Groups);
     }
 
-    public static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
+    internal static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
     {
         group.SetCustomSubFeatures(new GroupedFeat(feats));
         Groups.Add(group);
     }
 
-    public static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
+    internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
         return MakeGroup(name, family, feats.AsEnumerable());
     }
 
-    public static FeatDefinition MakeGroup(string name, string family, IEnumerable<FeatDefinition> feats)
+    internal static FeatDefinition MakeGroup(string name, string family, IEnumerable<FeatDefinition> feats)
     {
         var group = FeatDefinitionBuilder
             .Create(name)

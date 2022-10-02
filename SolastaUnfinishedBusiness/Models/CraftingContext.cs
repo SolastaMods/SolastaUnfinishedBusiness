@@ -14,12 +14,12 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CraftingContext
 {
-    public static readonly List<string> BaseGameItemsCategories = new()
+    internal static readonly List<string> BaseGameItemsCategories = new()
     {
         "PrimedItems", "EnchantingIngredients", "RelicForgeries"
     };
 
-    public static readonly Dictionary<string, string> RecipeTitles = new()
+    internal static readonly Dictionary<string, string> RecipeTitles = new()
     {
         { "PrimedItems", Gui.Localize("ModUi/&PrimedItems") },
         { "EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle") },
@@ -64,7 +64,7 @@ internal static class CraftingContext
         "Weapons"
     };
 
-    public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
+    internal static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
 
     private static GuiDropdown FilterGuiDropdown { get; set; }
 
@@ -234,7 +234,7 @@ internal static class CraftingContext
     }
 
 #if DEBUG
-    public static string GenerateItemsDescription()
+    internal static string GenerateItemsDescription()
     {
         var outString = new StringBuilder();
 
@@ -256,18 +256,18 @@ internal static class CraftingContext
 #endif
     internal sealed class ItemCollection
     {
-        public List<ItemDefinition> BaseWeapons;
-        public List<MagicItemDataHolder> MagicToCopy;
-        public int NumProduced = 1;
-        public List<ItemDefinition> PossiblePrimedItemsToReplace;
+        internal List<ItemDefinition> BaseWeapons;
+        internal List<MagicItemDataHolder> MagicToCopy;
+        internal int NumProduced = 1;
+        internal List<ItemDefinition> PossiblePrimedItemsToReplace;
 
-        public struct MagicItemDataHolder
+        internal struct MagicItemDataHolder
         {
-            public readonly string Name;
-            public readonly ItemDefinition Item;
-            public readonly RecipeDefinition Recipe;
+            internal readonly string Name;
+            internal readonly ItemDefinition Item;
+            internal readonly RecipeDefinition Recipe;
 
-            public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
+            internal MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
             {
                 Name = name;
                 Item = item;

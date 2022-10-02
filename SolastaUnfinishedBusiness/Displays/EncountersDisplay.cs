@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-public static class EncountersDisplay
+internal static class EncountersDisplay
 {
     private static bool _showStats;
 

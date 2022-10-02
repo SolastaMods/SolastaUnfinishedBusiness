@@ -26,7 +26,7 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }
 
-    public FeatureDefinitionPowerSharedPoolBuilder Configure(
+    internal FeatureDefinitionPowerSharedPoolBuilder Configure(
         FeatureDefinitionPower poolPower,
         RuleDefinitions.RechargeRate recharge,
         RuleDefinitions.ActivationTime activationTime,
@@ -54,7 +54,7 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
         return This();
     }
 
-    public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
+    internal FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
     {
         Preconditions.ArgumentIsNotNull(poolPower,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");

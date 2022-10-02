@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class MulticlassInOutRulesContext
+internal static class MulticlassInOutRulesContext
 {
-    public static void EnumerateHeroAllowedClassDefinitions([NotNull] RulesetCharacterHero hero,
+    internal static void EnumerateHeroAllowedClassDefinitions([NotNull] RulesetCharacterHero hero,
         [NotNull] List<CharacterClassDefinition> allowedClasses, out int selectedClass)
     {
         var currentClass = hero.ClassesHistory[hero.ClassesHistory.Count - 1];

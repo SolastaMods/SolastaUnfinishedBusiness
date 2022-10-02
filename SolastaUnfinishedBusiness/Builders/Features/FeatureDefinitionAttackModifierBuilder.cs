@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAttackModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
-    public FeatureDefinitionAttackModifierBuilder Configure(
+    internal FeatureDefinitionAttackModifierBuilder Configure(
         RuleDefinitions.AttackModifierMethod attackRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
         int attackRollModifier = 0,
         string attackRollAbilityScore = "",
@@ -29,26 +29,26 @@ internal class FeatureDefinitionAttackModifierBuilder
         return This();
     }
 
-    public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
+    internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
         RuleDefinitions.AbilityScoreReplacement replacement)
     {
         Definition.abilityScoreReplacement = replacement;
         return This();
     }
 
-    public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
+    internal FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
         Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
         return This();
     }
 
-    public FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
+    internal FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
         return This();
     }
 
-    public FeatureDefinitionAttackModifierBuilder SetRequiredProperty(
+    internal FeatureDefinitionAttackModifierBuilder SetRequiredProperty(
         RuleDefinitions.RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;

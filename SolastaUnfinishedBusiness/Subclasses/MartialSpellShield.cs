@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {
-    public const string Name = "MartialSpellShield";
+    internal const string Name = "MartialSpellShield";
 
     internal MartialSpellShield()
     {

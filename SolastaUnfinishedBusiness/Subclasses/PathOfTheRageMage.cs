@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PathOfTheRageMage : AbstractSubclass
 {
-    public const string Name = "PathOfTheRageMage";
+    internal const string Name = "PathOfTheRageMage";
 
     internal PathOfTheRageMage()
     {

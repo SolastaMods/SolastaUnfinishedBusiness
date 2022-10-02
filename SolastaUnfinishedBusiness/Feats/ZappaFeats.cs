@@ -758,7 +758,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 {
     private bool MetamagicTrained { get; set; }
 
-    public MetamagicOptionDefinition MetamagicOption { get; set; }
+    internal MetamagicOptionDefinition MetamagicOption { get; set; }
 
     public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
@@ -787,7 +787,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
 internal sealed class ElvenPrecisionContext
 {
-    public bool Qualified { get; set; }
+    internal bool Qualified { get; set; }
 }
 
 internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon

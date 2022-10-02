@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<FeatureDefinitionProficiency,
     FeatureDefinitionProficiencyBuilder>
 {
-    public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
+    internal FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
         params string[] proficiencies)
     {
         Definition.proficiencyType = type;

@@ -4,7 +4,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemFlagDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class MerchantTypeContext
+internal static class MerchantTypeContext
 {
     internal static readonly List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
 
@@ -23,7 +23,7 @@ public static class MerchantTypeContext
         }
     }
 
-    public static MerchantType GetMerchantType(MerchantDefinition merchant)
+    internal static MerchantType GetMerchantType(MerchantDefinition merchant)
     {
         var isDocumentMerchant = merchant.StockUnitDescriptions
             .Any(x =>
@@ -107,21 +107,21 @@ public static class MerchantTypeContext
         };
     }
 
-    public sealed class MerchantType
+    internal sealed class MerchantType
     {
-        public bool IsAmmunition;
-        public bool IsArmor;
-        public bool IsDocument;
+        internal bool IsAmmunition;
+        internal bool IsArmor;
+        internal bool IsDocument;
 
-        public bool IsMagicalAmmunition;
-        public bool IsMagicalArmor;
-        public bool IsMagicalMeleeWeapon;
-        public bool IsMagicalRangeWeapon;
-        public bool IsMeleeWeapon;
+        internal bool IsMagicalAmmunition;
+        internal bool IsMagicalArmor;
+        internal bool IsMagicalMeleeWeapon;
+        internal bool IsMagicalRangeWeapon;
+        internal bool IsMeleeWeapon;
 
-        public bool IsPrimedArmor;
-        public bool IsPrimedMeleeWeapon;
-        public bool IsPrimedRangeWeapon;
-        public bool IsRangeWeapon;
+        internal bool IsPrimedArmor;
+        internal bool IsPrimedMeleeWeapon;
+        internal bool IsPrimedRangeWeapon;
+        internal bool IsRangeWeapon;
     }
 }

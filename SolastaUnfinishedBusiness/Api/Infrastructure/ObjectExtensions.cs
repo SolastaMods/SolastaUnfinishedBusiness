@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public static class ObjectExtensions
+internal static class ObjectExtensions
 {
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     private static readonly MethodInfo CloneMethod =
@@ -116,7 +116,7 @@ public static class ObjectExtensions
         return InternalCopy(originalObject, new Dictionary<object, object>(new ReferenceEqualityComparer()));
     }
 
-    public static T DeepCopy<T>(this T original)
+    internal static T DeepCopy<T>(this T original)
     {
         if (original is Object)
         {
@@ -129,7 +129,7 @@ public static class ObjectExtensions
     }
 }
 
-public sealed class ReferenceEqualityComparer : EqualityComparer<object>
+internal sealed class ReferenceEqualityComparer : EqualityComparer<object>
 {
     public override bool Equals(object x, object y)
     {

@@ -47,7 +47,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 
     // Removes check that makes `ShoveBonus` action unavailable if character has no shield
     // Replaces call to RulesetActor.IsWearingShield with custom method that always returns true
-    public static void RemoveShieldRequiredForBonusPush(List<CodeInstruction> codes)
+    internal static void RemoveShieldRequiredForBonusPush(List<CodeInstruction> codes)
     {
         var customMethod = new Func<RulesetActor, bool>(CustomMethod).Method;
 

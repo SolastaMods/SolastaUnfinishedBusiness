@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class FightingStyleFeats
 {
-    public static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats(List<FeatDefinition> feats)
     {
         var fightingStyles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()

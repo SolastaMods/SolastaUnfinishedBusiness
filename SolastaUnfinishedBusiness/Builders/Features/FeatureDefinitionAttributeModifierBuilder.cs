@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier
     , FeatureDefinitionAttributeModifierBuilder>
 {
-    public FeatureDefinitionAttributeModifierBuilder SetModifier(
+    internal FeatureDefinitionAttributeModifierBuilder SetModifier(
         AttributeModifierOperation modifierType,
         string attribute,
         int amount)
@@ -19,7 +19,7 @@ internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuil
         return this;
     }
 
-    public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(
+    internal FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(
         string abilityScore,
         bool minimum1 = false)
     {
@@ -29,13 +29,13 @@ internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuil
         return this;
     }
 
-    public FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
+    internal FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
     {
         Definition.modifiedAttribute = attribute;
         return this;
     }
 
-    public FeatureDefinitionAttributeModifierBuilder SetSituationalContext(
+    internal FeatureDefinitionAttributeModifierBuilder SetSituationalContext(
         RuleDefinitions.SituationalContext situationalContext)
     {
         Definition.situationalContext = situationalContext;

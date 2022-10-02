@@ -298,15 +298,15 @@ internal static class SaveByLocationContext
 
     private sealed class LocationOptionData : GuiDropdown.OptionDataAdvanced
     {
-        public string CampaignOrLocation { get; set; }
-        public LocationType LocationType { get; set; }
-        public bool ShowInDropdown { get; set; }
+        internal string CampaignOrLocation { get; set; }
+        internal LocationType LocationType { get; set; }
+        internal bool ShowInDropdown { get; set; }
     }
 
     internal static class ServiceRepositoryEx
     {
         [NotNull]
-        public static T GetOrCreateService<T>() where T : class, IService, new()
+        internal static T GetOrCreateService<T>() where T : class, IService, new()
         {
             var repo = ServiceRepository.GetService<T>();
 
@@ -339,11 +339,11 @@ internal static class SaveByLocationContext
 
     internal sealed class SelectedCampaignService : ISelectedCampaignService
     {
-        public string CampaignOrLocationName { get; private set; }
-        public string SaveGameDirectory { get; private set; }
-        public LocationType LocationType { get; private set; }
+        internal string CampaignOrLocationName { get; private set; }
+        internal string SaveGameDirectory { get; private set; }
+        internal LocationType LocationType { get; private set; }
 
-        public void SetCampaignLocation([CanBeNull] string campaign, [CanBeNull] string location)
+        internal void SetCampaignLocation([CanBeNull] string campaign, [CanBeNull] string location)
         {
             Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
 
@@ -376,7 +376,7 @@ internal static class SaveByLocationContext
             Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
         }
 
-        public void SetStandardCampaignLocation()
+        internal void SetStandardCampaignLocation()
         {
             SetCampaignLocation(string.Empty, string.Empty);
         }

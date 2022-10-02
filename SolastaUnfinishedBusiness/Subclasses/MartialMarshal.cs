@@ -128,7 +128,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
 
 internal static class PowerMarshalStudyYourEnemyBuilder
 {
-    public static FeatureDefinitionPower BuildStudyEnemyPower()
+    internal static FeatureDefinitionPower BuildStudyEnemyPower()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")

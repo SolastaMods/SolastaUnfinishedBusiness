@@ -9,20 +9,20 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public interface IModEventHandler
+internal interface IModEventHandler
 {
     int Priority { get; }
 
     void HandleModEnable();
 }
 
-public sealed class ModManager<TCore, TSettings>
+internal sealed class ModManager<TCore, TSettings>
     where TCore : class, new()
     where TSettings : UnityModManager.ModSettings, new()
 {
     #region Toggle
 
-    public void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
+    internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
     {
         _logger = modEntry.Logger;
 
@@ -110,12 +110,12 @@ public sealed class ModManager<TCore, TSettings>
 
     #endregion
 
-    private sealed class ProcessLogger : IDisposable
+    public sealed class ProcessLogger : IDisposable
     {
         private readonly UnityModManager.ModEntry.ModLogger _logger;
         private readonly Stopwatch _stopWatch = new();
 
-        public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
+        internal ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
         {
             _logger = logger;
             _stopWatch.Start();
@@ -127,7 +127,7 @@ public sealed class ModManager<TCore, TSettings>
         }
 
         [Conditional("DEBUG")]
-        public void Log(string status)
+        internal void Log(string status)
         {
             _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
         }
@@ -140,7 +140,7 @@ public sealed class ModManager<TCore, TSettings>
 
     private TCore Core { get; set; }
 
-    public TSettings Settings { get; private set; }
+    internal TSettings Settings { get; private set; }
 
     private bool Enabled { get; set; }
 

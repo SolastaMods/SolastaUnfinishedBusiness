@@ -6,7 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProfi
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class FlexibleBackgroundsContext
+internal static class FlexibleBackgroundsContext
 {
     private static readonly FeatureDefinition SkillThree = FeatureDefinitionPointPoolBuilder
         .Create("PointPoolBackgroundSkillSelect3")

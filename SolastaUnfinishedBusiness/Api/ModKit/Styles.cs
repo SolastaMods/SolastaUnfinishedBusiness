@@ -3,7 +3,7 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static partial class UI
+internal static partial class UI
 {
     private static Texture2D _fillTexture;
 

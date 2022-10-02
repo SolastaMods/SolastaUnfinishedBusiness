@@ -9,11 +9,11 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 [XmlRoot("SerializableDictionary")]
 public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
 {
-    public SerializableDictionary()
+    internal SerializableDictionary()
     {
     }
 
-    public SerializableDictionary([NotNull] IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
+    internal SerializableDictionary([NotNull] IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
 
     public XmlSchema GetSchema()
     {

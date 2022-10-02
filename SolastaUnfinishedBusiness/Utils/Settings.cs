@@ -7,157 +7,157 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Utils;
 
-public sealed class Core
+internal sealed class Core
 {
 }
 
 [Serializable]
 [XmlRoot(ElementName = "Settings")]
-public class Settings : UnityModManager.ModSettings
+internal class Settings : UnityModManager.ModSettings
 {
     //
     // Welcome Message
     //
 
-    public bool DisplayWelcomeMessage { get; set; } = true;
-    public int EnableDiagsDump { get; set; }
+    internal bool DisplayWelcomeMessage { get; set; } = true;
+    internal int EnableDiagsDump { get; set; }
 
     //
     // SETTINGS UI TOGGLES
     //
 
-    public bool DisplayGeneralRaceClassSubClassToggle { get; set; } = true;
-    public bool DisplayRacesToggle { get; set; } = true;
-    public bool DisplayClassesToggle { get; set; } = true;
-    public bool DisplaySubclassesToggle { get; set; } = true;
-    public bool DisplayFeatsToggle { get; set; } = true;
-    public bool DisplayFeatGroupsToggle { get; set; }
-    public bool DisplayFightingStylesToggle { get; set; } = true;
-    public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; } = true;
-    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
+    internal bool DisplayGeneralRaceClassSubClassToggle { get; set; } = true;
+    internal bool DisplayRacesToggle { get; set; } = true;
+    internal bool DisplayClassesToggle { get; set; } = true;
+    internal bool DisplaySubclassesToggle { get; set; } = true;
+    internal bool DisplayFeatsToggle { get; set; } = true;
+    internal bool DisplayFeatGroupsToggle { get; set; }
+    internal bool DisplayFightingStylesToggle { get; set; } = true;
+    internal bool DisplayCraftingToggle { get; set; }
+    internal bool DisplayMerchantsToggle { get; set; } = true;
+    internal SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
     // SETTINGS HIDDEN ON UI
     //
 
-    public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
-    public bool EnableMultiLinePowerPanel { get; set; } = true;
-    public bool EnableMultiLineSpellPanel { get; set; } = true;
-    public bool EnableSameWidthFeatSelection { get; set; } = true;
-    public bool EnableSortingClasses { get; set; } = true;
-    public bool EnableSortingDeities { get; set; } = true;
-    public bool EnableSortingDungeonMakerAssets { get; set; } = true;
-    public bool EnableSortingFeats { get; set; } = true;
-    public bool EnableSortingFightingStyles { get; set; } = true;
-    public bool EnableSortingFutureFeatures { get; set; } = true;
-    public bool EnableSortingRaces { get; set; } = true;
-    public bool EnableSortingSubclasses { get; set; } = true;
-    public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
-    public bool DontConsumeSlots { get; set; }
+    internal bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
+    internal bool EnableMultiLinePowerPanel { get; set; } = true;
+    internal bool EnableMultiLineSpellPanel { get; set; } = true;
+    internal bool EnableSameWidthFeatSelection { get; set; } = true;
+    internal bool EnableSortingClasses { get; set; } = true;
+    internal bool EnableSortingDeities { get; set; } = true;
+    internal bool EnableSortingDungeonMakerAssets { get; set; } = true;
+    internal bool EnableSortingFeats { get; set; } = true;
+    internal bool EnableSortingFightingStyles { get; set; } = true;
+    internal bool EnableSortingFutureFeatures { get; set; } = true;
+    internal bool EnableSortingRaces { get; set; } = true;
+    internal bool EnableSortingSubclasses { get; set; } = true;
+    internal bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
+    internal bool DontConsumeSlots { get; set; }
 
     //
     // Character - General
     //
 
     // Initial Choices
-    public bool AddHelpActionToAllRaces { get; set; }
+    internal bool AddHelpActionToAllRaces { get; set; }
 
-    // public bool DisableSenseDarkVisionFromAllRaces { get; set; }
-    // public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
-    public bool EnableAlternateHuman { get; set; }
-    public bool EnableFlexibleBackgrounds { get; set; }
-    public bool EnableFlexibleRaces { get; set; }
-    public bool EnableEpicPointsAndArray { get; set; }
-    public int TotalFeatsGrantedFirstLevel { get; set; }
+    // internal bool DisableSenseDarkVisionFromAllRaces { get; set; }
+    // internal bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
+    internal bool EnableAlternateHuman { get; set; }
+    internal bool EnableFlexibleBackgrounds { get; set; }
+    internal bool EnableFlexibleRaces { get; set; }
+    internal bool EnableEpicPointsAndArray { get; set; }
+    internal int TotalFeatsGrantedFirstLevel { get; set; }
 
     // Progression
-    public bool EnablesAsiAndFeat { get; set; }
-    public bool EnableFeatsAtEvenLevels { get; set; }
-    public bool EnableLevel20 { get; set; }
+    internal bool EnablesAsiAndFeat { get; set; }
+    internal bool EnableFeatsAtEvenLevels { get; set; }
+    internal bool EnableLevel20 { get; set; }
 
     // Multiclass
-    public int MaxAllowedClasses { get; set; }
-    public bool EnableMinInOutAttributes { get; set; } = true;
-    public bool EnableRelearnSpells { get; set; }
-    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
-    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; } = true;
+    internal int MaxAllowedClasses { get; set; }
+    internal bool EnableMinInOutAttributes { get; set; } = true;
+    internal bool EnableRelearnSpells { get; set; }
+    internal bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
+    internal bool DisplayPactSlotsOnSpellSelectionPanel { get; set; } = true;
 
     // Visuals
-    public bool OfferAdditionalLoreFriendlyNames { get; set; }
-    public bool UnlockAllNpcFaces { get; set; }
-    public bool AllowUnmarkedSorcerers { get; set; }
-    public bool UnlockMarkAndTattoosForAllCharacters { get; set; }
-    public bool UnlockEyeStyles { get; set; }
-    public bool AddNewBrightEyeColors { get; set; }
-    public bool UnlockGlowingEyeColors { get; set; }
-    public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
+    internal bool OfferAdditionalLoreFriendlyNames { get; set; }
+    internal bool UnlockAllNpcFaces { get; set; }
+    internal bool AllowUnmarkedSorcerers { get; set; }
+    internal bool UnlockMarkAndTattoosForAllCharacters { get; set; }
+    internal bool UnlockEyeStyles { get; set; }
+    internal bool AddNewBrightEyeColors { get; set; }
+    internal bool UnlockGlowingEyeColors { get; set; }
+    internal bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
     //
 
-    public int RaceSliderPosition { get; set; } = 4;
-    public List<string> RaceEnabled { get; } = new();
-    public int ClassSliderPosition { get; set; } = 4;
-    public List<string> ClassEnabled { get; } = new();
-    public int SubclassSliderPosition { get; set; } = 4;
-    public List<string> SubclassEnabled { get; } = new();
+    internal int RaceSliderPosition { get; set; } = 4;
+    internal List<string> RaceEnabled { get; } = new();
+    internal int ClassSliderPosition { get; set; } = 4;
+    internal List<string> ClassEnabled { get; } = new();
+    internal int SubclassSliderPosition { get; set; } = 4;
+    internal List<string> SubclassEnabled { get; } = new();
 
     //
     // Characters - Feats
     //
 
-    public int FeatSliderPosition { get; set; } = 4;
-    public List<string> FeatEnabled { get; } = new();
+    internal int FeatSliderPosition { get; set; } = 4;
+    internal List<string> FeatEnabled { get; } = new();
 
     //
     // Characters - Feat Groups
     //
 
-    public int FeatGroupSliderPosition { get; set; } = 4;
-    public List<string> FeatGroupEnabled { get; } = new();
+    internal int FeatGroupSliderPosition { get; set; } = 4;
+    internal List<string> FeatGroupEnabled { get; } = new();
 
     //
     // Characters - Fighting Styles
     //
 
-    public int FightingStyleSliderPosition { get; set; } = 4;
-    public List<string> FightingStyleEnabled { get; } = new();
+    internal int FightingStyleSliderPosition { get; set; } = 4;
+    internal List<string> FightingStyleEnabled { get; } = new();
 
     //
     // Characters - Spells
     //
 
-    public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
+    internal SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
+    internal SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
 
     //
     // Gameplay - Rules
     //
 
     // SRD
-    public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-    public bool AddBleedingToLesserRestoration { get; set; }
-    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
-    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
-    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
-    public bool EnableUpcastConjureElementalAndFey { get; set; }
-    public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-    public bool FixSorcererTwinnedLogic { get; set; }
-    public bool FullyControlConjurations { get; set; }
-    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
-    public bool ChangeSleetStormToCube { get; set; }
-    public bool UseHeightOneCylinderEffect { get; set; }
-    public bool ApplySrdWeightToFoodRations { get; set; }
+    internal bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    internal bool AddBleedingToLesserRestoration { get; set; }
+    internal bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+    internal bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+    internal bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
+    internal bool EnableUpcastConjureElementalAndFey { get; set; }
+    internal bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+    internal bool FixSorcererTwinnedLogic { get; set; }
+    internal bool FullyControlConjurations { get; set; }
+    internal bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+    internal bool RemoveRecurringEffectOnEntangle { get; set; }
+    internal bool ChangeSleetStormToCube { get; set; }
+    internal bool UseHeightOneCylinderEffect { get; set; }
+    internal bool ApplySrdWeightToFoodRations { get; set; }
 
     // House
-    public bool AllowStackedMaterialComponent { get; set; }
-    public bool AllowAnyClassToWearSylvanArmor { get; set; }
-    public bool AllowDruidToWearMetalArmor { get; set; }
-    public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+    internal bool AllowStackedMaterialComponent { get; set; }
+    internal bool AllowAnyClassToWearSylvanArmor { get; set; }
+    internal bool AllowDruidToWearMetalArmor { get; set; }
+    internal bool MakeAllMagicStaveArcaneFoci { get; set; }
+    internal int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
 
     //
     // Gameplay - Items, Crafting & Merchants
@@ -165,60 +165,60 @@ public class Settings : UnityModManager.ModSettings
 
     // General
 #if DEBUG
-    public bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; } = true;
+    internal bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
+    internal bool AddNewWeaponsAndRecipesToEditor { get; set; } = true;
 #else
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    internal bool AddNewWeaponsAndRecipesToShops { get; set; }
+    internal bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
 #if DEBUG
-    public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
+    internal bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
 #else
-    public bool AddPickPocketableLoot { get; set; }
+    internal bool AddPickPocketableLoot { get; set; }
 #endif
-    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
-    public bool RemoveAttunementRequirements { get; set; }
-    public bool RemoveIdentificationRequirements { get; set; }
-    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-    public int TotalCraftingTimeModifier { get; set; }
-    public int RecipeCost { get; set; } = 200;
-    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+    internal bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
+    internal bool RemoveAttunementRequirements { get; set; }
+    internal bool RemoveIdentificationRequirements { get; set; }
+    internal bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    internal int TotalCraftingTimeModifier { get; set; }
+    internal int RecipeCost { get; set; } = 200;
+    internal int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
     // Crafting
-    public List<string> CraftingInStore { get; } = new();
-    public List<string> CraftingItemsInDm { get; } = new();
-    public List<string> CraftingRecipesInDm { get; } = new();
+    internal List<string> CraftingInStore { get; } = new();
+    internal List<string> CraftingItemsInDm { get; } = new();
+    internal List<string> CraftingRecipesInDm { get; } = new();
 
     // Merchants
-    public bool ScaleMerchantPricesCorrectly { get; set; }
-    public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
-    public bool StockHugoStoreWithAdditionalFoci { get; set; }
-    public bool EnableAdditionalFociInDungeonMaker { get; set; }
-    public bool RestockAntiquarians { get; set; }
-    public bool RestockArcaneum { get; set; }
-    public bool RestockCircleOfDanantar { get; set; }
-    public bool RestockTowerOfKnowledge { get; set; }
+    internal bool ScaleMerchantPricesCorrectly { get; set; }
+    internal bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
+    internal bool StockHugoStoreWithAdditionalFoci { get; set; }
+    internal bool EnableAdditionalFociInDungeonMaker { get; set; }
+    internal bool RestockAntiquarians { get; set; }
+    internal bool RestockArcaneum { get; set; }
+    internal bool RestockCircleOfDanantar { get; set; }
+    internal bool RestockTowerOfKnowledge { get; set; }
 
     //
     // Gameplay - Tools
     //
 
     // General
-    public bool EnableSaveByLocation { get; set; }
-    public bool EnableRespec { get; set; }
-    public bool EnableCheatMenu { get; set; }
-    public bool OverrideMinMaxLevel { get; set; }
-    public bool NoExperienceOnLevelUp { get; set; }
-    public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-    public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
+    internal bool EnableSaveByLocation { get; set; }
+    internal bool EnableRespec { get; set; }
+    internal bool EnableCheatMenu { get; set; }
+    internal bool OverrideMinMaxLevel { get; set; }
+    internal bool NoExperienceOnLevelUp { get; set; }
+    internal int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    internal int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
 
 
     // Debug
-    public bool DebugLogDefinitionCreation { get; set; }
-    public bool DebugLogFieldInitialization { get; set; }
-    public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+    internal bool DebugLogDefinitionCreation { get; set; }
+    internal bool DebugLogFieldInitialization { get; set; }
+    internal bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
 #if DEBUG
-    public bool DebugLogVariantMisuse { get; set; }
+    internal bool DebugLogVariantMisuse { get; set; }
 #endif
 
     // Faction Relations
@@ -227,65 +227,65 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Dungeon Maker
     //
 
-    public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
-    public bool UnleashNpcAsEnemy { get; set; }
-    public bool UnleashEnemyAsNpc { get; set; }
-    public bool EnableDungeonMakerModdedContent { get; set; }
+    internal bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
+    internal bool UnleashNpcAsEnemy { get; set; }
+    internal bool UnleashEnemyAsNpc { get; set; }
+    internal bool EnableDungeonMakerModdedContent { get; set; }
 
     //
     // Interface - Game UI
     //
 
     // Battle
-    public bool DontFollowCharacterInBattle { get; set; }
-    public int DontFollowMargin { get; set; } = 5;
-    public bool AutoPauseOnVictory { get; set; }
-    public float FasterTimeModifier { get; set; } = 1.5f;
+    internal bool DontFollowCharacterInBattle { get; set; }
+    internal int DontFollowMargin { get; set; } = 5;
+    internal bool AutoPauseOnVictory { get; set; }
+    internal float FasterTimeModifier { get; set; } = 1.5f;
 
     // Campaigns and Locations
-    public bool FollowCharactersOnTeleport { get; set; }
-    public bool EnableAdditionalBackstoryDisplay { get; set; }
-    public bool EnableLogDialoguesToConsole { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
-    public bool EnableAdditionalIconsOnLevelMap { get; set; }
-    public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    internal bool FollowCharactersOnTeleport { get; set; }
+    internal bool EnableAdditionalBackstoryDisplay { get; set; }
+    internal bool EnableLogDialoguesToConsole { get; set; }
+    internal bool EnableStatsOnHeroTooltip { get; set; }
+    internal bool EnableAdditionalIconsOnLevelMap { get; set; }
+    internal bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+    internal bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
 
     // Inventory and Items
-    public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public int EmpressGarbAppearanceIndex { get; set; }
+    internal bool DisableAutoEquip { get; set; }
+    internal bool EnableInventoryFilteringAndSorting { get; set; }
+    internal bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    internal bool EnableInvisibleCrownOfTheMagister { get; set; }
+    internal int EmpressGarbAppearanceIndex { get; set; }
 
     // Monsters
-    public bool HideMonsterHitPoints { get; set; }
-    public bool RemoveBugVisualModels { get; set; }
+    internal bool HideMonsterHitPoints { get; set; }
+    internal bool RemoveBugVisualModels { get; set; }
 
     // Spells
-    public int MaxSpellLevelsPerLine { get; set; } = 4;
+    internal int MaxSpellLevelsPerLine { get; set; } = 4;
 
     //
     // Interface - Keyboard & Mouse
     //
 
-    public bool EnableHotkeyToggleHud { get; set; }
-    public bool EnableCharacterExport { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
-    public bool EnableTeleportParty { get; set; }
-    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool InvertAltBehaviorOnTooltips { get; set; }
+    internal bool EnableHotkeyToggleHud { get; set; }
+    internal bool EnableCharacterExport { get; set; }
+    internal bool EnableHotkeyDebugOverlay { get; set; }
+    internal bool EnableTeleportParty { get; set; }
+    internal bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
+    internal bool InvertAltBehaviorOnTooltips { get; set; }
 
     //
     // Interface - Translations
     //
 
-    public string SelectedLanguageCode { get; set; } = Translations.English;
+    internal string SelectedLanguageCode { get; set; } = Translations.English;
 
     //
     // Encounters - General
     //
 
-    public bool EnableEnemiesControlledByPlayer { get; set; }
-    public bool EnableHeroesControlledByComputer { get; set; }
+    internal bool EnableEnemiesControlledByPlayer { get; set; }
+    internal bool EnableHeroesControlledByComputer { get; set; }
 }

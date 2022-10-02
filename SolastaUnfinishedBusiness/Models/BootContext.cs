@@ -25,7 +25,7 @@ internal static class BootContext
 
     internal static readonly HashSet<string> SupportedLanguages = new(); // { "zh-CN" };
 
-    public static void Startup()
+    internal static void Startup()
     {
 #if DEBUG
         ItemDefinitionVerification.Load();

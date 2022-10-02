@@ -5,22 +5,22 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionSubclassChoiceBuilder
+internal class FeatureDefinitionSubclassChoiceBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
 {
-    public FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
+    internal FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
     {
         Definition.filterByDeity = requireDeity;
         return this;
     }
 
-    public FeatureDefinitionSubclassChoiceBuilder SetSubclassSuffix(string subclassSuffix)
+    internal FeatureDefinitionSubclassChoiceBuilder SetSubclassSuffix(string subclassSuffix)
     {
         Definition.subclassSuffix = subclassSuffix;
         return this;
     }
 
-    public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(params CharacterSubclassDefinition[] subclasses)
+    internal FeatureDefinitionSubclassChoiceBuilder SetSubclasses(params CharacterSubclassDefinition[] subclasses)
     {
         Definition.Subclasses.SetRange(subclasses.Select(sc => sc.Name));
         Definition.Subclasses.Sort();

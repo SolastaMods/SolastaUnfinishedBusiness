@@ -9,34 +9,34 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class RulesetCharacterExtensions
 {
-    public static bool IsWearingLightArmor([NotNull] this RulesetCharacter _)
+    internal static bool IsWearingLightArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }
 
-    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }
 
-    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
+    internal static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
     {
         return false;
     }
 
-    public static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
+    internal static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
     {
         return validators.All(v => v(instance));
     }
 
-    public static bool IsValid(this RulesetCharacter instance,
+    internal static bool IsValid(this RulesetCharacter instance,
         [CanBeNull] IEnumerable<IsCharacterValidHandler> validators)
     {
         return validators == null || validators.All(v => v(instance));
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    public static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power)
+    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power)
     {
         if (power == null)
         {
@@ -52,7 +52,7 @@ internal static class RulesetCharacterExtensions
             .All(v => v.CanUsePower(instance));
     }
 
-    public static bool CanCastCantrip(
+    internal static bool CanCastCantrip(
         [NotNull] this RulesetCharacter character,
         SpellDefinition cantrip,
         [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
@@ -72,7 +72,7 @@ internal static class RulesetCharacterExtensions
     }
 
     [NotNull]
-    public static List<RulesetAttackMode> GetAttackModesByActionType([NotNull] this RulesetCharacter instance,
+    internal static List<RulesetAttackMode> GetAttackModesByActionType([NotNull] this RulesetCharacter instance,
         ActionDefinitions.ActionType actionType)
     {
         return instance.AttackModes
@@ -80,14 +80,14 @@ internal static class RulesetCharacterExtensions
             .ToList();
     }
 
-    public static bool CanAddAbilityBonusToOffhand(this RulesetCharacter instance)
+    internal static bool CanAddAbilityBonusToOffhand(this RulesetCharacter instance)
     {
         return instance.GetSubFeaturesByType<IAttackModificationProvider>()
             .Any(p => p.CanAddAbilityBonusToSecondary);
     }
 
     [CanBeNull]
-    public static RulesetItem GetItemInSlot([CanBeNull] this RulesetCharacter instance, string slot)
+    internal static RulesetItem GetItemInSlot([CanBeNull] this RulesetCharacter instance, string slot)
     {
         var inventorySlot = instance?.CharacterInventory?.InventorySlotsByName?[slot];
 

@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.ItemCrafting;
 
 internal static class ItemRecipeGenerationHelper
 {
-    public static void AddRecipesForArmor(ItemCollection itemCollection)
+    internal static void AddRecipesForArmor(ItemCollection itemCollection)
     {
         foreach (var baseItem in itemCollection.BaseWeapons)
         {
@@ -61,7 +61,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static void AddRecipesForWeapons(ItemCollection itemCollection)
+    internal static void AddRecipesForWeapons(ItemCollection itemCollection)
     {
         foreach (var baseItem in itemCollection.BaseWeapons)
         {
@@ -113,7 +113,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static void StockItem(MerchantDefinition merchant, ItemDefinition item)
+    internal static void StockItem(MerchantDefinition merchant, ItemDefinition item)
     {
         var stockUnit = new StockUnitDescription
         {
@@ -130,7 +130,7 @@ internal static class ItemRecipeGenerationHelper
         merchant.StockUnitDescriptions.Add(stockUnit);
     }
 
-    public static void AddIngredientEnchanting()
+    internal static void AddIngredientEnchanting()
     {
         var enchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
@@ -241,7 +241,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static void AddPrimingRecipes()
+    internal static void AddPrimingRecipes()
     {
         var primedToBase = new Dictionary<ItemDefinition, ItemDefinition>
         {
@@ -301,7 +301,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static void AddFactionItems()
+    internal static void AddFactionItems()
     {
         var forgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
@@ -395,7 +395,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    public static RecipeDefinition CreatePrimingRecipe(ItemDefinition baseItem,
+    internal static RecipeDefinition CreatePrimingRecipe(ItemDefinition baseItem,
         ItemDefinition primed)
     {
         var recipeName = "RecipePriming" + baseItem.Name;

@@ -3,7 +3,7 @@
 /// <summary>
 ///     Localization string categories.
 /// </summary>
-public enum Category
+internal enum Category
 {
     None = 0,
     Action,
