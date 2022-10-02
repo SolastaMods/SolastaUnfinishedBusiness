@@ -12,7 +12,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
 
     internal RoguishConArtist()
     {
-        // Make Con Artist subclass
         var abilityCheckAffinityConArtist = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityConArtist")
             .SetGuiPresentation(Category.Feature)
@@ -97,7 +96,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 AttributeDefinitions.Wisdom)
             .AddToDB();
 
-        // add subclass to db and add subclass to rogue class
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)

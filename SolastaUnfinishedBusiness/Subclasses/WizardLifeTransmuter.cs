@@ -242,10 +242,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         string abilityScore, ConditionDefinition condition,
         string name)
     {
-        var effectParticleParameters = new EffectParticleParameters();
-
-        effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
-
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
             .Configure(
@@ -272,7 +268,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                         .CreatedByCharacter()
                         .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(effectParticleParameters)
+                    .SetParticleEffectParameters(MagicWeapon.EffectDescription.EffectParticleParameters)
                     .Build(),
                 false);
     }

@@ -40,40 +40,36 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
             .AddToDB();
 
-        var conditionSpellShieldWarMagic = ConditionDefinitionBuilder
-            .Create("ConditionSpellShieldWarMagic")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatures(FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
-            .AddToDB();
-
-        var effect = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(
-                Side.Enemy,
-                RangeType.Self,
-                0,
-                TargetType.Self)
-            .SetDurationData(DurationType.Round, 0, false)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionSpellShieldWarMagic, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
-            .Build();
-
-        //TODO: create a builder for this
-        effect.canBePlacedOnCharacter = true;
-
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic")
             .SetGuiPresentation(Category.Feature)
             .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(effect)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetCanBePlacedOnCharacter(true)
+                    .SetTargetingData(
+                        Side.Enemy,
+                        RangeType.Self,
+                        0,
+                        TargetType.Self)
+                    .SetDurationData(DurationType.Round, 0, false)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionSpellShieldWarMagic")
+                                    .SetGuiPresentationNoContent(true)
+                                    .AddFeatures(FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .Build())
             .SetActivationTime(ActivationTime.OnSpellCast)
             .AddToDB();
 
-        // replace attack with cantrip
         var replaceAttackWithCantripSpellShield = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripSpellShield")
             .SetGuiPresentation(Category.Feature)
@@ -94,8 +90,10 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierSpellShieldArcaneDeflection")
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass, 3)
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass,
+                    3)
                 .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition,
                     ConditionShielded.GuiPresentation.SpriteReference)
                 .AddToDB())
@@ -116,18 +114,26 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 RechargeRate.AtWill,
                 false,
                 false,
-                AttributeDefinitions.Intelligence, 
+                AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                        TargetType.Self, 1, 0)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Self,
+                        1,
+                        0)
                     .AddEffectForm(EffectFormBuilder
                         .Create()
                         .CreatedByCharacter()
-                        .SetConditionForm(conditionSpellShieldArcaneDeflection, ConditionForm.ConditionOperation.Add, true,
+                        .SetConditionForm(
+                            conditionSpellShieldArcaneDeflection,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
                             true)
                         .Build())
-                    .Build() /* unique instance */)
+                    .Build())
             .AddToDB();
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
@@ -135,8 +141,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 "ActionAffinitySpellShieldRangedDefense")
             .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Feature)
             .AddToDB();
-
-        // Make Spell Shield subclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -174,6 +178,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var dexModifier =
             AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
                 .CurrentValue);
+
         return Math.Max(strModifier, dexModifier);
     }
 

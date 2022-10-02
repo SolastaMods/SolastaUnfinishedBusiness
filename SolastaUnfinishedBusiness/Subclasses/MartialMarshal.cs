@@ -533,23 +533,6 @@ internal static class EncourageBuilder
         // this allows the condition to still display as a label on character panel
         Global.CharacterLabelEnabledConditions.Add(conditionMarshalEncouraged);
 
-        var effect = EffectDescriptionBuilder
-            .Create()
-            .SetCreatedByCharacter()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
-            .SetDurationData(DurationType.Permanent)
-            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .CreatedByCharacter()
-                    .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false, false)
-                    .Build())
-            .Build();
-
-        //TODO: create a builder for this
-        effect.SetCanBePlacedOnCharacter(true);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
@@ -563,7 +546,28 @@ internal static class EncourageBuilder
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                effect)
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetCreatedByCharacter()
+                    .SetCanBePlacedOnCharacter(true)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        0,
+                        TargetType.Cube,
+                        5,
+                        2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
+                                false)
+                            .Build())
+                    .Build())
             .SetShowCasting(false)
             .AddToDB();
     }
