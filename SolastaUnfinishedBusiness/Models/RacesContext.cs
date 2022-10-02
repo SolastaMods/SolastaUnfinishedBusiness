@@ -53,11 +53,11 @@ internal static class RacesContext
             Main.Settings.RaceEnabled.Remove(featName);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            //TODO: Check why this is causing 2 exceptions during load
-            // SortRacesFeatures();
-        }
+        //TODO: Check why this is causing 2 exceptions during load
+        // if (Main.Settings.EnableSortingFutureFeatures)
+        // {
+        //     SortRacesFeatures();
+        // }
 
         RaceScaleMap[RaceBolgrifBuilder.RaceBolgrif] = 8.8f / 6.4f;
     }
