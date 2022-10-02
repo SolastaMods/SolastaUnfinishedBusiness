@@ -25,10 +25,10 @@ internal static class RaceHalfElfVariantRaceBuilder
             .Create(DarkelfSubraceBuilder.SubraceDarkelf, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
-                 DarkelfSubraceBuilder.CastSpellDarkelfMagic,
+                DarkelfSubraceBuilder.CastSpellDarkelfMagic,
                 MoveModeMove6)
-            .SetFeaturesAtLevel(3, DarkelfSubraceBuilder.PowerDarkelfFaerieFire)
-            .SetFeaturesAtLevel(5, DarkelfSubraceBuilder.PowerDarkelfDarkness)
+            .AddFeaturesAtLevel(3, DarkelfSubraceBuilder.PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5, DarkelfSubraceBuilder.PowerDarkelfDarkness)
             .AddToDB();
 
         var halfHighSpriteReference =
@@ -63,7 +63,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         });
 
         raceHalfElfVariant.FeatureUnlocks
-            .RemoveAll(x => 
+            .RemoveAll(x =>
                 x.FeatureDefinition == PointPoolHalfElfSkillPool || x.FeatureDefinition == MoveModeMove6);
 
         return raceHalfElfVariant;

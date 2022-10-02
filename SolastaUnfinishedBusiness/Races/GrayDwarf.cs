@@ -68,7 +68,8 @@ internal static class GrayDwarfSubraceBuilder
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
-                    lightingState = LocationDefinitions.LightingState.Bright, condition = conditionGrayDwarfLightSensitive
+                    lightingState = LocationDefinitions.LightingState.Bright,
+                    condition = conditionGrayDwarfLightSensitive
                 })
             .AddToDB();
 
@@ -208,8 +209,8 @@ internal static class GrayDwarfSubraceBuilder
                 featureSetGrayDwarfAncestry,
                 attributeModifierGrayDwarfStrengthAbilityScoreIncrease,
                 lightAffinityGrayDwarfLightSensitivity)
-            .SetFeaturesAtLevel(3, powerGrayDwarfStoneStrength)
-            .SetFeaturesAtLevel(5, powerGrayDwarfInvisibility)
+            .AddFeaturesAtLevel(3, powerGrayDwarfStoneStrength)
+            .AddFeaturesAtLevel(5, powerGrayDwarfInvisibility)
             .AddToDB();
 
         raceGrayDwarf.subRaces.Clear();

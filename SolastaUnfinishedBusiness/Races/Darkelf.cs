@@ -19,11 +19,11 @@ internal static class DarkelfSubraceBuilder
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
     internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
-    
+
     internal static FeatureDefinitionPower PowerDarkelfFaerieFire { get; private set; }
-    
+
     internal static FeatureDefinitionPower PowerDarkelfDarkness { get; private set; }
-    
+
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
@@ -151,7 +151,7 @@ internal static class DarkelfSubraceBuilder
         {
             darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
         }
-        
+
         var darkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceDarkelf")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
@@ -164,8 +164,8 @@ internal static class DarkelfSubraceBuilder
                 proficiencyDarkelfWeaponTraining,
                 CastSpellDarkelfMagic,
                 lightAffinityDarkelfLightSensitivity)
-            .SetFeaturesAtLevel(3, PowerDarkelfDarkness)
-            .SetFeaturesAtLevel(5, PowerDarkelfDarkness)
+            .AddFeaturesAtLevel(3, PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5, PowerDarkelfDarkness)
             .AddToDB();
 
         darkelf.subRaces.Clear();
