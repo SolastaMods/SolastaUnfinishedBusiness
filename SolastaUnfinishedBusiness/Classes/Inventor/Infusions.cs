@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -15,37 +16,62 @@ internal static class Infusions
     private const string ReplicaItemTitleFormat = $"Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = $"Item/&ReplicaItemFormatDescription";
 
+    public static readonly FeatureDefinitionFeatureSet ImprovedInfusions = FeatureDefinitionFeatureSetBuilder
+        .Create("FeatureSetInfusionUpgrade")
+        .SetGuiPresentationNoContent(hidden: true)
+        .AddToDB();
+
     public static void Build()
     {
         var name = "InfusionEnhanceArcaneFocus";
-        BuildInfuseItemPowerInvocation(2, name,
+        var power = BuildInfuseItemPowerInvocation(2, name,
             FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain.GuiPresentation.SpriteReference, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                //TODO: make it +2/+2 on level 10
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
+        BuildUpgradedInfuseItemPower(name, power, FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain,
+            IsFocusOrStaff, FeatureDefinitionMagicAffinityBuilder
+                //TODO: RAW needs to require attunement
+                .Create($"MagicAffinity{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetCastingModifiers(2, dcModifier: 2)
+                .AddToDB());
+
         name = "InfusionEnhanceDefense";
-        BuildInfuseItemPowerInvocation(2, name,
+        power = BuildInfuseItemPowerInvocation(2, name,
             SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
             FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
-                //TODO: make it +2 AC on level 10
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
+        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MageArmor, IsArmor,
+            FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                .AddToDB());
+
         name = "InfusionEnhanceWeapon";
-        BuildInfuseItemPowerInvocation(2, name,
-            SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference, IsWeapon,
-            FeatureDefinitionAttackModifierBuilder
+        power = BuildInfuseItemPowerInvocation(2, name, SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference,
+            IsWeapon, FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
+                .AddToDB());
+
+        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MagicWeapon, IsWeapon,
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetAttackRollModifier(2)
+                .SetDamageRollModifier(2)
                 .AddToDB());
 
         name = "InfusionMindSharpener";
@@ -106,16 +132,19 @@ internal static class Infusions
         // BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfBat, 14);
     }
 
-    private static void BuildInfuseItemPowerInvocation(int level, string name, AssetReferenceSprite icon,
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level,
+        string name, AssetReferenceSprite icon,
         IsValidItemHandler filter, params FeatureDefinition[] features)
     {
+        var power = BuildInfuseItemPower(name, name, icon, filter, features);
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
             .SetRequiredLevel(level)
-            .SetGrantedFeature(BuildInfuseItemPower(name, icon, filter, features))
+            .SetGrantedFeature(power)
             .AddToDB();
+        return power;
     }
 
     private static void BuildCreateItemPowerInvocation(ItemDefinition item, int level = 2)
@@ -135,11 +164,11 @@ internal static class Infusions
         invocation.GuiPresentation.description = description;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name,
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
         AssetReferenceSprite icon, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
     {
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, icon)
+            .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetUniqueInstance()
@@ -160,6 +189,16 @@ internal static class Infusions
                     .Build())
                 .Build())
             .AddToDB();
+    }
+
+    private static void BuildUpgradedInfuseItemPower(string name, FeatureDefinitionPower power,
+        BaseDefinition sprite, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
+    {
+        var upgrade = BuildInfuseItemPower($"{name}Upgraded", name,
+            sprite.GuiPresentation.SpriteReference, itemFilter, features);
+        upgrade.overriddenPower = power;
+        upgrade.AddCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
+        ImprovedInfusions.FeatureSet.Add(upgrade);
     }
 
     private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(ItemDefinition item, string description)

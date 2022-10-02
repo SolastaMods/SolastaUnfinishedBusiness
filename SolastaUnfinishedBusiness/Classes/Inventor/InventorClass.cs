@@ -288,7 +288,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, Learn2)
+            .AddFeaturesAtLevel(10, Learn2, Infusions.ImprovedInfusions)
 
             #endregion
 
