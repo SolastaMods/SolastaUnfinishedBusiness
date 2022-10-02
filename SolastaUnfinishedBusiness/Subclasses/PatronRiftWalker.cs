@@ -10,7 +10,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
     internal PatronRiftWalker()
     {
         var spellListRiftWalker = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListPaladin, "SpellListRiftWalker")
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListRiftWalker")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, Jump, Longstrider)
@@ -18,7 +18,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetSpellsAtLevel(3, Haste, Slow)
             .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
             .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinityRiftWalkerExpandedSpells = FeatureDefinitionMagicAffinityBuilder

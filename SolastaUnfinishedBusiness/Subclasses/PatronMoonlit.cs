@@ -23,7 +23,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal PatronMoonlit()
     {
         var spellListMoonlit = SpellListDefinitionBuilder
-            .Create(SpellListPaladin, "SpellListMoonlit")
+            .Create(SpellListWizard, "SpellListMoonlit")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, FaerieFire, Sleep)
@@ -31,7 +31,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .SetSpellsAtLevel(3, Daylight, Slow)
             .SetSpellsAtLevel(4, GreaterInvisibility, GuardianOfFaith)
             .SetSpellsAtLevel(5, DominatePerson, MindTwist)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinityMoonlitExpandedSpells = FeatureDefinitionMagicAffinityBuilder

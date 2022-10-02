@@ -89,20 +89,13 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     /// </summary>
     /// <returns></returns>
     [NotNull]
-    public SpellListDefinitionBuilder FinalizeSpells()
+    public SpellListDefinitionBuilder FinalizeSpells(bool hasCantrip = true, int maxLevel = 0)
     {
         // Will throw if anything incorrect
         EnsureSpellListsConfigured();
 
-        var maxLevel =
-            Definition.SpellsByLevel.Where(s => s.Spells.Any()).Max(s => s.Level);
-
-        var hasCantrips =
-            Definition.SpellsByLevel.Where(s => s.Spells.Any()).Any(s => s.Level == 0);
-
+        Definition.hasCantrips = hasCantrip;
         Definition.maxSpellLevel = maxLevel;
-        Definition.hasCantrips = hasCantrips;
-
         return this;
     }
 

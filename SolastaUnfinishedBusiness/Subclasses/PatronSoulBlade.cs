@@ -89,7 +89,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         var spellListSoulBlade = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListPaladin, "SpellListSoulBlade")
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, Shield, FalseLife)
@@ -97,7 +97,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetSpellsAtLevel(3, Haste, Slow)
             .SetSpellsAtLevel(4, PhantasmalKiller, BlackTentacles)
             .SetSpellsAtLevel(5, ConeOfCold, MindTwist)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinitySoulBladeExpandedSpells = FeatureDefinitionMagicAffinityBuilder
