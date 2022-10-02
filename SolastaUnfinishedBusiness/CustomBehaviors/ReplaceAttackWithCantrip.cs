@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ReplaceAttackWithCantrip
 {
-    public static void AllowCastDuringMainAttack(
+    internal static void AllowCastDuringMainAttack(
         GameLocationCharacter character,
         ActionDefinitions.Id actionId,
         ActionDefinitions.ActionScope scope,
@@ -41,7 +41,7 @@ internal static class ReplaceAttackWithCantrip
         result = ActionDefinitions.ActionStatus.Available;
     }
 
-    public static void AllowAttacksAfterCantrip(GameLocationCharacter __instance, CharacterActionParams actionParams,
+    internal static void AllowAttacksAfterCantrip(GameLocationCharacter __instance, CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope)
     {
         if (scope != ActionDefinitions.ActionScope.Battle)

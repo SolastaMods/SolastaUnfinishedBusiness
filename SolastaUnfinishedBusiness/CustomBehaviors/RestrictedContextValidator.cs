@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public delegate (OperationType, bool) IsContextValidHandler(
+internal delegate (OperationType, bool) IsContextValidHandler(
     BaseDefinition definition,
     IRestrictedContextProvider provider,
     RulesetCharacter character,
@@ -15,7 +15,7 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
 {
     private readonly IsContextValidHandler validator;
 
-    public RestrictedContextValidator(IsContextValidHandler validator)
+    internal RestrictedContextValidator(IsContextValidHandler validator)
     {
         this.validator = validator;
     }

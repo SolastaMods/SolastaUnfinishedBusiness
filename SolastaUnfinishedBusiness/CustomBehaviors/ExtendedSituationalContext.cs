@@ -1,14 +1,15 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public enum ExtendedSituationalContext
+internal enum ExtendedSituationalContext
 {
     MainWeaponIsMelee = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001
 }
 
-public static class CustomSituationalContext
+internal static class CustomSituationalContext
 {
-    public static bool IsContextValid(RulesetImplementationDefinitions.SituationalContextParams contextParams, bool def)
+    internal static bool IsContextValid(RulesetImplementationDefinitions.SituationalContextParams contextParams,
+        bool def)
     {
         var context = contextParams.situationalContext;
 

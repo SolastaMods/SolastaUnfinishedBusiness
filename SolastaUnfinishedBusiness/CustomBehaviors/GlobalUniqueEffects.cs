@@ -8,10 +8,8 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public static class GlobalUniqueEffects
+internal static class GlobalUniqueEffects
 {
-    public enum Group { Familiar, Artisan }
-
     private static readonly Dictionary<Group, (List<FeatureDefinitionPower>, List<SpellDefinition>)>
         Groups = new();
 
@@ -77,12 +75,12 @@ public static class GlobalUniqueEffects
         return (powers, spells);
     }
 
-    public static void AddToGroup(Group group, [NotNull] params FeatureDefinitionPower[] powers)
+    internal static void AddToGroup(Group group, [NotNull] params FeatureDefinitionPower[] powers)
     {
         GetGroup(group).Item1.AddRange(powers);
     }
 
-    public static void AddToGroup(Group group, [NotNull] params SpellDefinition[] spells)
+    internal static void AddToGroup(Group group, [NotNull] params SpellDefinition[] spells)
     {
         GetGroup(group).Item2.AddRange(spells);
     }
@@ -217,4 +215,6 @@ public static class GlobalUniqueEffects
             character.TerminateSpell(spell);
         }
     }
+
+    internal enum Group { Familiar, Artisan }
 }

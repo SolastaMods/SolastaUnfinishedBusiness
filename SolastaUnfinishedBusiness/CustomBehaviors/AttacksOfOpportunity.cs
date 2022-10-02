@@ -11,14 +11,14 @@ using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public static class AttacksOfOpportunity
+internal static class AttacksOfOpportunity
 {
-    public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
+    internal const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     internal static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
-    public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
+    internal static readonly object SentinelFeatMarker = new SentinelFeatMarker();
     private static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = new();
 
-    public static IEnumerator ProcessOnCharacterAttackFinished(
+    internal static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -79,12 +79,12 @@ public static class AttacksOfOpportunity
         yield return battleManager.WaitForReactions(unit, actionService, count);
     }
 
-    public static void ProcessOnCharacterMoveStart([NotNull] GameLocationCharacter mover, int3 destination)
+    internal static void ProcessOnCharacterMoveStart([NotNull] GameLocationCharacter mover, int3 destination)
     {
         MovingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
     }
 
-    public static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
+    internal static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
     {
         if (battleManager == null)
@@ -113,7 +113,7 @@ public static class AttacksOfOpportunity
         }
     }
 
-    public static void CleanMovingCache()
+    internal static void CleanMovingCache()
     {
         MovingCharactersCache.Clear();
     }
@@ -191,7 +191,7 @@ public static class AttacksOfOpportunity
         return battleManager.CanAttack(evaluationParams);
     }
 
-    public static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
+    internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
         bool def, float distance)
     {
         return def || attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
@@ -237,18 +237,18 @@ internal sealed class CanMakeAoOOnReachEntered
 {
     private readonly IsCharacterValidHandler[] validators;
 
-    public CanMakeAoOOnReachEntered(params IsCharacterValidHandler[] validators)
+    internal CanMakeAoOOnReachEntered(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators;
     }
 
-    public bool IsValid([CanBeNull] RulesetCharacter character)
+    internal bool IsValid([CanBeNull] RulesetCharacter character)
     {
         return character != null && character.IsValid(validators);
     }
 }
 
-public delegate IEnumerator ReactToAttackFinishedHandler(
+internal delegate IEnumerator ReactToAttackFinishedHandler(
     GameLocationCharacter character,
     GameLocationCharacter defender,
     RuleDefinitions.RollOutcome outcome,
@@ -256,11 +256,11 @@ public delegate IEnumerator ReactToAttackFinishedHandler(
     RulesetAttackMode mode,
     ActionModifier modifier);
 
-public sealed class ReactToAttackFinished : IReactToAttackFinished
+internal sealed class ReactToAttackFinished : IReactToAttackFinished
 {
     private readonly ReactToAttackFinishedHandler handler;
 
-    public ReactToAttackFinished(ReactToAttackFinishedHandler handler)
+    internal ReactToAttackFinished(ReactToAttackFinishedHandler handler)
     {
         this.handler = handler;
     }

@@ -3,9 +3,9 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
+internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
-    public RulesetEffectPowerWithAdvancement(
+    internal RulesetEffectPowerWithAdvancement(
         int extraCharges,
         RulesetCharacter user,
         RulesetUsablePower usablePower,
@@ -31,7 +31,7 @@ public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
     }
 
     public override int EffectLevel { get; }
-    public int ExtraCharges { get; }
+    internal int ExtraCharges { get; }
 
     public override int ComputeTargetParameter()
     {
@@ -66,7 +66,7 @@ public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         return targetParameter;
     }
 
-    public static bool GetAdvancementData(CharacterActionUsePower action)
+    internal static bool GetAdvancementData(CharacterActionUsePower action)
     {
         if (action.ActingCharacter.RulesetCharacter is RulesetCharacterEffectProxy)
         {
@@ -96,7 +96,7 @@ public class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         return false;
     }
 
-    public static bool InstantiateActiveDeviceFunction(
+    internal static bool InstantiateActiveDeviceFunction(
         RulesetImplementationManagerLocation manager,
         ref RulesetEffect result,
         RulesetCharacter user,

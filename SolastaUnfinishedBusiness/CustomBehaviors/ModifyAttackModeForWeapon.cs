@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
+internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 {
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
@@ -38,14 +38,14 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
         RulesetItem weapon);
 }
 
-// public sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
+// internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 // {
-//     public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
+//     internal delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
 //         RulesetItem weapon);
 //
 //     private readonly GetWeaponDiceHandler getWeaponDice;
 //
-//     public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+//     internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
 //         params CharacterValidator[] validators) : base(isWeaponValid, validators)
 //     {
 //         this.getWeaponDice = getWeaponDice;
@@ -82,11 +82,11 @@ public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 //     }
 // }
 //
-public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
+internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 {
     private readonly string tag;
 
-    public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
+    internal AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         this.tag = tag;
@@ -99,11 +99,11 @@ public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
     }
 }
 //
-// public class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
+// internal class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
 // {
 //     private readonly EffectForm effect;
 //
-//     public AddEffectToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
+//     internal AddEffectToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
 //         params CharacterValidator[] validators) : base(isWeaponValid, validators)
 //     {
 //         this.effect = effect;
@@ -116,9 +116,9 @@ public sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 //     }
 // }
 
-public sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
+internal sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
 {
-    public BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
+    internal BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
         : base(isWeaponValid, validators)
     {
     }

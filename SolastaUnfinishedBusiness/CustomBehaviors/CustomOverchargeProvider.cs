@@ -1,17 +1,20 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using JetBrains.Annotations;
 
-public interface ICustomOverchargeProvider
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
+internal interface ICustomOverchargeProvider
 {
     public (int, int)[] OverchargeSteps(RulesetCharacter character);
 }
 
-public delegate (int, int)[] OverchargeStepsHandler(RulesetCharacter character);
+internal delegate (int, int)[] OverchargeStepsHandler(RulesetCharacter character);
 
-public class CustomOverchargeProvider : ICustomOverchargeProvider
+[UsedImplicitly]
+internal class CustomOverchargeProvider : ICustomOverchargeProvider
 {
     private readonly OverchargeStepsHandler _handler;
 
-    public CustomOverchargeProvider(OverchargeStepsHandler handler)
+    internal CustomOverchargeProvider(OverchargeStepsHandler handler)
     {
         _handler = handler;
     }
@@ -21,7 +24,7 @@ public class CustomOverchargeProvider : ICustomOverchargeProvider
         return _handler(character);
     }
 
-    public static int GetAdvancementFromOvercharge(int overcharge, (int, int)[] steps)
+    internal static int GetAdvancementFromOvercharge(int overcharge, (int, int)[] steps)
     {
         if (steps == null || steps.Length == 0)
         {

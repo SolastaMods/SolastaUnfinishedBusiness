@@ -5,30 +5,30 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public delegate bool IsCharacterValidHandler(RulesetCharacter character);
+internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
-public static class ValidatorsCharacter
+internal static class ValidatorsCharacter
 {
-    public static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
+    internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
-    public static readonly IsCharacterValidHandler NoArmor = character => !character.IsWearingArmor();
+    internal static readonly IsCharacterValidHandler NoArmor = character => !character.IsWearingArmor();
 
-    // public static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
+    // internal static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
 
-    public static readonly IsCharacterValidHandler NoShield = character => !character.IsWearingShield();
+    internal static readonly IsCharacterValidHandler NoShield = character => !character.IsWearingShield();
 
-    public static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();
+    internal static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();
 
-    // public static readonly CharacterValidator EmptyOffhand = character => character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+    // internal static readonly CharacterValidator EmptyOffhand = character => character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
-    public static readonly IsCharacterValidHandler HasPolearm = character =>
+    internal static readonly IsCharacterValidHandler HasPolearm = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
 
-    public static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
+    internal static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
@@ -55,17 +55,17 @@ public static class ValidatorsCharacter
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
-    public static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
+    internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
-    // public static readonly CharacterValidator FullyUnarmed = character =>
+    // internal static readonly CharacterValidator FullyUnarmed = character =>
     // {
     //     var slotsByName = character.CharacterInventory.InventorySlotsByName;
     //     return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
     //            && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     // };
 
-    public static readonly IsCharacterValidHandler HasUnarmedHand = character =>
+    internal static readonly IsCharacterValidHandler HasUnarmedHand = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var main = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
@@ -75,13 +75,13 @@ public static class ValidatorsCharacter
                || (!ValidatorsWeapon.IsTwoHanded(main) && ValidatorsWeapon.IsUnarmedWeapon(off));
     };
 
-    // public static readonly CharacterValidator UsedAllMainAttacks = character =>
+    // internal static readonly CharacterValidator UsedAllMainAttacks = character =>
     //     character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
 
-    // public static readonly CharacterValidator InBattle = _ =>
+    // internal static readonly CharacterValidator InBattle = _ =>
     //     ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
-    public static readonly IsCharacterValidHandler LightArmor = character =>
+    internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
         var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
             .EquipedItem;
@@ -98,7 +98,7 @@ public static class ValidatorsCharacter
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
 
-    public static readonly IsCharacterValidHandler OffHandHasLightSource = character =>
+    internal static readonly IsCharacterValidHandler OffHandHasLightSource = character =>
     {
         switch (character)
         {
@@ -118,7 +118,7 @@ public static class ValidatorsCharacter
 
     // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
     // defined as having offhand empty or being not a weapon
-    public static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
+    internal static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
         {
@@ -131,7 +131,7 @@ public static class ValidatorsCharacter
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
     }
 
-    public static bool IsFreeOffhand(RulesetCharacter character)
+    internal static bool IsFreeOffhand(RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
         {
@@ -144,25 +144,25 @@ public static class ValidatorsCharacter
     }
 
     [NotNull]
-    public static IsCharacterValidHandler HasAnyOfConditions(params ConditionDefinition[] conditions)
+    internal static IsCharacterValidHandler HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     }
 
     [NotNull]
-    public static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
+    internal static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
     {
         return character => character.HasAnyFeature(features);
     }
 
     // [NotNull]
-    // public static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
+    // internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     // {
     //     return character => conditions.Any(character.HasConditionOfType);
     // }
 
     // [NotNull]
-    // public static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
+    // internal static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
     // {
     //     return character =>
     //     {

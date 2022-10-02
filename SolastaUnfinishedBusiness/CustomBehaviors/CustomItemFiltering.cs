@@ -2,18 +2,18 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public interface ICustomItemFilter
+internal interface ICustomItemFilter
 {
     public bool IsValid(RulesetCharacter character, RulesetItem rulesetItem);
 }
 
-public delegate bool IsValidItemHandler(RulesetCharacter character, RulesetItem rulesetItem);
+internal delegate bool IsValidItemHandler(RulesetCharacter character, RulesetItem rulesetItem);
 
-public class CustomItemFilter : ICustomItemFilter
+internal class CustomItemFilter : ICustomItemFilter
 {
     private readonly IsValidItemHandler _handler;
 
-    public CustomItemFilter(IsValidItemHandler handler)
+    internal CustomItemFilter(IsValidItemHandler handler)
     {
         _handler = handler;
     }
@@ -23,7 +23,7 @@ public class CustomItemFilter : ICustomItemFilter
         return _handler(character, rulesetItem);
     }
 
-    public static void FilterItems(InventoryPanel panel)
+    internal static void FilterItems(InventoryPanel panel)
     {
         if (panel.InventoryManagementMode != ActionDefinitions.InventoryManagementMode.SelectItem
             || panel.ItemSelectionType != ActionDefinitions.ItemSelectionType.Carried)

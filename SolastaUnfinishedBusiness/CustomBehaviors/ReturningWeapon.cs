@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ReturningWeapon
+internal class ReturningWeapon
 {
     private const string ActiveteReturningFormat = "Feedback/&ReturningWeaponActivates";
     private const string TagReturningWeapon = "ReturningWeapon";
@@ -13,9 +13,9 @@ public class ReturningWeapon
     {
     }
 
-    public static ReturningWeapon Instance { get; } = new();
+    internal static ReturningWeapon Instance { get; } = new();
 
-    public static RuleDefinitions.AttackProximity Process(RulesetCharacterHero hero, RulesetAttackMode mode,
+    internal static RuleDefinitions.AttackProximity Process(RulesetCharacterHero hero, RulesetAttackMode mode,
         RuleDefinitions.AttackProximity proximity)
     {
         if (proximity != RuleDefinitions.AttackProximity.Range || !mode.Thrown) { return proximity; }
@@ -57,7 +57,7 @@ public class ReturningWeapon
         return proximity;
     }
 
-    public static void AddCustomTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddCustomTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (item.HasSubFeatureOfType<ReturningWeapon>())
         {

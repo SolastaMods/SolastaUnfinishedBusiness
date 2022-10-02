@@ -10,21 +10,21 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 /**
  * Adds fake usable device to hero's devices that has its charges set to uses of provided power pool.
  */
-public class PowerPoolDevice
+internal class PowerPoolDevice
 {
     private static readonly Dictionary<RulesetCharacterHero, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
 
     private readonly ItemDefinition baseItem;
 
-    public PowerPoolDevice(ItemDefinition baseItem, FeatureDefinitionPower pool)
+    internal PowerPoolDevice(ItemDefinition baseItem, FeatureDefinitionPower pool)
     {
         this.baseItem = baseItem;
         Pool = pool;
     }
 
-    public FeatureDefinitionPower Pool { get; }
+    internal FeatureDefinitionPower Pool { get; }
 
-    public static void Clear(RulesetCharacterHero hero)
+    internal static void Clear(RulesetCharacterHero hero)
     {
         if (!DeviceCache.TryGetValue(hero, out var devices))
         {
@@ -39,13 +39,13 @@ public class PowerPoolDevice
         }
     }
 
-    public static PowerPoolDevice GetFromRulesetItem(RulesetCharacterHero hero, RulesetItemDevice device)
+    internal static PowerPoolDevice GetFromRulesetItem(RulesetCharacterHero hero, RulesetItemDevice device)
     {
         return hero.GetSubFeaturesByType<PowerPoolDevice>()
             .FirstOrDefault(p => p.baseItem.Name == device.ItemDefinition.Name);
     }
 
-    public RulesetItemDevice GetDevice(RulesetCharacterHero hero)
+    internal RulesetItemDevice GetDevice(RulesetCharacterHero hero)
     {
         if (!DeviceCache.TryGetValue(hero, out var devices))
         {

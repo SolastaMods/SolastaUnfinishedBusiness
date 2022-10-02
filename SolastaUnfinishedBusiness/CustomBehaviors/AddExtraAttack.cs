@@ -8,7 +8,7 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public abstract class AddExtraAttackBase : IAddExtraAttack
+internal abstract class AddExtraAttackBase : IAddExtraAttack
 {
     protected readonly ActionDefinitions.ActionType ActionType;
     private readonly List<string> additionalTags = new();
@@ -87,7 +87,7 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
     }
 
     [NotNull]
-    public AddExtraAttackBase SetTags([NotNull] params string[] tags)
+    internal AddExtraAttackBase SetTags([NotNull] params string[] tags)
     {
         additionalTags.AddRange(tags);
 
@@ -142,16 +142,17 @@ public abstract class AddExtraAttackBase : IAddExtraAttack
     }
 }
 
-public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
+internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 {
-    public AddExtraUnarmedAttack(
+    internal AddExtraUnarmedAttack(
         ActionDefinitions.ActionType actionType,
         bool clearSameType,
         params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
     {
     }
 
-    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params IsCharacterValidHandler[] validators) :
+    internal AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType,
+        params IsCharacterValidHandler[] validators) :
         base(actionType, validators)
     {
     }
@@ -186,16 +187,16 @@ public sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
-public sealed class AddExtraMainHandAttack : AddExtraAttackBase
+internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
-    public AddExtraMainHandAttack(
+    internal AddExtraMainHandAttack(
         ActionDefinitions.ActionType actionType,
         bool clearSameType,
         params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
     {
     }
 
-    public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType,
+    internal AddExtraMainHandAttack(ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) :
         base(actionType, validators)
     {
@@ -228,11 +229,11 @@ public sealed class AddExtraMainHandAttack : AddExtraAttackBase
     }
 }
 
-public sealed class AddExtraRangedAttack : AddExtraAttackBase
+internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler weaponValidator;
 
-    public AddExtraRangedAttack(
+    internal AddExtraRangedAttack(
         IsWeaponValidHandler weaponValidator,
         ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
@@ -285,9 +286,9 @@ public sealed class AddExtraRangedAttack : AddExtraAttackBase
     }
 }
 
-public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
+internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
-    public AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
+    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
         ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasPolearm)
     {
     }
@@ -351,9 +352,9 @@ public sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     }
 }
 
-public sealed class AddBonusShieldAttack : AddExtraAttackBase
+internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
-    public AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)
+    internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)
     {
     }
 

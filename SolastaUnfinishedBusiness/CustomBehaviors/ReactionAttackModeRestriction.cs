@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
+internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
 {
-    public static readonly ValidReactionModeHandler MeleeOnly = (mode, ranged, _, _) =>
+    internal static readonly ValidReactionModeHandler MeleeOnly = (mode, ranged, _, _) =>
     {
         if (ranged)
         {
@@ -32,7 +32,7 @@ public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestricti
 
     private readonly ValidReactionModeHandler[] validators;
 
-    public ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
+    internal ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
     {
         this.validators = validators;
     }

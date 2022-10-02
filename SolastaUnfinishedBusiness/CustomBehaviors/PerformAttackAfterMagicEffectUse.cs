@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
+internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
 {
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;

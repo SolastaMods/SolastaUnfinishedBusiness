@@ -3,11 +3,11 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
+internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
 {
-    public FeatureDefinitionPower StopPower;
+    internal FeatureDefinitionPower StopPower;
 
-    public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
+    internal StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
     {
         Name = name;
         Tooltip = tooltip;
