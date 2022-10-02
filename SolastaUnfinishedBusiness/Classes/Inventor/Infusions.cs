@@ -24,6 +24,7 @@ internal static class Infusions
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                //TODO: make it +2/+2 on level 10
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
@@ -32,7 +33,8 @@ internal static class Infusions
             SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
             FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{name}")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+                //TODO: make it +2 AC on level 10
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
@@ -42,19 +44,44 @@ internal static class Infusions
             FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                //TODO: make it +2/+2 on level 10
                 .Configure(attackRollModifier: 1, damageRollModifier: 1)
                 .AddToDB());
 
+        name = "InfusionMindSharpener";
+        BuildInfuseItemPowerInvocation(2, name,
+            SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference, IsBodyArmor,
+            FeatureDefinitionMagicAffinityBuilder
+                .Create($"MagicAffinity{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
+                //RAW it adds reaction to not break concentration
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
+                .AddToDB());
+
+        name = "InfusionReturningWeapon";
+        BuildInfuseItemPowerInvocation(2, name,
+            SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference, IsThrownWeapon,
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
+                .SetCustomSubFeatures(ReturningWeapon.Instance)
+                .Configure(attackRollModifier: 1, damageRollModifier: 1)
+                .AddToDB());
+
+        //Level 02
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify);
-        
         //RAW they are level 6, but at that level you get Cloak Of Elvenkind which is better
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind); 
-         
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind);
+
         //Level 06
         BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, 6);
-        
+        BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, 6);
+        //RAW they are level 14, but at 10 you get much better Winged Boots
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 6);
+
+
         //Level 10
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, 10);
@@ -65,16 +92,17 @@ internal static class Infusions
         BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, 10);
-        
+
         //Level 14
         BuildCreateItemPowerInvocation(ItemDefinitions.AmuletOfHealth, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.BeltOfGiantHillStrength, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 14);//move to earlier level?
         BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Defense, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.RingProtectionPlus1, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.GemOfSeeing, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.HornOfBlasting, 14);
-        
+
+        //Sadly this one is just a copy of Cloak of Protection as of v1.4.13
+        // BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfBat, 14);
     }
 
     private static void BuildInfuseItemPowerInvocation(int level, string name, AssetReferenceSprite icon,
@@ -200,10 +228,26 @@ internal static class Infusions
         return !definition.Magical && definition.IsWeapon;
     }
 
+    private static bool IsThrownWeapon(RulesetCharacter _, RulesetItem item)
+    {
+        var definition = item.ItemDefinition;
+        return !definition.Magical
+               && definition.IsWeapon
+               && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+    }
+
     private static bool IsArmor(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;
         return !definition.Magical && definition.IsArmor;
+    }
+
+    private static bool IsBodyArmor(RulesetCharacter _, RulesetItem item)
+    {
+        var definition = item.ItemDefinition;
+        return !definition.Magical
+               && definition.IsArmor
+               && definition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name);
     }
 
     #endregion

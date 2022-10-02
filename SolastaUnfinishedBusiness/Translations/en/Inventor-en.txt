@@ -49,3 +49,7 @@ Subclass/&InventorInnovationTitle=Innovation
 UI/&CustomFeatureSelectionTooltipTypeInfusion=Infusion
 Item/&ReplicaItemFormatTitle=Replica {0}
 Item/&ReplicaItemFormatDescription=Create replica <b>{0}</b>:\n{1}
+Feature/&InfusionMindSharpenerDescription=Infuse body armor or clothes to provide advantage on rolls to maintain concentration and not require rolls if damage taken is 10 or less.
+Feature/&InfusionMindSharpenerTitle=Mind Sharpener
+Feature/&InfusionReturningWeaponDescription=Infuse non-magic thrown weapon to grant a +1 bonus to attack and damage rolls made with it, and return to the wielder’s hand immediately after it is used to make a ranged attack.
+Feature/&InfusionReturningWeaponTitle=Returning Weapon
