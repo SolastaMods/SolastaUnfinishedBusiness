@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IDisableImmunityAndResistanceToDamageType
+internal interface IDisableImmunityAndResistanceToDamageType
 {
     bool DisableImmunityAndResistanceToDamageType(string damageType);
 }

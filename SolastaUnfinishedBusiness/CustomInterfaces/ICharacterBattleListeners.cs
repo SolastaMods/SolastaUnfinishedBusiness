@@ -2,22 +2,22 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICharacterTurnStartListener
+internal interface ICharacterTurnStartListener
 {
     void OnChracterTurnStarted(GameLocationCharacter locationCharacter);
 }
 
-public interface ICharacterTurnEndListener
+internal interface ICharacterTurnEndListener
 {
     void OnChracterTurnEnded(GameLocationCharacter locationCharacter);
 }
 
-public interface ICharacterBattlStartedListener
+internal interface ICharacterBattlStartedListener
 {
     void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
 }
 
-public interface ICharacterBattlEndedListener
+internal interface ICharacterBattlEndedListener
 {
     void OnChracterBattleEnded(GameLocationCharacter locationCharacter);
 }

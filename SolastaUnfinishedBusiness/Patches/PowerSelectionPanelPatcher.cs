@@ -12,16 +12,16 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class PowerSelectionPanelPatcher
+public static class PowerSelectionPanelPatcher
 {
     private static RectTransform _secondRow;
     private static RectTransform _thirdRow;
 
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
             var powerCanceledHandler = codes.FindIndex(x =>
@@ -55,7 +55,7 @@ internal static class PowerSelectionPanelPatcher
         }
 
         //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
-        internal static void Postfix(PowerSelectionPanel __instance)
+        public static void Postfix(PowerSelectionPanel __instance)
         {
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {
@@ -116,9 +116,9 @@ internal static class PowerSelectionPanelPatcher
     //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
     [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
-        internal static void Postfix()
+        public static void Postfix()
         {
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {

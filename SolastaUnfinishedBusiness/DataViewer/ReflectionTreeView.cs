@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public class ReflectionTreeView
+internal class ReflectionTreeView
 {
     private readonly ReflectionSearchResult _searchResults = new();
     private GUIStyle _buttonStyle;
@@ -26,9 +26,9 @@ public class ReflectionTreeView
     private string searchText = "";
     private int visitCount;
 
-    public ReflectionTreeView() { }
+    internal ReflectionTreeView() { }
 
-    public ReflectionTreeView(object root)
+    internal ReflectionTreeView(object root)
     {
         SetRoot(root);
     }
@@ -37,7 +37,7 @@ public class ReflectionTreeView
 
     private static int MaxRows => GameServicesDisplay.MaxRows;
 
-    public object Root => _tree.Root;
+    internal object Root => _tree.Root;
 
     private static float TitleMinWidth => 300f;
 
@@ -48,13 +48,13 @@ public class ReflectionTreeView
         searchBreadth = breadth;
     }
 
-    public void Clear()
+    internal void Clear()
     {
         _tree = null;
         _searchResults.Clear();
     }
 
-    public void SetRoot(object root)
+    internal void SetRoot(object root)
     {
         if (_tree != null)
         {
@@ -72,7 +72,7 @@ public class ReflectionTreeView
         ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
     }
 
-    public void OnGUI(bool drawRoot = true, bool collapse = false)
+    internal void OnGUI(bool drawRoot = true, bool collapse = false)
     {
         if (_tree == null)
         {

@@ -6,13 +6,13 @@ using static SolastaUnfinishedBusiness.Models.CharacterExportContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class MessageModalPatcher
+public static class MessageModalPatcher
 {
     [HarmonyPatch(typeof(MessageModal), "OnEndShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnEndShow_Patch
+    public static class OnEndShow_Patch
     {
-        internal static void Postfix(MessageModal __instance)
+        public static void Postfix(MessageModal __instance)
         {
             //PATCH: offers an input field when in the context of character export
             if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)

@@ -4,13 +4,13 @@ using static SolastaUnfinishedBusiness.Models.Level20Context;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class HeroDefinitionsPatcher
+public static class HeroDefinitionsPatcher
 {
     [HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MaxHeroExperience_Patch
+    public static class MaxHeroExperience_Patch
     {
-        internal static bool Prefix(ref int __result)
+        public static bool Prefix(ref int __result)
         {
             //PATCH: overrides the max experience allowed under Level 20 scenarios
             if (!Main.Settings.EnableLevel20)

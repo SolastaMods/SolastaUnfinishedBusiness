@@ -12,13 +12,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageClassSelectionPanelPatcher
+public static class CharacterStageClassSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Compare_Patch
+    public static class Compare_Patch
     {
-        internal static void Postfix(CharacterClassDefinition left, CharacterClassDefinition right, ref int __result)
+        public static void Postfix(CharacterClassDefinition left, CharacterClassDefinition right, ref int __result)
         {
             //PATCH: sorts the class panel by Title
             if (Main.Settings.EnableSortingClasses)
@@ -31,9 +31,9 @@ internal static class CharacterStageClassSelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
+        public static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling classes on the Mod UI panel
             if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
@@ -73,7 +73,7 @@ internal static class CharacterStageClassSelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FillClassFeatures_Patch
+    public static class FillClassFeatures_Patch
     {
         //PATCH: hides the features list for already acquired classes (MULTICLASS)
         private static int Level(
@@ -106,7 +106,7 @@ internal static class CharacterStageClassSelectionPanelPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
             var myLevelMethod = new Func<FeatureUnlockByLevel, RulesetCharacterHero, int>(Level).Method;
@@ -133,7 +133,7 @@ internal static class CharacterStageClassSelectionPanelPatcher
     //PATCH: hides the equipment panel group (MULTICLASS)
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
         private static bool SetActive([NotNull] RulesetCharacterHero currentHero)
         {
@@ -141,7 +141,7 @@ internal static class CharacterStageClassSelectionPanelPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var setActiveFound = 0;
             var setActiveMethod = typeof(GameObject).GetMethod("SetActive");

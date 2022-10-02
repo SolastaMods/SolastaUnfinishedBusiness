@@ -6,13 +6,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class SpellSelectionPanelPatcher
+public static class SpellSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Prefix(
+        public static void Prefix(
             GuiCharacter caster,
             ref bool cantripOnly,
             ActionDefinitions.ActionType actionType)
@@ -27,7 +27,7 @@ internal static class SpellSelectionPanelPatcher
             }
         }
 
-        internal static void Postfix(
+        public static void Postfix(
             SpellSelectionPanel __instance,
             GuiCharacter caster,
             SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged,
@@ -47,9 +47,9 @@ internal static class SpellSelectionPanelPatcher
 
     [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
-        internal static void Postfix()
+        public static void Postfix()
         {
             //PATCH: shows spell selection on multiple rows
             if (!Main.Settings.EnableMultiLineSpellPanel)

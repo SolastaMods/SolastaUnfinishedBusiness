@@ -8,14 +8,14 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterSelectionModalPatcher
+public static class CharacterSelectionModalPatcher
 {
     //PATCH: this patch changes the min/max requirements on locations or campaigns
     [HarmonyPatch(typeof(CharacterSelectionModal), "SelectFromPool")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SelectFromPool_Patch
+    public static class SelectFromPool_Patch
     {
-        internal static void Prefix(CharacterSelectionModal __instance)
+        public static void Prefix(CharacterSelectionModal __instance)
         {
             if (!Main.Settings.OverrideMinMaxLevel)
             {
@@ -28,7 +28,7 @@ internal static class CharacterSelectionModalPatcher
     }
 
     [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
-    internal static class EnumeratePlates_Patch
+    public static class EnumeratePlates_Patch
     {
         //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
         private static int MyLevels(IEnumerable<int> levels)
@@ -36,7 +36,7 @@ internal static class CharacterSelectionModalPatcher
             return levels.Sum();
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var bypass = 0;
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;

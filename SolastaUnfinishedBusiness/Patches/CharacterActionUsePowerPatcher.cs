@@ -6,13 +6,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterActionUsePowerPatcher
+public static class CharacterActionUsePowerPatcher
 {
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionBefore")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CheckInterruptionBefore_Patch
+    public static class CheckInterruptionBefore_Patch
     {
-        internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
+        public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
             return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
@@ -21,9 +21,9 @@ internal static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionAfter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CheckInterruptionAfter_Patch
+    public static class CheckInterruptionAfter_Patch
     {
-        internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
+        public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
             return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
@@ -32,9 +32,9 @@ internal static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "GetAdvancementData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetAdvancementData_Patch
+    public static class GetAdvancementData_Patch
     {
-        internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
+        public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Calculate advancement data for `RulesetEffectPowerWithAdvancement`
             return RulesetEffectPowerWithAdvancement.GetAdvancementData(__instance);
@@ -43,9 +43,9 @@ internal static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "HandleEffectUniqueness")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class HandleEffectUniqueness_Patch
+    public static class HandleEffectUniqueness_Patch
     {
-        internal static void Postfix([NotNull] CharacterActionUsePower __instance)
+        public static void Postfix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Support for limited power efefct instances
             //terminates earliest power effect instances of same limit, if limit reached
@@ -56,9 +56,9 @@ internal static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "SpendMagicEffectUses")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpendMagicEffectUses_Patch
+    public static class SpendMagicEffectUses_Patch
     {
-        internal static bool Prefix([NotNull] CharacterActionUsePower __instance)
+        public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
 

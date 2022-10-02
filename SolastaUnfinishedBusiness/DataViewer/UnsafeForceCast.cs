@@ -7,7 +7,7 @@ internal static class UnsafeForceCast
 {
     private static readonly DoubleDictionary<Type, Type, WeakReference> _cache = new();
 
-    public static Func<TInput, TOutput> GetDelegate<TInput, TOutput>()
+    internal static Func<TInput, TOutput> GetDelegate<TInput, TOutput>()
     {
         Func<TInput, TOutput> cache = default;
 

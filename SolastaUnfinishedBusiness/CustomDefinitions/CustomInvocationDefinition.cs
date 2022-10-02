@@ -8,18 +8,18 @@ using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
+internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
 {
-    public CustomInvocationPoolType PoolType { get; set; }
+    internal CustomInvocationPoolType PoolType { get; set; }
 
     /**Used for tooltip in selection screen*/
-    public ItemDefinition Item { get; set; }
+    internal ItemDefinition Item { get; set; }
 
     //TODO: add validator setter
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
         new() { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
-    public static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
+    internal static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
     {
         requirement = null;
 
@@ -161,7 +161,7 @@ internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<C
     {
     }
 
-    public CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
+    internal CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
     {
         Definition.PoolType = poolType;
         return this;

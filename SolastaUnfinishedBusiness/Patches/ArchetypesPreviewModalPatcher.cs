@@ -8,11 +8,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class ArchetypesPreviewModalPatcher
+public static class ArchetypesPreviewModalPatcher
 {
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
         //PATCH: filters out on subclass display features already taken (MULTICLASS)
         private static int Level([NotNull] FeatureUnlockByLevel featureUnlockByLevel)
@@ -39,7 +39,7 @@ internal static class ArchetypesPreviewModalPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
             var myLevelMethod = new Func<FeatureUnlockByLevel, int>(Level).Method;
@@ -60,9 +60,9 @@ internal static class ArchetypesPreviewModalPatcher
 
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Show_Patch
+    public static class Show_Patch
     {
-        internal static void Prefix(ref List<string> subclasses)
+        public static void Prefix(ref List<string> subclasses)
         {
             //PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
             var hero = Global.ActiveLevelUpHero;

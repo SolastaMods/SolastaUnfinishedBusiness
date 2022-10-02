@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPowerPoolModifier
+internal interface IPowerPoolModifier
 {
     FeatureDefinitionPower GetUsagePoolPower();
     int PoolChangeAmount();

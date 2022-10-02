@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPowerUseValidity
+internal interface IPowerUseValidity
 {
     bool CanUsePower(RulesetCharacter character);
 }

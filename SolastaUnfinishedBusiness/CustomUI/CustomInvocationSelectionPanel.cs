@@ -530,7 +530,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         public int Max { get; set; }
         public int Used { get; set; }
         public int Remaining => Skipped ? 0 : Max - Used;
-        public CustomInvocationPoolType Type { get; set; }
+        internal CustomInvocationPoolType Type { get; set; }
         public bool IsUnlearn => Id.Unlearn;
     }
 

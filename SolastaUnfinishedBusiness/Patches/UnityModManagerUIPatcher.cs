@@ -5,24 +5,24 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class UnityModManagerUIPatcher
+public static class UnityModManagerUIPatcher
 {
     [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", typeof(bool))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ToggleWindow_Patch
+    public static class ToggleWindow_Patch
     {
         //PATCH: prevents game from receiving input if Mod UI is open
-        internal static async void Postfix(bool open)
+        public static async void Postfix(bool open)
         {
             await ModManagerUI.Set(open);
         }
     }
 
-    internal static class ModManagerUI
+    public static class ModManagerUI
     {
-        internal static bool IsOpen { get; private set; }
+        public static bool IsOpen { get; private set; }
 
-        internal static async Task Set(bool open)
+        public static async Task Set(bool open)
         {
             if (open)
             {

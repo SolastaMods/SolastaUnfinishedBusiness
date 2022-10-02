@@ -3,7 +3,7 @@
 /**
      * Provides ways to react to attack (not spell) hits/misses
      */
-public interface IOnAttackHitEffect
+internal interface IOnAttackHitEffect
 {
     /**
          * Called after roll is made, but before damage is applied.
@@ -30,7 +30,7 @@ public interface IOnAttackHitEffect
         ActionModifier attackModifier);
 }
 
-public delegate void OnAttackHitDelegate(
+internal delegate void OnAttackHitDelegate(
     GameLocationCharacter attacker,
     GameLocationCharacter defender,
     RuleDefinitions.RollOutcome outcome,

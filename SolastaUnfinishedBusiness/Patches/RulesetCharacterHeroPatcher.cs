@@ -15,13 +15,13 @@ using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetCharacterHeroPatcher
+public static class RulesetCharacterHeroPatcher
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FindClassHoldingFeature_Patch
+    public static class FindClassHoldingFeature_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             RulesetCharacterHero __instance,
             FeatureDefinition featureDefinition,
             ref CharacterClassDefinition __result)
@@ -45,11 +45,11 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackModes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshAttackModes_Patch
+    public static class RefreshAttackModes_Patch
     {
         private static bool _callRefresh;
 
-        internal static void Prefix(ref bool callRefresh)
+        public static void Prefix(ref bool callRefresh)
         {
             //save refresh flag, so it can be used in postfix
             _callRefresh = callRefresh;
@@ -57,7 +57,7 @@ internal static class RulesetCharacterHeroPatcher
             callRefresh = false;
         }
 
-        internal static void Postfix(RulesetCharacterHero __instance)
+        public static void Postfix(RulesetCharacterHero __instance)
         {
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
@@ -84,9 +84,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshAll_Patch
+    public static class RefreshAll_Patch
     {
-        internal static void Prefix(RulesetCharacterHero __instance)
+        public static void Prefix(RulesetCharacterHero __instance)
         {
             //PATCH: clears cached customized spell effects
             CustomFeaturesContext.ClearSpellEffectCache(__instance);
@@ -99,9 +99,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "ItemEquiped")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ItemEquiped_Patch
+    public static class ItemEquiped_Patch
     {
-        internal static void Postfix(RulesetCharacterHero __instance, RulesetItem rulesetItem)
+        public static void Postfix(RulesetCharacterHero __instance, RulesetItem rulesetItem)
         {
             //PATCH: blade dancer only trigger certain features if certain item aren't wielded
             WizardBladeDancer.OnItemEquipped(__instance, rulesetItem);
@@ -110,9 +110,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshActiveFightingStyles_Patch
+    public static class RefreshActiveFightingStyles_Patch
     {
-        internal static void Postfix(RulesetCharacterHero __instance)
+        public static void Postfix(RulesetCharacterHero __instance)
         {
             //PATCH: enables some corner-case fighting styles (like archery for hand crossbows and dual wielding for shield expert)
             FightingStyleContext.RefreshFightingStylesPatch(__instance);
@@ -121,10 +121,10 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "AcknowledgeAttackUse")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AcknowledgeAttackUse_Patch
+    public static class AcknowledgeAttackUse_Patch
     {
         // ReSharper disable once RedundantAssignment
-        internal static void Prefix(RulesetCharacterHero __instance,
+        public static void Prefix(RulesetCharacterHero __instance,
             RulesetAttackMode mode,
             ref RuleDefinitions.AttackProximity proximity)
         {
@@ -141,9 +141,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeCraftingDurationHours")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeCraftingDurationHours_Patch
+    public static class ComputeCraftingDurationHours_Patch
     {
-        internal static void Postfix(ref int __result)
+        public static void Postfix(ref int __result)
         {
             //PATCH: reduces the total crafting time by a given percentage
             __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) / 100 * __result);
@@ -153,9 +153,9 @@ internal static class RulesetCharacterHeroPatcher
     //PATCH: DisableAutoEquip
     [HarmonyPatch(typeof(RulesetCharacterHero), "GrantItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GrantItem_Patch
+    public static class GrantItem_Patch
     {
-        internal static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
+        public static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
         {
             if (!Main.Settings.DisableAutoEquip || !tryToEquip)
             {
@@ -168,9 +168,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshArmorClass_Patch
+    public static class RefreshArmorClass_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: implements exclusivity for some AC modifiers
             // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
@@ -183,9 +183,9 @@ internal static class RulesetCharacterHeroPatcher
     //PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnumerateUsableRitualSpells_Patch
+    public static class EnumerateUsableRitualSpells_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             RulesetCharacterHero __instance,
             List<SpellDefinition> ritualSpells)
         {
@@ -315,9 +315,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GrantExperience_Patch
+    public static class GrantExperience_Patch
     {
-        internal static void Prefix(ref int experiencePoints)
+        public static void Prefix(ref int experiencePoints)
         {
             if (Main.Settings.MultiplyTheExperienceGainedBy is 100 or <= 0)
             {
@@ -339,9 +339,9 @@ internal static class RulesetCharacterHeroPatcher
     //PATCH: enables the No Experience on Level up cheat (NoExperienceOnLevelUp)
     [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CanLevelUp_Patch
+    public static class CanLevelUp_Patch
     {
-        internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
         {
             if (Main.Settings.NoExperienceOnLevelUp)
             {
@@ -379,9 +379,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "AddClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AddClassLevel_Patch
+    public static class AddClassLevel_Patch
     {
-        internal static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
+        public static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
         {
             var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
 
@@ -404,9 +404,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class InvocationProficiencies_Patch
+    public static class InvocationProficiencies_Patch
     {
-        internal static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
+        public static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
         {
             var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
 
@@ -439,9 +439,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAvailableDevices")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnumerateAvailableDevices_Patch
+    public static class EnumerateAvailableDevices_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             RulesetCharacterHero __instance,
             ref IEnumerable<RulesetItemDevice> __result)
         {
@@ -470,9 +470,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "UseDeviceFunction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UseDeviceFunction_Patch
+    public static class UseDeviceFunction_Patch
     {
-        internal static void Postfix(RulesetCharacterHero __instance,
+        public static void Postfix(RulesetCharacterHero __instance,
             RulesetItemDevice usableDevice,
             RulesetDeviceFunction function,
             int additionalCharges)
@@ -491,9 +491,9 @@ internal static class RulesetCharacterHeroPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "Unregister")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unregister_Patch
+    public static class Unregister_Patch
     {
-        internal static void Postfix(RulesetCharacterHero __instance)
+        public static void Postfix(RulesetCharacterHero __instance)
         {
             //PATCH: clears cached devices for a hero
             PowerPoolDevice.Clear(__instance);

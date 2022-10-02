@@ -10,9 +10,9 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    public static class JsonUtil
+    internal static class JsonUtil
     {
-        public static JsonSerializerSettings CreateSettings(PreserveReferencesHandling referencesHandling)
+        internal static JsonSerializerSettings CreateSettings(PreserveReferencesHandling referencesHandling)
         {
             var refJsonSerializerSettings = new JsonSerializerSettings
             {
@@ -42,12 +42,12 @@ namespace SolastaUnfinishedBusiness.DataMiner
             return refJsonSerializerSettings;
         }
 
-        public static bool IsBlacklisted(MemberInfo _)
+        internal static bool IsBlacklisted(MemberInfo _)
         {
             return false;
         }
 
-        public static List<MemberInfo> GetUnitySerializableMembers(Type objectType)
+        internal static List<MemberInfo> GetUnitySerializableMembers(Type objectType)
         {
             if (objectType == null)
             {

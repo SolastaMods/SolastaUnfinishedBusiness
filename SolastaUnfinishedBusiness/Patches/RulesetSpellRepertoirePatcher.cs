@@ -9,14 +9,14 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetSpellRepertoirePatcher
+public static class RulesetSpellRepertoirePatcher
 {
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpendSpellSlot_Patch
+    public static class SpendSpellSlot_Patch
     {
-        internal static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
+        public static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
             if (slotLevel == 0 || Main.Settings.DontConsumeSlots)
             {
@@ -149,9 +149,9 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: handles all different scenarios to determine max spell level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch
+    public static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch
     {
-        internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
+        public static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
             if (SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior)
             {
@@ -175,9 +175,9 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: handles Arcane Recovery granted spells on short rests
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RecoverMissingSlots_Patch
+    public static class RecoverMissingSlots_Patch
     {
-        internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
+        public static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
         {
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
@@ -215,9 +215,9 @@ internal static class RulesetSpellRepertoirePatcher
     //PATCH: only offers upcast Warlock pact at their correct slot level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CanUpcastSpell_Patch
+    public static class CanUpcastSpell_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             RulesetSpellRepertoire __instance,
             List<int> availableSlotLevels)
         {

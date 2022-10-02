@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-// public class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
+// internal class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
 // {
 //     private List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList { get; } = new();
 //
-//     public EffectDescription GetCustomEffect(RulesetCharacter caster)
+//     internal EffectDescription GetCustomEffect(RulesetCharacter caster)
 //     {
 //         var casterFeatures = caster.GetFeaturesByType<FeatureDefinition>().ToHashSet();
 //
@@ -24,14 +24,14 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 //     }
 // }
 
-// public class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEffect
+// internal class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEffect
 // {
-//     public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect,
+//     internal delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect,
 //         RulesetCharacter caster);
 //
-//     public ModifySpellEffectDelegate SpellModifier { get; set; }
+//     internal ModifySpellEffectDelegate SpellModifier { get; set; }
 //
-//     public EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
+//     internal EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
 //     {
 //         return SpellModifier != null ? SpellModifier(spell, effect, caster) : effect;
 //     }
@@ -42,7 +42,7 @@ internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     private readonly int _level;
     private readonly EffectDescription _upgraded;
 
-    public UpgradeEffectFromLevel(EffectDescription upgraded, int level)
+    internal UpgradeEffectFromLevel(EffectDescription upgraded, int level)
     {
         _upgraded = upgraded;
         _level = level;

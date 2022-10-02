@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageFightingStyleSelectionPanelPatcher
+public static class CharacterStageFightingStyleSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
         private static Vector2 OriginalAnchoredPosition { get; set; } = Vector2.zero;
 
-        internal static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
+        public static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
         {
             //PATCH: sorts the fighting style panel by Title
             if (Main.Settings.EnableSortingFightingStyles)

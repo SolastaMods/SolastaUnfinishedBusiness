@@ -152,7 +152,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 
     private sealed class StudyEnemyEffectDescription : CustomEffectForm
     {
-        public override void ApplyForm(
+        internal override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             List<string> effectiveDamageTypes,
             bool retargeting,
@@ -206,7 +206,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
         }
 
-        public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+        internal override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
         {
         }
     }

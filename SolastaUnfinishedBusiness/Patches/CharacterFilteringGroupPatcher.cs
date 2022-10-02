@@ -6,10 +6,10 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterFilteringGroupPatcher
+public static class CharacterFilteringGroupPatcher
 {
     [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
-    internal static class Compare_Patch
+    public static class Compare_Patch
     {
         //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
         private static int MyLevels(IEnumerable<int> levels)
@@ -17,7 +17,7 @@ internal static class CharacterFilteringGroupPatcher
             return levels.Sum();
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var bypass = 0;
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    public class DefinitionConverter : JsonConverter
+    internal class DefinitionConverter : JsonConverter
     {
         private bool cannotWrite;
 

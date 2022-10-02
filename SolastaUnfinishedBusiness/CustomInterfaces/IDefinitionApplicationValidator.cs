@@ -7,7 +7,7 @@
  * `IActionPerformanceProvider`
  * `FeatureDefinitionAttributeModifier` (except ArmorClass attribute) applied through Conditions
  */
-public interface IDefinitionApplicationValidator
+internal interface IDefinitionApplicationValidator
 {
     bool IsValid(BaseDefinition definition, RulesetCharacter character);
 }

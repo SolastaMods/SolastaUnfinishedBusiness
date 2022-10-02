@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public class DoubleDictionary<TKey1, TKey2, TValue>
+internal class DoubleDictionary<TKey1, TKey2, TValue>
 {
     private readonly Dictionary<TKey1, Dictionary<TKey2, TValue>> _dictionary
         = new();
 
-    public TValue this[TKey1 key1, TKey2 key2]
+    internal TValue this[TKey1 key1, TKey2 key2]
     {
         get => _dictionary[key1][key2];
         set => _dictionary[key1][key2] = value;
     }
 
-    public void Add(TKey1 key1, TKey2 key2, TValue value)
+    internal void Add(TKey1 key1, TKey2 key2, TValue value)
     {
         if (!_dictionary.TryGetValue(key1, out var innerDictionary))
         {
@@ -24,12 +24,12 @@ public class DoubleDictionary<TKey1, TKey2, TValue>
         innerDictionary.Add(key2, value);
     }
 
-    public void Clear()
+    internal void Clear()
     {
         _dictionary.Clear();
     }
 
-    public bool TryGetValue(TKey1 key1, TKey2 key2, out TValue value)
+    internal bool TryGetValue(TKey1 key1, TKey2 key2, out TValue value)
     {
         if (!_dictionary.TryGetValue(key1, out var innerDictionary))
         {
@@ -39,7 +39,7 @@ public class DoubleDictionary<TKey1, TKey2, TValue>
         return innerDictionary.TryGetValue(key2, out value);
     }
 
-    public TValue GetValueOrDefault(TKey1 key1, TKey2 key2, Func<TValue> getDefault)
+    internal TValue GetValueOrDefault(TKey1 key1, TKey2 key2, Func<TValue> getDefault)
     {
         if (!_dictionary.TryGetValue(key1, out var innerDictionary))
         {

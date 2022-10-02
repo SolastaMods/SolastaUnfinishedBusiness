@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomInvocationSubPanel : MonoBehaviour
 {
-    public CustomInvocationPoolType Type { get; private set; }
+    internal CustomInvocationPoolType Type { get; private set; }
 
-    public void Setup(CustomInvocationPoolType type)
+    internal void Setup(CustomInvocationPoolType type)
     {
         Type = type;
         name = $"CustomSubPanel<{type.Name}>";

@@ -5,11 +5,11 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class FeatureDefinitionPointPoolPatcher
+public static class FeatureDefinitionPointPoolPatcher
 {
     [HarmonyPatch(typeof(FeatureDefinitionPointPool), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FormatDescription_Patch
+    public static class FormatDescription_Patch
     {
         public static bool Prefix([NotNull] FeatureDefinitionPointPool __instance, ref string __result)
         {

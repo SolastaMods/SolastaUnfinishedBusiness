@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class DatabaseSelectionModalPatcher
+public static class DatabaseSelectionModalPatcher
 {
     [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BuildMonsters_Patch
+    public static class BuildMonsters_Patch
     {
-        internal static bool Prefix(DatabaseSelectionModal __instance)
+        public static bool Prefix(DatabaseSelectionModal __instance)
         {
             //PATCH: unleashes all NPC definitions to be used as monsters (DMP)
             if (!Main.Settings.UnleashNpcAsEnemy)
@@ -39,9 +39,9 @@ internal static class DatabaseSelectionModalPatcher
 
     [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BuildNpcs_Patch
+    public static class BuildNpcs_Patch
     {
-        internal static bool Prefix(DatabaseSelectionModal __instance)
+        public static bool Prefix(DatabaseSelectionModal __instance)
         {
             //PATCH: unleashes all monster definitions to be used as NPCs (DMP)
             if (!Main.Settings.UnleashEnemyAsNpc)

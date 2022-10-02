@@ -3,9 +3,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public static class CustomSpellEffectLevel
+internal static class CustomSpellEffectLevel
 {
-    public static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
+    internal static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
 }
 
 internal sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel

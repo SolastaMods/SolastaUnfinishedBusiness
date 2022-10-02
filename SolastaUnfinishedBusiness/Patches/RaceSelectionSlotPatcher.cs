@@ -5,13 +5,13 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RaceSelectionSlotPatcher
+public static class RaceSelectionSlotPatcher
 {
     [HarmonyPatch(typeof(RaceSelectionSlot), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             [NotNull] RaceSelectionSlot __instance,
             [NotNull] CharacterRaceDefinition raceDefinition,
             int selectedSubRace)

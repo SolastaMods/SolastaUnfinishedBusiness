@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterInspectionScreenPatcher
+public static class CharacterInspectionScreenPatcher
 {
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Prefix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
+        public static void Prefix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
         {
             //PATCH: sets the inspection context for MC heroes
             Global.InspectedHero = heroCharacter;
@@ -26,9 +26,9 @@ internal static class CharacterInspectionScreenPatcher
 
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
-        internal static void Prefix()
+        public static void Prefix()
         {
             //PATCH: resets the inspection context for MC heroes
             Global.InspectedHero = null;

@@ -9,13 +9,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameLocationActionManagerPatcher
+public static class GameLocationActionManagerPatcher
 {
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactToSpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactToSpendSpellSlot_Patch
+    public static class ReactToSpendSpellSlot_Patch
     {
-        internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
+        public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `SpendSpellSlot` reaction with custom one
             __instance.AddInterruptRequest(new ReactionRequestSpendSpellSlotExtended(reactionParams));
@@ -26,9 +26,9 @@ internal static class GameLocationActionManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactForOpportunityAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactForOpportunityAttack_Patch
+    public static class ReactForOpportunityAttack_Patch
     {
-        internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
+        public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `OpportunityAttack` reaction with warcaster one
             __instance.AddInterruptRequest(new ReactionRequestWarcaster(reactionParams));
@@ -39,9 +39,9 @@ internal static class GameLocationActionManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactToSpendPower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactToSpendPower_Patch
+    public static class ReactToSpendPower_Patch
     {
-        internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
+        public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `SpendPower` reaction for bundled powers
             if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect ||
@@ -57,9 +57,9 @@ internal static class GameLocationActionManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationActionManager), "ExecuteActionAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ExecuteActionAsync_Patch
+    public static class ExecuteActionAsync_Patch
     {
-        internal static IEnumerator Postfix(
+        public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             [NotNull] CharacterAction action)
         {

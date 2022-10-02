@@ -3,13 +3,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class NarrativeStateCharacterSpeechPatcher
+public static class NarrativeStateCharacterSpeechPatcher
 {
     [HarmonyPatch(typeof(NarrativeStateCharacterSpeech), "RecordSpeechLine")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RecordSpeechLine_Patch
+    public static class RecordSpeechLine_Patch
     {
-        internal static void Postfix(string speakerName, string textLine)
+        public static void Postfix(string speakerName, string textLine)
         {
             //PATCH: EnableLogDialoguesToConsole
             if (!Main.Settings.EnableLogDialoguesToConsole)

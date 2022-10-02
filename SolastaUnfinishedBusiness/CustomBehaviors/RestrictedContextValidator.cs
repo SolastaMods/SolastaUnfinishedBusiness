@@ -11,7 +11,7 @@ public delegate (OperationType, bool) IsContextValidHandler(
     RulesetAttackMode attackMode,
     RulesetEffect rulesetEffect);
 
-public class RestrictedContextValidator : IRestrictedContextValidator
+internal class RestrictedContextValidator : IRestrictedContextValidator
 {
     private readonly IsContextValidHandler validator;
 
@@ -20,7 +20,7 @@ public class RestrictedContextValidator : IRestrictedContextValidator
         this.validator = validator;
     }
 
-    public RestrictedContextValidator(OperationType operation, IsCharacterValidHandler validator)
+    internal RestrictedContextValidator(OperationType operation, IsCharacterValidHandler validator)
         : this((_, _, character, _, _, _, _) => (operation, validator(character)))
     {
     }

@@ -1,8 +1,8 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnCharacterKill
+internal interface IOnCharacterKill
 {
     void OnCharacterKill(GameLocationCharacter character);
 }
 
-public delegate void OnCharacterKillDelegate(GameLocationCharacter character);
+internal delegate void OnCharacterKillDelegate(GameLocationCharacter character);

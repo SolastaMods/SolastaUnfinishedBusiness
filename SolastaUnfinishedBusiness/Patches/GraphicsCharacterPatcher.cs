@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GraphicsCharacterPatcher
+public static class GraphicsCharacterPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal class ResetScale_Patch
+    public class ResetScale_Patch
     {
-        internal static void Postfix(GraphicsCharacter __instance, ref float __result)
+        public static void Postfix(GraphicsCharacter __instance, ref float __result)
         {
             //PATCH: Allows custom races with different scales
             if (__instance.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero ||

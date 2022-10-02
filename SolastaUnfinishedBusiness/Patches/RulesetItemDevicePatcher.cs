@@ -4,12 +4,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetItemDevicePatcher
+public static class RulesetItemDevicePatcher
 {
     [HarmonyPatch(typeof(RulesetItemDevice), "IsFunctionAvailable")]
-    internal static class IsFunctionAvailable_Patch
+    public static class IsFunctionAvailable_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             ref bool __result,
             RulesetDeviceFunction function,
             RulesetCharacter character)

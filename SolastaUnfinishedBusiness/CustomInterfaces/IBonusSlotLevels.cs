@@ -2,5 +2,5 @@
 
 internal interface IBonusSlotLevels
 {
-    public int GetBonusSlotLevels(RulesetCharacter caster);
+    internal int GetBonusSlotLevels(RulesetCharacter caster);
 }

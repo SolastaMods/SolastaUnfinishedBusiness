@@ -10,9 +10,9 @@ public class ProficienciesPanelPatcher
 {
     [HarmonyPatch(typeof(ProficienciesPanel), "RuntimeLoaded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RuntimeLoaded_Patch
+    public static class RuntimeLoaded_Patch
     {
-        internal static void Prefix(ProficienciesPanel __instance)
+        public static void Prefix(ProficienciesPanel __instance)
         {
             //PATCH: support for custom invocations
             //adds separate sub-panels for each custom invocation type
@@ -22,9 +22,9 @@ public class ProficienciesPanelPatcher
 
     [HarmonyPatch(typeof(ProficienciesPanel), "Unload")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unload_Patch
+    public static class Unload_Patch
     {
-        internal static IEnumerator Postfix(
+        public static IEnumerator Postfix(
             [NotNull] IEnumerator __result,
             ProficienciesPanel __instance)
         {

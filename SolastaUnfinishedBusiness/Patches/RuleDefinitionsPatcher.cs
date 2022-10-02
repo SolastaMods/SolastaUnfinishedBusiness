@@ -7,11 +7,11 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RuleDefinitionsPatcher
+public static class RuleDefinitionsPatcher
 {
     [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeAdvantage_Patch
+    public static class ComputeAdvantage_Patch
     {
         public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
         {

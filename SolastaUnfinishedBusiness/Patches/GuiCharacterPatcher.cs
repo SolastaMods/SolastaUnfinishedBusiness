@@ -12,13 +12,13 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GuiCharacterPatcher
+public static class GuiCharacterPatcher
 {
     [HarmonyPatch(typeof(GuiCharacter), "DisplayUniqueLevelSpellSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class DisplayUniqueLevelSpellSlots_Patch
+    public static class DisplayUniqueLevelSpellSlots_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             GuiCharacter __instance,
             RulesetSpellRepertoire spellRepertoire,
             RectTransform uniqueLevelSlotsGroup)
@@ -71,7 +71,7 @@ internal static class GuiCharacterPatcher
             max -= sharedSpellSlots;
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var getSlotsNumberMethod = typeof(RulesetSpellRepertoire).GetMethod("GetSlotsNumber");
             var myGetSlotsNumberMethod = typeof(DisplayUniqueLevelSpellSlots_Patch).GetMethod("GetSlotsNumber");
@@ -93,9 +93,9 @@ internal static class GuiCharacterPatcher
 
     [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MainClassDefinition_Getter_Patch
+    public static class MainClassDefinition_Getter_Patch
     {
-        internal static void Postfix(ref CharacterClassDefinition __result)
+        public static void Postfix(ref CharacterClassDefinition __result)
         {
             //PATCH: EnableEnhancedCharacterInspection
             // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
@@ -111,9 +111,9 @@ internal static class GuiCharacterPatcher
     //PATCH: Changes Game UI to support Multiclass
     [HarmonyPatch(typeof(GuiCharacter), "LevelAndClassAndSubclass", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class LevelAndClassAndSubclass_Getter_Patch
+    public static class LevelAndClassAndSubclass_Getter_Patch
     {
-        internal static void Postfix(GuiCharacter __instance, ref string __result)
+        public static void Postfix(GuiCharacter __instance, ref string __result)
         {
             __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
@@ -122,9 +122,9 @@ internal static class GuiCharacterPatcher
     //PATCH: Changes Game UI to support Multiclass
     [HarmonyPatch(typeof(GuiCharacter), "ClassAndLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ClassAndLevel_Getter_Patch
+    public static class ClassAndLevel_Getter_Patch
     {
-        internal static void Postfix(GuiCharacter __instance, ref string __result)
+        public static void Postfix(GuiCharacter __instance, ref string __result)
         {
             __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
@@ -133,9 +133,9 @@ internal static class GuiCharacterPatcher
     //PATCH: Changes Game UI to support Multiclass
     [HarmonyPatch(typeof(GuiCharacter), "LevelAndExperienceTooltip", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class LevelAndExperienceTooltip_Getter_Patch
+    public static class LevelAndExperienceTooltip_Getter_Patch
     {
-        internal static void Postfix(GuiCharacter __instance, ref string __result)
+        public static void Postfix(GuiCharacter __instance, ref string __result)
         {
             __result = MulticlassGameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
         }
@@ -143,9 +143,9 @@ internal static class GuiCharacterPatcher
 
     [HarmonyPatch(typeof(GuiCharacter), "BackgroundDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BackgroundDescription_Getter_Patch
+    public static class BackgroundDescription_Getter_Patch
     {
-        internal static void Postfix(GuiCharacter __instance, ref string __result)
+        public static void Postfix(GuiCharacter __instance, ref string __result)
         {
             //PATCH: Enables additional background display on inspection panel
             if (!Main.Settings.EnableAdditionalBackstoryDisplay)
@@ -181,13 +181,13 @@ internal static class GuiCharacterPatcher
 
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FormatHealthGauge_Patch
+    public static class FormatHealthGauge_Patch
     {
         /// <summary>
         ///     This mods the vertical gauge in the monster portrait.
         ///     The gauge now shows health in steps instead of a continuous value.
         /// </summary>
-        internal static void Prefix(GuiCharacter __instance, out bool __state)
+        public static void Prefix(GuiCharacter __instance, out bool __state)
         {
             //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)
@@ -202,7 +202,7 @@ internal static class GuiCharacterPatcher
             __state = __instance.healthGaugeDirty || dirty;
         }
 
-        internal static void Postfix(GuiCharacter __instance, Image healthGauge, float parentHeight, bool __state)
+        public static void Postfix(GuiCharacter __instance, Image healthGauge, float parentHeight, bool __state)
         {
             if (!Main.Settings.HideMonsterHitPoints)
             {
@@ -230,7 +230,7 @@ internal static class GuiCharacterPatcher
 
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FormatHealthLabel_Patch
+    public static class FormatHealthLabel_Patch
     {
         private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})",
             RegexOptions.Compiled | RegexOptions.Singleline);
@@ -238,7 +238,7 @@ internal static class GuiCharacterPatcher
         /// <summary>
         ///     Mods the monster health label (current/max) hit points to hide current hit points.
         /// </summary>
-        internal static void Prefix(GuiCharacter __instance, out bool __state)
+        public static void Prefix(GuiCharacter __instance, out bool __state)
         {
             //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)
@@ -253,7 +253,7 @@ internal static class GuiCharacterPatcher
             __state = __instance.healthLabelDirty || dirty;
         }
 
-        internal static void Postfix(GuiCharacter __instance, GuiLabel healthLabel, bool __state)
+        public static void Postfix(GuiCharacter __instance, GuiLabel healthLabel, bool __state)
         {
             if (!Main.Settings.HideMonsterHitPoints)
             {
@@ -319,9 +319,9 @@ internal static class GuiCharacterPatcher
 
     [HarmonyPatch(typeof(CharacterPlateGame), "OnPointerEnter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnPointerEnter_Patch
+    public static class OnPointerEnter_Patch
     {
-        internal static void Prefix(CharacterPlateGame __instance)
+        public static void Prefix(CharacterPlateGame __instance)
         {
             //PATCH: EnableStatsOnHeroTooltip
             var hero = __instance.GuiCharacter?.RulesetCharacterHero;

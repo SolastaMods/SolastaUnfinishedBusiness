@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameLocationScreenMapPatcher
+public static class GameLocationScreenMapPatcher
 {
     //PATCH: displays the location of campfires, entrances and exits on the game location screen map (level map)
     [HarmonyPatch(typeof(GameLocationScreenMap), "BindGadgets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BindGadgets_Patch
+    public static class BindGadgets_Patch
     {
-        internal static bool Prefix(GameLocationScreenMap __instance)
+        public static bool Prefix(GameLocationScreenMap __instance)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {

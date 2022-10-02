@@ -61,18 +61,18 @@ namespace SolastaUnfinishedBusiness.DataViewer;
      *         *      foreach Node in Tree, this.matches.Clear()
      *         *
      */
-public class ReflectionSearch : MonoBehaviour
+internal class ReflectionSearch : MonoBehaviour
 {
-    public delegate void SearchProgress(int visitCount, int depth, int breadth);
+    internal delegate void SearchProgress(int visitCount, int depth, int breadth);
 
     private static readonly HashSet<int> VisitedInstanceIDs = new();
     private static ReflectionSearch _shared;
     private IEnumerator searchCoroutine;
 
-    public bool IsSearching => searchCoroutine != null;
-    public static int SequenceNumber { get; private set; }
+    internal bool IsSearching => searchCoroutine != null;
+    internal static int SequenceNumber { get; private set; }
 
-    public static ReflectionSearch Shared
+    internal static ReflectionSearch Shared
     {
         get
         {
@@ -88,7 +88,7 @@ public class ReflectionSearch : MonoBehaviour
         }
     }
 
-    public void StartSearch(Node node, string searchText, SearchProgress updator, ReflectionSearchResult resultRoot)
+    internal void StartSearch(Node node, string searchText, SearchProgress updator, ReflectionSearchResult resultRoot)
     {
         if (searchCoroutine != null)
         {
@@ -119,7 +119,7 @@ public class ReflectionSearch : MonoBehaviour
         StartCoroutine(searchCoroutine);
     }
 
-    public void Stop()
+    internal void Stop()
     {
         if (searchCoroutine != null)
         {

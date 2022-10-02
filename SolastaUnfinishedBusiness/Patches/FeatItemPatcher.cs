@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class FeatItemPatcher
+public static class FeatItemPatcher
 {
     [HarmonyPatch(typeof(FeatItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
         public static bool Prefix(
             FeatItem __instance,
@@ -52,7 +52,7 @@ internal static class FeatItemPatcher
 
     [HarmonyPatch(typeof(FeatItem), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
         public static void Prefix(FeatItem __instance)
         {

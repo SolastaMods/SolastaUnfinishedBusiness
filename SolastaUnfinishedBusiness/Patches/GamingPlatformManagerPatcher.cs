@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GamingPlatformManagerPatcher
+public static class GamingPlatformManagerPatcher
 {
     [HarmonyPatch(typeof(GamingPlatformManager), "IsContentPackAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsContentPackAvailable_Patch
+    public static class IsContentPackAvailable_Patch
     {
         public static bool Prefix(GamingPlatformDefinitions.ContentPack contentPack, ref bool __result)
         {

@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class InventorySlotBoxPatcher
+public static class InventorySlotBoxPatcher
 {
     [HarmonyPatch(typeof(InventorySlotBox), "RefreshState")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshState_Patch
+    public static class RefreshState_Patch
     {
-        internal static void Postfix(InventorySlotBox __instance)
+        public static void Postfix(InventorySlotBox __instance)
         {
             //PATCH: Enable inventory taint non proficient items in red (paint them red)
             if (Global.InspectedHero == null)
@@ -41,10 +41,10 @@ internal static class InventorySlotBoxPatcher
 
     [HarmonyPatch(typeof(InventorySlotBox), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
         // this should not have any protection to keep the house clean
-        internal static void Prefix(InventorySlotBox __instance)
+        public static void Prefix(InventorySlotBox __instance)
         {
             //PATCH: Enable inventory taint non proficient items in red (paint them back white)
             if (__instance.equipedItemImage == null)

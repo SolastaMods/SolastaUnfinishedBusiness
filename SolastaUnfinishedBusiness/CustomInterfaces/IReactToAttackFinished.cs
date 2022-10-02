@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReactToAttackFinished
+internal interface IReactToAttackFinished
 {
     IEnumerator HandleReactToAttackFinished(GameLocationCharacter character, GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode,

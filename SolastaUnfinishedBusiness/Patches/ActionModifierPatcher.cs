@@ -4,13 +4,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class ActionModifierPatcher
+public static class ActionModifierPatcher
 {
     [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class AttackAdvantageTrend_Getter_Patch
+    public static class AttackAdvantageTrend_Getter_Patch
     {
-        internal static bool Prefix(ActionModifier __instance, ref int __result)
+        public static bool Prefix(ActionModifier __instance, ref int __result)
         {
             //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
             if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)

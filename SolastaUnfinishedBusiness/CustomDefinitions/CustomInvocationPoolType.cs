@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public class CustomInvocationPoolType
+internal class CustomInvocationPoolType
 {
     private static readonly List<CustomInvocationPoolType> pools = new();
 
@@ -19,24 +19,24 @@ public class CustomInvocationPoolType
     {
     }
 
-    public string Name { get; private set; }
+    internal string Name { get; private set; }
 
     /**Are level requirements in character levels or class levels?*/
-    public string RequireClassLevels { get; private set; }
+    internal string RequireClassLevels { get; private set; }
 
-    public AssetReferenceSprite Sprite { get; private set; }
+    internal AssetReferenceSprite Sprite { get; private set; }
 
-    [NotNull] public List<int> AllLevels { get; } = new();
-    public List<CustomInvocationDefinition> AllFeatures { get; } = new();
+    [NotNull] internal List<int> AllLevels { get; } = new();
+    internal List<CustomInvocationDefinition> AllFeatures { get; } = new();
 
-    public string PanelTitle => $"Screen/&InvocationPool{Name}Header";
+    internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
-    public static CustomInvocationPoolType Register(string name, BaseDefinition sprite, string requireClassLevel = null)
+    internal static CustomInvocationPoolType Register(string name, BaseDefinition sprite, string requireClassLevel = null)
     {
         return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
     }
 
-    public static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
+    internal static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
         string requireClassLevel = null)
     {
         var pool = new CustomInvocationPoolType
@@ -47,7 +47,7 @@ public class CustomInvocationPoolType
         return pool;
     }
 
-    public static void RefreshAll()
+    internal static void RefreshAll()
     {
         var invocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
             .OfType<CustomInvocationDefinition>()
@@ -64,18 +64,18 @@ public class CustomInvocationPoolType
         return $"InvocationPool{Name}{(unlearn ? "Unlearn" : "Learn")}";
     }
 
-    public string FormatDescription(bool unlearn)
+    internal string FormatDescription(bool unlearn)
     {
         return Gui.Localize(GuiPresentationBuilder.CreateDescriptionKey(GuiName(unlearn), Category.Feature));
     }
 
-    public string FormatTitle(bool unlearn)
+    internal string FormatTitle(bool unlearn)
     {
         return Gui.Localize(GuiPresentationBuilder.CreateTitleKey(GuiName(unlearn), Category.Feature));
     }
 
     [NotNull]
-    public List<CustomInvocationDefinition> GetLevelFeatures(int level)
+    internal List<CustomInvocationDefinition> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
         return (featuresByLevel.TryGetValue(level, out var result) ? result : null)
@@ -108,11 +108,11 @@ public class CustomInvocationPoolType
         return levelFeatures;
     }
 
-    public static class Pools
+    internal static class Pools
     {
-        public static readonly CustomInvocationPoolType Infusion =
+        internal static readonly CustomInvocationPoolType Infusion =
             Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
 
-        public static List<CustomInvocationPoolType> All => pools;
+        internal static List<CustomInvocationPoolType> All => pools;
     }
 }

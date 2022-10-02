@@ -1,7 +1,7 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomOnActionFeature
+internal interface ICustomOnActionFeature
 {
-    public void OnBeforeAction(CharacterAction characterAction);
-    public void OnAfterAction(CharacterAction characterAction);
+    internal void OnBeforeAction(CharacterAction characterAction);
+    internal void OnAfterAction(CharacterAction characterAction);
 }

@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomMagicEffectBasedOnCaster
+internal interface ICustomMagicEffectBasedOnCaster
 {
     EffectDescription GetCustomEffect(RulesetCharacter caster);
 }

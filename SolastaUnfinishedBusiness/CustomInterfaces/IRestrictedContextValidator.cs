@@ -19,7 +19,7 @@ public enum OperationType
  */
 public interface IRestrictedContextValidator
 {
-    public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
+    internal (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
         RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect);
 }
@@ -27,7 +27,7 @@ public interface IRestrictedContextValidator
 //TODO: try to find better place for this code
 internal static class IRestrictedContextValidatorPatch
 {
-    public static bool ModifyResult(bool def, IRestrictedContextProvider provider, RulesetCharacter character,
+    internal static bool ModifyResult(bool def, IRestrictedContextProvider provider, RulesetCharacter character,
         ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode, RulesetEffect rulesetEffect)
     {
         if (provider is not BaseDefinition definition)

@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomFightingStyle
+internal interface ICustomFightingStyle
 {
     bool IsActive(RulesetCharacterHero character);
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CameraControllerLocationPatcher
+public static class CameraControllerLocationPatcher
 {
     [HarmonyPatch(typeof(CameraControllerLocation), "FollowCharacterForBattle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FollowCharacterForBattle_Patch
+    public static class FollowCharacterForBattle_Patch
     {
         /// <summary>
         ///     Allows the user to prevent the battle camera always following the current character if that character is
         ///     in view (on the monitor).
         ///     The battle camera will still move if the character is off screen or within x% (definable) of the screen edge.
         /// </summary>
-        internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
+        public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
             //PATCH: camera don't follow character in battle
             if (!Main.Settings.DontFollowCharacterInBattle)

@@ -11,7 +11,7 @@ using System.Reflection.Emit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public static partial class ReflectionCache
+internal static partial class ReflectionCache
 {
     private const BindingFlags AllFlags =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
@@ -19,11 +19,11 @@ public static partial class ReflectionCache
 
     private static readonly Queue Cache = new();
 
-    public static int Count => Cache.Count;
+    internal static int Count => Cache.Count;
 
     private static int SizeLimit { get; } = 1000;
 
-    //public static void Clear() {
+    //internal static void Clear() {
     //    _fieldCache.Clear();
     //    _propertieCache.Clear();
     //    _methodCache.Clear();

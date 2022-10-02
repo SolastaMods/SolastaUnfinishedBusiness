@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomConcentrationProvider
+internal interface ICustomConcentrationProvider
 {
     string Name { get; }
     string Tooltip { get; }

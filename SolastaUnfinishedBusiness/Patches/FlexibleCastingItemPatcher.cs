@@ -4,13 +4,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class FlexibleCastingItemPatcher
+public static class FlexibleCastingItemPatcher
 {
     [HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             FlexibleCastingItem __instance,
             int slotLevel,
             int remainingSlots,
@@ -35,9 +35,9 @@ internal static class FlexibleCastingItemPatcher
     }
 
     [HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
-        internal static void Prefix(FlexibleCastingItem __instance)
+        public static void Prefix(FlexibleCastingItem __instance)
         {
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)
             MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);

@@ -5,9 +5,9 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 /// <summary>
 ///     Implement on a FeatureDefinition to be able to change the min roll value on ability checks
 /// </summary>
-public interface IChangeAbilityCheck
+internal interface IChangeAbilityCheck
 {
-    public int MinRoll(
+    internal int MinRoll(
         RulesetCharacter character,
         int baseBonus,
         int rollModifier,

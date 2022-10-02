@@ -4,13 +4,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class PropBlueprintSelectionPanelPatcher
+public static class PropBlueprintSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Compare_Patch
+    public static class Compare_Patch
     {
-        internal static bool Prefix(PropBlueprint left, PropBlueprint right, ref int __result)
+        public static bool Prefix(PropBlueprint left, PropBlueprint right, ref int __result)
         {
             //PATCH: better props sorting (DMP)
             if (!Main.Settings.EnableSortingDungeonMakerAssets)

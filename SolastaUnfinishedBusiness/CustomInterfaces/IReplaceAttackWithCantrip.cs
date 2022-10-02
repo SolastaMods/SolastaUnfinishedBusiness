@@ -1,5 +1,5 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReplaceAttackWithCantrip
+internal interface IReplaceAttackWithCantrip
 {
 }

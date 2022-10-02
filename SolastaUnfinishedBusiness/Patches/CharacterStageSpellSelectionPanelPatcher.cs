@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageSpellSelectionPanelPatcher
+public static class CharacterStageSpellSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageSpellSelectionPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnterStage_Patch
+    public static class EnterStage_Patch
     {
         public static void Prefix([NotNull] CharacterStageSpellSelectionPanel __instance)
         {
@@ -24,9 +24,9 @@ internal static class CharacterStageSpellSelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageSpellSelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var code = new List<CodeInstruction>(instructions);
 

@@ -4,13 +4,13 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameCampaignCharacterPatcher
+public static class GameCampaignCharacterPatcher
 {
     [HarmonyPatch(typeof(GameCampaignCharacter), "EngageRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EngageRest_Patch
+    public static class EngageRest_Patch
     {
-        internal static bool Prefix([NotNull] GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
+        public static bool Prefix([NotNull] GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {
             // PATCH: BUGFIX: correctly terminate effects on world travel
             // call `RefreshEffectsForRest` instead of `ApplyRestForConditions` for heroes

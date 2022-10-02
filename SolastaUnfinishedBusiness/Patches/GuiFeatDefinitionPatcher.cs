@@ -10,13 +10,13 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GuiFeatDefinitionPatcher
+public static class GuiFeatDefinitionPatcher
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsFeatMatchingPrerequisites_Patch
+    public static class IsFeatMatchingPrerequisites_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             ref bool __result,
             FeatDefinition feat,
             RulesetCharacterHero hero,
@@ -36,7 +36,7 @@ internal static class GuiFeatDefinitionPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
             //which are registered before feat selection at lvl 1

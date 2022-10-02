@@ -7,13 +7,13 @@ using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetCharacterMonsterPatcher
+public static class RulesetCharacterMonsterPatcher
 {
     [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FinalizeMonster_Patch
+    public static class FinalizeMonster_Patch
     {
-        internal static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
+        public static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
@@ -30,9 +30,9 @@ internal static class RulesetCharacterMonsterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshAll_Patch
+    public static class RefreshAll_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for rage/ki/other stuff while shape-shifted
 
@@ -56,9 +56,9 @@ internal static class RulesetCharacterMonsterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshArmorClass")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshArmorClass_Patch
+    public static class RefreshArmorClass_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: implements exclusivity for some AC modifiers
             // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience

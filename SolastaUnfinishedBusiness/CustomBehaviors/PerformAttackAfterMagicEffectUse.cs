@@ -10,7 +10,7 @@ public sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicE
 {
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-    public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
+    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
 
     private PerformAttackAfterMagicEffectUse()
     {

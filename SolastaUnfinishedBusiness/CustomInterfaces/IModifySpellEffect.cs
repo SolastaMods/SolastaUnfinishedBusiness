@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IModifySpellEffect
+internal interface IModifySpellEffect
 {
     EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter character);
 }

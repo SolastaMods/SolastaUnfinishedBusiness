@@ -5,11 +5,11 @@ using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class LoadPanelPatcher
+public static class LoadPanelPatcher
 {
     [HarmonyPatch(typeof(LoadPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
         public static bool Prefix([NotNull] LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
         {

@@ -4,12 +4,12 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class EquipmentDefinitionsPatcher
+public static class EquipmentDefinitionsPatcher
 {
     //PATCH: ScaleMerchantPricesCorrectly
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ScaleAndRoundCosts_Patch
+    public static class ScaleAndRoundCosts_Patch
     {
         //Original method - if cost is say '1' and the multiplier is less than one, it ends up as zero.
         //For the Spear it starts out costing 1gp and ends up costing 0gp.
@@ -21,7 +21,7 @@ internal static class EquipmentDefinitionsPatcher
                     scaledCosts[index] = Mathf.RoundToInt(priceMultiplier* (float) baseCosts[index]);
             }
         */
-        internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
+        public static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
         {
             if (!Main.Settings.ScaleMerchantPricesCorrectly)
             {
@@ -78,7 +78,7 @@ internal static class EquipmentDefinitionsPatcher
 /// <summary>
 ///     Borrowed from https://stackoverflow.com/questions/158172/formatting-numbers-with-significant-figures-in-c-sharp
 /// </summary>
-internal static class Precision
+public static class Precision
 {
     // 2^-24
     // private const float FloatEpsilon = 0.0000000596046448f;
@@ -113,7 +113,7 @@ internal static class Precision
 #endif
 }
 
-internal static class SignificantDigits
+public static class SignificantDigits
 {
     public static double Round(this double value, int significantDigits)
     {

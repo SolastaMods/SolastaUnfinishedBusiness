@@ -10,12 +10,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetImplementationManagerPatcher
+public static class RulesetImplementationManagerPatcher
 {
     //PATCH: Applies custom effect forms
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplyEffectForms")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ApplyEffectForms_Patch
+    public static class ApplyEffectForms_Patch
     {
         public static void Postfix(
             List<EffectForm> effectForms,
@@ -43,7 +43,7 @@ internal static class RulesetImplementationManagerPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ApplySummonForm_Patch
+    public static class ApplySummonForm_Patch
     {
         public static bool Prefix(
             EffectForm effectForm,
@@ -85,7 +85,7 @@ internal static class RulesetImplementationManagerPatcher
     // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
     [HarmonyPatch(typeof(RulesetImplementationManager), "TerminateEffect")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class TerminateEffect_Patch
+    public static class TerminateEffect_Patch
     {
         public static void Prefix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
@@ -95,7 +95,7 @@ internal static class RulesetImplementationManagerPatcher
             ExtraCarefulTrackedItem.Process(__instance, activeEffect);
         }
 
-        internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
+        public static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             if (__instance is not RulesetImplementationManagerCampaign)
             {
@@ -204,9 +204,9 @@ internal static class RulesetImplementationManagerPatcher
     //PATCH: handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ApplySpellSlotsForm_Patch
+    public static class ApplySpellSlotsForm_Patch
     {
-        internal static bool Prefix(EffectForm effectForm,
+        public static bool Prefix(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             var originalHero = formsParams.sourceCharacter as RulesetCharacterHero;
@@ -309,16 +309,16 @@ internal static class RulesetImplementationManagerPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManager), "IsValidContextForRestrictedContextProvider")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsValidContextForRestrictedContextProvider_Patch
+    public static class IsValidContextForRestrictedContextProvider_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for shield counting as melee
             //replaces calls to ItemDefinition's isWeapon and WeaponDescription getter with custom ones that account for shield
             return ShieldAttack.MakeShieldCountAsMelee(instructions);
         }
 
-        internal static void Postfix(ref bool __result,
+        public static void Postfix(ref bool __result,
             IRestrictedContextProvider provider,
             RulesetCharacter character,
             ItemDefinition itemDefinition,

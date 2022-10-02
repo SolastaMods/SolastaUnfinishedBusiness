@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPowerSharedPool
+internal interface IPowerSharedPool
 {
     FeatureDefinitionPower GetUsagePoolPower();
 }

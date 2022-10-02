@@ -44,7 +44,7 @@ public sealed class ReactionAttackModeRestriction : IReactionAttackModeRestricti
     }
 
     [NotNull]
-    public static ValidReactionModeHandler TargetHasNoCondition(ConditionDefinition condition)
+    internal static ValidReactionModeHandler TargetHasNoCondition(ConditionDefinition condition)
     {
         return (_, _, _, target) =>
         {

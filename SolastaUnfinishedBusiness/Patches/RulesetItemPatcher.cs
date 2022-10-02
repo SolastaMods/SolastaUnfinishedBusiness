@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetItemPatcher
+public static class RulesetItemPatcher
 {
     [HarmonyPatch(typeof(RulesetItem), "FillTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FillTags_Patch
+    public static class FillTags_Patch
     {
         public static void Postfix(
             RulesetItem __instance,

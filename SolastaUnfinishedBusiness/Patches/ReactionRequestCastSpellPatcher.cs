@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Models;
 namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: removes low-level sub-option for spell reactions if caster is not-multiclass warlock (MULTICLASS)
-internal static class ReactionRequestCastSpellPatcher
+public static class ReactionRequestCastSpellPatcher
 {
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BuildSlotSubOptions_Patch
+    public static class BuildSlotSubOptions_Patch
     {
         public static void Postfix(ReactionRequestCastSpell __instance)
         {
@@ -43,7 +43,7 @@ internal static class ReactionRequestCastSpellPatcher
 
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectSubOption")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SelectSubOption_Patch
+    public static class SelectSubOption_Patch
     {
         public static bool Prefix(ReactionRequestCastSpell __instance, int option)
         {
@@ -67,7 +67,7 @@ internal static class ReactionRequestCastSpellPatcher
 
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectedSubOption", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SelectedSubOption_Getter_Patch
+    public static class SelectedSubOption_Getter_Patch
     {
         public static bool Prefix(ReactionRequestCastSpell __instance, ref int __result)
         {

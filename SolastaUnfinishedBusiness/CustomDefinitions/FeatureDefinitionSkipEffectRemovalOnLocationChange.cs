@@ -2,10 +2,10 @@
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public static class FeatureDefinitionSkipEffectRemovalOnLocationChange
+internal static class FeatureDefinitionSkipEffectRemovalOnLocationChange
 {
-    public static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
-    public static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
+    internal static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
+    internal static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
 
     private sealed class AlwaysSkip : ISKipEffectRemovalOnLocationChange
     {

@@ -4,13 +4,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class AttackEvaluationParamsPatcher
+public static class AttackEvaluationParamsPatcher
 {
     [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams), "FillForMagicTouchAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FillForMagicTouchAttack_Patch
+    public static class FillForMagicTouchAttack_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
             MetamagicOptionDefinition metamagicOption
@@ -28,9 +28,9 @@ internal static class AttackEvaluationParamsPatcher
 
     [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams), "FillForMagicReachAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class FillForMagicReachAttack_Patch
+    public static class FillForMagicReachAttack_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
             MetamagicOptionDefinition metamagicOption

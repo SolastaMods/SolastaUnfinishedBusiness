@@ -14,9 +14,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public static class AttacksOfOpportunity
 {
     public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
-    public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
+    internal static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
-    public static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = new();
+    private static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = new();
 
     public static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,

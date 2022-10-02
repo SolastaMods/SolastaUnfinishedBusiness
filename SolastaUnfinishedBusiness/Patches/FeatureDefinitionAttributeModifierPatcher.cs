@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class FeatureDefinitionAttributeModifierPatcher
+public static class FeatureDefinitionAttributeModifierPatcher
 {
     [HarmonyPatch(typeof(FeatureDefinitionAttributeModifier), "ApplyModifiers")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ApplyModifiers_Patch
+    public static class ApplyModifiers_Patch
     {
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

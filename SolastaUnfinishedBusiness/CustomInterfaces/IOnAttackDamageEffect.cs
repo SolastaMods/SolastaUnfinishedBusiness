@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnAttackDamageEffect
+internal interface IOnAttackDamageEffect
 {
     void BeforeOnAttackDamage(
         GameLocationCharacter attacker,
@@ -29,7 +29,7 @@ public interface IOnAttackDamageEffect
         bool firstTarget);
 }
 
-public delegate void OnAttackDamageDelegate(
+internal delegate void OnAttackDamageDelegate(
     GameLocationCharacter attacker,
     GameLocationCharacter defender,
     ActionModifier attackModifier,

@@ -4,12 +4,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CursorLocationSelectTargetPatcher
+public static class CursorLocationSelectTargetPatcher
 {
     [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsFilteringValid")]
-    internal static class IsFilteringValid_Patch
+    public static class IsFilteringValid_Patch
     {
-        internal static void Postfix(CursorLocationSelectTarget __instance, GameLocationCharacter target,
+        public static void Postfix(CursorLocationSelectTarget __instance, GameLocationCharacter target,
             ref bool __result)
         {
             //PATCH: support for target spell filtering based on custom spell filters

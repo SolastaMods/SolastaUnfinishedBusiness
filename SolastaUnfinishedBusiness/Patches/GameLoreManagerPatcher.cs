@@ -7,13 +7,13 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameLoreManagerPatcher
+public static class GameLoreManagerPatcher
 {
     [HarmonyPatch(typeof(GameLoreManager), "SerializeElements")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SerializeElements_Patch
+    public static class SerializeElements_Patch
     {
-        internal static void Postfix([NotNull] GameLoreManager __instance)
+        public static void Postfix([NotNull] GameLoreManager __instance)
         {
             // PATCH: BUGFIX: null recipes on game serialization
             // If a recipe can't be found in the database but was previously known, the serialization

@@ -4,13 +4,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class ShapeOptionItemPatcher
+public static class ShapeOptionItemPatcher
 {
     [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             ShapeOptionItem __instance,
             RulesetCharacter shifter,
             int requiredLevel)

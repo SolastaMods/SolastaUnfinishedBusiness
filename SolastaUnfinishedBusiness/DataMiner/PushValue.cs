@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
         private readonly T oldValue;
         private Action<T> setValue;
 
-        public PushValue(T value, Func<T> getValue, Action<T> setValue)
+        internal PushValue(T value, Func<T> getValue, Action<T> setValue)
         {
             if (getValue == null) { throw new ArgumentNullException(nameof(getValue)); }
 

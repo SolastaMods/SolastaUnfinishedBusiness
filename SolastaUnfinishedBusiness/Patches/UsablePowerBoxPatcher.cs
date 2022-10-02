@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class UsablePowerBoxPatcher
+public static class UsablePowerBoxPatcher
 {
     [HarmonyPatch(typeof(UsablePowerBox), "OnActivateCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnActivateCb_Patch
+    public static class OnActivateCb_Patch
     {
-        internal static bool Prefix(UsablePowerBox __instance)
+        public static bool Prefix(UsablePowerBox __instance)
         {
             //PATCH: used by Power Bundles feature
             //if the activated power is a bundle, this tries to replace activation with sub-spell selector and
@@ -24,9 +24,9 @@ internal static class UsablePowerBoxPatcher
 
     [HarmonyPatch(typeof(UsablePowerBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Postfix(UsablePowerBox __instance)
+        public static void Postfix(UsablePowerBox __instance)
         {
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user
             Tooltips.AddContextToPowerBoxTooltip(__instance);

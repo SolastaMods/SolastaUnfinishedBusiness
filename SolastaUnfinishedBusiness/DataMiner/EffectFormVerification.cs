@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.DataMiner;
 internal static class EffectFormVerification
 {
     [Flags]
-    public enum Verification
+    internal enum Verification
     {
         None,
         ReturnNull = 1,
@@ -19,7 +19,7 @@ internal static class EffectFormVerification
 
     private const string LogName = "EffectForm.txt";
 
-    public static Verification Mode { get; set; } = Verification.None;
+    internal static Verification Mode { get; set; } = Verification.None;
 
     internal static void Load()
     {
@@ -39,7 +39,7 @@ internal static class EffectFormVerification
         Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
     }
 
-    public static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result)
+    internal static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result)
         where T : class
     {
         if (Mode == Verification.None)

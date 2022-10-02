@@ -9,10 +9,10 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 /// <summary>
 ///     Grants you immunity to opportunity attacks when the attacker has the specified condition (inflicted by you).
 /// </summary>
-public sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition,
+internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition,
     ICombatAffinityProvider
 {
-    public string ConditionName { get; set; }
+    internal string ConditionName { get; set; }
 
     public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
         bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier,
@@ -64,7 +64,7 @@ internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionB
     }
 
     [NotNull]
-    public FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(
+    internal FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(
         string conditionName)
     {
         Definition.ConditionName = conditionName;

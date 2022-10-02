@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IDisableImmunityToCondition
+internal interface IDisableImmunityToCondition
 {
     bool DisableImmunityToCondition(string conditionName, ulong sourceGuid);
 }

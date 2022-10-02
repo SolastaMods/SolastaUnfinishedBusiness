@@ -4,15 +4,15 @@ using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public class CustomInvocationPoolDefinition : FeatureDefinition
+internal class CustomInvocationPoolDefinition : FeatureDefinition
 {
-    public CustomInvocationPoolType PoolType { get; set; }
+    internal CustomInvocationPoolType PoolType { get; set; }
 
-    public int Points { get; set; }
-    public bool IsUnlearn { get; set; }
+    internal int Points { get; set; }
+    internal bool IsUnlearn { get; set; }
 
     /**Are level requirements in character levels or class levels?*/
-    public bool RequireClassLevels { get; set; }
+    internal bool RequireClassLevels { get; set; }
 }
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
@@ -37,7 +37,7 @@ internal class CustomInvocationPoolDefinitionBuilder : FeatureDefinitionBuilder
     {
     }
 
-    public CustomInvocationPoolDefinitionBuilder Setup(CustomInvocationPoolType poolType, int points = 1,
+    internal CustomInvocationPoolDefinitionBuilder Setup(CustomInvocationPoolType poolType, int points = 1,
         bool isUnlearn = false)
     {
         Definition.PoolType = poolType;
