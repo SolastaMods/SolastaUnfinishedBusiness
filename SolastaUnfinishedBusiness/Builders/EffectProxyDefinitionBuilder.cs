@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -46,10 +45,33 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
         return this;
     }
 
+    public EffectProxyDefinitionBuilder SetIsEmptyPresentation(bool value)
+    {
+        Definition.isEmptyPresentation = value;
+        return this;
+    }
+    
     public EffectProxyDefinitionBuilder SetCanMove()
     {
         Definition.canMove = true;
         return this;
     }
+    
+    public EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
+    {
+        Definition.canMoveOnCharacters = true;
+        return this;
+    }
+    
+    public EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
+    {
+        Definition.actionId = actionId;
+        return this;
+    }
+    
+    public EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
+    {
+        Definition.attackMethod = proxyAttackMethod;
+        return this;
+    }
 }
-#endif

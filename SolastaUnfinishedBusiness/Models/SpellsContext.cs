@@ -134,6 +134,9 @@ internal static class SpellsContext
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
 
+        // 2nd level
+        RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
+        
         // 3rd level
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
         RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,

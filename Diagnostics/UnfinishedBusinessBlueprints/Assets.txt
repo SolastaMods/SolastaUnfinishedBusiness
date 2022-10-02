@@ -395,6 +395,7 @@ ConditionWayOfTheDistantHandZenArcherFlurryOfArrows	ConditionDefinition	Conditio
 ConditionWayOfTheDistantHandZenArrowUpgradedSlow	ConditionDefinition	ConditionDefinition	defdac99-3f37-50a0-a8cf-a5a837046ca1
 ConditionWeird	ConditionDefinition	ConditionDefinition	13f3b2a2-1344-5cc0-ba61-5776b0f52220
 9999	ContentPackDefinition	ContentPackDefinition	81c2b331-87e1-51f4-a035-33adf3429def
+ProxyPetalStorm	EffectProxyDefinition	EffectProxyDefinition	0e6a068f-fadd-5c5a-8737-b2e2723d7f3f
 FeatApothecaryInt	FeatDefinition	FeatDefinition	028f934d-3eae-55a3-8dbe-b41ada9c4def
 FeatApothecaryWis	FeatDefinition	FeatDefinition	70685886-677d-573f-98a1-c0699e1147d4
 FeatArcaneDefense	FeatDefinition	FeatDefinition	cfc34cc9-97b0-5eec-a3ae-2014c544e1e8
@@ -2240,7 +2241,7 @@ CE_PickpocketableLoot_D	LootPackDefinition	LootPackDefinition	e5c93db4-ba93-5de2
 CE_PickpocketableLoot_Undead	LootPackDefinition	LootPackDefinition	609f91d1-1201-5603-869e-fb8c97e39f03
 AttackMarshalEternalComrade	MonsterAttackDefinition	MonsterAttackDefinition	2880ee9a-07b0-5f38-97da-dbaa1cb0e3c4
 MarshalEternalComrade	MonsterDefinition	MonsterDefinition	62bcd3b3-0d54-5fe4-9578-1cea388159a9
-Owl	MonsterDefinition	MonsterDefinition	7a6b1ddd-74b0-58f0-9563-ac1b44c4fb2a
+OwlFamiliar	MonsterDefinition	MonsterDefinition	92e9e549-346e-504c-bfc8-236e8d40b7b5
 CEBrightEyeColor00	MorphotypeElementDefinition	MorphotypeElementDefinition	f99305be-421c-5870-a67b-b99e7cfe6b8f
 CEBrightEyeColor01	MorphotypeElementDefinition	MorphotypeElementDefinition	f6840f68-ad5b-5b61-98ab-9a692829dadc
 CEBrightEyeColor02	MorphotypeElementDefinition	MorphotypeElementDefinition	1369d74d-2cf3-550e-b864-761f76a232f5
@@ -4855,6 +4856,7 @@ MeteorSwarmSingleTarget	SpellDefinition	SpellDefinition	d1a50b13-d597-552f-9466-
 MindBlank	SpellDefinition	SpellDefinition	c52e1eab-586b-582d-af52-ae788be56571
 MinorLifesteal	SpellDefinition	SpellDefinition	45d18b97-30c5-5a95-8618-c7297e7ee7d9
 Mule	SpellDefinition	SpellDefinition	f75f3d44-3b86-5879-931a-30a8a9407d57
+PetalStorm	SpellDefinition	SpellDefinition	4cc7aea6-dee9-5631-8b2a-f0e497b71bde
 PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea7d
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
 RadiantMotes	SpellDefinition	SpellDefinition	ff59b2b4-3fd1-55c2-a7ab-7c6c5b004633
