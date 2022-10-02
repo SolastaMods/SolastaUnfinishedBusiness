@@ -238,7 +238,7 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting)
+            .AddFeaturesAtLevel(1, SpellCasting, BuildBonuscantrips())
 
             #endregion
 
@@ -387,14 +387,58 @@ internal static class InventorClass
                 SpellDefinitions.AcidSplash,
                 SpellDefinitions.FireBolt,
                 SpellDefinitions.RayOfFrost,
-                SpellDefinitions.Light,
                 SpellDefinitions.PoisonSpray,
                 SpellDefinitions.Resistance,
                 SpellDefinitions.ShockingGrasp,
-                SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle
+                SpellDefinitions.SpareTheDying
             )
-            .FinalizeSpells()
+            // absorb elements, snare, catapult, tasha's caustic brew
+            .SetSpellsAtLevel(1,
+                SpellDefinitions.CureWounds,
+                SpellDefinitions.DetectMagic,
+                SpellDefinitions.ExpeditiousRetreat,
+                SpellDefinitions.FaerieFire,
+                SpellDefinitions.FalseLife,
+                SpellDefinitions.FeatherFall,
+                SpellDefinitions.Grease,
+                SpellDefinitions.Identify,
+                SpellDefinitions.Jump,
+                SpellDefinitions.Longstrider
+            )
+            // web, pyrotechnics, enlarge/reduce
+            .SetSpellsAtLevel(2,
+                SpellDefinitions.Aid,
+                SpellDefinitions.Blur,
+                SpellDefinitions.Darkvision,
+                SpellDefinitions.EnhanceAbility,
+                SpellDefinitions.HeatMetal,
+                SpellDefinitions.Invisibility,
+                SpellDefinitions.LesserRestoration,
+                SpellDefinitions.Levitate,
+                SpellDefinitions.MagicWeapon,
+                SpellDefinitions.ProtectionFromPoison,
+                SpellDefinitions.SeeInvisibility,
+                SpellDefinitions.SpiderClimb
+            )
+            // blink, elemental weapon, flame arrows
+            .SetSpellsAtLevel(3,
+                SpellDefinitions.CreateFood,
+                SpellDefinitions.DispelMagic,
+                SpellDefinitions.Fly,
+                SpellDefinitions.Haste,
+                SpellDefinitions.ProtectionFromEnergy,
+                SpellDefinitions.Revivify
+            )
+            // everything
+            .SetSpellsAtLevel(4,
+                SpellDefinitions.FreedomOfMovement,
+                SpellDefinitions.Stoneskin
+            )
+            // everything
+            .SetSpellsAtLevel(5,
+                SpellDefinitions.GreaterRestoration
+            )
+            .FinalizeSpells(maxLevel: 5)
             .AddToDB();
     }
 
@@ -403,13 +447,30 @@ internal static class InventorClass
         return FeatureDefinitionCastSpellBuilder
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
-            .SetKnownCantrips(3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6)
-            .SetKnownSpells()
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster)
+            .SetSpellKnowledge(SpellKnowledge.WholeList)
+            .SetSpellReadyness(SpellReadyness.Prepared)
+            .SetSpellPreparationCount(SpellPreparationCount.AbilityBonusPlusHalfLevel)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellList)
             .AddToDB();
     }
 
+    private static FeatureDefinitionBonusCantrips BuildBonuscantrips()
+    {
+        return FeatureDefinitionBonusCantripsBuilder
+            .Create("BonusCantripsInventorMagicalTinkering")
+            .SetGuiPresentation(Category.Feature)
+            .SetBonusCantrips(
+                SpellDefinitions.Dazzle,
+                SpellDefinitions.Light,
+                SpellDefinitions.Shine,
+                SpellDefinitions.Sparkle
+            )
+            .AddToDB();
+    }
 
     private static FeatureDefinitionPower BuildInfusionPool()
     {

@@ -210,6 +210,13 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
+    internal FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
+        RuleDefinitions.SpellPreparationCount prepCount)
+    {
+        Definition.spellPreparationCount = prepCount;
+        return this;
+    }
+
     private void SetKnownCantripsZero()
     {
         Definition.KnownCantrips.Clear();

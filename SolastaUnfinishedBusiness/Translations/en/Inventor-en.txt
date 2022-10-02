@@ -53,3 +53,5 @@ Feature/&InfusionMindSharpenerDescription=Infuse body armor or clothes to provid
 Feature/&InfusionMindSharpenerTitle=Mind Sharpener
 Feature/&InfusionReturningWeaponDescription=Infuse non-magic thrown weapon to grant a +1 bonus to attack and damage rolls made with it, and return to the wielder’s hand immediately after it is used to make a ranged attack.
 Feature/&InfusionReturningWeaponTitle=Returning Weapon
+Feature/&BonusCantripsInventorMagicalTinkeringDescription=You know how to invest a spark of magic into mundane objects. Learn these cantrips: {0}
+Feature/&BonusCantripsInventorMagicalTinkeringTitle=Magical Tinkering
