@@ -192,6 +192,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripsInventorMagicalTinkering:3f966b30-e932-5b50-85b6-aeece2a07cb2",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorSavingThrow:3ffcc425-4240-5532-839c-5214a75f337d",
       "level": 1
     },
