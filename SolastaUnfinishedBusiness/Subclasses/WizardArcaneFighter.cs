@@ -12,8 +12,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 {
     internal WizardArcaneFighter()
     {
-        // Make Melee Wizard subclass
-
         var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
@@ -49,7 +47,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageArcaneFighterBonusWeapon")
             .Configure(
-                "AdditionalDamageArcaneFighterBonusWeapon",
+                "ArcaneFighter",
                 FeatureLimitedUsage.OncePerTurn,
                 AdditionalDamageValueDetermination.Die,
                 AdditionalDamageTriggerCondition.AlwaysActive,
@@ -61,11 +59,10 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 string.Empty,
                 AdditionalDamageAdvancement.None,
                 new List<DiceByRank>())
-            .SetNotificationTag("ArcaneFighter")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
+        var attackModifierArcaneFighterIntBonus = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierArcaneFighterIntBonus")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
@@ -73,29 +70,45 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
-        var effect = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
-                TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
-            .SetCreatedByCharacter()
-            .SetDurationData(DurationType.Minute, 10 /* duration */,
-                TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
-                        new FeatureUnlockByLevel(weaponUseIntModifier, 0))
-                    .Build()
-            )
-            .Build();
-
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(0, UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                ActivationTime.BonusAction, 1, RechargeRate.ShortRest, false, false,
-                AttributeDefinitions.Intelligence, effect)
+            .Configure(
+                0,
+                UsesDetermination.ProficiencyBonus,
+                AttributeDefinitions.Intelligence,
+                ActivationTime.BonusAction,
+                1,
+                RechargeRate.ShortRest,
+                false,
+                false,
+                AttributeDefinitions.Intelligence,
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Touch,
+                        1 /* range */,
+                        TargetType.Item,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(
+                        DurationType.Minute,
+                        10 /* duration */,
+                        TurnOccurenceType.EndOfTurn)
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                0,
+                                new FeatureUnlockByLevel(attackModifierArcaneFighterIntBonus, 0))
+                            .Build()
+                    )
+                    .Build())
             .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 

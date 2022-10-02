@@ -55,22 +55,23 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetConditionName(ConditionPathOfTheLightIlluminatedName)
                 .AddToDB();
 
-        var invisibleConditions = InvisibleConditions
-            .Select(x => FeatureDefinitionConditionAffinityBuilder
-                .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
-                        x.Name.Replace("Condition", string.Empty))
-                .SetGuiPresentationNoContent(true)
-                .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                .SetConditionType(x)
-                .AddToDB());
-        
         var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .AddFeatureSet(invisibleConditions.OfType<FeatureDefinition>().ToArray())
+            .AddFeatureSet(
+                InvisibleConditions
+                    .Select(x => FeatureDefinitionConditionAffinityBuilder
+                        .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
+                                x.Name.Replace("Condition", string.Empty))
+                        .SetGuiPresentationNoContent(true)
+                        .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                        .SetConditionType(x)
+                        .AddToDB())
+                    .OfType<FeatureDefinition>()
+                    .ToArray())
             .AddToDB();
 
         var conditionPathOfTheLightIlluminated = ConditionDefinitionIlluminatedBuilder
@@ -111,7 +112,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddFeatureSet(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .AddToDB();
 
-        var lightsProtection = FeatureDefinitionFeatureSetBuilder
+        var featureSetPathOfTheLightLightsProtection = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightLightsProtection")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
@@ -143,22 +144,20 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        var suppressIlluminatingBurst = new EffectForm
-        {
-            FormType = EffectForm.EffectFormType.Condition,
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = conditionPathOfTheLightSuppressedIlluminatingBurst
-            }
-        };
-
         var suppressIlluminatingBurstEffect = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
             .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
-            .AddEffectForm(suppressIlluminatingBurst)
+            .AddEffectForm(new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition,
+                ConditionForm = new ConditionForm
+                {
+                    Operation = ConditionForm.ConditionOperation.Add,
+                    ConditionDefinition = conditionPathOfTheLightSuppressedIlluminatingBurst
+                }
+            })
             .Build();
 
         var powerPathOfTheLightIlluminatingBurstSuppressor = FeatureDefinitionPowerBuilder
@@ -197,7 +196,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 featureSetPathOfTheLightIlluminatingStrike,
                 featureSetPathOfTheLightPierceTheDarkness)
             .AddFeaturesAtLevel(6,
-                lightsProtection)
+                featureSetPathOfTheLightLightsProtection)
             .AddFeaturesAtLevel(10,
                 BuildEyesOfTruth(),
                 pathOfTheLightIlluminatingStrikeImprovement)
@@ -223,27 +222,29 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
             .AddToDB();
 
-        var seeInvisibleEffectBuilder = new EffectDescriptionBuilder();
-        var seeInvisibleConditionForm = new EffectForm
-        {
-            FormType = EffectForm.EffectFormType.Condition,
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = conditionPathOfTheLightEyesOfTruth
-            }
-        };
-
-        seeInvisibleEffectBuilder
-            .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
-            .AddEffectForm(seeInvisibleConditionForm);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
             .SetShowCasting(false)
-            .SetEffectDescription(seeInvisibleEffectBuilder.Build())
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(
+                    Side.Ally,
+                    RangeType.Self,
+                    1,
+                    TargetType.Self,
+                    1,
+                    0)
+                .AddEffectForm(new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.Condition,
+                    ConditionForm = new ConditionForm
+                    {
+                        Operation = ConditionForm.ConditionOperation.Add,
+                        ConditionDefinition = conditionPathOfTheLightEyesOfTruth
+                    }
+                })
+                .Build())
             .SetRechargeRate(RechargeRate.AtWill)
             .SetActivationTime(ActivationTime.Permanent)
             .AddToDB();
@@ -269,23 +270,18 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var enableIlluminatingStrike = new EffectForm
-        {
-            FormType = EffectForm.EffectFormType.Condition,
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = conditionPathOfTheLightIlluminatingStrikeInitiator
-            }
-        };
-
-        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-        effectDescriptionBuilder
+        return new EffectDescriptionBuilder()
             .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .AddEffectForm(enableIlluminatingStrike);
-
-        return effectDescriptionBuilder.Build();
+            .AddEffectForm(new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition,
+                ConditionForm = new ConditionForm
+                {
+                    Operation = ConditionForm.ConditionOperation.Add,
+                    ConditionDefinition = conditionPathOfTheLightIlluminatingStrikeInitiator
+                }
+            })
+            .Build();
     }
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
@@ -331,7 +327,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-        visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom),
+        visibilityService.RemoveCharacterLightSource(
+            GameLocationCharacter.GetFromActor(removedFrom),
             character.PersonalLightSource);
         character.PersonalLightSource = null;
     }
@@ -381,8 +378,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
         : ConditionDefinitionBuilder<ConditionDefinitionIlluminatedByBurst,
             ConditionDefinitionIlluminatedByBurstBuilder>
     {
-        internal ConditionDefinitionIlluminatedByBurstBuilder(string name, Guid guidNamespace) : base(name,
-            guidNamespace)
+        internal ConditionDefinitionIlluminatedByBurstBuilder(string name, Guid guidNamespace)
+            : base(name, guidNamespace)
         {
         }
     }
@@ -399,7 +396,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             FeatureDefinitionAdditionalDamageIlluminatingStrike,
             FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder>
     {
-        private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(string name,
+        private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(
+            string name,
             ConditionDefinition illuminatedCondition)
             : base(name, CeNamespaceGuid)
         {
@@ -457,7 +455,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
 
         [NotNull]
-        public static FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder Create(string name,
+        public static FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder Create(
+            string name,
             ConditionDefinition illuminatedCondition)
         {
             return new FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(name, illuminatedCondition);
@@ -518,16 +517,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         private static EffectDescription CreateIlluminatingBurstPowerEffect(ConditionDefinition illuminatedCondition)
         {
-            var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-            var dealDamage = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Damage,
-                DamageForm =
-                    new DamageForm { DamageType = DamageTypeRadiant, DiceNumber = 4, DieType = DieType.D6 },
-                SavingThrowAffinity = EffectSavingThrowType.Negates
-            };
-
             var conditionPathOfTheLightIlluminatedByBurst = ConditionDefinitionIlluminatedByBurstBuilder
                 .Create("ConditionPathOfTheLightIlluminatedByBurst")
                 .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
@@ -539,20 +528,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetSilent(Silent.WhenAdded)
                 .AddToDB();
 
-            var addIlluminatedCondition = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition,
-                ConditionForm =
-                    new ConditionForm
-                    {
-                        Operation = ConditionForm.ConditionOperation.Add,
-                        ConditionDefinition = conditionPathOfTheLightIlluminatedByBurst
-                    },
-                CanSaveToCancel = true,
-                SaveOccurence = TurnOccurenceType.EndOfTurn,
-                SavingThrowAffinity = EffectSavingThrowType.Negates
-            };
-
             var faerieFireLightSource =
                 SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType
                     .LightSource);
@@ -563,14 +538,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             lightSourceForm.brightRange = 4;
             lightSourceForm.dimAdditionalRange = 4;
 
-            var addLightSource = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.LightSource,
-                SavingThrowAffinity = EffectSavingThrowType.Negates,
-                lightSourceForm = lightSourceForm
-            };
-
-            effectDescriptionBuilder
+            return new EffectDescriptionBuilder()
                 .SetSavingThrowData(
                     true,
                     false,
@@ -597,11 +565,35 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     9.5f)
                 .SetParticleEffectParameters(
                     SpellDefinitions.GuidingBolt.EffectDescription.EffectParticleParameters)
-                .AddEffectForm(dealDamage)
-                .AddEffectForm(addIlluminatedCondition)
-                .AddEffectForm(addLightSource);
-
-            return effectDescriptionBuilder.Build();
+                .AddEffectForm(
+                    new EffectForm
+                    {
+                        FormType = EffectForm.EffectFormType.Damage,
+                        DamageForm =
+                            new DamageForm { DamageType = DamageTypeRadiant, DiceNumber = 4, DieType = DieType.D6 },
+                        SavingThrowAffinity = EffectSavingThrowType.Negates
+                    })
+                .AddEffectForm(
+                    new EffectForm
+                    {
+                        FormType = EffectForm.EffectFormType.Condition,
+                        ConditionForm =
+                            new ConditionForm
+                            {
+                                Operation = ConditionForm.ConditionOperation.Add,
+                                ConditionDefinition = conditionPathOfTheLightIlluminatedByBurst
+                            },
+                        CanSaveToCancel = true,
+                        SaveOccurence = TurnOccurenceType.EndOfTurn,
+                        SavingThrowAffinity = EffectSavingThrowType.Negates
+                    })
+                .AddEffectForm(new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.LightSource,
+                    SavingThrowAffinity = EffectSavingThrowType.Negates,
+                    lightSourceForm = lightSourceForm
+                })
+                .Build();
         }
     }
 
@@ -613,8 +605,18 @@ internal sealed class PathOfTheLight : AbstractSubclass
             : base(name, CeNamespaceGuid)
         {
             Definition.activationTime = ActivationTime.OnRageStartAutomatic;
-            Definition.effectDescription =
-                CreateIlluminatingBurstSuppressedPowerEffect(illuminatingBurstSuppressedCondition);
+            Definition.effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                .AddEffectForm(new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.Condition,
+                    ConditionForm = new ConditionForm
+                    {
+                        Operation = ConditionForm.ConditionOperation.Remove,
+                        ConditionDefinition = illuminatingBurstSuppressedCondition
+                    }
+                })
+                .Build();
             Definition.rechargeRate = RechargeRate.AtWill;
             Definition.showCasting = false;
         }
@@ -625,28 +627,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
         {
             return new FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder(name,
                 illuminatingBurstSuppressedCondition);
-        }
-
-        private static EffectDescription CreateIlluminatingBurstSuppressedPowerEffect(
-            ConditionDefinition illuminatingBurstSuppressedCondition)
-        {
-            var enableIlluminatingBurst = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition,
-                ConditionForm = new ConditionForm
-                {
-                    Operation = ConditionForm.ConditionOperation.Remove,
-                    ConditionDefinition = illuminatingBurstSuppressedCondition
-                }
-            };
-
-            var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-            effectDescriptionBuilder
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
-                .AddEffectForm(enableIlluminatingBurst);
-
-            return effectDescriptionBuilder.Build();
         }
     }
 }

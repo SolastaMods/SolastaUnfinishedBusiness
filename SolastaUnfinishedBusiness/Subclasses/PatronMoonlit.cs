@@ -51,30 +51,26 @@ internal sealed class PatronMoonlit : AbstractSubclass
         // only reports condition on char panel
         Global.CharacterLabelEnabledConditions.Add(conditionMoonlitInvisibility);
 
-        var unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-        {
-            lightingState = LocationDefinitions.LightingState.Unlit, condition = conditionMoonlitInvisibility
-        };
-        var dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-        {
-            lightingState = LocationDefinitions.LightingState.Dim, condition = conditionMoonlitInvisibility
-        };
-        var darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-        {
-            lightingState = LocationDefinitions.LightingState.Darkness, condition = conditionMoonlitInvisibility
-        };
-
         var lightAffinityMoonlitWeak = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityMoonlitWeak")
             .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(unlit)
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Unlit, condition = conditionMoonlitInvisibility
+            })
             .AddToDB();
 
         var lightAffinityMoonlitStrong = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityMoonlitStrong")
             .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(dim)
-            .AddLightingEffectAndCondition(darkness)
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim, condition = conditionMoonlitInvisibility
+            })
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Darkness, condition = conditionMoonlitInvisibility
+            })
             .AddToDB();
 
         // should probably be expanded to include a magic affinity that has immunity to darkness spells as well
@@ -206,20 +202,18 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 true)
             .AddToDB();
 
-        var moonbeamAtWill = SpellDefinitionBuilder
-            .Create(MoonBeam, "MoonbeamAtWill")
-            .SetSpellLevel(0)
-            .AddToDB();
-
-        var faerieFireAtWill = SpellDefinitionBuilder
-            .Create(FaerieFire, "FaerieFireAtWill")
-            .SetSpellLevel(0)
-            .AddToDB();
-
         var bonusCantripsMoonlit = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripsMoonlit")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(moonbeamAtWill, faerieFireAtWill)
+            .SetBonusCantrips(
+                SpellDefinitionBuilder
+                    .Create(MoonBeam, "AtWillMoonbeam")
+                    .SetSpellLevel(0)
+                    .AddToDB(),
+                SpellDefinitionBuilder
+                    .Create(FaerieFire, "AtWillFaerieFire")
+                    .SetSpellLevel(0)
+                    .AddToDB())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

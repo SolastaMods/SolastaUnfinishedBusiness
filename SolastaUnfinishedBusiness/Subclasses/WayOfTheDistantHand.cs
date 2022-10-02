@@ -254,7 +254,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
-            // .SetSharedPool(Monk.KiPool)
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
@@ -321,7 +320,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedDistract")
             .SetGuiPresentation(Category.Feature)
-            // .SetSharedPool(Monk.KiPool)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.ShortRest)

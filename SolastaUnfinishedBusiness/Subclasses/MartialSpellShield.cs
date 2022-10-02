@@ -62,6 +62,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             )
             .Build();
 
+        //TODO: create a builder for this
         effect.canBePlacedOnCharacter = true;
 
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
@@ -103,25 +104,30 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
-        var arcaneDeflection = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                TargetType.Self, 1, 0)
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .CreatedByCharacter()
-                .SetConditionForm(conditionSpellShieldArcaneDeflection, ConditionForm.ConditionOperation.Add, true,
-                    true)
-                .Build())
-            .Build();
-
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
-                0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
-                ActivationTime.Reaction, 0, RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Intelligence, arcaneDeflection /* unique instance */)
+                0,
+                UsesDetermination.AbilityBonusPlusFixed,
+                AttributeDefinitions.Intelligence,
+                ActivationTime.Reaction,
+                0,
+                RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Intelligence, 
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                        TargetType.Self, 1, 0)
+                    .AddEffectForm(EffectFormBuilder
+                        .Create()
+                        .CreatedByCharacter()
+                        .SetConditionForm(conditionSpellShieldArcaneDeflection, ConditionForm.ConditionOperation.Add, true,
+                            true)
+                        .Build())
+                    .Build() /* unique instance */)
             .AddToDB();
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder

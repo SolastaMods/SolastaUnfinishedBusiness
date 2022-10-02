@@ -48,25 +48,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
             .AddToDB();
 
-        var feintEffect = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
-                RuleDefinitions.TargetType.Individuals, 1, 0)
-            .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetSavingThrowData(
-                true, false, AttributeDefinitions.Wisdom, true,
-                RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
-                15)
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .CreatedByCharacter()
-                    .SetConditionForm(
-                        conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
-                    .Build())
-            .Build();
-
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
@@ -80,7 +61,25 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                feintEffect)
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
+                        RuleDefinitions.TargetType.Individuals, 1, 0)
+                    .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .SetSavingThrowData(
+                        true, false, AttributeDefinitions.Wisdom, true,
+                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Charisma,
+                        15)
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(
+                                conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder
