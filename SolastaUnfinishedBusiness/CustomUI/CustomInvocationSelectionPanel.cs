@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class CustomInvocationSelectionPanel : CharacterStagePanel
+internal class CustomInvocationSelectionPanel : CharacterStagePanel
 {
     private const float ScrollDuration = 0.3f;
     private const float SpellsByLevelMargin = 10.0f;
@@ -55,7 +55,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private bool IsFinalStep => currentLearnStep >= allPools.Count;
 
-    private void OnFeatureSelected(SpellBox spellbox)
+    private void OnFeatureSelected(SpellBox spellBox)
     {
         if (wasClicked)
         {
@@ -64,7 +64,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
         wasClicked = true;
 
-        var feature = spellbox.GetFeature();
+        var feature = spellBox.GetFeature();
         var pool = allPools[currentLearnStep];
         var learned = GetOrMakeLearnedList(pool.Id);
 
@@ -159,7 +159,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     }
 
 
-    public void OnLearnBack()
+    private void OnLearnBack()
     {
         if (wasClicked)
         {
@@ -171,7 +171,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         MoveToPreviousLearnStep(true, ResetWasClickedFlag);
     }
 
-    public void OnLearnReset()
+    private void OnLearnReset()
     {
         if (wasClicked)
         {
@@ -193,7 +193,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         });
     }
 
-    public void OnSkipRemaining()
+    private void OnSkipRemaining()
     {
         if (wasClicked)
         {
@@ -223,7 +223,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     }
 
 
-    public void MoveToNextLearnStep()
+    private void MoveToNextLearnStep()
     {
         currentLearnStep++;
 
@@ -237,7 +237,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         RefreshNow();
     }
 
-    public void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
+    private void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
     {
         var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
@@ -522,30 +522,30 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     }
 
 
-    public class FeaturePool
+    internal class FeaturePool
     {
-        public bool Skipped;
-        public FeaturePool(PoolId id) { Id = id; }
-        public PoolId Id { get; }
-        public int Max { get; set; }
-        public int Used { get; set; }
-        public int Remaining => Skipped ? 0 : Max - Used;
+        internal bool Skipped;
+        internal FeaturePool(PoolId id) { Id = id; }
+        internal PoolId Id { get; }
+        internal int Max { get; set; }
+        internal int Used { get; set; }
+        internal int Remaining => Skipped ? 0 : Max - Used;
         internal CustomInvocationPoolType Type { get; set; }
-        public bool IsUnlearn => Id.Unlearn;
+        internal bool IsUnlearn => Id.Unlearn;
     }
 
-    public class PoolId
+    internal class PoolId
     {
-        public PoolId(string name, string tag, bool unlearn)
+        internal PoolId(string name, string tag, bool unlearn)
         {
             Name = name;
             Tag = tag;
             Unlearn = unlearn;
         }
 
-        public string Name { get; }
-        public string Tag { get; }
-        public bool Unlearn { get; }
+        internal string Name { get; }
+        internal string Tag { get; }
+        internal bool Unlearn { get; }
 
         public override bool Equals(object obj)
         {
@@ -581,14 +581,14 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     private RectTransform levelButtonsTable;
     private GameObject levelButtonPrefab;
     private GuiLabel stageTitleLabel;
-    private GuiLabel righrFeaturesLabel;
+    private GuiLabel rightFeaturesLabel;
     private GuiLabel rightFeaturesDescription;
 
     #endregion
 
     #region Initial Setup
 
-    public static void InsertPanel(CharacterEditionScreen screen)
+    internal static void InsertPanel(CharacterEditionScreen screen)
     {
         switch (screen)
         {
@@ -641,7 +641,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         levelButtonsTable = spellsPanel.levelButtonsTable;
         levelButtonPrefab = spellsPanel.levelButtonPrefab;
         stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
-        righrFeaturesLabel =
+        rightFeaturesLabel =
             spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
         rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription")
             .GetComponent<GuiLabel>();
@@ -674,7 +674,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
     public override void EnterStage()
     {
         stageTitleLabel.Text = Title;
-        righrFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
+        rightFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
         rightFeaturesDescription.Text = Description;
         currentLearnStep = 0;
         initialized = false;
@@ -866,7 +866,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
             totalWidth += lastWidth;
         }
 
-        // Compute manually the table width, adding a reserve of fluff for the scrollview
+        // Compute manually the table width, adding a reserve of fluff for the scroll view
         totalWidth += spellsScrollRect.GetComponent<RectTransform>().rect.width - lastWidth;
         spellsByLevelTable.sizeDelta = new Vector2(totalWidth, spellsByLevelTable.sizeDelta.y);
 
@@ -906,7 +906,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
         wasClicked = false;
     }
 
-    public void LevelSelected(int level)
+    private void LevelSelected(int level)
     {
         StartCoroutine(BlendToLevelGroup(level));
     }
@@ -947,7 +947,7 @@ public class CustomInvocationSelectionPanel : CharacterStagePanel
 
 internal static class LearnStepItemExtension
 {
-    public static void CustomBind(
+    internal static void CustomBind(
         this LearnStepItem instance,
         int rank,
         CustomInvocationSelectionPanel.FeaturePool pool,
@@ -970,7 +970,7 @@ internal static class LearnStepItemExtension
         instance.OnAutoSelectActivated = onAutoSelectActivated;
     }
 
-    public static void CustomRefresh(
+    internal static void CustomRefresh(
         this LearnStepItem instance,
         LearnStepItem.Status status,
         CustomInvocationSelectionPanel.FeaturePool pool)
@@ -1021,7 +1021,7 @@ internal static class LearnStepItemExtension
 
 internal static class SpellLevelButtonExtension
 {
-    public static void CustomBind(
+    internal static void CustomBind(
         this SpellLevelButton instance,
         int level,
         SpellLevelButton.LevelSelectedHandler levelSelected)
@@ -1034,7 +1034,7 @@ internal static class SpellLevelButtonExtension
 
 internal static class SpellsByLevelGroupExtensions
 {
-    public static void CustomFeatureBind(this SpellsByLevelGroup instance,
+    internal static void CustomFeatureBind(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
@@ -1098,7 +1098,7 @@ internal static class SpellsByLevelGroupExtensions
         }
     }
 
-    public static void RefreshLearning(this SpellsByLevelGroup instance,
+    private static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> learned,
@@ -1135,7 +1135,7 @@ internal static class SpellsByLevelGroupExtensions
         }
     }
 
-    public static void RefreshUnlearning(this SpellsByLevelGroup instance,
+    private static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         CustomInvocationPoolType pool,
         List<CustomInvocationDefinition> unlearnedSpells,
@@ -1168,7 +1168,7 @@ internal static class SpellsByLevelGroupExtensions
         }
     }
 
-    public static void CustomUnbind(this SpellsByLevelGroup instance)
+    internal static void CustomUnbind(this SpellsByLevelGroup instance)
     {
         instance.SpellRepertoire = null;
 
@@ -1188,12 +1188,12 @@ internal static class SpellBoxExtensions
 {
     private static readonly Dictionary<SpellBox, CustomInvocationDefinition> Features = new();
 
-    public static CustomInvocationDefinition GetFeature(this SpellBox box)
+    internal static CustomInvocationDefinition GetFeature(this SpellBox box)
     {
         return Features.TryGetValue(box, out var result) ? result : null;
     }
 
-    public static void CustomFeatureBind(
+    internal static void CustomFeatureBind(
         this SpellBox instance,
         CustomInvocationDefinition feature,
         bool unlearned,
@@ -1225,7 +1225,7 @@ internal static class SpellBoxExtensions
         instance.name = feature.Name;
     }
 
-    public static void CustomRefreshLearningInProgress(this SpellBox instance, bool canLearn, bool selected,
+    internal static void CustomRefreshLearningInProgress(this SpellBox instance, bool canLearn, bool selected,
         bool known)
     {
         var autoPrepared = instance.autoPrepared;
@@ -1238,7 +1238,7 @@ internal static class SpellBoxExtensions
         instance.Refresh();
     }
 
-    public static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite,
+    internal static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite,
         List<string> requirements)
     {
         var title = instance.titleLabel;
@@ -1246,18 +1246,10 @@ internal static class SpellBoxExtensions
         var tooltip = instance.tooltip;
         var feature = instance.GetFeature();
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
-
         var item = feature.Item;
-        CustomTooltipProvider dataProvider;
-
-        if (item == null)
-        {
-            dataProvider = new CustomTooltipProvider(feature, gui);
-        }
-        else
-        {
-            dataProvider = new CustomItemTooltipProvider(feature, gui, item);
-        }
+        var dataProvider = item == null
+            ? new CustomTooltipProvider(feature, gui)
+            : new CustomItemTooltipProvider(feature, gui, item);
 
         dataProvider.SetPrerequisites(requirements);
         tooltip.TooltipClass = dataProvider.TooltipClass;
@@ -1275,7 +1267,7 @@ internal static class SpellBoxExtensions
         image.SetupSprite(gui);
     }
 
-    public static void CustomUnbind(this SpellBox instance)
+    internal static void CustomUnbind(this SpellBox instance)
     {
         Features.Remove(instance);
         instance.Unbind();

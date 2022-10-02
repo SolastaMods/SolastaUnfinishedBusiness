@@ -7,16 +7,16 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public sealed class ReactionRequestSpendBundlePower : ReactionRequest
+internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
 {
-    public const string Name = "ReactionSpendPowerBundle";
+    internal const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter guiCharacter;
     private readonly FeatureDefinitionPower masterPower;
     private readonly ActionModifier modifier;
 
     private readonly GameLocationCharacter target;
 
-    public ReactionRequestSpendBundlePower(
+    internal ReactionRequestSpendBundlePower(
         [NotNull] CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {

@@ -2,5 +2,5 @@
 
 internal interface ICustomMagicEffectBasedOnCaster
 {
-    EffectDescription GetCustomEffect(RulesetCharacter caster);
+    public EffectDescription GetCustomEffect(RulesetCharacter caster);
 }

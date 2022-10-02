@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IFeatureDefinitionCustomCode
+internal interface IFeatureDefinitionCustomCode
 {
     // Use this to add the feature to the character.
     public void ApplyFeature(RulesetCharacterHero hero, string tag);

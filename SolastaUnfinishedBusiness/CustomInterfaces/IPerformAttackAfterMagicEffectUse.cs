@@ -4,14 +4,14 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IPerformAttackAfterMagicEffectUse
 {
-    delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
+    public delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 
-    delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
+    public delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
         GameLocationCharacter target, out string failure);
 
-    delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
+    public delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
-    CanUseHandler CanBeUsedToAttack { get; }
-    GetAttackAfterUseHandler PerformAttackAfterUse { get; }
-    CanAttackHandler CanAttack { get; }
+    public CanUseHandler CanBeUsedToAttack { get; }
+    public GetAttackAfterUseHandler PerformAttackAfterUse { get; }
+    public CanAttackHandler CanAttack { get; }
 }

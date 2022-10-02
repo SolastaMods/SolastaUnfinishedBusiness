@@ -1,8 +1,8 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReactionAttackModeRestriction
+internal interface IReactionAttackModeRestriction
 {
-    bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack,
+    public bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack,
         GameLocationCharacter character, GameLocationCharacter target);
 }
 

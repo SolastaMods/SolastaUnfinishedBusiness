@@ -4,8 +4,8 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 internal interface ICustomConcentrationProvider
 {
-    string Name { get; }
-    string Tooltip { get; }
-    AssetReferenceSprite Icon { get; }
-    void Stop(RulesetCharacter character);
+    public string Name { get; }
+    public string Tooltip { get; }
+    public AssetReferenceSprite Icon { get; }
+    public void Stop(RulesetCharacter character);
 }

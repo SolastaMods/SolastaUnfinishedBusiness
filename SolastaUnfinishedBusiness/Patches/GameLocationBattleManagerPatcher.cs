@@ -256,8 +256,8 @@ public static class GameLocationBattleManagerPatcher
                         var modifier = feature.GetSpellAttackRollModifier(attacker);
                         attackParams.attackModifier.attackRollModifier += modifier;
                         attackParams.attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(modifier,
-                            feature.sourceType,
-                            feature.sourceName, null));
+                            feature.SourceType,
+                            feature.SourceName, null));
                     }
 
                     break;

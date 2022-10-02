@@ -16,7 +16,7 @@ public class ProficienciesPanelPatcher
         {
             //PATCH: support for custom invocations
             //adds separate sub-panels for each custom invocation type
-            CustomInvocationSubPanel.AddCustomSubpanels(__instance);
+            CustomInvocationSubPanel.AddCustomSubPanels(__instance);
         }
     }
 

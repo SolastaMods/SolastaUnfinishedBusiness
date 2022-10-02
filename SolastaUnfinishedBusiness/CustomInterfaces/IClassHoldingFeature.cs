@@ -6,5 +6,5 @@
 /// </summary>
 internal interface IClassHoldingFeature
 {
-    CharacterClassDefinition Class { get; }
+    public CharacterClassDefinition Class { get; }
 }

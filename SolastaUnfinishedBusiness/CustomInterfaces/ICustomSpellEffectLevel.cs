@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomSpellEffectLevel
+internal interface ICustomSpellEffectLevel
 {
     public int GetEffectLevel(RulesetActor caster);
 }

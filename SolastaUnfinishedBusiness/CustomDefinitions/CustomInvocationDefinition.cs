@@ -60,7 +60,7 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
                 levelText = Gui.Colorize(levelText, Gui.ColorFailure);
             }
 
-            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CLASS_LEVEL, levelText, classText);
+            requirement = Gui.Format(CustomTooltipProvider.RequireClassLevel, levelText, classText);
         }
         else
         {
@@ -73,7 +73,7 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
                 levelText = Gui.Colorize(levelText, Gui.ColorFailure);
             }
 
-            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CHARACTER_LEVEL, levelText);
+            requirement = Gui.Format(CustomTooltipProvider.RequireCharacterLevel, levelText);
         }
 
         return level >= requiredLevel;

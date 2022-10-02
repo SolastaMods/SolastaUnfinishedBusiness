@@ -8,9 +8,9 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public static class ExtraAttacksOnActionPanel
+internal static class ExtraAttacksOnActionPanel
 {
-    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInActionPanel(
+    internal static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInActionPanel(
         IEnumerable<CodeInstruction> instructions)
     {
         var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
@@ -50,7 +50,7 @@ public static class ExtraAttacksOnActionPanel
         return guiAction.ForcedAttackMode;
     }
 
-    public static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInLocationCharacter(
+    internal static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInLocationCharacter(
         IEnumerable<CodeInstruction> instructions)
     {
         var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
@@ -90,7 +90,7 @@ public static class ExtraAttacksOnActionPanel
         return forcedAttack;
     }
 
-    public static int ComputeMultipleGuiCharacterActions(
+    internal static int ComputeMultipleGuiCharacterActions(
         CharacterActionPanel panel,
         Id actionId,
         int def)

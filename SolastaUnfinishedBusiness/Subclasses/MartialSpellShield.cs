@@ -81,7 +81,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetCustomSubFeatures(new VigorSpellDcModifier(),
                 new VigorSpellAttackModifier
                 {
-                    sourceName = "VigorSpell", sourceType = FeatureSourceType.ExplicitFeature
+                    SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature
                 })
             .AddToDB();
 
@@ -182,7 +182,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         return Math.Max(strModifier, dexModifier);
     }
 
-    private sealed class VigorSpellDcModifier : IIncreaseSpellDC
+    private sealed class VigorSpellDcModifier : IIncreaseSpellDc
     {
         public int GetSpellModifier(RulesetCharacter caster)
         {
@@ -197,7 +197,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             return CalculateModifier(caster);
         }
 
-        public FeatureSourceType sourceType { get; set; }
-        public string sourceName { get; set; }
+        public FeatureSourceType SourceType { get; set; }
+        public string SourceName { get; set; }
     }
 }

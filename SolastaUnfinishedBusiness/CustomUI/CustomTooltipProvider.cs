@@ -8,16 +8,16 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
+internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
 {
-    public const string REQUIRE_CHARACTER_LEVEL = "Requirement/&FeatureSelectionRequireCharacterLevel";
-    public const string REQUIRE_CLASS_LEVEL = "Requirement/&FeatureSelectionRequireClassLevel";
+    internal const string RequireCharacterLevel = "Requirement/&FeatureSelectionRequireCharacterLevel";
+    internal const string RequireClassLevel = "Requirement/&FeatureSelectionRequireClassLevel";
 
     private readonly GuiPresentation _guiPresentation;
     private string _prerequisites = string.Empty;
     private string _subtitle;
 
-    public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
+    internal CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
         baseDefinition)
     {
         _guiPresentation = guiPresentation;
@@ -68,12 +68,12 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
         }
     }
 
-    public void SetPrerequisites(params string[] missingRequirements)
+    internal void SetPrerequisites(params string[] missingRequirements)
     {
         SetPrerequisites(missingRequirements.ToList());
     }
 
-    public CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
+    internal CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
     {
         _prerequisites = missingRequirements == null || missingRequirements.Empty()
             ? string.Empty
@@ -82,7 +82,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
         return this;
     }
 
-    public CustomTooltipProvider SetSubtitle(string subtitle)
+    internal CustomTooltipProvider SetSubtitle(string subtitle)
     {
         _subtitle = string.IsNullOrEmpty(subtitle)
             ? GetDefaultSubtitle()
@@ -109,18 +109,18 @@ internal class CustomItemTooltipProvider : CustomTooltipProvider,
     IDeviceFunctionsEnumeratorProvider,
     IItemPropertiesEnumeratorProvider
 {
-    public const string ItemWithPrereqsTooltip = "ItemWithPrereqsDefinition";
+    internal const string ItemWithPreReqsTooltip = "ItemWithPrereqsDefinition";
 
     [NotNull] private readonly GuiItemDefinition _guiItem;
 
-    public CustomItemTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation,
+    internal CustomItemTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation,
         ItemDefinition item)
         : base(baseDefinition, guiPresentation)
     {
         _guiItem = new GuiItemDefinition(item);
     }
 
-    public override string TooltipClass => ItemWithPrereqsTooltip;
+    public override string TooltipClass => ItemWithPreReqsTooltip;
     public string AmmunitionDescription => _guiItem.AmmunitionDescription;
 
 

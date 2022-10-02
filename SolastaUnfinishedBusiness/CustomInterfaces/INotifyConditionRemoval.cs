@@ -6,6 +6,6 @@
 /// </summary>
 internal interface INotifyConditionRemoval
 {
-    void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition);
-    void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition);
+    public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition);
+    public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition);
 }

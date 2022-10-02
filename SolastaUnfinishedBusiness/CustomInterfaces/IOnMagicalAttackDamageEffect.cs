@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 internal interface IOnMagicalAttackDamageEffect
 {
-    void BeforeOnMagicalAttackDamage(
+    public void BeforeOnMagicalAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier magicModifier,
@@ -13,7 +13,7 @@ internal interface IOnMagicalAttackDamageEffect
         bool firstTarget,
         bool criticalHit);
 
-    void AfterOnMagicalAttackDamage(
+    public void AfterOnMagicalAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier magicModifier,

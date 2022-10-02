@@ -6,8 +6,8 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IGroupedFeat
 {
-    bool HideSubFeats { get; }
-    List<FeatDefinition> GetSubFeats();
+    public bool HideSubFeats { get; }
+    public List<FeatDefinition> GetSubFeats();
 }
 
 internal class GroupedFeat : IGroupedFeat

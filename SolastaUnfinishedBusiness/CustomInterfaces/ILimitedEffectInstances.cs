@@ -2,6 +2,6 @@
 
 internal interface ILimitedEffectInstances
 {
-    string Name { get; }
-    int GetLimit(RulesetCharacter character);
+    public string Name { get; }
+    public int GetLimit(RulesetCharacter character);
 }

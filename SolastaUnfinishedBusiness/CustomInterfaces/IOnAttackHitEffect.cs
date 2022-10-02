@@ -9,7 +9,7 @@ internal interface IOnAttackHitEffect
          * Called after roll is made, but before damage is applied.
          * Called regardless of whether attack hits or not.
          */
-    void BeforeOnAttackHit(
+    public void BeforeOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,
@@ -21,7 +21,7 @@ internal interface IOnAttackHitEffect
          * Called after damage is applied (or would have been applied if it was a hit).
          * Called regardless of whether attack hits or not.
          */
-    void AfterOnAttackHit(
+    public void AfterOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,

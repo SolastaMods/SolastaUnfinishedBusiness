@@ -1,11 +1,11 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class ReactionRequestReactionAttack : ReactionRequest
+internal class ReactionRequestReactionAttack : ReactionRequest
 {
     private readonly GuiCharacter target;
     private readonly string type;
 
-    public ReactionRequestReactionAttack(string type, CharacterActionParams reactionParams)
+    internal ReactionRequestReactionAttack(string type, CharacterActionParams reactionParams)
         : base(Name(type), reactionParams)
     {
         this.type = type;
@@ -23,7 +23,7 @@ public class ReactionRequestReactionAttack : ReactionRequest
         }
     }
 
-    public static string Name(string type)
+    internal static string Name(string type)
     {
         return $"ReactionAttack{type}";
     }

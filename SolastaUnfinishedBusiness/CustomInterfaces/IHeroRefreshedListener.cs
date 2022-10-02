@@ -2,5 +2,5 @@
 
 internal interface IHeroRefreshedListener
 {
-    void OnHeroRefreshed(RulesetCharacter character);
+    public void OnHeroRefreshed(RulesetCharacter character);
 }

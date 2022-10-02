@@ -4,22 +4,22 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 internal interface ICharacterTurnStartListener
 {
-    void OnChracterTurnStarted(GameLocationCharacter locationCharacter);
+    void OnCharacterTurnStarted(GameLocationCharacter locationCharacter);
 }
 
 internal interface ICharacterTurnEndListener
 {
-    void OnChracterTurnEnded(GameLocationCharacter locationCharacter);
+    void OnCharacterTurnEnded(GameLocationCharacter locationCharacter);
 }
 
-internal interface ICharacterBattlStartedListener
+internal interface ICharacterBattleStartedListener
 {
-    void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
+    void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
 }
 
-internal interface ICharacterBattlEndedListener
+internal interface ICharacterBattleEndedListener
 {
-    void OnChracterBattleEnded(GameLocationCharacter locationCharacter);
+    void OnCharacterBattleEnded(GameLocationCharacter locationCharacter);
 }
 
 internal static class CharacterBattleListenersPatch
@@ -28,7 +28,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat turn has starter
      */
-    internal static void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
+    internal static void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -45,7 +45,7 @@ internal static class CharacterBattleListenersPatch
 
         foreach (var listener in listeners)
         {
-            listener.OnChracterTurnStarted(locationCharacter);
+            listener.OnCharacterTurnStarted(locationCharacter);
         }
     }
 
@@ -53,7 +53,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat turn has ended
      */
-    internal static void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
+    internal static void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -70,7 +70,7 @@ internal static class CharacterBattleListenersPatch
 
         foreach (var listener in listeners)
         {
-            listener.OnChracterTurnEnded(locationCharacter);
+            listener.OnCharacterTurnEnded(locationCharacter);
         }
     }
 
@@ -78,7 +78,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat has starter
      */
-    internal static void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+    internal static void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -86,7 +86,7 @@ internal static class CharacterBattleListenersPatch
         }
 
         var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterBattlStartedListener>();
+        var listeners = character?.GetSubFeaturesByType<ICharacterBattleStartedListener>();
 
         if (listeners == null)
         {
@@ -95,7 +95,7 @@ internal static class CharacterBattleListenersPatch
 
         foreach (var listener in listeners)
         {
-            listener.OnChracterBattleStarted(locationCharacter, surprise);
+            listener.OnCharacterBattleStarted(locationCharacter, surprise);
         }
     }
 
@@ -103,7 +103,7 @@ internal static class CharacterBattleListenersPatch
      * Patch implementation
      * notifies custom features that character's combat has ended
      */
-    internal static void OnChracterBattleEnded(GameLocationCharacter locationCharacter)
+    internal static void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
     {
         if (locationCharacter.destroying || locationCharacter.destroyedBody)
         {
@@ -111,7 +111,7 @@ internal static class CharacterBattleListenersPatch
         }
 
         var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterBattlEndedListener>();
+        var listeners = character?.GetSubFeaturesByType<ICharacterBattleEndedListener>();
 
         if (listeners == null)
         {
@@ -120,7 +120,7 @@ internal static class CharacterBattleListenersPatch
 
         foreach (var listener in listeners)
         {
-            listener.OnChracterBattleEnded(locationCharacter);
+            listener.OnCharacterBattleEnded(locationCharacter);
         }
     }
 }

@@ -3,11 +3,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
+internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 {
     private readonly GuiCharacter _guiCharacter;
 
-    public ReactionRequestSpendSpellSlotExtended(CharacterActionParams actionParams)
+    internal ReactionRequestSpendSpellSlotExtended(CharacterActionParams actionParams)
         : base("SpendSpellSlot", actionParams)
     {
         SubOptionsAvailability.Clear();

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class CustomConcentrationControl : MonoBehaviour
+internal class CustomConcentrationControl : MonoBehaviour
 {
     internal static CustomConcentrationControl Setup(ICustomConcentrationProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)

@@ -2,7 +2,7 @@
 
 internal interface IOnComputeAttackModifier
 {
-    void ComputeAttackModifier(
+    public void ComputeAttackModifier(
         RulesetCharacter myself,
         RulesetCharacter defender,
         RulesetAttackMode attackMode,

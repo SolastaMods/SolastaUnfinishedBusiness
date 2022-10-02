@@ -1,13 +1,13 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IIncreaseSpellDC
+internal interface IIncreaseSpellDc
 {
     int GetSpellModifier(RulesetCharacter caster);
 }
 
 internal interface IIncreaseSpellAttackRoll
 {
-    RuleDefinitions.FeatureSourceType sourceType { get; set; }
-    string sourceName { get; set; }
+    RuleDefinitions.FeatureSourceType SourceType { get; set; }
+    string SourceName { get; set; }
     int GetSpellAttackRollModifier(RulesetCharacter caster);
 }

@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 /// </summary>
 internal interface IChangeAbilityCheck
 {
-    internal int MinRoll(
+    public int MinRoll(
         RulesetCharacter character,
         int baseBonus,
         int rollModifier,

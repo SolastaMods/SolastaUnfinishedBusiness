@@ -2,6 +2,6 @@
 
 internal interface IPowerPoolModifier
 {
-    FeatureDefinitionPower GetUsagePoolPower();
-    int PoolChangeAmount();
+    public FeatureDefinitionPower GetUsagePoolPower();
+    public int PoolChangeAmount();
 }

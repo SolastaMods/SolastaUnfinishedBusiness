@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 internal interface IOnAttackDamageEffect
 {
-    void BeforeOnAttackDamage(
+    public void BeforeOnAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
@@ -16,7 +16,7 @@ internal interface IOnAttackDamageEffect
         bool criticalHit,
         bool firstTarget);
 
-    void AfterOnAttackDamage(
+    public void AfterOnAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,

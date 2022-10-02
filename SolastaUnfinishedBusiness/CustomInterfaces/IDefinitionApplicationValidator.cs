@@ -9,5 +9,5 @@
  */
 internal interface IDefinitionApplicationValidator
 {
-    bool IsValid(BaseDefinition definition, RulesetCharacter character);
+    public bool IsValid(BaseDefinition definition, RulesetCharacter character);
 }

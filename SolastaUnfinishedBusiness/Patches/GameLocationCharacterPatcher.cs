@@ -20,7 +20,7 @@ public static class GameLocationCharacterPatcher
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn started event
-            CharacterBattleListenersPatch.OnChracterTurnStarted(__instance);
+            CharacterBattleListenersPatch.OnCharacterTurnStarted(__instance);
         }
     }
 
@@ -31,7 +31,7 @@ public static class GameLocationCharacterPatcher
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn ended event
-            CharacterBattleListenersPatch.OnChracterTurnEnded(__instance);
+            CharacterBattleListenersPatch.OnCharacterTurnEnded(__instance);
         }
     }
 
@@ -43,7 +43,7 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: acts as a callback for the character's combat started event
             //while there already is callback for this event it doesn't have character or surprise flag arguments
-            CharacterBattleListenersPatch.OnChracterBattleStarted(__instance, surprise);
+            CharacterBattleListenersPatch.OnCharacterBattleStarted(__instance, surprise);
         }
     }
 
@@ -55,7 +55,7 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: acts as a callback for the character's combat ended event
             //while there already is callback for this event it doesn't have character argument
-            CharacterBattleListenersPatch.OnChracterBattleEnded(__instance);
+            CharacterBattleListenersPatch.OnCharacterBattleEnded(__instance);
         }
     }
 

@@ -2,5 +2,6 @@
 
 internal interface IModifySpellEffect
 {
-    EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter character);
+    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
+        RulesetCharacter character);
 }

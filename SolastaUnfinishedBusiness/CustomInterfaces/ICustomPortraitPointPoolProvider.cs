@@ -2,10 +2,10 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomPortraitPointPoolProvider
+internal interface ICustomPortraitPointPoolProvider
 {
-    string Name { get; }
-    string Tooltip { get; }
-    AssetReferenceSprite Icon { get; }
-    int GetPoints(RulesetCharacter character);
+    public string Name { get; }
+    public string Tooltip { get; }
+    public AssetReferenceSprite Icon { get; }
+    public int GetPoints(RulesetCharacter character);
 }

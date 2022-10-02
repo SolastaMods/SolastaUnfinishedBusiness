@@ -35,6 +35,12 @@ internal class EffectDescriptionBuilder
         return new EffectDescriptionBuilder(effect);
     }
 
+    internal EffectDescriptionBuilder ClearEffectAdvancements()
+    {
+        effect.effectAdvancement.Clear();
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetCreatedByCharacter()
     {
         effect.createdByCharacter = true;
