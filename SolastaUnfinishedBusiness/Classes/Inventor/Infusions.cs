@@ -168,7 +168,6 @@ internal static class Infusions
             .SetGuiPresentation(Category.Feature, item)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter)
             .SetEffectDescription(new EffectDescriptionBuilder()
