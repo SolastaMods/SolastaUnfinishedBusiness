@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -6,6 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public class ReturningWeapon
 {
     private const string ActiveteReturningFormat = "Feedback/&ReturningWeaponActivates";
+    private const string TagReturningWeapon = "ReturningWeapon";
     public static ReturningWeapon Instance { get; } = new();
 
     private ReturningWeapon()
@@ -52,5 +54,13 @@ public class ReturningWeapon
         }
 
         return proximity;
+    }
+
+    public static void AddCustomTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    {
+        if (item.HasSubFeatureOfType<ReturningWeapon>())
+        {
+            tags.TryAdd(TagReturningWeapon, TagsDefinitions.Criticity.Normal);
+        }
     }
 }

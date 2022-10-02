@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -19,6 +20,9 @@ public static class RulesetItemPatcher
 
             //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
             CustomWeaponsContext.AddCustomTags(item, tagsMap);
+
+            //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
+            ReturningWeapon.AddCustomTags(__instance, tagsMap);
 
             //PATCH: adds `Unfinished Business` tag to all CE items 
             CeContentPackContext.AddCeTag(item, tagsMap);
