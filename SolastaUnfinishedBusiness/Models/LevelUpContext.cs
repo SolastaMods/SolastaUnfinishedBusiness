@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
@@ -79,9 +80,7 @@ public static class LevelUpContext
 
         levelUpData.GrantedItems = new HashSet<ItemDefinition>();
 
-        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-        dbCharacterClassDefinition.TryGetElement("Inventor", out var inventorClass);
+        DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass);
 
         // Holy Symbol
         var required = (

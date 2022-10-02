@@ -414,7 +414,6 @@ internal static class RulesetCharacterHeroPatcher
             if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
             {
                 var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                    .GetAllElements()
                     .OfType<CustomInvocationDefinition>()
                     .Select(i => i.Name)
                     .ToList();

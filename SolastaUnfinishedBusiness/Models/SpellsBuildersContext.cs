@@ -531,8 +531,8 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildFindFamiliar()
     {
-        var familiarMonsterBuilder = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "Owl")
+        var owlFamiliar = MonsterDefinitionBuilder
+            .Create(Eagle_Matriarch, "OwlFamiliar")
             .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
             .SetFeatures(
                 FeatureDefinitionSenses.SenseNormalVision,
@@ -565,14 +565,9 @@ internal static class SpellsBuildersContext
                 .DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
-            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
-
-        if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("PowerHelp", out var help))
-        {
-            familiarMonsterBuilder.AddFeatures(help);
-        }
-
-        var familiarMonster = familiarMonsterBuilder.AddToDB();
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
@@ -595,7 +590,7 @@ internal static class SpellsBuildersContext
         spell.EffectDescription.SetTargetSide(Side.Ally);
         spell.EffectDescription.EffectForms.Clear();
 
-        var summonForm = new SummonForm { monsterDefinitionName = familiarMonster.name, decisionPackage = null };
+        var summonForm = new SummonForm { monsterDefinitionName = owlFamiliar.name, decisionPackage = null };
         var effectForm = new EffectForm
         {
             formType = EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm

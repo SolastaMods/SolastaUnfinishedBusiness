@@ -932,8 +932,7 @@ internal static class UpcastConjureElementalAndFey
                 s.SpellDefinition,
                 s.MonsterDefinitionName,
                 ChallengeRating =
-                    DatabaseRepository.GetDatabase<MonsterDefinition>()
-                        .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                    TryGetDefinition<MonsterDefinition>(s.MonsterDefinitionName, out var monsterDefinition)
                         ? monsterDefinition.ChallengeRating
                         : int.MaxValue
             })

@@ -122,20 +122,18 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var effectDanceOfDefense = EffectDescriptionBuilder
-            .Create(effectBladeDance)
-            .ClearEffectForms()
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionBladeDancerDanceOfDefense, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
-            .Build();
-
         var powerBladeDancerDanceOfDefense = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfDefense")
-            .SetEffectDescription(effectDanceOfDefense)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(effectBladeDance)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionBladeDancerDanceOfDefense, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .Build())
             .SetOverriddenPower(powerBladeDancerBladeDance)
             .AddToDB();
 
@@ -156,20 +154,18 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var effectDanceOfVictory = EffectDescriptionBuilder
-            .Create(effectBladeDance)
-            .ClearEffectForms()
-            .AddEffectForm(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionBladeDancerDanceOfVictory, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
-            .Build();
-
         var powerBladeDancerDanceOfVictory = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfVictory")
-            .SetEffectDescription(effectDanceOfVictory)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(effectBladeDance)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionBladeDancerDanceOfVictory, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .Build())
             .SetOverriddenPower(powerBladeDancerDanceOfDefense)
             .AddToDB();
 
@@ -230,8 +226,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWearingShield()
                && !hero.IsWieldingTwoHandedWeapon();
     }
-
-    // ReSharper disable once UnusedParameter.Global
+    
     internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem rulesetItem)
     {
         if (IsBladeDanceValid(hero))

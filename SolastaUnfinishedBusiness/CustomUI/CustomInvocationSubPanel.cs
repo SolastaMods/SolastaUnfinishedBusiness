@@ -26,7 +26,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
     public static void UpdateRelevantInvocations(InvocationSubPanel panel)
     {
-        var all = DatabaseRepository.GetDatabase<InvocationDefinition>().GetAllElements()
+        var all = DatabaseRepository.GetDatabase<InvocationDefinition>()
             .Where(x => !x.GuiPresentation.Hidden);
 
         IEnumerable<InvocationDefinition> invocations;

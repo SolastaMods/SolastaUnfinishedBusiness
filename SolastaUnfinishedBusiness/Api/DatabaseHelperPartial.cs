@@ -16,9 +16,7 @@ public static partial class DatabaseHelper
             throw new SolastaUnfinishedBusinessException($"Database of type {typeof(T).Name} not found.");
         }
 
-        var definition = db.TryGetElement(key, string.Empty);
-
-        if (definition == null)
+        if (!db.TryGetElement(key, out var definition))
         {
             throw new SolastaUnfinishedBusinessException(
                 $"Definition with name={key} not found in database {typeof(T).Name}.");
@@ -27,21 +25,19 @@ public static partial class DatabaseHelper
         return definition;
     }
 
-    public static bool TryGetDefinition<T>([CanBeNull] string key, [CanBeNull] out T definition)
+    public static bool TryGetDefinition<T>(string key, out T definition)
         where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
-        if (key == null || db == null)
+        if (key != null && db != null)
         {
-            definition = null;
-
-            return false;
+            return db.TryGetElement(key, out definition);
         }
 
-        definition = db.TryGetElement(key, string.Empty);
+        definition = null;
 
-        return definition != null;
+        return false;
     }
 
     public static class CampaignDefinitions

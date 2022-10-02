@@ -76,9 +76,19 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.All,
+                        RuleDefinitions.RangeType.Self,
+                        0,
+                        0,
+                        0,
+                        0)
                     .SetCreatedByCharacter()
-                    .AddEffectForm(EffectFormBuilder.Create().SetSpellForm(9).Build())
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSpellForm(9)
+                            .Build())
                     .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
                     .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
                     .Build())

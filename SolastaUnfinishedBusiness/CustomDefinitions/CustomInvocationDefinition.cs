@@ -11,9 +11,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
 {
     public CustomInvocationPoolType PoolType { get; set; }
-    
+
     /**Used for tooltip in selection screen*/
-    public ItemDefinition Item { get; set; } 
+    public ItemDefinition Item { get; set; }
 
     //TODO: add validator setter
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
@@ -42,7 +42,6 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         if (requiredClassName != null)
         {
             var requiredClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .GetAllElements()
                 .FirstOrDefault(x => x.Name == requiredClassName);
 
             level = hero.GetClassLevel(requiredClass);

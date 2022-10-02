@@ -124,8 +124,8 @@ internal static class RulesetImplementationManagerLocationPatcher
                     var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                            .TryGetElement(classType, out var characterClassDefinition)
+                    if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(classType,
+                            out var characterClassDefinition)
                         && sourceCharacter.ClassesAndLevels != null
                         && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
                     {

@@ -191,7 +191,7 @@ public static class GlobalUniqueEffects
         {
             allSubSpells.Add(spell);
 
-            foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements())
+            foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>())
             {
                 if (!spell.IsSubSpellOf(allElement))
                 {

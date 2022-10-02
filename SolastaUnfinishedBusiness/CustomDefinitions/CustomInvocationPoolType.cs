@@ -50,7 +50,6 @@ public class CustomInvocationPoolType
     public static void RefreshAll()
     {
         var invocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
-            .GetAllElements()
             .OfType<CustomInvocationDefinition>()
             .ToList();
 

@@ -45,6 +45,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // all possible proficiency bonuses 
         for (var i = 2; i < 7; i++)
         {
             _ = FeatureDefinitionAttackModifierBuilder
@@ -143,13 +144,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return;
         }
 
-        var dbFeatureDefinitionAttackModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttackModifier>();
         var proficiencyBonus = caster.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
 
         monster.GetAttribute(AttributeDefinitions.HitPoints).BaseValue += casterLevel;
 
-        if (dbFeatureDefinitionAttackModifier
-            .TryGetElement($"{AttackModifierDeadMasterUndeadChainsPrefix}{proficiencyBonus}",
+        if (TryGetDefinition<FeatureDefinitionAttackModifier>(
+                $"{AttackModifierDeadMasterUndeadChainsPrefix}{proficiencyBonus}",
                 out var featureDefinitionAttackModifier))
         {
             monster.ActiveFeatures.Add(featureDefinitionAttackModifier);
@@ -175,9 +175,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return;
         }
 
-        var attacker = actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-                       ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
-                           RulesetCharacterHero;
+        var attacker =
+            actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
+            ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
         if (attacker == null)
         {
@@ -185,8 +185,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
-        var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic ==
-                           SchoolOfMagicDefinitions.SchoolNecromancy.Name;
+        var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
         var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
 
         attacker.ReceiveHealing(healingReceived, true, attacker.Guid);
@@ -203,16 +202,18 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
         };
 
-        var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
+        var result = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[createDeadSpellMonsters.Count];
 
-        foreach (var kvp in createDeadSpellMonsters)
+        for (var j = 0; j < createDeadSpellMonsters.Count; j++)
         {
+            var kvp = createDeadSpellMonsters.ElementAt(j);
             var level = kvp.Key;
             var monsters = kvp.Value;
-            var spells = new List<SpellDefinition>();
+            var spells = new SpellDefinition[monsters.Count];
 
-            foreach (var monster in monsters)
+            for (var i = 0; i < monsters.Count; i++)
             {
+                var monster = monsters[i];
                 var subSpell = SpellDefinitionBuilder
                     .Create(ConjureFey, $"CreateDead{monster.name}")
                     .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description,
@@ -225,12 +226,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .AddToDB();
 
                 monster.fullyControlledWhenAllied = true;
+
                 subSpell.EffectDescription.rangeParameter = 1;
                 subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
                 subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
                 subSpell.EffectDescription.durationType = DurationType.UntilAnyRest;
 
-                spells.Add(subSpell);
+                spells[i] = subSpell;
             }
 
             var spell = SpellDefinitionBuilder
@@ -240,13 +242,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 .SetSpellLevel(level)
                 .SetRequiresConcentration(false)
                 .SetCastingTime(ActivationTime.Minute1)
-                .SetSubSpells(spells.ToArray())
+                .SetSubSpells(spells)
                 .AddToDB();
 
-            spell.EffectDescription.EffectForms.Clear();
+            spell.EffectDescription.effectForms.Clear();
             spell.EffectDescription.rangeParameter = 1;
-            spell.EffectDescription.EffectAdvancement.effectIncrementMethod =
-                EffectIncrementMethod.None;
+            spell.EffectDescription.effectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
             spell.EffectDescription.durationType = DurationType.UntilAnyRest;
 
             var autoPreparedSpellsGroup =
@@ -255,9 +256,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     ClassLevel = level, SpellsList = new List<SpellDefinition> { spell }
                 };
 
-            result.Add(autoPreparedSpellsGroup);
+            result[j] = autoPreparedSpellsGroup;
         }
 
-        return result.ToArray();
+        return result;
     }
 }

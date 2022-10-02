@@ -100,7 +100,6 @@ public static class RulesetCharacterHeroExtensions
     public static int GetClassLevel(this RulesetCharacterHero hero, string className)
     {
         return hero.GetClassLevel(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .GetAllElements()
             .FirstOrDefault(x => x.Name == className));
     }
 

@@ -35,7 +35,7 @@ internal static class CharacterStageRaceSelectionPanelPatcher
             var allRaces = new List<CharacterRaceDefinition>();
             var subRaces = new List<CharacterRaceDefinition>();
 
-            allRaces.AddRange(DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements()
+            allRaces.AddRange(DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
                 .Where(x => !x.GuiPresentation.Hidden));
 
             __instance.eligibleRaces.Clear();

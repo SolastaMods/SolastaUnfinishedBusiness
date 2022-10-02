@@ -187,7 +187,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 false,
                 AttributeDefinitions.Intelligence,
                 Revivify.EffectDescription,
-                false /* unique instance */)
+                false)
             .AddToDB();
 
         var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerPoolModifierBuilder

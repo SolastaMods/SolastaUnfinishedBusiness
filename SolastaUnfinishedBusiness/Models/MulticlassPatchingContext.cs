@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
@@ -82,9 +83,7 @@ internal static class MulticlassPatchingContext
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
     {
-        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-        if (!dbCharacterClassDefinition.TryGetElement("Inventor", out var inventorClass))
+        if (!DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass))
         {
             return;
         }
