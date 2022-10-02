@@ -272,6 +272,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInfusionUpgrade:4738d602-41b1-551f-ad2e-b5c2a946003b",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
       "level": 11
     },
