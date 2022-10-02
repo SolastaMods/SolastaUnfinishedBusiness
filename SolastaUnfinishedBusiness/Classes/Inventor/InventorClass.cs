@@ -175,7 +175,31 @@ internal static class InventorClass
                 .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                 .SetProficiencies(ProficiencyType.SavingThrow,
                     AttributeDefinitions.Intelligence,
-                    AttributeDefinitions.Dexterity)
+                    AttributeDefinitions.Constitution)
+                .AddToDB())
+
+            // Tools Proficiency
+            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyInventorTools")
+                .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
+                .SetProficiencies(ProficiencyType.Tool,
+                    ToolTypeDefinitions.ThievesToolsType.Name,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                .AddToDB())
+
+            // Tool Selection
+            .AddFeaturesAtLevel(1, FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolInventorTools")
+                .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
+                .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+                .OnlyUniqueChoices()
+                .RestrictChoices(
+                    ToolTypeDefinitions.DisguiseKitType.Name,
+                    ToolTypeDefinitions.EnchantingToolType.Name,
+                    ToolTypeDefinitions.HerbalismKitType.Name,
+                    ToolTypeDefinitions.PoisonersKitType.Name,
+                    ToolTypeDefinitions.ScrollKitType.Name
+                )
                 .AddToDB())
 
             // Skill points
@@ -184,22 +208,21 @@ internal static class InventorClass
                 .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
                 .OnlyUniqueChoices()
-                .RestrictChoices( //TODO: decide on final skill list
+                .RestrictChoices(
                     SkillDefinitions.Arcana,
-                    SkillDefinitions.Medecine,
                     SkillDefinitions.History,
-                    SkillDefinitions.Insight,
-                    SkillDefinitions.Religion,
-                    SkillDefinitions.Survival,
-                    SkillDefinitions.Nature
-                )
-                .AddToDB())
+                    SkillDefinitions.Investigation,
+                    SkillDefinitions.Medecine,
+                    SkillDefinitions.Nature,
+                    SkillDefinitions.Perception,
+                    SkillDefinitions.SleightOfHand
+                ).AddToDB())
 
             #endregion
 
             #region Subclasses
 
-            .AddFeaturesAtLevel(1, FeatureDefinitionSubclassChoiceBuilder
+            .AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
                 .Create("SubclassChoiceInventor")
                 .SetGuiPresentation("InventorInnovation", Category.Subclass)
                 .SetSubclassSuffix("InventorInnovation")
