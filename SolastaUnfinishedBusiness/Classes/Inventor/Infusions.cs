@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -24,6 +25,7 @@ internal static class Infusions
     public static void Build()
     {
         var name = "InfusionEnhanceArcaneFocus";
+        AssetReferenceSprite sprite;
         var power = BuildInfuseItemPowerInvocation(2, name,
             FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain.GuiPresentation.SpriteReference, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
@@ -64,6 +66,7 @@ internal static class Infusions
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
                 .AddToDB());
 
         BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MagicWeapon, IsWeapon,
@@ -72,6 +75,7 @@ internal static class Infusions
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .SetAttackRollModifier(2)
                 .SetDamageRollModifier(2)
+                .SetMagicalWeapon()
                 .AddToDB());
 
         name = "InfusionMindSharpener";
@@ -84,16 +88,48 @@ internal static class Infusions
                 .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
                 .AddToDB());
 
-        name = "InfusionReturningWeapon";
-        BuildInfuseItemPowerInvocation(2, name,
-            SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference, IsThrownWeapon,
+        sprite = SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference;
+        name = "InfusionReturningWeaponWithBonus";
+        var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}")
+                .Create($"AttackModifier{name}WithBonus")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
                 .SetCustomSubFeatures(ReturningWeapon.Instance)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
                 .AddToDB());
+
+        #region Returning Weapon
+
+        name = "InfusionReturningWeaponNoBonus";
+        var noBonusModifier = FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
+            .SetCustomSubFeatures(ReturningWeapon.Instance)
+            .SetAttackRollModifier(0)
+            .SetDamageRollModifier(0)
+            .AddToDB();
+
+        var infuseNoBonus = BuildInfuseItemPower(name, name, sprite, new CustomItemFilter(IsThrownWeapon),
+            noBonusModifier);
+
+        //remove Infused marker by setting Returning marker
+        noBonusModifier.SetCustomSubFeatures(ReturningWeapon.Instance);
+
+        name = "InfusionReturningWeapon";
+        var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetUniqueInstance()
+            .SetSharedPool(InventorClass.InfusionPool)
+            .AddToDB());
+
+        PowersBundleContext.RegisterPowerBundle(masterPower, true, infuseWithBonus, infuseNoBonus);
+
+        #endregion
 
         //Level 02
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
@@ -137,6 +173,14 @@ internal static class Infusions
         IsValidItemHandler filter, params FeatureDefinition[] features)
     {
         var power = BuildInfuseItemPower(name, name, icon, filter, features);
+        BuildInfuseItemPowerInvocation(level, name, icon, power);
+        return power;
+    }
+
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level, string name,
+        AssetReferenceSprite icon,
+        FeatureDefinitionPower power)
+    {
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
@@ -167,6 +211,12 @@ internal static class Infusions
     private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
         AssetReferenceSprite icon, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
     {
+        return BuildInfuseItemPower(name, guiName, icon, new InfusionItemFilter(itemFilter), features);
+    }
+
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
+        AssetReferenceSprite icon, ICustomItemFilter itemFilter, params FeatureDefinition[] features)
+    {
         var properties = features.Select(f =>
         {
             f.AddCustomSubFeatures(Infused.Marker);
@@ -179,9 +229,7 @@ internal static class Infusions
             .SetCostPerUse(1)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
-                InventorClass.InfusionLimiter,
-                new InfusionItemFilter(itemFilter))
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter, itemFilter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
@@ -263,7 +311,7 @@ internal static class Infusions
         private Infused() { }
     }
 
-    internal class InfusionItemFilter : CustomItemFilter
+    private class InfusionItemFilter : CustomItemFilter
     {
         internal InfusionItemFilter(IsValidItemHandler handler) : base(handler)
         {

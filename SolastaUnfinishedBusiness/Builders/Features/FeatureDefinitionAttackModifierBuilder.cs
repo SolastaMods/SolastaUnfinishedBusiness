@@ -53,6 +53,12 @@ internal class FeatureDefinitionAttackModifierBuilder
         return This();
     }
 
+    internal FeatureDefinitionAttackModifierBuilder SetMagicalWeapon(bool value = true)
+    {
+        Definition.magicalWeapon = value;
+        return This();
+    }
+
     internal FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
         Definition.additionalBonusUnarmedStrikeAttacksTag = tag;

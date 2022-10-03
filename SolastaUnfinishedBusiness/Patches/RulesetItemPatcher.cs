@@ -21,7 +21,7 @@ public static class RulesetItemPatcher
             //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
             CustomWeaponsContext.AddCustomTags(item, tagsMap);
 
-            //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
+            //PATCH: adds custom `Returning` tag to appropriate weapons
             ReturningWeapon.AddCustomTags(__instance, tagsMap);
 
             //PATCH: adds `Unfinished Business` tag to all CE items 
