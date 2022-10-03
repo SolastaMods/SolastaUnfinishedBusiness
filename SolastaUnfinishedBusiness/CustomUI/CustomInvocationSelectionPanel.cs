@@ -466,7 +466,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         foreach (var (poolTag, featureSet) in gainedCustomFeatures)
         {
-            var poolId = new PoolId(featureSet.Name, poolTag, featureSet.IsUnlearn);
+            var poolId = new PoolId(featureSet.PoolType.Name, poolTag, featureSet.IsUnlearn);
 
             if (!tags.ContainsKey(poolId))
             {
