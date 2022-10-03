@@ -81,7 +81,7 @@ internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeap
 //         }
 //     }
 // }
-//
+
 internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 {
     private readonly string tag;
@@ -98,7 +98,7 @@ internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
         attackMode.AddAttackTagAsNeeded(tag);
     }
 }
-//
+
 // internal class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
 // {
 //     private readonly EffectForm effect;

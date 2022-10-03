@@ -81,7 +81,9 @@ internal static class FeatureApplicationValidation
         }
     }
 
-    private static void EnumerateAdditionalActionProviders(RulesetActor actor, List<FeatureDefinition> features,
+    private static void EnumerateAdditionalActionProviders(
+        RulesetActor actor,
+        List<FeatureDefinition> features,
         Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
     {
         actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);

@@ -15,7 +15,7 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
 {
     private readonly IsContextValidHandler validator;
 
-    internal RestrictedContextValidator(IsContextValidHandler validator)
+    private RestrictedContextValidator(IsContextValidHandler validator)
     {
         this.validator = validator;
     }

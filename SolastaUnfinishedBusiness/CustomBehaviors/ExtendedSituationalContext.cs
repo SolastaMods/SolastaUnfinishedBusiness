@@ -1,10 +1,6 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.Api.Extensions;
 
-internal enum ExtendedSituationalContext
-{
-    MainWeaponIsMelee = 1000,
-    WearingNoArmorOrLightArmorWithoutShield = 1001
-}
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class CustomSituationalContext
 {
@@ -13,12 +9,12 @@ internal static class CustomSituationalContext
     {
         var context = contextParams.situationalContext;
 
-        return (ExtendedSituationalContext)context switch
+        return (ExtraSituationalContext)context switch
         {
-            ExtendedSituationalContext.MainWeaponIsMelee =>
+            ExtraSituationalContext.MainWeaponIsMelee =>
                 ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source),
 
-            ExtendedSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
+            ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 ValidatorsCharacter.NoArmor(contextParams.source)
                 || (ValidatorsCharacter.LightArmor(contextParams.source)
                     && ValidatorsCharacter.NoShield(contextParams.source)),

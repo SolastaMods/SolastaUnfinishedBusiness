@@ -72,6 +72,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
             }
 
             var same = attackModes.FirstOrDefault(m => ModesEqual(attackMode, m));
+
             if (same != null)
             {
                 //If same attack mode exists, ensure it has max amount of attacks
@@ -169,7 +170,6 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             : hero.UnarmedStrikeDefinition;
 
         var attackModifiers = hero.attackModifiers;
-
 
         var attackMode = hero.RefreshAttackMode(
             ActionType,

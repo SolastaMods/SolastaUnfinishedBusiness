@@ -8,7 +8,8 @@ internal class RangedAttackInMeleeDisadvantageRemover
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
 
-    internal RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
+    internal RangedAttackInMeleeDisadvantageRemover(
+        IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;

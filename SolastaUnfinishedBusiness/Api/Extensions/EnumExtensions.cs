@@ -3,6 +3,12 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
+internal enum ExtraSituationalContext
+{
+    MainWeaponIsMelee = 1000,
+    WearingNoArmorOrLightArmorWithoutShield = 1001
+}
+
 internal enum ExtraEffectFormType
 {
     // Damage = EffectForm.EffectFormType.Damage,

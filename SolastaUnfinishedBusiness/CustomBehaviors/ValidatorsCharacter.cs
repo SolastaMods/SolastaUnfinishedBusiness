@@ -24,6 +24,7 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasPolearm = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
+
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
@@ -128,6 +129,7 @@ internal static class ValidatorsCharacter
         var offHand = hero.CharacterInventory
             .InventorySlotsByType[EquipmentDefinitions.SlotTypeOffHand][0]
             .EquipedItem;
+
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
     }
 
