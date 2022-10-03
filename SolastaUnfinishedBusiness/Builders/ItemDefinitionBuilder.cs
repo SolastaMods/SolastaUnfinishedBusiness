@@ -21,12 +21,14 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+#if false
     internal ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
     {
         Definition.GuiPresentation.Title = title;
         Definition.GuiPresentation.Description = description;
         return this;
     }
+#endif
 
     internal ItemDefinitionBuilder SetGold(int gold)
     {
@@ -68,12 +70,6 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
     internal ItemDefinitionBuilder AddItemTags(params string[] tags)
     {
         Definition.ItemTags.AddRange(tags);
-        return this;
-    }
-
-    internal ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
-    {
-        Definition.SlotTypes.SetRange(slotTypes);
         return this;
     }
 

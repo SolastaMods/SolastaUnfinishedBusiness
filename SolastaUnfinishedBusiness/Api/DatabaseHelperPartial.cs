@@ -12,7 +12,8 @@ internal static partial class DatabaseHelper
 
         if (db == null)
         {
-            throw new SolastaUnfinishedBusinessException($"Database of type {typeof(T).Name} not found.");
+            throw new SolastaUnfinishedBusinessException(
+                $"Database of type {typeof(T).Name} not found.");
         }
 
         if (!db.TryGetElement(key, out var definition))
@@ -24,8 +25,7 @@ internal static partial class DatabaseHelper
         return definition;
     }
 
-    internal static bool TryGetDefinition<T>(string key, out T definition)
-        where T : BaseDefinition
+    internal static bool TryGetDefinition<T>(string key, out T definition) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
