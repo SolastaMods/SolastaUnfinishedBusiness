@@ -59,3 +59,5 @@ Feature/&InfusionReturningWeaponWithBonusDescription=Infuse non-magic thrown wea
 Feature/&InfusionReturningWeaponWithBonusTitle=Returning Weapon
 Feature/&BonusCantripsInventorMagicalTinkeringDescription=You know how to invest a spark of magic into mundane objects. Learn these cantrips: {0}
 Feature/&BonusCantripsInventorMagicalTinkeringTitle=Magical Tinkering
+Feature/&CraftingAffinityInventorMagicItemAdeptDescription=You have achieved a profound understanding of how to use and make magic items:\n• Your attunement limit raises by 1\n• You craft items in quarter of the normal time
+Feature/&CraftingAffinityInventorMagicItemAdeptTitle=Magic Item Adept

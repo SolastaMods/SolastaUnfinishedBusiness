@@ -287,7 +287,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions)
+            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions, BuildMagicAdept())
 
             #endregion
 
@@ -480,6 +480,23 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(20)
             .SetRechargeRate(RechargeRate.ShortRest)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMagicAdept()
+    {
+        return FeatureDefinitionCraftingAffinityBuilder
+            .Create("CraftingAffinityInventorMagicItemAdept")
+            .SetGuiPresentation(Category.Feature)
+            //increases attunement limit by 1
+            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .SetAffinityGroups(0.25f, false,
+                ToolTypeDefinitions.ThievesToolsType,
+                ToolTypeDefinitions.ScrollKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.ArtisanToolSmithToolsType)
             .AddToDB();
     }
 }
