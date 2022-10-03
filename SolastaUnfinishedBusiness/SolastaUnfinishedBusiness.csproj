@@ -247,13 +247,14 @@
     <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
   </Target>
 
-  <!-- we keep a static version of DB Helpers under RELEASE mode -->
+  <!-- we keep a static version of DB Helpers under RELEASE mode
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
     <Compile Remove="Api\DatabaseHelper.cs" />
   </ItemGroup>
+   -->
 
   <!-- we keep a static version of DB Helpers under DEBUG mode -->
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'">
+  <ItemGroup> <!-- Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'"> -->
     <Compile Remove="Api\DatabaseHelper-RELEASE.cs" />
   </ItemGroup>
   
