@@ -50,13 +50,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     }
 
     [NotNull]
-    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
-    {
-        return SetSpellsAtLevel(level, spellsByLevel.AsEnumerable());
-    }
-
-    [NotNull]
-    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, [NotNull] IEnumerable<SpellDefinition> spells)
+    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spells)
     {
         if (level is > 9 or < 0)
         {
@@ -66,7 +60,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
         // Ensure all levels set up
         EnsureSpellListsConfigured();
 
-        var spellDefinitions = spells as SpellDefinition[] ?? spells.ToArray();
+        var spellDefinitions = spells ?? spells.ToArray();
 
 #if DEBUG
         if (spellDefinitions.GroupBy(s => s.GUID).Any(g => g.Count() > 1))

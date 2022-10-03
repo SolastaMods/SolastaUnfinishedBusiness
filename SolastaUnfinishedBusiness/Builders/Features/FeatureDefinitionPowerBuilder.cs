@@ -80,11 +80,13 @@ internal abstract class
         return This();
     }
 
+#if false
     internal TBuilder SetSpellcastingAbilityScore()
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
         return This();
     }
+#endif
 
     internal TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true,
         bool proficiencyBonusToAttack = false)
@@ -95,12 +97,14 @@ internal abstract class
         return This();
     }
 
+#if false
     internal TBuilder SetAttackFixedToHit(int bonus)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
         Definition.fixedAttackHit = bonus;
         return This();
     }
+#endif
 
     internal TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
     {

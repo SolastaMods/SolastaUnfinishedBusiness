@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -14,14 +12,9 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
         FeatureDefinitionSavingThrowAffinityBuilder>
 {
     internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
-        RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
-    {
-        return SetAffinities(affinityType, againstMagic, abilityScores.AsEnumerable());
-    }
-
-    internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
-        RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic,
-        IEnumerable<string> abilityScores)
+        RuleDefinitions.CharacterSavingThrowAffinity affinityType,
+        bool againstMagic,
+        params string[] abilityScores)
     {
         // TODO: this isn't a set, it's an Add
 

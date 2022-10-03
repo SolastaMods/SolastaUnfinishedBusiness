@@ -8,7 +8,10 @@ internal class FeatureDefinitionDieRollModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
 {
     internal FeatureDefinitionDieRollModifierBuilder SetModifiers(
-        RuleDefinitions.RollContext context, int rerollCount, int minRollValue, int minReRollValue,
+        RuleDefinitions.RollContext context,
+        int rerollCount,
+        int minRollValue,
+        int minReRollValue,
         string consoleLocalizationKey)
     {
         Definition.validityContext = context;

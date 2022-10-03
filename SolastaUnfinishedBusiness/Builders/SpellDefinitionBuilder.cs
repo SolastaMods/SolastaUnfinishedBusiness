@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -36,7 +37,7 @@ internal abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definiti
         return This();
     }
 
-    internal TBuilder SetSubSpells(params TDefinition[] subspells)
+    internal TBuilder SetSubSpells(params SpellDefinition[] subspells)
     {
         Definition.spellsBundle = true;
         Definition.SubspellsList.SetRange(subspells);
@@ -129,6 +130,7 @@ internal abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definiti
     #endregion
 }
 
+[UsedImplicitly]
 internal class SpellDefinitionBuilder : SpellDefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
 {
     #region Constructors

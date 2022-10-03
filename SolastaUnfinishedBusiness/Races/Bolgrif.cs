@@ -63,7 +63,7 @@ internal static class RaceBolgrifBuilder
             .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrifMagic")
             .SetGuiPresentationNoContent()
             .ClearSpells()
-            .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells)
+            .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells.ToArray())
             .FinalizeSpells()
             .AddToDB();
 

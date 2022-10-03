@@ -1,30 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
 internal class
     GuiTooltipClassDefinitionBuilder : DefinitionBuilder<GuiTooltipClassDefinition, GuiTooltipClassDefinitionBuilder>
 {
-    internal GuiTooltipClassDefinitionBuilder SetTooltipFeatures(IEnumerable<TooltipDefinitions.FeatureInfo> features)
-    {
-        Definition.tooltipFeatures.SetRange(features);
-        return this;
-    }
-
     internal GuiTooltipClassDefinitionBuilder AddTooltipFeature(TooltipDefinitions.FeatureInfo feature)
     {
         Definition.tooltipFeatures.Add(feature);
         return this;
     }
 
+#if false
+    internal GuiTooltipClassDefinitionBuilder SetTooltipFeatures(IEnumerable<TooltipDefinitions.FeatureInfo> features)
+    {
+        Definition.tooltipFeatures.SetRange(features);
+        return this;
+    }
 
     internal GuiTooltipClassDefinitionBuilder SetPanelWidth(float width)
     {
         Definition.panelWidth = width;
         return this;
     }
+#endif
 
     #region Constructors
 

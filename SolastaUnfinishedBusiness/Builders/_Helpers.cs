@@ -4,16 +4,36 @@ using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+internal enum Category
+{
+    None = 0,
+    Action,
+    Background,
+    Class,
+    Condition,
+    ContentPack,
+    Feat,
+    Feature,
+    FightingStyle,
+    Item,
+    Monster,
+    Race,
+    Reaction,
+    RestActivity,
+    Spell,
+    Subclass
+}
+
 internal static class Sorting
 {
-    internal static int Compare(BaseDefinition x, BaseDefinition y)
-    {
-        return String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);
-    }
-
     internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
     {
         return String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+    }
+
+    internal static int Compare(BaseDefinition x, BaseDefinition y)
+    {
+        return String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);
     }
 
     internal static int Compare(SavingThrowAffinityGroup x, SavingThrowAffinityGroup y)
@@ -42,6 +62,12 @@ internal static class Sorting
             : result;
     }
 
+    internal static int Compare(MonsterSkillProficiency x, MonsterSkillProficiency y)
+    {
+        return String.Compare(x.SkillName, y.SkillName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
+    }
+
+#if false
     internal static int Compare(EffectForm x, EffectForm y)
     {
         return x.FormType.CompareTo(y.FormType); // then by?
@@ -52,15 +78,11 @@ internal static class Sorting
         return String.Compare(x.AbilityScoreName, y.AbilityScoreName,
             StringComparison.CurrentCultureIgnoreCase); // then by bonus?
     }
-
-    internal static int Compare(MonsterSkillProficiency x, MonsterSkillProficiency y)
-    {
-        return String.Compare(x.SkillName, y.SkillName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
-    }
-
+    
     internal static int Compare(MonsterAttackIteration x, MonsterAttackIteration y)
     {
         return String.Compare(x.MonsterAttackDefinition.Name, y.MonsterAttackDefinition.Name,
             StringComparison.CurrentCultureIgnoreCase);
     }
+#endif
 }

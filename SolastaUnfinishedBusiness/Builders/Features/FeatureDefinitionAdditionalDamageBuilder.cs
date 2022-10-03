@@ -43,15 +43,8 @@ internal abstract class
     internal TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         params (int rank, int dice)[] diceByRank)
     {
-        return SetAdvancement(advancement,
-            diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
-    }
-
-    internal TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
-        IEnumerable<DiceByRank> diceByRanks)
-    {
         Definition.damageAdvancement = advancement;
-        Definition.DiceByRankTable.SetRange(diceByRanks);
+        Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         return This();
     }
 
@@ -73,7 +66,8 @@ internal abstract class
         return This();
     }
 
-    internal TBuilder SetTargetCondition(ConditionDefinition requiredCondition,
+    internal TBuilder SetTargetCondition(
+        ConditionDefinition requiredCondition,
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
         Definition.requiredTargetCondition = requiredCondition;
@@ -147,19 +141,24 @@ internal abstract class
     #endregion
 }
 
+[UsedImplicitly]
 internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
     FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
 {
     // Can we give this a specific name? ConfigureXXX.
     // Or move into ArcaneFighter.
     internal FeatureDefinitionAdditionalDamageBuilder Configure(
-        string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
+        string notificationTag,
+        RuleDefinitions.FeatureLimitedUsage limitedUsage,
         RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
         RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,
         RuleDefinitions.RestrictedContextRequiredProperty requiredProperty,
-        bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
+        bool attackModeOnly,
+        RuleDefinitions.DieType damageDieType,
+        int damageDiceNumber,
         RuleDefinitions.AdditionalDamageType additionalDamageType,
-        string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
+        string specificDamageType,
+        RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
         [NotNull] IEnumerable<DiceByRank> diceByRankTable,
         bool ignoreCriticalDoubleDice = false)
     {
