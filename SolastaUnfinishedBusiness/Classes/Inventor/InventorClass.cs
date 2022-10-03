@@ -26,7 +26,7 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
-    private static CustomInvocationPoolDefinition Learn2, Learn4, Unlearn;
+    private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -34,8 +34,7 @@ internal static class InventorClass
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
-
-
+    
     public static CharacterClassDefinition Build()
     {
         if (Class != null)
@@ -46,9 +45,9 @@ internal static class InventorClass
         InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
 
-        Learn2 = BuildLearn(2);
-        Learn4 = BuildLearn(4);
-        Unlearn = BuildUnlearn();
+        _learn2 = BuildLearn(2);
+        _learn4 = BuildLearn(4);
+        _unlearn = BuildUnlearn();
 
         Infusions.Build();
 
@@ -238,13 +237,13 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting, BuildBonuscantrips())
+            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips())
 
             #endregion
 
             #region Level 02
 
-            .AddFeaturesAtLevel(2, Learn4, InfusionPool)
+            .AddFeaturesAtLevel(2, _learn4, InfusionPool)
 
             #endregion
 
@@ -266,7 +265,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, Learn2)
+            .AddFeaturesAtLevel(6, _learn2)
 
             #endregion
 
@@ -288,7 +287,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, Learn2, Infusions.ImprovedInfusions)
+            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions)
 
             #endregion
 
@@ -310,7 +309,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, Learn2)
+            .AddFeaturesAtLevel(14, _learn2)
 
             #endregion
 
@@ -332,7 +331,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, Learn2)
+            .AddFeaturesAtLevel(18, _learn2)
 
             #endregion
 
@@ -351,7 +350,7 @@ internal static class InventorClass
 
         for (var i = 3; i <= 20; i++)
         {
-            builder.AddFeaturesAtLevel(i, Unlearn);
+            builder.AddFeaturesAtLevel(i, _unlearn);
         }
 
         Class = builder.AddToDB();
@@ -448,35 +447,19 @@ internal static class InventorClass
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
-            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfCaster)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSpellKnowledge(SpellKnowledge.WholeList)
             .SetSpellReadyness(SpellReadyness.Prepared)
             .SetSpellPreparationCount(SpellPreparationCount.AbilityBonusPlusHalfLevel)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellList)
             .AddToDB();
-        
-        //TODO: this is a hack
-        castSpellsInventor.SlotsPerLevels[0].slots = new List<int>()
-        {
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        };
 
         return castSpellsInventor;
     }
 
-    private static FeatureDefinitionBonusCantrips BuildBonuscantrips()
+    private static FeatureDefinitionBonusCantrips BuildBonusCantrips()
     {
         return FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripsInventorMagicalTinkering")

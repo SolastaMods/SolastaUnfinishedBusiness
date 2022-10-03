@@ -57,6 +57,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
                 break;
             case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 21; level++)
                 {
                     // +1 here because half casters effectively round up the spells known
@@ -86,14 +87,21 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     {
         slotsPerLevels.Clear();
 
+        var index = 0;
         var level = 1;
         var startingLevel = (int)progression;
+
+        if (progression == CasterProgression.HalfRoundUp)
+        {
+            index = 1;
+            startingLevel = 2;
+        }
 
         for (; level < startingLevel; level++)
         {
             var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = SlotsByCasterLevel[0]
+                Level = level, Slots = SlotsByCasterLevel[index]
             };
 
             slotsPerLevels.Add(slotsForLevel);
@@ -114,6 +122,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
                 break;
             case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -278,6 +287,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
                 break;
             case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 10; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -402,10 +412,10 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     internal enum CasterProgression
     {
         None = 0,
-        Full = 2,
-        Half = 4,
-        HalfRoundUp = 5,
-        OneThird = 6
+        Full = 1,
+        Half = 2,
+        OneThird = 3,
+        HalfRoundUp = 4
     }
 
     #region SpellSlots

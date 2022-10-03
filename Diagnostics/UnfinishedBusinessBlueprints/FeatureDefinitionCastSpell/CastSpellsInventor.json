@@ -110,6 +110,10 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "slots": [
+        2,
+        0,
+        0,
+        0,
         0,
         0,
         0,
