@@ -168,7 +168,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         wasClicked = true;
 
-        MoveToPreviousLearnStep(true, ResetWasClickedFlag);
+        MoveToPreviousLearnStep();
     }
 
     private void OnLearnReset()
@@ -237,7 +237,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         RefreshNow();
     }
 
-    private void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
+    private void MoveToPreviousLearnStep()
     {
         var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
@@ -466,7 +466,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         foreach (var (poolTag, featureSet) in gainedCustomFeatures)
         {
-            var poolId = new PoolId(featureSet.Name, poolTag, featureSet.IsUnlearn);
+            var poolId = new PoolId(featureSet.PoolType.Name, poolTag, featureSet.IsUnlearn);
 
             if (!tags.ContainsKey(poolId))
             {
@@ -499,10 +499,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         var poolTag = GetClassTag();
 
-        gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
-            .Where(f => f.Level == gainedClassLevel)
-            .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-            .Where(f => f != null)
+        gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
+                .Where(f => f.Level == gainedClassLevel)
+                .Select(f => f.FeatureDefinition))
+            .OfType<CustomInvocationPoolDefinition>()
             .Select(f => (poolTag, f))
         );
 
@@ -510,17 +510,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         if (poolTag != null)
         {
-            gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
-                .Where(f => f.Level == gainedClassLevel)
-                .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-                .Where(f => f != null)
+            gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedSubclass.FeatureUnlocks
+                    .Where(f => f.Level == gainedClassLevel)
+                    .Select(f => f.FeatureDefinition))
+                .OfType<CustomInvocationPoolDefinition>()
                 .Select(f => (poolTag, f))
             );
         }
 
         CustomInvocationPoolType.RefreshAll();
     }
-
 
     internal class FeaturePool
     {
@@ -564,7 +563,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         public override string ToString()
         {
-            return $"<{Name}[{Tag}]:{Unlearn}>";
+            return $"<{Name}:[{Tag}]:{Unlearn}>";
         }
     }
 

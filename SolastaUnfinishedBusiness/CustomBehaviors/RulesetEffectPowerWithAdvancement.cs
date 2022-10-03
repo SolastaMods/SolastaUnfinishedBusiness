@@ -26,7 +26,6 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 
         EffectLevel = effectLevel;
         ExtraCharges = extraCharges;
-
         RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(effectLevel);
     }
 

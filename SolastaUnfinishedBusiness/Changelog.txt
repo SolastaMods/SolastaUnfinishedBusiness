@@ -1,7 +1,6 @@
 ﻿CHANGES:
 
 - Rebrand to Unfinished Business
-- Improve under the hood systems
 - Remove class themed feats
 - Remove Gnome and Tinkerer
 - Remove Level Down feature

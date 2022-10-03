@@ -102,6 +102,7 @@ internal static class GlobalUniqueEffects
         var power = action.activePower.PowerDefinition;
 
         var limiter = power.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+
         if (limiter == null)
         {
             return;

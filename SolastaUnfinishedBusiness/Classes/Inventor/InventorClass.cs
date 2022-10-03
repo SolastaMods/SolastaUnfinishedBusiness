@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
@@ -24,9 +25,10 @@ internal static class InventorClass
         CharacterClassDefinitions.Wizard.ClassPictogramReference;
 
     private static SpellListDefinition _spellList;
-    public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
+    public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
 
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
+    private static int infusionPoolIncreases;
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -243,7 +245,7 @@ internal static class InventorClass
 
             #region Level 02
 
-            .AddFeaturesAtLevel(2, _learn4, InfusionPool)
+            .AddFeaturesAtLevel(2, BuildInfuseFeatureSet())
 
             #endregion
 
@@ -265,7 +267,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, _learn2)
+            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -287,7 +289,8 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions)
+            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions, BuildMagicAdept(),
+                BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -309,7 +312,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, _learn2)
+            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -331,7 +334,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, _learn2)
+            .AddFeaturesAtLevel(18, _learn2, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -370,10 +373,33 @@ internal static class InventorClass
     private static CustomInvocationPoolDefinition BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
-            .Create("TestInvocationPoolReplace")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fly)
+            .Create("InvocationPoolInventorUnlearnInfusion")
+            .SetGuiPresentationNoContent(true)
             .Setup(CustomInvocationPoolType.Pools.Infusion, 1, true)
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildInfuseFeatureSet()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInventorInfusions")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(InfusionPool, _learn4)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildInfusionPoolIncrease()
+    {
+        return FeatureDefinitionPowerPoolModifierBuilder
+            .Create($"PowerIncreaseInventorInfusionPool{infusionPoolIncreases++:D2}")
+            .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
+            .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
+            .AddToDB();
+    }
+
+    private static int GetInfusionLimit(RulesetCharacter character)
+    {
+        return character.GetMaxUsesForPool(InfusionPool);
     }
 
     private static SpellListDefinition BuildSpellList()
@@ -478,8 +504,25 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesFixed(20)
-            .SetRechargeRate(RechargeRate.ShortRest)
+            .SetUsesFixed(2)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMagicAdept()
+    {
+        return FeatureDefinitionCraftingAffinityBuilder
+            .Create("CraftingAffinityInventorMagicItemAdept")
+            .SetGuiPresentation(Category.Feature)
+            //increases attunement limit by 1
+            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .SetAffinityGroups(0.25f, false,
+                ToolTypeDefinitions.ThievesToolsType,
+                ToolTypeDefinitions.ScrollKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.ArtisanToolSmithToolsType)
             .AddToDB();
     }
 }

@@ -37,7 +37,8 @@ internal class FeatureDefinitionAttackModifierBuilder
         return This();
     }
 
-    internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(int value,
+    internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
+        int value,
         AttackModifierMethod method = AttackModifierMethod.FlatValue)
     {
         Definition.attackRollModifierMethod = method;
@@ -45,7 +46,8 @@ internal class FeatureDefinitionAttackModifierBuilder
         return This();
     }
 
-    internal FeatureDefinitionAttackModifierBuilder SetDamageRollModifier(int value,
+    internal FeatureDefinitionAttackModifierBuilder SetDamageRollModifier(
+        int value,
         AttackModifierMethod method = AttackModifierMethod.FlatValue)
     {
         Definition.damageRollModifierMethod = method;

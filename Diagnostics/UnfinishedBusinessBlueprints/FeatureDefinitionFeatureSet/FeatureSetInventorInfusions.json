@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
+    "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInventorInfusionsTitle",
+    "description": "Feature/&FeatureSetInventorInfusionsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "db349abb-6477-5f34-b660-1755ee05f51f",
+  "contentPack": 9999,
+  "name": "FeatureSetInventorInfusions"
+}

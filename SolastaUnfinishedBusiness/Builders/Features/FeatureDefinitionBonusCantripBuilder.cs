@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -38,6 +39,7 @@ internal abstract class
     #endregion
 }
 
+[UsedImplicitly]
 internal class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
     FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
 {

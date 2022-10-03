@@ -27,6 +27,7 @@ internal static class CharacterInspectionScreenEnhancement
     private static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
+
         return original
                + (selectedClass == null
                    ? string.Empty
@@ -125,7 +126,9 @@ internal static class CharacterInspectionScreenEnhancement
         return false;
     }
 
-    internal static bool EnhanceFeatureList(CharacterInformationPanel panel, RectTransform table,
+    internal static bool EnhanceFeatureList(
+        CharacterInformationPanel panel
+        , RectTransform table,
         List<FeatureUnlockByLevel> features,
         string insufficientLevelFormat, TooltipDefinitions.AnchorMode tooltipAnchorMode)
     {
@@ -157,6 +160,7 @@ internal static class CharacterInspectionScreenEnhancement
             {
                 var guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                     .GetGuiPowerDefinition(feature.FeatureDefinition.Name);
+
                 tooltip.Content = guiPowerDefinition.Description;
             }
             else if (TryFindChoiceFeature(panel, feature.FeatureDefinition, out var choiceFeature))

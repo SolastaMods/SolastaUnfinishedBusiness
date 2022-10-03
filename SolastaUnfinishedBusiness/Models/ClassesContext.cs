@@ -42,7 +42,7 @@ internal static class ClassesContext
         {
             SortClassesFeatures();
         }
-        
+
         // settings paring
         foreach (var featName in Main.Settings.ClassEnabled.ToList()
                      .Where(featName => Classes.All(x => x.Name != featName)))

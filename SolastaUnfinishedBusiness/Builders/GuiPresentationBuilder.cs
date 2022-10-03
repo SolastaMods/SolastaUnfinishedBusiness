@@ -27,9 +27,6 @@ internal class GuiPresentationBuilder
     {
     }
 
-    /// <summary>
-    ///     GuiPresentation representing 'No content title and description'
-    /// </summary>
     internal static GuiPresentation NoContent { get; } = Build(NoContentTitle, NoContentTitle, EmptySprite);
 
     internal static GuiPresentation NoContentHidden { get; } =

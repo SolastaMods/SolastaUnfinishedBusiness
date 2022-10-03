@@ -37,19 +37,19 @@ namespace SolastaUnfinishedBusiness.Displays
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref characterSelectedPane,
-                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
-                new NamedAction(
-                    Gui.Localize("ModUi/&RacesClassesSubclasses"),
+                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
+                    DisplayCharacter),
+                new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
                     DisplayClassesAndSubclasses),
                 new NamedAction(Gui.Localize("ModUi/&FeatsFightingStyles"),
                     DisplayFeatsAndFightingStyles),
-                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"), DisplaySpells));
+                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
+                    DisplaySpells));
         }
 
         internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
         {
-            UI.Label("Welcome / 欢迎".Bold()
-                .Khaki());
+            UI.Label("Bem-vindo / Welcome / 欢迎".Bold().Khaki());
             UI.Div();
 
             if (Main.Enabled)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -236,11 +235,6 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     }
 
     internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
-    {
-        return SetKnownCantrips(cantripsCount.AsEnumerable());
-    }
-
-    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
     {
         Definition.KnownCantrips.SetRange(cantripsCount);
         return this;

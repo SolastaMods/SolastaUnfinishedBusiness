@@ -8,8 +8,11 @@ internal class
     RestActivityDefinitionBuilder : DefinitionBuilder<RestActivityDefinition, RestActivityDefinitionBuilder>
 {
     internal RestActivityDefinitionBuilder SetRestData(
-        RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-        RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+        RestDefinitions.RestStage restStage,
+        RuleDefinitions.RestType restType,
+        RestActivityDefinition.ActivityCondition condition,
+        string functor,
+        string stringParameter)
     {
         Definition.restStage = restStage;
         Definition.restType = restType;

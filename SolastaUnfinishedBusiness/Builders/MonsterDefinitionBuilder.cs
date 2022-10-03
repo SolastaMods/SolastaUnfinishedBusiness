@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -115,12 +114,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder ClearFeatures()
-    {
-        Definition.Features.Clear();
-        return this;
-    }
-
     internal MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.AddRange(features);
@@ -136,12 +129,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
 
     internal MonsterDefinitionBuilder SetSkillScores(params (string skillName, int bonus)[] skillScores)
     {
-        return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
-    }
-
-    internal MonsterDefinitionBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
-    {
-        Definition.SkillScores.SetRange(skillScores);
+        Definition.SkillScores.SetRange(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
         Definition.SkillScores.Sort(Sorting.Compare);
         return this;
     }
@@ -153,11 +141,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     }
 
     internal MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
-    {
-        return SetAttackIterations(monsterAttackIterations.AsEnumerable());
-    }
-
-    internal MonsterDefinitionBuilder SetAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
     {
         Definition.AttackIterations.SetRange(monsterAttackIterations);
         return this;

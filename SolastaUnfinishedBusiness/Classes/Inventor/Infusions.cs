@@ -286,6 +286,7 @@ internal static class Infusions
             .Create(baseItem, $"InfusedReplica{baseItem.name}")
             .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custon tag, instead of quest
             .SetGold(0)
+            .SetRequiresIdentification(false)
             .AddToDB();
 
         replica.GuiPresentation.title = GuiReplicaTitle(baseItem);
@@ -307,8 +308,8 @@ internal static class Infusions
 
     private class Infused
     {
-        public static Infused Marker { get; } = new();
         private Infused() { }
+        public static Infused Marker { get; } = new();
     }
 
     private class InfusionItemFilter : CustomItemFilter

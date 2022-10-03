@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal class FeatureDefinitionSubclassChoiceBuilder
+internal abstract class FeatureDefinitionSubclassChoiceBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
 {
     internal FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)

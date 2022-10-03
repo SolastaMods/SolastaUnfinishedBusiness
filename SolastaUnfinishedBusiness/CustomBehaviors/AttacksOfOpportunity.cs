@@ -52,9 +52,11 @@ internal static class AttacksOfOpportunity
         }
     }
 
-    private static IEnumerator ProcessSentinel([NotNull] GameLocationCharacter unit,
+    private static IEnumerator ProcessSentinel(
+        [NotNull] GameLocationCharacter unit,
         [NotNull] GameLocationCharacter attacker,
-        GameLocationCharacter defender, GameLocationBattleManager battleManager)
+        GameLocationCharacter defender,
+        GameLocationBattleManager battleManager)
     {
         if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side ||
             !(unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false) ||
@@ -118,7 +120,8 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.Clear();
     }
 
-    private static IEnumerator ProcessPolearmExpert([NotNull] GameLocationCharacter attacker,
+    private static IEnumerator ProcessPolearmExpert(
+        [NotNull] GameLocationCharacter attacker,
         [NotNull] GameLocationCharacter mover,
         GameLocationBattleManager battleManager)
     {

@@ -22,8 +22,11 @@ internal class StockUnitDescriptionBuilder
         return this;
     }
 
-    internal StockUnitDescriptionBuilder SetStock(int stackCount = 1, int initialAmount = 0,
-        int minAmount = 0, int maxAmount = 1)
+    internal StockUnitDescriptionBuilder SetStock(
+        int stackCount = 1,
+        int initialAmount = 0,
+        int minAmount = 0,
+        int maxAmount = 1)
     {
         _stackCount = stackCount;
         _initialAmount = initialAmount;
@@ -32,8 +35,10 @@ internal class StockUnitDescriptionBuilder
         return this;
     }
 
-    internal StockUnitDescriptionBuilder SetRestock(int reassortAmount = 0,
-        RuleDefinitions.DurationType reassortRateType = RuleDefinitions.DurationType.Day, int reassortRateValue = 1)
+    internal StockUnitDescriptionBuilder SetRestock(
+        int reassortAmount = 0,
+        RuleDefinitions.DurationType reassortRateType = RuleDefinitions.DurationType.Day,
+        int reassortRateValue = 1)
     {
         _reassortAmount = reassortAmount;
         _reassortRateType = reassortRateType;

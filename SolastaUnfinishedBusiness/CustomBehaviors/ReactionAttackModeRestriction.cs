@@ -37,8 +37,11 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
         this.validators = validators;
     }
 
-    public bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack,
-        GameLocationCharacter character, GameLocationCharacter target)
+    public bool ValidReactionMode(
+        RulesetAttackMode attackMode,
+        bool rangedAttack,
+        GameLocationCharacter character,
+        GameLocationCharacter target)
     {
         return validators.All(v => v(attackMode, rangedAttack, character, target));
     }

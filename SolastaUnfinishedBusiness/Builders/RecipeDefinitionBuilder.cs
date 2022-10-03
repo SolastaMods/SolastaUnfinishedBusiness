@@ -19,11 +19,13 @@ internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Rec
         return this;
     }
 
-    internal RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC,
+    internal RecipeDefinitionBuilder SetCraftingCheckData(
+        int craftingHours,
+        int craftingDc,
         ToolTypeDefinition toolType)
     {
         Definition.craftingHours = craftingHours;
-        Definition.craftingDC = craftingDC;
+        Definition.craftingDC = craftingDc;
         Definition.toolTypeDefinition = toolType;
         return this;
     }
