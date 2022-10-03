@@ -112,8 +112,8 @@ internal static class PickPocketContext
             additiveModifier = 0
         };
 
-        var pickpocketGenericLootLowMoney = DatabaseHelper.LootPackDefinitions.PickpocketGenericLootLowMoney;
-        var pickpocketGenericLootMedMoney = DatabaseHelper.LootPackDefinitions.PickpocketGenericLootMedMoney;
+        var pickpocketGenericLootLowMoney = DatabaseHelper.LootPackDefinitions.Pickpocket_generic_loot_LowMoney;
+        var pickpocketGenericLootMedMoney = DatabaseHelper.LootPackDefinitions.Pickpocket_generic_loot_MedMoney;
 
         var pickPocketableLootA = LootPackDefinitionBuilder
             .Create(pickpocketGenericLootLowMoney, "CE_PickpocketableLoot_A")

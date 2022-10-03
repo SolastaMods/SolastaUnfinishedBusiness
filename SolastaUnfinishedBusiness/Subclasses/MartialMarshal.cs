@@ -366,7 +366,7 @@ internal static class EternalComradeBuilder
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
-            .Create(MonsterAttackDefinitions.AttackGenericGuardLongsword, "AttackMarshalEternalComrade")
+            .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
