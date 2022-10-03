@@ -373,7 +373,7 @@ internal static class InventorClass
     private static CustomInvocationPoolDefinition BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolInventorrUnlearnInfusion")
+            .Create("InvocationPoolInventorUnlearnInfusion")
             .SetGuiPresentationNoContent(hidden: true)
             .Setup(CustomInvocationPoolType.Pools.Infusion, 1, true)
             .AddToDB();

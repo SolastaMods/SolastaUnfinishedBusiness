@@ -563,7 +563,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         public override string ToString()
         {
-            return $"<{Name}[{Tag}]:{Unlearn}>";
+            return $"<{Name}:[{Tag}]:{Unlearn}>";
         }
     }
 
