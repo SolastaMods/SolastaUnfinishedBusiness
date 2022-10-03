@@ -18,7 +18,7 @@ internal class CustomItemFilter : ICustomItemFilter
         _handler = handler;
     }
 
-    public bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
+    virtual public bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
     {
         return _handler(character, rulesetItem);
     }

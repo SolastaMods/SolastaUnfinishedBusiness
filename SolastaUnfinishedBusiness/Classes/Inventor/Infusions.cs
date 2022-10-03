@@ -167,6 +167,12 @@ internal static class Infusions
     private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
         AssetReferenceSprite icon, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
     {
+        var properties = features.Select(f =>
+        {
+            f.AddCustomSubFeatures(Infused.Marker);
+            return new FeatureUnlockByLevel(f, 0);
+        });
+
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetActivationTime(ActivationTime.Action)
@@ -175,7 +181,7 @@ internal static class Infusions
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
                 InventorClass.InfusionLimiter,
-                new CustomItemFilter(itemFilter))
+                new InfusionItemFilter(itemFilter))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
@@ -184,8 +190,7 @@ internal static class Infusions
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetItemPropertyForm(features.Select(f => new FeatureUnlockByLevel(f, 0)),
-                        ItemPropertyUsage.Unlimited, 1)
+                    .SetItemPropertyForm(properties, ItemPropertyUsage.Unlimited, 1)
                     .Build())
                 .Build())
             .AddToDB();
@@ -252,40 +257,63 @@ internal static class Infusions
 
     #region Item Filters
 
+    private class Infused
+    {
+        public static Infused Marker { get; } = new();
+        private Infused() { }
+    }
+
+    internal class InfusionItemFilter : CustomItemFilter
+    {
+        internal InfusionItemFilter(IsValidItemHandler handler) : base(handler)
+        {
+        }
+
+        public override bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
+        {
+            if (rulesetItem.ItemDefinition.magical)
+            {
+                return false;
+            }
+
+            if (rulesetItem.HasSubFeatureOfType<Infused>())
+            {
+                return false;
+            }
+
+            return base.IsValid(character, rulesetItem);
+        }
+    }
+
     private static bool IsFocusOrStaff(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;
         var staffType = WeaponTypeDefinitions.QuarterstaffType.Name;
-        return !definition.Magical
-               && (definition.IsFocusItem
-                   || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType));
+        return definition.IsFocusItem
+               || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType);
     }
 
     private static bool IsWeapon(RulesetCharacter _, RulesetItem item)
     {
-        var definition = item.ItemDefinition;
-        return !definition.Magical && definition.IsWeapon;
+        return item.ItemDefinition.IsWeapon;
     }
 
     private static bool IsThrownWeapon(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;
-        return !definition.Magical
-               && definition.IsWeapon
+        return definition.IsWeapon
                && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
 
     private static bool IsArmor(RulesetCharacter _, RulesetItem item)
     {
-        var definition = item.ItemDefinition;
-        return !definition.Magical && definition.IsArmor;
+        return item.ItemDefinition.IsArmor;
     }
 
     private static bool IsBodyArmor(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;
-        return !definition.Magical
-               && definition.IsArmor
+        return definition.IsArmor
                && definition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name);
     }
 
