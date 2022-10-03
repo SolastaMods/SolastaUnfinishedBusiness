@@ -203,4 +203,95 @@ internal static partial class DatabaseHelper
         internal static TreasureTableDefinition RandomTreasureTableE2_Mundane_Ingredients { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTreasureTableE2_Mundane_Ingredients");
     }
+
+    internal static class MonsterDefinitions
+    {
+        internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
+
+        internal static MonsterDefinition Ape_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Ape_MonsterDefinition");
+
+        internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } =
+            GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
+
+        internal static MonsterDefinition BrownBear { get; } = GetDefinition<MonsterDefinition>("BrownBear");
+
+        internal static MonsterDefinition ConjuredEightBeast_Wolf { get; } =
+            GetDefinition<MonsterDefinition>("ConjuredEightBeast_Wolf");
+
+        internal static MonsterDefinition ConjuredFourBeast_BadlandsSpider { get; } =
+            GetDefinition<MonsterDefinition>("ConjuredFourBeast_BadlandsSpider");
+
+        internal static MonsterDefinition ConjuredOneBeastTiger_Drake { get; } =
+            GetDefinition<MonsterDefinition>("ConjuredOneBeastTiger_Drake");
+
+        internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } =
+            GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
+
+        internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
+
+        internal static MonsterDefinition Eagle_Matriarch { get; } =
+            GetDefinition<MonsterDefinition>("Eagle_Matriarch");
+
+        internal static MonsterDefinition Earth_Elemental { get; } =
+            GetDefinition<MonsterDefinition>("Earth_Elemental");
+
+        internal static MonsterDefinition Emperor_Laethar { get; } =
+            GetDefinition<MonsterDefinition>("Emperor_Laethar");
+
+        internal static MonsterDefinition FeyBear { get; } = GetDefinition<MonsterDefinition>("FeyBear");
+        internal static MonsterDefinition FeyDriad { get; } = GetDefinition<MonsterDefinition>("FeyDriad");
+        internal static MonsterDefinition FeyGiant_Eagle { get; } = GetDefinition<MonsterDefinition>("FeyGiant_Eagle");
+        internal static MonsterDefinition FeyGiantApe { get; } = GetDefinition<MonsterDefinition>("FeyGiantApe");
+        internal static MonsterDefinition FeyWolf { get; } = GetDefinition<MonsterDefinition>("FeyWolf");
+        internal static MonsterDefinition Fire_Elemental { get; } = GetDefinition<MonsterDefinition>("Fire_Elemental");
+        internal static MonsterDefinition Fire_Jester { get; } = GetDefinition<MonsterDefinition>("Fire_Jester");
+        internal static MonsterDefinition Ghoul { get; } = GetDefinition<MonsterDefinition>("Ghoul");
+        internal static MonsterDefinition Giant_Ape { get; } = GetDefinition<MonsterDefinition>("Giant_Ape");
+
+        internal static MonsterDefinition GoldDragon_AerElai { get; } =
+            GetDefinition<MonsterDefinition>("GoldDragon_AerElai");
+
+        internal static MonsterDefinition Green_Hag { get; } = GetDefinition<MonsterDefinition>("Green_Hag");
+
+        internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } =
+            GetDefinition<MonsterDefinition>("GreenDragon_MasterOfConjuration");
+
+        internal static MonsterDefinition InvisibleStalker { get; } =
+            GetDefinition<MonsterDefinition>("InvisibleStalker");
+
+        internal static MonsterDefinition Remorhaz { get; } = GetDefinition<MonsterDefinition>("Remorhaz");
+        internal static MonsterDefinition SkarnGhoul { get; } = GetDefinition<MonsterDefinition>("SkarnGhoul");
+        internal static MonsterDefinition Skeleton { get; } = GetDefinition<MonsterDefinition>("Skeleton");
+
+        internal static MonsterDefinition Skeleton_Archer { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Archer");
+
+        internal static MonsterDefinition Skeleton_Enforcer { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Enforcer");
+
+        internal static MonsterDefinition Skeleton_Knight { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Knight");
+
+        internal static MonsterDefinition Skeleton_Marksman { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Marksman");
+
+        internal static MonsterDefinition Skeleton_Sorcerer { get; } =
+            GetDefinition<MonsterDefinition>("Skeleton_Sorcerer");
+
+        internal static MonsterDefinition Sorr_Akkath_Shikkath { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Shikkath");
+
+        internal static MonsterDefinition Sorr_Akkath_Tshar_Boss { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Tshar_Boss");
+
+        internal static MonsterDefinition Spider_Queen { get; } = GetDefinition<MonsterDefinition>("Spider_Queen");
+
+        internal static MonsterDefinition SuperEgo_Servant_Hostile { get; } =
+            GetDefinition<MonsterDefinition>("SuperEgo_Servant_Hostile");
+
+        internal static MonsterDefinition WindSnake { get; } = GetDefinition<MonsterDefinition>("WindSnake");
+        internal static MonsterDefinition Wolf { get; } = GetDefinition<MonsterDefinition>("Wolf");
+        internal static MonsterDefinition Zombie { get; } = GetDefinition<MonsterDefinition>("Zombie");
+    }
 }
