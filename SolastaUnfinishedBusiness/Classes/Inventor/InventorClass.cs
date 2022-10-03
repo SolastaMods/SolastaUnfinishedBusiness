@@ -34,7 +34,7 @@ internal static class InventorClass
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
-    
+
     public static CharacterClassDefinition Build()
     {
         if (Class != null)

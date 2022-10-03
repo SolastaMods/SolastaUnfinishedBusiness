@@ -438,9 +438,7 @@ internal static class ConjurationsContext
         FeyBear, // CR 4
         Green_Hag, // CR 3
         FeyWolf, // CR 2
-        FeyDriad, // CR 1
-
-        Adam_The_Twelth
+        FeyDriad // CR 1
     };
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }

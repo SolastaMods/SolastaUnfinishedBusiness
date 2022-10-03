@@ -251,7 +251,8 @@ namespace SolastaCeBootstrap
                 "FightingStyle",
                 "MorphotypeElement",
                 "GadgetBlueprint",
-                "TreasureTable"
+                "TreasureTable",
+                "MonsterDefinition"
             };
             var definitions = new Dictionary<string, List<Asset>>();
 
