@@ -36,11 +36,9 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private static Exception _caughtException;
     private readonly List<IMenuBottomPage> _bottomPages = new();
     private readonly List<IMenuSelectablePage> _selectablePages = new();
-
     private readonly List<IMenuTopPage> _topPages = new();
-
     private int _tabIndex;
-
+    
     private int TabIndex
     {
         get => _tabIndex;
@@ -64,8 +62,7 @@ internal sealed class MenuManager : INotifyPropertyChanged
     internal void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
     {
         foreach (var type in assembly.GetTypes()
-                     .Where(type =>
-                         !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
+                     .Where(type => !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
         {
             if (typeof(IMenuTopPage).IsAssignableFrom(type))
             {
@@ -98,6 +95,7 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private void OnGUI(UnityModManager.ModEntry modEntry)
     {
         var hasPriorPage = false;
+        
         try
         {
             if (_caughtException != null)

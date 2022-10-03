@@ -13,8 +13,7 @@ internal static partial class UI
 
     private static GUIStyle _divStyle;
 
-    private static GUIStyle ToggleStyle =>
-        _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
+    private static GUIStyle ToggleStyle => _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
 
     private static int Point(this int x)
     {
@@ -32,6 +31,7 @@ internal static partial class UI
         _fillTexture.SetPixel(0, 0, color);
         _fillTexture.Apply();
         _divStyle.normal.background = _fillTexture;
+        
         if (_divStyle.margin == null)
         {
             _divStyle.margin = new RectOffset((int)indent, 0, 4, 4);

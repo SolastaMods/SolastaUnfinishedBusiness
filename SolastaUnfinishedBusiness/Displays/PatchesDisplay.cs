@@ -154,7 +154,7 @@ internal static class PatchesDisplay
                                 foreach (var patch in patches)
                                 {
                                     var enabled = enabledPatches.Contains(patch);
-                                    if (UI.CheckBox("", enabled, false))
+                                    if (UI.CheckBox("", enabled, false, GUI.skin.label))
                                     {
                                         EnablePatchForMethod(!enabled, patch, method);
                                     }

@@ -36,56 +36,33 @@ internal static class GUIHelper
         return value != oldValue;
     }
 
-    internal static void TextField(ref string value, GUIStyle style = null, params GUILayoutOption[] options)
-    {
-        value = GUILayout.TextField(value, style ?? GUI.skin.textField, options);
-    }
-
     internal static void TextField(ref string value, Action onChanged, GUIStyle style = null,
         params GUILayoutOption[] options)
     {
-        TextField(ref value, null, onChanged, style, options);
-    }
-
-    internal static void TextField(ref string value, Action onClear, Action onChanged, GUIStyle style = null,
-        params GUILayoutOption[] options)
-    {
         var old = value;
-        TextField(ref value, style, options);
+        
+        value = GUILayout.TextField(value, style ?? GUI.skin.textField, options);
 
         if (value == old)
         {
             return;
         }
 
-        if (onClear != null && string.IsNullOrEmpty(value))
-        {
-            onClear();
-        }
-        else
-        {
-            onChanged();
-        }
-    }
-
-    internal static void SelectionGrid(ref int selected, string[] texts, int xCount, GUIStyle style = null,
-        params GUILayoutOption[] options)
-    {
-        selected = GUILayout.SelectionGrid(selected, texts, xCount, style ?? GUI.skin.button, options);
+        onChanged();
     }
 
     internal static void SelectionGrid(ref int selected, string[] texts, int xCount, Action onChanged,
         GUIStyle style = null, params GUILayoutOption[] options)
     {
         var old = selected;
-        SelectionGrid(ref selected, texts, xCount, style, options);
+        selected = GUILayout.SelectionGrid(selected, texts, xCount, style ?? GUI.skin.button, options);
         if (selected != old)
         {
             onChanged?.Invoke();
         }
     }
 
-    private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
+    internal static void Div(float indent = 0, float height = 25, float width = 0)
     {
         if (_fillTexture == null)
         {
@@ -93,7 +70,7 @@ internal static class GUIHelper
         }
 
         var divStyle = new GUIStyle { fixedHeight = 1 };
-        _fillTexture.SetPixel(0, 0, color);
+        _fillTexture.SetPixel(0, 0, FillColor);
         _fillTexture.Apply();
         divStyle.normal.background = _fillTexture;
         divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
@@ -109,10 +86,5 @@ internal static class GUIHelper
         GUILayout.Space(1f * height / 2f);
         GUILayout.Box(GUIContent.none, divStyle);
         GUILayout.Space(height / 2f);
-    }
-
-    internal static void Div(float indent = 0, float height = 25, float width = 0)
-    {
-        Div(FillColor, indent, height, width);
     }
 }
