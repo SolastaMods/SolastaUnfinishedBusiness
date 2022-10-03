@@ -286,6 +286,7 @@ internal static class Infusions
             .Create(baseItem, $"InfusedReplica{baseItem.name}")
             .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custon tag, instead of quest
             .SetGold(0)
+            .SetRequiresIdentification(false)
             .AddToDB();
 
         replica.GuiPresentation.title = GuiReplicaTitle(baseItem);
