@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -31,7 +32,7 @@ internal static class RulesetCharacterHeroExtensions
         {
             switch (feature)
             {
-                case FeatureDefinitionFeatureSet { Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union } set:
+                case FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set:
                     list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
                     break;
 
@@ -106,7 +107,21 @@ internal static class RulesetCharacterHeroExtensions
 
     internal static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
     {
-        var slotsByName = hero.CharacterInventory.InventorySlotsByName;
-        return slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
+    }
+
+
+    internal static int GetAttunementLimit([CanBeNull] this RulesetCharacterHero hero)
+    {
+        var limit = 3;
+        if (hero == null) { return limit; }
+
+        var mods = hero.GetSubFeaturesByType<AttunementLimitModifier>();
+        foreach (var mod in mods)
+        {
+            limit += mod.Value;
+        }
+
+        return limit;
     }
 }
