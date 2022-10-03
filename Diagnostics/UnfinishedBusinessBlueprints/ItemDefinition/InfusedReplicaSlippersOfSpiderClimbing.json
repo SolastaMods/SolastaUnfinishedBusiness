@@ -32,7 +32,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": false,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,

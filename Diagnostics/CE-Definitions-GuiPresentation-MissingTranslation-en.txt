@@ -1,2 +1,0 @@
-TestInvocationPoolReplace	Title='Feature/&TestInvocationPoolReplaceTitle'.
-TestInvocationPoolReplace	Description='Feature/&TestInvocationPoolReplaceDescription'.

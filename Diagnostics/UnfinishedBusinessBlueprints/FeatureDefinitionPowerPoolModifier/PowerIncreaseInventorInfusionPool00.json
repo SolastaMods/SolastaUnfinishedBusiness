@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerPoolModifier, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -135,7 +135,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "Permanent",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -150,33 +150,33 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
+  "usesAbilityScoreName": "",
   "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerIncreaseInventorInfusionPool00:7b6296f3-a4df-5ba3-ab51-f06a67a09962",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionReturningWeaponTitle",
-    "description": "Feature/&InfusionReturningWeaponDescription",
+    "title": "Feature/&PowerIncreaseInventorInfusionPoolTitle",
+    "description": "Feature/&PowerIncreaseInventorInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7892e11668806184fb7f0901204e6ddc",
-      "m_SubObjectName": "SpiritualWeapon",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -191,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "247fbe9b-05bc-5474-ac0b-adc419399559",
+  "guid": "7b6296f3-a4df-5ba3-ab51-f06a67a09962",
   "contentPack": 9999,
-  "name": "PowerInfusionReturningWeapon"
+  "name": "PowerIncreaseInventorInfusionPool00"
 }

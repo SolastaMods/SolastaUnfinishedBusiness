@@ -2,14 +2,14 @@
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationPoolDefinition, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&TestInvocationPoolReplaceTitle",
-    "description": "Feature/&TestInvocationPoolReplaceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
-      "m_SubObjectName": "Fly",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73f9b5eb-e3ee-5802-8215-6dab93609de2",
+  "guid": "3c827867-5407-559c-963a-fb1336626294",
   "contentPack": 9999,
-  "name": "TestInvocationPoolReplace"
+  "name": "InvocationPoolInventorUnlearnInfusion"
 }

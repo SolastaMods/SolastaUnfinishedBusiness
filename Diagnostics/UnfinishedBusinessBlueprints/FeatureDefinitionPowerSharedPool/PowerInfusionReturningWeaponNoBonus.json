@@ -6,8 +6,8 @@
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
-    "itemSelectionType": "None",
+    "targetType": "Item",
+    "itemSelectionType": "Carried",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -29,7 +29,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
+    "targetSide": "Ally",
     "durationType": "Permanent",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
+        "formType": "ItemProperty",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,17 +74,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "InventoryItem",
-          "itemDefinition": "Definition:InfusedReplicaAmuletOfHealth:57bd71a8-8440-5a89-91b7-5dc3394ba90b",
-          "trackItem": true,
-          "monsterDefinitionName": "",
-          "number": 1,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": true,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": null
+        "itemPropertyForm": {
+          "$type": "ItemPropertyForm, Assembly-CSharp",
+          "featureBySlotLevel": [
+            {
+              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+              "featureDefinition": "Definition:AttackModifierInfusionReturningWeaponNoBonus:2017fdd1-562d-5584-b027-8841cea15c8a",
+              "level": 0
+            }
+          ],
+          "usageLimitation": "Unlimited",
+          "useAmount": 1
         },
         "hasFilterId": false,
         "filterId": 0
@@ -116,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c61bb30a4b6e80642a36538c6ff1d675",
+        "m_AssetGUID": "a7d48cc4b007b62429d59fdbebeb9df9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f4489c0ea1762ec4dbe7fedbbcf0d4a8",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,21 +261,21 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3b107035e3bdbc6418aedb674221f5e3",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "forceApplyZoneParticle": false,
-      "applyEmissionColorOnWeapons": false,
+      "applyEmissionColorOnWeapons": true,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.0,
-        "g": 0.0,
-        "b": 0.0,
+        "r": 2.99607849,
+        "g": 2.32156873,
+        "b": 1.082353,
         "a": 0.0
       },
-      "emissionColorFadeInDuration": 0.0,
-      "emissionColorFadeOutDuration": 0.0
+      "emissionColorFadeInDuration": 1.0,
+      "emissionColorFadeOutDuration": 1.0
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
@@ -318,7 +318,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -326,12 +326,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Amulet of Health",
-    "description": "Create replica <b>Amulet of Health</b>:\nThis amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. ",
+    "title": "Feature/&InfusionReturningWeaponNoBonusTitle",
+    "description": "Feature/&InfusionReturningWeaponNoBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a0767cd40b4795e4f8e2ad54cd9485ce",
-      "m_SubObjectName": "AmuletOfHealth",
+      "m_AssetGUID": "7892e11668806184fb7f0901204e6ddc",
+      "m_SubObjectName": "SpiritualWeapon",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "241cfb02-8421-5f82-8f11-300407bff7c7",
+  "guid": "3c40fc1f-d5f3-50e8-9b2c-b436032c8118",
   "contentPack": 9999,
-  "name": "PowerCreateInfusedReplicaAmuletOfHealth"
+  "name": "PowerInfusionReturningWeaponNoBonus"
 }
