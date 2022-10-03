@@ -35,7 +35,7 @@ public static class UsablePowerBoxPatcher
             var img = __instance.image;
             var aspect = img.GetComponent<AspectRatioFitter>();
 
-            if (aspect == null)
+            if (aspect == null || img == null || img.sprite == null)
             {
                 return;
             }
