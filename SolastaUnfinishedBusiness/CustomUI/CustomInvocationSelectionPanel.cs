@@ -499,10 +499,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         var poolTag = GetClassTag();
 
-        gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
-            .Where(f => f.Level == gainedClassLevel)
-            .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-            .Where(f => f != null)
+        gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
+                .Where(f => f.Level == gainedClassLevel)
+                .Select(f => f.FeatureDefinition))
+            .OfType<CustomInvocationPoolDefinition>()
             .Select(f => (poolTag, f))
         );
 
@@ -510,10 +510,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         if (poolTag != null)
         {
-            gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
-                .Where(f => f.Level == gainedClassLevel)
-                .Select(f => f.FeatureDefinition as CustomInvocationPoolDefinition)
-                .Where(f => f != null)
+            gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedSubclass.FeatureUnlocks
+                    .Where(f => f.Level == gainedClassLevel)
+                    .Select(f => f.FeatureDefinition))
+                .OfType<CustomInvocationPoolDefinition>()
                 .Select(f => (poolTag, f))
             );
         }
