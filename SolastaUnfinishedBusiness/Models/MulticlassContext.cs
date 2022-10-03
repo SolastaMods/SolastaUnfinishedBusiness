@@ -22,6 +22,8 @@ internal static class MulticlassContext
 
     private const string SkillGainChoicesDescription = "Feature/&SkillGainChoicesPluralDescription";
 
+    private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
+
     internal static readonly FeatureDefinitionProficiency ProficiencyBarbarianArmorMulticlass =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBarbarianArmorMulticlass")
@@ -114,26 +116,17 @@ internal static class MulticlassContext
             )
             .AddToDB();
 
-    internal static void LateLoad()
-    {
-        PatchClassLevel();
-        PatchEquipmentAssignment();
-        PatchFeatureUnlocks();
-        AddNonOfficialBlueprintsToFeaturesCollections();
-    }
-    
-    private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
     private static readonly MethodInfo NullMethod = null;
 
     // these features will be replaced to comply to SRD multiclass rules
     private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
     {
-        { ProficiencyBarbarianArmor, MulticlassContext.ProficiencyBarbarianArmorMulticlass },
-        { ProficiencyFighterArmor, MulticlassContext.ProficiencyFighterArmorMulticlass },
-        { ProficiencyPaladinArmor, MulticlassContext.ProficiencyPaladinArmorMulticlass },
-        { PointPoolBardSkillPoints, MulticlassContext.PointPoolBardSkillPointsMulticlass },
-        { PointPoolRangerSkillPoints, MulticlassContext.PointPoolRangerSkillPointsMulticlass },
-        { PointPoolRogueSkillPoints, MulticlassContext.PointPoolRogueSkillPointsMulticlass }
+        { ProficiencyBarbarianArmor, ProficiencyBarbarianArmorMulticlass },
+        { ProficiencyFighterArmor, ProficiencyFighterArmorMulticlass },
+        { ProficiencyPaladinArmor, ProficiencyPaladinArmorMulticlass },
+        { PointPoolBardSkillPoints, PointPoolBardSkillPointsMulticlass },
+        { PointPoolRangerSkillPoints, PointPoolRangerSkillPointsMulticlass },
+        { PointPoolRogueSkillPoints, PointPoolRogueSkillPointsMulticlass }
     };
 
     // these features will be removed to comply with SRD multiclass rules
@@ -180,6 +173,14 @@ internal static class MulticlassContext
     };
 
     private static (MethodInfo, HeroContext) FeatureUnlocksContext { get; set; }
+
+    internal static void LateLoad()
+    {
+        PatchClassLevel();
+        PatchEquipmentAssignment();
+        PatchFeatureUnlocks();
+        AddNonOfficialBlueprintsToFeaturesCollections();
+    }
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
     {

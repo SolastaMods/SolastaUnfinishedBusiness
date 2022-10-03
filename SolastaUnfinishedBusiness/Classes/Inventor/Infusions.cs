@@ -308,8 +308,8 @@ internal static class Infusions
 
     private class Infused
     {
-        public static Infused Marker { get; } = new();
         private Infused() { }
+        public static Infused Marker { get; } = new();
     }
 
     private class InfusionItemFilter : CustomItemFilter

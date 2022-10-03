@@ -73,7 +73,7 @@ internal static class BootContext
 
         // Load SRD and House rules towards the load phase end in case they change previous blueprints
         SrdAndHouseRulesContext.Load();
-        
+
         // Level 20 must always load after classes and subclasses
         Level20Context.Load();
 
@@ -111,11 +111,11 @@ internal static class BootContext
 
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
-            
+
             // really don't have a better place for these fixes here ;-)
             ExpandColorTables();
             AddExtraTooltipDefinitions();
-            
+
             // Manages update or welcome messages
             Load();
             Main.Enable();

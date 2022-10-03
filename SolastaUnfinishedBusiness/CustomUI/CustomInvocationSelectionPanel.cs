@@ -126,7 +126,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private void BuildLearnSteps()
     {
         // Register all steps
-        if (allPools is not {Count: > 0})
+        if (allPools is not { Count: > 0 })
         {
             return;
         }
@@ -392,7 +392,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             return pool;
         }
 
-        pool = new FeaturePool(id) {Type = type, Max = 0, Used = 0};
+        pool = new FeaturePool(id) { Type = type, Max = 0, Used = 0 };
 
         allPools.Add(pool);
         allPools.Sort(poolCompare);
@@ -470,7 +470,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             if (!tags.ContainsKey(poolId))
             {
-                var pool = new FeaturePool(poolId) {Max = featureSet.Points, Used = 0, Type = featureSet.PoolType};
+                var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
 
                 tags.Add(poolId, pool);
                 allPools.Add(pool);

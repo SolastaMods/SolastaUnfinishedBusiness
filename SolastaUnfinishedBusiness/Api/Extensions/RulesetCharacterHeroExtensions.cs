@@ -32,7 +32,7 @@ internal static class RulesetCharacterHeroExtensions
         {
             switch (feature)
             {
-                case FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set:
+                case FeatureDefinitionFeatureSet { Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union } set:
                     list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
                     break;
 

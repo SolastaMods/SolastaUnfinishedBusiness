@@ -115,7 +115,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    #if false
+#if false
     internal EffectDescriptionBuilder SetSlotTypes(params string[] slots)
     {
         effect.slotTypes.SetRange(slots);
@@ -127,8 +127,8 @@ internal class EffectDescriptionBuilder
         effect.slotTypes.SetRange(slots.Select(s => s.Name));
         return this;
     }
-    #endif
-    
+#endif
+
     internal EffectDescriptionBuilder ExcludeCaster()
     {
         effect.targetExcludeCaster = true;

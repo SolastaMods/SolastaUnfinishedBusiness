@@ -27,7 +27,7 @@ internal static class CharacterInspectionScreenEnhancement
     private static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
-        
+
         return original
                + (selectedClass == null
                    ? string.Empty
@@ -160,7 +160,7 @@ internal static class CharacterInspectionScreenEnhancement
             {
                 var guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                     .GetGuiPowerDefinition(feature.FeatureDefinition.Name);
-                
+
                 tooltip.Content = guiPowerDefinition.Description;
             }
             else if (TryFindChoiceFeature(panel, feature.FeatureDefinition, out var choiceFeature))

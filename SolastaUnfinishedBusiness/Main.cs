@@ -14,20 +14,16 @@ namespace SolastaUnfinishedBusiness;
 internal static class Main
 {
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
-    private static ModManager<Core, Settings> Mod { get; set; }
-
-    private static MenuManager Menu { get; set; }
-
-    internal static string ModFolder { get; } =
-        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-    internal static bool Enabled { get; private set; }
-
+    
     internal static Action Enable { get; private set; }
 
+    internal static bool Enabled { get; private set; }
+    
+    internal static string ModFolder { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    
     internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
 
-    internal static Settings Settings => Mod.Settings;
+    internal static Settings Settings { get; private set; }
 
     [Conditional("DEBUG")]
     internal static void Log(string msg, bool console = false)
@@ -57,17 +53,16 @@ internal static class Main
         Logger?.Error(msg);
     }
 
-    // ReSharper disable once UnusedMember.Global
     public static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
         try
         {
+            var mod = new ModManager<Core, Settings>();
             var assembly = Assembly.GetExecutingAssembly();
 
             Logger = modEntry.Logger;
-
-            Mod = new ModManager<Core, Settings>();
-            Mod.Enable(modEntry, assembly);
+            Settings = mod.Settings;
+            mod.Enable(modEntry, assembly);
 
             modEntry.OnShowGUI = _ =>
             {
@@ -79,10 +74,9 @@ internal static class Main
 
             Enable = () =>
             {
+                (new MenuManager()).Enable(modEntry, assembly);
+                Logger.Log("enabled.");
                 Enabled = true;
-                Menu = new MenuManager();
-                Menu.Enable(modEntry, assembly);
-                Logger.Log("Enabled.");
             };
         }
         catch (Exception ex)

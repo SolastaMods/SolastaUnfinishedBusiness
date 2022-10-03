@@ -74,7 +74,7 @@ internal static class CustomWeaponsContext
     {
         //TODO: either create a builder for ItemPresentation, or add setter with custom values to ItemDefinitionBuilder
         var presentation = new ItemPresentation(basePresentation);
-        
+
         presentation.ItemFlags.Clear();
         presentation.assetReference = basePresentation.AssetReference;
         presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
@@ -83,7 +83,7 @@ internal static class CustomWeaponsContext
             : Gui.NoLocalization;
 
         presentation.scaleFactorWhileWielded = scale;
-        
+
         return presentation;
     }
 
@@ -120,14 +120,15 @@ internal static class CustomWeaponsContext
         else
         {
             builder
-                .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot, SlotTypeDefinitions.ContainerSlot)
+                .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot,
+                    SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
         }
 
         if (!properties.Empty())
         {
             builder.MakeMagical();
-            
+
             if (needId)
             {
                 builder.SetRequiresIdentification(true);
@@ -232,13 +233,13 @@ internal static class CustomWeaponsContext
     private static void BuildHalberds()
     {
         var scale = new CustomScale(z: 3.5f);
-        
+
         HalberdWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
-        
+
         var baseItem = ItemDefinitions.Greataxe;
         var basePresentation = ItemDefinitions.Battleaxe.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -254,7 +255,7 @@ internal static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-        
+
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
@@ -281,7 +282,7 @@ internal static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
-        
+
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
@@ -311,13 +312,13 @@ internal static class CustomWeaponsContext
     private static void BuildPikes()
     {
         var scale = new CustomScale(z: 3.5f);
-        
+
         PikeWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.SpearType, "CEPikeType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
-        
+
         var baseItem = ItemDefinitions.Spear;
         var basePresentation = ItemDefinitions.Morningstar.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -331,7 +332,7 @@ internal static class CustomWeaponsContext
                 TagsDefinitions.WeaponTagTwoHanded
             }
         };
-        
+
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
         damageForm.dieType = RuleDefinitions.DieType.D10;
@@ -360,7 +361,7 @@ internal static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
-        
+
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
@@ -392,13 +393,13 @@ internal static class CustomWeaponsContext
     private static void BuildLongMaces()
     {
         var scale = new CustomScale(z: 3.5f);
-        
+
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
-        
+
         var baseItem = ItemDefinitions.Warhammer;
         var basePresentation = ItemDefinitions.Mace.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -414,7 +415,7 @@ internal static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-        
+
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
@@ -441,7 +442,7 @@ internal static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.MacePlus2;
-        
+
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
@@ -471,14 +472,14 @@ internal static class CustomWeaponsContext
     private static void BuildHandXbow()
     {
         var scale = new CustomScale(0.5f);
-        
+
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
-        
+
         var baseItem = ItemDefinitions.LightCrossbow;
         var basePresentation = new ItemPresentation(baseItem.ItemPresentation);
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -496,13 +497,13 @@ internal static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-        
+
         damageForm.dieType = RuleDefinitions.DieType.D6;
         damageForm.diceNumber = 1;
 
         //add hand xbow proficiency to rogues
         var rogueHandXbowProficiency = FeatureDefinitionProficiencys.ProficiencyRogueWeapon;
-        
+
         rogueHandXbowProficiency.Proficiencies.Add(HandXbowWeaponType.Name);
 
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
@@ -530,7 +531,7 @@ internal static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
-        
+
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
@@ -560,7 +561,7 @@ internal static class CustomWeaponsContext
     private static void WeaponizeProducedFlame()
     {
         var flame = ItemDefinitions.ProducedFlame;
-        
+
         flame.GuiPresentation = new GuiPresentationBuilder(flame.GuiPresentation)
             .SetTitle("Item/&CEProducedFlameTitle")
             .Build();
@@ -569,12 +570,12 @@ internal static class CustomWeaponsContext
             flame.ItemPresentation, icon: ProducedFlameThrow);
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
-        
+
         damageForm.damageType = RuleDefinitions.DamageTypeFire;
         damageForm.dieType = RuleDefinitions.DieType.D8;
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
-        
+
         weapon.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
                 damageType: RuleDefinitions.DamageTypeFire)
@@ -724,7 +725,7 @@ internal static class CustomWeaponsContext
     {
         var num = hero.characterInventory.CurrentConfiguration;
         var configurations = hero.characterInventory.WieldedItemsConfigurations;
-        
+
         if (num == configurations.Count - 1)
         {
             num = configurations[num].MainHandSlot.ShadowedSlot != configurations[0].MainHandSlot ? 1 : 0;
@@ -732,7 +733,7 @@ internal static class CustomWeaponsContext
 
         var itemsConfiguration = configurations[num];
         RulesetItem item = null;
-        
+
         if (mode.SlotName == EquipmentDefinitions.SlotTypeMainHand)
         {
             item = itemsConfiguration.MainHandSlot.EquipedItem;

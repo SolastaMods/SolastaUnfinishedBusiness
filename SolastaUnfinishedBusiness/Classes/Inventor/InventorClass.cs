@@ -374,7 +374,7 @@ internal static class InventorClass
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolInventorUnlearnInfusion")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .Setup(CustomInvocationPoolType.Pools.Infusion, 1, true)
             .AddToDB();
     }
