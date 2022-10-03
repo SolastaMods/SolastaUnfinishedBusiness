@@ -103,8 +103,7 @@ public static class CharacterActionCastSpellPatcher
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var spellCastingLevel =
-                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext
-                        .SpellCastingLevel)
+                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassContext.SpellCastingLevel)
                     .Method;
 
             foreach (var instruction in instructions)

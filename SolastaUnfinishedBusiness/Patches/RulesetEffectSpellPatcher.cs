@@ -45,8 +45,7 @@ public static class RulesetEffectSpellPatcher
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var spellCastingLevel =
-                new Func<RulesetSpellRepertoire, RulesetEffectSpell, int>(MulticlassPatchingContext.SpellCastingLevel)
-                    .Method;
+                new Func<RulesetSpellRepertoire, RulesetEffectSpell, int>(MulticlassContext.SpellCastingLevel).Method;
 
             foreach (var instruction in instructions)
             {

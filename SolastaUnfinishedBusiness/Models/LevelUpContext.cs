@@ -97,15 +97,6 @@ internal static class LevelUpContext
             levelUpData.GrantedItems.Add(HolySymbolAmulet);
         }
 
-        // Clothes Wizard
-        required =
-            !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
-
-        if (required)
-        {
-            levelUpData.GrantedItems.Add(ClothesWizard);
-        }
-
         // Component Pouch
         required =
             (
@@ -146,13 +137,14 @@ internal static class LevelUpContext
             levelUpData.GrantedItems.Add(DruidicFocus);
         }
 
-        // Spellbook
+        // Spellbook and Clothes Wizard
         required =
             !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
 
         if (required)
         {
             levelUpData.GrantedItems.Add(Spellbook);
+            levelUpData.GrantedItems.Add(ClothesWizard);
         }
     }
 
@@ -234,7 +226,8 @@ internal static class LevelUpContext
                    || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
     }
 
-    internal static bool IsRepertoireFromSelectedClassSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
+    internal static bool IsRepertoireFromSelectedClassSubclass(
+        [NotNull] RulesetCharacterHero rulesetCharacterHero,
         [NotNull] RulesetSpellRepertoire rulesetSpellRepertoire)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);

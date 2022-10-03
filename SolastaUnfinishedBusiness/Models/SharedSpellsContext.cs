@@ -228,18 +228,17 @@ internal static class SharedSpellsContext
         return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
     }
 
-    internal static void Load()
+    internal static void LateLoad()
     {
-        EnumerateSlotsPerLevel(
-            CasterProgression.Full, FullCastingSlots);
+        PatchMaxSpellLevelOfSpellCastingLevel();
+        EnumerateSlotsPerLevel(CasterProgression.Full, FullCastingSlots);
 
-        // ClassCasterType.Add(ArtisanClass, CasterType.HalfRoundUp);
         // RecoverySlots.Add("ArtisanSpellStoringItem", ArtisanClass);
         // RecoverySlots.Add("ArtisanInfusionSpellRefuelingRing", ArtisanClass);
         // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", ArtisanClass);
     }
 
-    internal static void LateLoad()
+    internal static void PatchMaxSpellLevelOfSpellCastingLevel()
     {
         const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 

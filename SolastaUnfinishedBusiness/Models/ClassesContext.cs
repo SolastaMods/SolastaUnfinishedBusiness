@@ -33,29 +33,21 @@ internal static class ClassesContext
 
     internal static void Load()
     {
-        // LoadClass(Monk.BuildClass());
-        // LoadClass(ArtisanClass.BuildArtisanClass());
-        // LoadClass(Warlock.BuildWarlockClass());
-        // LoadClass(Witch.Instance);
-        // LoadClass(Magus.BuildMagusClass());
         LoadClass(InventorClass.Build());
 
         // sorting
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
 
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            SortClassesFeatures();
+        }
+        
         // settings paring
         foreach (var featName in Main.Settings.ClassEnabled.ToList()
                      .Where(featName => Classes.All(x => x.Name != featName)))
         {
             Main.Settings.ClassEnabled.Remove(featName);
-        }
-    }
-
-    internal static void LateLoad()
-    {
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            SortClassesFeatures();
         }
     }
 
