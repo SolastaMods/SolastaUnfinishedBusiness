@@ -127,7 +127,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
-                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
+                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 1) / 2) + 1]
                     };
 
                     slotsPerLevels.Add(slotsForLevel);
@@ -434,6 +434,10 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     {
         new()
         {
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
