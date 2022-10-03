@@ -24,19 +24,13 @@ internal sealed class ModManager<TCore, TSettings>
 
     internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
     {
-        _logger = modEntry.Logger;
-
         if (Enabled)
         {
             return;
         }
 
-        using ProcessLogger process = new(_logger);
-
         try
         {
-            process.Log("Enabling.");
-            process.Log("Loading settings.");
             modEntry.OnSaveGUI += HandleSaveGUI;
             Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
             Core = new TCore();
@@ -54,7 +48,6 @@ internal sealed class ModManager<TCore, TSettings>
                         continue;
                     }
 
-                    process.Log($"Patching: {type.FullName}");
                     try
                     {
                         var patchProcessor = harmonyInstance.CreateClassProcessor(type);
@@ -71,7 +64,6 @@ internal sealed class ModManager<TCore, TSettings>
 
             Enabled = true;
 
-            process.Log("Registering events.");
             _eventHandlers = types.Where(type => type != typeof(TCore) &&
                                                  !type.IsInterface && !type.IsAbstract &&
                                                  typeof(IModEventHandler).IsAssignableFrom(type))
@@ -83,8 +75,6 @@ internal sealed class ModManager<TCore, TSettings>
 
             _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
 
-            process.Log("Raising events: OnEnable()");
-
             foreach (var t in _eventHandlers)
             {
                 t.HandleModEnable();
@@ -95,8 +85,6 @@ internal sealed class ModManager<TCore, TSettings>
             Main.Error(e);
             throw;
         }
-
-        process.Log("Enabled.");
     }
 
     #endregion
@@ -110,32 +98,8 @@ internal sealed class ModManager<TCore, TSettings>
 
     #endregion
 
-    public sealed class ProcessLogger : IDisposable
-    {
-        private readonly UnityModManager.ModEntry.ModLogger _logger;
-        private readonly Stopwatch _stopWatch = new();
-
-        internal ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
-        {
-            _logger = logger;
-            _stopWatch.Start();
-        }
-
-        public void Dispose()
-        {
-            _stopWatch.Stop();
-        }
-
-        [Conditional("DEBUG")]
-        internal void Log(string status)
-        {
-            _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
-        }
-    }
-
     #region Fields & Properties
-
-    private UnityModManager.ModEntry.ModLogger _logger;
+    
     private List<IModEventHandler> _eventHandlers;
 
     private TCore Core { get; set; }

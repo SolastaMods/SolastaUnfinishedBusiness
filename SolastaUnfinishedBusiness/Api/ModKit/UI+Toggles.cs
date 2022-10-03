@@ -22,11 +22,6 @@ internal static partial class UI
         return state == ToggleState.On;
     }
 
-    internal static bool IsOff(this ToggleState state)
-    {
-        return state == ToggleState.Off;
-    }
-
     private static ToggleState Flip(this ToggleState state)
     {
         return state switch
@@ -111,6 +106,7 @@ internal static partial class UI
         var changed = TogglePrivate(title, ref value, false, true, width);
 
         If(value, actions);
+        
         return changed;
     }
 }

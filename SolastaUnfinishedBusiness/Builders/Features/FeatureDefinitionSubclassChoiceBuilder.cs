@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class FeatureDefinitionSubclassChoiceBuilder
+[UsedImplicitly]
+internal class FeatureDefinitionSubclassChoiceBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
 {
     internal FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
