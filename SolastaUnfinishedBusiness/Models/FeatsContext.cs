@@ -166,7 +166,7 @@ internal static class FeatsContext
         // });
     }
 
-    public static void UpdatePanelChildren(FeatSubPanel panel)
+    internal static void UpdatePanelChildren(FeatSubPanel panel)
     {
         // get missing children from pool
         while (panel.table.childCount < panel.relevantFeats.Count)
@@ -209,7 +209,7 @@ internal static class FeatsContext
         }
     }
 
-    public static void SortFeats(FeatSubPanel panel)
+    internal static void SortFeats(FeatSubPanel panel)
     {
         if (Main.Settings.EnableSortingFeats)
         {
@@ -217,13 +217,13 @@ internal static class FeatsContext
         }
     }
 
-    public static int CompareFeats(FeatDefinition a, FeatDefinition b)
+    internal static int CompareFeats(FeatDefinition a, FeatDefinition b)
     {
         return string.Compare(a.FormatTitle(), b.FormatTitle(),
             StringComparison.CurrentCultureIgnoreCase);
     }
 
-    public static void UpdateRelevantFeatList(FeatSubPanel panel)
+    internal static void UpdateRelevantFeatList(FeatSubPanel panel)
     {
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
@@ -234,13 +234,13 @@ internal static class FeatsContext
         );
     }
 
-    public static void ForceSameWidth(RectTransform table, bool active, FeatSubPanel panel)
+    internal static void ForceSameWidth(RectTransform table, bool active, FeatSubPanel panel)
     {
         ProcessFeatGroups(panel, active, table);
 
         if (active && Main.Settings.EnableSameWidthFeatSelection)
         {
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
             var buildingData = hero?.GetHeroBuildingData();
 
             if (buildingData == null)

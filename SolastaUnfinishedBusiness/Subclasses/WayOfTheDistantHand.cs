@@ -22,7 +22,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         WeaponTypeDefinitions.ShortbowType, WeaponTypeDefinitions.LongbowType
     };
 
-    public WayOfTheDistantHand()
+    internal WayOfTheDistantHand()
     {
         var zenArrow =
             CustomIcons.CreateAssetReferenceSprite("ZenArrow", Resources.ZenArrow, 128, 64);
@@ -386,7 +386,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     // private class ExtendWeaponRange : IModifyAttackModeForWeapon
     // {
-    //     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    //     internal void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     //     {
     //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
     //         {

@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class NarrativeDirectionManagerPatcher
+public static class NarrativeDirectionManagerPatcher
 {
     [HarmonyPatch(typeof(NarrativeDirectionManager), "PrepareDialogSequence")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class PrepareDialogSequence_Patch
+    public static class PrepareDialogSequence_Patch
     {
-        internal static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
+        public static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
         {
             //PATCH: FullyControlConjurations
             if (!Main.Settings.FullyControlConjurations)
@@ -29,9 +29,9 @@ internal static class NarrativeDirectionManagerPatcher
     //PATCH: EnableLogDialoguesToConsole
     [HarmonyPatch(typeof(NarrativeDirectionManager), "StartDialogSequence")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class StartDialogSequence_Patch
+    public static class StartDialogSequence_Patch
     {
-        internal static void Postfix()
+        public static void Postfix()
         {
             if (!Main.Settings.EnableLogDialoguesToConsole)
             {

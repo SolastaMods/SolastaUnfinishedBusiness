@@ -2,5 +2,5 @@
 
 public interface IPowerUseValidity
 {
-    bool CanUsePower(RulesetCharacter character);
+    public bool CanUsePower(RulesetCharacter character);
 }

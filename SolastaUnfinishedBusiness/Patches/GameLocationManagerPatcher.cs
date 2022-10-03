@@ -5,12 +5,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameLocationManagerPatcher
+public static class GameLocationManagerPatcher
 {
     //PATCH: EnableSaveByLocation
     [HarmonyPatch(typeof(GameLocationManager), "LoadLocationAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class LoadLocationAsync_Patch
+    public static class LoadLocationAsync_Patch
     {
         public static void Prefix(GameLocationManager __instance,
             string locationDefinitionName, string userLocationName, string userCampaignName)
@@ -49,9 +49,9 @@ internal static class GameLocationManagerPatcher
     //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
     [HarmonyPatch(typeof(GameLocationManager), "ReadyLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReadyLocation_Patch
+    public static class ReadyLocation_Patch
     {
-        internal static void Postfix(GameLocationManager __instance)
+        public static void Postfix(GameLocationManager __instance)
         {
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)
             {

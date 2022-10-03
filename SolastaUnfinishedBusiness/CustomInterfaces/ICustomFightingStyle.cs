@@ -2,5 +2,5 @@
 
 public interface ICustomFightingStyle
 {
-    bool IsActive(RulesetCharacterHero character);
+    public bool IsActive(RulesetCharacterHero character);
 }

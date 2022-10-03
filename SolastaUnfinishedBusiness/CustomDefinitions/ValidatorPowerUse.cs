@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public sealed class ValidatorPowerUse : IPowerUseValidity
+internal sealed class ValidatorPowerUse : IPowerUseValidity
 {
     private readonly IsCharacterValidHandler[] validators;
 
-    public ValidatorPowerUse(params IsCharacterValidHandler[] validators)
+    internal ValidatorPowerUse(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators;
     }

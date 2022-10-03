@@ -4,15 +4,15 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class HigherLevelFeaturesModalPatcher
+public static class HigherLevelFeaturesModalPatcher
 {
     [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Prefix(ref int achievementLevel)
+        public static void Prefix(ref int achievementLevel)
         {
-            var hero = Global.ActiveLevelUpHero;
+            var hero = Global.LevelUpHero;
 
             if (hero == null)
             {

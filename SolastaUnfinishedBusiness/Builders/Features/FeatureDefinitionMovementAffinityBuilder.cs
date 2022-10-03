@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionMovementAffinityBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
 {
-    public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
+    internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
     {
         Definition.baseSpeedMultiplicativeModifier = value;
         return This();

@@ -9,52 +9,61 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterRaceDefinitionBuilder
     : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
 {
-    public CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)
+    internal CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)
     {
         Definition.sizeDefinition = characterSizeDefinition;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetMinimalAge(int minimalAge)
+    internal CharacterRaceDefinitionBuilder SetMinimalAge(int minimalAge)
     {
         Definition.minimalAge = minimalAge;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetMaximalAge(int maximalAge)
+    internal CharacterRaceDefinitionBuilder SetMaximalAge(int maximalAge)
     {
         Definition.minimalAge = maximalAge;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetBaseHeight(int baseHeight)
+    internal CharacterRaceDefinitionBuilder SetBaseHeight(int baseHeight)
     {
         Definition.baseHeight = baseHeight;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetBaseWeight(int baseWeight)
+    internal CharacterRaceDefinitionBuilder SetBaseWeight(int baseWeight)
     {
         Definition.baseWeight = baseWeight;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetRacePresentation(RacePresentation racePresentation)
+    internal CharacterRaceDefinitionBuilder SetRacePresentation(RacePresentation racePresentation)
     {
         Definition.racePresentation = racePresentation;
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
+    internal CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.Clear();
 
         AddFeaturesAtLevel(level, features);
 
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
+        }
+        else
+        {
+            features.Do(x => x.GuiPresentation.sortOrder = level);
+        }
+
         return this;
     }
 
-    public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
+    internal CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
 
@@ -69,7 +78,6 @@ internal class CharacterRaceDefinitionBuilder
 
         return this;
     }
-
 
     #region Constructors
 

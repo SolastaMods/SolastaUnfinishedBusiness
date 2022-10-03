@@ -23,7 +23,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal PatronMoonlit()
     {
         var spellListMoonlit = SpellListDefinitionBuilder
-            .Create(SpellListPaladin, "SpellListMoonlit")
+            .Create(SpellListWizard, "SpellListMoonlit")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, FaerieFire, Sleep)
@@ -31,7 +31,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .SetSpellsAtLevel(3, Daylight, Slow)
             .SetSpellsAtLevel(4, GreaterInvisibility, GuardianOfFaith)
             .SetSpellsAtLevel(5, DominatePerson, MindTwist)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinityMoonlitExpandedSpells = FeatureDefinitionMagicAffinityBuilder
@@ -289,7 +289,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         }
     }
 
-    public static FeatureDefinition Build()
+    internal static FeatureDefinition Build()
     {
         RevealedCondition = BuildRevealedCondition();
         InvisibilityCondition = BuildInvisibilityCondition();
@@ -406,26 +406,26 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
     {
         #region Constructors
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(
+        internal FeatureDefinitionMoonlitInvisibilityBuilder(
             string name,
             Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(
+        internal FeatureDefinitionMoonlitInvisibilityBuilder(
             string name,
             string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(
+        internal FeatureDefinitionMoonlitInvisibilityBuilder(
             FeatureDefinitionMoonlitInvisibility original,
             string name,
             Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionMoonlitInvisibilityBuilder(
+        internal FeatureDefinitionMoonlitInvisibilityBuilder(
             FeatureDefinitionMoonlitInvisibility original,
             string name,
             string definitionGuid) : base(original, name, definitionGuid)

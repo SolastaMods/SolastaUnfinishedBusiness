@@ -6,13 +6,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class PartyControlPanelPatcher
+public static class PartyControlPanelPatcher
 {
     [HarmonyPatch(typeof(PartyControlPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix([NotNull] PartyControlPanel __instance)
+        public static void Prefix([NotNull] PartyControlPanel __instance)
         {
             //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
@@ -31,9 +31,9 @@ internal static class PartyControlPanelPatcher
 
     [HarmonyPatch(typeof(PartyControlPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
-        internal static void Postfix(PartyControlPanel __instance)
+        public static void Postfix(PartyControlPanel __instance)
         {
             //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;

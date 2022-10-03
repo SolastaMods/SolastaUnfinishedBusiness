@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionAffinity
     where TBuilder : FeatureDefinitionAffinityBuilder<TDefinition, TBuilder>

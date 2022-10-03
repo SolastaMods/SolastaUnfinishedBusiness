@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    public class DefinitionReferenceConverter : JsonConverter
+    internal class DefinitionReferenceConverter : JsonConverter
     {
-        private static readonly Type _tBaseDefinition = typeof(BaseDefinition);
+        private static readonly Type TypeOfBaseDefinition = typeof(BaseDefinition);
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
@@ -29,7 +29,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
         public override bool CanConvert(Type objectType)
         {
-            return _tBaseDefinition.IsAssignableFrom(objectType);
+            return TypeOfBaseDefinition.IsAssignableFrom(objectType);
         }
     }
 }

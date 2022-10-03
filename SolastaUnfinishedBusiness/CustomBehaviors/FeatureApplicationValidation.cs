@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class FeatureApplicationValidation
 {
-    public static void ValidateActionPerformanceProviders(List<CodeInstruction> codes)
+    internal static void ValidateActionPerformanceProviders(List<CodeInstruction> codes)
     {
         var enumerate = new Action<
             RulesetActor,
@@ -55,7 +55,7 @@ internal static class FeatureApplicationValidation
         });
     }
 
-    public static void ValidateAdditionalActionProviders(List<CodeInstruction> codes)
+    internal static void ValidateAdditionalActionProviders(List<CodeInstruction> codes)
     {
         var enumerate = new Action<
             RulesetActor,
@@ -98,7 +98,7 @@ internal static class FeatureApplicationValidation
         });
     }
 
-    public static void ValidateAttributeModifiersFromConditions(List<CodeInstruction> codes)
+    internal static void ValidateAttributeModifiersFromConditions(List<CodeInstruction> codes)
     {
         //Replaces first `IsInst` operator with custom validator
 

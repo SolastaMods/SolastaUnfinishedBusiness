@@ -12,7 +12,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
     private readonly string type;
 
-    public ReactionRequestWarcaster(CharacterActionParams reactionParams)
+    internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
         BuildSuboptions();
@@ -80,7 +80,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         }
     }
 
-    public static List<SpellDefinition> GetValidCantrips(GameLocationBattleManager battle,
+    internal static List<SpellDefinition> GetValidCantrips(GameLocationBattleManager battle,
         GameLocationCharacter character, GameLocationCharacter target)
     {
         if (battle == null)

@@ -9,7 +9,7 @@ using GL = UnityEngine.GUILayout;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static partial class UI
+internal static partial class UI
 {
     private const int SliderTop = 3;
     private const int SliderBottom = -7;
@@ -33,14 +33,14 @@ public static partial class UI
 
     // Labels
 
-    public static void Label(string title, params GUILayoutOption[] options)
+    internal static void Label(string title, params GUILayoutOption[] options)
     {
         GL.Label(title, options.AddDefaults());
     }
 
     // Text Fields
 
-    public static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
+    internal static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
     {
         if (name != null) { GUI.SetNextControlName(name); }
 
@@ -48,7 +48,7 @@ public static partial class UI
         return text;
     }
 
-    public static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
+    internal static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
         TextField(ref text, name, options);
@@ -62,7 +62,7 @@ public static partial class UI
 
     // Action Text Fields
 
-    public static void ActionTextField(ref string text,
+    internal static void ActionTextField(ref string text,
         string name,
         Action<string> action,
         Action enterAction,
@@ -89,13 +89,13 @@ public static partial class UI
 
     // Action Buttons
 
-    public static void ActionButton(string title, Action action, params GUILayoutOption[] options)
+    internal static void ActionButton(string title, Action action, params GUILayoutOption[] options)
     {
         if (GL.Button(title, options.AddDefaults())) { action(); }
     }
 
     // Sliders
-    public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
+    internal static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         value = Math.Max(min, Math.Min(max, value)); // clamp it
@@ -147,7 +147,7 @@ public static partial class UI
         return changed;
     }
 
-    public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1,
+    internal static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1,
         string units = "", params GUILayoutOption[] options)
     {
         float fvalue = value;

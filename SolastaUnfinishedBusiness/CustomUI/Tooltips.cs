@@ -22,7 +22,7 @@ internal static class Tooltips
         }
     }
 
-    public static void UpdatePowerUses(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
+    internal static void UpdatePowerUses(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
     {
         if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
         {
@@ -64,7 +64,7 @@ internal static class Tooltips
         return $"{remainingUses}/{maxUses}";
     }
 
-    public static void UpdateCraftingTooltip(TooltipFeatureDescription description, ITooltip tooltip)
+    internal static void UpdateCraftingTooltip(TooltipFeatureDescription description, ITooltip tooltip)
     {
         if (!Main.Settings.ShowCraftingRecipeInDetailedTooltips)
         {

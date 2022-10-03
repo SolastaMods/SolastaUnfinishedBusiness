@@ -9,13 +9,13 @@ using static EquipmentDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class DeviceOverchargePanelPatcher
+public static class DeviceOverchargePanelPatcher
 {
     [HarmonyPatch(typeof(DeviceOverchargePanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             DeviceOverchargePanel __instance,
             RulesetItemDevice usableDevice,
             RulesetDeviceFunction usableDeviceFunction,
@@ -38,7 +38,7 @@ internal static class DeviceOverchargePanelPatcher
 
             if (provider != null)
             {
-                overcharge = provider.OverchargeSteps(Global.CurrentGuiCharacter);
+                overcharge = provider.OverchargeSteps(Global.CurrentCharacter);
                 num = overcharge.Length;
             }
             else

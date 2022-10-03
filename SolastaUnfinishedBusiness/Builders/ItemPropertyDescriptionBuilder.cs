@@ -3,11 +3,11 @@ using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class ItemPropertyDescriptionBuilder
+internal class ItemPropertyDescriptionBuilder
 {
     private readonly ItemPropertyDescription property;
 
-    public ItemPropertyDescriptionBuilder()
+    internal ItemPropertyDescriptionBuilder()
     {
         property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0])
         {
@@ -19,7 +19,7 @@ public class ItemPropertyDescriptionBuilder
         };
     }
 
-    public static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
+    internal static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
         EquipmentDefinitions.KnowledgeAffinity knowledgeAffinity =
             EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
     {
@@ -29,27 +29,27 @@ public class ItemPropertyDescriptionBuilder
             .SetKnowledgeAffinity(knowledgeAffinity);
     }
 
-    public ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)
+    internal ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)
     {
         property.type = ItemPropertyDescription.PropertyType.Condition;
         property.conditionDefinition = condition;
         return this;
     }
 
-    public ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
+    internal ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
     {
         property.type = ItemPropertyDescription.PropertyType.Feature;
         property.featureDefinition = feature;
         return this;
     }
 
-    public ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
+    internal ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
     {
         property.appliesOnItemOnly = value;
         return this;
     }
 
-    public ItemPropertyDescriptionBuilder SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity value)
+    internal ItemPropertyDescriptionBuilder SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity value)
     {
         property.knowledgeAffinity = value;
         return this;
@@ -66,7 +66,7 @@ public class ItemPropertyDescriptionBuilder
         }
     }
 
-    public ItemPropertyDescription Build()
+    internal ItemPropertyDescription Build()
     {
         Validate();
         return property;

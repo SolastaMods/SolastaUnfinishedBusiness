@@ -6,14 +6,14 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageAbilityScoresPanelPatcher
+public static class CharacterStageAbilityScoresPanelPatcher
 {
     //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Reset_Patch
+    public static class Reset_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             foreach (var instruction in instructions)
             {
@@ -40,9 +40,9 @@ internal static class CharacterStageAbilityScoresPanelPatcher
     //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             foreach (var instruction in instructions)
             {

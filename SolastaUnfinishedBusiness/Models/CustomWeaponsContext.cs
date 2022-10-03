@@ -14,37 +14,37 @@ using static RuleDefinitions.ItemRarity;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class CustomWeaponsContext
+internal static class CustomWeaponsContext
 {
     internal const string CeHandXbowType = "CEHandXbowType";
     private const string PolearmWeaponTag = "PolearmWeapon";
-    public static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
-    public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
-    public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
-    public static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
-    public static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    public static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
-    public static ItemDefinition ProducedFlameDart;
+    internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
+    internal static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
+    internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
+    internal static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
+    internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
+    internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
+    internal static ItemDefinition ProducedFlameDart;
 
-    public static readonly MerchantFilter GenericMelee = new() { IsMeleeWeapon = true };
-    public static readonly MerchantFilter MagicMelee = new() { IsMagicalMeleeWeapon = true };
-    public static readonly MerchantFilter PrimedMelee = new() { IsPrimedMeleeWeapon = true };
-    public static readonly MerchantFilter GenericRanged = new() { IsRangeWeapon = true };
-    public static readonly MerchantFilter MagicRanged = new() { IsMagicalRangeWeapon = true };
-    public static readonly MerchantFilter PrimedRanged = new() { IsPrimedRangeWeapon = true };
-    public static readonly MerchantFilter CraftingManual = new() { IsDocument = true };
+    internal static readonly MerchantFilter GenericMelee = new() { IsMeleeWeapon = true };
+    internal static readonly MerchantFilter MagicMelee = new() { IsMagicalMeleeWeapon = true };
+    internal static readonly MerchantFilter PrimedMelee = new() { IsPrimedMeleeWeapon = true };
+    internal static readonly MerchantFilter GenericRanged = new() { IsRangeWeapon = true };
+    internal static readonly MerchantFilter MagicRanged = new() { IsMagicalRangeWeapon = true };
+    internal static readonly MerchantFilter PrimedRanged = new() { IsPrimedRangeWeapon = true };
+    internal static readonly MerchantFilter CraftingManual = new() { IsDocument = true };
 
-    public static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
-    public static readonly ShopItemType ShopPrimedMelee = new(FactionStatusDefinitions.Sympathy, PrimedMelee);
-    public static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
-    public static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
-    public static readonly ShopItemType ShopGenericRanged = new(FactionStatusDefinitions.Indifference, GenericRanged);
-    public static readonly ShopItemType ShopPrimedRanged = new(FactionStatusDefinitions.Sympathy, PrimedRanged);
-    public static readonly ShopItemType ShopRangedPlus1 = new(FactionStatusDefinitions.Alliance, MagicRanged);
-    public static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
-    public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
+    internal static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
+    internal static readonly ShopItemType ShopPrimedMelee = new(FactionStatusDefinitions.Sympathy, PrimedMelee);
+    internal static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
+    internal static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
+    internal static readonly ShopItemType ShopGenericRanged = new(FactionStatusDefinitions.Indifference, GenericRanged);
+    internal static readonly ShopItemType ShopPrimedRanged = new(FactionStatusDefinitions.Sympathy, PrimedRanged);
+    internal static readonly ShopItemType ShopRangedPlus1 = new(FactionStatusDefinitions.Alliance, MagicRanged);
+    internal static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
+    internal static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
 
-    public static readonly List<string> PolearmWeaponTypes = new()
+    internal static readonly List<string> PolearmWeaponTypes = new()
     {
         WeaponTypeDefinitions.QuarterstaffType.Name, WeaponTypeDefinitions.SpearType.Name
     };
@@ -53,7 +53,7 @@ public static class CustomWeaponsContext
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
-    public static void Load()
+    internal static void Load()
     {
         BuildHandwraps();
         BuildHalberds();
@@ -74,6 +74,7 @@ public static class CustomWeaponsContext
     {
         //TODO: either create a builder for ItemPresentation, or add setter with custom values to ItemDefinitionBuilder
         var presentation = new ItemPresentation(basePresentation);
+        
         presentation.ItemFlags.Clear();
         presentation.assetReference = basePresentation.AssetReference;
         presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
@@ -82,6 +83,7 @@ public static class CustomWeaponsContext
             : Gui.NoLocalization;
 
         presentation.scaleFactorWhileWielded = scale;
+        
         return presentation;
     }
 
@@ -111,19 +113,21 @@ public static class CustomWeaponsContext
 
         if (twoHanded)
         {
-            builder.SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
+            builder
+                .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot);
         }
         else
         {
-            builder.SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot,
-                    SlotTypeDefinitions.ContainerSlot)
+            builder
+                .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot, SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
         }
 
         if (!properties.Empty())
         {
             builder.MakeMagical();
+            
             if (needId)
             {
                 builder.SetRequiresIdentification(true);
@@ -228,11 +232,13 @@ public static class CustomWeaponsContext
     private static void BuildHalberds()
     {
         var scale = new CustomScale(z: 3.5f);
+        
         HalberdWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
+        
         var baseItem = ItemDefinitions.Greataxe;
         var basePresentation = ItemDefinitions.Battleaxe.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -248,6 +254,7 @@ public static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
@@ -274,6 +281,7 @@ public static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
+        
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
@@ -303,11 +311,13 @@ public static class CustomWeaponsContext
     private static void BuildPikes()
     {
         var scale = new CustomScale(z: 3.5f);
+        
         PikeWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.SpearType, "CEPikeType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
+        
         var baseItem = ItemDefinitions.Spear;
         var basePresentation = ItemDefinitions.Morningstar.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -321,6 +331,7 @@ public static class CustomWeaponsContext
                 TagsDefinitions.WeaponTagTwoHanded
             }
         };
+        
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
         damageForm.dieType = RuleDefinitions.DieType.D10;
@@ -349,6 +360,7 @@ public static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
+        
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
@@ -380,11 +392,13 @@ public static class CustomWeaponsContext
     private static void BuildLongMaces()
     {
         var scale = new CustomScale(z: 3.5f);
+        
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
+        
         var baseItem = ItemDefinitions.Warhammer;
         var basePresentation = ItemDefinitions.Mace.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -400,6 +414,7 @@ public static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
@@ -426,6 +441,7 @@ public static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.MacePlus2;
+        
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
@@ -455,12 +471,14 @@ public static class CustomWeaponsContext
     private static void BuildHandXbow()
     {
         var scale = new CustomScale(0.5f);
+        
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
+        
         var baseItem = ItemDefinitions.LightCrossbow;
         var basePresentation = new ItemPresentation(baseItem.ItemPresentation);
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -478,11 +496,13 @@ public static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        
         damageForm.dieType = RuleDefinitions.DieType.D6;
         damageForm.diceNumber = 1;
 
         //add hand xbow proficiency to rogues
         var rogueHandXbowProficiency = FeatureDefinitionProficiencys.ProficiencyRogueWeapon;
+        
         rogueHandXbowProficiency.Proficiencies.Add(HandXbowWeaponType.Name);
 
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
@@ -510,6 +530,7 @@ public static class CustomWeaponsContext
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
+        
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
@@ -539,6 +560,7 @@ public static class CustomWeaponsContext
     private static void WeaponizeProducedFlame()
     {
         var flame = ItemDefinitions.ProducedFlame;
+        
         flame.GuiPresentation = new GuiPresentationBuilder(flame.GuiPresentation)
             .SetTitle("Item/&CEProducedFlameTitle")
             .Build();
@@ -547,10 +569,12 @@ public static class CustomWeaponsContext
             flame.ItemPresentation, icon: ProducedFlameThrow);
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
+        
         damageForm.damageType = RuleDefinitions.DamageTypeFire;
         damageForm.dieType = RuleDefinitions.DieType.D8;
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
+        
         weapon.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
                 damageType: RuleDefinitions.DamageTypeFire)
@@ -576,7 +600,7 @@ public static class CustomWeaponsContext
         }
     }
 
-    public static void TryAddItemsToUserMerchant(MerchantDefinition merchant)
+    internal static void TryAddItemsToUserMerchant(MerchantDefinition merchant)
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
@@ -637,7 +661,7 @@ public static class CustomWeaponsContext
             .SetRestock(1);
     }
 
-    // public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
+    // internal static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
     //     params ItemDefinition[] ingredients)
     // {
     //     return BuildRecipe(item, hours, difficulty, ingredients);
@@ -663,7 +687,7 @@ public static class CustomWeaponsContext
     }
 
     // [NotNull]
-    // public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
+    // internal static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
     // {
     //     return BuildManual(recipe);
     // }
@@ -695,10 +719,12 @@ public static class CustomWeaponsContext
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(item, primed));
     }
 
-    public static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero, [NotNull] RulesetAttackMode mode)
+    internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,
+        [NotNull] RulesetAttackMode mode)
     {
         var num = hero.characterInventory.CurrentConfiguration;
         var configurations = hero.characterInventory.WieldedItemsConfigurations;
+        
         if (num == configurations.Count - 1)
         {
             num = configurations[num].MainHandSlot.ShadowedSlot != configurations[0].MainHandSlot ? 1 : 0;
@@ -706,6 +732,7 @@ public static class CustomWeaponsContext
 
         var itemsConfiguration = configurations[num];
         RulesetItem item = null;
+        
         if (mode.SlotName == EquipmentDefinitions.SlotTypeMainHand)
         {
             item = itemsConfiguration.MainHandSlot.EquipedItem;
@@ -723,7 +750,7 @@ public static class CustomWeaponsContext
         hero.CharacterInventory.DefineWieldedItemsConfiguration(num, null, mode.SlotName);
     }
 
-    public static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (ValidatorsWeapon.IsPolearm(item))
         {
@@ -863,36 +890,36 @@ public static class CustomWeaponsContext
 }
 
 //TODO: move this to the separate shop context file
-public sealed class ShopItemType
+internal sealed class ShopItemType
 {
-    public readonly MerchantFilter Filter;
-    public readonly FactionStatusDefinition Status;
+    internal readonly MerchantFilter Filter;
+    internal readonly FactionStatusDefinition Status;
 
-    public ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
+    internal ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
     {
         Status = status;
         Filter = filter;
     }
 }
 
-public sealed class MerchantFilter
+internal sealed class MerchantFilter
 {
-    public bool? IsAmmunition = null;
-    public bool? IsArmor = null;
-    public bool? IsDocument;
+    internal bool? IsAmmunition = null;
+    internal bool? IsArmor = null;
+    internal bool? IsDocument;
 
-    public bool? IsMagicalAmmunition = null;
-    public bool? IsMagicalArmor = null;
-    public bool? IsMagicalMeleeWeapon;
-    public bool? IsMagicalRangeWeapon;
-    public bool? IsMeleeWeapon;
+    internal bool? IsMagicalAmmunition = null;
+    internal bool? IsMagicalArmor = null;
+    internal bool? IsMagicalMeleeWeapon;
+    internal bool? IsMagicalRangeWeapon;
+    internal bool? IsMeleeWeapon;
 
-    public bool? IsPrimedArmor = null;
-    public bool? IsPrimedMeleeWeapon;
-    public bool? IsPrimedRangeWeapon;
-    public bool? IsRangeWeapon;
+    internal bool? IsPrimedArmor = null;
+    internal bool? IsPrimedMeleeWeapon;
+    internal bool? IsPrimedRangeWeapon;
+    internal bool? IsRangeWeapon;
 
-    public bool Matches(MerchantTypeContext.MerchantType merchantType)
+    internal bool Matches(MerchantTypeContext.MerchantType merchantType)
     {
         return (IsAmmunition == null || IsAmmunition == merchantType.IsAmmunition) &&
                (IsArmor == null || IsArmor == merchantType.IsArmor) &&
@@ -909,9 +936,9 @@ public sealed class MerchantFilter
     }
 }
 
-public sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
+internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 {
-    public ModifyProducedFlameDice() : base((_, weapon, _) =>
+    internal ModifyProducedFlameDice() : base((_, weapon, _) =>
         weapon != null && weapon.ItemDefinition == ItemDefinitions.ProducedFlame)
     {
     }
@@ -932,9 +959,9 @@ public sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
     }
 }
 
-public sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
+internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
 {
-    public AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main, false)
+    internal AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main, false)
     {
     }
 
@@ -984,15 +1011,15 @@ public sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
     }
 }
 
-public sealed class CustomScale
+internal sealed class CustomScale
 {
-    public readonly float X, Y, Z;
+    internal readonly float X, Y, Z;
 
-    public CustomScale(float s) : this(s, s, s)
+    internal CustomScale(float s) : this(s, s, s)
     {
     }
 
-    public CustomScale(float x = 1f, float y = 1f, float z = 1f)
+    internal CustomScale(float x = 1f, float y = 1f, float z = 1f)
     {
         X = x;
         Y = y;

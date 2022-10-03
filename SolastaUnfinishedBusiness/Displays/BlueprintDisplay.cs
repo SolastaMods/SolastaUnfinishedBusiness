@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-public static class BlueprintDisplay
+internal static class BlueprintDisplay
 {
     private static IEnumerable<BaseDefinition> _allBlueprints;
 
@@ -138,7 +138,7 @@ public static class BlueprintDisplay
         }
     }
 
-    public static void DisplayBlueprints()
+    internal static void DisplayBlueprints()
     {
         if (!Main.Enabled)
         {

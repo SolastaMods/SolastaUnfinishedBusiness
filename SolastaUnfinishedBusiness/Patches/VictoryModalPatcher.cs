@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class VictoryModalPatcher
+public static class VictoryModalPatcher
 {
     [HarmonyPatch(typeof(VictoryModal), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix([NotNull] VictoryModal __instance)
+        public static void Prefix([NotNull] VictoryModal __instance)
         {
             //PATCH: scales down the victory modal whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;

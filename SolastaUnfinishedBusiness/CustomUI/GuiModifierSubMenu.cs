@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class GuiModifierSubMenu : GuiModifier
+internal class GuiModifierSubMenu : GuiModifier
 {
     private readonly List<Vector3> itemPositions = new();
     private Image background;
@@ -14,7 +14,7 @@ public class GuiModifierSubMenu : GuiModifier
     private Vector3 headerPosition;
     private Vector2 headerSize;
 
-    public void Init(Image bkg, RectTransform table)
+    internal void Init(Image bkg, RectTransform table)
     {
         featTable = table;
         background = bkg;
@@ -53,7 +53,7 @@ public class GuiModifierSubMenu : GuiModifier
     }
 
 
-    public void Clean()
+    internal void Clean()
     {
         itemPositions.Clear();
     }

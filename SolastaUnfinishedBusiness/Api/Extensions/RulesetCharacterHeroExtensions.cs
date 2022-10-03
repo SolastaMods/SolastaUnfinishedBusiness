@@ -4,10 +4,11 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
-public static class RulesetCharacterHeroExtensions
+internal static class RulesetCharacterHeroExtensions
 {
     [NotNull]
-    public static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero) where T : class
+    internal static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero)
+        where T : class
     {
         var list = new List<(string, T)>();
 
@@ -43,7 +44,7 @@ public static class RulesetCharacterHeroExtensions
         return list;
     }
 
-    public static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
+    internal static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
     {
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
@@ -60,7 +61,7 @@ public static class RulesetCharacterHeroExtensions
                && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     }
 
-    public static bool IsWearingMediumArmor([NotNull] this RulesetCharacterHero hero)
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacterHero hero)
     {
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
@@ -77,7 +78,7 @@ public static class RulesetCharacterHeroExtensions
                && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
     }
 
-    public static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
+    internal static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacterHero hero)
     {
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
@@ -90,21 +91,20 @@ public static class RulesetCharacterHeroExtensions
         return false;
     }
 
-    public static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+    internal static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {
         return classDefinition != null && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
             ? classLevel
             : 0;
     }
 
-    public static int GetClassLevel(this RulesetCharacterHero hero, string className)
+    internal static int GetClassLevel(this RulesetCharacterHero hero, string className)
     {
         return hero.GetClassLevel(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .GetAllElements()
             .FirstOrDefault(x => x.Name == className));
     }
 
-    public static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
+    internal static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
     {
         var slotsByName = hero.CharacterInventory.InventorySlotsByName;
         return slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;

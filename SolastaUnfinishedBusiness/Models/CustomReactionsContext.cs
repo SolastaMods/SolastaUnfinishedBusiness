@@ -14,12 +14,12 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class CustomReactionsContext
+internal static class CustomReactionsContext
 {
     private static bool _forcePreferredCantrip; //used by actual feature
     private static bool _forcePreferredCantripUI; //used for local UI state
 
-    public static void Load()
+    internal static void Load()
     {
         MakeReactDefinition(ReactionRequestWarcaster.Name);
         MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
@@ -100,7 +100,7 @@ public static class CustomReactionsContext
         }
     }
 
-    public static void SetupForcePreferredToggle(RectTransform parent)
+    internal static void SetupForcePreferredToggle(RectTransform parent)
     {
         PersonalityFlagToggle toggle;
 
@@ -157,7 +157,7 @@ public static class CustomReactionsContext
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 
-    public static void ForcePreferredCantripUsage(List<CodeInstruction> codes)
+    internal static void ForcePreferredCantripUsage(List<CodeInstruction> codes)
     {
         var customBindMethod =
             new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;

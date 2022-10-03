@@ -8,23 +8,23 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
+internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
 {
-    public const string REQUIRE_CHARACTER_LEVEL = "Requirement/&FeatureSelectionRequireCharacterLevel";
-    public const string REQUIRE_CLASS_LEVEL = "Requirement/&FeatureSelectionRequireClassLevel";
+    internal const string RequireCharacterLevel = "Requirement/&FeatureSelectionRequireCharacterLevel";
+    internal const string RequireClassLevel = "Requirement/&FeatureSelectionRequireClassLevel";
 
     private readonly GuiPresentation _guiPresentation;
     private string _prerequisites = string.Empty;
     private string _subtitle;
 
-    public override string TooltipClass => "FeatDefinition";
-
-    public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
+    internal CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
         baseDefinition)
     {
         _guiPresentation = guiPresentation;
         _subtitle = GetDefaultSubtitle();
     }
+
+    public override string TooltipClass => "FeatDefinition";
 
     public override string Description => BaseDefinition.FormatDescription();
 
@@ -57,7 +57,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
             image.sprite = null;
         }
 
-        if (_guiPresentation is {SpriteReference: { }} && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
+        if (_guiPresentation is { SpriteReference: { } } && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
         {
             image.gameObject.SetActive(true);
             image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);
@@ -68,12 +68,12 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
         }
     }
 
-    public void SetPrerequisites(params string[] missingRequirements)
+    internal void SetPrerequisites(params string[] missingRequirements)
     {
         SetPrerequisites(missingRequirements.ToList());
     }
 
-    public CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
+    internal CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
     {
         _prerequisites = missingRequirements == null || missingRequirements.Empty()
             ? string.Empty
@@ -82,7 +82,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
         return this;
     }
 
-    public CustomTooltipProvider SetSubtitle(string subtitle)
+    internal CustomTooltipProvider SetSubtitle(string subtitle)
     {
         _subtitle = string.IsNullOrEmpty(subtitle)
             ? GetDefaultSubtitle()
@@ -92,7 +92,7 @@ public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider
     }
 }
 
-class CustomItemTooltipProvider : CustomTooltipProvider,
+internal class CustomItemTooltipProvider : CustomTooltipProvider,
     IArmorParametersProvider,
     IWeaponParametersProvider,
     IAmmunitionParametersProvider,
@@ -109,60 +109,54 @@ class CustomItemTooltipProvider : CustomTooltipProvider,
     IDeviceFunctionsEnumeratorProvider,
     IItemPropertiesEnumeratorProvider
 {
-    public const string ItemWithPrereqsTooltip = "ItemWithPrereqsDefinition";
+    internal const string ItemWithPreReqsTooltip = "ItemWithPrereqsDefinition";
 
-    [NotNull] private GuiItemDefinition _guiItem;
+    [NotNull] private readonly GuiItemDefinition _guiItem;
 
-    public CustomItemTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation,
+    internal CustomItemTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation,
         ItemDefinition item)
         : base(baseDefinition, guiPresentation)
     {
         _guiItem = new GuiItemDefinition(item);
     }
 
-    public override string TooltipClass => ItemWithPrereqsTooltip;
+    public override string TooltipClass => ItemWithPreReqsTooltip;
+    public string AmmunitionDescription => _guiItem.AmmunitionDescription;
 
 
     //IArmorParametersProvider
     public string ArmorDescription => _guiItem.ArmorDescription;
-
-    //IWeaponParametersProvider
-    public bool IsWeapon => _guiItem.IsWeapon;
-    public string WeaponInfoHeader => _guiItem.WeaponInfoHeader;
-    public float ReachDistance => _guiItem.ReachDistance;
-    public float CloseRangeDistance => _guiItem.CloseRangeDistance;
-    public float MaxRangeDistance => _guiItem.MaxRangeDistance;
-    public int AttackRollModifier => _guiItem.AttackRollModifier;
-    public bool VersatileOnFirstDamage => _guiItem.VersatileOnFirstDamage;
-    public bool HasSavingThrow => _guiItem.HasSavingThrow;
-    public string EffectsHeader => _guiItem.EffectsHeader;
-    public int DamageRollModifier => _guiItem.DamageRollModifier;
-    public int RangeParameter => _guiItem.RangeParameter;
-    public bool ForceTight => _guiItem.ForceTight;
-    public RuleDefinitions.EffectApplication EffectApplication => _guiItem.EffectApplication;
-    public string SpecialFormsDescription => _guiItem.SpecialFormsDescription;
-    public List<EffectForm> EffectForms => _guiItem.EffectForms;
-    public string AmmunitionDescription => _guiItem.AmmunitionDescription;
-    public string StarterPackDescription => _guiItem.StarterPackDescription;
-    public string LightSourceDescription => _guiItem.LightSourceDescription;
     public bool IsContainer => _guiItem.IsContainer;
     public string ContainerWeightCapacityMultiplier => _guiItem.ContainerWeightCapacityMultiplier;
-    public string SpellbookDescription => _guiItem.SpellbookDescription;
-    public string StackableDescription => _guiItem.StackableDescription;
-    public bool DynamicDuration => _guiItem.DynamicDuration;
-    public string DurationDescription => _guiItem.DurationDescription;
-    public ItemDefinition ItemDefinition => _guiItem.ItemDefinition;
 
-    public Dictionary<string, TagsDefinitions.Criticity> EnumerateTags(object context)
+    public string FormatFunctionDescription(RulesetDeviceFunction function, RulesetCharacter character, bool inCombat)
     {
-        return _guiItem.EnumerateTags(context);
+        return _guiItem.FormatFunctionDescription(function, character, inCombat);
     }
+
+    public bool FunctionListIsKnown => _guiItem.FunctionListIsKnown;
+    public bool HasUsableFunctions => _guiItem.HasUsableFunctions;
+    public List<DeviceFunctionDescription> FunctionDescriptions => _guiItem.FunctionDescriptions;
+    public List<RulesetDeviceFunction> UsableFunctions => _guiItem.UsableFunctions;
 
     public bool CanAccessDeviceParameters => _guiItem.CanAccessDeviceParameters;
     public EquipmentDefinitions.ItemUsage Usage => _guiItem.Usage;
     public string UsageText => _guiItem.UsageText;
     public string Charges => _guiItem.Charges;
     public string Recharge => _guiItem.Recharge;
+
+    public string AttunementInfo => _guiItem.AttunementInfo;
+    public bool DynamicDuration => _guiItem.DynamicDuration;
+    public string DurationDescription => _guiItem.DurationDescription;
+    public bool VersatileOnFirstDamage => _guiItem.VersatileOnFirstDamage;
+    public bool HasSavingThrow => _guiItem.HasSavingThrow;
+    public string EffectsHeader => _guiItem.EffectsHeader;
+    public int RangeParameter => _guiItem.RangeParameter;
+    public bool ForceTight => _guiItem.ForceTight;
+    public RuleDefinitions.EffectApplication EffectApplication => _guiItem.EffectApplication;
+    public string SpecialFormsDescription => _guiItem.SpecialFormsDescription;
+    public List<EffectForm> EffectForms => _guiItem.EffectForms;
+    public ItemDefinition ItemDefinition => _guiItem.ItemDefinition;
 
     public bool IsAttunementValid(RulesetCharacter character)
     {
@@ -174,16 +168,22 @@ class CustomItemTooltipProvider : CustomTooltipProvider,
     public bool IsUsableDevice => _guiItem.IsUsableDevice;
 
     public List<ItemPropertyDescription> PropertiesList => _guiItem.PropertiesList;
+    public string LightSourceDescription => _guiItem.LightSourceDescription;
+    public string SpellbookDescription => _guiItem.SpellbookDescription;
+    public string StackableDescription => _guiItem.StackableDescription;
+    public string StarterPackDescription => _guiItem.StarterPackDescription;
 
-    public string AttunementInfo => _guiItem.AttunementInfo;
-
-    public string FormatFunctionDescription(RulesetDeviceFunction function, RulesetCharacter character, bool inCombat)
+    public Dictionary<string, TagsDefinitions.Criticity> EnumerateTags(object context)
     {
-        return _guiItem.FormatFunctionDescription(function, character, inCombat);
+        return _guiItem.EnumerateTags(context);
     }
 
-    public bool FunctionListIsKnown => _guiItem.FunctionListIsKnown;
-    public bool HasUsableFunctions => _guiItem.HasUsableFunctions;
-    public List<DeviceFunctionDescription> FunctionDescriptions => _guiItem.FunctionDescriptions;
-    public List<RulesetDeviceFunction> UsableFunctions => _guiItem.UsableFunctions;
+    //IWeaponParametersProvider
+    public bool IsWeapon => _guiItem.IsWeapon;
+    public string WeaponInfoHeader => _guiItem.WeaponInfoHeader;
+    public float ReachDistance => _guiItem.ReachDistance;
+    public float CloseRangeDistance => _guiItem.CloseRangeDistance;
+    public float MaxRangeDistance => _guiItem.MaxRangeDistance;
+    public int AttackRollModifier => _guiItem.AttackRollModifier;
+    public int DamageRollModifier => _guiItem.DamageRollModifier;
 }

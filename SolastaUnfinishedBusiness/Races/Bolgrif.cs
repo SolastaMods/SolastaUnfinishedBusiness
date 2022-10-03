@@ -42,13 +42,12 @@ internal static class RaceBolgrifBuilder
         var bolgrifInvisibilityEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.Invisibility.EffectDescription)
             .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .ClearEffectAdvancements()
             .SetTargetingData(
                 RuleDefinitions.Side.Ally,
                 RuleDefinitions.RangeType.Self, 1,
                 RuleDefinitions.TargetType.Self)
             .Build();
-
-        bolgrifInvisibilityEffect.EffectAdvancement.Clear();
 
         var powerBolgrifInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerBolgrifInvisibility")

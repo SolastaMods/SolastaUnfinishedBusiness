@@ -15,7 +15,7 @@ using SolastaUnfinishedBusiness.Properties;
 
 namespace SolastaUnfinishedBusiness.Utils;
 
-public static class Translations
+internal static class Translations
 {
     internal const string English = "en";
 

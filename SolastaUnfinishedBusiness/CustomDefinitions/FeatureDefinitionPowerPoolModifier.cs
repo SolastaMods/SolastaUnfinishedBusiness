@@ -2,9 +2,9 @@
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public sealed class FeatureDefinitionPowerPoolModifier : FeatureDefinitionPower, IPowerPoolModifier
+internal sealed class FeatureDefinitionPowerPoolModifier : FeatureDefinitionPower, IPowerPoolModifier
 {
-    public FeatureDefinitionPower PoolPower { get; set; }
+    internal FeatureDefinitionPower PoolPower { get; set; }
 
     public FeatureDefinitionPower GetUsagePoolPower()
     {

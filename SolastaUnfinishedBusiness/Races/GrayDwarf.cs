@@ -59,17 +59,18 @@ internal static class GrayDwarfSubraceBuilder
             .SetFeatures(abilityCheckAffinityGrayDwarfLightSensitivity, grayDwarfCombatAffinityLightSensitivity)
             .AddToDB();
 
+        // this allows the condition to still display as a label on character panel
         Global.CharacterLabelEnabledConditions.Add(conditionGrayDwarfLightSensitive);
-
-        var grayDwarfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-        {
-            lightingState = LocationDefinitions.LightingState.Bright, condition = conditionGrayDwarfLightSensitive
-        };
 
         var lightAffinityGrayDwarfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityGrayDwarfLightSensitivity")
             .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(grayDwarfLightingEffectAndCondition)
+            .AddLightingEffectAndCondition(
+                new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+                {
+                    lightingState = LocationDefinitions.LightingState.Bright,
+                    condition = conditionGrayDwarfLightSensitive
+                })
             .AddToDB();
 
         var conditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
@@ -145,8 +146,6 @@ internal static class GrayDwarfSubraceBuilder
                 additionalDamageGrayDwarfStoneStrength)
             .AddToDB();
 
-        Global.CharacterLabelEnabledConditions.Add(conditionGrayDwarfStoneStrength);
-
         var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
             .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
@@ -156,8 +155,7 @@ internal static class GrayDwarfSubraceBuilder
                 RuleDefinitions.TargetType.Self)
             .Build();
 
-        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition =
-            conditionGrayDwarfStoneStrength;
+        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = conditionGrayDwarfStoneStrength;
 
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength")

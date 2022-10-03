@@ -9,40 +9,39 @@ using SolastaUnfinishedBusiness.Api.ModKit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public abstract class ResultNode
+internal abstract class ResultNode
 {
-    public virtual string Name { get; }
+    internal virtual string Name { get; }
 
-    public virtual Type Type { get; }
+    internal virtual Type Type { get; }
 
-    public virtual string NodeTypePrefix { get; }
+    internal virtual string NodeTypePrefix { get; }
 
-    public virtual string ValueText { get; }
+    internal virtual string ValueText { get; }
 }
 
-public class ResultNode<TNode> : ResultNode where TNode : class
+internal class ResultNode<TNode> : ResultNode where TNode : class
 {
-    public delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     protected const BindingFlags ALL_FLAGS =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-    public TNode Node { get; set; }
+    internal TNode Node { get; set; }
 
-    public HashSet<TNode> matches => Children.Select(c => c.Node).ToHashSet();
+    internal HashSet<TNode> matches => Children.Select(c => c.Node).ToHashSet();
 
-    public List<ResultNode<TNode>> Children { get; } = new();
+    internal List<ResultNode<TNode>> Children { get; } = new();
 
-    public ToggleState ToggleState { get; set; } = ToggleState.Off;
+    internal ToggleState ToggleState { get; set; } = ToggleState.Off;
 
-    public ToggleState ShowSiblings { get; set; } = ToggleState.Off;
+    internal ToggleState ShowSiblings { get; set; } = ToggleState.Off;
 
-    public int Count { get; set; }
+    internal int Count { get; set; }
 
-    public bool IsMatch { get; set; }
+    internal bool IsMatch { get; set; }
 
-    public void Traverse(TraversalCallback callback, int depth = 0)
+    internal void Traverse(TraversalCallback callback, int depth = 0)
     {
         if (!callback(this, depth))
         {
@@ -55,7 +54,7 @@ public class ResultNode<TNode> : ResultNode where TNode : class
         }
     }
 
-    public ResultNode<TNode> FindChild(TNode node)
+    internal ResultNode<TNode> FindChild(TNode node)
     {
         return Children.Find(rn => rn.Node == node);
     }
@@ -77,7 +76,7 @@ public class ResultNode<TNode> : ResultNode where TNode : class
         return rNode;
     }
 
-    public void AddSearchResult(IEnumerable<TNode> path)
+    internal void AddSearchResult(IEnumerable<TNode> path)
     {
         var rnode = this;
         Count++;
@@ -88,7 +87,7 @@ public class ResultNode<TNode> : ResultNode where TNode : class
         }
     }
 
-    public void Clear()
+    internal void Clear()
     {
         Node = null;
         Count = 0;
@@ -106,16 +105,18 @@ public class ResultNode<TNode> : ResultNode where TNode : class
     {
         return BuildString(new StringBuilder().Append('\n'), 0).ToString();
     }
+
+    internal delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 }
 
-public class ReflectionSearchResult : ResultNode<Node>
+internal class ReflectionSearchResult : ResultNode<Node>
 {
-    public override string Name => Node.Name;
-    public override Type Type => Node.Type;
-    public override string NodeTypePrefix => Node.NodeTypePrefix;
-    public override string ValueText => Node.ValueText;
+    internal override string Name => Node.Name;
+    internal override Type Type => Node.Type;
+    internal override string NodeTypePrefix => Node.NodeTypePrefix;
+    internal override string ValueText => Node.ValueText;
 
-    public void AddSearchResult(Node node)
+    internal void AddSearchResult(Node node)
     {
         if (node == null)
         {

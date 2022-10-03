@@ -36,7 +36,7 @@ internal static class SrdAndHouseRulesContext
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
     }
 
-    public static void LateLoad()
+    internal static void LateLoad()
     {
         FixDivineSmiteRestrictions();
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
@@ -438,9 +438,7 @@ internal static class ConjurationsContext
         FeyBear, // CR 4
         Green_Hag, // CR 3
         FeyWolf, // CR 2
-        FeyDriad, // CR 1
-
-        Adam_The_Twelth
+        FeyDriad // CR 1
     };
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
@@ -501,7 +499,7 @@ internal static class ConjurationsContext
 internal static class ArmorClassStacking
 {
     //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
-    public static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInCharacter(
+    internal static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInCharacter(
         IEnumerable<CodeInstruction> instructions)
     {
         var method =
@@ -526,7 +524,7 @@ internal static class ArmorClassStacking
         }
     }
 
-    public static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInFeature(
+    internal static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInFeature(
         IEnumerable<CodeInstruction> instructions)
     {
         var method =
@@ -572,7 +570,7 @@ internal static class ArmorClassStacking
 
     // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
     // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-    public static IEnumerable<CodeInstruction> UnstackAcTranspile(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> UnstackAcTranspile(IEnumerable<CodeInstruction> instructions)
     {
         var sort = new Action<List<RulesetAttributeModifier>>(RulesetAttributeModifier.SortAttributeModifiersList)
             .Method;
@@ -682,7 +680,7 @@ internal static class ArmorClassStacking
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 
-    public static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefreshTranspiler(
+    internal static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefreshTranspiler(
         IEnumerable<CodeInstruction> instructions)
     {
         var sort = new Action<
@@ -725,9 +723,9 @@ internal static class ArmorClassStacking
 ///     combining
 ///     different types of items with the tag 'gem'.
 /// </summary>
-public static class StackedMaterialComponent
+internal static class StackedMaterialComponent
 {
-    public static void IsComponentMaterialValid(
+    internal static void IsComponentMaterialValid(
         RulesetCharacter character,
         SpellDefinition spellDefinition,
         ref string failure,
@@ -760,7 +758,7 @@ public static class StackedMaterialComponent
     }
 
     //Modify original code to spend enough of a stack to meet component cost
-    public static bool SpendSpellMaterialComponentAsNeeded(RulesetCharacter character, RulesetEffectSpell activeSpell)
+    internal static bool SpendSpellMaterialComponentAsNeeded(RulesetCharacter character, RulesetEffectSpell activeSpell)
     {
         if (!Main.Settings.AllowStackedMaterialComponent)
         {
@@ -932,8 +930,7 @@ internal static class UpcastConjureElementalAndFey
                 s.SpellDefinition,
                 s.MonsterDefinitionName,
                 ChallengeRating =
-                    DatabaseRepository.GetDatabase<MonsterDefinition>()
-                        .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                    TryGetDefinition<MonsterDefinition>(s.MonsterDefinitionName, out var monsterDefinition)
                         ? monsterDefinition.ChallengeRating
                         : int.MaxValue
             })

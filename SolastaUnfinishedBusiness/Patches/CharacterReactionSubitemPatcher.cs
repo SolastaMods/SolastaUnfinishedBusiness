@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterReactionSubitemPatcher
+public static class CharacterReactionSubitemPatcher
 {
     //PATCH: creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
         public static void Postfix(
             CharacterReactionSubitem __instance,
@@ -34,7 +34,7 @@ internal static class CharacterReactionSubitemPatcher
 
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
         public static void Prefix(CharacterReactionSubitem __instance)
         {

@@ -3,9 +3,9 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public static class ArrayExtensions
+internal static class ArrayExtensions
 {
-    public static void ForEach([NotNull] this Array array, Action<Array, int[]> action)
+    internal static void ForEach([NotNull] this Array array, Action<Array, int[]> action)
     {
         if (array.LongLength == 0)
         {
@@ -25,7 +25,7 @@ internal sealed class ArrayTraverse
 {
     private readonly int[] maxLengths;
 
-    public ArrayTraverse([NotNull] Array array)
+    internal ArrayTraverse([NotNull] Array array)
     {
         maxLengths = new int[array.Rank];
 
@@ -37,9 +37,9 @@ internal sealed class ArrayTraverse
         Position = new int[array.Rank];
     }
 
-    public int[] Position { get; }
+    internal int[] Position { get; }
 
-    public bool Step()
+    internal bool Step()
     {
         for (var i = 0; i < Position.Length; ++i)
         {

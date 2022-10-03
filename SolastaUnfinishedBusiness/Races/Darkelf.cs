@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -17,40 +18,46 @@ internal static class DarkelfSubraceBuilder
 {
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
+    internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
+
+    internal static FeatureDefinitionPower PowerDarkelfFaerieFire { get; private set; }
+
+    internal static FeatureDefinitionPower PowerDarkelfDarkness { get; private set; }
+
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
         var darkelfSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
-        var darkelfAbilityScoreModifierCharisma = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Charisma, 1)
             .AddToDB();
 
-        var darkElfPerceptionLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
+        var abilityCheckAffinityDarkelfLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityDarkelfLightSensitivity")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
+                CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
-        darkElfPerceptionLightSensitivity.AffinityGroups[0].lightingContext =
-            RuleDefinitions.LightingContext.BrightLight;
+        abilityCheckAffinityDarkelfLightSensitivity.AffinityGroups[0].lightingContext =
+            LightingContext.BrightLight;
 
-        var darkelfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
+        var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
                 "CombatAffinityDarkelfLightSensitivity")
             .SetGuiPresentation("LightAffinityDarkelfLightSensitivity", Category.Feature)
-            .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.None)
-            .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
-            .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
+            .SetMyAttackAdvantage(AdvantageType.None)
+            .SetMyAttackModifierSign(AttackModifierSign.Substract)
+            .SetMyAttackModifierDieType(DieType.D4)
             .AddToDB();
 
-        var darkelfConditionLightSensitive = ConditionDefinitionBuilder
+        var conditionDarkelfLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive")
             .SetGuiPresentation(
                 "LightAffinityDarkelfLightSensitivity",
@@ -58,74 +65,74 @@ internal static class DarkelfSubraceBuilder
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)
-            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-            .SetFeatures(darkElfPerceptionLightSensitivity, darkelfCombatAffinityLightSensitivity)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(abilityCheckAffinityDarkelfLightSensitivity, combatAffinityDarkelfLightSensitivity)
             .AddToDB();
 
         // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(darkelfConditionLightSensitive);
+        Global.CharacterLabelEnabledConditions.Add(conditionDarkelfLightSensitive);
 
-        var darkelfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-        {
-            lightingState = LocationDefinitions.LightingState.Bright, condition = darkelfConditionLightSensitive
-        };
-
-        var darkelfLightAffinity = FeatureDefinitionLightAffinityBuilder
+        var lightAffinityDarkelfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityDarkelfLightSensitivity")
             .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
+            .AddLightingEffectAndCondition(
+                new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+                {
+                    lightingState = LocationDefinitions.LightingState.Bright,
+                    condition = conditionDarkelfLightSensitive
+                })
             .AddToDB();
 
-        var darkelfMagicSpellList = SpellListDefinitionBuilder
+        var spellListDarkelfMagic = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelfMagic")
             .SetGuiPresentationNoContent()
             .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
             .FinalizeSpells()
             .AddToDB();
 
-        var darkelfDarkMagic = FeatureDefinitionCastSpellBuilder
+        CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellList(darkelfMagicSpellList)
+            .SetSpellList(spellListDarkelfMagic)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 
-        var darkelfFaerieFirePower = FeatureDefinitionPowerBuilder
+        PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription.Copy())
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
-        darkelfFaerieFirePower.EffectDescription.difficultyClassComputation =
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        darkelfFaerieFirePower.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        darkelfFaerieFirePower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+        PowerDarkelfFaerieFire.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        PowerDarkelfFaerieFire.EffectDescription.fixedSavingThrowDifficultyClass = 8;
+        PowerDarkelfFaerieFire.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
-        var darkelfDarknessPower = FeatureDefinitionPowerBuilder
+        PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
             .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription.Copy())
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
+            .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+            .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
-        darkelfDarknessPower.EffectDescription.difficultyClassComputation =
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        darkelfDarknessPower.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+        PowerDarkelfDarkness.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        PowerDarkelfDarkness.EffectDescription.fixedSavingThrowDifficultyClass = 8;
+        PowerDarkelfDarkness.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
-        var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
+        var proficiencyDarkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyDarkelfWeaponTraining")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
+            .SetProficiencies(ProficiencyType.Weapon,
                 CustomWeaponsContext.HandXbowWeaponType.Name,
                 WeaponTypeDefinitions.RapierType.Name,
                 WeaponTypeDefinitions.ShortswordType.Name)
@@ -133,17 +140,17 @@ internal static class DarkelfSubraceBuilder
 
         var darkelfRacePresentation = Elf.RacePresentation.DeepCopy();
 
+        darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
+        darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
+        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+        darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
+
         darkelfRacePresentation.surNameOptions = new List<string>();
 
         for (var i = 1; i <= 5; i++)
         {
             darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
         }
-
-        darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
-        darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
-        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
-        darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 
         var darkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceDarkelf")
@@ -153,12 +160,12 @@ internal static class DarkelfSubraceBuilder
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
-                darkelfAbilityScoreModifierCharisma,
-                darkelfWeaponTraining,
-                darkelfDarkMagic,
-                darkelfLightAffinity)
-            .AddFeaturesAtLevel(3, darkelfFaerieFirePower)
-            .AddFeaturesAtLevel(5, darkelfDarknessPower)
+                attributeModifierDarkelfCharismaAbilityScoreIncrease,
+                proficiencyDarkelfWeaponTraining,
+                CastSpellDarkelfMagic,
+                lightAffinityDarkelfLightSensitivity)
+            .AddFeaturesAtLevel(3, PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5, PowerDarkelfDarkness)
             .AddToDB();
 
         darkelf.subRaces.Clear();

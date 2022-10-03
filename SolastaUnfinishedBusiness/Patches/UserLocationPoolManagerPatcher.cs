@@ -9,14 +9,14 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class UserLocationPoolManagerPatcher
+public static class UserLocationPoolManagerPatcher
 {
     //PATCH: allows the last X campaign files to be backed up in the mod folder
     [HarmonyPatch(typeof(UserLocationPoolManager), "SaveUserLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SaveUserLocation_Patch
+    public static class SaveUserLocation_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
             var backupAndDeleteMethod = new Action<string, UserContent>(DungeonMakerContext.BackupAndDelete).Method;

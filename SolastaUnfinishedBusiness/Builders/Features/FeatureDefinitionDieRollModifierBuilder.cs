@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionDieRollModifierBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
 {
-    public FeatureDefinitionDieRollModifierBuilder SetModifiers(
+    internal FeatureDefinitionDieRollModifierBuilder SetModifiers(
         RuleDefinitions.RollContext context, int rerollCount, int minRollValue, int minReRollValue,
         string consoleLocalizationKey)
     {

@@ -26,7 +26,7 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", _ => 2);
 
-    private static CustomInvocationPoolDefinition Learn2, Learn4, Unlearn;
+    private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
 
     private static CharacterClassDefinition Class { get; set; }
 
@@ -34,7 +34,6 @@ internal static class InventorClass
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
-
 
     public static CharacterClassDefinition Build()
     {
@@ -46,9 +45,9 @@ internal static class InventorClass
         InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
 
-        Learn2 = BuildLearn(2);
-        Learn4 = BuildLearn(4);
-        Unlearn = BuildUnlearn();
+        _learn2 = BuildLearn(2);
+        _learn4 = BuildLearn(4);
+        _unlearn = BuildUnlearn();
 
         Infusions.Build();
 
@@ -175,7 +174,31 @@ internal static class InventorClass
                 .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                 .SetProficiencies(ProficiencyType.SavingThrow,
                     AttributeDefinitions.Intelligence,
-                    AttributeDefinitions.Dexterity)
+                    AttributeDefinitions.Constitution)
+                .AddToDB())
+
+            // Tools Proficiency
+            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyInventorTools")
+                .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
+                .SetProficiencies(ProficiencyType.Tool,
+                    ToolTypeDefinitions.ThievesToolsType.Name,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                .AddToDB())
+
+            // Tool Selection
+            .AddFeaturesAtLevel(1, FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolInventorTools")
+                .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
+                .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+                .OnlyUniqueChoices()
+                .RestrictChoices(
+                    ToolTypeDefinitions.DisguiseKitType.Name,
+                    ToolTypeDefinitions.EnchantingToolType.Name,
+                    ToolTypeDefinitions.HerbalismKitType.Name,
+                    ToolTypeDefinitions.PoisonersKitType.Name,
+                    ToolTypeDefinitions.ScrollKitType.Name
+                )
                 .AddToDB())
 
             // Skill points
@@ -184,22 +207,21 @@ internal static class InventorClass
                 .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
                 .OnlyUniqueChoices()
-                .RestrictChoices( //TODO: decide on final skill list
+                .RestrictChoices(
                     SkillDefinitions.Arcana,
-                    SkillDefinitions.Medecine,
                     SkillDefinitions.History,
-                    SkillDefinitions.Insight,
-                    SkillDefinitions.Religion,
-                    SkillDefinitions.Survival,
-                    SkillDefinitions.Nature
-                )
-                .AddToDB())
+                    SkillDefinitions.Investigation,
+                    SkillDefinitions.Medecine,
+                    SkillDefinitions.Nature,
+                    SkillDefinitions.Perception,
+                    SkillDefinitions.SleightOfHand
+                ).AddToDB())
 
             #endregion
 
             #region Subclasses
 
-            .AddFeaturesAtLevel(1, FeatureDefinitionSubclassChoiceBuilder
+            .AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
                 .Create("SubclassChoiceInventor")
                 .SetGuiPresentation("InventorInnovation", Category.Subclass)
                 .SetSubclassSuffix("InventorInnovation")
@@ -215,13 +237,13 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting)
+            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips())
 
             #endregion
 
             #region Level 02
 
-            .AddFeaturesAtLevel(2, Learn4, InfusionPool)
+            .AddFeaturesAtLevel(2, _learn4, InfusionPool)
 
             #endregion
 
@@ -243,7 +265,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, Learn2)
+            .AddFeaturesAtLevel(6, _learn2)
 
             #endregion
 
@@ -265,7 +287,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, Learn2)
+            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions)
 
             #endregion
 
@@ -287,7 +309,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, Learn2)
+            .AddFeaturesAtLevel(14, _learn2)
 
             #endregion
 
@@ -309,7 +331,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, Learn2)
+            .AddFeaturesAtLevel(18, _learn2)
 
             #endregion
 
@@ -328,7 +350,7 @@ internal static class InventorClass
 
         for (var i = 3; i <= 20; i++)
         {
-            builder.AddFeaturesAtLevel(i, Unlearn);
+            builder.AddFeaturesAtLevel(i, _unlearn);
         }
 
         Class = builder.AddToDB();
@@ -364,29 +386,92 @@ internal static class InventorClass
                 SpellDefinitions.AcidSplash,
                 SpellDefinitions.FireBolt,
                 SpellDefinitions.RayOfFrost,
-                SpellDefinitions.Light,
                 SpellDefinitions.PoisonSpray,
                 SpellDefinitions.Resistance,
                 SpellDefinitions.ShockingGrasp,
-                SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle
+                SpellDefinitions.SpareTheDying
             )
-            .FinalizeSpells()
+            // absorb elements, snare, catapult, tasha's caustic brew
+            .SetSpellsAtLevel(1,
+                SpellDefinitions.CureWounds,
+                SpellDefinitions.DetectMagic,
+                SpellDefinitions.ExpeditiousRetreat,
+                SpellDefinitions.FaerieFire,
+                SpellDefinitions.FalseLife,
+                SpellDefinitions.FeatherFall,
+                SpellDefinitions.Grease,
+                SpellDefinitions.Identify,
+                SpellDefinitions.Jump,
+                SpellDefinitions.Longstrider
+            )
+            // web, pyrotechnics, enlarge/reduce
+            .SetSpellsAtLevel(2,
+                SpellDefinitions.Aid,
+                SpellDefinitions.Blur,
+                SpellDefinitions.Darkvision,
+                SpellDefinitions.EnhanceAbility,
+                SpellDefinitions.HeatMetal,
+                SpellDefinitions.Invisibility,
+                SpellDefinitions.LesserRestoration,
+                SpellDefinitions.Levitate,
+                SpellDefinitions.MagicWeapon,
+                SpellDefinitions.ProtectionFromPoison,
+                SpellDefinitions.SeeInvisibility,
+                SpellDefinitions.SpiderClimb
+            )
+            // blink, elemental weapon, flame arrows
+            .SetSpellsAtLevel(3,
+                SpellDefinitions.CreateFood,
+                SpellDefinitions.DispelMagic,
+                SpellDefinitions.Fly,
+                SpellDefinitions.Haste,
+                SpellDefinitions.ProtectionFromEnergy,
+                SpellDefinitions.Revivify
+            )
+            // everything
+            .SetSpellsAtLevel(4,
+                SpellDefinitions.FreedomOfMovement,
+                SpellDefinitions.Stoneskin
+            )
+            // everything
+            .SetSpellsAtLevel(5,
+                SpellDefinitions.GreaterRestoration
+            )
+            .FinalizeSpells(maxLevel: 5)
             .AddToDB();
     }
 
     private static FeatureDefinitionCastSpell BuildSpellCasting()
     {
-        return FeatureDefinitionCastSpellBuilder
+        var castSpellsInventor = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
-            .SetKnownCantrips(3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6)
-            .SetKnownSpells()
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
+            .SetSpellKnowledge(SpellKnowledge.WholeList)
+            .SetSpellReadyness(SpellReadyness.Prepared)
+            .SetSpellPreparationCount(SpellPreparationCount.AbilityBonusPlusHalfLevel)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellList(SpellList)
             .AddToDB();
+
+        return castSpellsInventor;
     }
 
+    private static FeatureDefinitionBonusCantrips BuildBonusCantrips()
+    {
+        return FeatureDefinitionBonusCantripsBuilder
+            .Create("BonusCantripsInventorMagicalTinkering")
+            .SetGuiPresentation(Category.Feature)
+            .SetBonusCantrips(
+                SpellDefinitions.Dazzle,
+                SpellDefinitions.Light,
+                SpellDefinitions.Shine,
+                SpellDefinitions.Sparkle
+            )
+            .AddToDB();
+    }
 
     private static FeatureDefinitionPower BuildInfusionPool()
     {

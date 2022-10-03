@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionCombatAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
         TBuilder>
     where TDefinition : FeatureDefinitionCombatAffinity
@@ -11,26 +11,26 @@ public abstract class
 {
     // Methods specific to FeatureDefinitionCombatAffinity
 
-    public TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
+    internal TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
     {
         Definition.myAttackModifierValueDetermination = RuleDefinitions.CombatAffinityValueDetermination.Die;
         Definition.myAttackModifierDieType = dieType;
         return This();
     }
 
-    public TBuilder SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign modifierSign)
+    internal TBuilder SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign modifierSign)
     {
         Definition.myAttackModifierSign = modifierSign;
         return This();
     }
 
-    public TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
+    internal TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;
         return This();
     }
 
-    public TBuilder SetIgnoreCover()
+    internal TBuilder SetIgnoreCover()
     {
         Definition.ignoreCover = true;
         return This();

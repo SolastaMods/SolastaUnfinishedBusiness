@@ -4,13 +4,12 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class FightingStyleFeats
 {
-    public static void CreateFeats(List<FeatDefinition> feats)
+    internal static void CreateFeats(List<FeatDefinition> feats)
     {
         var fightingStyles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
@@ -40,7 +39,7 @@ internal static class FightingStyleFeats
                 var guiFormat = Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
                     fightingStyle.FormatTitle());
 
-                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Global.ErrorColor)) : (true, guiFormat);
+                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
             })
             .SetGuiPresentation(fightingStyle.GuiPresentation)
             .AddToDB();

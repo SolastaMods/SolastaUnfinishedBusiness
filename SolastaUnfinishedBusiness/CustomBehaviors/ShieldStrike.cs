@@ -4,23 +4,23 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public static class ShieldStrike
+internal static class ShieldStrike
 {
     private static WeaponDescription _shieldWeaponDescription;
     private static WeaponTypeDefinition _shieldWeaponType;
 
     [NotNull]
-    public static WeaponDescription ShieldWeaponDescription =>
+    internal static WeaponDescription ShieldWeaponDescription =>
         _shieldWeaponDescription ??= BuildShieldWeaponDescription();
 
-    [NotNull] public static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
+    [NotNull] internal static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
 
-    public static bool IsShield([CanBeNull] RulesetItem item)
+    internal static bool IsShield([CanBeNull] RulesetItem item)
     {
         return item != null && IsShield(item.ItemDefinition);
     }
 
-    public static bool IsShield([CanBeNull] ItemDefinition item)
+    internal static bool IsShield([CanBeNull] ItemDefinition item)
     {
         if (item == null || !item.IsArmor)
         {

@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RestSubPanelPatcher
+public static class RestSubPanelPatcher
 {
     [HarmonyPatch(typeof(RestSubPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix([NotNull] RestSubPanel __instance)
+        public static void Prefix([NotNull] RestSubPanel __instance)
         {
             //PATCH: scales down the rest sub panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;

@@ -6,10 +6,8 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public sealed class BlueprintLoader : MonoBehaviour
+internal sealed class BlueprintLoader : MonoBehaviour
 {
-    public delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
-
     private static BlueprintLoader _shared;
 
     private LoadBlueprintsCallback callback;
@@ -17,7 +15,7 @@ public sealed class BlueprintLoader : MonoBehaviour
     private IEnumerator coroutine;
 
     [NotNull]
-    public static BlueprintLoader Shared
+    internal static BlueprintLoader Shared
     {
         get
         {
@@ -33,7 +31,7 @@ public sealed class BlueprintLoader : MonoBehaviour
         }
     }
 
-    public float Progress { get; set; }
+    internal float Progress { get; set; }
 
     private void UpdateProgress(int loaded, int total)
     {
@@ -87,7 +85,7 @@ public sealed class BlueprintLoader : MonoBehaviour
         coroutine = null;
     }
 
-    public void Load(LoadBlueprintsCallback myCallback)
+    internal void Load(LoadBlueprintsCallback myCallback)
     {
         if (coroutine != null)
         {
@@ -100,8 +98,10 @@ public sealed class BlueprintLoader : MonoBehaviour
         StartCoroutine(coroutine);
     }
 
-    public bool LoadInProgress()
+    internal bool LoadInProgress()
     {
         return coroutine != null;
     }
+
+    internal delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
 }

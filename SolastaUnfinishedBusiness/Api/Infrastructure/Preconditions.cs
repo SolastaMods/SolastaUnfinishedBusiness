@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api.Diagnostics;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public static class Preconditions
+internal static class Preconditions
 {
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
-    public static void ArgumentIsNotNull<T>([NotNull] [NoEnumeration] T paramValue,
+    internal static void ArgumentIsNotNull<T>([NotNull] [NoEnumeration] T paramValue,
         [InvokerParameterName] string paramName)
         where T : class
     {
@@ -21,7 +21,7 @@ public static class Preconditions
 
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
-    public static void IsNotNullOrEmpty([NotNull] string paramValue, [InvokerParameterName] string paramName)
+    internal static void IsNotNullOrEmpty([NotNull] string paramValue, [InvokerParameterName] string paramName)
     {
         if (string.IsNullOrEmpty(paramValue))
         {
@@ -31,7 +31,7 @@ public static class Preconditions
 
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
-    public static void IsNotNullOrWhiteSpace([NotNull] string paramValue, [InvokerParameterName] string paramName)
+    internal static void IsNotNullOrWhiteSpace([NotNull] string paramValue, [InvokerParameterName] string paramName)
     {
         if (string.IsNullOrWhiteSpace(paramValue))
         {
@@ -41,7 +41,7 @@ public static class Preconditions
 
     [Conditional("DEBUG")]
     [AssertionMethod]
-    public static void IsValidDuration(RuleDefinitions.DurationType type, int duration)
+    internal static void IsValidDuration(RuleDefinitions.DurationType type, int duration)
     {
         if (RuleDefinitions.IsVariableDuration(type))
         {

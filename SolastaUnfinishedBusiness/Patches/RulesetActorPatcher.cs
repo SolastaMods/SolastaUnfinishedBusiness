@@ -18,13 +18,13 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetActorPatcher
+public static class RulesetActorPatcher
 {
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ProcessConditionsMatchingOccurenceType_Patch
+    public static class ProcessConditionsMatchingOccurenceType_Patch
     {
-        internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
+        public static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {
             //PATCH: support for `IConditionRemovedOnSourceTurnStart` - removes appropriately marked conditions
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
@@ -33,9 +33,9 @@ internal static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RollDie_Patch
+    public static class RollDie_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
@@ -129,7 +129,7 @@ internal static class RulesetActorPatcher
         }
 
         // TODO: make this more generic
-        internal static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
+        public static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)
         {
             //PATCH: support for `RoguishRaven` Rogue subclass
@@ -147,7 +147,7 @@ internal static class RulesetActorPatcher
     //PATCH: uses class level instead of character level on attributes calculation (Multiclass)
     [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshAttributes_Patch
+    public static class RefreshAttributes_Patch
     {
         // private static readonly Regex ClassPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
 
@@ -176,9 +176,9 @@ internal static class RulesetActorPatcher
                     {
                         AttributeDefinitions.HealingPool =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin),
-                        AttributeDefinitions.KiPoints => 
+                        AttributeDefinitions.KiPoints =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk),
-                        AttributeDefinitions.SorceryPoints => 
+                        AttributeDefinitions.SorceryPoints =>
                             hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Sorcerer),
                         _ => 0
                     };
@@ -204,7 +204,7 @@ internal static class RulesetActorPatcher
         //             .GetElement(match.Groups[1].Value, true)).FirstOrDefault();
         // }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             // needed for sorcery points, healing pools, ki points to be of proper sizes when multiclass
             // adds custom method right before the end that recalculates modifier values specifically for class-level modifiers

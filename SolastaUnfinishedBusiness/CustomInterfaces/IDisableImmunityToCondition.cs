@@ -2,5 +2,5 @@
 
 public interface IDisableImmunityToCondition
 {
-    bool DisableImmunityToCondition(string conditionName, ulong sourceGuid);
+    public bool DisableImmunityToCondition(string conditionName, ulong sourceGuid);
 }

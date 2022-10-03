@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public enum NodeType
+internal enum NodeType
 {
     Root,
     Component,
@@ -21,25 +21,25 @@ public enum NodeType
 }
 
 // This structure has evolved into a reflection graph or DAG but for the sake of continuity we will stick with calling it a tree
-public class ReflectionTree : ReflectionTree<object>
+internal class ReflectionTree : ReflectionTree<object>
 {
-    public ReflectionTree(object root) : base(root) { }
+    internal ReflectionTree(object root) : base(root) { }
 }
 
-public class ReflectionTree<TRoot>
+internal class ReflectionTree<TRoot>
 {
     private RootNode<TRoot> _root;
 
-    public ReflectionTree(TRoot root)
+    internal ReflectionTree(TRoot root)
     {
         SetRoot(root);
     }
 
-    public TRoot Root => _root.Value;
+    internal TRoot Root => _root.Value;
 
-    public Node RootNode => _root;
+    internal Node RootNode => _root;
 
-    public void SetRoot(TRoot root)
+    internal void SetRoot(TRoot root)
     {
         if (_root != null)
         {
@@ -52,7 +52,7 @@ public class ReflectionTree<TRoot>
     }
 }
 
-public abstract class Node
+internal abstract class Node
 {
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     protected const BindingFlags ALL_FLAGS =
@@ -83,10 +83,10 @@ public abstract class Node
         typeof(UIntPtr)
     };
 
-    public readonly bool IsNullable;
+    internal readonly bool IsNullable;
 
-    public readonly NodeType NodeType;
-    public readonly Type Type;
+    internal readonly NodeType NodeType;
+    internal readonly Type Type;
 
     protected Node(Type type, NodeType nodeType)
     {
@@ -97,12 +97,12 @@ public abstract class Node
     }
 
     [Obsolete("TODO - move this into a proper view model", false)]
-    public ToggleState Expanded { get; set; }
+    internal ToggleState Expanded { get; set; }
 
     [Obsolete("TODO - move this into a proper view model", false)]
-    public bool Matches { get; set; }
+    internal bool Matches { get; set; }
 
-    public string NodeTypePrefix => NodeType switch
+    internal string NodeTypePrefix => NodeType switch
     {
         NodeType.Component => "c",
         NodeType.Item => "i",
@@ -111,7 +111,7 @@ public abstract class Node
         _ => string.Empty
     };
 
-    public int ExpandedNodeCount
+    internal int ExpandedNodeCount
     {
         get
         {
@@ -140,7 +140,7 @@ public abstract class Node
         }
     }
 
-    public int ChildrenCount
+    internal int ChildrenCount
     {
         get
         {
@@ -154,7 +154,7 @@ public abstract class Node
         }
     }
 
-    public bool hasChildren
+    internal bool hasChildren
     {
         get
         {
@@ -168,16 +168,16 @@ public abstract class Node
     }
 
     public string Name { get; protected set; }
-    public abstract string ValueText { get; }
-    public abstract Type InstType { get; }
-    public abstract bool IsBaseType { get; }
-    public abstract bool IsEnumerable { get; }
-    public abstract bool IsException { get; }
-    public abstract bool IsGameObject { get; }
-    public abstract bool IsNull { get; }
-    public abstract int? InstanceID { get; }
+    internal abstract string ValueText { get; }
+    internal abstract Type InstType { get; }
+    internal abstract bool IsBaseType { get; }
+    internal abstract bool IsEnumerable { get; }
+    internal abstract bool IsException { get; }
+    internal abstract bool IsGameObject { get; }
+    internal abstract bool IsNull { get; }
+    internal abstract int? InstanceID { get; }
 
-    public static IEnumerable<FieldInfo> GetFields(Type type)
+    internal static IEnumerable<FieldInfo> GetFields(Type type)
     {
         var names = new HashSet<string>();
         foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(ALL_FLAGS))
@@ -191,7 +191,7 @@ public abstract class Node
         }
     }
 
-    public static IEnumerable<PropertyInfo> GetProperties(Type type)
+    internal static IEnumerable<PropertyInfo> GetProperties(Type type)
     {
         var names = new HashSet<string>();
         foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(ALL_FLAGS))
@@ -206,11 +206,11 @@ public abstract class Node
         }
     }
 
-    public abstract IReadOnlyCollection<Node> GetItemNodes();
-    public abstract IReadOnlyCollection<Node> GetComponentNodes();
-    public abstract IReadOnlyCollection<Node> GetPropertyNodes();
-    public abstract IReadOnlyCollection<Node> GetFieldNodes();
-    public abstract Node GetParent();
+    internal abstract IReadOnlyCollection<Node> GetItemNodes();
+    internal abstract IReadOnlyCollection<Node> GetComponentNodes();
+    internal abstract IReadOnlyCollection<Node> GetPropertyNodes();
+    internal abstract IReadOnlyCollection<Node> GetFieldNodes();
+    internal abstract Node GetParent();
 
     private void AppendPathFromRoot(StringBuilder sb)
     {
@@ -224,15 +224,15 @@ public abstract class Node
         sb.Append(Name);
     }
 
-    public string GetPath()
+    internal string GetPath()
     {
         var sb = new StringBuilder();
         AppendPathFromRoot(sb);
         return sb.ToString();
     }
 
-    public abstract void SetDirty();
-    public abstract bool IsDirty();
+    internal abstract void SetDirty();
+    internal abstract bool IsDirty();
     internal abstract void SetValue(object value);
     protected abstract void UpdateValue();
 }
@@ -302,9 +302,9 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override string ValueText => IsException ? "<exception>" : IsNull ? "<null>" : Value.ToString();
+    internal override string ValueText => IsException ? "<exception>" : IsNull ? "<null>" : Value.ToString();
 
-    public override Type InstType
+    internal override Type InstType
     {
         get
         {
@@ -313,7 +313,7 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override bool IsBaseType
+    internal override bool IsBaseType
     {
         get
         {
@@ -324,7 +324,7 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override bool IsEnumerable
+    internal override bool IsEnumerable
     {
         get
         {
@@ -334,7 +334,7 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override bool IsGameObject
+    internal override bool IsGameObject
     {
         get
         {
@@ -343,7 +343,7 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override int? InstanceID
+    internal override int? InstanceID
     {
         get
         {
@@ -362,43 +362,43 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    public override bool IsNull => Value == null || (Value is Object unityObject && !unityObject);
+    internal override bool IsNull => Value == null || (Value is Object unityObject && !unityObject);
 
-    public override IReadOnlyCollection<Node> GetComponentNodes()
+    internal override IReadOnlyCollection<Node> GetComponentNodes()
     {
         UpdateComponentNodes();
         return _componentNodes.AsReadOnly();
     }
 
-    public override IReadOnlyCollection<Node> GetItemNodes()
+    internal override IReadOnlyCollection<Node> GetItemNodes()
     {
         UpdateItemNodes();
         return _itemNodes.AsReadOnly();
     }
 
-    public override IReadOnlyCollection<Node> GetFieldNodes()
+    internal override IReadOnlyCollection<Node> GetFieldNodes()
     {
         UpdateFieldNodes();
         return _fieldNodes.AsReadOnly();
     }
 
-    public override IReadOnlyCollection<Node> GetPropertyNodes()
+    internal override IReadOnlyCollection<Node> GetPropertyNodes()
     {
         UpdatePropertyNodes();
         return _propertyNodes.AsReadOnly();
     }
 
-    public override Node GetParent()
+    internal override Node GetParent()
     {
         return null;
     }
 
-    public override void SetDirty()
+    internal override void SetDirty()
     {
         _valueIsDirty = true;
     }
 
-    public override bool IsDirty()
+    internal override bool IsDirty()
     {
         return _valueIsDirty;
     }
@@ -574,7 +574,7 @@ internal abstract class PassiveNode<TNode> : GenericNode<TNode>
         Value = value;
     }
 
-    public override bool IsException => false;
+    internal override bool IsException => false;
 
     internal override void SetValue(object value)
     {
@@ -593,7 +593,7 @@ internal abstract class PassiveNode<TNode> : GenericNode<TNode>
 
 internal class RootNode<TNode> : PassiveNode<TNode>
 {
-    public RootNode(string name, TNode value) : base(name, value, NodeType.Root) { }
+    internal RootNode(string name, TNode value) : base(name, value, NodeType.Root) { }
 }
 
 internal class ComponentNode : PassiveNode<Component>
@@ -605,7 +605,7 @@ internal class ComponentNode : PassiveNode<Component>
         _parentNode = new WeakReference<Node>(parentNode);
     }
 
-    public override Node GetParent()
+    internal override Node GetParent()
     {
         return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
@@ -620,7 +620,7 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
         _parentNode = new WeakReference<Node>(parentNode);
     }
 
-    public override Node GetParent()
+    internal override Node GetParent()
     {
         return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }
@@ -637,7 +637,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
         Name = name;
     }
 
-    public override bool IsException
+    internal override bool IsException
     {
         get
         {
@@ -651,7 +651,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
         throw new NotImplementedException();
     }
 
-    public override Node GetParent()
+    internal override Node GetParent()
     {
         return _parentNode.TryGetTarget(out var parent) ? parent : null;
     }

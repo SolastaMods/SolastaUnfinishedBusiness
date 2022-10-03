@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GuiPowerDefinitionPatcher
+public static class GuiPowerDefinitionPatcher
 {
     [HarmonyPatch(typeof(GuiPowerDefinition), "EnumerateTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnumerateTags_Patch
+    public static class EnumerateTags_Patch
     {
         public static void Postfix(GuiPowerDefinition __instance)
         {
@@ -19,9 +19,9 @@ internal static class GuiPowerDefinitionPatcher
 
     [HarmonyPatch(typeof(GuiPowerDefinition), "EffectDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EffectDescription_Getter_Patch
+    public static class EffectDescription_Getter_Patch
     {
-        internal static void Postfix(GuiPowerDefinition __instance, ref EffectDescription __result)
+        public static void Postfix(GuiPowerDefinition __instance, ref EffectDescription __result)
         {
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
             // makes tooltips show modified effects

@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RevivePartyControlPanelPatcher
+public static class RevivePartyControlPanelPatcher
 {
     [HarmonyPatch(typeof(RevivePartyControlPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix([NotNull] RevivePartyControlPanel __instance)
+        public static void Prefix([NotNull] RevivePartyControlPanel __instance)
         {
             //PATCH: scales down the revive party control panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;

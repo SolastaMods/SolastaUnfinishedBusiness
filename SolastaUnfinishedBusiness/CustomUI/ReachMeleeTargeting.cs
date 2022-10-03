@@ -7,11 +7,11 @@ using TA;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public static class ReachMeleeTargeting
+internal static class ReachMeleeTargeting
 {
     // Replaces call to `FindBestActionDestination` with custom method that respects attack mode's reach
     // Needed for reach melee
-    public static void ApplyCursorLocationIsValidAttackTranspile(List<CodeInstruction> instructions)
+    internal static void ApplyCursorLocationIsValidAttackTranspile(List<CodeInstruction> instructions)
     {
         var insertionIndex = instructions.FindIndex(x =>
             x.opcode == OpCodes.Call && x.operand.ToString().Contains("FindBestActionDestination"));
@@ -22,7 +22,7 @@ public static class ReachMeleeTargeting
         }
 
         var method = typeof(ReachMeleeTargeting)
-            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.Public);
+            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
         instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
         instructions.InsertRange(insertionIndex,
@@ -31,7 +31,7 @@ public static class ReachMeleeTargeting
 
     // Used in `ApplyCursorLocationIsValidAttackTranspile`
     // ReSharper disable once UnusedMember.Global
-    public static bool FindBestActionDestination(
+    internal static bool FindBestActionDestination(
         GameLocationCharacter actor,
         GameLocationCharacter target,
         ref int3 actorPosition,

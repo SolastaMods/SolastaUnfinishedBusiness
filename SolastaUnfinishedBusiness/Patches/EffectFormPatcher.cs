@@ -7,11 +7,11 @@ using static SolastaUnfinishedBusiness.DataMiner.EffectFormVerification;
 namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: These patches are for effect form usage diagnostics
-internal static class EffectFormPatcher
+public static class EffectFormPatcher
 {
     [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Damage_Patch
+    public static class Damage_Patch
     {
         public static void Postfix(EffectForm __instance, ref DamageForm __result)
         {
@@ -21,7 +21,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "HealingForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Healing_Patch
+    public static class Healing_Patch
     {
         public static void Postfix(EffectForm __instance, ref HealingForm __result)
         {
@@ -31,7 +31,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "ConditionForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Condition_Patch
+    public static class Condition_Patch
     {
         public static void Postfix(EffectForm __instance, ref ConditionForm __result)
         {
@@ -41,7 +41,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "LightSourceForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class LightSource_Patch
+    public static class LightSource_Patch
     {
         public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
         {
@@ -51,7 +51,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "SummonForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Summon_Patch
+    public static class Summon_Patch
     {
         public static void Postfix(EffectForm __instance, ref SummonForm __result)
         {
@@ -61,7 +61,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "CounterForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Counter_Patch
+    public static class Counter_Patch
     {
         public static void Postfix(EffectForm __instance, ref CounterForm __result)
         {
@@ -71,7 +71,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "TemporaryHitPointsForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class TemporaryHitPoints_Patch
+    public static class TemporaryHitPoints_Patch
     {
         public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
         {
@@ -81,7 +81,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "MotionForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Motion_Patch
+    public static class Motion_Patch
     {
         public static void Postfix(EffectForm __instance, ref MotionForm __result)
         {
@@ -91,7 +91,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "SpellSlotsForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellSlots_Patch
+    public static class SpellSlots_Patch
     {
         public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
         {
@@ -101,7 +101,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "DivinationForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Divination_Patch
+    public static class Divination_Patch
     {
         public static void Postfix(EffectForm __instance, ref DivinationForm __result)
         {
@@ -111,7 +111,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "ItemPropertyForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ItemProperty_Patch
+    public static class ItemProperty_Patch
     {
         public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
         {
@@ -121,7 +121,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "AlterationForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Alteration_Patch
+    public static class Alteration_Patch
     {
         public static void Postfix(EffectForm __instance, ref AlterationForm __result)
         {
@@ -131,7 +131,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "TopologyForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Topology_Patch
+    public static class Topology_Patch
     {
         public static void Postfix(EffectForm __instance, ref TopologyForm __result)
         {
@@ -141,7 +141,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "ReviveForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Revive_Patch
+    public static class Revive_Patch
     {
         public static void Postfix(EffectForm __instance, ref ReviveForm __result)
         {
@@ -151,7 +151,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "KillForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Kill_Patch
+    public static class Kill_Patch
     {
         public static void Postfix(EffectForm __instance, ref KillForm __result)
         {
@@ -161,7 +161,7 @@ internal static class EffectFormPatcher
 
     [HarmonyPatch(typeof(EffectForm), "ShapeChangeForm", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ShapeChange_Patch
+    public static class ShapeChange_Patch
     {
         public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
         {

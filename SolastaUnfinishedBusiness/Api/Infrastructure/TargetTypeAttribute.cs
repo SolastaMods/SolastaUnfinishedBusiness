@@ -7,13 +7,13 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 ///     Attribute to support testing
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public sealed class TargetTypeAttribute : Attribute
+internal sealed class TargetTypeAttribute : Attribute
 {
-    public TargetTypeAttribute(Type targetType)
+    internal TargetTypeAttribute(Type targetType)
     {
         TargetType = targetType;
     }
 
-    public Type TargetType { get; }
+    internal Type TargetType { get; }
 }
 #endif

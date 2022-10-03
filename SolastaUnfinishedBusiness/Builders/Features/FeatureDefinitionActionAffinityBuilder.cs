@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
     FeatureDefinitionActionAffinityBuilder>
 {
-    public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(
+    internal FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(
         params ActionDefinitions.Id[] actions)
     {
         Definition.AuthorizedActions.SetRange(actions);
@@ -16,14 +16,14 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
         return This();
     }
 
-    public FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
+    internal FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {
         Definition.ActionExecutionModifiers.SetRange(modifiers);
         return This();
     }
 
-    public FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
+    internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
     {
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
         return This();

@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class SpellListDefinitionExtensions
 {
-    public static void AddSpell(this SpellListDefinition list, SpellDefinition spell)
+    internal static void AddSpell(this SpellListDefinition list, SpellDefinition spell)
     {
         if (list.ContainsSpell(spell))
         {

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -217,13 +216,13 @@ internal sealed class RoguishRaven : AbstractSubclass
     }
 
     // marker to reroll any damage die including sneak attack
-    public sealed class RavenRerollAnyDamageDieMarker
+    internal sealed class RavenRerollAnyDamageDieMarker
     {
     }
 
-    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHP
+    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHp
     {
-        public IEnumerator HandleCharacterReducedToZeroHP(GameLocationCharacter attacker,
+        public IEnumerator HandleCharacterReducedToZeroHp(GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {

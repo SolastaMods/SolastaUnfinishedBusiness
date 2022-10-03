@@ -6,11 +6,11 @@ using UnityEngine.UI;
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 #if false
-public class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
+internal class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
 {
     private readonly FeatureDefinitionPower power;
 
-    public CustomPortraitPoolPower(FeatureDefinitionPower power, string name = null, string tooltip = null,
+    internal CustomPortraitPoolPower(FeatureDefinitionPower power, string name = null, string tooltip = null,
         AssetReferenceSprite icon = null)
     {
         this.power = power;
@@ -19,20 +19,20 @@ public class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
         Icon = icon ?? power.GuiPresentation.SpriteReference;
     }
 
-    public string Name { get; }
-    public string Tooltip { get; }
-    public AssetReferenceSprite Icon { get; }
+    internal string Name { get; }
+    internal string Tooltip { get; }
+    internal AssetReferenceSprite Icon { get; }
 
-    public int GetPoints(RulesetCharacter character)
+    internal int GetPoints(RulesetCharacter character)
     {
         return character.GetRemainingPowerUses(power);
     }
 }
 #endif
 
-public class CustomPortraitPointPool : MonoBehaviour
+internal class CustomPortraitPointPool : MonoBehaviour
 {
-    public static CustomPortraitPointPool Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character,
+    internal static CustomPortraitPointPool Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)
     {
         CustomPortraitPointPool pool;

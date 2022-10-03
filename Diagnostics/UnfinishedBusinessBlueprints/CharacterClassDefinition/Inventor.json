@@ -162,11 +162,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorArmor:cdce92cb-aebe-5adb-b62d-9463d2ddf46c",
       "level": 1
     },
@@ -182,7 +177,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInventorTools:1b5f20ba-4554-5425-a7be-f61aefb9accc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolInventorTools:a216b8c6-b717-5552-bc9e-e5813f2b4e48",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorWeapon:f93dc27c-34f8-59ee-a46c-7e44c6ffe895",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripsInventorMagicalTinkering:3f966b30-e932-5b50-85b6-aeece2a07cb2",
       "level": 1
     },
     {
@@ -203,6 +213,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TestInvocationPoolReplace:73f9b5eb-e3ee-5802-8215-6dab93609de2",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
       "level": 3
     },
     {
@@ -258,6 +273,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInfusionUpgrade:4738d602-41b1-551f-ad2e-b5c2a946003b",
       "level": 10
     },
     {

@@ -24,6 +24,10 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsBuildersContext
 {
+    //
+    // cantrips
+    //
+
     internal static SpellDefinition BuildSunlightBlade()
     {
         var highlight = new ConditionOperationDescription
@@ -531,8 +535,8 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildFindFamiliar()
     {
-        var familiarMonsterBuilder = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "Owl")
+        var owlFamiliar = MonsterDefinitionBuilder
+            .Create(Eagle_Matriarch, "OwlFamiliar")
             .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
             .SetFeatures(
                 FeatureDefinitionSenses.SenseNormalVision,
@@ -565,14 +569,9 @@ internal static class SpellsBuildersContext
                 .DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
-            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
-
-        if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("PowerHelp", out var help))
-        {
-            familiarMonsterBuilder.AddFeatures(help);
-        }
-
-        var familiarMonster = familiarMonsterBuilder.AddToDB();
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
@@ -595,7 +594,7 @@ internal static class SpellsBuildersContext
         spell.EffectDescription.SetTargetSide(Side.Ally);
         spell.EffectDescription.EffectForms.Clear();
 
-        var summonForm = new SummonForm { monsterDefinitionName = familiarMonster.name, decisionPackage = null };
+        var summonForm = new SummonForm { monsterDefinitionName = owlFamiliar.name, decisionPackage = null };
         var effectForm = new EffectForm
         {
             formType = EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
@@ -672,6 +671,70 @@ internal static class SpellsBuildersContext
 
         return spell;
     }
+
+    //
+    // LEVEL 02
+    //
+    internal static SpellDefinition BuildPetalStorm()
+    {
+        const string ProxyPetalStormName = "ProxyPetalStorm";
+
+        //TODO: move this over to DB partial
+        TryGetDefinition<EffectProxyDefinition>("ProxyInsectPlague", out var proxyInsectPlague);
+
+        _ = EffectProxyDefinitionBuilder
+            .Create(proxyInsectPlague, ProxyPetalStormName)
+            .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
+            .SetCanMove()
+            .SetIsEmptyPresentation(false)
+            .SetCanMoveOnCharacters()
+            .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
+            .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
+            .SetPortrait(WindWall.GuiPresentation.SpriteReference)
+            .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(InsectPlague, "PetalStorm")
+            .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetSpellLevel(2)
+            .SetRequiresConcentration(true)
+            .AddToDB();
+
+        spell.EffectDescription
+            .SetRangeType(RangeType.Distance)
+            .SetRangeParameter(12)
+            .SetDurationType(DurationType.Minute)
+            .SetDurationParameter(1)
+            .SetTargetType(TargetType.Cube)
+            .SetTargetParameter(3)
+            .SetHasSavingThrow(true)
+            .SetSavingThrowAbility(AttributeDefinitions.Strength)
+            .SetRecurrentEffect((RecurrentEffect)20);
+
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+
+        spell.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        spell.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.Negates;
+        spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
+        spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
+
+        spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+
+        return spell;
+    }
+
+    //
+    // LEVEL 03
+    //
 
     internal static SpellDefinition BuildEarthTremor()
     {
@@ -1282,7 +1345,7 @@ internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
     private readonly string _notificationTag;
     private readonly SpellDefinition _spell;
 
-    public ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+    internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
     {
         _spell = spell;
         _notificationTag = notificationTag;

@@ -1,6 +1,0 @@
-﻿Spell/&FindFamiliarDescription=You gain the service of a familiar.
-Spell/&FindFamiliarTitle=Find Familiar
-Spell/&MinorLifestealDescription=You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
-Spell/&MinorLifestealTitle=Minor Lifesteal
-Monster/&OwlFamiliarDescription=Owl Familiar.
-Monster/&OwlFamiliarTitle=Owl

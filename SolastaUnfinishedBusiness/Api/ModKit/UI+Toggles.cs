@@ -8,21 +8,21 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public enum ToggleState
+internal enum ToggleState
 {
     Off = 0,
     On = 1,
     None = 2
 }
 
-public static partial class UI
+internal static partial class UI
 {
-    public static bool IsOn(this ToggleState state)
+    internal static bool IsOn(this ToggleState state)
     {
         return state == ToggleState.On;
     }
 
-    public static bool IsOff(this ToggleState state)
+    internal static bool IsOff(this ToggleState state)
     {
         return state == ToggleState.Off;
     }
@@ -80,7 +80,7 @@ public static partial class UI
         return true;
     }
 
-    public static void ToggleButton(ref ToggleState toggle, string title, GUIStyle style = null,
+    internal static void ToggleButton(ref ToggleState toggle, string title, GUIStyle style = null,
         params GUILayoutOption[] options)
     {
         var isOn = toggle.IsOn();
@@ -92,7 +92,7 @@ public static partial class UI
         }
     }
 
-    public static bool Toggle(string title, ref bool value, params GUILayoutOption[] options)
+    internal static bool Toggle(string title, ref bool value, params GUILayoutOption[] options)
     {
         options = options.AddDefaults();
 
@@ -106,7 +106,7 @@ public static partial class UI
         return true;
     }
 
-    public static bool DisclosureToggle(string title, ref bool value, float width = 175, params Action[] actions)
+    internal static bool DisclosureToggle(string title, ref bool value, float width = 175, params Action[] actions)
     {
         var changed = TogglePrivate(title, ref value, false, true, width);
 

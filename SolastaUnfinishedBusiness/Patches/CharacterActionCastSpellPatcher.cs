@@ -10,7 +10,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterActionCastSpellPatcher
+public static class CharacterActionCastSpellPatcher
 {
     [HarmonyPatch(typeof(CharacterActionCastSpell), "ApplyMagicEffect")]
     [HarmonyPatch(
@@ -25,9 +25,9 @@ internal static class CharacterActionCastSpellPatcher
             ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal,
             ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref
         })]
-    internal static class ApplyMagicEffect_Patch
+    public static class ApplyMagicEffect_Patch
     {
-        internal static bool Prefix(CharacterActionCastSpell __instance,
+        public static bool Prefix(CharacterActionCastSpell __instance,
             GameLocationCharacter target,
             ActionModifier actionModifier,
             int targetIndex,
@@ -95,16 +95,15 @@ internal static class CharacterActionCastSpellPatcher
 
     [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetAdvancementData_Patch
+    public static class GetAdvancementData_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: enforces cantrips to be cast at character level (MULTICLASS)
             //replaces repertoire's SpellCastingLevel with character level for cantrips
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var spellCastingLevel =
-                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassPatchingContext
-                        .SpellCastingLevel)
+                new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassContext.SpellCastingLevel)
                     .Method;
 
             foreach (var instruction in instructions)
@@ -124,7 +123,7 @@ internal static class CharacterActionCastSpellPatcher
 
     [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class StartConcentrationAsNeeded_Patch
+    public static class StartConcentrationAsNeeded_Patch
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {

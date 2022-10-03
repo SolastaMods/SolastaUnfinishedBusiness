@@ -13,14 +13,14 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterReactionItemPatcher
+public static class CharacterReactionItemPatcher
 {
     [HarmonyPatch(typeof(CharacterReactionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
             var codes = instructions.ToList();
@@ -47,7 +47,7 @@ internal static class CharacterReactionItemPatcher
             return codes.AsEnumerable();
         }
 
-        internal static void Postfix([NotNull] CharacterReactionItem __instance)
+        public static void Postfix([NotNull] CharacterReactionItem __instance)
         {
             var request = __instance.ReactionRequest;
             var size = request is ReactionRequestWarcaster or ReactionRequestSpendBundlePower
@@ -86,9 +86,9 @@ internal static class CharacterReactionItemPatcher
 
     [HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetSelectedSubItem_Patch
+    public static class GetSelectedSubItem_Patch
     {
-        internal static bool Prefix([NotNull] CharacterReactionItem __instance, out int __result)
+        public static bool Prefix([NotNull] CharacterReactionItem __instance, out int __result)
         {
             //TODO: check if still relevant - while this method wasn't touched, maybe sub-items are now disposed properly?
             //PATCH: Bugfix: Replace `GetSelectedSubItem` to fix reaction selection crashes.

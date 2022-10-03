@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CasterFeats
 {
-    public static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var groupFeats = new List<FeatDefinition>();
         var groups = new List<FeatDefinition>();

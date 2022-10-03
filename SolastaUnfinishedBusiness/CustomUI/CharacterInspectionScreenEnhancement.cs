@@ -125,7 +125,7 @@ internal static class CharacterInspectionScreenEnhancement
         return false;
     }
 
-    public static bool EnhanceFeatureList(CharacterInformationPanel panel, RectTransform table,
+    internal static bool EnhanceFeatureList(CharacterInformationPanel panel, RectTransform table,
         List<FeatureUnlockByLevel> features,
         string insufficientLevelFormat, TooltipDefinitions.AnchorMode tooltipAnchorMode)
     {
@@ -195,7 +195,7 @@ internal static class CharacterInspectionScreenEnhancement
         return false;
     }
 
-    public static void SwapClassAndBackground(CharacterInformationPanel panel)
+    internal static void SwapClassAndBackground(CharacterInformationPanel panel)
     {
         var backGroup = panel.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
         var classGroup = panel.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
@@ -340,7 +340,7 @@ internal static class CharacterInspectionScreenEnhancement
         }
     }
 
-    public static IEnumerable<CodeInstruction> EnableClassSelector(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> EnableClassSelector(IEnumerable<CodeInstruction> instructions)
     {
         var containsMethod = typeof(string).GetMethod("Contains");
         var getSelectedClassSearchTermMethod = new Func<string, string>(GetSelectedClassSearchTerm).Method;

@@ -6,9 +6,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
+internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
 {
-    public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
+    internal ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
         IEnumerable<ContentFragmentDescription> contentFragments)
     {
         Definition.IsDocument = true;
@@ -21,138 +21,134 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
         return this;
     }
 
-    public ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
+#if false
+    internal ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
     {
         Definition.GuiPresentation.Title = title;
         Definition.GuiPresentation.Description = description;
         return this;
     }
+#endif
 
-    public ItemDefinitionBuilder SetGold(int gold)
+    internal ItemDefinitionBuilder SetGold(int gold)
     {
         Definition.costs = new[] { 0, gold, 0, 0, 0 };
         return this;
     }
 
-    public ItemDefinitionBuilder SetCosts(int[] costs)
+    internal ItemDefinitionBuilder SetCosts(int[] costs)
     {
         Definition.costs = costs;
         return this;
     }
 
-    public ItemDefinitionBuilder SetWeight(float weight)
+    internal ItemDefinitionBuilder SetWeight(float weight)
     {
         Definition.weight = weight;
         return this;
     }
 
-    public ItemDefinitionBuilder MakeMagical()
+    internal ItemDefinitionBuilder MakeMagical()
     {
         Definition.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         Definition.magical = true;
         return this;
     }
 
-    public ItemDefinitionBuilder SetMerchantCategory(MerchantCategoryDefinition category)
+    internal ItemDefinitionBuilder SetMerchantCategory(MerchantCategoryDefinition category)
     {
         Definition.merchantCategory = category.Name;
         return this;
     }
 
-    public ItemDefinitionBuilder SetItemTags(params string[] tags)
+    internal ItemDefinitionBuilder SetItemTags(params string[] tags)
     {
         Definition.ItemTags.SetRange(tags);
         return this;
     }
-    
-    public ItemDefinitionBuilder AddItemTags(params string[] tags)
+
+    internal ItemDefinitionBuilder AddItemTags(params string[] tags)
     {
         Definition.ItemTags.AddRange(tags);
         return this;
     }
 
-    public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
-    {
-        Definition.SlotTypes.SetRange(slotTypes);
-        return this;
-    }
-
-    public ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
+    internal ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
     {
         Definition.SlotTypes.SetRange(slotTypes.Select(t => t.Name));
         return this;
     }
 
-    public ItemDefinitionBuilder SetSlotsWhereActive(params SlotTypeDefinition[] slotTypes)
+    internal ItemDefinitionBuilder SetSlotsWhereActive(params SlotTypeDefinition[] slotTypes)
     {
         Definition.SlotsWhereActive.SetRange(slotTypes.Select(t => t.Name));
         return this;
     }
 
-    public ItemDefinitionBuilder SetStaticProperties(params ItemPropertyDescription[] staticProperties)
+    internal ItemDefinitionBuilder SetStaticProperties(params ItemPropertyDescription[] staticProperties)
     {
         Definition.StaticProperties.SetRange(staticProperties);
         return this;
     }
 
-    public ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
+    internal ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
     {
         Definition.isWeapon = true;
         Definition.weaponDefinition = weapon;
         return this;
     }
 
-    public ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
+    internal ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
     {
         Definition.itemPresentation = presentation;
         return this;
     }
 
-    public ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
+    internal ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
     {
         Definition.itemRarity = rarity;
         return this;
     }
 
-    public ItemDefinitionBuilder SetRequiresIdentification(bool value)
+    internal ItemDefinitionBuilder SetRequiresIdentification(bool value)
     {
         Definition.requiresIdentification = value;
         return this;
     }
 
-    public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
+    internal ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
     {
         Definition.StaticProperties.SetRange(staticProperties);
         return this;
     }
 
-    public ItemDefinitionBuilder MergeStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
+    internal ItemDefinitionBuilder MergeStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
     {
         Definition.StaticProperties.AddRange(staticProperties);
         return this;
     }
 
-    public ItemDefinitionBuilder AddWeaponEffect(EffectForm effect)
+    internal ItemDefinitionBuilder AddWeaponEffect(EffectForm effect)
     {
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(effect);
         return this;
     }
 
-    public ItemDefinitionBuilder SetUsableDeviceDescription(UsableDeviceDescription usableDescription)
+    internal ItemDefinitionBuilder SetUsableDeviceDescription(UsableDeviceDescription usableDescription)
     {
         Definition.IsUsableDevice = true;
         Definition.usableDeviceDescription = usableDescription;
         return this;
     }
 
-    public ItemDefinitionBuilder SetFoodDescription(FoodDescription foodDescription)
+    internal ItemDefinitionBuilder SetFoodDescription(FoodDescription foodDescription)
     {
         Definition.IsFood = true;
         Definition.foodDescription = foodDescription;
         return this;
     }
 
-    public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
+    internal ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
     {
         Definition.IsUsableDevice = true;
         Definition.usableDeviceDescription = new UsableDeviceDescription();

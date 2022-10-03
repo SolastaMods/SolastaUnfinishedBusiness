@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterSubclassDefinitionBuilder
     : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
 {
-    public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
+    internal CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
 

@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class WorldLocationPatcher
+public static class WorldLocationPatcher
 {
     [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BuildFromUserLocation_Patch
+    public static class BuildFromUserLocation_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: changes how the location / rooms are instantiated (DMP)
             var found = 0;

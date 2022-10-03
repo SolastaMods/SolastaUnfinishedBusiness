@@ -6,20 +6,20 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
 {
-    public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
+    internal RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
     {
         Definition.craftedItem = craftedItem;
         return this;
     }
 
-    public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem, int stackCount)
+    internal RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem, int stackCount)
     {
         Definition.craftedItem = craftedItem;
         Definition.stackCount = stackCount;
         return this;
     }
 
-    public RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC,
+    internal RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC,
         ToolTypeDefinition toolType)
     {
         Definition.craftingHours = craftingHours;
@@ -28,20 +28,20 @@ internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Rec
         return this;
     }
 
-    public RecipeDefinitionBuilder AddIngredient(IngredientOccurenceDescription ingredient)
+    internal RecipeDefinitionBuilder AddIngredient(IngredientOccurenceDescription ingredient)
     {
         Definition.Ingredients.Add(ingredient);
         return this;
     }
 
-    public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
+    internal RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
     {
         var description = new IngredientOccurenceDescription { itemDefinition = ingredient, amount = 1 };
         Definition.Ingredients.Add(description);
         return this;
     }
 
-    public RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
+    internal RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
     {
         foreach (var ingredient in ingredients)
         {

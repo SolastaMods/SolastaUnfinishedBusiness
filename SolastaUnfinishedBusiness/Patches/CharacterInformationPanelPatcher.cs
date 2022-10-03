@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterInformationPanelPatcher
+public static class CharacterInformationPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterInformationPanel), "EnumerateFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnumerateFeatures_Patch
+    public static class EnumerateFeatures_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             CharacterInformationPanel __instance,
             RectTransform table,
             List<FeatureUnlockByLevel> features,
@@ -28,9 +28,9 @@ internal static class CharacterInformationPanelPatcher
 
     [HarmonyPatch(typeof(CharacterInformationPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Postfix(CharacterInformationPanel __instance)
+        public static void Postfix(CharacterInformationPanel __instance)
         {
             //PATCH: Switches positions of Class and Background descriptions, and class selector for MC characters
             CharacterInspectionScreenEnhancement.SwapClassAndBackground(__instance);
@@ -38,9 +38,9 @@ internal static class CharacterInformationPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterInformationPanel), "Refresh")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: overrides the selected class search term with the one determined by the hotkeys / enumerate class badges logic
             return CharacterInspectionScreenEnhancement.EnableClassSelector(instructions).ToList();

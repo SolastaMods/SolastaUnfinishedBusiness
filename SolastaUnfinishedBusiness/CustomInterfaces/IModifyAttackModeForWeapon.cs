@@ -1,6 +1,6 @@
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-internal interface IModifyAttackModeForWeapon
+public interface IModifyAttackModeForWeapon
 {
-    void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode);
+    public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode);
 }

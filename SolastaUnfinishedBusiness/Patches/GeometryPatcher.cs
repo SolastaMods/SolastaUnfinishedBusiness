@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CursorLocationGeometricShapePatcher
+public static class CursorLocationGeometricShapePatcher
 {
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(CursorLocationGeometricShape), "UpdateGeometricShape")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UpdateGeometricShape_Patch
+    public static class UpdateGeometricShape_Patch
     {
         public static void MyUpdateCubePosition_Regular(
             [NotNull] GeometricShape __instance,
@@ -65,7 +65,7 @@ internal static class CursorLocationGeometricShapePatcher
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var targetParameter2Field =
                 typeof(CursorLocationGeometricShape).GetField("targetParameter2",
@@ -93,7 +93,7 @@ internal static class CursorLocationGeometricShapePatcher
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "BuildAABB")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BuildAABB_Patch
+    public static class BuildAABB_Patch
     {
         public static void Postfix(GameLocationTargetingManager __instance)
         {
@@ -146,7 +146,7 @@ internal static class CursorLocationGeometricShapePatcher
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "DoesShapeContainPoint")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class DoesShapeContainPoint_Patch
+    public static class DoesShapeContainPoint_Patch
     {
         public static bool MyCubeContainsPoint_Regular(
             Vector3 cubeOrigin,
@@ -202,7 +202,7 @@ internal static class CursorLocationGeometricShapePatcher
             return result;
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var geometricParameter2Field =
                 typeof(GameLocationTargetingManager).GetField("geometricParameter2",

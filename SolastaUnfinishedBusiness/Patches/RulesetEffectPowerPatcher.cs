@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetEffectPowerPatcher
+public static class RulesetEffectPowerPatcher
 {
     [HarmonyPatch(typeof(RulesetEffectPower), "SaveDC", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SaveDC_Getter_Patch
+    public static class SaveDC_Getter_Patch
     {
         public static void Postfix(RulesetEffectPower __instance, ref int __result)
         {
@@ -30,9 +30,9 @@ internal static class RulesetEffectPowerPatcher
 
     [HarmonyPatch(typeof(RulesetEffectPower), "EffectDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EffectDescription_Getter_Patch
+    public static class EffectDescription_Getter_Patch
     {
-        internal static void Postfix(RulesetEffectPower __instance, ref EffectDescription __result)
+        public static void Postfix(RulesetEffectPower __instance, ref EffectDescription __result)
         {
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
             // allowing to pick and/or tweak power effect depending on some properties of the user

@@ -7,13 +7,13 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder> :
         FeatureDefinitionAffinityBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionAbilityCheckAffinity
     where TBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder>
 {
-    public TBuilder BuildAndSetAffinityGroups(
+    internal TBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType,
         DieType dieType,
         int diceNumber,
@@ -58,7 +58,7 @@ public abstract class
 }
 
 [UsedImplicitly]
-public class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<
+internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<
     FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {
     #region Constructors

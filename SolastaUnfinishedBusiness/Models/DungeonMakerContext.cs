@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class DungeonMakerContext
+internal static class DungeonMakerContext
 {
     internal const int GamePartySize = 4;
 

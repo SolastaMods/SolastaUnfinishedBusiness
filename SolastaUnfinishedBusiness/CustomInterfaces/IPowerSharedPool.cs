@@ -2,5 +2,5 @@
 
 public interface IPowerSharedPool
 {
-    FeatureDefinitionPower GetUsagePoolPower();
+    public FeatureDefinitionPower GetUsagePoolPower();
 }

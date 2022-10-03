@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 namespace SolastaUnfinishedBusiness.Builders;
 
 [Flags]
-public enum Silent
+internal enum Silent
 {
     None,
     WhenAdded = 1,
@@ -16,7 +16,7 @@ public enum Silent
     WhenAddedOrRemoved = WhenAdded | WhenRemoved
 }
 
-public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
 {
@@ -45,69 +45,69 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     }
 
     // Setters delegating to Definition
-    public TBuilder SetAllowMultipleInstances(bool value)
+    internal TBuilder SetAllowMultipleInstances(bool value)
     {
         Definition.allowMultipleInstances = value;
         return This();
     }
 
-    public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
+    internal TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
         Definition.amountOrigin = value;
         return This();
     }
 
-    public TBuilder SetConditionParticleReference(AssetReference value)
+    internal TBuilder SetConditionParticleReference(AssetReference value)
     {
         Definition.conditionParticleReference = value;
         return This();
     }
 
-    public TBuilder SetCharacterShaderReference(AssetReference value)
+    internal TBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;
         return This();
     }
 
-    public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
+    internal TBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {
         Definition.conditionType = value;
         return This();
     }
 
-    public TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
+    internal TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
         Definition.turnOccurence = value;
         return This();
     }
 
-    public TBuilder SetParentCondition(ConditionDefinition value)
+    internal TBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
         return This();
     }
 
-    public TBuilder ClearFeatures()
+    internal TBuilder ClearFeatures()
     {
         Definition.Features.Clear();
         return This();
     }
 
-    public TBuilder AddFeatures(params FeatureDefinition[] value)
+    internal TBuilder AddFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
-    public TBuilder SetFeatures(params FeatureDefinition[] value)
+    internal TBuilder SetFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
-    public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
+    internal TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
         ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
     {
         Definition.additionalDamageWhenHit = additionalDamageWhenHit;
@@ -118,74 +118,74 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-    public TBuilder SetTerminateWhenRemoved(bool value)
+    internal TBuilder SetTerminateWhenRemoved(bool value)
     {
         Definition.terminateWhenRemoved = value;
         return This();
     }
 
-    public TBuilder SetSilentWhenAdded(bool value)
+    internal TBuilder SetSilentWhenAdded(bool value)
     {
         Definition.silentWhenAdded = value;
         return This();
     }
 
-    public TBuilder SetSilentWhenRemoved(bool value)
+    internal TBuilder SetSilentWhenRemoved(bool value)
     {
         Definition.silentWhenRemoved = value;
         return This();
     }
 
-    public TBuilder SetSilent(Silent silent)
+    internal TBuilder SetSilent(Silent silent)
     {
         SetSilentWhenRemoved(silent.HasFlag(Silent.WhenRemoved));
         SetSilentWhenAdded(silent.HasFlag(Silent.WhenAdded));
         return This();
     }
 
-    public TBuilder SetSpecialDuration(bool value)
+    internal TBuilder SetSpecialDuration(bool value)
     {
         Definition.specialDuration = value;
         return This();
     }
 
-    public TBuilder SetPossessive(bool value)
+    internal TBuilder SetPossessive(bool value)
     {
         Definition.possessive = value;
         return This();
     }
 
-    public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
         return This();
     }
 
-    public TBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
+    internal TBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return This();
     }
 
-    public TBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal TBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value);
         return This();
     }
 
-    public TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
+    internal TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return This();
     }
 
-    public TBuilder SetInterruptionDamageThreshold(int value)
+    internal TBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
         return This();
     }
 
-    public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
     {
         if (validate)
         {
@@ -198,7 +198,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
         return This();
     }
 
-    public TBuilder Configure(
+    internal TBuilder Configure(
         RuleDefinitions.DurationType durationType,
         int durationParameter,
         bool silent,

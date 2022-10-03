@@ -6,9 +6,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
+internal delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
-public sealed class CustomFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle
+internal sealed class CustomFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle
 {
     private IsActiveFightingStyleDelegate isActive;
 
@@ -24,7 +24,7 @@ public sealed class CustomFightingStyleDefinition : FightingStyleDefinition, ICu
 }
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
+internal class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     CustomFightingStyleDefinition,
     CustomizableFightingStyleBuilder>
 {
@@ -37,7 +37,7 @@ public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
     }
 
     [NotNull]
-    public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
+    internal CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
     {
         Definition.SetIsActiveDelegate(del);
         return this;

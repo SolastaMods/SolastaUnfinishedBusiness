@@ -4,20 +4,20 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharactersPanelPatcher
+public static class CharactersPanelPatcher
 {
     //PATCH: Keeps last level up hero selected
     [HarmonyPatch(typeof(CharactersPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
-        internal static void Prefix(CharactersPanel __instance, out float __state)
+        public static void Prefix(CharactersPanel __instance, out float __state)
         {
             // Remember the current scroll position
             __state = __instance.charactersScrollview.verticalNormalizedPosition;
         }
 
-        internal static void Postfix(CharactersPanel __instance, float __state)
+        public static void Postfix(CharactersPanel __instance, float __state)
         {
             if (Global.LastLevelUpHeroName == null)
             {

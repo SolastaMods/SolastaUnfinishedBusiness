@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 14,
+  "requiredLevel": 6,
   "requiredPact": null,
   "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsLevitation:574c3b35-fce2-5e5b-90e2-7a264532c31c",
   "grantedSpell": null,

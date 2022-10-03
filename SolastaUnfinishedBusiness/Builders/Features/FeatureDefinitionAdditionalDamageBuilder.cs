@@ -7,20 +7,20 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition,
         TBuilder>
     where TDefinition : FeatureDefinitionAdditionalDamage
     where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetSpecificDamageType(string damageType)
+    internal TBuilder SetSpecificDamageType(string damageType)
     {
         Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
         Definition.specificDamageType = damageType;
         return This();
     }
 
-    public TBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
+    internal TBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
     {
         Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
         Definition.damageDiceNumber = diceNumber;
@@ -28,26 +28,26 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetNotificationTag(string tag)
+    internal TBuilder SetNotificationTag(string tag)
     {
         Definition.notificationTag = tag;
         return This();
     }
 
-    public TBuilder SetNoAdvancement()
+    internal TBuilder SetNoAdvancement()
     {
         Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
         return This();
     }
 
-    public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+    internal TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         params (int rank, int dice)[] diceByRank)
     {
         return SetAdvancement(advancement,
             diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
     }
 
-    public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+    internal TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> diceByRanks)
     {
         Definition.damageAdvancement = advancement;
@@ -55,25 +55,25 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+    internal TBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
         Definition.triggerCondition = trigger;
         return This();
     }
 
-    public TBuilder SetNoSave()
+    internal TBuilder SetNoSave()
     {
         Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
         return This();
     }
 
-    public TBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
+    internal TBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
     {
         Definition.ConditionOperations.SetRange(operations);
         return This();
     }
 
-    public TBuilder SetTargetCondition(ConditionDefinition requiredCondition,
+    internal TBuilder SetTargetCondition(ConditionDefinition requiredCondition,
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
         Definition.requiredTargetCondition = requiredCondition;
@@ -81,43 +81,43 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
+    internal TBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
     {
         Definition.limitedUsage = limit;
         return This();
     }
 
-    public TBuilder SetImpactParticleReference(AssetReference asset)
+    internal TBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
         return This();
     }
 
-    public TBuilder SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty property)
+    internal TBuilder SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
         return This();
     }
 
-    public TBuilder SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType damageType)
+    internal TBuilder SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType damageType)
     {
         Definition.additionalDamageType = damageType;
         return This();
     }
 
-    public TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
+    internal TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
     {
         Definition.damageValueDetermination = determination;
         return This();
     }
 
-    public TBuilder SetAddLightSource(bool addLightSource)
+    internal TBuilder SetAddLightSource(bool addLightSource)
     {
         Definition.addLightSource = addLightSource;
         return This();
     }
 
-    public TBuilder SetLightSourceForm(LightSourceForm form)
+    internal TBuilder SetLightSourceForm(LightSourceForm form)
     {
         Definition.lightSourceForm = form;
         return This();
@@ -147,12 +147,12 @@ public abstract class
     #endregion
 }
 
-public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
+internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
     FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
 {
     // Can we give this a specific name? ConfigureXXX.
     // Or move into ArcaneFighter.
-    public FeatureDefinitionAdditionalDamageBuilder Configure(
+    internal FeatureDefinitionAdditionalDamageBuilder Configure(
         string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
         RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
         RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,

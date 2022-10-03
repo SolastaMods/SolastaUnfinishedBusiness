@@ -2,14 +2,14 @@
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static partial class UI
+internal static partial class UI
 {
     private static readonly GUIContent _LabelContent = new();
-    public static readonly GUIContent CheckOn = new(CheckGlyphOn);
-    public static readonly GUIContent CheckOff = new(CheckGlyphOff);
-    public static readonly GUIContent DisclosureOn = new(DisclosureGlyphOn);
-    public static readonly GUIContent DisclosureOff = new(DisclosureGlyphOff);
-    public static readonly GUIContent DisclosureEmpty = new(DisclosureGlyphEmpty);
+    internal static readonly GUIContent CheckOn = new(CheckGlyphOn);
+    internal static readonly GUIContent CheckOff = new(CheckGlyphOff);
+    internal static readonly GUIContent DisclosureOn = new(DisclosureGlyphOn);
+    internal static readonly GUIContent DisclosureOff = new(DisclosureGlyphOff);
+    internal static readonly GUIContent DisclosureEmpty = new(DisclosureGlyphEmpty);
 
     private static readonly int SButtonHint = "MyGUI.Button".GetHashCode();
 
@@ -124,20 +124,20 @@ public static partial class UI
             options);
     }
 
-    public static bool DisclosureToggle(string label, bool value, bool isEmpty = false,
+    internal static bool DisclosureToggle(string label, bool value, bool isEmpty = false,
         params GUILayoutOption[] options)
     {
         return DisclosureToggle(label, value, GUI.skin.box, GUI.skin.label, isEmpty, options);
     }
 
     // CheckBox
-    public static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
+    internal static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
         params GUILayoutOption[] options)
     {
         return Toggle(LabelContent(label), value, CheckOn, CheckOff, GUI.skin.box, style, isEmpty, options);
     }
 
-    public static bool CheckBox(string label, bool value, bool isEmpty, params GUILayoutOption[] options)
+    internal static bool CheckBox(string label, bool value, bool isEmpty, params GUILayoutOption[] options)
     {
         return CheckBox(label, value, isEmpty, GUI.skin.label, options);
     }

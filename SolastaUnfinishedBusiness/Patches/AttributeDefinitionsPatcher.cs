@@ -4,13 +4,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class AttributeDefinitionsPatcher
+public static class AttributeDefinitionsPatcher
 {
     [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeCostToRaiseAbility_Patch
+    public static class ComputeCostToRaiseAbility_Patch
     {
-        internal static void Postfix(int previousValue, ref int __result)
+        public static void Postfix(int previousValue, ref int __result)
         {
             //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
             if (!Main.Settings.EnableEpicPointsAndArray)

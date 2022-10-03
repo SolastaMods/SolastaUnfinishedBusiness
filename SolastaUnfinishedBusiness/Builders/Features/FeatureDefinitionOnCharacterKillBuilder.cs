@@ -10,7 +10,7 @@ internal class FeatureDefinitionOnCharacterKillBuilder : FeatureDefinitionBuilde
     FeatureDefinitionOnCharacterKillBuilder>
 {
     [NotNull]
-    public FeatureDefinitionOnCharacterKillBuilder SetOnCharacterKill(OnCharacterKillDelegate onCharacterKillDelegate)
+    internal FeatureDefinitionOnCharacterKillBuilder SetOnCharacterKill(OnCharacterKillDelegate onCharacterKillDelegate)
     {
         Definition.SetOnCharacterKill(onCharacterKillDelegate);
         return this;

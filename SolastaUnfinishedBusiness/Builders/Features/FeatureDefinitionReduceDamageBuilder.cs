@@ -9,28 +9,28 @@ internal class FeatureDefinitionReduceDamageBuilder : FeatureDefinitionBuilder<F
     FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]
-    public FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
+    internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
     {
         Definition.NotificationTag = notificationTag;
         return this;
     }
 
     [NotNull]
-    public FeatureDefinitionReduceDamageBuilder SetReducedDamage(int reducedDamage)
+    internal FeatureDefinitionReduceDamageBuilder SetReducedDamage(int reducedDamage)
     {
         Definition.ReducedDamage = reducedDamage;
         return this;
     }
 
     [NotNull]
-    public FeatureDefinitionReduceDamageBuilder SetSourceName(string sourceName)
+    internal FeatureDefinitionReduceDamageBuilder SetSourceName(string sourceName)
     {
         Definition.SourceName = sourceName;
         return this;
     }
 
     [NotNull]
-    public FeatureDefinitionReduceDamageBuilder SetSourceType(RuleDefinitions.FeatureSourceType sourceType)
+    internal FeatureDefinitionReduceDamageBuilder SetSourceType(RuleDefinitions.FeatureSourceType sourceType)
     {
         Definition.SourceType = sourceType;
         return this;

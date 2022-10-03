@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public static partial class ReflectionCache
+internal static partial class ReflectionCache
 {
     private static readonly DoubleDictionary<Type, string, WeakReference> _fieldCache = new();
 
@@ -54,35 +54,35 @@ public static partial class ReflectionCache
     //    return cache as CachedField<TField>;
     //}
 
-    //public static FieldInfo GetFieldInfo<T, TField>(string name) => GetFieldCache<T, TField>(name).Info;
+    //internal static FieldInfo GetFieldInfo<T, TField>(string name) => GetFieldCache<T, TField>(name).Info;
 
-    //public static FieldInfo GetFieldInfo<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Info;
+    //internal static FieldInfo GetFieldInfo<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Info;
 
-    //public static ref TField GetFieldRef<T, TField>(this ref T instance, string name) where T : struct => ref (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).GetRef(ref instance);
+    //internal static ref TField GetFieldRef<T, TField>(this ref T instance, string name) where T : struct => ref (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).GetRef(ref instance);
 
-    //public static ref TField GetFieldRef<T, TField>(this T instance, string name) where T : class => ref (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).GetRef(instance);
+    //internal static ref TField GetFieldRef<T, TField>(this T instance, string name) where T : class => ref (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).GetRef(instance);
 
-    public static TField GetFieldValue<T, TField>(this ref T instance, string name) where T : struct
+    internal static TField GetFieldValue<T, TField>(this ref T instance, string name) where T : struct
     {
         return (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Get(ref instance);
     }
 
-    public static TField GetFieldValue<T, TField>(this T instance, string name) where T : class
+    internal static TField GetFieldValue<T, TField>(this T instance, string name) where T : class
     {
         return (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Get(instance);
     }
 
-    //public static TField GetFieldValue<T, TField>(string name) => GetFieldCache<T, TField>(name).Get();
+    //internal static TField GetFieldValue<T, TField>(string name) => GetFieldCache<T, TField>(name).Get();
 
-    //public static TField GetFieldValue<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Get();
+    //internal static TField GetFieldValue<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Get();
 
-    //public static void SetFieldValue<T, TField>(this ref T instance, string name, TField value) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Set(ref instance, value);
+    //internal static void SetFieldValue<T, TField>(this ref T instance, string name, TField value) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Set(ref instance, value);
 
-    //public static void SetFieldValue<T, TField>(this T instance, string name, TField value) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Set(instance, value);
+    //internal static void SetFieldValue<T, TField>(this T instance, string name, TField value) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Set(instance, value);
 
-    //public static void SetFieldValue<T, TField>(string name, TField value) => GetFieldCache<T, TField>(name).Set(value);
+    //internal static void SetFieldValue<T, TField>(string name, TField value) => GetFieldCache<T, TField>(name).Set(value);
 
-    //public static void SetFieldValue<TField>(this Type type, string name, TField value) => GetFieldCache<TField>(type, name).Set(value);
+    //internal static void SetFieldValue<TField>(this Type type, string name, TField value) => GetFieldCache<TField>(type, name).Set(value);
 
     private abstract class CachedField<TField>
     {
@@ -99,10 +99,10 @@ public static partial class ReflectionCache
         }
 
         // for static field
-        public abstract TField Get();
+        internal abstract TField Get();
 
         // for static field
-        public abstract void Set(TField value);
+        internal abstract void Set(TField value);
 
         protected Delegate CreateGetter(Type delType, bool isInstByRef)
         {
@@ -199,21 +199,21 @@ public static partial class ReflectionCache
         //private RefGetter _refGetter;
         private Setter _setter;
 
-        public CachedFieldOfStruct(string name) : base(typeof(T), name) { }
+        internal CachedFieldOfStruct(string name) : base(typeof(T), name) { }
 
-        public override TField Get()
+        internal override TField Get()
         {
             return (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref _dummy);
         }
 
-        public TField Get(ref T instance)
+        internal TField Get(ref T instance)
         {
             return (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref instance);
         }
 
-        //public ref TField GetRef(ref T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), true) as RefGetter)(ref instance);
+        //internal ref TField GetRef(ref T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), true) as RefGetter)(ref instance);
 
-        public override void Set(TField value)
+        internal override void Set(TField value)
         {
             (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref _dummy, value);
         }
@@ -224,7 +224,7 @@ public static partial class ReflectionCache
 
         private delegate void Setter(ref T instance, TField value);
 
-        //public void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
+        //internal void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
     }
 
     private class CachedFieldOfClass<T, TField> : CachedField<TField>
@@ -236,21 +236,21 @@ public static partial class ReflectionCache
         //private RefGetter _refGetter;
         private Setter _setter;
 
-        public CachedFieldOfClass(string name) : base(typeof(T), name) { }
+        internal CachedFieldOfClass(string name) : base(typeof(T), name) { }
 
-        public override TField Get()
+        internal override TField Get()
         {
             return (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(_dummy);
         }
 
-        public TField Get(T instance)
+        internal TField Get(T instance)
         {
             return (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(instance);
         }
 
-        //public ref TField GetRef(T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), false) as RefGetter)(instance);
+        //internal ref TField GetRef(T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), false) as RefGetter)(instance);
 
-        public override void Set(TField value)
+        internal override void Set(TField value)
         {
             (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(_dummy, value);
         }
@@ -261,7 +261,7 @@ public static partial class ReflectionCache
 
         private delegate void Setter(T instance, TField value);
 
-        //public void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
+        //internal void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
     }
 
     private class CachedFieldOfStatic<TField> : CachedField<TField>
@@ -269,18 +269,18 @@ public static partial class ReflectionCache
         private Getter _getter;
         private Setter _setter;
 
-        public CachedFieldOfStatic(Type type, string name) : base(type, name)
+        internal CachedFieldOfStatic(Type type, string name) : base(type, name)
         {
             //if (!IsStatic(type))
             //    throw new InvalidOperationException();
         }
 
-        public override TField Get()
+        internal override TField Get()
         {
             return (_getter ??= CreateGetter())();
         }
 
-        public override void Set(TField value)
+        internal override void Set(TField value)
         {
             (_setter ??= CreateSetter())(value);
         }

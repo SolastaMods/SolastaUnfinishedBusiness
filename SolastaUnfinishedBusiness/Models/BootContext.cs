@@ -25,7 +25,7 @@ internal static class BootContext
 
     internal static readonly HashSet<string> SupportedLanguages = new(); // { "zh-CN" };
 
-    public static void Startup()
+    internal static void Startup()
     {
 #if DEBUG
         ItemDefinitionVerification.Load();
@@ -71,11 +71,11 @@ internal static class BootContext
         // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
         SubclassesContext.Load();
 
+        // Load SRD and House rules towards the load phase end in case they change previous blueprints
+        SrdAndHouseRulesContext.Load();
+        
         // Level 20 must always load after classes and subclasses
         Level20Context.Load();
-
-        // Load SRD and House rules last in case they change previous blueprints
-        SrdAndHouseRulesContext.Load();
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
@@ -94,35 +94,30 @@ internal static class BootContext
             // Divine Smite fixes and final switches
             SrdAndHouseRulesContext.LateLoad();
 
-            // Level 20
+            // Level 20 - patching and final configs
             Level20Context.LateLoad();
 
-            // Multiclass
+            // Multiclass - patching and final configs
             MulticlassContext.LateLoad();
 
-            // Shared Slots
+            // Shared Slots - patching and final configs
             SharedSpellsContext.LateLoad();
-
-            // Classes Features Sorting
-            ClassesContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
-
-            // Register mod delegates
-            // DelegatesContext.LateLoad();
 
             // Recache all gui collections
             GuiWrapperContext.Recache();
 
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
-
-            // Manages update or welcome messages
-            Load();
-
+            
+            // really don't have a better place for these fixes here ;-)
             ExpandColorTables();
             AddExtraTooltipDefinitions();
+            
+            // Manages update or welcome messages
+            Load();
             Main.Enable();
         };
     }
@@ -147,7 +142,7 @@ internal static class BootContext
             return;
         }
 
-        GuiTooltipClassDefinition featDef = gui.tooltipClassDefinitions["FeatDefinition"];
+        var featDef = gui.tooltipClassDefinitions["FeatDefinition"];
 
         var prerequisites = featDef.tooltipFeatures.FindIndex(f =>
             f.scope == TooltipDefinitions.Scope.All &&
@@ -156,7 +151,7 @@ internal static class BootContext
         if (prerequisites >= 0)
         {
             var custom = GuiTooltipClassDefinitionBuilder
-                .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPrereqsTooltip)
+                .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
                 .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
                 //TODO: figure out why only background widens, but not content
                 // .SetPanelWidth(400f) //items have 340f by default
@@ -227,7 +222,7 @@ internal static class BootContext
     {
         const string BASE_URL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness";
 
-        var destFiles = new[] {"Info.json", "SolastaUnfinishedBusiness.dll"};
+        var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
 
@@ -323,7 +318,7 @@ internal static class BootContext
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {

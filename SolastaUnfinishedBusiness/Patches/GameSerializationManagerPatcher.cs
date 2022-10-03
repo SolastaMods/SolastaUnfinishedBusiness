@@ -3,11 +3,11 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameSerializationManagerPatcher
+public static class GameSerializationManagerPatcher
 {
     [HarmonyPatch(typeof(GameSerializationManager), "CanLoad", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CanLoad_Getter_Patch
+    public static class CanLoad_Getter_Patch
     {
         public static bool Prefix(
             GameSerializationManager __instance,

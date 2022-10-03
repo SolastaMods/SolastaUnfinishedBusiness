@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class TranspileAssertHelper
 {
-    public static void RemoveBoolAsserts(List<CodeInstruction> codes)
+    internal static void RemoveBoolAsserts(List<CodeInstruction> codes)
     {
         int assertIndex;
         var noAssert = new Action<bool>(NoAssert).Method;

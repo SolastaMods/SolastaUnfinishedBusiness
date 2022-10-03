@@ -128,7 +128,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
 
 internal static class PowerMarshalStudyYourEnemyBuilder
 {
-    public static FeatureDefinitionPower BuildStudyEnemyPower()
+    internal static FeatureDefinitionPower BuildStudyEnemyPower()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
@@ -152,7 +152,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
 
     private sealed class StudyEnemyEffectDescription : CustomEffectForm
     {
-        public override void ApplyForm(
+        internal override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             List<string> effectiveDamageTypes,
             bool retargeting,
@@ -206,7 +206,7 @@ internal static class PowerMarshalStudyYourEnemyBuilder
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
         }
 
-        public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+        internal override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
         {
         }
     }
@@ -366,7 +366,7 @@ internal static class EternalComradeBuilder
         effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
-            .Create(MonsterAttackDefinitions.AttackGenericGuardLongsword, "AttackMarshalEternalComrade")
+            .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .AddToDB();
 

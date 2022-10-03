@@ -164,15 +164,21 @@ namespace SolastaCeBootstrap
                 "Action",
                 "ActionType",
                 "AdventureLog",
+                "Alignment",
+                "AmmunitionType",
+                "ArmorType",
                 "BanterEvent",
                 "BestiaryStats",
                 "BestiaryTable",
                 "Biome",
                 "BlueprintCategory",
                 "Calendar",
+                "Campaign",
                 "CampaignNodeType",
                 "CharacterInteraction",
                 "CharacterTemplate",
+                "CharacterToLootPackMap",
+                "Clue",
                 "ConsoleTable",
                 "ContentPack",
                 "CreditsGroup",
@@ -188,28 +194,47 @@ namespace SolastaCeBootstrap
                 "DieType",
                 "DifficultyPreset",
                 "DocumentTable",
+                "EffectProxy",
                 "Encounter",
                 "EncounterTable",
                 "Environment",
                 "EnvironmentEffect",
+                "FactionDefinition",
+                "FightingStyle",
+                "Formation",
+                "GadgetBlueprint",
                 "GadgetDefinition",
                 "HumanoidMonsterPresentation",
                 "Inventory",
+                "Investigation",
+                "Language",
                 "Location",
                 "LocationType",
-                "NarrativeTree",
+                "LootableContainer",
+                "LootPack",
                 "MapWaypoint",
+                "MonsterAttack",
+                "MonsterPresentation",
+                "MorphotypeCategory",
                 "MoviePlayback",
+                "MusicalInstrumentType",
                 "MusicalState",
                 "NamedPlace",
                 "NarrativeEventTable",
+                "NarrativeTree",
                 "Notification",
+                "PersonalityFlag",
                 "PropBlueprint",
                 "QuestStatus",
                 "QuestTree",
+                "Reaction",
+                "RestActivity",
                 "RoomBlueprint",
+                "SmartAttribute",
                 "SoundBanks",
                 "SubtitleTable",
+                "TerrainType",
+                "ToolCategory",
                 "TravelActivity",
                 "TravelEvent",
                 "TravelJournal",
@@ -220,39 +245,9 @@ namespace SolastaCeBootstrap
                 "TutorialTable",
                 "TutorialToc",
                 "VisualMood",
-                "Voice",
-
-                // 2022-09-17
-                "AmmunitionType",
-                "Campaign",
-                "CharacterToLootPackMap",
-                "FactionDefinition",
-                "LootableContainer",
-                "PersonalityFlag",
-                "TerrainType",
-                "ToolCategory",
-
-                // 2022-09-30
-                "SmartAttribute",
-                "RestActivity",
-                "Reaction",
-                "MusicalInstrumentType",
-                "MorphotypeCategory",
-                "Clue",
-                "Investigation",
-                "MonsterAttack",
-                "MonsterPresentation",
-                "ArmorType",
-                "EffectProxy",
-                "Alignment",
-                "Formation",
-                "Language",
-                "LootPack",
-                "FightingStyle",
-                "MorphotypeElement",
-                "GadgetBlueprint",
-                "TreasureTable"
+                "Voice"
             };
+
             var definitions = new Dictionary<string, List<Asset>>();
 
             foreach (var db in (Dictionary<Type, object>) AccessTools.Field(typeof(DatabaseRepository), "databases")
@@ -260,7 +255,7 @@ namespace SolastaCeBootstrap
             {
                 var dbName = db.Key.Name;
 
-                if (ignore.Any(x => dbName.StartsWith(x))) continue;
+                if (ignore.Any(dbName.StartsWith)) continue;
 
                 foreach (var baseDefinition in ((IEnumerable) db.Value).Cast<BaseDefinition>())
                 {
@@ -309,14 +304,14 @@ namespace SolastaCeBootstrap
 
             if (asset.AssetType == asset.DatabaseType)
                 WriteLine(stringBuilder,
-                    $"public static {asset.AssetType} {name} {{ get; }} = GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\");",
+                    $"internal static {asset.AssetType} {name} {{ get; }} = GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\");",
                     indentCount);
         }
 
         internal static void WriteSubclass(StringBuilder stringBuilder, string subClass, List<Asset> assets,
             int indentCount = 0)
         {
-            WriteLine(stringBuilder, $"public static class {subClass}", indentCount);
+            WriteLine(stringBuilder, $"internal static class {subClass}", indentCount);
             WriteLine(stringBuilder, "{", indentCount);
 
             foreach (var asset in assets.OrderBy(a => a.Name)) WriteGetter(stringBuilder, asset, indentCount + 1);
@@ -334,7 +329,8 @@ namespace SolastaCeBootstrap
             WriteLine(sb, "// this file is automatically generated");
             sb.AppendLine();
             WriteLine(sb, "namespace SolastaUnfinishedBusiness.Api;");
-            WriteLine(sb, "public static partial class DatabaseHelper");
+            sb.AppendLine();
+            WriteLine(sb, "internal static partial class DatabaseHelper");
             WriteLine(sb, "{");
 
             foreach (var kvp in assets)

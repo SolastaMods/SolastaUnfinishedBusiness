@@ -455,7 +455,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
 
         [NotNull]
-        public static FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder Create(
+        internal static FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder Create(
             string name,
             ConditionDefinition illuminatedCondition)
         {
@@ -506,7 +506,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
 
         [NotNull]
-        public static FeatureDefinitionPowerIlluminatingBurstBuilder Create(
+        internal static FeatureDefinitionPowerIlluminatingBurstBuilder Create(
             string name,
             ConditionDefinition illuminatedCondition,
             ConditionDefinition illuminatingBurstSuppressedCondition)
@@ -622,7 +622,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
 
         [NotNull]
-        public static FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder Create(string name,
+        internal static FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder Create(string name,
             ConditionDefinition illuminatingBurstSuppressedCondition)
         {
             return new FeatureDefinitionPowerIlluminatingBurstInitiatorBuilder(name,

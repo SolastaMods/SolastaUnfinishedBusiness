@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionLightAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionLightAffinity,
     FeatureDefinitionLightAffinityBuilder>
 {
-    public FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
+    internal FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
         FeatureDefinitionLightAffinity.LightingEffectAndCondition lightingEffectAndCondition)
     {
         Definition.LightingEffectAndConditionList.Add(lightingEffectAndCondition);

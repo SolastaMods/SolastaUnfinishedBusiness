@@ -90,7 +90,7 @@
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "Owl",
+          "monsterDefinitionName": "OwlFamiliar",
           "number": 1,
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,

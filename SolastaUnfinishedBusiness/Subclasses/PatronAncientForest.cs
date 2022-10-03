@@ -29,7 +29,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetSpellsAtLevel(3, Revivify, StinkingCloud)
             .SetSpellsAtLevel(4, Blight, GiantInsect)
             .SetSpellsAtLevel(5, Contagion, InsectPlague)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinityAncientForestExpandedSpells = FeatureDefinitionMagicAffinityBuilder

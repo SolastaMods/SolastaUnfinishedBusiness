@@ -9,9 +9,9 @@ using GL = UnityEngine.GUILayout;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static partial class UI
+internal static partial class UI
 {
-    public static bool SelectionGrid(
+    internal static bool SelectionGrid(
         ref int selected,
         [NotNull] string[] texts,
         int xCols,

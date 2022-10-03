@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -31,7 +31,7 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
 
     internal static void Load()
     {
@@ -71,7 +71,7 @@ internal static class CharacterContext
         effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
         var conditionDistractedByAlly = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
@@ -94,7 +94,6 @@ internal static class CharacterContext
                 true)
             .AddToDB();
     }
-
 
     private static void LoadAdditionalNames()
     {
@@ -119,7 +118,7 @@ internal static class CharacterContext
             var gender = columns[1];
             var name = columns[2];
             var race = (CharacterRaceDefinition)AccessTools
-                .Property(typeof(DatabaseHelper.CharacterRaceDefinitions), raceName).GetValue(null);
+                .Property(typeof(CharacterRaceDefinitions), raceName).GetValue(null);
             var racePresentation = race.RacePresentation;
             var options = (List<string>)
                 AccessTools.Property(racePresentation.GetType(), $"{gender}NameOptions").GetValue(racePresentation);
@@ -345,7 +344,6 @@ internal static class CharacterContext
         [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelNonHuman,
         [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelHuman)
     {
-        var featureDefinitionPointPoolDb = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
         string name;
 
         featureUnlockByLevelNonHuman = null;
@@ -367,7 +365,7 @@ internal static class CharacterContext
                 featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(PointPoolBonusFeat, 1);
 
                 name = "PointPool2BonusFeats";
-                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out var pointPool2BonusFeats))
+                if (alternateHuman && TryGetDefinition<FeatureDefinitionPointPool>(name, out var pointPool2BonusFeats))
                 {
                     featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPool2BonusFeats, 1);
                 }
@@ -377,13 +375,13 @@ internal static class CharacterContext
             case > 1:
             {
                 name = $"PointPool{initialFeats}BonusFeats";
-                if (featureDefinitionPointPoolDb.TryGetElement(name, out var featureDefinitionPointPool))
+                if (TryGetDefinition<FeatureDefinitionPointPool>(name, out var featureDefinitionPointPool))
                 {
                     featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(featureDefinitionPointPool, 1);
                 }
 
                 name = $"PointPool{initialFeats + 1}BonusFeats";
-                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out var pointPoolXBonusFeats))
+                if (alternateHuman && TryGetDefinition<FeatureDefinitionPointPool>(name, out var pointPoolXBonusFeats))
                 {
                     featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPoolXBonusFeats, 1);
                 }
@@ -400,8 +398,7 @@ internal static class CharacterContext
         BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
             out var featureUnlockByLevelHuman);
 
-        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                     .GetAllElements())
+        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
         {
             if (IsSubRace(characterRaceDefinition))
             {
@@ -423,7 +420,7 @@ internal static class CharacterContext
                 human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
 
                 Remove(human,
-                    DatabaseHelper.FeatureDefinitionAttributeModifiers
+                    FeatureDefinitionAttributeModifiers
                         .AttributeModifierHumanAbilityScoreIncrease);
             }
             else
@@ -443,8 +440,7 @@ internal static class CharacterContext
         BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
             out var featureUnlockByLevelHuman);
 
-        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                     .GetAllElements())
+        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
         {
             if (IsSubRace(characterRaceDefinition))
             {
@@ -462,8 +458,8 @@ internal static class CharacterContext
                 Remove(human, PointPoolHumanSkillPool);
 
                 var humanAttributeIncrease = new FeatureUnlockByLevel(
-                    DatabaseHelper.FeatureDefinitionAttributeModifiers
-                        .AttributeModifierHumanAbilityScoreIncrease, 1);
+                    FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease, 1);
+
                 human.FeatureUnlocks.Add(humanAttributeIncrease);
             }
             else

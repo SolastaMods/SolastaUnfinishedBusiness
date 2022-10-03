@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -28,28 +27,51 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
     {
     }
 
-    public EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
+    internal EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
         Definition.hasPortrait = true;
         Definition.portraitSpriteReference = portraitSpriteReference;
         return this;
     }
 
-    public EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
+    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
     {
         return AddAdditionalFeatures(features.AsEnumerable());
     }
 
-    public EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
+    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.AdditionalFeatures.AddRange(features);
         return this;
     }
 
-    public EffectProxyDefinitionBuilder SetCanMove()
+    internal EffectProxyDefinitionBuilder SetIsEmptyPresentation(bool value)
+    {
+        Definition.isEmptyPresentation = value;
+        return this;
+    }
+
+    internal EffectProxyDefinitionBuilder SetCanMove()
     {
         Definition.canMove = true;
         return this;
     }
+
+    internal EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
+    {
+        Definition.canMoveOnCharacters = true;
+        return this;
+    }
+
+    internal EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
+    {
+        Definition.actionId = actionId;
+        return this;
+    }
+
+    internal EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
+    {
+        Definition.attackMethod = proxyAttackMethod;
+        return this;
+    }
 }
-#endif

@@ -6,12 +6,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterActionMagicEffectPatcher
+public static class CharacterActionMagicEffectPatcher
 {
     [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
-    internal static class ExecuteImpl_Patch
+    public static class ExecuteImpl_Patch
     {
-        internal static void Prefix([NotNull] CharacterActionMagicEffect __instance)
+        public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
             var definition = __instance.GetBaseDefinition();
 
@@ -23,7 +23,7 @@ internal static class CharacterActionMagicEffectPatcher
         }
 
 
-        internal static IEnumerator Postfix(
+        public static IEnumerator Postfix(
             [NotNull] IEnumerator __result,
             CharacterActionMagicEffect __instance)
         {

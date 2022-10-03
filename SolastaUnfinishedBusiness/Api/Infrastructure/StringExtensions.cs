@@ -3,9 +3,9 @@ using System.Text;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public static class StringExtensions
+internal static class StringExtensions
 {
-    public static bool Matches(string source, string other)
+    internal static bool Matches(string source, string other)
     {
         if (source == null || other == null)
         {
@@ -15,7 +15,7 @@ public static class StringExtensions
         return source.IndexOf(other, 0, StringComparison.InvariantCultureIgnoreCase) != -1;
     }
 
-    public static string MarkedSubstring(this string source, string other)
+    internal static string MarkedSubstring(this string source, string other)
     {
         if (string.IsNullOrWhiteSpace(source) || string.IsNullOrWhiteSpace(other))
         {
@@ -45,7 +45,7 @@ public static class StringExtensions
         return new StringBuilder(s.Length * n).Insert(0, s, n).ToString();
     }
 
-    public static string Indent(this string s, int n)
+    internal static string Indent(this string s, int n)
     {
         return "    ".Repeat(n) + s;
     }

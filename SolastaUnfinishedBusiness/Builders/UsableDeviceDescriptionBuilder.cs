@@ -3,11 +3,11 @@ using static EquipmentDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class UsableDeviceDescriptionBuilder
+internal class UsableDeviceDescriptionBuilder
 {
     private readonly UsableDeviceDescription description;
 
-    public UsableDeviceDescriptionBuilder()
+    internal UsableDeviceDescriptionBuilder()
     {
         description = new UsableDeviceDescription
         {
@@ -27,32 +27,33 @@ public class UsableDeviceDescriptionBuilder
         };
     }
 
-    public UsableDeviceDescriptionBuilder SetSaveDc(int DC)
+    internal UsableDeviceDescriptionBuilder SetSaveDc(int dc)
     {
-        description.saveDC = DC;
+        description.saveDC = dc;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
+    internal UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
         description.usage = usage;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
+    internal UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
     {
         description.DeviceFunctions.AddRange(functions);
         return this;
     }
 
-    public UsableDeviceDescription Build()
+    internal UsableDeviceDescription Build()
     {
         return description;
     }
 
     #region Charge
 
-    public UsableDeviceDescriptionBuilder SetCharges(
+#if false
+    internal UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
@@ -65,35 +66,36 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetChargesCapital(ItemChargesCapital capital)
+    internal UsableDeviceDescriptionBuilder SetChargesCapital(ItemChargesCapital capital)
     {
         description.chargesCapital = capital;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
+    internal UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
     {
         description.chargesCapitalNumber = number;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetChargesCapitalDie(RuleDefinitions.DieType dieType)
+    internal UsableDeviceDescriptionBuilder SetChargesCapitalDie(RuleDefinitions.DieType dieType)
     {
         description.chargesCapitalDie = dieType;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetChargesCapitalBonus(int bonus)
+    internal UsableDeviceDescriptionBuilder SetChargesCapitalBonus(int bonus)
     {
         description.chargesCapitalBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 
     #region Recharge
 
-    public UsableDeviceDescriptionBuilder SetRecharge(
+    internal UsableDeviceDescriptionBuilder SetRecharge(
         RuleDefinitions.RechargeRate rate = RuleDefinitions.RechargeRate.Dawn,
         int number = 1,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
@@ -106,29 +108,31 @@ public class UsableDeviceDescriptionBuilder
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
+#if false
+    internal UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         description.rechargeRate = rate;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetRechargeNumber(int number)
+    internal UsableDeviceDescriptionBuilder SetRechargeNumber(int number)
     {
         description.rechargeNumber = number;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetRechargeDie(RuleDefinitions.DieType dieType)
+    internal UsableDeviceDescriptionBuilder SetRechargeDie(RuleDefinitions.DieType dieType)
     {
         description.rechargeDie = dieType;
         return this;
     }
 
-    public UsableDeviceDescriptionBuilder SetRechargeBonus(int bonus)
+    internal UsableDeviceDescriptionBuilder SetRechargeBonus(int bonus)
     {
         description.rechargeBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 }

@@ -24,9 +24,7 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [
-    "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",

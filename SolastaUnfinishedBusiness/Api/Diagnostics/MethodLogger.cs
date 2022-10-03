@@ -8,9 +8,9 @@ namespace SolastaUnfinishedBusiness.Api.Diagnostics
     /// <summary>
     /// <para>
     /// Usage
-    /// public class SomeType
+    /// internal class SomeType
     /// {
-    ///     public int SomeMethod(...)
+    ///     internal int SomeMethod(...)
     ///     {
     ///         using(var logger = new MethodLogger(nameof(SomeType)))
     ///         {
@@ -28,21 +28,21 @@ namespace SolastaUnfinishedBusiness.Api.Diagnostics
     /// SomeType.SomeMethod: Exit
     /// </para>
     /// </summary>
-    public sealed class MethodLogger : SetResetDisposable
+    internal sealed class MethodLogger : SetResetDisposable
     {
         private readonly string methodName;
 
         // Very annoying there's no CallerTypeNameAttribute
         private readonly string typeName;
 
-        public MethodLogger(string typeName, [CallerMemberName] [CanBeNull] string methodName = null) :
+        internal MethodLogger(string typeName, [CallerMemberName] [CanBeNull] string methodName = null) :
             base(() => Main.Log($"{typeName}.{methodName}: Enter"), () => Main.Log($"{typeName}.{methodName}: Leave"))
         {
             this.methodName = methodName;
             this.typeName = typeName;
         }
 
-        public void Log(string message)
+        internal void Log(string message)
         {
             Main.Log($"{typeName}.{methodName}: {message}");
         }

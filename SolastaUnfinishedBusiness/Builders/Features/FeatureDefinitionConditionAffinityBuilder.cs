@@ -3,19 +3,19 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
         TBuilder>
     where TDefinition : FeatureDefinitionConditionAffinity
     where TBuilder : FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
+    internal TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
     {
         Definition.conditionAffinityType = value;
         return This();
     }
 
-    public TBuilder SetConditionType(ConditionDefinition value)
+    internal TBuilder SetConditionType(ConditionDefinition value)
     {
         Definition.conditionType = value.Name;
         return This();

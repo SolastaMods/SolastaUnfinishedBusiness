@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
@@ -9,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity,
     FeatureDefinitionMagicAffinityBuilder>
 {
-    public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
+    internal FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
         RuleDefinitions.ConcentrationAffinity concentrationAffinity,
         int threshold = -1)
     {
@@ -23,7 +22,7 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
-    public FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(
+    internal FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(
         bool weapon,
         bool weaponOrShield,
         bool weaponAsFocus)
@@ -35,7 +34,7 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
-    public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(
+    internal FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(
         int attackModifier = 0,
         RuleDefinitions.SpellParamsModifierType attackModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,
         int dcModifier = 0,
@@ -55,7 +54,7 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
-    public FeatureDefinitionMagicAffinityBuilder SetWarList(
+    internal FeatureDefinitionMagicAffinityBuilder SetWarList(
         int levelBonus,
         params SpellDefinition[] spells)
     {
@@ -67,7 +66,7 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
-    public FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
+    internal FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
         float scribeDurationMultiplier,
         float scribeCostMultiplier,
         int additionalScribedSpells,
@@ -83,7 +82,7 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
-    public FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
+    internal FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
         Definition.extendedSpellList = spellListDefinition;
 

@@ -4,14 +4,14 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GameLocationBattlePatcher
+public static class GameLocationBattlePatcher
 {
     //PATCH: EnableEnemiesControlledByPlayer
     [HarmonyPatch(typeof(GameLocationBattle), "GetMyContenders")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetMyContenders_Patch
+    public static class GetMyContenders_Patch
     {
-        internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
+        public static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
         {
             if (!Main.Settings.EnableEnemiesControlledByPlayer || __instance == null)
             {
@@ -31,9 +31,9 @@ internal static class GameLocationBattlePatcher
     //PATCH: EnableEnemiesControlledByPlayer
     [HarmonyPatch(typeof(GameLocationBattle), "GetOpposingContenders")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetOpposingContenders_Patch
+    public static class GetOpposingContenders_Patch
     {
-        internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
+        public static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
         {
             if (!Main.Settings.EnableEnemiesControlledByPlayer || __instance == null)
             {

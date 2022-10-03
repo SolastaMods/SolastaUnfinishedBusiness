@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
-    public static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyFeatLightArmor = BuildProficiency("ProficiencyFeatLightArmor",
             ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);

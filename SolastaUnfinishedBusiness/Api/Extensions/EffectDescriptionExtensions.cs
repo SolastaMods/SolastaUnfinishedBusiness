@@ -13,10 +13,10 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 [TargetType(typeof(EffectDescription))]
 #endif
 [GeneratedCode("Unfinished Business Extension Generator", "1.0.0")]
-public static class EffectDescriptionExtensions
+internal static class EffectDescriptionExtensions
 {
     [NotNull]
-    public static T Create<T>([NotNull] this T entity, T copy)
+    internal static T Create<T>([NotNull] this T entity, T copy)
         where T : EffectDescription
     {
         entity.Copy(copy);
@@ -24,7 +24,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetDuration<T>([NotNull] this T entity, DurationType type, int? duration = null)
+    internal static T SetDuration<T>([NotNull] this T entity, DurationType type, int? duration = null)
         where T : EffectDescription
     {
         switch (type)
@@ -68,7 +68,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRange<T>([NotNull] this T entity, RangeType type, int? range = null)
+    internal static T SetRange<T>([NotNull] this T entity, RangeType type, int? range = null)
         where T : EffectDescription
     {
         switch (type)
@@ -107,7 +107,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T AddEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
+    internal static T AddEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
         where T : EffectDescription
     {
         AddEffectForms(entity, value.AsEnumerable());
@@ -115,7 +115,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T AddEffectForms<T>([NotNull] this T entity, [NotNull] IEnumerable<EffectForm> value)
+    internal static T AddEffectForms<T>([NotNull] this T entity, [NotNull] IEnumerable<EffectForm> value)
         where T : EffectDescription
     {
         entity.EffectForms.AddRange(value);
@@ -123,7 +123,7 @@ public static class EffectDescriptionExtensions
     }
 
     [CanBeNull]
-    public static DamageForm FindLastDamageForm([NotNull] this EffectDescription entity)
+    internal static DamageForm FindLastDamageForm([NotNull] this EffectDescription entity)
     {
         DamageForm form = null;
 
@@ -137,7 +137,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T ClearRestrictedCreatureFamilies<T>([NotNull] this T entity)
+    internal static T ClearRestrictedCreatureFamilies<T>([NotNull] this T entity)
         where T : EffectDescription
     {
         entity.RestrictedCreatureFamilies.Clear();
@@ -145,7 +145,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static EffectDescription Copy(this EffectDescription entity)
+    internal static EffectDescription Copy(this EffectDescription entity)
     {
         var effectDescription = new EffectDescription();
 
@@ -155,7 +155,8 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetAnimationMagicEffect<T>([NotNull] this T entity, AnimationDefinitions.AnimationMagicEffect value)
+    internal static T SetAnimationMagicEffect<T>([NotNull] this T entity,
+        AnimationDefinitions.AnimationMagicEffect value)
         where T : EffectDescription
     {
         entity.animationMagicEffect = value;
@@ -163,7 +164,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetCanBeDispersed<T>([NotNull] this T entity, Boolean value)
+    internal static T SetCanBeDispersed<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.canBeDispersed = value;
@@ -171,7 +172,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetCanBePlacedOnCharacter<T>([NotNull] this T entity, Boolean value)
+    internal static T SetCanBePlacedOnCharacter<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.canBePlacedOnCharacter = value;
@@ -179,7 +180,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetCreatedByCharacter<T>([NotNull] this T entity, Boolean value)
+    internal static T SetCreatedByCharacter<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.createdByCharacter = value;
@@ -187,7 +188,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetDifficultyClassComputation<T>([NotNull] this T entity, EffectDifficultyClassComputation value)
+    internal static T SetDifficultyClassComputation<T>([NotNull] this T entity, EffectDifficultyClassComputation value)
         where T : EffectDescription
     {
         entity.difficultyClassComputation = value;
@@ -195,7 +196,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetDisableSavingThrowOnAllies<T>([NotNull] this T entity, Boolean value)
+    internal static T SetDisableSavingThrowOnAllies<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.disableSavingThrowOnAllies = value;
@@ -203,7 +204,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetDurationParameter<T>([NotNull] this T entity, Int32 value)
+    internal static T SetDurationParameter<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.DurationParameter = value;
@@ -211,7 +212,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetDurationType<T>([NotNull] this T entity, DurationType value)
+    internal static T SetDurationType<T>([NotNull] this T entity, DurationType value)
         where T : EffectDescription
     {
         entity.DurationType = value;
@@ -219,7 +220,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectAdvancement<T>([NotNull] this T entity, EffectAdvancement value)
+    internal static T SetEffectAdvancement<T>([NotNull] this T entity, EffectAdvancement value)
         where T : EffectDescription
     {
         entity.effectAdvancement = value;
@@ -227,7 +228,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectAIParameters<T>([NotNull] this T entity, EffectAIParameters value)
+    internal static T SetEffectAIParameters<T>([NotNull] this T entity, EffectAIParameters value)
         where T : EffectDescription
     {
         entity.effectAIParameters = value;
@@ -235,7 +236,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
+    internal static T SetEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
         where T : EffectDescription
     {
         SetEffectForms(entity, value.AsEnumerable());
@@ -243,7 +244,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectForms<T>([NotNull] this T entity, IEnumerable<EffectForm> value)
+    internal static T SetEffectForms<T>([NotNull] this T entity, IEnumerable<EffectForm> value)
         where T : EffectDescription
     {
         entity.EffectForms.SetRange(value);
@@ -251,7 +252,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectParticleParameters<T>([NotNull] this T entity, IMagicEffect magic)
+    internal static T SetEffectParticleParameters<T>([NotNull] this T entity, IMagicEffect magic)
         where T : EffectDescription
     {
         entity.effectParticleParameters = magic.EffectDescription.EffectParticleParameters;
@@ -259,7 +260,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEffectPoolAmount<T>([NotNull] this T entity, Int32 value)
+    internal static T SetEffectPoolAmount<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.effectPoolAmount = value;
@@ -267,7 +268,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEmissiveBorder<T>([NotNull] this T entity, EmissiveBorder value)
+    internal static T SetEmissiveBorder<T>([NotNull] this T entity, EmissiveBorder value)
         where T : EffectDescription
     {
         entity.emissiveBorder = value;
@@ -275,7 +276,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEmissiveParameter<T>([NotNull] this T entity, Int32 value)
+    internal static T SetEmissiveParameter<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.emissiveParameter = value;
@@ -283,7 +284,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetEndOfEffect<T>([NotNull] this T entity, TurnOccurenceType value)
+    internal static T SetEndOfEffect<T>([NotNull] this T entity, TurnOccurenceType value)
         where T : EffectDescription
     {
         entity.EndOfEffect = value;
@@ -291,7 +292,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetFixedSavingThrowDifficultyClass<T>([NotNull] this T entity, Int32 value)
+    internal static T SetFixedSavingThrowDifficultyClass<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.FixedSavingThrowDifficultyClass = value;
@@ -299,7 +300,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetHalfDamageOnAMiss<T>([NotNull] this T entity, Boolean value)
+    internal static T SetHalfDamageOnAMiss<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.halfDamageOnAMiss = value;
@@ -307,7 +308,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetHasLimitedEffectPool<T>([NotNull] this T entity, Boolean value)
+    internal static T SetHasLimitedEffectPool<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.hasLimitedEffectPool = value;
@@ -315,7 +316,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetHasSavingThrow<T>([NotNull] this T entity, Boolean value)
+    internal static T SetHasSavingThrow<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.HasSavingThrow = value;
@@ -323,7 +324,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetHasShoveRoll<T>([NotNull] this T entity, Boolean value)
+    internal static T SetHasShoveRoll<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.hasShoveRoll = value;
@@ -331,7 +332,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetHasVelocity<T>([NotNull] this T entity, Boolean value)
+    internal static T SetHasVelocity<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.hasVelocity = value;
@@ -339,7 +340,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetInviteOptionalAlly<T>([NotNull] this T entity, Boolean value)
+    internal static T SetInviteOptionalAlly<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.inviteOptionalAlly = value;
@@ -347,7 +348,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetItemSelectionType<T>([NotNull] this T entity, ActionDefinitions.ItemSelectionType value)
+    internal static T SetItemSelectionType<T>([NotNull] this T entity, ActionDefinitions.ItemSelectionType value)
         where T : EffectDescription
     {
         entity.itemSelectionType = value;
@@ -355,7 +356,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetOffsetImpactTimeBasedOnDistance<T>([NotNull] this T entity, Boolean value)
+    internal static T SetOffsetImpactTimeBasedOnDistance<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.offsetImpactTimeBasedOnDistance = value;
@@ -363,7 +364,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetOffsetImpactTimeBasedOnDistanceFactor<T>([NotNull] this T entity, Single value)
+    internal static T SetOffsetImpactTimeBasedOnDistanceFactor<T>([NotNull] this T entity, Single value)
         where T : EffectDescription
     {
         entity.offsetImpactTimeBasedOnDistanceFactor = value;
@@ -371,7 +372,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetOffsetImpactTimePerTarget<T>([NotNull] this T entity, Single value)
+    internal static T SetOffsetImpactTimePerTarget<T>([NotNull] this T entity, Single value)
         where T : EffectDescription
     {
         entity.offsetImpactTimePerTarget = value;
@@ -379,7 +380,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetPoolFilterDiceNumber<T>([NotNull] this T entity, Int32 value)
+    internal static T SetPoolFilterDiceNumber<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.poolFilterDiceNumber = value;
@@ -387,7 +388,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetPoolFilterDieType<T>([NotNull] this T entity, DieType value)
+    internal static T SetPoolFilterDieType<T>([NotNull] this T entity, DieType value)
         where T : EffectDescription
     {
         entity.poolFilterDieType = value;
@@ -395,7 +396,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRangeParameter<T>([NotNull] this T entity, Int32 value)
+    internal static T SetRangeParameter<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.rangeParameter = value;
@@ -403,7 +404,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRangeType<T>([NotNull] this T entity, RangeType value)
+    internal static T SetRangeType<T>([NotNull] this T entity, RangeType value)
         where T : EffectDescription
     {
         entity.RangeType = value;
@@ -411,7 +412,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRecurrentEffect<T>([NotNull] this T entity, RecurrentEffect value)
+    internal static T SetRecurrentEffect<T>([NotNull] this T entity, RecurrentEffect value)
         where T : EffectDescription
     {
         entity.recurrentEffect = value;
@@ -419,7 +420,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRequiresTargetProximity<T>([NotNull] this T entity, Boolean value)
+    internal static T SetRequiresTargetProximity<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.requiresTargetProximity = value;
@@ -427,7 +428,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRequiresVisibilityForPosition<T>([NotNull] this T entity, Boolean value)
+    internal static T SetRequiresVisibilityForPosition<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.requiresVisibilityForPosition = value;
@@ -435,7 +436,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRetargetActionType<T>([NotNull] this T entity, ActionDefinitions.ActionType value)
+    internal static T SetRetargetActionType<T>([NotNull] this T entity, ActionDefinitions.ActionType value)
         where T : EffectDescription
     {
         entity.retargetActionType = value;
@@ -443,7 +444,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetRetargetAfterDeath<T>([NotNull] this T entity, Boolean value)
+    internal static T SetRetargetAfterDeath<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.retargetAfterDeath = value;
@@ -451,7 +452,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetSavingThrowAbility<T>([NotNull] this T entity, String value)
+    internal static T SetSavingThrowAbility<T>([NotNull] this T entity, String value)
         where T : EffectDescription
     {
         entity.SavingThrowAbility = value;
@@ -459,7 +460,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetSavingThrowDifficultyAbility<T>([NotNull] this T entity, String value)
+    internal static T SetSavingThrowDifficultyAbility<T>([NotNull] this T entity, String value)
         where T : EffectDescription
     {
         entity.SavingThrowDifficultyAbility = value;
@@ -467,7 +468,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetSpeedParameter<T>([NotNull] this T entity, Single value)
+    internal static T SetSpeedParameter<T>([NotNull] this T entity, Single value)
         where T : EffectDescription
     {
         entity.speedParameter = value;
@@ -475,7 +476,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetSpeedType<T>([NotNull] this T entity, SpeedType value)
+    internal static T SetSpeedType<T>([NotNull] this T entity, SpeedType value)
         where T : EffectDescription
     {
         entity.speedType = value;
@@ -483,7 +484,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetConditionAsset<T>([NotNull] this T entity, ConditionDefinition value)
+    internal static T SetTargetConditionAsset<T>([NotNull] this T entity, ConditionDefinition value)
         where T : EffectDescription
     {
         entity.targetConditionAsset = value;
@@ -491,7 +492,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetConditionName<T>([NotNull] this T entity, String value)
+    internal static T SetTargetConditionName<T>([NotNull] this T entity, String value)
         where T : EffectDescription
     {
         entity.targetConditionName = value;
@@ -499,7 +500,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetExcludeCaster<T>([NotNull] this T entity, Boolean value)
+    internal static T SetTargetExcludeCaster<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
     {
         entity.targetExcludeCaster = value;
@@ -507,7 +508,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetFilteringMethod<T>([NotNull] this T entity, TargetFilteringMethod value)
+    internal static T SetTargetFilteringMethod<T>([NotNull] this T entity, TargetFilteringMethod value)
         where T : EffectDescription
     {
         entity.targetFilteringMethod = value;
@@ -515,7 +516,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetFilteringTag<T>([NotNull] this T entity, TargetFilteringTag value)
+    internal static T SetTargetFilteringTag<T>([NotNull] this T entity, TargetFilteringTag value)
         where T : EffectDescription
     {
         entity.targetFilteringTag = value;
@@ -523,7 +524,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetParameter<T>([NotNull] this T entity, Int32 value)
+    internal static T SetTargetParameter<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.targetParameter = value;
@@ -531,7 +532,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetParameter2<T>([NotNull] this T entity, Int32 value)
+    internal static T SetTargetParameter2<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.targetParameter2 = value;
@@ -539,7 +540,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetProximityDistance<T>([NotNull] this T entity, Int32 value)
+    internal static T SetTargetProximityDistance<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
     {
         entity.targetProximityDistance = value;
@@ -547,7 +548,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetSide<T>([NotNull] this T entity, Side value)
+    internal static T SetTargetSide<T>([NotNull] this T entity, Side value)
         where T : EffectDescription
     {
         entity.TargetSide = value;
@@ -555,7 +556,7 @@ public static class EffectDescriptionExtensions
     }
 
     [NotNull]
-    public static T SetTargetType<T>([NotNull] this T entity, TargetType value)
+    internal static T SetTargetType<T>([NotNull] this T entity, TargetType value)
         where T : EffectDescription
     {
         entity.TargetType = value;

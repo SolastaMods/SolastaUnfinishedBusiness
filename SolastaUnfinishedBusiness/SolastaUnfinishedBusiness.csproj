@@ -4,16 +4,9 @@
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
     <AssemblyVersion>1.4.13.0</AssemblyVersion>
-    <FileVersion>1.4.13.0</FileVersion>
-    <Description>Solasta Unfinished Business</Description>
-    <PackageProjectUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug;Release;Debug Install;Release Install</Configurations>
-    <Authors>SolastaMods</Authors>
-    <Copyright>Copyright 2022</Copyright>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.4.13.0</Version>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -254,6 +247,17 @@
     <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
   </Target>
 
+  <!-- we keep a static version of DB Helpers under RELEASE mode
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
+    <Compile Remove="Api\DatabaseHelper.cs" />
+  </ItemGroup>
+   -->
+
+  <!-- we keep a static version of DB Helpers under DEBUG mode -->
+  <ItemGroup> <!-- Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'"> -->
+    <Compile Remove="Api\DatabaseHelper-RELEASE.cs" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>

@@ -4,12 +4,12 @@ using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class ReactionModalPatcher
+public static class ReactionModalPatcher
 {
     //TODO: Create a FeatureBuilder with Validators to create a generic check here
     [HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactionTriggered_Patch
+    public static class ReactionTriggered_Patch
     {
         public static bool Prefix(ReactionRequest request)
         {

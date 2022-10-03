@@ -9,13 +9,13 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class RulesetImplementationManagerLocationPatcher
+public static class RulesetImplementationManagerLocationPatcher
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsMetamagicOptionAvailable_Patch
+    public static class IsMetamagicOptionAvailable_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             ref bool __result,
             RulesetEffectSpell rulesetEffectSpell,
             RulesetCharacter caster,
@@ -53,9 +53,9 @@ internal static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsSituationalContextValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsSituationalContextValid_Patch
+    public static class IsSituationalContextValid_Patch
     {
-        internal static void Postfix(
+        public static void Postfix(
             ref bool __result,
             RulesetImplementationDefinitions.SituationalContextParams contextParams)
         {
@@ -68,9 +68,9 @@ internal static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateActiveDeviceFunction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class InstantiateActiveDeviceFunction_Patch
+    public static class InstantiateActiveDeviceFunction_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             RulesetImplementationManagerLocation __instance,
             ref RulesetEffect __result,
             RulesetCharacter user,
@@ -88,7 +88,7 @@ internal static class RulesetImplementationManagerLocationPatcher
     //PATCH: Implements ExtraOriginOfAmount
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ApplySummonForm_Patch
+    public static class ApplySummonForm_Patch
     {
         public static RulesetCondition ExtendInflictCondition(
             RulesetActor rulesetActor,
@@ -124,8 +124,8 @@ internal static class RulesetImplementationManagerLocationPatcher
                     var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                            .TryGetElement(classType, out var characterClassDefinition)
+                    if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(classType,
+                            out var characterClassDefinition)
                         && sourceCharacter.ClassesAndLevels != null
                         && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
                     {
@@ -140,7 +140,7 @@ internal static class RulesetImplementationManagerLocationPatcher
                 sourceProficiencyBonus, bardicInspirationDie);
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var addedConditionPos = Main.IsDebugBuild ? 37 : 27;
             var found = 0;

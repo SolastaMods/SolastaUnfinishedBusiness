@@ -2,13 +2,11 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class LimitedEffectInstances : ILimitedEffectInstances
+internal class LimitedEffectInstances : ILimitedEffectInstances
 {
-    public delegate int GetEffectLimit(RulesetCharacter character);
-
     private readonly GetEffectLimit _handler;
 
-    public LimitedEffectInstances(string name, GetEffectLimit handler)
+    internal LimitedEffectInstances(string name, GetEffectLimit handler)
     {
         _handler = handler;
         Name = name;
@@ -20,4 +18,6 @@ public class LimitedEffectInstances : ILimitedEffectInstances
     {
         return _handler(character);
     }
+
+    internal delegate int GetEffectLimit(RulesetCharacter character);
 }

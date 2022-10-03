@@ -2,25 +2,25 @@
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public static class DiceByRankBuilder
+internal static class DiceByRankBuilder
 {
-    public static DiceByRank BuildDiceByRank(int rank, int dice)
+    internal static DiceByRank BuildDiceByRank(int rank, int dice)
     {
         var diceByRank = new DiceByRank { rank = rank, diceNumber = dice };
         return diceByRank;
     }
 }
 
-public static class DiceByRankMaker
+internal static class DiceByRankMaker
 {
-    // public static List<DiceByRank> Make(params (int, int)[] ranks)
+    // internal static List<DiceByRank> Make(params (int, int)[] ranks)
     // {
     //     return ranks
     //         .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
     //         .ToList();
     // }
 
-    public static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
+    internal static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
     {
         var result = new List<DiceByRank>();
         for (var i = 0; i < 20; i++)

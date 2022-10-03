@@ -9,11 +9,11 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class SlotStatusTablePatcher
+public static class SlotStatusTablePatcher
 {
     [HarmonyPatch(typeof(SlotStatusTable), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
         private static bool UniqueLevelSlots(
             FeatureDefinitionCastSpell featureDefinitionCastSpell,
@@ -26,7 +26,7 @@ internal static class SlotStatusTablePatcher
                    (hero == null || !SharedSpellsContext.IsMulticaster(hero));
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");
             var myUniqueLevelSlotsMethod =
@@ -47,7 +47,7 @@ internal static class SlotStatusTablePatcher
         }
 
         //PATCH: creates different slots colors and pop up messages depending on slot types
-        internal static void Postfix(
+        public static void Postfix(
             SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel)
@@ -81,7 +81,7 @@ internal static class SlotStatusTablePatcher
     //PATCH: ensures slot colors are white before getting back to pool
     [HarmonyPatch(typeof(SlotStatusTable), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Unbind_Patch
+    public static class Unbind_Patch
     {
         public static void Prefix(SlotStatusTable __instance)
         {

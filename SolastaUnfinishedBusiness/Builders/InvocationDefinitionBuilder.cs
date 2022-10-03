@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : InvocationDefinition
     where TBuilder : InvocationDefinitionBuilder<TDefinition, TBuilder>
 {
@@ -24,31 +24,31 @@ public abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Defin
     {
     }
 
-    public TBuilder SetRequiredLevel(int level)
+    internal TBuilder SetRequiredLevel(int level)
     {
         Definition.requiredLevel = level;
         return This();
     }
 
-    public TBuilder SetRequiredSpell(SpellDefinition spell)
+    internal TBuilder SetRequiredSpell(SpellDefinition spell)
     {
         Definition.requiredKnownSpell = spell;
         return This();
     }
 
-    public TBuilder SetRequiredPact(FeatureDefinition pact)
+    internal TBuilder SetRequiredPact(FeatureDefinition pact)
     {
         Definition.requiredPact = pact;
         return This();
     }
 
-    public TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
+    internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
     {
         Definition.grantedFeature = featureDefinition;
         return This();
     }
 
-    public TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
+    internal TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
     {
         Definition.grantedSpell = spell;
         Definition.consumesSpellSlot = consumeSlot;

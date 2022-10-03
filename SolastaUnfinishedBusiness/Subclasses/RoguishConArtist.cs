@@ -34,9 +34,9 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
-            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
-            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.ThirdCaster)
+            .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .AddToDB();
 
         var conditionConArtistFeint = ConditionDefinitionBuilder

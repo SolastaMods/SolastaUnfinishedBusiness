@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Utils;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-public static class TranslationsDisplay
+internal static class TranslationsDisplay
 {
     internal static void DisplayTranslations()
     {

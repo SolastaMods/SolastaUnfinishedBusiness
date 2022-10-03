@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ShieldAttack
 {
-    public static void UseOffhandForShieldAttackAnimation(
+    internal static void UseOffhandForShieldAttackAnimation(
         RulesetAttackMode attackMode,
         ref string animation,
         ref bool isThrown,
@@ -24,7 +24,7 @@ internal static class ShieldAttack
     }
 
     //replaces calls to ItemDefinition's isWeapon and Wea[ponDescription getter with custom ones that account for shield
-    public static IEnumerable<CodeInstruction> MakeShieldCountAsMelee(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> MakeShieldCountAsMelee(IEnumerable<CodeInstruction> instructions)
     {
         var weaponDescription = typeof(ItemDefinition).GetMethod("get_WeaponDescription");
         var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");

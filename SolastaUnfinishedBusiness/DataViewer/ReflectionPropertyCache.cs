@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public static partial class ReflectionCache
+internal static partial class ReflectionCache
 {
     private static readonly DoubleDictionary<Type, string, WeakReference> _propertieCache = new();
 
@@ -65,35 +65,35 @@ public static partial class ReflectionCache
         return cache as CachedProperty<TProperty>;
     }
 
-    //public static PropertyInfo GetPropertyInfo<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Info;
+    //internal static PropertyInfo GetPropertyInfo<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Info;
 
-    //public static PropertyInfo GetPropertyInfo<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Info;
+    //internal static PropertyInfo GetPropertyInfo<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Info;
 
-    public static TProperty GetPropertyValue<T, TProperty>(this ref T instance, string name) where T : struct
+    internal static TProperty GetPropertyValue<T, TProperty>(this ref T instance, string name) where T : struct
     {
         return (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Get(ref instance);
     }
 
-    public static TProperty GetPropertyValue<T, TProperty>(this T instance, string name) where T : class
+    internal static TProperty GetPropertyValue<T, TProperty>(this T instance, string name) where T : class
     {
         return (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Get(instance);
     }
 
-    //public static TProperty GetPropertyValue<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Get();
+    //internal static TProperty GetPropertyValue<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Get();
 
-    //public static TProperty GetPropertyValue<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Get();
+    //internal static TProperty GetPropertyValue<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Get();
 
-    //public static void SetPropertyValue<T, TProperty>(this ref T instance, string name, TProperty value) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Set(ref instance, value);
+    //internal static void SetPropertyValue<T, TProperty>(this ref T instance, string name, TProperty value) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Set(ref instance, value);
 
-    //public static void SetPropertyValue<T, TProperty>(this T instance, string name, TProperty value) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Set(instance, value);
+    //internal static void SetPropertyValue<T, TProperty>(this T instance, string name, TProperty value) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Set(instance, value);
 
-    //public static void SetPropertyValue<T, TProperty>(string name, TProperty value) => GetPropertyCache<T, TProperty>(name).Set(value);
+    //internal static void SetPropertyValue<T, TProperty>(string name, TProperty value) => GetPropertyCache<T, TProperty>(name).Set(value);
 
-    //public static void SetPropertyValue<TProperty>(this Type type, string name, TProperty value) => GetPropertyCache<TProperty>(type, name).Set(value);
+    //internal static void SetPropertyValue<TProperty>(this Type type, string name, TProperty value) => GetPropertyCache<TProperty>(type, name).Set(value);
 
     private abstract class CachedProperty<TProperty>
     {
-        public readonly PropertyInfo Info;
+        internal readonly PropertyInfo Info;
 
         protected CachedProperty(Type type, string name)
         {
@@ -111,10 +111,10 @@ public static partial class ReflectionCache
         }
 
         // for static property
-        public abstract TProperty Get();
+        internal abstract TProperty Get();
 
         // for static property
-        public abstract void Set(TProperty value);
+        internal abstract void Set(TProperty value);
 
         protected Delegate CreateGetter(Type delType, MethodInfo getter, bool isInstByRef)
         {
@@ -165,19 +165,19 @@ public static partial class ReflectionCache
         private Getter _getter;
         private Setter _setter;
 
-        public CachedPropertyOfStruct(string name) : base(typeof(T), name) { }
+        internal CachedPropertyOfStruct(string name) : base(typeof(T), name) { }
 
-        public override TProperty Get()
+        internal override TProperty Get()
         {
             return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref _dummy);
         }
 
-        public TProperty Get(ref T instance)
+        internal TProperty Get(ref T instance)
         {
             return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref instance);
         }
 
-        public override void Set(TProperty value)
+        internal override void Set(TProperty value)
         {
             (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref _dummy, value);
         }
@@ -186,7 +186,7 @@ public static partial class ReflectionCache
 
         private delegate void Setter(ref T instance, TProperty value);
 
-        //public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
+        //internal void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
     }
 
     private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty>
@@ -195,19 +195,19 @@ public static partial class ReflectionCache
         private Getter _getter;
         private Setter _setter;
 
-        public CachedPropertyOfClass(string name) : base(typeof(T), name) { }
+        internal CachedPropertyOfClass(string name) : base(typeof(T), name) { }
 
-        public override TProperty Get()
+        internal override TProperty Get()
         {
             return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(_dummy);
         }
 
-        public TProperty Get(T instance)
+        internal TProperty Get(T instance)
         {
             return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(instance);
         }
 
-        public override void Set(TProperty value)
+        internal override void Set(TProperty value)
         {
             (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(_dummy, value);
         }
@@ -216,7 +216,7 @@ public static partial class ReflectionCache
 
         private delegate void Setter(T instance, TProperty value);
 
-        //public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
+        //internal void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
     }
 
     private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty>
@@ -224,18 +224,18 @@ public static partial class ReflectionCache
         private Getter _getter;
         private Setter _setter;
 
-        public CachedPropertyOfStatic(Type type, string name) : base(type, name)
+        internal CachedPropertyOfStatic(Type type, string name) : base(type, name)
         {
             //if (!IsStatic(type))
             //    throw new InvalidOperationException();
         }
 
-        public override TProperty Get()
+        internal override TProperty Get()
         {
             return (_getter ??= CreateGetter())();
         }
 
-        public override void Set(TProperty value)
+        internal override void Set(TProperty value)
         {
             (_setter ??= CreateSetter())(value);
         }

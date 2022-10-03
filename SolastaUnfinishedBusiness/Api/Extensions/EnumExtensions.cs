@@ -3,7 +3,7 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
-public enum ExtraEffectFormType
+internal enum ExtraEffectFormType
 {
     // Damage = EffectForm.EffectFormType.Damage,
     // Healing = EffectForm.EffectFormType.Healing,
@@ -24,7 +24,7 @@ public enum ExtraEffectFormType
     Custom = 9000
 }
 
-public enum ExtraRitualCasting
+internal enum ExtraRitualCasting
 {
     // None = RitualCasting.None,
     // Prepared = RitualCasting.Prepared,
@@ -32,7 +32,7 @@ public enum ExtraRitualCasting
     Known = 9000
 }
 
-public enum ExtraOriginOfAmount
+internal enum ExtraOriginOfAmount
 {
     // None = ConditionDefinition.OriginOfAmount.None,
     // SourceDamage = ConditionDefinition.OriginOfAmount.SourceDamage,
@@ -54,7 +54,7 @@ public enum ExtraConditionInterruption
 }
 
 #if false
-public enum ExtraTurnOccurenceType
+internal enum ExtraTurnOccurenceType
 {
     StartOfTurn = TurnOccurenceType.StartOfTurn,
     EndOfTurn = TurnOccurenceType.EndOfTurn,
@@ -64,7 +64,7 @@ public enum ExtraTurnOccurenceType
 }
 #endif
 
-public enum ExtraAdditionalDamageAdvancement
+internal enum ExtraAdditionalDamageAdvancement
 {
     // None = AdditionalDamageAdvancement.None,
     // ClassLevel = AdditionalDamageAdvancement.ClassLevel,
@@ -72,7 +72,7 @@ public enum ExtraAdditionalDamageAdvancement
     CharacterLevel = 9000
 }
 
-public enum ExtraAdvancementDuration
+internal enum ExtraAdvancementDuration
 {
     // None = AdvancementDuration.None,
     //

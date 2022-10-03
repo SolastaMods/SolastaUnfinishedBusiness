@@ -4,12 +4,12 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    public class PushValue<T> : Disposable
+    internal class PushValue<T> : Disposable
     {
         private readonly T oldValue;
         private Action<T> setValue;
 
-        public PushValue(T value, Func<T> getValue, Action<T> setValue)
+        internal PushValue(T value, Func<T> getValue, Action<T> setValue)
         {
             if (getValue == null) { throw new ArgumentNullException(nameof(getValue)); }
 

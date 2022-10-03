@@ -2,5 +2,5 @@
 
 public interface IDisableImmunityAndResistanceToDamageType
 {
-    bool DisableImmunityAndResistanceToDamageType(string damageType);
+    public bool DisableImmunityAndResistanceToDamageType(string damageType);
 }

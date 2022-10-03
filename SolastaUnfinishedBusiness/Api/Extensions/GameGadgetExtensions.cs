@@ -5,21 +5,21 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class GameGadgetExtensions
 {
-    public const string Enabled = "Enabled";
-    public const string Triggered = "Triggered";
-    public const string RemoteEnabled = "RemoteEnabled";
-    public const string ParamEnabled = "Param_Enabled";
-    public const string Invisible = "Invisible";
+    internal const string Enabled = "Enabled";
+    internal const string Triggered = "Triggered";
+    internal const string RemoteEnabled = "RemoteEnabled";
+    internal const string ParamEnabled = "Param_Enabled";
+    internal const string Invisible = "Invisible";
 
     /// <summary>
     ///     Returns state of Invisible parameter, or false if not present
     /// </summary>
-    public static bool IsInvisible([NotNull] this GameGadget gadget)
+    internal static bool IsInvisible([NotNull] this GameGadget gadget)
     {
         return gadget.CheckConditionName(Invisible, true, false);
     }
 
-    public static bool IsEnabled([NotNull] this GameGadget gadget, bool valueIfParamsNotPresent = false)
+    internal static bool IsEnabled([NotNull] this GameGadget gadget, bool valueIfParamsNotPresent = false)
     {
         // We need to know if both Enabled and ParamEnabled are missing
         var names = gadget.conditionNames;

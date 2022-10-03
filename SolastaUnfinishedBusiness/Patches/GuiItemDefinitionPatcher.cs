@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class GuiItemDefinitionPatcher
+public static class GuiItemDefinitionPatcher
 {
     [HarmonyPatch(typeof(GuiItemDefinition), "EnumerateTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnumerateTags_Patch
+    public static class EnumerateTags_Patch
     {
         public static void Postfix(GuiItemDefinition __instance)
         {

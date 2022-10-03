@@ -3,9 +3,9 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public static class Assert
+internal static class Assert
 {
-    public static void IsNotNull<T>(
+    internal static void IsNotNull<T>(
         [NotNull] [NoEnumeration] T instance,
         [CanBeNull] string message = null)
         where T : class

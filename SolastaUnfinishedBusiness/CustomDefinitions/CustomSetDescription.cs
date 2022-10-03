@@ -1,8 +1,8 @@
 ﻿#if false
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public class CustomSetDescription
+internal class CustomSetDescription
 {
-    public static readonly CustomSetDescription Marker = new();
+    internal static readonly CustomSetDescription Marker = new();
 }
 #endif

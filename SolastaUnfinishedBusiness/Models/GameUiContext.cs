@@ -803,7 +803,7 @@ internal static class GameUiContext
             }
         }
 
-        public static void RefreshCharacterControlPanel()
+        internal static void RefreshCharacterControlPanel()
         {
             if (Gui.CurrentLocationScreen != null && Gui.CurrentLocationScreen is GameLocationBaseScreen location)
             {

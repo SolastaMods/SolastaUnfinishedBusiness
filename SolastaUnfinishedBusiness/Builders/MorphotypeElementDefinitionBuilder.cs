@@ -4,30 +4,30 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class
+internal abstract class
     MorphotypeElementDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : MorphotypeElementDefinition
     where TBuilder : MorphotypeElementDefinitionBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
+    internal TBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
     {
         Definition.category = value;
         return This();
     }
 
-    public TBuilder SetMainColor(Color value)
+    internal TBuilder SetMainColor(Color value)
     {
         Definition.mainColor = value;
         return This();
     }
 
-    public TBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
+    internal TBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
     {
         Definition.subClassFilterMask = value;
         return This();
     }
 
-    public TBuilder SetSortOrder(int value)
+    internal TBuilder SetSortOrder(int value)
     {
         Definition.guiPresentation.sortOrder = value;
         return This();

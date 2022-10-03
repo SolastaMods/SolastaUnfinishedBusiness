@@ -6,9 +6,9 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 [HarmonyPatch(typeof(BattleState_TurnInitialize), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class BattleState_TurnInitialize_Begin
+public static class BattleState_TurnInitialize_Begin
 {
-    internal static void Prefix(BattleState_TurnInitialize __instance)
+    public static void Prefix(BattleState_TurnInitialize __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
         PlayerControllerContext.Start(__instance.Battle);
@@ -17,9 +17,9 @@ internal static class BattleState_TurnInitialize_Begin
 
 [HarmonyPatch(typeof(BattleState_TurnEnd), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class BattleState_TurnEnd_Begin
+public static class BattleState_TurnEnd_Begin
 {
-    internal static void Prefix(BattleState_TurnEnd __instance)
+    public static void Prefix(BattleState_TurnEnd __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
         PlayerControllerContext.Stop(__instance.Battle);
@@ -28,9 +28,9 @@ internal static class BattleState_TurnEnd_Begin
 
 [HarmonyPatch(typeof(BattleState_Victory), "Begin")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class BattleState_Victory_Begin
+public static class BattleState_Victory_Begin
 {
-    internal static void Prefix(BattleState_Victory __instance)
+    public static void Prefix(BattleState_Victory __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
         PlayerControllerContext.Stop(__instance.Battle);
@@ -39,7 +39,7 @@ internal static class BattleState_Victory_Begin
 
 [HarmonyPatch(typeof(BattleState_Victory), "Update")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class BattleState_Victory_Update
+public static class BattleState_Victory_Update
 {
     public static void Postfix()
     {

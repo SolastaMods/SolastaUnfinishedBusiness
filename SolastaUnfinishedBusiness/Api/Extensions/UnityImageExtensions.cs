@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
-public static class UnityImageExtensions
+internal static class UnityImageExtensions
 {
-    public static void SetupSprite(
+    internal static void SetupSprite(
         [NotNull] this Image imageComponent,
         [NotNull] GuiPresentation presentation)
     {
         SetupSprite(imageComponent, presentation.SpriteReference);
     }
 
-    public static void SetupSprite(
+    internal static void SetupSprite(
         [NotNull] this Image imageComponent,
         [CanBeNull] AssetReferenceSprite spriteReference,
         bool changeActiveStatus = false)

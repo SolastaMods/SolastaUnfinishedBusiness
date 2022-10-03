@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
-public static partial class ReflectionCache
+internal static partial class ReflectionCache
 {
     private static readonly HashSet<Type> ACTION_AND_FUNC_TYPES = new()
     {
@@ -75,22 +75,22 @@ public static partial class ReflectionCache
     //    return cache as CachedMethod<TMethod>;
     //}
 
-    //public static MethodInfo GetMethodInfo<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Info;
+    //internal static MethodInfo GetMethodInfo<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Info;
 
-    //public static MethodInfo GetMethodInfo<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Info;
-    //public static TMethod GetMethodDel<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
+    //internal static MethodInfo GetMethodInfo<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Info;
+    //internal static TMethod GetMethodDel<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
 
-    //public static TMethod GetMethodDel<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
+    //internal static TMethod GetMethodDel<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
 
-    //public static TMethod GetMethod<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
+    //internal static TMethod GetMethod<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
 
-    //public static TMethod GetMethod<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
+    //internal static TMethod GetMethod<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
 
     private abstract class CachedMethod<TMethod> where TMethod : Delegate
     {
         //private TMethod _delegate;
 
-        public readonly MethodInfo Info;
+        internal readonly MethodInfo Info;
 
         protected CachedMethod(Type type, string name, bool hasThis)
         {
@@ -166,7 +166,7 @@ public static partial class ReflectionCache
             }
         }
 
-        //public TMethod Del
+        //internal TMethod Del
         //    => _delegate ??= CreateDelegate();
 
         private static bool CheckParamsOfGenericMethod(ParameterInfo[] @params, ParameterInfo[] delParams,
@@ -204,7 +204,7 @@ public static partial class ReflectionCache
 
     private class CachedMethodOfStatic<TMethod> : CachedMethod<TMethod> where TMethod : Delegate
     {
-        public CachedMethodOfStatic(Type type, string name) : base(type, name, false)
+        internal CachedMethodOfStatic(Type type, string name) : base(type, name, false)
         {
             //if (!IsStatic(type))
             //    throw new InvalidOperationException();
@@ -235,7 +235,7 @@ public static partial class ReflectionCache
 
     private class CachedMethodOfNonStatic<T, TMethod> : CachedMethod<TMethod> where TMethod : Delegate
     {
-        public CachedMethodOfNonStatic(string name) : base(typeof(T), name, true)
+        internal CachedMethodOfNonStatic(string name) : base(typeof(T), name, true)
         {
         }
 

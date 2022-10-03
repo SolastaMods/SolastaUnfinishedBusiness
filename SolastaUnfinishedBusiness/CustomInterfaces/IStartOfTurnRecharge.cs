@@ -5,5 +5,5 @@
 /// </summary>
 public interface IStartOfTurnRecharge
 {
-    bool IsRechargeSilent { get; }
+    public bool IsRechargeSilent { get; }
 }

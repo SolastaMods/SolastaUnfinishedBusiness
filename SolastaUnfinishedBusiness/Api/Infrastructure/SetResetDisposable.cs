@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-public class SetResetDisposable : Disposable
+internal class SetResetDisposable : Disposable
 {
     private Action _reset;
 

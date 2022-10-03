@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public delegate bool IsDefinitionValidHandler(BaseDefinition definition, RulesetCharacter character);
+internal delegate bool IsDefinitionValidHandler(BaseDefinition definition, RulesetCharacter character);
 
-public sealed class ValidatorDefinitionApplication : IDefinitionApplicationValidator
+internal sealed class ValidatorDefinitionApplication : IDefinitionApplicationValidator
 {
     private readonly IsDefinitionValidHandler[] validators;
 
-    public ValidatorDefinitionApplication(params IsCharacterValidHandler[] validators)
+    internal ValidatorDefinitionApplication(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators.Select(v => new IsDefinitionValidHandler((_, c) => v(c))).ToArray();
     }

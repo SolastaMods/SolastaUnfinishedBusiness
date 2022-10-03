@@ -7,13 +7,13 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterActionAttackPatcher
+public static class CharacterActionAttackPatcher
 {
     [HarmonyPatch(typeof(CharacterActionAttack), "ExecuteImpl")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ExecuteImpl_Patch
+    public static class ExecuteImpl_Patch
     {
-        internal static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
+        public static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
         {
             //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
             var actingCharacter = __instance.ActingCharacter;

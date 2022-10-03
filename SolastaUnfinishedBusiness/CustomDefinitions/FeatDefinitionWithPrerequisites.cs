@@ -29,7 +29,7 @@ internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<Fe
     {
     }
 
-    public FeatDefinitionWithPrerequisitesBuilder SetValidators(
+    internal FeatDefinitionWithPrerequisitesBuilder SetValidators(
         [NotNull] params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
             validators)
     {
@@ -41,10 +41,10 @@ internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<Fe
 
 internal sealed class FeatDefinitionWithPrerequisites : FeatDefinition
 {
-    public List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
+    internal List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
         Validators { get; } = new();
 
-    public (bool result, string output) Validate(FeatDefinitionWithPrerequisites feat, RulesetCharacterHero hero)
+    internal (bool result, string output) Validate(FeatDefinitionWithPrerequisites feat, RulesetCharacterHero hero)
     {
         var results = Validators.Select(v => v(feat, hero));
 

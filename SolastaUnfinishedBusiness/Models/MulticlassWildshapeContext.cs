@@ -26,7 +26,7 @@ internal static class MulticlassWildshapeContext
         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
     };
 
-    public static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
+    internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
         UpdateAttributeModifiers(monster, keepMentalAbilityScores);
         FixShapeShiftedAc(monster);
@@ -116,7 +116,7 @@ internal static class MulticlassWildshapeContext
         ac.AddModifier(mod);
     }
 
-    public static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
+    internal static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
 
@@ -128,7 +128,7 @@ internal static class MulticlassWildshapeContext
             RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
     }
 
-    public static void UpdateWildShapeAcTrends(List<RulesetAttributeModifier> modifiers,
+    internal static void UpdateWildShapeAcTrends(List<RulesetAttributeModifier> modifiers,
         RulesetCharacterMonster monster, RulesetAttribute ac)
     {
         //Add trends for built-in AC mods (base ac, natural armor, dex bonus)

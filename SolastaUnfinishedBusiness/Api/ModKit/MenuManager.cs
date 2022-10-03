@@ -10,7 +10,7 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public interface IMenuPage
+internal interface IMenuPage
 {
     string Name { get; }
 
@@ -19,19 +19,19 @@ public interface IMenuPage
     void OnGUI(UnityModManager.ModEntry modEntry);
 }
 
-public interface IMenuTopPage : IMenuPage
+internal interface IMenuTopPage : IMenuPage
 {
 }
 
-public interface IMenuSelectablePage : IMenuPage
+internal interface IMenuSelectablePage : IMenuPage
 {
 }
 
-public interface IMenuBottomPage : IMenuPage
+internal interface IMenuBottomPage : IMenuPage
 {
 }
 
-public sealed class MenuManager : INotifyPropertyChanged
+internal sealed class MenuManager : INotifyPropertyChanged
 {
     private static Exception _caughtException;
     private readonly List<IMenuBottomPage> _bottomPages = new();
@@ -61,7 +61,7 @@ public sealed class MenuManager : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
+    internal void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
     {
         foreach (var type in assembly.GetTypes()
                      .Where(type =>

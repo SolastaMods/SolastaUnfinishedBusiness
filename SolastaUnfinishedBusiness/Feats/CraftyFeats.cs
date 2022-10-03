@@ -11,7 +11,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
-public static class CraftyFeats
+internal static class CraftyFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {

@@ -3,13 +3,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class BaseBlueprintPatcher
+public static class BaseBlueprintPatcher
 {
     [HarmonyPatch(typeof(BaseBlueprint), "GetAssetKey")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GetAssetKey_Patch
+    public static class GetAssetKey_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             BaseBlueprint __instance,
             ref string __result,
             BaseBlueprint.PrefabByEnvironmentDescription prefabByEnvironmentDescription,

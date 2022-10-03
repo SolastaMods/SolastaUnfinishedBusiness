@@ -11,7 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class PowersBundleContext
+internal static class PowersBundleContext
 {
     internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
 
@@ -19,7 +19,7 @@ public static class PowersBundleContext
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
     private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
 
-    public static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+    internal static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
         [NotNull] params FeatureDefinitionPower[] subPowers)
     {
         RegisterPowerBundle(masterPower, terminateAll, subPowers.ToList());
@@ -39,7 +39,7 @@ public static class PowersBundleContext
 
 
     [CanBeNull]
-    public static Bundle GetBundle([CanBeNull] this FeatureDefinitionPower master)
+    internal static Bundle GetBundle([CanBeNull] this FeatureDefinitionPower master)
     {
         if (master == null)
         {
@@ -50,24 +50,24 @@ public static class PowersBundleContext
     }
 
     // [CanBeNull]
-    // public static Bundle GetBundle([NotNull] SpellDefinition master)
+    // internal static Bundle GetBundle([NotNull] SpellDefinition master)
     // {
     //     return GetBundle(GetPower(master));
     // }
 
-    public static bool IsBundlePower([NotNull] this FeatureDefinitionPower power)
+    internal static bool IsBundlePower([NotNull] this FeatureDefinitionPower power)
     {
         return Bundles.ContainsKey(power);
     }
 
     // [CanBeNull]
-    // public static List<FeatureDefinitionPower> GetBundleSubPowers(this FeatureDefinitionPower master)
+    // internal static List<FeatureDefinitionPower> GetBundleSubPowers(this FeatureDefinitionPower master)
     // {
     //     return GetBundle(master)?.SubPowers;
     // }
 
     // [CanBeNull]
-    // public static List<FeatureDefinitionPower> GetBundleSubPowers([NotNull] SpellDefinition master)
+    // internal static List<FeatureDefinitionPower> GetBundleSubPowers([NotNull] SpellDefinition master)
     // {
     //     return GetBundleSubPowers(GetPower(master));
     // }
@@ -88,19 +88,19 @@ public static class PowersBundleContext
     }
 
     [CanBeNull]
-    public static FeatureDefinitionPower GetPower([NotNull] SpellDefinition spell)
+    internal static FeatureDefinitionPower GetPower([NotNull] SpellDefinition spell)
     {
         return Spells2Powers.TryGetValue(spell, out var result) ? result : null;
     }
 
     [CanBeNull]
-    public static FeatureDefinitionPower GetPower(string name)
+    internal static FeatureDefinitionPower GetPower(string name)
     {
         return Bundles.Keys.FirstOrDefault(p => p.Name == name);
     }
 
     [NotNull]
-    public static List<FeatureDefinitionPower> GetMasterPowersBySubPower(FeatureDefinitionPower subPower)
+    internal static List<FeatureDefinitionPower> GetMasterPowersBySubPower(FeatureDefinitionPower subPower)
     {
         return Bundles
             .Where(e => e.Value.SubPowers.Contains(subPower))
@@ -109,13 +109,13 @@ public static class PowersBundleContext
     }
 
     [CanBeNull]
-    public static SpellDefinition GetSpell([NotNull] FeatureDefinitionPower power)
+    internal static SpellDefinition GetSpell([NotNull] FeatureDefinitionPower power)
     {
         return Powers2Spells.TryGetValue(power, out var result) ? result : null;
     }
 
     // [CanBeNull]
-    // public static List<SpellDefinition> GetSubSpells([CanBeNull] FeatureDefinitionPower masterPower)
+    // internal static List<SpellDefinition> GetSubSpells([CanBeNull] FeatureDefinitionPower masterPower)
     // {
     //     if (masterPower == null)
     //     {
@@ -130,7 +130,7 @@ public static class PowersBundleContext
     // Bundled sub-powers usually are not added to the character, so their UsablePower lacks class or race origin
     // This means that CharacterActionSpendPower will not call `UsePower` on them
     // This method fixes that
-    public static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
+    internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
         if (activePower is not { OriginItem: null })
@@ -155,7 +155,7 @@ public static class PowersBundleContext
         action.ActingCharacter.RulesetCharacter.UsePower(usablePower);
     }
 
-    public static void Load()
+    internal static void Load()
     {
         ServiceRepository.GetService<IFunctorService>()
             .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
@@ -281,9 +281,9 @@ public static class PowersBundleContext
         }
     }
 
-    public sealed class Bundle
+    internal sealed class Bundle
     {
-        public Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
+        internal Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
             bool terminateAll)
         {
             // MasterPower = masterPower;
@@ -304,14 +304,14 @@ public static class PowersBundleContext
          * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
          * from this bundle can be in effect
          */
-        public bool TerminateAll { get; }
+        internal bool TerminateAll { get; }
 
-        public List<FeatureDefinitionPower> SubPowers { get; }
+        internal List<FeatureDefinitionPower> SubPowers { get; }
 
-        // public FeatureDefinitionPower MasterPower { get; }
+        // internal FeatureDefinitionPower MasterPower { get; }
 
         //May be needed to hold powers for some native widgets
-        // public FeatureDefinitionFeatureSet PowerSet { get; }
+        // internal FeatureDefinitionFeatureSet PowerSet { get; }
 
         private RulesetSpellRepertoire Repertoire { get; }
     }

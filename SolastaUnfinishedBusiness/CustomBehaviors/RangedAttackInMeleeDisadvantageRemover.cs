@@ -3,19 +3,19 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class RangedAttackInMeleeDisadvantageRemover
+internal class RangedAttackInMeleeDisadvantageRemover
 {
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
 
-    public RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
+    internal RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
     }
 
-    public RangedAttackInMeleeDisadvantageRemover(params IsCharacterValidHandler[] validators)
+    internal RangedAttackInMeleeDisadvantageRemover(params IsCharacterValidHandler[] validators)
         : this(ValidatorsWeapon.AlwaysValid, validators)
     {
     }
@@ -34,7 +34,7 @@ public class RangedAttackInMeleeDisadvantageRemover
      * Patches `GameLocationBattleManager.CanAttack`
      * Removes ranged attack in melee disadvantage if there's specific feature present and active
      */
-    public static void CheckToRemoveRangedDisadvantage(BattleDefinitions.AttackEvaluationParams attackParams)
+    internal static void CheckToRemoveRangedDisadvantage(BattleDefinitions.AttackEvaluationParams attackParams)
     {
         if (attackParams.attackProximity != BattleDefinitions.AttackProximity.PhysicalRange)
         {

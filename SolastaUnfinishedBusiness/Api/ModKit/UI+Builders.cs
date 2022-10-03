@@ -8,13 +8,13 @@ using GL = UnityEngine.GUILayout;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static partial class UI
+internal static partial class UI
 {
     private const float UmmWidth = 960f;
-    public static bool UserHasHitReturn = false;
-    public static string FocusedControlName = null;
+    internal static bool UserHasHitReturn = false;
+    internal static string FocusedControlName = null;
 
-    public static Rect UmmRect = new();
+    internal static Rect UmmRect = new();
 
     private static bool IsNarrow => UmmWidth < 1200;
 
@@ -47,7 +47,7 @@ public static partial class UI
             });
     */
 
-    public static void If(bool value, params Action[] actions)
+    internal static void If(bool value, params Action[] actions)
     {
         if (!value)
         {
@@ -60,7 +60,7 @@ public static partial class UI
         }
     }
 
-    public static void HStack(string title = null, int stride = 0, params Action[] actions)
+    internal static void HStack(string title = null, int stride = 0, params Action[] actions)
     {
         var length = actions.Length;
         if (stride < 1) { stride = length; }
@@ -90,7 +90,7 @@ public static partial class UI
         }
     }
 
-    public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
+    internal static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {

@@ -10,9 +10,9 @@ public interface IConditionRemovedOnSourceTurnStart
 {
 }
 
-internal static class ConditionRemovedOnSourceTurnStartPatch
+public static class ConditionRemovedOnSourceTurnStartPatch
 {
-    internal static void RemoveConditionIfNeeded(RulesetActor __instance,
+    public static void RemoveConditionIfNeeded(RulesetActor __instance,
         RuleDefinitions.TurnOccurenceType occurenceType)
     {
         if (occurenceType != RuleDefinitions.TurnOccurenceType.StartOfTurn)

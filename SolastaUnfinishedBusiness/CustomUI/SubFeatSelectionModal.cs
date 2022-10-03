@@ -7,13 +7,13 @@ using static UnityEngine.GameObject;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class SubFeatSelectionModal : GuiGameScreen
+internal class SubFeatSelectionModal : GuiGameScreen
 {
     private const float ShowDuration = 0.25f;
     private const float HideDuration = 0.1f;
-    public static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
+    internal static readonly Color DefaultColor = new(0.407f, 0.431f, 0.443f, 0.752f);
     private static readonly Color NormalColor = new(0.407f, 0.431f, 0.443f, 1f);
-    public static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
+    internal static readonly Color HeaderColor = new(0.35f, 0.42f, 0.45f, 1f);
     private static readonly Color DisabledColor = new(0.557f, 0.431f, 0.443f, 1f);
 
     private static SubFeatSelectionModal _instance;
@@ -48,12 +48,12 @@ public class SubFeatSelectionModal : GuiGameScreen
         base.Awake();
     }
 
-    public static SubFeatSelectionModal Get()
+    internal static SubFeatSelectionModal Get()
     {
         return _instance ??= new GameObject().AddComponent<SubFeatSelectionModal>();
     }
 
-    public void Bind(RulesetCharacterHero inspectedCharacter,
+    internal void Bind(RulesetCharacterHero inspectedCharacter,
         FeatItem basedOn,
         FeatDefinition feat,
         IGroupedFeat group,
@@ -122,7 +122,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         Gui.ReleaseChildrenToPool(featTable);
     }
 
-    public void Cancel()
+    internal void Cancel()
     {
         if (localInitialized)
         {
@@ -160,15 +160,15 @@ public class SubFeatSelectionModal : GuiGameScreen
             return;
         }
 
-        var levelup = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+        var levelUp = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
 
-        //set sort index to just above levelup screen so it has input handling priority
-        SortIndex = levelup.SortIndex + 1;
+        //set sort index to just above levelUp screen so it has input handling priority
+        SortIndex = levelUp.SortIndex + 1;
 
-        //put it visually just above levelup screen
+        //put it visually just above levelUp screen
         transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
 
-        var levelUpIndex = levelup.transform.GetSiblingIndex();
+        var levelUpIndex = levelUp.transform.GetSiblingIndex();
 
         transform.SetSiblingIndex(levelUpIndex + 1);
 
@@ -270,7 +270,7 @@ public class SubFeatSelectionModal : GuiGameScreen
             if (isRestricted)
             {
                 var hasRestrictedFeats = false;
-                
+
                 foreach (var restrictedChoice in restrictedChoices)
                 {
                     if (DatabaseRepository.GetDatabase<FeatDefinition>()
@@ -322,7 +322,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         SetColor(item, color);
     }
 
-    public static void SetColor(FeatItem item, Color color)
+    internal static void SetColor(FeatItem item, Color color)
     {
         item.StaticBackground.GetComponent<Image>().color = color;
         item.canvasGroup.alpha = 1;
@@ -353,7 +353,7 @@ public class SubFeatSelectionModal : GuiGameScreen
         }
     }
 
-    public void OnCloseCb()
+    private void OnCloseCb()
     {
         Hide();
     }

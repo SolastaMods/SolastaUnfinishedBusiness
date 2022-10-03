@@ -8,18 +8,19 @@ using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
+internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithPrerequisites
 {
-    public CustomInvocationPoolType PoolType { get; set; }
-    
+    internal CustomInvocationPoolType PoolType { get; set; }
+
     /**Used for tooltip in selection screen*/
-    public ItemDefinition Item { get; set; } 
+    internal ItemDefinition Item { get; set; }
 
     //TODO: add validator setter
     public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
         new() { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
-    public static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition, out string requirement)
+    private static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition,
+        out string requirement)
     {
         requirement = null;
 
@@ -42,7 +43,6 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
         if (requiredClassName != null)
         {
             var requiredClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .GetAllElements()
                 .FirstOrDefault(x => x.Name == requiredClassName);
 
             level = hero.GetClassLevel(requiredClass);
@@ -60,7 +60,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
                 levelText = Gui.Colorize(levelText, Gui.ColorFailure);
             }
 
-            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CLASS_LEVEL, levelText, classText);
+            requirement = Gui.Format(CustomTooltipProvider.RequireClassLevel, levelText, classText);
         }
         else
         {
@@ -73,7 +73,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
                 levelText = Gui.Colorize(levelText, Gui.ColorFailure);
             }
 
-            requirement = Gui.Format(CustomTooltipProvider.REQUIRE_CHARACTER_LEVEL, levelText);
+            requirement = Gui.Format(CustomTooltipProvider.RequireCharacterLevel, levelText);
         }
 
         return level >= requiredLevel;
@@ -141,7 +141,7 @@ public class CustomInvocationDefinition : InvocationDefinition, IDefinitionWithP
     }
 }
 
-public class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
+internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
     CustomInvocationDefinitionBuilder>
 {
     internal CustomInvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -162,7 +162,7 @@ public class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<Cus
     {
     }
 
-    public CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
+    internal CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
     {
         Definition.PoolType = poolType;
         return this;

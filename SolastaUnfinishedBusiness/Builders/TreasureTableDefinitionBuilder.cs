@@ -9,12 +9,12 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class
     TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
 {
-    public TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)
+    internal TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)
     {
         return AddTreasureOptions(treasureOptions.AsEnumerable());
     }
 
-    public TreasureTableDefinitionBuilder AddTreasureOptions(IEnumerable<TreasureOption> treasureOptions)
+    internal TreasureTableDefinitionBuilder AddTreasureOptions(IEnumerable<TreasureOption> treasureOptions)
     {
         Definition.TreasureOptions.AddRange(treasureOptions);
         return this;

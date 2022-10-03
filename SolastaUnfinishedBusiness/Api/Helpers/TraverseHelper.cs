@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-public static class TraverseHelper
+internal static class TraverseHelper
 {
     private static bool FailOnMissingMember => true;
 
@@ -59,13 +59,13 @@ public static class TraverseHelper
         return t.Field<V>(fieldName).Value;
     }
 
-    public static V GetField<V>([NotNull] this object instance, [NotNull] string fieldName)
+    internal static V GetField<V>([NotNull] this object instance, [NotNull] string fieldName)
     {
         return instance.GetField<object, V>(fieldName);
     }
 
 #if DEBUG
-    public static V GetProperty<V>([NotNull] this object instance, [NotNull] string propertyName)
+    internal static V GetProperty<V>([NotNull] this object instance, [NotNull] string propertyName)
     {
         Preconditions.ArgumentIsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
@@ -80,7 +80,7 @@ public static class TraverseHelper
         return t.Property<V>(propertyName).Value;
     }
 
-    public static void SetProperty<T, V>([NotNull] this T instance, [NotNull] string propertyName, V value)
+    internal static void SetProperty<T, V>([NotNull] this T instance, [NotNull] string propertyName, V value)
         where T : class
     {
         Preconditions.ArgumentIsNotNull(instance, nameof(instance));

@@ -14,12 +14,12 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class DefinitionBuilder
+internal abstract class DefinitionBuilder
 {
     private protected static readonly MethodInfo GetDatabaseMethodInfo =
         typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
-    public static readonly Guid CeNamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
+    internal static readonly Guid CeNamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
 
     private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
         GetAllDefinitionNames();
@@ -89,9 +89,9 @@ public abstract class DefinitionBuilder
 }
 
 // Used to allow extension methods in other mods to set GuiPresentation 
-// Adding SetGuiPresentation as a public method causes name clash issues.
+// Adding SetGuiPresentation as a internal method causes name clash issues.
 // Ok, could have used a different name...
-public interface IDefinitionBuilder
+internal interface IDefinitionBuilder
 {
     string Name { get; }
     void SetGuiPresentation(GuiPresentation presentation);
@@ -102,7 +102,7 @@ public interface IDefinitionBuilder
 ///     Base class builder for all classes derived from BaseDefinition (for internal use only)
 /// </summary>
 /// <typeparam name="TDefinition"></typeparam>
-public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
+internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
     where TDefinition : BaseDefinition
 {
     /// <summary>
@@ -333,7 +333,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     /// <param name="assertIfDuplicate"></param>
     /// <returns></returns>
     /// <exception cref="SolastaUnfinishedBusinessException"></exception>
-    public TDefinition AddToDB(bool assertIfDuplicate = true)
+    internal TDefinition AddToDB(bool assertIfDuplicate = true)
     {
         return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
     }
@@ -344,7 +344,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     /// <param name="assertIfDuplicate"></param>
     /// <returns></returns>
     /// <exception cref="SolastaUnfinishedBusinessException"></exception>
-    public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
+    internal TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
         GamingPlatformDefinitions.ContentPack? contentPack)
     {
         Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
@@ -522,7 +522,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 /// </summary>
 /// <typeparam name="TDefinition"></typeparam>
 /// <typeparam name="TBuilder"></typeparam>
-public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition>
+internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition>
     where TDefinition : BaseDefinition
     where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
 {
@@ -583,12 +583,12 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     ///     <b>CENamespaceGuid</b> plus <paramref name="name" />.
     /// </summary>
     /// <param name="name">The name assigned to the definition (mandatory)</param>
-    public static TBuilder Create(string name)
+    internal static TBuilder Create(string name)
     {
         return CreateImpl(name, CeNamespaceGuid);
     }
 
-    public static TBuilder Create(TDefinition original, string name)
+    internal static TBuilder Create(TDefinition original, string name)
     {
         return CreateImpl(original, name, CeNamespaceGuid);
     }
@@ -599,7 +599,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     /// </summary>
     /// <param name="name">The name assigned to the definition (mandatory)</param>
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    public static TBuilder Create(string name, Guid namespaceGuid)
+    internal static TBuilder Create(string name, Guid namespaceGuid)
     {
         return CreateImpl(name, namespaceGuid);
     }
@@ -609,7 +609,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     /// </summary>
     /// <param name="name">The name assigned to the definition (mandatory)</param>
     /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-    public static TBuilder Create(string name, string definitionGuid)
+    internal static TBuilder Create(string name, string definitionGuid)
     {
         return CreateImpl(name, definitionGuid);
     }
@@ -621,7 +621,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     /// <param name="original">The definition being copied.</param>
     /// <param name="name">The name assigned to the definition (mandatory).</param>
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    public static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
+    internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
     {
         return CreateImpl(original, name, namespaceGuid);
     }
@@ -633,7 +633,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     /// <param name="original">The definition being copied.</param>
     /// <param name="name">The name assigned to the definition (mandatory).</param>
     /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
-    public static TBuilder Create(TDefinition original, string name, string definitionGuid)
+    internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
     {
         return CreateImpl(original, name, definitionGuid);
     }
@@ -654,7 +654,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
         return (TBuilder)this;
     }
 
-    public TBuilder SetCustomSubFeatures(params object[] features)
+    internal TBuilder SetCustomSubFeatures(params object[] features)
     {
         Definition.SetCustomSubFeatures(features);
         return This();

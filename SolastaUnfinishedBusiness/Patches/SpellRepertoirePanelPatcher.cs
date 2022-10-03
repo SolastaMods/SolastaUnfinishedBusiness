@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class SpellRepertoirePanelPatcher
+public static class SpellRepertoirePanelPatcher
 {
     [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static void Postfix(SpellRepertoirePanel __instance)
+        public static void Postfix(SpellRepertoirePanel __instance)
         {
             //PATCH: filters how spells and slots are displayed on inspection (MULTICLASS)
             MulticlassGameUiContext.RebuildSlotsTable(__instance);

@@ -3,7 +3,7 @@ using System;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class
+internal class
     CharacterFamilyDefinitionBuilder : DefinitionBuilder<CharacterFamilyDefinition,
         CharacterFamilyDefinitionBuilder>
 {

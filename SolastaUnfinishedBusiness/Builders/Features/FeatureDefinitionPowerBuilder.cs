@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public class FeatureDefinitionPowerBuilder
+internal class FeatureDefinitionPowerBuilder
     : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
 {
     #region Constructors
@@ -29,7 +29,7 @@ public class FeatureDefinitionPowerBuilder
     #endregion
 }
 
-public abstract class
+internal abstract class
     FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionPower
     where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
@@ -40,7 +40,7 @@ public abstract class
         Definition.effectDescription ??= new EffectDescription();
     }
 
-    public TBuilder Configure(
+    internal TBuilder Configure(
         int usesPerRecharge,
         RuleDefinitions.UsesDetermination usesDetermination,
         string usesAbilityScoreName,
@@ -67,26 +67,27 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetEffectDescription(EffectDescription effect)
+    internal TBuilder SetEffectDescription(EffectDescription effect)
     {
         Definition.effectDescription = effect;
         return This();
     }
 
-    public TBuilder SetExplicitAbilityScore(string ability)
+    internal TBuilder SetExplicitAbilityScore(string ability)
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.Explicit;
         Definition.abilityScore = ability;
         return This();
     }
 
-    public TBuilder SetSpellcastingAbilityScore()
+    internal TBuilder SetSpellcastingAbilityScore()
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
         return This();
     }
 
-    public TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true, bool proficiencyBonusToAttack = false)
+    internal TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true,
+        bool proficiencyBonusToAttack = false)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
@@ -94,71 +95,71 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetAttackFixedToHit(int bonus)
+    internal TBuilder SetAttackFixedToHit(int bonus)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
         Definition.fixedAttackHit = bonus;
         return This();
     }
 
-    public TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
+    internal TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
     {
         Definition.activationTime = time;
         return This();
     }
 
-    public TBuilder SetHasCastingFailure(bool hasCastingFailure)
+    internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
     {
         Definition.hasCastingFailure = hasCastingFailure;
         return This();
     }
 
-    public TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
+    internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         Definition.rechargeRate = rate;
 
         return This();
     }
 
-    public TBuilder SetUsesFixed(int fixedUses)
+    internal TBuilder SetUsesFixed(int fixedUses)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
         Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
         return This();
     }
 
-    public TBuilder SetFixedUsesPerRecharge(int fixedUses)
+    internal TBuilder SetFixedUsesPerRecharge(int fixedUses)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
         return This();
     }
 
-    public TBuilder SetCostPerUse(int costPerUse)
+    internal TBuilder SetCostPerUse(int costPerUse)
     {
         Definition.costPerUse = costPerUse;
         return This();
     }
 
-    public TBuilder SetUniqueInstance(bool unique = true)
+    internal TBuilder SetUniqueInstance(bool unique = true)
     {
         Definition.uniqueInstance = unique;
         return This();
     }
 
-    public TBuilder SetAbilityScoreDetermination(
+    internal TBuilder SetAbilityScoreDetermination(
         RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
     {
         Definition.abilityScoreDetermination = abilityScoreNameDetermination;
         return This();
     }
 
-    public TBuilder SetUsesAbilityScoreName(string abilityScoreName)
+    internal TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
         Definition.usesAbilityScoreName = abilityScoreName;
         return This();
     }
 
-    public TBuilder SetUsesAbility(int fixedUses, string attribute)
+    internal TBuilder SetUsesAbility(int fixedUses, string attribute)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
         Definition.usesAbilityScoreName = attribute;
@@ -166,13 +167,13 @@ public abstract class
         return This();
     }
 
-    public TBuilder SetShowCasting(bool casting)
+    internal TBuilder SetShowCasting(bool casting)
     {
         Definition.showCasting = casting;
         return This();
     }
 
-    public TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
+    internal TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
         Definition.overriddenPower = overridenPower;
         return This();

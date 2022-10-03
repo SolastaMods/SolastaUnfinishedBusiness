@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal static class ItemBuilder
 {
-    public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name,
+    internal static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name,
         RecipeDefinition recipeDefinition, int gold, GuiPresentation guiPresentation)
     {
         return ItemDefinitionBuilder
@@ -18,7 +18,7 @@ internal static class ItemBuilder
             .AddToDB();
     }
 
-    public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name,
+    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
@@ -53,7 +53,7 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, string name,
+    internal static ItemDefinition BuildNewMagicArmor(ItemDefinition original, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;

@@ -49,14 +49,15 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 21; level++)
                 {
                     knownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[level]);
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 21; level++)
                 {
                     // +1 here because half casters effectively round up the spells known
@@ -64,7 +65,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 21; level++)
                 {
                     knownSpells.Add(startingAmount +
@@ -86,14 +87,21 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     {
         slotsPerLevels.Clear();
 
+        var index = 0;
         var level = 1;
         var startingLevel = (int)progression;
+
+        if (progression == CasterProgression.HalfRoundUp)
+        {
+            index = 1;
+            startingLevel = 2;
+        }
 
         for (; level < startingLevel; level++)
         {
             var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = SlotsByCasterLevel[0]
+                Level = level, Slots = SlotsByCasterLevel[index]
             };
 
             slotsPerLevels.Add(slotsForLevel);
@@ -101,7 +109,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -113,19 +121,20 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
-                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
+                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 1) / 2) + 1]
                     };
 
                     slotsPerLevels.Add(slotsForLevel);
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 21; level++)
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
@@ -150,50 +159,50 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         SetSlotsZero();
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
+    internal FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
     {
         Definition.spellCastingOrigin = origin;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
+    internal FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
     {
         Definition.spellcastingAbility = attribute;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
+    internal FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
     {
         Definition.spellListDefinition = spellList;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
+    internal FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
     {
         Definition.spellKnowledge = knowledge;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
+    internal FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
     {
         Definition.spellReadyness = readyness;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
+    internal FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
     {
         Definition.slotsRecharge = slotRecharge;
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
+    internal FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
     {
         Definition.RestrictedSchools.Add(school.Name);
         Definition.RestrictedSchools.Sort();
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
+    internal FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
     {
         foreach (var school in schools)
         {
@@ -204,9 +213,16 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
+    internal FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
     {
         Definition.ScribedSpells.SetRange(scribedCount);
+        return this;
+    }
+
+    internal FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
+        RuleDefinitions.SpellPreparationCount prepCount)
+    {
+        Definition.spellPreparationCount = prepCount;
         return this;
     }
 
@@ -219,18 +235,18 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
     {
         return SetKnownCantrips(cantripsCount.AsEnumerable());
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
     {
         Definition.KnownCantrips.SetRange(cantripsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownCantrips(
+    internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(
         int startingAmount,
         int startingLevel,
         CasterProgression progression)
@@ -249,7 +265,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
         switch (progression)
         {
-            case CasterProgression.FullCaster:
+            case CasterProgression.Full:
                 for (; level < 4; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -270,7 +286,8 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.HalfCaster:
+            case CasterProgression.Half:
+            case CasterProgression.HalfRoundUp:
                 for (; level < 10; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -291,7 +308,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
                 }
 
                 break;
-            case CasterProgression.ThirdCaster:
+            case CasterProgression.OneThird:
                 for (; level < 10; level++)
                 {
                     Definition.KnownCantrips.Add(numCantrips);
@@ -355,38 +372,38 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
+    internal FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
     {
         Definition.KnownSpells.SetRange(spellsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
+    internal FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
     {
         EnumerateKnownSpells(startingAmount, progression, Definition.KnownSpells);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
+    internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
     {
         Definition.ReplacedSpells.SetRange(spellsCount);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
+    internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
     {
         EnumerateReplacedSpells(startingLevel, replaces, Definition.ReplacedSpells);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
+    internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
         params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
     {
         Definition.SlotsPerLevels.SetRange(slotsPerLevels);
         return this;
     }
 
-    public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
+    internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
     {
         EnumerateSlotsPerLevel(progression, Definition.SlotsPerLevels);
         return this;
@@ -394,9 +411,11 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
 
     internal enum CasterProgression
     {
-        FullCaster = 1,
-        HalfCaster = 2,
-        ThirdCaster = 3
+        None = 0,
+        Full = 1,
+        Half = 2,
+        OneThird = 3,
+        HalfRoundUp = 4
     }
 
     #region SpellSlots
@@ -415,6 +434,10 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
     {
         new()
         {
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,

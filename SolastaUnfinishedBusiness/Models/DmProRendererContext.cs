@@ -30,7 +30,7 @@ internal static class DmProRendererContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void GetTemplateVegetationMaskArea([NotNull] WorldLocation worldLocation)
+    internal static void GetTemplateVegetationMaskArea([NotNull] WorldLocation worldLocation)
     {
         var prefabByReference =
             worldLocation.prefabByReference;
@@ -47,7 +47,7 @@ internal static class DmProRendererContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void SetupLocationTerrain([NotNull] WorldLocation worldLocation, UserLocation userLocation)
+    internal static void SetupLocationTerrain([NotNull] WorldLocation worldLocation, UserLocation userLocation)
     {
         var masterTerrain = worldLocation.gameObject.GetComponentInChildren<Terrain>();
 
@@ -133,7 +133,7 @@ internal static class DmProRendererContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
+    internal static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
     {
         static void DisableWalls([NotNull] Transform transform)
         {
@@ -206,7 +206,7 @@ internal static class DmProRendererContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
+    internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (TemplateVegetationMaskArea == null ||
             DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
@@ -242,7 +242,7 @@ internal static class DmProRendererContext
     }
 
     // ReSharper disable once UnusedMember.Global
-    public static void FixFlatRoomReflectionProbe([NotNull] WorldLocation worldLocation)
+    internal static void FixFlatRoomReflectionProbe([NotNull] WorldLocation worldLocation)
     {
         var reflectionProbes = worldLocation.GetComponentsInChildren<ReflectionProbe>();
 

@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 /// <summary>
 ///     Imposes disadvantage when attacking anyone but the source of the specified condition.
 /// </summary>
-public sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
+internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
 {
-    public string ConditionName { get; set; }
+    internal string ConditionName { get; set; }
 
     public RuleDefinitions.SituationalContext SituationalContext => RuleDefinitions.SituationalContext.None;
     public bool CanRageToOvercomeSurprise => false;
@@ -67,7 +67,7 @@ internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
     }
 
     [NotNull]
-    public FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
+    internal FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
     {
         Definition.ConditionName = conditionName;
         return this;

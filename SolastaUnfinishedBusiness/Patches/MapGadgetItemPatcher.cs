@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.Utils;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class MapGadgetItemPatcher
+public static class MapGadgetItemPatcher
 {
     [HarmonyPatch(typeof(MapGadgetItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Bind_Patch
+    public static class Bind_Patch
     {
-        internal static bool Prefix(
+        public static bool Prefix(
             MapGadgetItem __instance,
             GameGadget gameGadget,
             MapGadgetItem.ItemType itemType)

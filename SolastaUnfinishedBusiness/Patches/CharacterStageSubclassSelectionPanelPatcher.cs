@@ -8,15 +8,15 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageSubclassSelectionPanelPatcher
+public static class CharacterStageSubclassSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class OnBeginShow_Patch
+    public static class OnBeginShow_Patch
     {
         private static Vector2 OriginalAnchoredPosition { get; set; } = Vector2.zero;
 
-        internal static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
+        public static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
             //PATCH: sorts the sub classes panel by Title
             if (Main.Settings.EnableSortingSubclasses)
@@ -52,9 +52,9 @@ internal static class CharacterStageSubclassSelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "UpdateRelevance")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UpdateRelevance_Patch
+    public static class UpdateRelevance_Patch
     {
-        internal static void Postfix([NotNull] CharacterStageSubclassSelectionPanel __instance)
+        public static void Postfix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
             //PATCH: updates this panel relevance (MULTICLASS)
             if (LevelUpContext.IsLevelingUp(__instance.currentHero)

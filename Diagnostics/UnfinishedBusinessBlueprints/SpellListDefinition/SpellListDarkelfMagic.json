@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 8,
+  "maxSpellLevel": 0,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",

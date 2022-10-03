@@ -32,14 +32,14 @@ internal static class ZappaFeats
             return;
         }
 
-        foreach (var sub in from feat in hero.TrainedFeats
+        foreach (var elvenPrecisionContext in from feat in hero.TrainedFeats
                  where feat.Name.Contains(ElvenAccuracyTag)
                  select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
                  into context
                  where context != null
                  select context)
         {
-            sub.Qualified =
+            elvenPrecisionContext.Qualified =
                 attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
         }
     }
@@ -58,8 +58,6 @@ internal static class ZappaFeats
                     .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
                     .AddToDB())
             .AddToDB();
-
-        conditionDeadeye.CancellingConditions.SetRange(conditionDeadeye);
 
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
@@ -146,9 +144,9 @@ internal static class ZappaFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        const string PrecisionFocused = "PrecisionFocused";
         const string DefenseExpert = "DefenseExpert";
         const string ElvenPrecision = "ElvenPrecision";
+        const string PrecisionFocused = "PrecisionFocused";
 
         // Arcane Defense
         var featArcaneDefense = FeatDefinitionBuilder
@@ -760,7 +758,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 {
     private bool MetamagicTrained { get; set; }
 
-    public MetamagicOptionDefinition MetamagicOption { get; set; }
+    internal MetamagicOptionDefinition MetamagicOption { get; set; }
 
     public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
@@ -789,7 +787,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
 internal sealed class ElvenPrecisionContext
 {
-    public bool Qualified { get; set; }
+    internal bool Qualified { get; set; }
 }
 
 internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon

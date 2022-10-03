@@ -5,11 +5,11 @@
   "restrictedChoices": [
     "Arcana",
     "History",
-    "Insight",
+    "Investigation",
     "Medecine",
     "Nature",
-    "Religion",
-    "Survival"
+    "Perception",
+    "SleightOfHand"
   ],
   "uniqueChoices": true,
   "spellListOverride": null,

@@ -4,25 +4,25 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatDefinition
     where TBuilder : FeatDefinitionBuilder<TDefinition, TBuilder>
 {
-    public TBuilder SetFeatures(params FeatureDefinition[] features)
+    internal TBuilder SetFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
-    public TBuilder AddFeatures(params FeatureDefinition[] features)
+    internal TBuilder AddFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.AddRange(features);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
-    public TBuilder SetAbilityScorePrerequisite(string abilityScore, int value)
+    internal TBuilder SetAbilityScorePrerequisite(string abilityScore, int value)
     {
         Definition.minimalAbilityScorePrerequisite = true;
         Definition.minimalAbilityScoreName = abilityScore;
@@ -30,13 +30,13 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         return This();
     }
 
-    public TBuilder SetMustCastSpellsPrerequisite()
+    internal TBuilder SetMustCastSpellsPrerequisite()
     {
         Definition.mustCastSpellsPrerequisite = true;
         return This();
     }
 
-    public TBuilder SetFeatFamily(string family)
+    internal TBuilder SetFeatFamily(string family)
     {
         if (string.IsNullOrEmpty(family))
         {
@@ -52,7 +52,7 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
         return This();
     }
 
-    public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category = null)
+    internal TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category = null)
     {
         Definition.armorProficiencyPrerequisite = category != null;
         Definition.armorProficiencyCategory = category == null ? String.Empty : category.Name;

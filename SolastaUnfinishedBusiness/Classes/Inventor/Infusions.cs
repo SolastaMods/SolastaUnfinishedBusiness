@@ -1,8 +1,10 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -12,13 +14,19 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
 internal static class Infusions
 {
-    private const string ReplicaItemTitleFormat = $"Item/&ReplicaItemFormatTitle";
-    private const string ReplicaItemTitleDescription = $"Item/&ReplicaItemFormatDescription";
+    private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
+    private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
+
+    public static readonly FeatureDefinitionFeatureSet ImprovedInfusions = FeatureDefinitionFeatureSetBuilder
+        .Create("FeatureSetInfusionUpgrade")
+        .SetGuiPresentationNoContent(true)
+        .AddToDB();
 
     public static void Build()
     {
         var name = "InfusionEnhanceArcaneFocus";
-        BuildInfuseItemPowerInvocation(2, name,
+        AssetReferenceSprite sprite;
+        var power = BuildInfuseItemPowerInvocation(2, name,
             FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain.GuiPresentation.SpriteReference, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
@@ -27,34 +35,116 @@ internal static class Infusions
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
+        BuildUpgradedInfuseItemPower(name, power, FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain,
+            IsFocusOrStaff, FeatureDefinitionMagicAffinityBuilder
+                //TODO: RAW needs to require attunement
+                .Create($"MagicAffinity{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetCastingModifiers(2, dcModifier: 2)
+                .AddToDB());
+
         name = "InfusionEnhanceDefense";
-        BuildInfuseItemPowerInvocation(2, name,
+        power = BuildInfuseItemPowerInvocation(2, name,
             SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
             FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{name}")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
-        name = "InfusionEnhanceWeapon";
-        BuildInfuseItemPowerInvocation(2, name,
-            SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference, IsWeapon,
-            FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .Configure(attackRollModifier: 1, damageRollModifier: 1)
+        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MageArmor, IsArmor,
+            FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
                 .AddToDB());
 
+        name = "InfusionEnhanceWeapon";
+        power = BuildInfuseItemPowerInvocation(2, name, SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference,
+            IsWeapon, FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
+                .AddToDB());
+
+        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MagicWeapon, IsWeapon,
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetAttackRollModifier(2)
+                .SetDamageRollModifier(2)
+                .SetMagicalWeapon()
+                .AddToDB());
+
+        name = "InfusionMindSharpener";
+        BuildInfuseItemPowerInvocation(2, name,
+            SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference, IsBodyArmor,
+            FeatureDefinitionMagicAffinityBuilder
+                .Create($"MagicAffinity{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
+                //RAW it adds reaction to not break concentration
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
+                .AddToDB());
+
+        sprite = SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference;
+        name = "InfusionReturningWeaponWithBonus";
+        var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}WithBonus")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
+                .SetCustomSubFeatures(ReturningWeapon.Instance)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
+                .AddToDB());
+
+        #region Returning Weapon
+
+        name = "InfusionReturningWeaponNoBonus";
+        var noBonusModifier = FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
+            .SetCustomSubFeatures(ReturningWeapon.Instance)
+            .SetAttackRollModifier(0)
+            .SetDamageRollModifier(0)
+            .AddToDB();
+
+        var infuseNoBonus = BuildInfuseItemPower(name, name, sprite, new CustomItemFilter(IsThrownWeapon),
+            noBonusModifier);
+
+        //remove Infused marker by setting Returning marker
+        noBonusModifier.SetCustomSubFeatures(ReturningWeapon.Instance);
+
+        name = "InfusionReturningWeapon";
+        var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetUniqueInstance()
+            .SetSharedPool(InventorClass.InfusionPool)
+            .AddToDB());
+
+        PowersBundleContext.RegisterPowerBundle(masterPower, true, infuseWithBonus, infuseNoBonus);
+
+        #endregion
+
+        //Level 02
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify);
-        
         //RAW they are level 6, but at that level you get Cloak Of Elvenkind which is better
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind); 
-         
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind);
+
         //Level 06
         BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, 6);
-        
+        BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, 6);
+        //RAW they are level 14, but at 10 you get much better Winged Boots
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 6);
+
+
         //Level 10
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, 10);
@@ -65,28 +155,40 @@ internal static class Infusions
         BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, 10);
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, 10);
-        
+
         //Level 14
         BuildCreateItemPowerInvocation(ItemDefinitions.AmuletOfHealth, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.BeltOfGiantHillStrength, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 14);//move to earlier level?
         BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Defense, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.RingProtectionPlus1, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.GemOfSeeing, 14);
         BuildCreateItemPowerInvocation(ItemDefinitions.HornOfBlasting, 14);
-        
+
+        //Sadly this one is just a copy of Cloak of Protection as of v1.4.13
+        // BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfBat, 14);
     }
 
-    private static void BuildInfuseItemPowerInvocation(int level, string name, AssetReferenceSprite icon,
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level,
+        string name, AssetReferenceSprite icon,
         IsValidItemHandler filter, params FeatureDefinition[] features)
+    {
+        var power = BuildInfuseItemPower(name, name, icon, filter, features);
+        BuildInfuseItemPowerInvocation(level, name, icon, power);
+        return power;
+    }
+
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level, string name,
+        AssetReferenceSprite icon,
+        FeatureDefinitionPower power)
     {
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
             .SetRequiredLevel(level)
-            .SetGrantedFeature(BuildInfuseItemPower(name, icon, filter, features))
+            .SetGrantedFeature(power)
             .AddToDB();
+        return power;
     }
 
     private static void BuildCreateItemPowerInvocation(ItemDefinition item, int level = 2)
@@ -106,18 +208,28 @@ internal static class Infusions
         invocation.GuiPresentation.description = description;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name,
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
         AssetReferenceSprite icon, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
     {
+        return BuildInfuseItemPower(name, guiName, icon, new InfusionItemFilter(itemFilter), features);
+    }
+
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
+        AssetReferenceSprite icon, ICustomItemFilter itemFilter, params FeatureDefinition[] features)
+    {
+        var properties = features.Select(f =>
+        {
+            f.AddCustomSubFeatures(Infused.Marker);
+            return new FeatureUnlockByLevel(f, 0);
+        });
+
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, icon)
+            .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker,
-                InventorClass.InfusionLimiter,
-                new CustomItemFilter(itemFilter))
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter, itemFilter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
@@ -126,11 +238,20 @@ internal static class Infusions
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetItemPropertyForm(features.Select(f => new FeatureUnlockByLevel(f, 0)),
-                        ItemPropertyUsage.Unlimited, 1)
+                    .SetItemPropertyForm(properties, ItemPropertyUsage.Unlimited, 1)
                     .Build())
                 .Build())
             .AddToDB();
+    }
+
+    private static void BuildUpgradedInfuseItemPower(string name, FeatureDefinitionPower power,
+        BaseDefinition sprite, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
+    {
+        var upgrade = BuildInfuseItemPower($"{name}Upgraded", name,
+            sprite.GuiPresentation.SpriteReference, itemFilter, features);
+        upgrade.overriddenPower = power;
+        upgrade.AddCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
+        ImprovedInfusions.FeatureSet.Add(upgrade);
     }
 
     private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(ItemDefinition item, string description)
@@ -139,7 +260,6 @@ internal static class Infusions
             .SetGuiPresentation(Category.Feature, item)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter)
             .SetEffectDescription(new EffectDescriptionBuilder()
@@ -185,25 +305,64 @@ internal static class Infusions
 
     #region Item Filters
 
+    private class Infused
+    {
+        public static Infused Marker { get; } = new();
+        private Infused() { }
+    }
+
+    private class InfusionItemFilter : CustomItemFilter
+    {
+        internal InfusionItemFilter(IsValidItemHandler handler) : base(handler)
+        {
+        }
+
+        public override bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
+        {
+            if (rulesetItem.ItemDefinition.magical)
+            {
+                return false;
+            }
+
+            if (rulesetItem.HasSubFeatureOfType<Infused>())
+            {
+                return false;
+            }
+
+            return base.IsValid(character, rulesetItem);
+        }
+    }
+
     private static bool IsFocusOrStaff(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;
         var staffType = WeaponTypeDefinitions.QuarterstaffType.Name;
-        return !definition.Magical
-               && (definition.IsFocusItem
-                   || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType));
+        return definition.IsFocusItem
+               || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType);
     }
 
     private static bool IsWeapon(RulesetCharacter _, RulesetItem item)
     {
+        return item.ItemDefinition.IsWeapon;
+    }
+
+    private static bool IsThrownWeapon(RulesetCharacter _, RulesetItem item)
+    {
         var definition = item.ItemDefinition;
-        return !definition.Magical && definition.IsWeapon;
+        return definition.IsWeapon
+               && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
 
     private static bool IsArmor(RulesetCharacter _, RulesetItem item)
     {
+        return item.ItemDefinition.IsArmor;
+    }
+
+    private static bool IsBodyArmor(RulesetCharacter _, RulesetItem item)
+    {
         var definition = item.ItemDefinition;
-        return !definition.Magical && definition.IsArmor;
+        return definition.IsArmor
+               && definition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name);
     }
 
     #endregion

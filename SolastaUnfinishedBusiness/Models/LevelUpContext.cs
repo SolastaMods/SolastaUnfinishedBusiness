@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class LevelUpContext
+internal static class LevelUpContext
 {
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
@@ -79,9 +80,7 @@ public static class LevelUpContext
 
         levelUpData.GrantedItems = new HashSet<ItemDefinition>();
 
-        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-        dbCharacterClassDefinition.TryGetElement("Inventor", out var inventorClass);
+        DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass);
 
         // Holy Symbol
         var required = (
@@ -96,15 +95,6 @@ public static class LevelUpContext
         if (required)
         {
             levelUpData.GrantedItems.Add(HolySymbolAmulet);
-        }
-
-        // Clothes Wizard
-        required =
-            !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
-
-        if (required)
-        {
-            levelUpData.GrantedItems.Add(ClothesWizard);
         }
 
         // Component Pouch
@@ -147,13 +137,14 @@ public static class LevelUpContext
             levelUpData.GrantedItems.Add(DruidicFocus);
         }
 
-        // Spellbook
+        // Spellbook and Clothes Wizard
         required =
             !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
 
         if (required)
         {
             levelUpData.GrantedItems.Add(Spellbook);
+            levelUpData.GrantedItems.Add(ClothesWizard);
         }
     }
 
@@ -235,7 +226,8 @@ public static class LevelUpContext
                    || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
     }
 
-    internal static bool IsRepertoireFromSelectedClassSubclass([NotNull] RulesetCharacterHero rulesetCharacterHero,
+    internal static bool IsRepertoireFromSelectedClassSubclass(
+        [NotNull] RulesetCharacterHero rulesetCharacterHero,
         [NotNull] RulesetSpellRepertoire rulesetSpellRepertoire)
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);
@@ -602,20 +594,20 @@ public static class LevelUpContext
     // keeps the multiclass level up context
     private sealed class LevelUpData
     {
-        public CharacterClassDefinition SelectedClass;
-        public CharacterSubclassDefinition SelectedSubclass;
+        internal CharacterClassDefinition SelectedClass;
+        internal CharacterSubclassDefinition SelectedSubclass;
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsClassSelectionStage { get; set; }
+        internal bool IsClassSelectionStage { get; set; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool IsLevelingUp { get; set; }
+        internal bool IsLevelingUp { get; set; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        public bool RequiresDeity { get; set; }
-        public HashSet<ItemDefinition> GrantedItems { get; set; }
-        public HashSet<SpellDefinition> AllowedSpells { get; set; }
-        public HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
-        public HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
+        internal bool RequiresDeity { get; set; }
+        internal HashSet<ItemDefinition> GrantedItems { get; set; }
+        internal HashSet<SpellDefinition> AllowedSpells { get; set; }
+        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
+        internal HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
     }
 }

@@ -3,12 +3,12 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ExtraCarefulTrackedItem
+internal class ExtraCarefulTrackedItem
 {
-    public static readonly ExtraCarefulTrackedItem Marker = new();
+    internal static readonly ExtraCarefulTrackedItem Marker = new();
     private ExtraCarefulTrackedItem() { }
 
-    public static void Process(RulesetImplementationManager rules, RulesetEffect activeEffect)
+    internal static void Process(RulesetImplementationManager rules, RulesetEffect activeEffect)
     {
         if (!activeEffect.SourceDefinition.HasSubFeatureOfType<ExtraCarefulTrackedItem>())
         {

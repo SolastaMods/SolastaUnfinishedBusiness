@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-public abstract class
+internal abstract class
     FeatureDefinitionDamageAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
         TBuilder>
     where TDefinition : FeatureDefinitionDamageAffinity
@@ -37,21 +37,21 @@ public abstract class
 internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<
     FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
-    public FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
+    internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
     {
         Definition.DamageType = damageType;
 
         return This();
     }
 
-    public FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
+    internal FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
         Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;
 
         return This();
     }
 
-    public FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
+    internal FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
         RuleDefinitions.DamageAffinityType damageAffinityType)
     {
         Definition.DamageAffinityType = damageAffinityType;
@@ -59,7 +59,7 @@ internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageA
         return This();
     }
 
-    public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower,
+    internal FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower,
         int rangeCells, bool retaliateWhenHit = false)
     {
         Definition.retaliatePower = featureDefinitionPower;

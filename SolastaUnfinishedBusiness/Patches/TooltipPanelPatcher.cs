@@ -3,13 +3,13 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class TooltipPanelPatcher
+public static class TooltipPanelPatcher
 {
     [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SetupFeatures_Patch
+    public static class SetupFeatures_Patch
     {
-        internal static void Prefix(ref TooltipDefinitions.Scope scope)
+        public static void Prefix(ref TooltipDefinitions.Scope scope)
         {
             //PATCH: swaps holding ALT behavior for tooltips
             if (!Main.Settings.InvertAltBehaviorOnTooltips)

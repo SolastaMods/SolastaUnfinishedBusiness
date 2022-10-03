@@ -13,13 +13,13 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
     : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity,
         FeatureDefinitionSavingThrowAffinityBuilder>
 {
-    public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
+    internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
         RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
     {
         return SetAffinities(affinityType, againstMagic, abilityScores.AsEnumerable());
     }
 
-    public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
+    internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
         RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic,
         IEnumerable<string> abilityScores)
     {

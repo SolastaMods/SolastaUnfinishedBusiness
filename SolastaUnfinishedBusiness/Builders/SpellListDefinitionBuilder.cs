@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
 {
     [NotNull]
-    public SpellListDefinitionBuilder ClearSpells()
+    internal SpellListDefinitionBuilder ClearSpells()
     {
         // Clear everything
         Definition.SpellsByLevel.Clear();
@@ -50,13 +50,13 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     }
 
     [NotNull]
-    public SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
+    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
     {
         return SetSpellsAtLevel(level, spellsByLevel.AsEnumerable());
     }
 
     [NotNull]
-    public SpellListDefinitionBuilder SetSpellsAtLevel(int level, [NotNull] IEnumerable<SpellDefinition> spells)
+    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, [NotNull] IEnumerable<SpellDefinition> spells)
     {
         if (level is > 9 or < 0)
         {
@@ -89,20 +89,13 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     /// </summary>
     /// <returns></returns>
     [NotNull]
-    public SpellListDefinitionBuilder FinalizeSpells()
+    internal SpellListDefinitionBuilder FinalizeSpells(bool hasCantrip = true, int maxLevel = 0)
     {
         // Will throw if anything incorrect
         EnsureSpellListsConfigured();
 
-        var maxLevel =
-            Definition.SpellsByLevel.Where(s => s.Spells.Any()).Max(s => s.Level);
-
-        var hasCantrips =
-            Definition.SpellsByLevel.Where(s => s.Spells.Any()).Any(s => s.Level == 0);
-
+        Definition.hasCantrips = hasCantrip;
         Definition.maxSpellLevel = maxLevel;
-        Definition.hasCantrips = hasCantrips;
-
         return this;
     }
 

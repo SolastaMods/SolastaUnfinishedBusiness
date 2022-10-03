@@ -139,7 +139,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
 
         var spellListElementalist = SpellListDefinitionBuilder
-            .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "SpellListElementalist")
+            .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListElementalist")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
@@ -148,7 +148,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetSpellsAtLevel(3, Fireball, LightningBolt, SleetStorm)
             .SetSpellsAtLevel(4, Stoneskin, IceStorm, WallOfFire)
             .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
-            .FinalizeSpells()
+            .FinalizeSpells(true, 9)
             .AddToDB();
 
         var magicAffinityElementalistExpandedSpells = FeatureDefinitionMagicAffinityBuilder

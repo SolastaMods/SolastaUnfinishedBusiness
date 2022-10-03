@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-public sealed class FeatureDefinitionOnCharacterKill : FeatureDefinition, IOnCharacterKill
+internal sealed class FeatureDefinitionOnCharacterKill : FeatureDefinition, IOnCharacterKill
 {
     private OnCharacterKillDelegate onCharacterKill;
 

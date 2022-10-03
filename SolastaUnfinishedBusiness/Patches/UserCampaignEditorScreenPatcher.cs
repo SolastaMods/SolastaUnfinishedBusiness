@@ -8,7 +8,7 @@ using static SolastaUnfinishedBusiness.Models.Level20Context;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class UserCampaignEditorScreenPatcher
+public static class UserCampaignEditorScreenPatcher
 {
     //PATCH: Allows Campaigns to be created with min level 20 requirement (DMP)
     [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
@@ -16,7 +16,7 @@ internal static class UserCampaignEditorScreenPatcher
     public static class OnMinLevelEndEdit_Patch
     {
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var code = new List<CodeInstruction>(instructions);
 
@@ -37,7 +37,7 @@ internal static class UserCampaignEditorScreenPatcher
     public static class OnMaxLevelEndEdit_Patch
     {
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var code = new List<CodeInstruction>(instructions);
 

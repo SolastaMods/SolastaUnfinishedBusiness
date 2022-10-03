@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class FunctorTeleportPatcher
+public static class FunctorTeleportPatcher
 {
     /// <summary>
     ///     Currently when a character is teleported off screen the camera doesn't follow.
@@ -17,7 +17,7 @@ internal static class FunctorTeleportPatcher
     /// </summary>
     [HarmonyPatch(typeof(FunctorTeleport), "Execute")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Execute_Patch
+    public static class Execute_Patch
     {
         //PATCH: follow characters on teleport
         private static void FollowCharacterOnTeleport(GameLocationCharacter character)
@@ -45,7 +45,7 @@ internal static class FunctorTeleportPatcher
             Main.Log($"Teleported: {character.Name}");
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var teleportCharacterMethod = typeof(GameLocationPositioningManager).GetMethod("TeleportCharacter");
             var followCharacterOnTeleportMethod = new Action<GameLocationCharacter>(FollowCharacterOnTeleport).Method;

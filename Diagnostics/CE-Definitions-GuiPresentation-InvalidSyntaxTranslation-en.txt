@@ -39,6 +39,7 @@ InfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
 InfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
 InfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
 InfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
 InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
@@ -94,6 +95,9 @@ Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dyna
 InvocationCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
 InvocationCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
 You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+InvocationCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+InvocationCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
+These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
 InvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 InvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
 A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
@@ -157,6 +161,9 @@ Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dyna
 PowerCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
 PowerCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
 You can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+PowerCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+PowerCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
+These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
 PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
 A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.

@@ -9,11 +9,11 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class CharacterStageLevelGainPanelPatcher
+public static class CharacterStageLevelGainPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class EnterStage_Patch
+    public static class EnterStage_Patch
     {
         //PATCH: gets my own class and level for level up (MULTICLASS)
         // ReSharper disable once UnusedMember.Global
@@ -43,7 +43,7 @@ internal static class CharacterStageLevelGainPanelPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var getLastAssignedClassAndLevelMethod =
                 typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
@@ -61,7 +61,7 @@ internal static class CharacterStageLevelGainPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "RefreshSpellcastingFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RefreshSpellcastingFeatures_Patch
+    public static class RefreshSpellcastingFeatures_Patch
     {
         //PATCH: only displays spell casting features from the current class (MULTICLASS)
         private static List<RulesetSpellRepertoire> SpellRepertoires(
@@ -78,7 +78,7 @@ internal static class CharacterStageLevelGainPanelPatcher
         }
 
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var code = instructions.ToList();
             var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");

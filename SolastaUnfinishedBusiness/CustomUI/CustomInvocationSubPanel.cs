@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomInvocationSubPanel : MonoBehaviour
 {
-    public CustomInvocationPoolType Type { get; private set; }
+    private CustomInvocationPoolType Type { get; set; }
 
-    public void Setup(CustomInvocationPoolType type)
+    private void Setup(CustomInvocationPoolType type)
     {
         Type = type;
         name = $"CustomSubPanel<{type.Name}>";
@@ -26,7 +26,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
     public static void UpdateRelevantInvocations(InvocationSubPanel panel)
     {
-        var all = DatabaseRepository.GetDatabase<InvocationDefinition>().GetAllElements()
+        var all = DatabaseRepository.GetDatabase<InvocationDefinition>()
             .Where(x => !x.GuiPresentation.Hidden);
 
         IEnumerable<InvocationDefinition> invocations;
@@ -61,7 +61,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         }
     }
 
-    public static void AddCustomSubpanels(ProficienciesPanel panel)
+    public static void AddCustomSubPanels(ProficienciesPanel panel)
     {
         if (panel.toggleGroup == null)
         {

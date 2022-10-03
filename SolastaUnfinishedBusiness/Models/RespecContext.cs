@@ -7,7 +7,7 @@ using TA;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class RespecContext
+internal static class RespecContext
 {
     private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled =
         (RestActivityDefinition.ActivityCondition)(-1001);
@@ -49,7 +49,7 @@ public static class RespecContext
             : ActivityConditionDisabled;
     }
 
-    public sealed class FunctorRespec : Functor
+    internal sealed class FunctorRespec : Functor
     {
         internal static bool IsRespecing { get; private set; }
 

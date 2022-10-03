@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public static class CustomFeaturesContext
+internal static class CustomFeaturesContext
 {
     private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
 
@@ -311,7 +311,7 @@ public static class CustomFeaturesContext
     }
 
     [CanBeNull]
-    public static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
+    internal static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
     {
         if (power.PowerDefinition is not IPowerSharedPool pool)
         {
@@ -479,17 +479,17 @@ public static class CustomFeaturesContext
             select poolPower.RemainingUses).FirstOrDefault();
     }
 
-    public static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
+    internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
     {
         return ModifyMagicEffect(original, spell.SpellDefinition, spell.Caster);
     }
 
-    public static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
+    internal static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
     {
         return ModifyMagicEffect(spell.EffectDescription, spell, caster);
     }
 
-    public static EffectDescription ModifyPowerEffect(EffectDescription original, [NotNull] RulesetEffectPower power)
+    internal static EffectDescription ModifyPowerEffect(EffectDescription original, [NotNull] RulesetEffectPower power)
     {
         return ModifyMagicEffect(original, power.PowerDefinition, power.User);
     }
@@ -526,7 +526,7 @@ public static class CustomFeaturesContext
         effects.AddOrReplace(Key(definition), effect);
     }
 
-    public static void ClearSpellEffectCache(RulesetCharacter caster)
+    internal static void ClearSpellEffectCache(RulesetCharacter caster)
     {
         SpellEffectCache.Remove(caster.Guid);
     }
@@ -572,14 +572,14 @@ public static class CustomFeaturesContext
     }
 
     /**Modifies spell/power description for GUI purposes.*/
-    public static EffectDescription ModifyMagicEffectGui(EffectDescription original,
+    internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
-        return ModifyMagicEffect(original, definition, Global.CurrentGuiCharacter);
+        return ModifyMagicEffect(original, definition, Global.CurrentCharacter);
     }
 
     // [NotNull]
-    // public static EffectDescription AddEffectForms(EffectDescription baseEffect,
+    // internal static EffectDescription AddEffectForms(EffectDescription baseEffect,
     //     [NotNull] params EffectForm[] effectForms)
     // {
     //     var newEffect = baseEffect.Copy();
@@ -589,7 +589,7 @@ public static class CustomFeaturesContext
     //     return newEffect;
     // }
 
-    public static bool ValidatePrerequisites(
+    internal static bool ValidatePrerequisites(
         [NotNull] RulesetCharacter character,
         [NotNull] BaseDefinition feature,
         [NotNull] IEnumerable<IDefinitionWithPrerequisites.Validate> validators,

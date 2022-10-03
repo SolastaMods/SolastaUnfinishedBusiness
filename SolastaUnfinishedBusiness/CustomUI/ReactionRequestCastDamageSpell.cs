@@ -1,8 +1,8 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
+internal class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
 {
-    public ReactionRequestCastDamageSpell(
+    internal ReactionRequestCastDamageSpell(
         CharacterActionParams actionParams,
         GameLocationCharacter attacker, bool isCantrip)
         : base("CastSpellInRetribution", actionParams)

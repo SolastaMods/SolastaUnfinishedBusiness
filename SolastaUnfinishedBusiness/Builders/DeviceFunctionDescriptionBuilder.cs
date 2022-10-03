@@ -3,11 +3,11 @@ using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-public class DeviceFunctionDescriptionBuilder
+internal class DeviceFunctionDescriptionBuilder
 {
     private readonly DeviceFunctionDescription description;
 
-    public DeviceFunctionDescriptionBuilder()
+    internal DeviceFunctionDescriptionBuilder()
     {
         description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
             .UsableDeviceDescription.DeviceFunctions[0])
@@ -24,7 +24,7 @@ public class DeviceFunctionDescriptionBuilder
         };
     }
 
-    public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power, bool canOvercharge = false)
+    internal DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power, bool canOvercharge = false)
     {
         description.type = DeviceFunctionDescription.FunctionType.Power;
         description.featureDefinitionPower = power;
@@ -32,7 +32,7 @@ public class DeviceFunctionDescriptionBuilder
         return this;
     }
 
-    public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
+    internal DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
         description.type = DeviceFunctionDescription.FunctionType.Spell;
         description.spellDefinition = spell;
@@ -40,7 +40,7 @@ public class DeviceFunctionDescriptionBuilder
         return this;
     }
 
-    public DeviceFunctionDescriptionBuilder SetUsage(
+    internal DeviceFunctionDescriptionBuilder SetUsage(
         EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
         DeviceFunctionDescription.FunctionUseAffinity useAffinity =
             DeviceFunctionDescription.FunctionUseAffinity.AtWill,
@@ -63,7 +63,7 @@ public class DeviceFunctionDescriptionBuilder
         }
     }
 
-    public DeviceFunctionDescription Build()
+    internal DeviceFunctionDescription Build()
     {
         Validate();
         return description;

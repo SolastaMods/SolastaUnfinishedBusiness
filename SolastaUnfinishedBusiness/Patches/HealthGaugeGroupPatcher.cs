@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-internal static class HealthGaugeGroupPatcher
+public static class HealthGaugeGroupPatcher
 {
     [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class Refresh_Patch
+    public static class Refresh_Patch
     {
         /// <summary>
         ///     This mods the horizontal gauge in the monster tooltip.
         ///     The gauge now shows health in steps instead of a continuous value.
         /// </summary>
-        internal static void Postfix(HealthGaugeGroup __instance)
+        public static void Postfix(HealthGaugeGroup __instance)
         {
             //PATCH: HideMonsterHitPoints
             if (!Main.Settings.HideMonsterHitPoints)

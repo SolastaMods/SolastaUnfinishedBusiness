@@ -9,9 +9,9 @@ public class GraphicsCharacterFactoryManagerPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "InstantiateWieldedItemAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class InstantiateWieldedItemAsNeeded_Patch
+    public static class InstantiateWieldedItemAsNeeded_Patch
     {
-        internal static void Postfix(GraphicsCharacter graphicsCharacter,
+        public static void Postfix(GraphicsCharacter graphicsCharacter,
             RulesetItem rulesetItem,
             string slotName)
         {
