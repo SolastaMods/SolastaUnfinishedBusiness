@@ -13,10 +13,9 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class PatchesDisplay
 {
-    private static Dictionary<string, string> _modIdsToColor;
+    private static Dictionary<string, string> _modIdsToColor = new();
     private static Dictionary<MethodBase, List<Patch>> _patches;
     private static bool _firstTime = true;
-    private static string _searchText = "";
 
     internal static void DisplayPatches()
     {
@@ -29,120 +28,99 @@ internal static class PatchesDisplay
 
         try
         {
-            UI.Space(25);
-
-            var searchTextLower = _searchText.ToLower();
             var methodBases = _patches?.Keys
                 .Distinct()
                 .OrderBy(m => m.Name)
-                .Where(m =>
-                    _searchText.Length == 0
-                    || m.DeclaringType!.FullName!.ToLower().Contains(searchTextLower)
-                    || m.ToString().ToLower().Contains(searchTextLower))
                 .ToArray() ?? Array.Empty<MethodBase>();
 
-            if (_modIdsToColor != null)
-            {
-                GUILayout.Space(10f);
+            UI.Label($"Total: {methodBases.Length.ToString().Cyan()}".Orange());
 
-                using (UI.HorizontalScope())
+            var index = 1;
+
+            foreach (var method in methodBases)
+            {
+                if (method.DeclaringType == null)
                 {
-                    UI.Space(25);
-                    UI.TextField(ref _searchText, "Search:", UI.Width(400));
+                    continue;
                 }
 
-                UI.Space(25);
+                var typeStr = method.DeclaringType.FullName;
+                var methodComponents = method.ToString().Split();
+                var returnTypeStr = methodComponents[0];
+                var methodName = methodComponents[1];
 
-                UI.Label($"Patches Found: {methodBases.Length.ToString().Cyan()}".Orange());
+                UI.Label("");
 
-                var index = 1;
-
-                foreach (var method in methodBases)
+                using (new GUILayout.VerticalScope())
                 {
-                    if (method.DeclaringType == null)
+                    using (new GUILayout.HorizontalScope())
                     {
-                        continue;
+                        GUILayout.Label($"{index++}", GUI.skin.box, UI.AutoWidth());
+                        UI.Space(10);
+                        GUILayout.Label(
+                            $"{returnTypeStr.Grey().Bold()} {methodName.Bold()}\t{typeStr.Grey().Italic()}");
                     }
 
-                    var typeStr = method.DeclaringType.FullName;
-                    var methodComponents = method.ToString().Split();
-                    var returnTypeStr = methodComponents[0];
-                    var methodName = methodComponents[1];
+                    var patches = EnabledPatchesForMethod(method);
 
-                    UI.Label("");
-
-                    using (new GUILayout.VerticalScope())
+                    UI.Space(15);
+                    using (new GUILayout.HorizontalScope())
                     {
-                        using (new GUILayout.HorizontalScope())
+                        UI.Space(50);
+
+                        using (new GUILayout.VerticalScope())
                         {
-                            GUILayout.Label($"{index++}", GUI.skin.box, UI.AutoWidth());
-                            UI.Space(10);
-                            GUILayout.Label(
-                                $"{returnTypeStr.Grey().Bold()} {methodName.Bold()}\t{typeStr.Grey().Italic()}");
+                            foreach (var patch in patches)
+                            {
+                                GUILayout.Label(patch.PatchMethod.Name, GUI.skin.label);
+                            }
                         }
 
-                        var patches = EnabledPatchesForMethod(method);
-
-                        UI.Space(15);
-                        using (new GUILayout.HorizontalScope())
+                        UI.Space(10);
+                        using (new GUILayout.VerticalScope())
                         {
-                            UI.Space(50);
-
-                            using (new GUILayout.VerticalScope())
+                            foreach (var patch in patches)
                             {
-                                foreach (var patch in patches)
-                                {
-                                    GUILayout.Label(patch.PatchMethod.Name, GUI.skin.label);
-                                }
+                                GUILayout.Label(patch.owner.Color($"#{_modIdsToColor[patch.owner]}").Bold(),
+                                    GUI.skin.label);
                             }
+                        }
 
-                            UI.Space(10);
-                            using (new GUILayout.VerticalScope())
+                        UI.Space(10);
+                        using (new GUILayout.VerticalScope())
+                        {
+                            foreach (var patch in patches)
                             {
-                                foreach (var patch in patches)
+                                GUILayout.Label(patch.priority.ToString(), GUI.skin.label);
+                            }
+                        }
+
+                        UI.Space(10);
+                        using (new GUILayout.VerticalScope())
+                        {
+                            foreach (var patch in patches)
+                            {
+                                if (patch.PatchMethod.DeclaringType != null)
                                 {
-                                    GUILayout.Label(patch.owner.Color($"#{_modIdsToColor[patch.owner]}").Bold(),
+                                    GUILayout.Label(patch.PatchMethod.DeclaringType.DeclaringType?.Name ?? "---",
                                         GUI.skin.label);
                                 }
                             }
-
-                            UI.Space(10);
-                            using (new GUILayout.VerticalScope())
-                            {
-                                foreach (var patch in patches)
-                                {
-                                    GUILayout.Label(patch.priority.ToString(), GUI.skin.label);
-                                }
-                            }
-
-                            UI.Space(10);
-                            using (new GUILayout.VerticalScope())
-                            {
-                                foreach (var patch in patches)
-                                {
-                                    if (patch.PatchMethod.DeclaringType != null)
-                                    {
-                                        GUILayout.Label(patch.PatchMethod.DeclaringType.DeclaringType?.Name ?? "---",
-                                            GUI.skin.label);
-                                    }
-                                }
-                            }
-
-                            UI.Space(10);
-
-                            using (new GUILayout.VerticalScope())
-                            {
-                                foreach (var patch in patches)
-                                {
-                                    if (patch.PatchMethod.DeclaringType != null)
-                                    {
-                                        GUILayout.TextArea(patch.PatchMethod.DeclaringType.Name, GUI.skin.textField);
-                                    }
-                                }
-                            }
-
-                            GUILayout.FlexibleSpace();
                         }
+
+                        UI.Space(10);
+                        using (new GUILayout.VerticalScope())
+                        {
+                            foreach (var patch in patches)
+                            {
+                                if (patch.PatchMethod.DeclaringType != null)
+                                {
+                                    GUILayout.TextArea(patch.PatchMethod.DeclaringType.Name, GUI.skin.textField);
+                                }
+                            }
+                        }
+
+                        GUILayout.FlexibleSpace();
                     }
                 }
             }
@@ -163,20 +141,19 @@ internal static class PatchesDisplay
             : Array.Empty<Patch>();
     }
 
-    private static void RefreshListOfPatchOwners(bool reset = true)
+    private static void RefreshListOfPatchOwners()
     {
-        if (reset || _modIdsToColor == null)
-        {
-            _modIdsToColor = new Dictionary<string, string>();
-        }
-
-        var patches = Harmony.GetAllPatchedMethods().SelectMany(method =>
-        {
-            var patchInfo = Harmony.GetPatchInfo(method);
-            return patchInfo.Prefixes.Concat(patchInfo.Transpilers).Concat(patchInfo.Postfixes);
-        });
-        var owners = patches.Select(patchInfo => patchInfo.owner).Distinct().OrderBy(owner => owner);
         var hue = 0.0f;
+        var owners = Harmony.GetAllPatchedMethods()
+            .SelectMany(method =>
+            {
+                var patchInfo = Harmony.GetPatchInfo(method);
+                
+                return patchInfo.Prefixes.Concat(patchInfo.Transpilers).Concat(patchInfo.Postfixes);
+            })
+            .Select(patchInfo => patchInfo.owner)
+            .Distinct()
+            .OrderBy(owner => owner);
 
         foreach (var owner in owners)
         {
