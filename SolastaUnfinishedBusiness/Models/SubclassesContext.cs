@@ -38,23 +38,38 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
+        // Barbarian
+        LoadSubclass(new PathOfTheLight());
+        LoadSubclass(new PathOfTheRageMage());
+        
+        // Druid
         LoadSubclass(new CircleOfTheForestGuardian());
+        
+        // Fighter
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
-        LoadSubclass(new PathOfTheLight());
-        LoadSubclass(new PathOfTheRageMage());
+
+        // Ranger
+        LoadSubclass(new RangerArcanist());
+        
+        // Rogue
+        LoadSubclass(new RoguishConArtist());
+        LoadSubclass(new RoguishOpportunist());
+        LoadSubclass(new RoguishRaven());
+        
+        // Sorcerer
+        LoadSubclass(new SorcerousDivineHeart());
+        LoadSubclass(new WayOfTheDistantHand());
+
+        // Warlock
         LoadSubclass(new PatronAncientForest());
         LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
-        LoadSubclass(new RangerArcanist());
-        LoadSubclass(new RoguishConArtist());
-        LoadSubclass(new RoguishOpportunist());
-        LoadSubclass(new RoguishRaven());
-        LoadSubclass(new SorcerousDivineHeart());
-        LoadSubclass(new WayOfTheDistantHand());
+        
+        // Wizard
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
@@ -62,16 +77,8 @@ internal static class SubclassesContext
         LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new WizardSpellMaster());
 
-        // sorting
-        Subclasses = Subclasses.OrderBy(x =>
-        {
-            var className = LevelUpContext.GetClassForSubclass(x).Name;
-            
-            return className + x.FormatTitle();
-        }).ToHashSet();
-
         // settings paring
-        foreach (var featName in Main.Settings.SubclassEnabled.ToList()
+        foreach (var featName in Main.Settings.SubclassEnabled
                      .Where(featName => Subclasses.All(x => x.Name != featName)))
         {
             Main.Settings.SubclassEnabled.Remove(featName);
