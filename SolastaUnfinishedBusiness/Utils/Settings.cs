@@ -212,7 +212,7 @@ public class Settings : UnityModManager.ModSettings
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
-
+    public float FasterTimeModifier { get; set; } = 1.5f;
 
     // Debug
     public bool DebugLogDefinitionCreation { get; set; }
@@ -237,22 +237,19 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Game UI
     //
 
-    // Battle
+    // Campaigns and Locations
     public bool DontFollowCharacterInBattle { get; set; }
-
     public int DontFollowMargin { get; set; } = 5;
 
     // public bool AutoPauseOnVictory { get; set; }
-    public float FasterTimeModifier { get; set; } = 1.5f;
-
-    // Campaigns and Locations
     public bool FollowCharactersOnTeleport { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+
 
     // Inventory and Items
     public bool DisableAutoEquip { get; set; }

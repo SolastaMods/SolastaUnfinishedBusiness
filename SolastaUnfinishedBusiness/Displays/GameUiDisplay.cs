@@ -7,12 +7,10 @@ internal static class GameUiDisplay
 {
     internal static void DisplayGameUi()
     {
-        int intValue;
-
-        #region Battle
+        #region Campaign
 
         UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&Battle"));
+        UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
         UI.Label("");
 
         var toggle = Main.Settings.DontFollowCharacterInBattle;
@@ -23,7 +21,7 @@ internal static class GameUiDisplay
 
         if (Main.Settings.DontFollowCharacterInBattle)
         {
-            intValue = Main.Settings.DontFollowMargin;
+            var intValue = Main.Settings.DontFollowMargin;
             if (UI.Slider(Gui.Localize("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
                     1, "%", UI.AutoWidth()))
             {
@@ -42,23 +40,6 @@ internal static class GameUiDisplay
         }
 #endif
 
-        UI.Label("");
-
-        var floatValue = Main.Settings.FasterTimeModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
-                1, "X", UI.AutoWidth()))
-        {
-            Main.Settings.FasterTimeModifier = floatValue;
-        }
-
-        #endregion
-
-        #region Campaign
-
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
-        UI.Label("");
-
         toggle = Main.Settings.FollowCharactersOnTeleport;
         if (UI.Toggle(Gui.Localize("ModUi/&FollowCharactersOnTeleport"), ref toggle, UI.AutoWidth()))
         {
@@ -66,6 +47,12 @@ internal static class GameUiDisplay
         }
 
         UI.Label("");
+
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
+        }
 
         toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
@@ -80,12 +67,6 @@ internal static class GameUiDisplay
         }
 
         UI.Label("");
-
-        toggle = Main.Settings.EnableStatsOnHeroTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableStatsOnHeroTooltip = toggle;
-        }
 
         toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
@@ -121,16 +102,16 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&Input"));
         UI.Label("");
 
-        toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
-        if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
-        }
-
         toggle = Main.Settings.InvertAltBehaviorOnTooltips;
         if (UI.Toggle(Gui.Localize("ModUi/&InvertAltBehaviorOnTooltips"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+        }
+        
+        toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
+        if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
         }
 
         UI.Label("");
@@ -235,6 +216,7 @@ internal static class GameUiDisplay
             Main.Settings.MaxSpellLevelsPerLine = intValue;
         }
 #endif
+
         #endregion
 
         UI.Label("");

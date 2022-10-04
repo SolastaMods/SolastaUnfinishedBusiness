@@ -21,7 +21,6 @@ ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key on
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&Battle=<color=#F0DAA0>Battle:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
@@ -77,7 +76,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
-ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
+ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen

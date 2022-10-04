@@ -130,7 +130,7 @@ internal static class ToolsDisplay
         UI.Label("");
 
         intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-        if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "",
+        if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
                 UI.Width(100)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
@@ -139,26 +139,19 @@ internal static class ToolsDisplay
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
                 DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,
-                DungeonMakerContext.GamePartySize, "", UI.AutoWidth()))
+                DungeonMakerContext.GamePartySize, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
         }
 
-        // UI.Label("");
-        // UI.Label(Gui.Localize("ModUi/&DungeonMaker"));
-        // UI.Label("");
-        //
-        // intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
-        // if (UI.Slider(Gui.Localize("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
-        // {
-        //     Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
-        // }
-        //
-        // UI.Label("");
-        // UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
+        UI.Label("");
 
-        // ModUi/&MaxBackupFilesPerLocationCampaign=<color=white>Max. backup files per location or campaign</color>
-        // ModUi/&MaxBackupHelp=. Backup files are saved under <i><color=#F0DAA0>GAME_FOLDER/Mods/SolastaUnfinishedBusiness/DungeonMakerBackups</color></i>
+        var floatValue = Main.Settings.FasterTimeModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
+                1, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.FasterTimeModifier = floatValue;
+        }
     }
 
     private static void DisplayFactionRelations()
