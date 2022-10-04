@@ -129,6 +129,7 @@ internal static class SpellsContext
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildThunderStrike(), 0,
             SpellListWizard, SpellListSorcerer, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);

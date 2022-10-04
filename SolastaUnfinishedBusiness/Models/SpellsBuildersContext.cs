@@ -672,6 +672,33 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
+    internal static SpellDefinition BuildThornyVines()
+    {
+        return SpellDefinitionBuilder
+            .Create("ThornyVines")
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.CreateAssetReferenceSprite("ThornyVines", Resources.ThornyVines, 128))
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                .SetParticleEffectParameters(SpellDefinitions.VenomousSpike)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, incrementMultiplier: 5,
+                    additionalDicePerIncrement: 1)
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: RuleDefinitions.DamageTypePiercing)
+                    .Build())
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
     //
     // LEVEL 02
     //
