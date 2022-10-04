@@ -86,12 +86,14 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
 
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
         }
 
         UI.Label("");
