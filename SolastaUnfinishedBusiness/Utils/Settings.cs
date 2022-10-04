@@ -34,7 +34,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; } = true;
+    public bool DisplayMerchantsToggle { get; set; }
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
@@ -183,6 +183,7 @@ public class Settings : UnityModManager.ModSettings
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
     public List<string> CraftingInStore { get; } = new();
@@ -258,7 +259,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public int EmpressGarbAppearanceIndex { get; set; }
+
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }

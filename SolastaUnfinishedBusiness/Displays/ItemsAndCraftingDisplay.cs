@@ -76,8 +76,6 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
-        int intValue;
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
@@ -140,7 +138,7 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label("");
 
-        intValue = Main.Settings.RecipeCost;
+        int intValue = Main.Settings.RecipeCost;
         if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
         {
             Main.Settings.RecipeCost = intValue;
@@ -161,6 +159,21 @@ internal static class ItemsAndCraftingDisplay
         {
             Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
+        }
+
+        UI.Label("");
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
+
+            intValue = Main.Settings.EmpressGarbAppearanceIndex;
+            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
+                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
+            {
+                Main.Settings.EmpressGarbAppearanceIndex = intValue;
+                GameUiContext.SwitchEmpressGarb();
+            }
         }
 
         UI.Label("");

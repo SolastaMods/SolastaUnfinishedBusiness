@@ -198,21 +198,6 @@ internal static class GameUiDisplay
             GameUiContext.SwitchCrownOfTheMagister();
         }
 
-        UI.Label("");
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
-
-            intValue = Main.Settings.EmpressGarbAppearanceIndex;
-            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
-            {
-                Main.Settings.EmpressGarbAppearanceIndex = intValue;
-                GameUiContext.SwitchEmpressGarb();
-            }
-        }
-
         #endregion
 
         #region Monster
