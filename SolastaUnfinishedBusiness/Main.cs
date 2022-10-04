@@ -13,9 +13,8 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Main
 {
-    private static ModManager<Core, Settings> Mod { get; set; }
-    
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
+    private static ModManager<Core, Settings> Mod { get; set; }
 
     internal static string ModFolder { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -78,7 +77,7 @@ internal static class Main
             Enable = () =>
             {
                 Enabled = true;
-                (new MenuManager()).Enable(modEntry, assembly);
+                new MenuManager().Enable(modEntry, assembly);
                 Logger.Log("Enabled.");
             };
         }

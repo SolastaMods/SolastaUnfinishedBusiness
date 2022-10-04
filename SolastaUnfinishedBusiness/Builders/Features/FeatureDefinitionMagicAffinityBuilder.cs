@@ -89,6 +89,13 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinity
         return this;
     }
 
+    internal FeatureDefinitionMagicAffinityBuilder IgnoreClassRestrictionsOnMagicalItems(bool ignore = true)
+    {
+        Definition.ignoreClassRestrictionsOnMagicalItems = ignore;
+
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)

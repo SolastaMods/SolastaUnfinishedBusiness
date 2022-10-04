@@ -73,9 +73,9 @@ internal static partial class UI
         for (var ii = 0; ii < actions.Length; ii += stride)
         {
             var hasTitle = title != null;
-            
+
             BeginHorizontal();
-            
+
             if (hasTitle)
             {
                 if (ii == 0)
@@ -89,7 +89,7 @@ internal static partial class UI
             }
 
             var filteredActions = actions.Skip(ii).Take(stride);
-            
+
             foreach (var action in filteredActions)
             {
                 action();

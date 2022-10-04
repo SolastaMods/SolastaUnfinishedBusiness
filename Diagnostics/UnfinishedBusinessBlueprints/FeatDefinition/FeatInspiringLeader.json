@@ -17,13 +17,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatInspiringLeaderTitle",
-    "description": "Feat/&FeatInspiringLeaderDescription",
+    "title": "Feature/&PowerFeatInspiringLeaderTitle",
+    "description": "Feature/&PowerFeatInspiringLeaderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
-      "m_SubObjectName": "GoldenSpeech",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

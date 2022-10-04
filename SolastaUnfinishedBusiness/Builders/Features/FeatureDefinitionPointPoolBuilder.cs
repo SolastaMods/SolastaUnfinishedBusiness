@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -32,6 +33,14 @@ internal abstract class
     internal TBuilder RestrictChoices(params string[] choices)
     {
         Definition.RestrictedChoices.AddRange(choices);
+        Definition.RestrictedChoices.Sort();
+        return This();
+    }
+
+
+    internal TBuilder RestrictChoices(params ToolTypeDefinition[] choices)
+    {
+        Definition.RestrictedChoices.AddRange(choices.Select(t => t.Name));
         Definition.RestrictedChoices.Sort();
         return This();
     }

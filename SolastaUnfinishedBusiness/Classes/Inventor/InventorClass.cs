@@ -184,8 +184,8 @@ internal static class InventorClass
                 .Create("ProficiencyInventorTools")
                 .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
                 .SetProficiencies(ProficiencyType.Tool,
-                    ToolTypeDefinitions.ThievesToolsType.Name,
-                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                    ToolTypeDefinitions.ThievesToolsType,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType)
                 .AddToDB())
 
             // Tool Selection
@@ -251,6 +251,8 @@ internal static class InventorClass
 
             #region Level 03
 
+            .AddFeaturesAtLevel(3, BuildRightToolForTheJob())
+
             #endregion
 
             #region Level 04
@@ -267,7 +269,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
             #endregion
 
@@ -312,7 +314,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
             #endregion
 
@@ -359,6 +361,38 @@ internal static class InventorClass
         Class = builder.AddToDB();
 
         return Class;
+    }
+
+    private static FeatureDefinition BuildToolExpertise()
+    {
+        return FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyInventorToolExpertise")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise,
+                ToolTypeDefinitions.ArtisanToolSmithToolsType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
+            )
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildRightToolForTheJob()
+    {
+        return FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolInventorRightToolForTheJob")
+            .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
+            .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+            .OnlyUniqueChoices()
+            .RestrictChoices(
+                ToolTypeDefinitions.DisguiseKitType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
+            )
+            .AddToDB();
     }
 
     private static CustomInvocationPoolDefinition BuildLearn(int points)
@@ -523,6 +557,17 @@ internal static class InventorClass
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMagicItemSavant()
+    {
+        return FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityInventorMagicItemSavant")
+            .SetGuiPresentation(Category.Feature)
+            //increases attunement limit by 1
+            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .IgnoreClassRestrictionsOnMagicalItems()
             .AddToDB();
     }
 }

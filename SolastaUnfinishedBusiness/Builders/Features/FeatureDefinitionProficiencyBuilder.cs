@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -14,6 +15,16 @@ internal class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<Fe
     {
         Definition.proficiencyType = type;
         Definition.Proficiencies.SetRange(proficiencies);
+        Definition.Proficiencies.Sort();
+
+        return this;
+    }
+
+    internal FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
+        params ToolTypeDefinition[] proficiencies)
+    {
+        Definition.proficiencyType = type;
+        Definition.Proficiencies.SetRange(proficiencies.Select(p => p.Name));
         Definition.Proficiencies.Sort();
 
         return this;

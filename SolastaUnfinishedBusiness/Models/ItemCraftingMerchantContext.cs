@@ -18,7 +18,6 @@ internal static class ItemCraftingMerchantContext
     {
         Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
         Gui.Localize("Equipment/&Druid_Leather_Title"), Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
-        Gui.Localize("Equipment/&Armor_Commoner_ClothesTitle"),
         CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title")),
         Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
         Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")

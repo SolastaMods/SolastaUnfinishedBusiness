@@ -34,7 +34,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; } = true;
+    public bool DisplayMerchantsToggle { get; set; }
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
@@ -183,6 +183,7 @@ public class Settings : UnityModManager.ModSettings
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
     public List<string> CraftingInStore { get; } = new();
@@ -211,7 +212,7 @@ public class Settings : UnityModManager.ModSettings
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
-
+    public float FasterTimeModifier { get; set; } = 1.5f;
 
     // Debug
     public bool DebugLogDefinitionCreation { get; set; }
@@ -236,34 +237,33 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Game UI
     //
 
-    // Battle
+    // Campaigns and Locations
     public bool DontFollowCharacterInBattle { get; set; }
     public int DontFollowMargin { get; set; } = 5;
-    public bool AutoPauseOnVictory { get; set; }
-    public float FasterTimeModifier { get; set; } = 1.5f;
 
-    // Campaigns and Locations
+    // public bool AutoPauseOnVictory { get; set; }
     public bool FollowCharactersOnTeleport { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+
 
     // Inventory and Items
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public int EmpressGarbAppearanceIndex { get; set; }
+
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
 
     // Spells
-    public int MaxSpellLevelsPerLine { get; set; } = 4;
+    // public int MaxSpellLevelsPerLine { get; set; } = 4;
 
     //
     // Interface - Keyboard & Mouse

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
@@ -99,7 +98,7 @@ internal sealed class ModManager<TCore, TSettings>
     #endregion
 
     #region Fields & Properties
-    
+
     private List<IModEventHandler> _eventHandlers;
 
     private TCore Core { get; set; }

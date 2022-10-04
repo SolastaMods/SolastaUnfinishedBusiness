@@ -37,6 +37,7 @@ public static class BattleState_Victory_Begin
     }
 }
 
+#if false
 [HarmonyPatch(typeof(BattleState_Victory), "Update")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 public static class BattleState_Victory_Update
@@ -66,3 +67,4 @@ public static class BattleState_Victory_Update
         Gui.PauseGameAsNeeded();
     }
 }
+#endif

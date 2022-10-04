@@ -1,8 +1,8 @@
 ﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal static class FeatureDefinitionSkipEffectRemovalOnLocationChange
+internal static class SkipEffectRemovalOnLocationChange
 {
     internal static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
     internal static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();

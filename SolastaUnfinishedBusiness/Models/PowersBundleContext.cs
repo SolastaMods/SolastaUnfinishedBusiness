@@ -197,6 +197,15 @@ internal static class PowersBundleContext
         return false;
     }
 
+    /**
+     * Patch implementation
+     * Closes sub-power selection modal
+     */
+    internal static void CloseSubPowerSelectionModal()
+    {
+        Gui.GuiService.GetScreen<SubpowerSelectionModal>().OnCloseCb();
+    }
+
     //TODO: decide if we need this, or can re-use native method of rest bundle powers
     /**
      * Patch implementation

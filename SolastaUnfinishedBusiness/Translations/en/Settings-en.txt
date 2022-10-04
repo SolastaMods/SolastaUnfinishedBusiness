@@ -20,9 +20,7 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&Battle=<color=#F0DAA0>Battle:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
@@ -78,7 +76,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
-ModUi/&FactionRelations=<color=#F0DAA0>Faction Relations:</color>
+ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
@@ -108,10 +106,9 @@ ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[set max allowed classes with the slider]</color></i>
-ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default slot type for that repertoire\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white slots and others spend green ones]</color></i>
@@ -133,9 +130,9 @@ ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light 
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveIdentificationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
@@ -146,12 +143,11 @@ ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind's</color> <color=white>beard appearing chances</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 to display all spells]</color></i></b>
-ModUi/&Spells=<color=#F0DAA0>Spells:</color>
 ModUi/&SpellsMenu=Spells
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

@@ -71,10 +71,10 @@ public static class RulesetCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class AcknowledgeAttackedCharacter_Patch
     {
-        public static void Postfix(RulesetCharacter target)
+        public static void Postfix([CanBeNull] RulesetCharacter target)
         {
             //PATCH: Allows condition interruption after target was attacked
-            target.ProcessConditionsMatchingInterruption(
+            target?.ProcessConditionsMatchingInterruption(
                 (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
         }
     }

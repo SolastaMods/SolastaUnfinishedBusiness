@@ -159,14 +159,6 @@ internal static class SpellsContext
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
 
-        // official spells tweaks
-        SrdAndHouseRulesContext.AddBleedingToRestoration();
-        SrdAndHouseRulesContext.UseCubeOnSleetStorm();
-        SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
-        SrdAndHouseRulesContext.MinorFixes();
-        SrdAndHouseRulesContext.RemoveHumanoidFilterOnHideousLaughter();
-        SrdAndHouseRulesContext.RemoveRecurringEffectOnEntangle();
-
         // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 
@@ -176,7 +168,7 @@ internal static class SpellsContext
         }
     }
 
-    internal static void RegisterSpell(
+    private static void RegisterSpell(
         SpellDefinition spellDefinition,
         int suggestedStartsAt = 0,
         params SpellListDefinition[] registeredSpellLists)

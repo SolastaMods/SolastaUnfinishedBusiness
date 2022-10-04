@@ -13,14 +13,13 @@ internal static class SpellsDisplay
 
     internal static void DisplaySpells()
     {
-        int intValue;
         bool toggle;
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
         UI.Label("");
 
-        intValue = SpellLevelFilter;
+        var intValue = SpellLevelFilter;
         if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {
             SpellLevelFilter = intValue;

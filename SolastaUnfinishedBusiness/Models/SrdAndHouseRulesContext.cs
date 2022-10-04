@@ -42,6 +42,12 @@ internal static class SrdAndHouseRulesContext
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
+        MinorFixes();
+        AddBleedingToRestoration();
+        SwitchFilterOnHideousLaughter();
+        SwitchRecurringEffectOnEntangle();
+        UseCubeOnSleetStorm();
+        UseHeightOneCylinderEffect();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchDruidAllowMetalArmor();
         SwitchMagicStaffFoci();
@@ -85,16 +91,16 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchMagicStaffFoci()
     {
+        if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
+        {
+            return;
+        }
+
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
                      .Where(x => x.IsWeapon) // WeaponDescription could be null
                      .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
                      .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
         {
-            if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
-            {
-                continue;
-            }
-
             item.IsFocusItem = true;
             item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
         }
@@ -220,30 +226,31 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void RemoveHumanoidFilterOnHideousLaughter()
+    internal static void SwitchFilterOnHideousLaughter()
     {
+        HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
+
         if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
         {
-            return;
+            HideousLaughter.effectDescription.restrictedCreatureFamilies.Add("Humanoid");
         }
-
-        // Remove Humanoid only filter on Hideous Laughter (as per SRD, any creature can be targeted)
-        HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
     }
 
-    internal static void RemoveRecurringEffectOnEntangle()
+    internal static void SwitchRecurringEffectOnEntangle()
     {
-        if (!Main.Settings.RemoveRecurringEffectOnEntangle)
+        if (Main.Settings.RemoveRecurringEffectOnEntangle)
         {
-            return;
+            // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
+            Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
         }
-
-        // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
-        Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
+        else
+        {
+            Entangle.effectDescription.recurrentEffect =
+                RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd | RecurrentEffect.OnEnter;
+        }
     }
 
-
-    internal static void MinorFixes()
+    private static void MinorFixes()
     {
         // Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;

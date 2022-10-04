@@ -106,7 +106,7 @@ internal static partial class UI
         var changed = TogglePrivate(title, ref value, false, true, width);
 
         If(value, actions);
-        
+
         return changed;
     }
 }

@@ -68,7 +68,14 @@ public static class RulesetCharacterHeroPatcher
 
             foreach (var attackMode in __instance.AttackModes)
             {
-                foreach (var modifier in modifiers)
+                var mods = modifiers;
+                if (attackMode.sourceObject is RulesetItem item)
+                {
+                    mods = item.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+                    mods.AddRange(modifiers);
+                }
+
+                foreach (var modifier in mods)
                 {
                     modifier.ModifyAttackMode(__instance, attackMode);
                 }

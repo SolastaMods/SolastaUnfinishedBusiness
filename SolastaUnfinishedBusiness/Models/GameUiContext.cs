@@ -114,7 +114,7 @@ internal static class GameUiContext
 
                 spellLevelsOnLine++;
 
-                if (spellLevelsOnLine < Main.Settings.MaxSpellLevelsPerLine)
+                if (spellLevelsOnLine < 4) // Main.Settings.MaxSpellLevelsPerLine)
                 {
                     continue;
                 }
@@ -589,24 +589,19 @@ internal static class GameUiContext
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
-            case 4: // Plain Shirt
-                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
-                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
-                break;
-
-            case 5: // Sorcerer's Armor
+            case 4: // Sorcerer's Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
 
-            case 6: // Studded Leather
+            case 5: // Studded Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
-            case 7: // Sylvan Armor
+            case 6: // Sylvan Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
-            case 8: // Wizard Clothes
+            case 7: // Wizard Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
                 break;
         }

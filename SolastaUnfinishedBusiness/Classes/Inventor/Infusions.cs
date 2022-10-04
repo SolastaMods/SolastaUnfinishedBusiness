@@ -229,7 +229,8 @@ internal static class Infusions
             .SetCostPerUse(1)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter, itemFilter)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
+                SkipEffectRemovalOnLocationChange.Always, itemFilter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
@@ -261,7 +262,8 @@ internal static class Infusions
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
+                InventorClass.InfusionLimiter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)

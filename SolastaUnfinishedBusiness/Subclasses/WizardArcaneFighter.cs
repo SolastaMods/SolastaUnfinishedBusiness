@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -109,7 +109,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                             .Build()
                     )
                     .Build())
-            .SetCustomSubFeatures(FeatureDefinitionSkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

@@ -19,12 +19,6 @@ internal static class FeatsAndFightingStylesDisplay
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
 
-        static void FeatGroupsHeader()
-        {
-            UI.Label(Gui.Localize("ModUi/&FeatGroupsHelp"));
-            UI.Label("");
-        }
-
         displayToggle = Main.Settings.DisplayFeatGroupsToggle;
         sliderPos = Main.Settings.FeatGroupSliderPosition;
         ModUi.DisplayDefinitions(
@@ -34,7 +28,11 @@ internal static class FeatsAndFightingStylesDisplay
             Main.Settings.FeatGroupEnabled,
             ref displayToggle,
             ref sliderPos,
-            headerRendering: FeatGroupsHeader);
+            headerRendering: () =>
+            {
+                UI.Label(Gui.Localize("ModUi/&FeatGroupsHelp"));
+                UI.Label("");
+            });
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
 

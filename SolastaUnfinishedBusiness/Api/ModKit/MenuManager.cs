@@ -38,7 +38,7 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private readonly List<IMenuSelectablePage> _selectablePages = new();
     private readonly List<IMenuTopPage> _topPages = new();
     private int _tabIndex;
-    
+
     private int TabIndex
     {
         get => _tabIndex;
@@ -95,7 +95,7 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private void OnGUI(UnityModManager.ModEntry modEntry)
     {
         var hasPriorPage = false;
-        
+
         try
         {
             if (_caughtException != null)

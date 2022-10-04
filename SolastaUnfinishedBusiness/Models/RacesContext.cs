@@ -47,7 +47,7 @@ internal static class RacesContext
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
         // settings paring
-        foreach (var featName in Main.Settings.RaceEnabled.ToList()
+        foreach (var featName in Main.Settings.RaceEnabled
                      .Where(featName => Races.All(x => x.Name != featName)))
         {
             Main.Settings.RaceEnabled.Remove(featName);
