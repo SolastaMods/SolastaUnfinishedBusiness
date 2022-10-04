@@ -265,7 +265,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveBugVisualModels { get; set; }
 
     // Spells
-    public int MaxSpellLevelsPerLine { get; set; } = 4;
+    // public int MaxSpellLevelsPerLine { get; set; } = 4;
 
     //
     // Interface - Keyboard & Mouse

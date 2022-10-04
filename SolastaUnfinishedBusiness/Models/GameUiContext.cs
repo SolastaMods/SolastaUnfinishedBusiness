@@ -114,7 +114,7 @@ internal static class GameUiContext
 
                 spellLevelsOnLine++;
 
-                if (spellLevelsOnLine < Main.Settings.MaxSpellLevelsPerLine)
+                if (spellLevelsOnLine < 4) // Main.Settings.MaxSpellLevelsPerLine)
                 {
                     continue;
                 }

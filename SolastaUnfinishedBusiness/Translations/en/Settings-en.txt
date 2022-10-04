@@ -20,7 +20,6 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
 ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&Battle=<color=#F0DAA0>Battle:</color>
 ModUi/&Bestiary=Bestiary
@@ -111,7 +110,6 @@ ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[set max allowed classes with the slider]</color></i>
-ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default slot type for that repertoire\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white slots and others spend green ones]</color></i>
@@ -151,7 +149,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 to display all spells]</color></i></b>
-ModUi/&Spells=<color=#F0DAA0>Spells:</color>
 ModUi/&SpellsMenu=Spells
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

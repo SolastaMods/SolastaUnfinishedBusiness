@@ -237,6 +237,9 @@ internal static class GameUiDisplay
 
         #region Spell
 
+#if false
+        // ModUi/&Spells=<color=#F0DAA0>Spells:</color>
+        // ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Spells"));
         UI.Label("");
@@ -246,7 +249,7 @@ internal static class GameUiDisplay
         {
             Main.Settings.MaxSpellLevelsPerLine = intValue;
         }
-
+#endif
         #endregion
 
         UI.Label("");
