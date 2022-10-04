@@ -15,7 +15,7 @@ internal static class HealingFeats
         var inspiringEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Distance, 10,
             RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
-            EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0,
+            EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, 0,
             RuleDefinitions.DieType.D1, 0, 1);
 
         var powerFeatInspiringLeader = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -27,7 +27,7 @@ internal static class HealingFeats
         var medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
-            EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, false, 4,
+            EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, 4,
             RuleDefinitions.DieType.D6, 1, 1);
 
         var powerFeatHealerMedKit = BuildPowerFromEffectDescription(0,
@@ -58,23 +58,23 @@ internal static class HealingFeats
 
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         feats.AddRange(
             FeatDefinitionBuilder
                 .Create("FeatInspiringLeader")
+                .SetGuiPresentation("PowerFeatInspiringLeader", Category.Feature)
                 .SetFeatures(powerFeatInspiringLeader)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetGuiPresentation("PowerFeatInspiringLeader", Category.Feature)
                 .AddToDB(),
             FeatDefinitionBuilder
                 .Create("FeatHealer")
-                .SetFeatures(powerFeatHealerMedKit,
-                    powerFeatHealerResuscitate, powerFeatHealerStabilize, proficiencyFeatHealerMedicine)
                 .SetGuiPresentation(Category.Feat,
                     PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
+                .SetFeatures(powerFeatHealerMedKit,
+                    powerFeatHealerResuscitate, powerFeatHealerStabilize, proficiencyFeatHealerMedicine)
                 .AddToDB());
     }
 
@@ -111,27 +111,22 @@ internal static class HealingFeats
         RuleDefinitions.TurnOccurenceType endOfEffect,
         EffectForm.LevelApplianceType applyLevel,
         RuleDefinitions.LevelSourceType levelType,
-        bool applyAbilityBonus,
         int bonusHitPoints,
         RuleDefinitions.DieType dieType,
         int diceNumber,
         int levelMultiplier)
     {
-        var effectFormBuilder = new EffectFormBuilder()
-            .SetTempHPForm(bonusHitPoints, dieType, diceNumber)
-            .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
-            .CreatedByCharacter();
-
-        if (applyAbilityBonus)
-        {
-            effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
-        }
-
         return new EffectDescriptionBuilder()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
-            .AddEffectForm(effectFormBuilder.Build())
+            .AddEffectForm(
+                new EffectFormBuilder()
+                    .SetTempHPForm(bonusHitPoints, dieType, diceNumber)
+                    .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
+                    .CreatedByCharacter()
+                    .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
+                    .Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
             .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription
                 .EffectParticleParameters)
@@ -148,33 +143,27 @@ internal static class HealingFeats
         RuleDefinitions.TurnOccurenceType endOfEffect,
         EffectForm.LevelApplianceType applyLevel,
         RuleDefinitions.LevelSourceType levelType,
-        bool applyAbilityBonus,
         int bonusHitPoints,
         RuleDefinitions.DieType dieType,
         int diceNumber,
         int levelMultiplier)
     {
-        var effectFormBuilder = new EffectFormBuilder()
-            .SetHealingForm(
-                RuleDefinitions.HealingComputation.Dice,
-                bonusHitPoints,
-                dieType,
-                diceNumber,
-                false,
-                RuleDefinitions.HealingCap.MaximumHitPoints)
-            .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
-            .CreatedByCharacter();
-
-        if (applyAbilityBonus)
-        {
-            effectFormBuilder.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
-        }
-
         return new EffectDescriptionBuilder()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
-            .AddEffectForm(effectFormBuilder.Build())
+            .AddEffectForm(
+                new EffectFormBuilder()
+                    .SetHealingForm(
+                        RuleDefinitions.HealingComputation.Dice,
+                        bonusHitPoints,
+                        dieType,
+                        diceNumber,
+                        false,
+                        RuleDefinitions.HealingCap.MaximumHitPoints)
+                    .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
+                    .CreatedByCharacter()
+                    .Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
             .SetParticleEffectParameters(
                 DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters)

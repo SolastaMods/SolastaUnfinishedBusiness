@@ -310,9 +310,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feat/&FeatInspiringLeaderTitle",
-    "description": "Feat/&FeatInspiringLeaderDescription",
+    "hidden": false,
+    "title": "Feature/&PowerFeatInspiringLeaderTitle",
+    "description": "Feature/&PowerFeatInspiringLeaderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
