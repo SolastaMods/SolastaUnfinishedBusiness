@@ -19,4 +19,4 @@ Reaction/&SpendPowerPowerSharedPoolTacticianKnockDownReactDescription=Spend a ga
 Reaction/&SpendPowerPowerSharedPoolTacticianKnockDownReactTitle=Knock down
 Reaction/&SpendPowerPowerSharedPoolTacticianKnockDownTitle=Knock down
 Subclass/&MartialTacticianDescription=The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
-Subclass/&MartialTacticianTitle=The Tactician
+Subclass/&MartialTacticianTitle=Tactician
