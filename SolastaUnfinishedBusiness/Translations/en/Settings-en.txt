@@ -48,8 +48,6 @@ ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on b
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel action with right-mouse click
-ModUi/&EnableCharacterChecker=Enable the character checker screen
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
@@ -69,7 +67,6 @@ ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned fr
 ModUi/&EnableRespec=Enable the RESPEC after rest actions
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter=Enable Arcane Weapon short rest recharge on <color=#D89555>Wizard Arcane Fighter</color>
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
@@ -83,7 +80,7 @@ ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
-ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
+ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
 ModUi/&FollowCharactersOnTeleport=Camera follows teleported character(s)
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&Gameplay=Gameplay
@@ -111,7 +108,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisib
 ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[set max allowed classes with the slider]</color></i>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default slot type for that repertoire\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white slots and others spend green ones]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default slot type for that repertoire\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
@@ -125,8 +122,6 @@ ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
-ModUi/&ReduceDarkelfLightPenalty=Swap <color=#D89555>Dark Elf</color> Light Penalty Disadvantage with -1d4 on attacks
-ModUi/&ReduceGrayDwarfLightPenalty=Swap <color=#D89555>Gray Dwarf</color> Light Penalty Disadvantage with -1d4 on attacks
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -147,7 +142,7 @@ ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</colo
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
-ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 to display all spells]</color></i></b>
+ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -170,4 +165,3 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</colo
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&WeaponTag=Weapon Tag
