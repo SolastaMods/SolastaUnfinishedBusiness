@@ -184,8 +184,8 @@ internal static class InventorClass
                 .Create("ProficiencyInventorTools")
                 .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
                 .SetProficiencies(ProficiencyType.Tool,
-                    ToolTypeDefinitions.ThievesToolsType.Name,
-                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                    ToolTypeDefinitions.ThievesToolsType,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType)
                 .AddToDB())
 
             // Tool Selection
@@ -267,7 +267,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
             #endregion
 
@@ -359,6 +359,21 @@ internal static class InventorClass
         Class = builder.AddToDB();
 
         return Class;
+    }
+
+    private static FeatureDefinition BuildToolExpertise()
+    {
+        return FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyInventorToolExpertise")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise,
+                ToolTypeDefinitions.ArtisanToolSmithToolsType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
+            )
+            .AddToDB();
     }
 
     private static CustomInvocationPoolDefinition BuildLearn(int points)

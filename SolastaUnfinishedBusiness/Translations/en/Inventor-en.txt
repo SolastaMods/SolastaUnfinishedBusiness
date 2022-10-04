@@ -63,3 +63,5 @@ Subclass/&InnovationWeaponTitle=Weapon Innovation
 Subclass/&InventorInnovationDescription=Innovation blah-blah subclass details TODO: Add proper description.
 Subclass/&InventorInnovationTitle=Innovation
 UI/&CustomFeatureSelectionTooltipTypeInfusion=Infusion
+Feature/&ProficiencyInventorToolExpertiseDescription=You gain proficiency with all crafting tools, or expertise if you were already proficient with that tool.
+Feature/&ProficiencyInventorToolExpertiseTitle=Inventor Tool Expertise
