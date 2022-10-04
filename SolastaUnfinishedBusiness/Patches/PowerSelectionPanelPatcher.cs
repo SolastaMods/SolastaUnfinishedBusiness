@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -120,6 +121,8 @@ public static class PowerSelectionPanelPatcher
     {
         public static void Postfix()
         {
+            PowersBundleContext.CloseSubPowerSelectionModal();
+            
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {
                 return;
