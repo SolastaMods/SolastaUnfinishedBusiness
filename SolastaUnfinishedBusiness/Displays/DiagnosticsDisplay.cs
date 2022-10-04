@@ -28,7 +28,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*] A list of other mods you have installed [you shouldn't have any].
 [*] A short description of the bug.
 [*] A step-by-step procedure to reproduce it.
-[*] The save, character and log files.
+[*] The save, character and log files [b](check HINT below)[/b].
 [/list]
 
 [b]HINT:[/b] Check the folder [i]C:\Users\[b]YOUR_USER_NAME[/b]\AppData\LocalLow\Tactical Adventures\Solasta[/i] for the info we need.
@@ -53,10 +53,10 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaUn
 
 [b]HINT:[/b] Doorstop Proxy is the preferred install method but won't work on some Windows configurations or MacOS. Use the Assembly method as an alternative in case you don't see the UMM UI upon game launch.
 
-[b]STEP 2:[/b] Install Unfinished Business (CE):
+[b]STEP 2:[/b] Install Unfinished Business (UB):
 
 [list]
-[*] Download CE from the files section and drag and drop the zip over the UMM Mods tab
+[*] Download UB from the files section and drag and drop the zip over the UMM Mods tab
 [/list]
 
 [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/UMM-02.png?raw=true[/img]
@@ -81,16 +81,16 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaUn
 
 [/list]
 
-[b]STEP 2:[/b] Install Unfinished Business (CE):
+[b]STEP 2:[/b] Install Unfinished Business (UB):
 
 [list]
 [*] Create the folder [b]/Applications/Mods[/b]
-[*] Download CE from the files section, unzip and copy it under above folder
+[*] Download UB from the files section, unzip and copy it under above folder
 [/list]
 
 [size=4][b]Features[/b][/size]
 
-All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again.
+All settings start disabled by default.
 
 [size=3][b]Races[/b][/size]
 
@@ -102,9 +102,6 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 {2}
-[/list]
-
-[list=1]
 {3}
 [/list]
 
@@ -138,6 +135,14 @@ All settings start disabled by default. On first start the mod will display an w
 {8}
 [/list]
 
+[size=4][b]Credits[/b][/size]
+
+[list]
+{0}
+[/list]
+";
+        
+/*
 [size=3][b]All Settings[/b][/size]
 
 [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/01-Character-General.png?raw=true[/img]
@@ -154,30 +159,14 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/08-Interface-GameUi.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/09-Interface-DungeonMaker.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/10-Interface-Translations.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/11-Interface-Translations.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/12-Encounters-General.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/13-Encounters-Bestiary.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
-[line]
-
-[size=4][b]Credits[/b][/size]
-
-[list]
-{0}
-[/list]
-";
-
+*/
+        
         internal static void DisplayDiagnostics()
         {
             UI.Label("");
@@ -223,11 +212,11 @@ All settings start disabled by default. On first start the mod will display an w
 
             if (percentageCompleteCe == 0)
             {
-                exportCeLabel = "Export CE blueprints";
+                exportCeLabel = "Export UB blueprints";
             }
             else
             {
-                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".Bold().Khaki();
+                exportCeLabel = "Cancel UB export at " + $"{percentageCompleteCe:00.0%}".Bold().Khaki();
             }
 
             using (UI.HorizontalScope())
@@ -273,7 +262,7 @@ All settings start disabled by default. On first start the mod will display an w
             {
                 UI.ActionButton("Create TA diagnostics", DiagnosticsContext.CreateTaDefinitionDiagnostics,
                     UI.Width(200));
-                UI.ActionButton("Create CE diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
+                UI.ActionButton("Create UB diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
                     UI.Width(200));
                 UI.ActionButton("Dump Descriptions", DisplayDumpDescription, UI.Width(200));
             }
@@ -286,15 +275,6 @@ All settings start disabled by default. On first start the mod will display an w
             {
                 Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
             }
-
-            ItemDefinitionVerification.Mode =
-                Main.Settings.DebugLogVariantMisuse
-                    ? ItemDefinitionVerification.Verification.Log
-                    : ItemDefinitionVerification.Verification.None;
-            EffectFormVerification.Mode =
-                Main.Settings.DebugLogVariantMisuse
-                    ? EffectFormVerification.Verification.Log
-                    : EffectFormVerification.Verification.None;
 
             UI.Label("");
         }
@@ -346,9 +326,10 @@ All settings start disabled by default. On first start the mod will display an w
                 collectedCredits,
                 GenerateDescription(racesAndSubs),
                 GenerateDescription(ClassesContext.Classes),
-                GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                    .Where(x => !SubclassesContext.Subclasses.Contains(x))
-                    .Where(DiagnosticsContext.IsCeDefinition)),
+                GenerateDescription(
+                    DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                        .Where(x => !SubclassesContext.Subclasses.Contains(x))
+                        .Where(DiagnosticsContext.IsCeDefinition)),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
