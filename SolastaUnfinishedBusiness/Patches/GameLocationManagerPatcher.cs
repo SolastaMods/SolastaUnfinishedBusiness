@@ -1,6 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -25,7 +31,7 @@ public static class GameLocationManagerPatcher
 
             var sessionService = ServiceRepository.GetService<ISessionService>();
 
-            if (sessionService is { Session: { } })
+            if (sessionService is {Session: { }})
             {
                 // Record which campaign/location the latest load game belongs to
 
@@ -64,6 +70,53 @@ public static class GameLocationManagerPatcher
             {
                 GameUiContext.SetTeleporterGadgetActiveAnimation(worldGadget);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
+    internal static class GameLocationManager_StopCharacterEffectsIfRelevant
+    {
+        [NotNull]
+        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: prevent some effects from being removed when entering new location
+            var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
+            foreach (var instruction in instructions)
+            {
+                if (instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_1);
+                    yield return new CodeInstruction(OpCodes.Call, maybeTerminate);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+
+        private static void MaybeTerminate([NotNull] RulesetEffect effect, bool self, bool willEnterChainedLocation)
+        {
+            var baseDefinition = effect.SourceDefinition;
+
+            if (baseDefinition != null)
+            {
+                var skip = baseDefinition.GetFirstSubFeatureOfType<ISKipEffectRemovalOnLocationChange>();
+
+                if (skip != null && skip.Skip(willEnterChainedLocation))
+                {
+                    return;
+                }
+
+                var effectDescription = effect.EffectDescription;
+                if (willEnterChainedLocation
+                    && RuleDefinitions.MatchesMagicType(effectDescription, RuleDefinitions.MagicType.SummonsCreature))
+                {
+                    return;
+                }
+            }
+
+            effect.Terminate(self);
         }
     }
 }
