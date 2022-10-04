@@ -63,7 +63,12 @@ internal static class SubclassesContext
         LoadSubclass(new WizardSpellMaster());
 
         // sorting
-        Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
+        Subclasses = Subclasses.OrderBy(x =>
+        {
+            var className = LevelUpContext.GetClassForSubclass(x).Name;
+            
+            return className + x.FormatTitle();
+        }).ToHashSet();
 
         // settings paring
         foreach (var featName in Main.Settings.SubclassEnabled.ToList()
