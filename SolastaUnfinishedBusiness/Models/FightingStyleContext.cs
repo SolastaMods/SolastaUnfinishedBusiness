@@ -25,10 +25,10 @@ internal static class FightingStyleContext
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
 
         // settings paring
-        foreach (var featName in Main.Settings.FightingStyleEnabled
-                     .Where(featName => FightingStyles.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.FightingStyleEnabled
+                     .Where(name => FightingStyles.All(x => x.Name != name)))
         {
-            Main.Settings.FightingStyleEnabled.Remove(featName);
+            Main.Settings.FightingStyleEnabled.Remove(name);
         }
     }
 

@@ -159,13 +159,24 @@ internal static class SpellsContext
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
-
-        // caches which spells are toggleable per spell list
+        
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 
-        foreach (var spellListContext in SpellListContextTab.Values)
+        foreach (var kvp in SpellListContextTab)
         {
+            // caches which spells are toggleable per spell list
+            var spellListContext = kvp.Value;
+            
             spellListContext.CalculateAllSpells();
+            
+            // settings paring
+            var spellListName = kvp.Key.Name;
+            
+            foreach (var name in Main.Settings.SpellListSpellEnabled[spellListName]
+                         .Where(name => Spells.All(x => x.Name != name)))
+            {
+                Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
+            }
         }
     }
 
