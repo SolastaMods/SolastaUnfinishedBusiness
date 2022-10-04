@@ -66,3 +66,5 @@ UI/&CustomFeatureSelectionTooltipTypeInfusion=Infusion
 Feature/&ProficiencyInventorToolExpertiseDescription=You gain proficiency with all crafting tools, or expertise if you were already proficient with that tool.
 Feature/&ProficiencyInventorToolExpertiseTitle=Inventor Tool Expertise
 Feature/&PointPoolInventorRightToolForTheJobTitle=Know Your Tools
+Feature/&MagicAffinityInventorMagicItemSavantDescription=Your skill with magic items deepens more:\n• Your attunement limit raises by 1\n• You ignore class requirements on attuning to a magic item
+Feature/&MagicAffinityInventorMagicItemSavantTitle=Magic Item Savant

@@ -314,7 +314,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
             #endregion
 
@@ -557,6 +557,17 @@ internal static class InventorClass
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMagicItemSavant()
+    {
+        return FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityInventorMagicItemSavant")
+            .SetGuiPresentation(Category.Feature)
+            //increases attunement limit by 1
+            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .IgnoreClassRestrictionsOnMagicalItems()
             .AddToDB();
     }
 }
