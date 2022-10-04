@@ -44,14 +44,14 @@ internal static class CraftingContext
         { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
         { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
         { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
-        { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedLeatherTitle") },
+        { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedTitle") },
         { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
         { "ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle") },
         { "Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle") },
         { "HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle") },
-        { "Ringmail", Gui.Localize("Equipment/&Armor_RingmailTitle") },
+        { "Ringmail", Gui.Localize("Equipment/&Armor_RingMailTitle") },
         { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
-        { "SplintArmor", Gui.Localize("Equipment/&Armor_SplintmailTitle") },
+        { "SplintArmor", Gui.Localize("Equipment/&Armor_SplintTitle") },
         { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") }
     };
 
@@ -145,6 +145,7 @@ internal static class CraftingContext
     internal static void UpdateCraftingRecipesInDmState([NotNull] string key)
     {
         var available = Main.Settings.CraftingRecipesInDm.Contains(key);
+
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.inDungeonEditor = available;
@@ -154,6 +155,7 @@ internal static class CraftingContext
     internal static void LearnRecipes(string key)
     {
         var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+
         if (gameLoreService == null)
         {
             return;
@@ -254,6 +256,7 @@ internal static class CraftingContext
         return outString.ToString();
     }
 #endif
+
     internal sealed class ItemCollection
     {
         internal List<ItemDefinition> BaseWeapons;
