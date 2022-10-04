@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -10,9 +12,6 @@ internal static class HealingFeats
 {
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
-        var inspiringLeaderPresentation = GuiPresentationBuilder.Build(
-            "FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
-
         var inspiringEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Distance, 10,
             RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
@@ -23,18 +22,7 @@ internal static class HealingFeats
             AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1,
             RuleDefinitions.RechargeRate.ShortRest,
             false, false, AttributeDefinitions.Charisma, inspiringEffect,
-            "PowerFeatInspiringLeader", inspiringLeaderPresentation);
-
-        feats.Add(FeatDefinitionBuilder
-            .Create("FeatInspiringLeader")
-            .SetFeatures(powerFeatInspiringLeader)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-            .SetGuiPresentation(inspiringLeaderPresentation)
-            .AddToDB());
-
-        var medKitPresentation = GuiPresentationBuilder.Build(
-            "PowerFeatHealerMedKit", Category.Feature,
-            PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
+            "PowerFeatInspiringLeader", PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
         var medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
@@ -47,11 +35,7 @@ internal static class HealingFeats
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
             RuleDefinitions.RechargeRate.ShortRest,
             false, false, AttributeDefinitions.Wisdom, medKitEffect,
-            "PowerFeatHealerMedKit", medKitPresentation);
-
-        var resuscitatePresentation = GuiPresentationBuilder.Build(
-            "PowerFeatHealerResuscitate", Category.Feature,
-            PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+            "PowerFeatHealerMedKit", PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
         var resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
@@ -62,10 +46,7 @@ internal static class HealingFeats
             AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
             RuleDefinitions.RechargeRate.LongRest,
             false, false, AttributeDefinitions.Wisdom, resuscitateEffect,
-            "PowerFeatHealerResuscitate", resuscitatePresentation);
-
-        var stabilizePresentation = GuiPresentationBuilder.Build(
-            "PowerFeatHealerStabilize", Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+            "PowerFeatHealerResuscitate", PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
         var powerFeatHealerStabilize = BuildPowerFromEffectDescription(0,
             RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
@@ -73,21 +54,28 @@ internal static class HealingFeats
             RuleDefinitions.RechargeRate.ShortRest,
             false, false, AttributeDefinitions.Wisdom,
             DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription,
-            "PowerFeatHealerStabilize", stabilizePresentation);
+            "PowerFeatHealerStabilize", PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
-        FeatureDefinition proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
+        var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
             .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feats.Add(FeatDefinitionBuilder
-            .Create("FeatHealer")
-            .SetFeatures(proficiencyFeatHealerMedicine, powerFeatHealerMedKit, powerFeatHealerResuscitate,
-                powerFeatHealerStabilize)
-            .SetGuiPresentation(Category.Feat,
-                PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
-            .AddToDB());
+        feats.AddRange(
+            FeatDefinitionBuilder
+                .Create("FeatInspiringLeader")
+                .SetFeatures(powerFeatInspiringLeader)
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetGuiPresentation("PowerFeatInspiringLeader", Category.Feature)
+                .AddToDB(),
+            FeatDefinitionBuilder
+                .Create("FeatHealer")
+                .SetFeatures(powerFeatHealerMedKit,
+                    powerFeatHealerResuscitate, powerFeatHealerStabilize, proficiencyFeatHealerMedicine)
+                .SetGuiPresentation(Category.Feat,
+                    PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
+                .AddToDB());
     }
 
     private static FeatureDefinitionPower BuildPowerFromEffectDescription(
@@ -101,11 +89,11 @@ internal static class HealingFeats
         bool abilityScoreBonusToAttack, string abilityScore,
         EffectDescription effectDescription,
         string name,
-        GuiPresentation guiPresentation)
+        AssetReferenceSprite assetReferenceSprite)
     {
         return FeatureDefinitionPowerBuilder
             .Create(name)
-            .SetGuiPresentation(guiPresentation)
+            .SetGuiPresentation(name, Category.Feature, assetReferenceSprite)
             .Configure(
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
                 proficiencyBonusToAttack,
