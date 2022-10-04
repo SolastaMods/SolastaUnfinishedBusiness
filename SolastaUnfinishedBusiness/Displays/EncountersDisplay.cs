@@ -112,7 +112,9 @@ internal static class EncountersDisplay
         }
     }
 
-    private static void DisplayMonsterStats([NotNull] MonsterDefinition monsterDefinition, string actionText,
+    private static void DisplayMonsterStats(
+        [NotNull] MonsterDefinition monsterDefinition,
+        string actionText,
         Action action)
     {
         bool flip;
@@ -165,6 +167,7 @@ internal static class EncountersDisplay
         }
 
         CurrentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
+
         if (flip)
         {
             using (UI.VerticalScope())
@@ -221,7 +224,8 @@ internal static class EncountersDisplay
                         }
 
                         UI.Space(60);
-                        UI.Label(title, UI.Width(192));
+                        UI.Label(title,
+                            UI.Width(192));
                         UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".Green(),
                             UI.Width(120));
                         UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".Green(),
@@ -253,6 +257,7 @@ internal static class EncountersDisplay
         if (ServiceRepository.GetService<INetworkingService>().IsMasterClient)
         {
             var toggle = Main.Settings.EnableEnemiesControlledByPlayer;
+
             if (UI.Toggle("Enable enemies controlled by players", ref toggle))
             {
                 Main.Settings.EnableEnemiesControlledByPlayer = toggle;
@@ -322,14 +327,13 @@ internal static class EncountersDisplay
         UI.Label("Encounters:".Khaki());
         UI.Label("");
 
-        UI.Label(". encounters only work in custom campaigns or locations");
+        UI.Label(". encounters only work in single player custom campaigns or locations");
         UI.Label(". use the Bestiary tab to add monsters to the challenge", UI.AutoWidth());
         UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
         UI.Label(". click " + "minus".Italic() + " to remove participants from the group");
         UI.Label(
-            ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color> to spawn the enemies in place",
+            ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color> to spawn the enemies",
             UI.AutoWidth());
-        UI.Label(". the encounters feature won't work in a multiplayer session. yet...");
         UI.Label("");
 
         if (EncountersSpawnContext.EncounterCharacters.Count == 0)

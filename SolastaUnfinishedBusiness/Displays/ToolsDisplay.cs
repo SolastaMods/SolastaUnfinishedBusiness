@@ -109,12 +109,6 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
 
-        // toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-        // if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
-        // {
-        //     Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
-        // }
-
         toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
         {

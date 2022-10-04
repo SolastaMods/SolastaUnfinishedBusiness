@@ -20,9 +20,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    internal const string DonateUrl =
-        "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business";
-
     internal static readonly HashSet<string> SupportedLanguages = new(); // { "zh-CN" };
 
     internal static void Startup()
@@ -273,7 +270,7 @@ internal static class BootContext
             message,
             "Donate",
             "Message/&MessageOkTitle",
-            () => OpenUrl(DonateUrl),
+            () => OpenDonate(),
             null);
     }
 
@@ -302,8 +299,18 @@ internal static class BootContext
             "Message/&MessageModWelcomeDescription",
             "Donate",
             "Message/&MessageOkTitle",
-            () => OpenUrl(DonateUrl),
+            () => OpenDonate(),
             null);
+    }
+
+    internal static void OpenWiki()
+    {
+        OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
+    }
+
+    internal static void OpenDonate()
+    {
+        OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
     internal static void OpenUrl(string url)

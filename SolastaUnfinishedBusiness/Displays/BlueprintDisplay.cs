@@ -70,23 +70,32 @@ internal static class BlueprintDisplay
             TreeView.Clear();
         }
 
-        _bpFields = Node.GetFields(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name)
+        _bpFields = Node.GetFields(_bpTypes[_bpTypeIndex])
+            .OrderBy(info => info.Name)
             .ToDictionary(info => info.Name);
-        _bpProperties = Node.GetProperties(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name)
+        _bpProperties = Node.GetProperties(_bpTypes[_bpTypeIndex])
+            .OrderBy(info => info.Name)
             .ToDictionary(info => info.Name);
-        _bpChildNames = _bpFields.Keys.Concat(_bpProperties.Keys).OrderBy(key => key).ToArray();
+        _bpChildNames = _bpFields.Keys.Concat(_bpProperties.Keys)
+            .OrderBy(key => key)
+            .ToArray();
         _searchIndex = Array.IndexOf(_bpChildNames, "name");
     }
 
     private static void RefreshTypeNames()
     {
         _bpTypes = new Type[] { null }
-            .Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
+            .Concat(GetBlueprints()
+                .Select(bp => bp.GetType())
+                .Distinct()
+                .OrderBy(type => type.Name))
+            .ToArray();
 
         if (!string.IsNullOrEmpty(_selectionSearchText))
         {
             _bpTypes = _bpTypes
-                .Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText)).ToArray();
+                .Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText))
+                .ToArray();
         }
 
         _bpTypeNames = _bpTypes.Select(type => type?.Name).ToArray();
@@ -118,7 +127,7 @@ internal static class BlueprintDisplay
                     {
                         return _searchReversed;
                     }
-                }).ToList());
+                }));
             }
             else if (_bpProperties.TryGetValue(_bpChildNames[_searchIndex], out var p))
             {
@@ -133,7 +142,7 @@ internal static class BlueprintDisplay
                     {
                         return _searchReversed;
                     }
-                }).ToList());
+                }));
             }
         }
     }
@@ -152,8 +161,7 @@ internal static class BlueprintDisplay
             {
                 if (GetBlueprints() == null)
                 {
-                    GUILayout.Label("Blueprints".Orange().Bold() + " loading: " +
-                                    BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                    GUILayout.Label("Loading: " + BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                     return;
                 }
 
@@ -164,19 +172,22 @@ internal static class BlueprintDisplay
             using (new GUILayout.HorizontalScope())
             {
                 var isDirty = false;
+
                 // Blueprint Picker
                 using (new GUILayout.VerticalScope())
                 {
                     // Header and Search Field
                     var blueprintListIsDirty = false;
+
                     GUIHelper.Div();
+
                     using (new GUILayout.HorizontalScope(GUILayout.Width(450)))
                     {
                         // Header and Search Field
                         GUILayout.Label($"{_bpTypeNames![_bpTypeIndex]}".Cyan(), GUILayout.Width(300));
                         GUILayout.Space(10);
-                        GUIHelper.TextField(ref _selectionSearchText, () => blueprintListIsDirty = true, null,
-                            GUILayout.MinWidth(150));
+                        GUIHelper.TextField(ref _selectionSearchText,
+                            () => blueprintListIsDirty = true, null, GUILayout.MinWidth(150));
                     }
 
                     if (blueprintListIsDirty)
@@ -185,8 +196,8 @@ internal static class BlueprintDisplay
                     }
 
                     GUIHelper.Div();
-                    // Blueprint Picker List
 
+                    // Blueprint Picker List
                     using var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450));
 
                     _bpsScrollPosition = scrollView.scrollPosition;
@@ -196,7 +207,7 @@ internal static class BlueprintDisplay
                         RefreshBpSearchData();
                         _filteredBPs = _bpTypeIndex == 0
                             ? GetBlueprints()
-                            : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
+                            : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]);
                         TreeView.SetRoot(_filteredBPs);
                     }, ButtonStyle, GUILayout.Width(450));
                 }
@@ -215,13 +226,14 @@ internal static class BlueprintDisplay
                             // selection - button
                             using (new GUILayout.HorizontalScope())
                             {
-                                UI.ToggleButton(ref _searchExpanded, $"Search: {_bpChildNames[_searchIndex]}",
-                                    ButtonStyle, GUILayout.ExpandWidth(false));
+                                UI.ToggleButton(ref _searchExpanded,
+                                    $"Search: {_bpChildNames[_searchIndex]}", ButtonStyle,
+                                    GUILayout.ExpandWidth(false));
 
                                 // _searchText input
                                 GUILayout.Space(10);
-                                GUIHelper.TextField(ref _searchText, () => isDirty = true, null,
-                                    GUILayout.Width(450));
+                                GUIHelper.TextField(ref _searchText,
+                                    () => isDirty = true, null, GUILayout.Width(450));
                                 GUILayout.Space(10f);
 
                                 if (UI.Toggle("By Excluding", ref _searchReversed, GUILayout.ExpandWidth(false)))
@@ -240,12 +252,13 @@ internal static class BlueprintDisplay
                     // Data Search Field Picker
                     if (_searchExpanded.IsOn())
                     {
-                        // selection
-                        GUIHelper.Div();
                         const float AVAILABLE_WIDTH = 960f - 550;
                         var xCols = (int)Math.Ceiling(AVAILABLE_WIDTH / 300);
-                        GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true,
-                            ButtonStyle, GUILayout.Width(AVAILABLE_WIDTH));
+
+                        // selection
+                        GUIHelper.Div();
+                        GUIHelper.SelectionGrid(ref _searchIndex,
+                            _bpChildNames, xCols, () => isDirty = true, ButtonStyle, GUILayout.Width(AVAILABLE_WIDTH));
                     }
 
                     // Do the search
@@ -255,6 +268,7 @@ internal static class BlueprintDisplay
                     }
 
                     GUIHelper.Div();
+
                     // tree view
                     using (new GUILayout.VerticalScope())
                     {

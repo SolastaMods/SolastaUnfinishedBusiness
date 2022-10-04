@@ -17,24 +17,23 @@ internal static class CreditsDisplay
     {
         ("Zappastuff",
             "maintenance, gameplay, feats, multiclass, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer"),
+        ("TPABOBAP", "game UI, gameplay, infrastructure, subclasses improvements, feats, spells, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
-        ("TPABOBAP", "gameplay, infrastructure, feats, spells"),
         ("ChrisJohnDigital",
             "gameplay, feats, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
-        ("SilverGriffon", "gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart"),
         ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, Rift Walker"),
+        ("SilverGriffon", "gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart"),
         ("Nd", "Marshal, Opportunist, Raven"),
         ("AceHigh", "SoulBlade, Tactician"),
-        ("ElAntonious", "feats, Ranger Arcanist"),
-        ("RedOrca", "Path Of The Light"),
-        ("Dreadmaker", "Circle Of The Forest Guardian"),
-        ("DemonSlayer730", "Path Of The Rage Mage"),
+        ("ElAntonious", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif"),
+        ("RedOrca", "Path Of The Light"),
+        ("DreadMaker", "Circle Of The Forest Guardian"),
+        ("DemonSlayer730", "Path Of The Rage Mage"),
         ("Bazou", "rules, spells"),
-        ("Esker", "ruleset support, quality assurance"),
-        ("Lyraele", "ruleset support, quality assurance"),
-        ("Nyowwww", "Chinese"),
-        ("Narria", "modKit")
+        ("Esker", "ruleset support, qa"),
+        ("Lyraele", "ruleset support, qa"),
+        ("Nyowwww", "Chinese, qa")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
@@ -49,17 +48,10 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donate".Bold().Khaki(), () =>
-            {
-                BootContext.OpenUrl(BootContext.DonateUrl);
-            }, UI.Width(150));
+            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
+            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(150));
 
-            UI.ActionButton("Wiki".Bold().Khaki(), () =>
-            {
-                BootContext.OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
-            }, UI.Width(150));
-
-            if (!IsUnityExplorerEnabled && IsUnityExplorerInstalled)
+            if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
             {
                 UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
                 {
@@ -85,14 +77,16 @@ internal static class CreditsDisplay
         {
             DisplayPatches();
         }
-
-        // credits
-        foreach (var (author, content) in CreditsTable)
+        else
         {
-            using (UI.HorizontalScope())
+            // credits
+            foreach (var (author, content) in CreditsTable)
             {
-                UI.Label(author.Orange(), UI.Width(150));
-                UI.Label(content, UI.Width(650));
+                using (UI.HorizontalScope())
+                {
+                    UI.Label(author.Orange(), UI.Width(150));
+                    UI.Label(content, UI.Width(750));
+                }
             }
         }
 

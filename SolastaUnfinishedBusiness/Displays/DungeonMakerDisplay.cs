@@ -6,8 +6,6 @@ internal static class DungeonMakerDisplay
 {
     internal static void DisplayDungeonMaker()
     {
-        #region DungeonMaker
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Basic"));
         UI.Label("");
@@ -26,8 +24,6 @@ internal static class DungeonMakerDisplay
         {
             Main.Settings.UnleashEnemyAsNpc = toggle;
         }
-
-        #endregion
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Advanced"));
