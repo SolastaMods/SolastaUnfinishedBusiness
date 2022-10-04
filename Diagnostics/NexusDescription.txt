@@ -106,9 +106,10 @@ All settings start disabled by default.
 [*][b]Path of The Rage Mage[/b]: Path of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
-[*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+[*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Raven[/b]: Range specialists that are trained to take down enemies quickly and effectively.
@@ -185,7 +186,7 @@ You gain proficiency with smith's tools, or expertise if you are already profici
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
-[*][b]Inspiring Leader[/b]: Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Armor[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with light armor.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -349,22 +350,21 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, gameplay, feats, multiclass, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
+[*][b]TPABOBAP[/b]: game UI, gameplay, infrastructure, subclasses improvements, feats, spells, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]TPABOBAP[/b]: gameplay, infrastructure, feats, spells
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
-[*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
+[*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]AceHigh[/b]: SoulBlade, Tactician
 [*][b]ElAntonious[/b]: feats, Arcanist
-[*][b]RedOrca[/b]: Path Of The Light
-[*][b]Dreadmaker[/b]: Circle Of The Forest Guardian
-[*][b]DemonSlayer730[/b]: Path Of The Rage Mage
 [*][b]Holic75[/b]: spells, Bolgrif
+[*][b]RedOrca[/b]: Path Of The Light
+[*][b]DreadMaker[/b]: Circle Of The Forest Guardian
+[*][b]DemonSlayer730[/b]: Path Of The Rage Mage
 [*][b]Bazou[/b]: rules, spells
-[*][b]Esker[/b]: ruleset support, quality assurance
-[*][b]Lyraele[/b]: ruleset support, quality assurance
-[*][b]Nyowwww[/b]: Chinese
-[*][b]Narria[/b]: modKit
+[*][b]Esker[/b]: ruleset support, qa
+[*][b]Lyraele[/b]: ruleset support, qa
+[*][b]Nyowwww[/b]: Chinese, qa
 [/list]
 

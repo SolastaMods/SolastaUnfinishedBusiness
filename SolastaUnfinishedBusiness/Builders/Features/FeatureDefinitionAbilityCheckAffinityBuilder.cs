@@ -32,6 +32,12 @@ internal abstract class
         return This();
     }
 
+    internal TBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
+    {
+        Definition.AffinityGroups.SetRange(affinityGroups);
+        return This();
+    }
+
     #region Constructors
 
     protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,
