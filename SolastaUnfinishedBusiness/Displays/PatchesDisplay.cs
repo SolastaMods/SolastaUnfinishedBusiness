@@ -148,7 +148,7 @@ internal static class PatchesDisplay
             .SelectMany(method =>
             {
                 var patchInfo = Harmony.GetPatchInfo(method);
-                
+
                 return patchInfo.Prefixes.Concat(patchInfo.Transpilers).Concat(patchInfo.Postfixes);
             })
             .Select(patchInfo => patchInfo.owner)

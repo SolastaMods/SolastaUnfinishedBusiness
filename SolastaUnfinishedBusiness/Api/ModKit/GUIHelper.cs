@@ -40,7 +40,7 @@ internal static class GUIHelper
         params GUILayoutOption[] options)
     {
         var old = value;
-        
+
         value = GUILayout.TextField(value, style ?? GUI.skin.textField, options);
 
         if (value == old)

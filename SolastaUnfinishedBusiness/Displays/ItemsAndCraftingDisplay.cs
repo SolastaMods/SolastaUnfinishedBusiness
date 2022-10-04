@@ -138,7 +138,7 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label("");
 
-        int intValue = Main.Settings.RecipeCost;
+        var intValue = Main.Settings.RecipeCost;
         if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
         {
             Main.Settings.RecipeCost = intValue;

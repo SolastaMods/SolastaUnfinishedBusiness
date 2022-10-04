@@ -18,7 +18,7 @@ internal static partial class UI
         LabelContent.text = text;
         LabelContent.image = null;
         LabelContent.tooltip = null;
-        
+
         return LabelContent;
     }
 
@@ -92,12 +92,12 @@ internal static partial class UI
                         ? on
                         : off); // don't use the empty content to calculate size so titles line up in lists
                 var x = rightAlign ? rect.xMax - stateSize.x : rect.x;
-                
+
                 Rect stateRect = new(x, rect.y, stateSize.x, stateSize.y);
 
                 // layout state before or after following alignment
                 var labelSize = labelStyle.CalcSize(label);
-                
+
                 x = rightAlign ? stateRect.x - stateSize.x - 5 : stateRect.xMax + 5;
                 Rect labelRect = new(x, rect.y, labelSize.x, labelSize.y);
 
@@ -125,13 +125,13 @@ internal static partial class UI
         var sStyle = new GUIStyle(stateStyle);
         var lStyle = new GUIStyle(labelStyle) { wordWrap = false };
         var stateSize = sStyle.CalcSize(state);
-        
+
         lStyle.fixedHeight = stateSize.y - 2;
-        
+
         var padding = new RectOffset(0, (int)stateSize.x + 5, 0, 0);
-        
+
         lStyle.padding = padding;
-        
+
         var rect = GUILayoutUtility.GetRect(label, lStyle, options);
 
         return Toggle(rect, label, value, isEmpty, on, off, stateStyle, labelStyle);
@@ -141,11 +141,13 @@ internal static partial class UI
     private static bool DisclosureToggle(string label, bool value, bool isEmpty = false,
         params GUILayoutOption[] options)
     {
-        return Toggle(SetLabelContent(label), value, DisclosureOn, DisclosureOff, GUI.skin.box, GUI.skin.label, isEmpty, options);
+        return Toggle(SetLabelContent(label), value, DisclosureOn, DisclosureOff, GUI.skin.box, GUI.skin.label, isEmpty,
+            options);
     }
 
     // CheckBox
-    internal static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style, params GUILayoutOption[] options)
+    internal static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
+        params GUILayoutOption[] options)
     {
         return Toggle(SetLabelContent(label), value, CheckOn, CheckOff, GUI.skin.box, style, isEmpty, options);
     }

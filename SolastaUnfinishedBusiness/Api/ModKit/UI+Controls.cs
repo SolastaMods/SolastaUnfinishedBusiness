@@ -51,9 +51,9 @@ internal static partial class UI
     internal static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
-        
+
         TextField(ref text, name, options);
-        
+
         if (float.TryParse(text, out var val))
         {
             value = val;
@@ -101,9 +101,9 @@ internal static partial class UI
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         float newValue;
-        
+
         value = Math.Max(min, Math.Min(max, value)); // clamp it
-        
+
         using (HorizontalScope(options))
         {
             using (VerticalScope(Width(300)))
@@ -157,11 +157,11 @@ internal static partial class UI
         string units = "", params GUILayoutOption[] options)
     {
         float floatValue = value;
-        
+
         var changed = Slider(title, ref floatValue, min, max, defaultValue, 0, units, options);
-        
+
         value = (int)floatValue;
-        
+
         return changed;
     }
 }

@@ -13,7 +13,7 @@ internal static class SubclassesContext
         get;
     } = new();
 
-    internal static HashSet<CharacterSubclassDefinition> Subclasses { get; private set; } = new();
+    internal static HashSet<CharacterSubclassDefinition> Subclasses { get; } = new();
 
     private static void SortSubclassesFeatures()
     {
@@ -41,10 +41,10 @@ internal static class SubclassesContext
         // Barbarian
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheRageMage());
-        
+
         // Druid
         LoadSubclass(new CircleOfTheForestGuardian());
-        
+
         // Fighter
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialSpellShield());
@@ -52,12 +52,12 @@ internal static class SubclassesContext
 
         // Ranger
         LoadSubclass(new RangerArcanist());
-        
+
         // Rogue
         LoadSubclass(new RoguishConArtist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
-        
+
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new WayOfTheDistantHand());
@@ -68,7 +68,7 @@ internal static class SubclassesContext
         LoadSubclass(new PatronMoonlit());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
-        
+
         // Wizard
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());

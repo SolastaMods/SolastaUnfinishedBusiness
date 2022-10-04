@@ -122,7 +122,7 @@ public static class PowerSelectionPanelPatcher
         public static void Postfix()
         {
             PowersBundleContext.CloseSubPowerSelectionModal();
-            
+
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {
                 return;

@@ -12,7 +12,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
     {
         var table = __instance.learnStepsTable;
         LearnStepItem item = null;
-        for (int i = 0; i < table.childCount; i++)
+        for (var i = 0; i < table.childCount; i++)
         {
             var child = table.GetChild(i);
             if (child.gameObject.activeSelf && i == __instance.currentLearnStep)
@@ -98,8 +98,8 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                 return true;
             }
 
-            RulesetCharacterHero hero = __instance.currentHero;
-            CharacterHeroBuildingData buildingData = hero.GetHeroBuildingData();
+            var hero = __instance.currentHero;
+            var buildingData = hero.GetHeroBuildingData();
 
             var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
