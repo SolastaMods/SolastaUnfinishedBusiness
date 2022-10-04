@@ -33,11 +33,14 @@ internal static class GameUiDisplay
             UI.Label("");
         }
 
+#if false
+        // ModUi/&AutoPauseOnVictory=Pause the UI when victorious in battle
         toggle = Main.Settings.AutoPauseOnVictory;
         if (UI.Toggle(Gui.Localize("ModUi/&AutoPauseOnVictory"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AutoPauseOnVictory = toggle;
         }
+#endif
 
         UI.Label("");
 

@@ -238,8 +238,10 @@ public class Settings : UnityModManager.ModSettings
 
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
+
     public int DontFollowMargin { get; set; } = 5;
-    public bool AutoPauseOnVictory { get; set; }
+
+    // public bool AutoPauseOnVictory { get; set; }
     public float FasterTimeModifier { get; set; } = 1.5f;
 
     // Campaigns and Locations
