@@ -65,3 +65,4 @@ Subclass/&InventorInnovationTitle=Innovation
 UI/&CustomFeatureSelectionTooltipTypeInfusion=Infusion
 Feature/&ProficiencyInventorToolExpertiseDescription=You gain proficiency with all crafting tools, or expertise if you were already proficient with that tool.
 Feature/&ProficiencyInventorToolExpertiseTitle=Inventor Tool Expertise
+Feature/&PointPoolInventorRightToolForTheJobTitle=Know Your Tools

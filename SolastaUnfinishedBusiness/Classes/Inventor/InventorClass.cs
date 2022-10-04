@@ -251,6 +251,8 @@ internal static class InventorClass
 
             #region Level 03
 
+            .AddFeaturesAtLevel(3, BuildRightToolForTheJob())
+
             #endregion
 
             #region Level 04
@@ -368,6 +370,23 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.ToolOrExpertise,
                 ToolTypeDefinitions.ArtisanToolSmithToolsType,
+                ToolTypeDefinitions.EnchantingToolType,
+                ToolTypeDefinitions.HerbalismKitType,
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
+            )
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildRightToolForTheJob()
+    {
+        return FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolInventorRightToolForTheJob")
+            .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
+            .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+            .OnlyUniqueChoices()
+            .RestrictChoices(
+                ToolTypeDefinitions.DisguiseKitType,
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.PoisonersKitType,
