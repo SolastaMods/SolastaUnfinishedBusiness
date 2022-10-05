@@ -22,7 +22,7 @@ internal static class MulticlassGameUiContext
 
     internal static void SetupLevelUpClassSelectionStep(CharacterEditionScreen characterEditionScreen)
     {
-        if (Main.Settings.MaxAllowedClasses <= 1 || characterEditionScreen is not CharacterLevelUpScreen)
+        if (!Main.Settings.EnableMulticlass || characterEditionScreen is not CharacterLevelUpScreen)
         {
             return;
         }
