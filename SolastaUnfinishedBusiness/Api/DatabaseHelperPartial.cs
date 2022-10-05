@@ -40,11 +40,6 @@ internal static partial class DatabaseHelper
         return false;
     }
 
-    internal static class CampaignDefinitions
-    {
-        internal static CampaignDefinition UserCampaign { get; } = GetDefinition<CampaignDefinition>("UserCampaign");
-    }
-
     internal static class DecisionPackageDefinitions
     {
         internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } =

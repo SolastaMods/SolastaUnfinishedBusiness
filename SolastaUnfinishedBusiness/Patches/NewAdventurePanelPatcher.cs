@@ -19,7 +19,8 @@ public static class NewAdventurePanelPatcher
         public static void Prefix([NotNull] NewAdventurePanel __instance)
         {
             // overrides campaign party size
-            DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
+            DatabaseRepository.GetDatabase<CampaignDefinition>()
+                .Do(x => x.partySize = Main.Settings.OverridePartySize);
 
             // adds new character plates if required
             for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
