@@ -195,6 +195,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition MartialCommander { get; } = GetDefinition<CharacterSubclassDefinition>("MartialCommander");
         internal static CharacterSubclassDefinition MartialMountaineer { get; } = GetDefinition<CharacterSubclassDefinition>("MartialMountaineer");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
+        internal static CharacterSubclassDefinition OathOfDevotion { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfDevotion");
         internal static CharacterSubclassDefinition OathOfJugement { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfJugement");
         internal static CharacterSubclassDefinition OathOfTheMotherland { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfTheMotherland");
         internal static CharacterSubclassDefinition PathBerserker { get; } = GetDefinition<CharacterSubclassDefinition>("PathBerserker");
@@ -257,6 +258,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityIslandHalflingAcrobatics { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityIslandHalflingAcrobatics");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenHearing { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenHearing");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSight { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSight");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityChampionRemarkableAthlete { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityChampionRemarkableAthlete");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityStealthDisadvantage { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityStealthDisadvantage");
     }
 
@@ -594,6 +596,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionRaging { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionRaging");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfSolasta { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
@@ -1037,6 +1040,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition HealingWord { get; } = GetDefinition<SpellDefinition>("HealingWord");
         internal static SpellDefinition HeatMetal { get; } = GetDefinition<SpellDefinition>("HeatMetal");
         internal static SpellDefinition HellishRebuke { get; } = GetDefinition<SpellDefinition>("HellishRebuke");
+        internal static SpellDefinition Heroism { get; } = GetDefinition<SpellDefinition>("Heroism");
         internal static SpellDefinition HideousLaughter { get; } = GetDefinition<SpellDefinition>("HideousLaughter");
         internal static SpellDefinition HoldMonster { get; } = GetDefinition<SpellDefinition>("HoldMonster");
         internal static SpellDefinition HoldPerson { get; } = GetDefinition<SpellDefinition>("HoldPerson");
@@ -1095,6 +1099,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
+        internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");
         internal static SpellDefinition WallOfFire { get; } = GetDefinition<SpellDefinition>("WallOfFire");
         internal static SpellDefinition WallOfForce { get; } = GetDefinition<SpellDefinition>("WallOfForce");
         internal static SpellDefinition WallOfThornsWallLine { get; } = GetDefinition<SpellDefinition>("WallOfThornsWallLine");
