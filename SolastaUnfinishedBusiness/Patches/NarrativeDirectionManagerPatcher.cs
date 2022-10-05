@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
@@ -13,16 +14,25 @@ public static class NarrativeDirectionManagerPatcher
     {
         public static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
         {
-            //PATCH: FullyControlConjurations
-            if (!Main.Settings.FullyControlConjurations)
+            //PATCH: Don't offer controlled conjurations on dialogue sequences (FullyControlConjurations)
+            if (Main.Settings.FullyControlConjurations)
             {
-                return;
+                involvedGameCharacters.RemoveAll(
+                    x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
+                         && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster.MonsterDefinition));
+                ;
             }
 
-            involvedGameCharacters.RemoveAll(
-                x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                     && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster
-                         .MonsterDefinition));
+            //PATCH: Only offer the first 4 players on dialogue sequences (PARTYSIZE)
+            if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
+            {
+                var party = Gui.GameCampaign.Party.CharactersList
+                    .Select(x => x.RulesetCharacter)
+                    .ToList();
+
+                involvedGameCharacters.RemoveAll(
+                    x => party.IndexOf(x.RulesetCharacter) >= DungeonMakerContext.GamePartySize);
+            }
         }
     }
 
