@@ -141,7 +141,7 @@ All settings start disabled by default.
 {0}
 [/list]
 ";
-        
+
 /*
 [size=3][b]All Settings[/b][/size]
 
@@ -166,7 +166,7 @@ All settings start disabled by default.
 [img]https://github.com/SolastaMods/SolastaUnfinishedBusiness/blob/master/Media/10-Interface-Translations.png?raw=true[/img]
 [line]
 */
-        
+
         internal static void DisplayDiagnostics()
         {
             UI.Label("");
