@@ -99,6 +99,7 @@ internal static class CharacterDisplay
             Main.Settings.EnableLevel20 = toggle;
         }
 
+#if false
         UI.Label("");
 
         intValue = Main.Settings.MaxAllowedClasses;
@@ -119,6 +120,20 @@ internal static class CharacterDisplay
         }
 
         if (Main.Settings.MaxAllowedClasses > 1)
+        // ModUi/&MaxAllowedClasses=<color=white>Enable Multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[set max allowed classes with the slider]</color></i>
+#endif
+        
+        toggle = Main.Settings.EnableMulticlass;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMulticlass"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMulticlass = toggle;
+            Main.Settings.EnableMinInOutAttributes = true;
+            Main.Settings.EnableRelearnSpells = false;
+            Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
+            Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = true;
+        }
+
+        if (Main.Settings.EnableMulticlass)
         {
             UI.Label("");
 
@@ -128,7 +143,7 @@ internal static class CharacterDisplay
                 Main.Settings.EnableMinInOutAttributes = toggle;
             }
 
-            UI.Label("");
+            // UI.Label("");
 
             toggle = Main.Settings.EnableRelearnSpells;
             if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))

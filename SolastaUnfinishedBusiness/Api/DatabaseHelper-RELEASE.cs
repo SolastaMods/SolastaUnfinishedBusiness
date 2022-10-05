@@ -6,6 +6,12 @@ using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
+    internal static class EffectProxyDefinitions
+    {
+        internal static EffectProxyDefinition ProxyInsectPlague { get; } = GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
+        internal static EffectProxyDefinition ProxySpikeGrowth { get; } = GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth");
+    }
+
     internal static class MonsterDefinitions
     {
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
