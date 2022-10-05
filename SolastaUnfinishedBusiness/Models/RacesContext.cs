@@ -47,10 +47,10 @@ internal static class RacesContext
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
         // settings paring
-        foreach (var featName in Main.Settings.RaceEnabled
-                     .Where(featName => Races.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.RaceEnabled
+                     .Where(name => Races.All(x => x.Name != name)))
         {
-            Main.Settings.RaceEnabled.Remove(featName);
+            Main.Settings.RaceEnabled.Remove(name);
         }
 
         //TODO: Check why this is causing 2 exceptions during load

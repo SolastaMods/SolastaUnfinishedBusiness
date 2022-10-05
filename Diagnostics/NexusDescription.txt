@@ -106,9 +106,10 @@ All settings start disabled by default.
 [*][b]Path of The Rage Mage[/b]: Path of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
-[*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+[*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Raven[/b]: Range specialists that are trained to take down enemies quickly and effectively.
@@ -185,7 +186,7 @@ You gain proficiency with smith's tools, or expertise if you are already profici
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
-[*][b]Inspiring Leader[/b]: Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Armor[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with light armor.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -287,6 +288,7 @@ At 5th level, the melee attack deals extra 1d8 thunder damage to the target on a
 This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 [*][b]Sunlit Blade[/b]: Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+[*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
 [*][b]Find Familiar[/b]: You gain the service of a familiar.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 5 radiant projectiles that deal 2 radiant damage each, but never miss. Targets may radiate light for up to 1 minute.
@@ -333,14 +335,14 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [*][b]Druid Leather Armor[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [*][b]Chain Shirt[/b]: Chain Shirt of Sturdiness, Chain Shirt of Robustness, Chain Shirt of Survival, Chain Shirt of Flame Dancing, Chain Shirt of Frost Walking, Chain Shirt of Deflection
-[*][b]Equipment/&Armor_PaddedLeatherTitle[/b]: Padded Leather of Sturdiness, Padded Leather of Robustness, Padded Leather of Survival, Padded Leather of Flame Dancing, Padded Leather of Frost Walking, Padded Leather of Deflection
+[*][b]Padded[/b]: Padded Leather of Sturdiness, Padded Leather of Robustness, Padded Leather of Survival, Padded Leather of Flame Dancing, Padded Leather of Frost Walking, Padded Leather of Deflection
 [*][b]Leather[/b]: Leather of Sturdiness, Leather of Robustness, Leather of Survival, Leather of Flame Dancing, Leather of Frost Walking, Leather of Deflection
 [*][b]Scale Mail[/b]: Scale Mail of Sturdiness, Scale Mail of Robustness, Scale Mail of Survival, Scale Mail of Flame Dancing, Scale Mail of Frost Walking, Scale Mail of Deflection
 [*][b]Breastplate[/b]: Breastplate of Sturdiness, Breastplate of Robustness, Breastplate of Survival, Breastplate of Flame Dancing, Breastplate of Frost Walking, Breastplate of Deflection
 [*][b]Half Plate[/b]: Half Plate of Sturdiness, Half Plate of Robustness, Half Plate of Survival, Half Plate of Flame Dancing, Half Plate of Frost Walking, Half Plate of Deflection
-[*][b]Equipment/&Armor_RingmailTitle[/b]: Ring Mail of Sturdiness, Ring Mail of Robustness, Ring Mail of Survival, Ring Mail of Flame Dancing, Ring Mail of Frost Walking, Ring Mail of Deflection
+[*][b]Ring Mail[/b]: Ring Mail of Sturdiness, Ring Mail of Robustness, Ring Mail of Survival, Ring Mail of Flame Dancing, Ring Mail of Frost Walking, Ring Mail of Deflection
 [*][b]Chain Mail[/b]: Chain Mail of Sturdiness, Chain Mail of Robustness, Chain Mail of Survival, Chain Mail of Flame Dancing, Chain Mail of Frost Walking, Chain Mail of Deflection
-[*][b]Equipment/&Armor_SplintmailTitle[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
+[*][b]Splint[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
 [*][b]Plate[/b]: Plate of Sturdiness, Plate of Robustness, Plate of Survival, Plate of Flame Dancing, Plate of Frost Walking, Plate of Deflection
 [/list]
 
@@ -349,22 +351,21 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, gameplay, feats, multiclass, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
+[*][b]TPABOBAP[/b]: game UI, gameplay, infrastructure, subclasses improvements, feats, spells, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]TPABOBAP[/b]: gameplay, infrastructure, feats, spells
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
-[*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
+[*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]AceHigh[/b]: SoulBlade, Tactician
 [*][b]ElAntonious[/b]: feats, Arcanist
-[*][b]RedOrca[/b]: Path Of The Light
-[*][b]Dreadmaker[/b]: Circle Of The Forest Guardian
-[*][b]DemonSlayer730[/b]: Path Of The Rage Mage
 [*][b]Holic75[/b]: spells, Bolgrif
+[*][b]RedOrca[/b]: Path Of The Light
+[*][b]DreadMaker[/b]: Circle Of The Forest Guardian
+[*][b]DemonSlayer730[/b]: Path Of The Rage Mage
 [*][b]Bazou[/b]: rules, spells
-[*][b]Esker[/b]: ruleset support, quality assurance
-[*][b]Lyraele[/b]: ruleset support, quality assurance
-[*][b]Nyowwww[/b]: Chinese
-[*][b]Narria[/b]: modKit
+[*][b]Esker[/b]: ruleset support, qa
+[*][b]Lyraele[/b]: ruleset support, qa
+[*][b]Nyowwww[/b]: Chinese, qa
 [/list]
 

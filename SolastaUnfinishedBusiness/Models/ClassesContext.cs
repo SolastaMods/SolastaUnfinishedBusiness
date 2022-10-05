@@ -44,10 +44,10 @@ internal static class ClassesContext
         }
 
         // settings paring
-        foreach (var featName in Main.Settings.ClassEnabled
-                     .Where(featName => Classes.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.ClassEnabled
+                     .Where(name => Classes.All(x => x.Name != name)))
         {
-            Main.Settings.ClassEnabled.Remove(featName);
+            Main.Settings.ClassEnabled.Remove(name);
         }
     }
 

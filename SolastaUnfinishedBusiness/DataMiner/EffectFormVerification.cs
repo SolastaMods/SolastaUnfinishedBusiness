@@ -8,15 +8,6 @@ namespace SolastaUnfinishedBusiness.DataMiner;
 
 internal static class EffectFormVerification
 {
-    [Flags]
-    internal enum Verification
-    {
-        None,
-        ReturnNull = 1,
-        Log = 2,
-        Throw = 4
-    }
-
     private const string LogName = "EffectForm.txt";
 
     internal static Verification Mode { get; set; } = Verification.None;
@@ -77,6 +68,15 @@ internal static class EffectFormVerification
         {
             throw new SolastaUnfinishedBusinessException(msg);
         }
+    }
+
+    [Flags]
+    internal enum Verification
+    {
+        None,
+        ReturnNull = 1,
+        Log = 2,
+        Throw = 4
     }
 }
 #endif

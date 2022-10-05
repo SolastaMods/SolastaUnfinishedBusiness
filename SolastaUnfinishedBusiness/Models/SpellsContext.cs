@@ -129,6 +129,7 @@ internal static class SpellsContext
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildThunderStrike(), 0,
             SpellListWizard, SpellListSorcerer, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
@@ -159,12 +160,23 @@ internal static class SpellsContext
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
 
-        // caches which spells are toggleable per spell list
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 
-        foreach (var spellListContext in SpellListContextTab.Values)
+        foreach (var kvp in SpellListContextTab)
         {
+            // caches which spells are toggleable per spell list
+            var spellListContext = kvp.Value;
+
             spellListContext.CalculateAllSpells();
+
+            // settings paring
+            var spellListName = kvp.Key.Name;
+
+            foreach (var name in Main.Settings.SpellListSpellEnabled[spellListName]
+                         .Where(name => Spells.All(x => x.Name != name)))
+            {
+                Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
+            }
         }
     }
 

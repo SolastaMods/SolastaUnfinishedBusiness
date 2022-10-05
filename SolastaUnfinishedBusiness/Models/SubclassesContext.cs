@@ -47,6 +47,7 @@ internal static class SubclassesContext
 
         // Fighter
         LoadSubclass(new MartialMarshal());
+        LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
 
@@ -78,10 +79,10 @@ internal static class SubclassesContext
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring
-        foreach (var featName in Main.Settings.SubclassEnabled
-                     .Where(featName => Subclasses.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.SubclassEnabled
+                     .Where(name => Subclasses.All(x => x.Name != name)))
         {
-            Main.Settings.SubclassEnabled.Remove(featName);
+            Main.Settings.SubclassEnabled.Remove(name);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

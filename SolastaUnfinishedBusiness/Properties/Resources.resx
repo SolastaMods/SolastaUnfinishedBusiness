@@ -295,5 +295,8 @@
   </data>
   <data name="CreateDead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\AnimateDead.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>  
+  </data>
+  <data name="ThornyVines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\ThornyVines.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

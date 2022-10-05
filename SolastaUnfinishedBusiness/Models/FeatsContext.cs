@@ -50,17 +50,17 @@ internal static class FeatsContext
         FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
 
         // settings paring feats
-        foreach (var featName in Main.Settings.FeatEnabled
-                     .Where(featName => Feats.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.FeatEnabled
+                     .Where(name => Feats.All(x => x.Name != name)))
         {
-            Main.Settings.FeatEnabled.Remove(featName);
+            Main.Settings.FeatEnabled.Remove(name);
         }
 
         // settings paring groups
-        foreach (var featName in Main.Settings.FeatGroupEnabled
-                     .Where(featName => FeatGroups.All(x => x.Name != featName)))
+        foreach (var name in Main.Settings.FeatGroupEnabled
+                     .Where(name => FeatGroups.All(x => x.Name != name)))
         {
-            Main.Settings.FeatGroupEnabled.Remove(featName);
+            Main.Settings.FeatGroupEnabled.Remove(name);
         }
 
         // avoids restart on level up UI

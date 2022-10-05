@@ -1,0 +1,8 @@
+﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspiring Surge
+Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
+Feature/&PowerRoyalKnightRallyingCryTitle=Rallying Cry
+Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Subclass/&MartialRoyalKnightTitle=Royal Knight

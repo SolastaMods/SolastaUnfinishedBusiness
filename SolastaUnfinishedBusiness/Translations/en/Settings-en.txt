@@ -89,7 +89,6 @@ ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
-ModUi/&HiderArmor=Hide Armor
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far]</color></i>
@@ -114,7 +113,7 @@ ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
-ModUi/&OverridePartySize=<color=white>Override the party size in custom adventures</color>
+ModUi/&OverridePartySize=<color=white>Override the party size</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
