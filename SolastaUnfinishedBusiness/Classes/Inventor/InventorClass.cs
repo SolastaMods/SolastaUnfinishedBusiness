@@ -445,6 +445,7 @@ internal static class InventorClass
             .SetSpellsAtLevel(0,
                 SpellDefinitions.AcidSplash,
                 SpellDefinitions.FireBolt,
+                SpellDefinitions.Guidance,
                 SpellDefinitions.RayOfFrost,
                 SpellDefinitions.PoisonSpray,
                 SpellDefinitions.Resistance,
