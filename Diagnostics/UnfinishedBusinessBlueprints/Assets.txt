@@ -4969,6 +4969,7 @@ SpellPowerWayOfTheDistantHandZenArrowTechnique	SpellDefinition	SpellDefinition	e
 SpellPowerWayOfTheDistantHandZenArrowUpgradedProne	SpellDefinition	SpellDefinition	97535ee7-0aea-5161-9198-399f7bee40f5
 SpellPowerWayOfTheDistantHandZenArrowUpgradedTechnique	SpellDefinition	SpellDefinition	70bdf6fc-fd6e-53af-99a8-31408ff390eb
 SunlightBlade	SpellDefinition	SpellDefinition	62effe92-a4c1-58ed-a9a0-06f1a64e8c8e
+ThornyVines	SpellDefinition	SpellDefinition	821729fd-5a81-5fcc-bb24-5a715e7a34c0
 ThunderStrike	SpellDefinition	SpellDefinition	e3acbcf7-0653-56ce-b685-1d1c7c73cff1
 TimeStop	SpellDefinition	SpellDefinition	718bca89-89fb-5398-9e08-b350d9d66ab4
 Weird	SpellDefinition	SpellDefinition	314a6d8b-bd4a-5200-b37b-2f250bd2f11e
