@@ -21,7 +21,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
-    internal ItemDefinitionBuilder HideFromDongeonEditor()
+    internal ItemDefinitionBuilder HideFromDungeonEditor()
     {
         Definition.inDungeonEditor = false;
         return this;

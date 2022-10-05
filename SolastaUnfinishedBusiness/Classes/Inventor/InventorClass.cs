@@ -638,7 +638,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation($"Wand of {spell.FormatTitle()}",
                 $"This wand allows casting of the <b>{spell.Name}</b> spell using spell casting stats of the Inventor who created it.")
             .SetRequiresIdentification(false)
-            .HideFromDongeonEditor()
+            .HideFromDungeonEditor()
             .SetCustomSubFeatures(InventorClassHolder.Marker)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
