@@ -17,7 +17,7 @@ internal static class SpellListDefinitionExtensions
         {
             list.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
             {
-                level = spell.spellLevel, spells = new List<SpellDefinition> {spell}
+                level = spell.spellLevel, spells = new List<SpellDefinition> { spell }
             });
         }
         else

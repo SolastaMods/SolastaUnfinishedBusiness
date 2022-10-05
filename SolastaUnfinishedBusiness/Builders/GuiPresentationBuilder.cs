@@ -157,7 +157,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         where TBuilder : IDefinitionBuilder
     {
         AssetReferenceSprite sprite = null;
-        
+
         if (spriteDefinition != null) { sprite = spriteDefinition.GuiPresentation.spriteReference; }
 
         return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, title, description, sprite));

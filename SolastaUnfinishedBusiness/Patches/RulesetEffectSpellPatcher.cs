@@ -92,7 +92,7 @@ public static class RulesetEffectSpellPatcher
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackTrends", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class MagicAttackTrends_Getter_Patch

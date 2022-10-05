@@ -543,7 +543,7 @@ internal static class InventorClass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(2)
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
@@ -659,11 +659,11 @@ internal static class InventorClass
 
 internal class InventorClassHolder : IClassHoldingFeature
 {
-    public static InventorClassHolder Marker { get; } = new();
-
     private InventorClassHolder()
     {
     }
+
+    public static InventorClassHolder Marker { get; } = new();
 
     public CharacterClassDefinition Class => InventorClass.Class;
 }

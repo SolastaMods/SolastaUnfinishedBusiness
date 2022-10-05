@@ -97,7 +97,7 @@ internal abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definiti
         Definition.aiParameters = aiParameters;
         return This();
     }
-    
+
     internal TBuilder SetUniqueInstance(bool uniqueInstance)
     {
         Definition.uniqueInstance = uniqueInstance;

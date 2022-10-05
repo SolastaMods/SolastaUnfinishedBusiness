@@ -74,6 +74,7 @@ internal static partial class DatabaseHelper
 
         internal static GadgetBlueprint TeleporterParty { get; } =
             GetDefinition<GadgetBlueprint>("TeleporterParty");
+
         internal static GadgetBlueprint VirtualExit { get; } =
             GetDefinition<GadgetBlueprint>("VirtualExit");
 
@@ -82,6 +83,7 @@ internal static partial class DatabaseHelper
 
         internal static GadgetBlueprint Exit { get; } =
             GetDefinition<GadgetBlueprint>("Exit");
+
         internal static GadgetBlueprint ExitMultiple { get; } =
             GetDefinition<GadgetBlueprint>("ExitMultiple");
     }

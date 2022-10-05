@@ -101,10 +101,8 @@ internal static class RulesetCharacterExtensions
         {
             return instance.GetClassSpellRepertoire();
         }
-        else
-        {
-            return instance.SpellRepertoires.FirstOrDefault(r =>
-                r.SpellCastingClass != null && r.SpellCastingClass.Name == className);
-        }
+
+        return instance.SpellRepertoires.FirstOrDefault(r =>
+            r.SpellCastingClass != null && r.SpellCastingClass.Name == className);
     }
 }
