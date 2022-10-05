@@ -25,347 +25,8 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class SpellsBuildersContext
 {
     //
-    // cantrips
+    // CANTRIPS
     //
-
-    internal static SpellDefinition BuildSunlightBlade()
-    {
-        var highlight = new ConditionOperationDescription
-        {
-            hasSavingThrow = false,
-            operation = ConditionOperationDescription.ConditionOperation.Add,
-            conditionDefinition = ConditionDefinitionBuilder
-                .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
-                .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                .SetDuration(DurationType.Round, 1)
-                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                .SetSpecialDuration(true)
-                .AddToDB()
-        };
-
-        var dimLight = new LightSourceForm
-        {
-            brightRange = 0,
-            dimAdditionalRange = 2,
-            lightSourceType = LightSourceType.Basic,
-            color = new Color(0.9f, 0.8f, 0.4f),
-            graphicsPrefabReference = FeatureDefinitionAdditionalDamages
-                .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
-        };
-
-        var sunlitMark = ConditionDefinitionBuilder
-            .Create("ConditionSunlightBladeMarked")
-            .SetGuiPresentationNoContent()
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetDuration(DurationType.Round, 1)
-            .AddToDB();
-
-        return SpellDefinitionBuilder
-            .Create("SunlightBlade")
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
-                    128))
-            .SetSpellLevel(0)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(false)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttack,
-                new UpgradeRangeBasedOnWeaponReach(),
-                CustomSpellEffectLevel.ByCasterLevel
-            )
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Touch,
-                    1,
-                    TargetType.IndividualsUnique
-                )
-                .SetSavingThrowData(
-                    false,
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Charisma
-                )
-                .SetEffectAdvancement(
-                    EffectIncrementMethod.CasterLevelTable,
-                    additionalDicePerIncrement: 1,
-                    incrementMultiplier: 1
-                )
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
-                .SetEffectForms(new EffectFormBuilder()
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionSunlightBlade")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                                .SetDuration(DurationType.Round, 1)
-                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create("AdditionalDamageSunlightBlade")
-                                    .SetGuiPresentationNoContent(true)
-                                    .Configure(
-                                        "SunlightBlade",
-                                        FeatureLimitedUsage.None,
-                                        AdditionalDamageValueDetermination.Die,
-                                        AdditionalDamageTriggerCondition.AlwaysActive,
-                                        RestrictedContextRequiredProperty.MeleeWeapon,
-                                        true,
-                                        DieType.D8,
-                                        1,
-                                        AdditionalDamageType.Specific,
-                                        DamageTypeRadiant,
-                                        AdditionalDamageAdvancement.SlotLevel,
-                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
-                                    )
-                                    .SetTargetCondition(sunlitMark,
-                                        AdditionalDamageTriggerCondition.TargetHasCondition)
-                                    .SetConditionOperations(highlight)
-                                    .SetAddLightSource(true)
-                                    .SetLightSourceForm(dimLight)
-                                    .AddToDB()
-                                )
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            false
-                        ).Build(),
-                    EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)
-                        .Build()
-                )
-                .Build()
-            )
-            .AddToDB();
-    }
-
-    internal static SpellDefinition BuildResonatingStrike()
-    {
-        var resonanceHighLevel = new EffectDescriptionBuilder()
-            .SetParticleEffectParameters(AcidSplash)
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
-                TargetType.Individuals)
-            .SetEffectForms(new EffectFormBuilder()
-                .SetBonusMode(AddBonusMode.AbilityBonus)
-                .SetDamageForm(
-                    dieType: DieType.D8,
-                    diceNumber: 0,
-                    bonusDamage: 0,
-                    damageType: DamageTypeThunder
-                )
-                .Build()
-            )
-            .SetEffectAdvancement(
-                EffectIncrementMethod.PerAdditionalSlotLevel,
-                5, additionalDicePerIncrement: 1)
-            .Build();
-
-        var resonanceLeap = SpellDefinitionBuilder
-            .Create("ResonatingStrikeLeap")
-            .SetGuiPresentationNoContent()
-            .SetSpellLevel(1)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(false)
-            .SetCustomSubFeatures(
-                new BonusSlotLevelsByClassLevel(),
-                new UpgradeEffectFromLevel(resonanceHighLevel, 5)
-            )
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetParticleEffectParameters(AcidSplash)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
-                    TargetType.Individuals)
-                .SetEffectForms(new EffectFormBuilder()
-                    .SetBonusMode(AddBonusMode.AbilityBonus)
-                    .SetDamageForm(
-                        dieType: DieType.D1,
-                        diceNumber: 0,
-                        bonusDamage: 0,
-                        damageType: DamageTypeThunder
-                    )
-                    .Build()
-                )
-                .Build()
-            )
-            .AddToDB();
-
-
-        return SpellDefinitionBuilder
-            .Create("ResonatingStrike")
-            //TODO: replace sprite with actual image
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
-            .SetSpellLevel(0)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(false)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttack,
-                CustomSpellEffectLevel.ByCasterLevel,
-                new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
-            )
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Distance,
-                    5,
-                    TargetType.IndividualsUnique,
-                    2
-                )
-                .SetTargetProximityData(true, 1)
-                .SetSavingThrowData(
-                    false,
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Charisma
-                )
-                .SetEffectAdvancement(
-                    EffectIncrementMethod.CasterLevelTable,
-                    additionalDicePerIncrement: 1,
-                    incrementMultiplier: 1
-                )
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
-                .SetEffectForms(new EffectFormBuilder()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionResonatingStrike")
-                            .SetGuiPresentation(Category.Condition)
-                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetDuration(DurationType.Round, 1)
-                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("AdditionalDamageResonatingStrike")
-                                .SetGuiPresentationNoContent(true)
-                                .Configure(
-                                    "ResonatingStrike",
-                                    FeatureLimitedUsage.None,
-                                    AdditionalDamageValueDetermination.Die,
-                                    AdditionalDamageTriggerCondition.AlwaysActive,
-                                    RestrictedContextRequiredProperty.MeleeWeapon,
-                                    true,
-                                    DieType.D8,
-                                    1,
-                                    AdditionalDamageType.Specific,
-                                    DamageTypeThunder,
-                                    AdditionalDamageAdvancement.SlotLevel,
-                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1),
-                                    true
-                                )
-                                .AddToDB()
-                            )
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        false
-                    )
-                    .Build()
-                )
-                .Build()
-            )
-            .AddToDB();
-    }
-
-    internal static SpellDefinition BuildMinorLifesteal()
-    {
-        var spell = SpellDefinitionBuilder
-            .Create("MinorLifesteal")
-            .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(false)
-            .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
-                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
-                    additionalDicePerIncrement: 1)
-                .AddEffectForm(new EffectFormBuilder()
-                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
-                        healFromInflictedDamage: HealFromInflictedDamage.Half)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
-                .AddEffectForm(new EffectFormBuilder()
-                    .SetTempHPForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
-                .SetParticleEffectParameters(VampiricTouch.EffectDescription.EffectParticleParameters)
-                .Build())
-            .AddToDB();
-        return spell;
-    }
-
-    internal static SpellDefinition BuildIlluminatingSphere()
-    {
-        const string NAME = "IlluminatingSphere";
-
-        var spell = SpellDefinitionBuilder
-            .Create(Sparkle, NAME)
-            .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
-            .AddToDB();
-
-        spell.EffectDescription.SetRangeType(RangeType.Distance);
-        spell.EffectDescription.SetRangeParameter(18);
-        spell.EffectDescription.SetTargetType(TargetType.Sphere);
-        spell.EffectDescription.SetTargetParameter(5);
-        spell.EffectDescription.SetEffectParticleParameters(SacredFlame_B);
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildRadiantMotes()
-    {
-        const string NAME = "RadiantMotes";
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create(MagicMissile.EffectDescription)
-            .SetTargetingData(
-                Side.Enemy,
-                RangeType.Distance,
-                18,
-                TargetType.Individuals,
-                5,
-                2,
-                ActionDefinitions.ItemSelectionType.Equiped)
-            .AddEffectForm(Shine.EffectDescription.EffectForms[0])
-            .SetEffectAdvancement(
-                EffectIncrementMethod.PerAdditionalSlotLevel,
-                1, 2)
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, NAME)
-            .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
-            .SetEffectDescription(effectDescription)
-            .AddToDB();
-
-        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D1;
-        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeRadiant;
-
-        return spell;
-    }
 
     internal static SpellDefinition BuildAcidClaw()
     {
@@ -495,6 +156,337 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
+    internal static SpellDefinition BuildIlluminatingSphere()
+    {
+        const string NAME = "IlluminatingSphere";
+
+        var spell = SpellDefinitionBuilder
+            .Create(Sparkle, NAME)
+            .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
+            .AddToDB();
+
+        spell.EffectDescription.SetRangeType(RangeType.Distance);
+        spell.EffectDescription.SetRangeParameter(18);
+        spell.EffectDescription.SetTargetType(TargetType.Sphere);
+        spell.EffectDescription.SetTargetParameter(5);
+        spell.EffectDescription.SetEffectParticleParameters(SacredFlame_B);
+
+        return spell;
+    }
+
+    internal static SpellDefinition BuildMinorLifesteal()
+    {
+        return SpellDefinitionBuilder
+            .Create("MinorLifesteal")
+            .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(false)
+            .SetSpellLevel(0)
+            .SetRequiresConcentration(false)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
+                    additionalDicePerIncrement: 1)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
+                        healFromInflictedDamage: HealFromInflictedDamage.Half)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetTempHPForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+                .SetParticleEffectParameters(VampiricTouch.EffectDescription.EffectParticleParameters)
+                .Build())
+            .AddToDB();
+    }
+
+    internal static SpellDefinition BuildResonatingStrike()
+    {
+        var resonanceHighLevel = new EffectDescriptionBuilder()
+            .SetParticleEffectParameters(AcidSplash)
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
+                TargetType.Individuals)
+            .SetEffectForms(new EffectFormBuilder()
+                .SetBonusMode(AddBonusMode.AbilityBonus)
+                .SetDamageForm(
+                    dieType: DieType.D8,
+                    diceNumber: 0,
+                    bonusDamage: 0,
+                    damageType: DamageTypeThunder
+                )
+                .Build()
+            )
+            .SetEffectAdvancement(
+                EffectIncrementMethod.PerAdditionalSlotLevel,
+                5, additionalDicePerIncrement: 1)
+            .Build();
+
+        var resonanceLeap = SpellDefinitionBuilder
+            .Create("ResonatingStrikeLeap")
+            .SetGuiPresentationNoContent()
+            .SetSpellLevel(1)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(false)
+            .SetCustomSubFeatures(
+                new BonusSlotLevelsByClassLevel(),
+                new UpgradeEffectFromLevel(resonanceHighLevel, 5)
+            )
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetParticleEffectParameters(AcidSplash)
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
+                    TargetType.Individuals)
+                .SetEffectForms(new EffectFormBuilder()
+                    .SetBonusMode(AddBonusMode.AbilityBonus)
+                    .SetDamageForm(
+                        dieType: DieType.D1,
+                        diceNumber: 0,
+                        bonusDamage: 0,
+                        damageType: DamageTypeThunder
+                    )
+                    .Build()
+                )
+                .Build()
+            )
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create("ResonatingStrike")
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(false)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetCustomSubFeatures(
+                PerformAttackAfterMagicEffectUse.MeleeAttack,
+                CustomSpellEffectLevel.ByCasterLevel,
+                new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
+            )
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetParticleEffectParameters(ScorchingRay)
+                .SetTargetingData(
+                    Side.Enemy,
+                    RangeType.Distance,
+                    5,
+                    TargetType.IndividualsUnique,
+                    2
+                )
+                .SetTargetProximityData(true, 1)
+                .SetSavingThrowData(
+                    false,
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Charisma
+                )
+                .SetEffectAdvancement(
+                    EffectIncrementMethod.CasterLevelTable,
+                    additionalDicePerIncrement: 1,
+                    incrementMultiplier: 1
+                )
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                .SetEffectForms(new EffectFormBuilder()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetConditionForm(ConditionDefinitionBuilder
+                            .Create("ConditionResonatingStrike")
+                            .SetGuiPresentation(Category.Condition)
+                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                            .SetDuration(DurationType.Round, 1)
+                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                .Create("AdditionalDamageResonatingStrike")
+                                .SetGuiPresentationNoContent(true)
+                                .Configure(
+                                    "ResonatingStrike",
+                                    FeatureLimitedUsage.None,
+                                    AdditionalDamageValueDetermination.Die,
+                                    AdditionalDamageTriggerCondition.AlwaysActive,
+                                    RestrictedContextRequiredProperty.MeleeWeapon,
+                                    true,
+                                    DieType.D8,
+                                    1,
+                                    AdditionalDamageType.Specific,
+                                    DamageTypeThunder,
+                                    AdditionalDamageAdvancement.SlotLevel,
+                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1),
+                                    true
+                                )
+                                .AddToDB()
+                            )
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add,
+                        true,
+                        false
+                    )
+                    .Build()
+                )
+                .Build()
+            )
+            .AddToDB();
+    }
+
+    internal static SpellDefinition BuildSunlightBlade()
+    {
+        var highlight = new ConditionOperationDescription
+        {
+            hasSavingThrow = false,
+            operation = ConditionOperationDescription.ConditionOperation.Add,
+            conditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
+                .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                .SetDuration(DurationType.Round, 1)
+                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .SetSpecialDuration(true)
+                .AddToDB()
+        };
+
+        var dimLight = new LightSourceForm
+        {
+            brightRange = 0,
+            dimAdditionalRange = 2,
+            lightSourceType = LightSourceType.Basic,
+            color = new Color(0.9f, 0.8f, 0.4f),
+            graphicsPrefabReference = FeatureDefinitionAdditionalDamages
+                .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+        };
+
+        var sunlitMark = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBladeMarked")
+            .SetGuiPresentationNoContent()
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetDuration(DurationType.Round, 1)
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create("SunlightBlade")
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
+                    128))
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(false)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetCustomSubFeatures(
+                PerformAttackAfterMagicEffectUse.MeleeAttack,
+                new UpgradeRangeBasedOnWeaponReach(),
+                CustomSpellEffectLevel.ByCasterLevel
+            )
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetParticleEffectParameters(ScorchingRay)
+                .SetTargetingData(
+                    Side.Enemy,
+                    RangeType.Touch,
+                    1,
+                    TargetType.IndividualsUnique
+                )
+                .SetSavingThrowData(
+                    false,
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Charisma
+                )
+                .SetEffectAdvancement(
+                    EffectIncrementMethod.CasterLevelTable,
+                    additionalDicePerIncrement: 1,
+                    incrementMultiplier: 1
+                )
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                .SetEffectForms(new EffectFormBuilder()
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionSunlightBlade")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetDuration(DurationType.Round, 1)
+                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                    .Create("AdditionalDamageSunlightBlade")
+                                    .SetGuiPresentationNoContent(true)
+                                    .Configure(
+                                        "SunlightBlade",
+                                        FeatureLimitedUsage.None,
+                                        AdditionalDamageValueDetermination.Die,
+                                        AdditionalDamageTriggerCondition.AlwaysActive,
+                                        RestrictedContextRequiredProperty.MeleeWeapon,
+                                        true,
+                                        DieType.D8,
+                                        1,
+                                        AdditionalDamageType.Specific,
+                                        DamageTypeRadiant,
+                                        AdditionalDamageAdvancement.SlotLevel,
+                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                    )
+                                    .SetTargetCondition(sunlitMark,
+                                        AdditionalDamageTriggerCondition.TargetHasCondition)
+                                    .SetConditionOperations(highlight)
+                                    .SetAddLightSource(true)
+                                    .SetLightSourceForm(dimLight)
+                                    .AddToDB()
+                                )
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            false
+                        ).Build(),
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)
+                        .Build()
+                )
+                .Build()
+            )
+            .AddToDB();
+    }
+
+    internal static SpellDefinition BuildThornyVines()
+    {
+        return SpellDefinitionBuilder
+            .Create("ThornyVines")
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.CreateAssetReferenceSprite("ThornyVines", Resources.ThornyVines, 128))
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                .SetParticleEffectParameters(VenomousSpike)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
+                    additionalDicePerIncrement: 1)
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: DamageTypePiercing)
+                    .Build())
+                .AddEffectForm(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
     internal static SpellDefinition BuildThunderStrike()
     {
         const string NAME = "ThunderStrike";
@@ -533,38 +525,10 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    
-    internal static SpellDefinition BuildThornyVines()
-    {
-        return SpellDefinitionBuilder
-            .Create("ThornyVines")
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("ThornyVines", Resources.ThornyVines, 128))
-            .SetSpellLevel(0)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
-                .SetParticleEffectParameters(VenomousSpike)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
-                    additionalDicePerIncrement: 1)
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: DamageTypePiercing)
-                    .Build())
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                    .Build())
-                .Build())
-            .AddToDB();
-    }
-    
     //
     // LEVEL 01
     //
-    
+
     internal static SpellDefinition BuildFindFamiliar()
     {
         var owlFamiliar = MonsterDefinitionBuilder
@@ -612,12 +576,11 @@ internal static class SpellsBuildersContext
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(1)
+            .SetUniqueInstance(true)
             .SetCastingTime(ActivationTime.Hours1)
             // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
             .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
-
-        spell.uniqueInstance = true;
 
         spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
         spell.EffectDescription.SetRangeType(RangeType.Distance);
@@ -704,18 +667,47 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
+    internal static SpellDefinition BuildRadiantMotes()
+    {
+        const string NAME = "RadiantMotes";
+
+        var spell = SpellDefinitionBuilder
+            .Create(MagicMissile, NAME)
+            .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(MagicMissile.EffectDescription)
+                    .SetTargetingData(
+                        Side.Enemy,
+                        RangeType.Distance,
+                        18,
+                        TargetType.Individuals,
+                        5,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .AddEffectForm(Shine.EffectDescription.EffectForms[0])
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel,
+                        1, 2)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D1;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeRadiant;
+
+        return spell;
+    }
+
     //
     // LEVEL 02
     //
+
     internal static SpellDefinition BuildPetalStorm()
     {
         const string ProxyPetalStormName = "ProxyPetalStorm";
 
-        //TODO: move this over to DB partial
-        TryGetDefinition<EffectProxyDefinition>("ProxyInsectPlague", out var proxyInsectPlague);
-
         _ = EffectProxyDefinitionBuilder
-            .Create(proxyInsectPlague, ProxyPetalStormName)
+            .Create(EffectProxyDefinitions.ProxyInsectPlague, ProxyPetalStormName)
             .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
             .SetCanMove()
             .SetIsEmptyPresentation(false)
@@ -760,6 +752,56 @@ internal static class SpellsBuildersContext
         spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
 
         spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+
+        return spell;
+    }
+
+    [NotNull]
+    internal static SpellDefinition BuildProtectThreshold()
+    {
+        const string ProxyPetalStormName = "ProxyProtectThreshold";
+
+        EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, ProxyPetalStormName)
+            .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(SpikeGrowth, "ProtectThreshold")
+            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetSpellLevel(2)
+            .SetRequiresConcentration(false)
+            .SetRitualCasting(ActivationTime.Minute10)
+            .AddToDB();
+
+        spell.EffectDescription
+            .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+            .SetDurationParameter(10)
+            .SetDurationType(DurationType.Minute)
+            .SetHasSavingThrow(true)
+            .SetRangeParameter(1)
+            .SetRangeType(RangeType.Distance)
+            .SetRecurrentEffect(RecurrentEffect.OnEnter)
+            .SetSavingThrowAbility(AttributeDefinitions.Wisdom)
+            .SetTargetParameter(0)
+            .SetTargetType(TargetType.Sphere);
+
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+
+        spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
+        spell.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
+        spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
 
         return spell;
     }
@@ -864,6 +906,10 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
+    //
+    // LEVEL 07
+    //
+
     internal static SpellDefinition BuildReverseGravity()
     {
         const string ReverseGravityName = "ReverseGravity";
@@ -929,6 +975,10 @@ internal static class SpellsBuildersContext
             .AddToDB();
     }
 
+    //
+    // LEVEL 08
+    //
+
     internal static SpellDefinition BuildMindBlank()
     {
         var effectDescription = new EffectDescriptionBuilder();
@@ -975,6 +1025,10 @@ internal static class SpellsBuildersContext
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    //
+    // LEVEL 09
+    //
 
     internal static SpellDefinition BuildForesight()
     {

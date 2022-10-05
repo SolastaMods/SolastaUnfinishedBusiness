@@ -118,31 +118,28 @@ internal static class SpellsContext
         }
 
         // cantrips
-        RegisterSpell(BuildSunlightBlade(), 0,
-            SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
-        RegisterSpell(BuildResonatingStrike(), 0,
-            SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
-        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
-        RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(BuildAirBlast(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
-        RegisterSpell(BuildThunderStrike(), 0,
-            SpellListWizard, SpellListSorcerer, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
+        RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid, InventorClass.SpellList);
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
+        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
+        RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
 
         // 3rd level
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
-        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
-            SpellListDruid);
+        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
