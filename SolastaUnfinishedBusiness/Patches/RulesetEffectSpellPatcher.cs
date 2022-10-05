@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -18,6 +21,38 @@ public static class RulesetEffectSpellPatcher
         {
             // allowing to pick and/or tweak spell effect depending on some caster properties
             __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetEffectSpell), "SaveDC", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class SaveDC_Getter_Patch
+    {
+        public static void Postfix(RulesetEffectSpell __instance, ref int __result)
+        {
+            //PATCH: allow devices have DC based on user or item summoner stats, instead of static value
+            var originItem = __instance.OriginItem;
+
+            if (originItem == null || __result > -1)
+            {
+                return;
+            }
+
+            var caster = __instance.Caster;
+            string className = null;
+
+            if (__result == -2)
+            {
+                caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
+            }
+
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            if (classHolder != null)
+            {
+                className = classHolder.Class.Name;
+            }
+
+            __result = EffectHelpers.CalculateSaveDc(caster, __instance.spellDefinition.effectDescription, className);
         }
     }
 

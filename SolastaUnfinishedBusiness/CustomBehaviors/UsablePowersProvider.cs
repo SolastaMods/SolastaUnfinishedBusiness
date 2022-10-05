@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -64,7 +64,8 @@ internal static class UsablePowersProvider
         usablePower.remainingUses = pool.RemainingUses / powerCost;
     }
 
-    internal static void UpdateSaveDc([CanBeNull] RulesetCharacter actor, [NotNull] RulesetUsablePower usablePower)
+    internal static void UpdateSaveDc([CanBeNull] RulesetCharacter actor, [NotNull] RulesetUsablePower usablePower,
+        CharacterClassDefinition classDefinition = null)
     {
         var power = usablePower.PowerDefinition;
         var effectDescription = power.EffectDescription;
@@ -74,47 +75,17 @@ internal static class UsablePowersProvider
             return;
         }
 
-        switch (effectDescription.DifficultyClassComputation)
+        string className = null;
+        if (classDefinition == null)
         {
-            case EffectDifficultyClassComputation.SpellCastingFeature:
-            {
-                var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
-
-                foreach (var spellRepertoire in actor.SpellRepertoires)
-                {
-                    if (spellRepertoire.SpellCastingClass != null)
-                    {
-                        rulesetSpellRepertoire = spellRepertoire;
-                        break;
-                    }
-
-                    if (spellRepertoire.SpellCastingSubclass == null)
-                    {
-                        continue;
-                    }
-
-                    rulesetSpellRepertoire = spellRepertoire;
-                    break;
-                }
-
-                if (rulesetSpellRepertoire != null)
-                {
-                    usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
-                }
-
-                break;
-            }
-            case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
-                var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
-                var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-                usablePower.SaveDC = ComputeAbilityScoreBasedDC(attributeValue, proficiencyBonus);
-
-                break;
-            case EffectDifficultyClassComputation.FixedValue:
-                usablePower.SaveDC = effectDescription.FixedSavingThrowDifficultyClass;
-
-                break;
+            classDefinition = actor.FindClassHoldingFeature(power);
         }
+
+        if (classDefinition != null)
+        {
+            className = classDefinition.Name;
+        }
+
+        usablePower.saveDC = EffectHelpers.CalculateSaveDc(actor, effectDescription, className, usablePower.saveDC);
     }
 }
