@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "MagicDevice",
   "weight": 2.1,
   "slotTypes": [
