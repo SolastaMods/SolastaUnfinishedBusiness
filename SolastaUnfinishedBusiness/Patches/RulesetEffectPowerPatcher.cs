@@ -26,7 +26,7 @@ public static class RulesetEffectPowerPatcher
 
             var user = __instance.User;
             CharacterClassDefinition classDefinition = null;
-            if (originItem.UsableDeviceDescription.SaveDC == -2)
+            if (originItem.UsableDeviceDescription.SaveDC == EffectHelpers.BASED_ON_ITEM_SUMMONER)
             {
                 user = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? user;
             }

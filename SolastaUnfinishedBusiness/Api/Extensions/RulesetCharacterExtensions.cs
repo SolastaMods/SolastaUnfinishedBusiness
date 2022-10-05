@@ -94,6 +94,7 @@ internal static class RulesetCharacterExtensions
         return inventorySlot?.EquipedItem;
     }
 
+    [CanBeNull]
     internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance, string className)
     {
         if (string.IsNullOrEmpty(className))

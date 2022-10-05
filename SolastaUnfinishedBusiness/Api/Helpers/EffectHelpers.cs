@@ -4,6 +4,11 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class EffectHelpers
 {
+    /**DC and magic attack bonus will be calculated based on the stats of the user, not from device itself*/
+    public const int BASED_ON_USER = -1;
+    /**DC and magic attack bonus will be calculated based on the stats of character who summoned item, not from device itself*/
+    public const int BASED_ON_ITEM_SUMMONER = -2;
+    
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
         string className, int def = 10)
     {

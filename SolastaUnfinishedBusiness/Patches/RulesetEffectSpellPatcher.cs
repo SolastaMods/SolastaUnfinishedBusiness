@@ -33,7 +33,7 @@ public static class RulesetEffectSpellPatcher
             //PATCH: allow devices have DC based on user or item summoner stats, instead of static value
             var originItem = __instance.OriginItem;
 
-            if (originItem == null || __result > -1)
+            if (originItem == null || __result >= 0)
             {
                 return;
             }
@@ -41,7 +41,7 @@ public static class RulesetEffectSpellPatcher
             var caster = __instance.Caster;
             string className = null;
 
-            if (__result == -2)
+            if (__result == EffectHelpers.BASED_ON_ITEM_SUMMONER)
             {
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
@@ -53,6 +53,80 @@ public static class RulesetEffectSpellPatcher
             }
 
             __result = EffectHelpers.CalculateSaveDc(caster, __instance.spellDefinition.effectDescription, className);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackBonus", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class MagicAttackBonus_Getter_Patch
+    {
+        public static void Postfix(RulesetEffectSpell __instance, ref int __result)
+        {
+            //PATCH: allow devices have magic attack bonus based on user or item summoner stats, instead of static value
+            var originItem = __instance.OriginItem;
+
+            if (originItem == null || originItem.UsableDeviceDescription.magicAttackBonus >= 0)
+            {
+                return;
+            }
+
+            var caster = __instance.Caster;
+            string className = null;
+
+            if (__result == EffectHelpers.BASED_ON_ITEM_SUMMONER)
+            {
+                caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
+            }
+
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            if (classHolder != null)
+            {
+                className = classHolder.Class.Name;
+            }
+
+
+            var repertoire = caster.GetClassSpellRepertoire(className);
+            if (repertoire != null)
+            {
+                __result = repertoire.SpellAttackBonus;
+            }
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackTrends", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class MagicAttackTrends_Getter_Patch
+    {
+        public static void Postfix(RulesetEffectSpell __instance, ref List<RuleDefinitions.TrendInfo> __result)
+        {
+            //PATCH: allow devices have magic attack trends based on user or item summoner stats, instead of static value
+            var originItem = __instance.OriginItem;
+
+            if (originItem == null || originItem.UsableDeviceDescription.magicAttackBonus >= 0)
+            {
+                return;
+            }
+
+            var caster = __instance.Caster;
+            string className = null;
+
+            if (originItem.UsableDeviceDescription.magicAttackBonus == EffectHelpers.BASED_ON_ITEM_SUMMONER)
+            {
+                caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
+            }
+
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            if (classHolder != null)
+            {
+                className = classHolder.Class.Name;
+            }
+
+
+            var repertoire = caster.GetClassSpellRepertoire(className);
+            if (repertoire != null)
+            {
+                __result = repertoire.MagicAttackTrends;
+            }
         }
     }
 
