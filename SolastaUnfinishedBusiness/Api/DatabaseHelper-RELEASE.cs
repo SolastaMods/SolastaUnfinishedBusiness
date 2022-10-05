@@ -865,6 +865,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition UnarmedStrikeBase { get; } = GetDefinition<ItemDefinition>("UnarmedStrikeBase");
         internal static ItemDefinition WandOfIdentify { get; } = GetDefinition<ItemDefinition>("WandOfIdentify");
         internal static ItemDefinition WandOfMagicDetection { get; } = GetDefinition<ItemDefinition>("WandOfMagicDetection");
+        internal static ItemDefinition WandMagicMissile { get; } = GetDefinition<ItemDefinition>("WandMagicMissile");
         internal static ItemDefinition Warhammer { get; } = GetDefinition<ItemDefinition>("Warhammer");
         internal static ItemDefinition WizardClothes_Alternate { get; } = GetDefinition<ItemDefinition>("WizardClothes_Alternate");
     }
@@ -1040,6 +1041,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition GreaterInvisibility { get; } = GetDefinition<SpellDefinition>("GreaterInvisibility");
         internal static SpellDefinition GreaterRestoration { get; } = GetDefinition<SpellDefinition>("GreaterRestoration");
         internal static SpellDefinition GuardianOfFaith { get; } = GetDefinition<SpellDefinition>("GuardianOfFaith");
+        internal static SpellDefinition Guidance { get; } = GetDefinition<SpellDefinition>("Guidance");
         internal static SpellDefinition GuidingBolt { get; } = GetDefinition<SpellDefinition>("GuidingBolt");
         internal static SpellDefinition Haste { get; } = GetDefinition<SpellDefinition>("Haste");
         internal static SpellDefinition Heal { get; } = GetDefinition<SpellDefinition>("Heal");
