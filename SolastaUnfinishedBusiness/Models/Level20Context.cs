@@ -76,7 +76,7 @@ internal static class Level20Context
         {
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
-            while (spellsByLevel.Count < MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {

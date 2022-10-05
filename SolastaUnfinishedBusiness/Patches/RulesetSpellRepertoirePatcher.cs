@@ -18,6 +18,12 @@ public static class RulesetSpellRepertoirePatcher
     {
         public static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
+            if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                return true;
+            }
+
             if (slotLevel == 0 || Main.Settings.DontConsumeSlots)
             {
                 return true;
@@ -44,8 +50,7 @@ public static class RulesetSpellRepertoirePatcher
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
-                    var usedSpellsSlots =
-                        spellRepertoire.usedSpellsSlots;
+                    var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
 
                     usedSpellsSlots.TryAdd(slotLevel, 0);
                     usedSpellsSlots[slotLevel]++;
@@ -56,8 +61,7 @@ public static class RulesetSpellRepertoirePatcher
             // handles MC Warlock
             else
             {
-                SpendMulticasterWarlockSlots(
-                    __instance, warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
+                SpendMulticasterWarlockSlots(__instance, heroWithSpellRepertoire, slotLevel);
             }
 
             return false;
@@ -87,37 +91,19 @@ public static class RulesetSpellRepertoirePatcher
 
         private static void SpendMulticasterWarlockSlots(
             RulesetSpellRepertoire __instance,
-            RulesetSpellRepertoire warlockSpellRepertoire,
             RulesetCharacterHero heroWithSpellRepertoire,
             int slotLevel)
         {
-            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-
             var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-            var usedPactSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
-            var pactRemainingSlots = pactMaxSlots - usedPactSlots;
-
-            warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out _);
-
-            sharedRemainingSlots -= pactRemainingSlots;
-
-            // var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
+            var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
             var isShiftPressed = Global.CurrentAction is CharacterActionCastSpell &&
                                  Global.CurrentAction.actionParams.BoolParameter5;
-            var canConsumePactSlot = pactRemainingSlots > 0 && slotLevel <= warlockSpellLevel;
-            var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
-
-            // var forcePactSlot = __instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock;
-            // var forceSpellSlot = canConsumeSpellSlot &&
-            //                      (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+            var canConsumePactSlot = pactMaxSlots - pactUsedSlots > 0 && slotLevel <= warlockSpellLevel;
 
             // uses short rest slots across all non race repertoires
             if (canConsumePactSlot &&
-                (!canConsumeSpellSlot
-                 || (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock &&
-                     !isShiftPressed)
+                ((__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock && !isShiftPressed)
                  || (__instance.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock &&
                      isShiftPressed)))
             {
@@ -153,6 +139,12 @@ public static class RulesetSpellRepertoirePatcher
     {
         public static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
+            if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                return;
+            }
+
             if (SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior)
             {
                 return;
@@ -179,6 +171,12 @@ public static class RulesetSpellRepertoirePatcher
     {
         public static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
         {
+            if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                return true;
+            }
+
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
             if (heroWithSpellRepertoire == null)
@@ -221,6 +219,12 @@ public static class RulesetSpellRepertoirePatcher
             RulesetSpellRepertoire __instance,
             List<int> availableSlotLevels)
         {
+            if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                return;
+            }
+
             if (__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
             {
                 return;

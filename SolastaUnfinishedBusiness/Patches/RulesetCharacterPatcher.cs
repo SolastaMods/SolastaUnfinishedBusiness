@@ -615,7 +615,9 @@ public static class RulesetCharacterPatcher
 
             // reassign slots back to repertoires except for race ones
             foreach (var spellRepertoire in hero.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null))
+                         .Where(x => x.SpellCastingFeature.SpellCastingOrigin
+                             is FeatureDefinitionCastSpell.CastingOrigin.Class
+                             or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
@@ -764,7 +766,9 @@ public static class RulesetCharacterPatcher
             var warlockUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
 
             foreach (var spellRepertoire in hero.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null))
+                         .Where(x => x.SpellCastingFeature.SpellCastingOrigin
+                             is FeatureDefinitionCastSpell.CastingOrigin.Class
+                             or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
             {
                 for (var i = SharedSpellsContext.PactMagicSlotsTab; i <= warlockSpellLevel; i++)
                 {

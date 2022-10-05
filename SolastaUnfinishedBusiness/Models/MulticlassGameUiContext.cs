@@ -57,7 +57,8 @@ internal static class MulticlassGameUiContext
     {
         var spellRepertoire = __instance.SpellRepertoire;
 
-        if (spellRepertoire.SpellCastingRace != null)
+        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+            or FeatureDefinitionCastSpell.CastingOrigin.Monster)
         {
             return;
         }

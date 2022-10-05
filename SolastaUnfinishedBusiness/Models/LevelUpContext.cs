@@ -453,14 +453,16 @@ internal static class LevelUpContext
 
         hero.SpellRepertoires.Sort((a, b) =>
         {
-            if (a.SpellCastingRace != null)
+            if (a.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
                 return -1;
             }
 
-            if (b.SpellCastingRace != null)
+            if (b.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
-                return 1;
+                return -1;
             }
 
             var title1 = a.SpellCastingClass != null
