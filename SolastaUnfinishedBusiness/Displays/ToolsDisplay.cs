@@ -130,6 +130,8 @@ internal static class ToolsDisplay
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
         }
 
+        UI.Label("");
+
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
                 DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,

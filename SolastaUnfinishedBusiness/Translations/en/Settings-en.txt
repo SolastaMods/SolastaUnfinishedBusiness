@@ -65,7 +65,7 @@ ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during n
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
-ModUi/&EnableRespec=Enable the RESPEC after rest actions
+ModUi/&EnableRespec=Enable the RESPEC after rest action
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
