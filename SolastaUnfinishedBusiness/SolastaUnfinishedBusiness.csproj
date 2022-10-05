@@ -247,17 +247,17 @@
     <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
   </Target>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(SolastaOptimize)' == ''">
     <Compile Remove="Api\DatabaseHelper-RELEASE.cs" />
   </ItemGroup>
 
-  <!-- <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
+  <ItemGroup Condition="'$(SolastaOptimize)' != '' and ('$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU')">
     <Compile Remove="Api\DatabaseHelper.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'">
+  <ItemGroup Condition="'$(SolastaOptimize)' != '' and ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU')">
     <Compile Remove="Api\DatabaseHelper-RELEASE.cs" />
-  </ItemGroup> -->
+  </ItemGroup>
   
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
