@@ -85,6 +85,16 @@ internal static class GlobalUniqueEffects
         GetGroup(group).Item2.AddRange(spells);
     }
 
+    internal static void AddToGroup(Group group, [NotNull] IEnumerable<FeatureDefinitionPower> powers)
+    {
+        GetGroup(group).Item1.AddRange(powers);
+    }
+
+    internal static void AddToGroup(Group group, IEnumerable<SpellDefinition> spells)
+    {
+        GetGroup(group).Item2.AddRange(spells);
+    }
+
     /**
      * Used in the patch to terminate all matching powers and spells of same group
      */
@@ -217,5 +227,5 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    internal enum Group { Familiar, Artisan }
+    internal enum Group { Familiar, InventorSpellStoringItem }
 }

@@ -25,7 +25,7 @@ internal static class PowersBundleContext
         RegisterPowerBundle(masterPower, terminateAll, subPowers.ToList());
     }
 
-    private static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+    public static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
         [NotNull] IEnumerable<FeatureDefinitionPower> subPowers)
     {
         if (Bundles.ContainsKey(masterPower))

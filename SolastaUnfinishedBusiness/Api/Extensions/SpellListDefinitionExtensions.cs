@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -16,12 +17,20 @@ internal static class SpellListDefinitionExtensions
         {
             list.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
             {
-                level = spell.spellLevel, spells = new List<SpellDefinition> { spell }
+                level = spell.spellLevel, spells = new List<SpellDefinition> {spell}
             });
         }
         else
         {
             list.spellsByLevel[index].spells.TryAdd(spell);
         }
+    }
+
+    internal static List<SpellDefinition> GetSpellsOfLevels(this SpellListDefinition list, params int[] levels)
+    {
+        return list.spellsByLevel
+            .Where(d => levels.Contains(d.level))
+            .SelectMany(d => d.spells)
+            .ToList();
     }
 }

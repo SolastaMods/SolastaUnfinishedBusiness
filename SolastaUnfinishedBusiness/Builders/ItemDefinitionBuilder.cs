@@ -21,6 +21,12 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+    internal ItemDefinitionBuilder HideFromDongeonEditor()
+    {
+        Definition.inDungeonEditor = false;
+        return this;
+    }
+
 #if false
     internal ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
     {
@@ -32,7 +38,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
     internal ItemDefinitionBuilder SetGold(int gold)
     {
-        Definition.costs = new[] { 0, gold, 0, 0, 0 };
+        Definition.costs = new[] {0, gold, 0, 0, 0};
         return this;
     }
 

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -30,7 +33,7 @@ internal static class InventorClass
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
     private static int infusionPoolIncreases;
 
-    private static CharacterClassDefinition Class { get; set; }
+    internal static CharacterClassDefinition Class { get; set; }
 
     public static FeatureDefinitionPower InfusionPool { get; private set; }
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
@@ -297,6 +300,8 @@ internal static class InventorClass
             #endregion
 
             #region Level 11
+
+            .AddFeaturesAtLevel(11, BuildSpellStoringItem())
 
             #endregion
 
@@ -571,4 +576,94 @@ internal static class InventorClass
             .IgnoreClassRestrictionsOnMagicalItems()
             .AddToDB();
     }
+
+    private static FeatureDefinition BuildSpellStoringItem()
+    {
+        var master = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorSpellStoringItem")
+            .SetGuiPresentation(Category.Feature, ItemDefinitions.WandMagicMissile)
+            .SetActivationTime(ActivationTime.Action)
+            .SetUsesFixed(1)
+            .SetCostPerUse(1)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .AddToDB();
+
+        var powers = new List<FeatureDefinitionPower>();
+        foreach (var spell in SpellList.GetSpellsOfLevels(1, 2))
+        {
+            if (spell.castingTime != ActivationTime.Action) { continue; }
+
+            var power = BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master);
+            powers.Add(power);
+        }
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers);
+        PowersBundleContext.RegisterPowerBundle(master, true, powers);
+
+        return master;
+    }
+
+    public static FeatureDefinitionPowerSharedPool BuildCreateSpellStoringItemPower(ItemDefinition item,
+        SpellDefinition spell, FeatureDefinitionPower pool)
+    {
+        var description = Gui.Format("Item/&CreateSpellStoringWandFormatDescription", spell.FormatTitle(),
+            Gui.ToRoman(spell.spellLevel));
+
+        var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
+            .SetGuiPresentation(spell.FormatTitle(), description, spell)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetSharedPool(pool)
+            .SetUniqueInstance()
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
+                .SetParticleEffectParameters(SpellDefinitions.Bless)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(new EffectFormBuilder()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetSummonItemForm(item, 1, true)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return power;
+    }
+
+    private static ItemDefinition BuildWandOfSpell(SpellDefinition spell)
+    {
+        return ItemDefinitionBuilder
+            .Create(ItemDefinitions.WandMagicMissile, $"SpellStoringWandOf{spell.Name}")
+            .SetOrUpdateGuiPresentation($"Wand of {spell.FormatTitle()}",
+                $"This wand allows casting of the <b>{spell.Name}</b> spell using spell casting stats of the Inventor who created it.")
+            .SetRequiresIdentification(false)
+            .HideFromDongeonEditor()
+            .SetCustomSubFeatures(InventorClassHolder.Marker)
+            .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
+                .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
+                .SetChargesCapitalNumber(6) //TODO: try to make this based off Inventor's INT bonus x2
+                .SetOutOfChargesConsequence(EquipmentDefinitions.ItemOutOfCharges.Destroy)
+                .SetRecharge(RechargeRate.None)
+                .SetSaveDc(EffectHelpers.BASED_ON_ITEM_SUMMONER)
+                .SetMagicAttackBonus(EffectHelpers.BASED_ON_ITEM_SUMMONER)
+                .AddFunctions(new DeviceFunctionDescriptionBuilder()
+                    .SetUsage(useAmount: 1, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                    .SetSpell(spell)
+                    .Build()
+                )
+                .Build())
+            .AddToDB();
+    }
+}
+
+internal class InventorClassHolder : IClassHoldingFeature
+{
+    public static InventorClassHolder Marker { get; } = new();
+
+    private InventorClassHolder()
+    {
+    }
+
+    public CharacterClassDefinition Class => InventorClass.Class;
 }
