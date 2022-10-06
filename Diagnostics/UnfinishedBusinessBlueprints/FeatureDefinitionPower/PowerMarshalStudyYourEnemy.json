@@ -60,7 +60,7 @@
     "effectFormFilters": [],
     "effectForms": [
       {
-        "$type": "SolastaUnfinishedBusiness.Subclasses.PowerMarshalStudyYourEnemyBuilder+StudyEnemyEffectDescription, SolastaUnfinishedBusiness",
+        "$type": "SolastaUnfinishedBusiness.Subclasses.MartialMarshal+StudyEnemyEffectDescription, SolastaUnfinishedBusiness",
         "formType": 9000,
         "addBonusMode": "None",
         "applyLevel": "No",

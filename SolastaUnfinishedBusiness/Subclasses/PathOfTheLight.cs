@@ -27,25 +27,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static readonly List<ConditionDefinition> InvisibleConditions =
         new() { ConditionInvisibleBase, ConditionDefinitions.ConditionInvisible, ConditionInvisibleGreater };
 
-    private static readonly Dictionary<int, int> LightsProtectionAmountHealedByClassLevel = new()
-    {
-        { 6, 3 },
-        { 7, 3 },
-        { 8, 4 },
-        { 9, 4 },
-        { 10, 5 },
-        { 11, 5 },
-        { 12, 6 },
-        { 13, 6 },
-        { 14, 7 },
-        { 15, 7 },
-        { 16, 8 },
-        { 17, 8 },
-        { 18, 9 },
-        { 19, 9 },
-        { 20, 10 }
-    };
-
     internal PathOfTheLight()
     {
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
@@ -286,6 +267,25 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
     {
+        var lightsProtectionAmountHealedByClassLevel = new Dictionary<int, int>
+        {
+            { 6, 3 },
+            { 7, 3 },
+            { 8, 4 },
+            { 9, 4 },
+            { 10, 5 },
+            { 11, 5 },
+            { 12, 6 },
+            { 13, 6 },
+            { 14, 7 },
+            { 15, 7 },
+            { 16, 8 },
+            { 17, 8 },
+            { 18, 9 },
+            { 19, 9 },
+            { 20, 10 }
+        };
+        
         if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
             conditionSource.IsDead)
         {
@@ -298,7 +298,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             return;
         }
 
-        if (!LightsProtectionAmountHealedByClassLevel.TryGetValue(levelsInClass, out var amountHealed))
+        if (!lightsProtectionAmountHealedByClassLevel.TryGetValue(levelsInClass, out var amountHealed))
         {
             // Character doesn't heal at the current level
             return;
