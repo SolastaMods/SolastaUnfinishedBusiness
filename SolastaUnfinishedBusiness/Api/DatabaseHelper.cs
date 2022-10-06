@@ -8086,9 +8086,6 @@ internal static partial class DatabaseHelper
             GetDefinition<FightingStyleDefinition>("TwoWeapon");
 
     }
-    internal static class GadgetBlueprints
-    {
-    }
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition AgonizingBlast { get; } =
