@@ -58,4 +58,24 @@ internal static class EffectHelpers
 
         return null;
     }
+
+    internal static (RulesetCharacter, BaseDefinition) GetCharacterAndSourceDefinitionByEffectGuid(ulong guid)
+    {
+        if (guid == 0) { return (null, null); }
+
+        if (RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
+        {
+            if (effect is RulesetEffectSpell spell)
+            {
+                return (spell.Caster, spell.SourceDefinition);
+            }
+
+            if (effect is RulesetEffectPower power)
+            {
+                return (power.User, power.PowerDefinition);
+            }
+        }
+
+        return (null, null);
+    }
 }

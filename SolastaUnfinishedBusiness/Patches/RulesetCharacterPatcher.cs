@@ -86,29 +86,60 @@ public static class RulesetCharacterPatcher
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
+            if (__result) { return; }
+
             //PATCH: Allows valid Somatic component if specific material component is held in main hand or off hand slots
             // allows casting somatic spells with full hands if one of the hands holds material component for the spell
-            if (__result || spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
+            ValidateIfMaterialInHand(__instance, spellDefinition, ref __result, ref failure);
+
+            if (__result) { return; }
+
+            //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off hand slots
+            // allows casting somatic spells with full hands if one of the hands holds item infused by the caster
+            ValidateIfInfusedInHand(__instance, spellDefinition, ref __result, ref failure);
+        }
+
+        //TODO: move to separate file
+        private static void ValidateIfMaterialInHand(RulesetCharacter caster, SpellDefinition spellDefinition,
+            ref bool result, ref string failure)
+        {
+            if (spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
             {
                 return;
             }
 
             var materialTag = spellDefinition.SpecificMaterialComponentTag;
-            var inventorySlotsByName = __instance.CharacterInventory.InventorySlotsByName;
-            var mainHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
-            var offHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
+            var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
             var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
 
-            mainHand?.FillTags(tagsMap, __instance, true);
-            offHand?.FillTags(tagsMap, __instance, true);
+            mainHand?.FillTags(tagsMap, caster, true);
+            offHand?.FillTags(tagsMap, caster, true);
 
-            if (!tagsMap.ContainsKey(materialTag))
+            if (tagsMap.ContainsKey(materialTag))
+            {
+                result = true;
+                failure = string.Empty;
+            }
+        }
+
+        //TODO: move to separate file
+        private static void ValidateIfInfusedInHand(RulesetCharacter caster, SpellDefinition spell,
+            ref bool result, ref string failure)
+        {
+            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane)
             {
                 return;
             }
 
-            __result = true;
-            failure = string.Empty;
+            var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
+            var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+
+            if (caster.HoldsMyInfusion(mainHand) || caster.HoldsMyInfusion(offHand))
+            {
+                result = true;
+                failure = string.Empty;
+            }
         }
     }
 
@@ -122,37 +153,68 @@ public static class RulesetCharacterPatcher
             //PATCH: Allow spells to satisfy material components by using stack of equal or greater value
             StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
 
-            //TODO: move to separate file
+            if (__result) { return; }
+
             //PATCH: Allows spells to satisfy specific material components by actual active tags on an item that are not directly defined in ItemDefinition (like "Melee")
             //Used mostly for melee cantrips requiring melee weapon to cast
-            if (__result || spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
-            {
-                return;
-            }
+            ValidateSpecificComponentsByTags(__instance, spellDefinition, ref __result, ref failure);
 
-            var materialTag = spellDefinition.SpecificMaterialComponentTag;
-            var requiredCost = spellDefinition.SpecificMaterialComponentCostGp;
+            if (__result) { return; }
+
+            //PATCH: Allows spells to satisfy mundane material components if Inventor has infused item equipped
+            //Used mostly for melee cantrips requiring melee weapon to cast
+            ValidateInfusedFocus(__instance, spellDefinition, ref __result, ref failure);
+        }
+
+        //TODO: move to separate file
+        private static void ValidateSpecificComponentsByTags(RulesetCharacter caster, SpellDefinition spell,
+            ref bool result,
+            ref string failure)
+        {
+            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific) { return; }
+
+            var materialTag = spell.SpecificMaterialComponentTag;
+            var requiredCost = spell.SpecificMaterialComponentCostGp;
 
             List<RulesetItem> items = new();
-            __instance.CharacterInventory.EnumerateAllItems(items);
+            caster.CharacterInventory.EnumerateAllItems(items);
 
             var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
 
             foreach (var rulesetItem in items)
             {
                 tagsMap.Clear();
-                rulesetItem.FillTags(tagsMap, __instance, true);
+                rulesetItem.FillTags(tagsMap, caster, true);
 
                 var itemItemDefinition = rulesetItem.ItemDefinition;
                 var costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
 
                 if (!tagsMap.ContainsKey(materialTag) || costInGold < requiredCost)
                 {
-                    continue;
+                    result = true;
+                    failure = string.Empty;
                 }
+            }
+        }
 
-                __result = true;
-                failure = string.Empty;
+        //TODO: move to separate file
+        private static void ValidateInfusedFocus(RulesetCharacter caster, SpellDefinition spell,
+            ref bool result,
+            ref string failure)
+        {
+            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane) { return; }
+
+            List<RulesetItem> items = new();
+            caster.CharacterInventory.EnumerateAllItems(items);
+
+            foreach (var item in items)
+            {
+                if (caster.HoldsMyInfusion(item))
+                {
+                    result = true;
+                    failure = string.Empty;
+                    return;
+                }
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
@@ -104,5 +106,35 @@ internal static class RulesetCharacterExtensions
 
         return instance.SpellRepertoires.FirstOrDefault(r =>
             r.SpellCastingClass != null && r.SpellCastingClass.Name == className);
+    }
+
+    /**@returns true if item holds an infusion created by this character*/
+    internal static bool HoldsMyInfusion(this RulesetCharacter instance, RulesetItem item)
+    {
+        if (item == null) { return false; }
+
+        if (instance.IsMyInfusion(item.SourceSummoningEffectGuid)) { return true; }
+
+        foreach (var property in item.dynamicItemProperties)
+        {
+            if (instance.IsMyInfusion(property.SourceEffectGuid)) { return true; }
+        }
+
+        return false;
+    }
+
+    /**@returns true if effect with this guid is an infusion created by this character*/
+    internal static bool IsMyInfusion(this RulesetCharacter instance, ulong guid)
+    {
+        if (instance == null || guid == 0) { return false; }
+
+        var (caster, definition) = EffectHelpers.GetCharacterAndSourceDefinitionByEffectGuid(guid);
+
+        if (caster == null || definition == null) { return false; }
+
+        return caster == instance
+               //detecting if this item is from infusion by checking if it has infusion limiter
+               && definition.GetAllSubFeaturesOfType<ILimitedEffectInstances>()
+                   .Contains(InventorClass.InfusionLimiter);
     }
 }
