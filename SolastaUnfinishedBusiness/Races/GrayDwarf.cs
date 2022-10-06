@@ -203,12 +203,12 @@ internal static class GrayDwarfSubraceBuilder
             .SetGuiPresentation(Category.Race, grayDwarfSpriteReference)
             .SetRacePresentation(grayDwarfRacePresentation)
             .SetFeaturesAtLevel(1,
-                FeatureDefinitionMoveModes.MoveModeMove5,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages,
-                featureSetGrayDwarfAncestry,
                 attributeModifierGrayDwarfStrengthAbilityScoreIncrease,
-                lightAffinityGrayDwarfLightSensitivity)
+                featureSetGrayDwarfAncestry,
+                FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                lightAffinityGrayDwarfLightSensitivity,
+                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages
+            )
             .AddFeaturesAtLevel(3, powerGrayDwarfStoneStrength)
             .AddFeaturesAtLevel(5, powerGrayDwarfInvisibility)
             .AddToDB();

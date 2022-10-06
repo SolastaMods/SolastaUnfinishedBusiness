@@ -99,13 +99,13 @@ internal static class RaceBolgrifBuilder
             .SetBaseHeight(84)
             .SetBaseWeight(170)
             .SetFeaturesAtLevel(1,
-                FeatureDefinitionMoveModes.MoveModeMove6,
-                attributeModifierBolgrifWisdomAbilityScoreIncrease,
                 attributeModifierBolgrifStrengthAbilityScoreIncrease,
-                FeatureDefinitionSenses.SenseNormalVision,
+                attributeModifierBolgrifWisdomAbilityScoreIncrease,
                 equipmentAffinityBolgrifPowerfulBuild,
                 powerBolgrifInvisibility,
+                FeatureDefinitionSenses.SenseNormalVision,
                 castSpellBolgrifMagic,
+                FeatureDefinitionMoveModes.MoveModeMove6,
                 proficiencyBolgrifLanguages)
             .AddToDB();
 
