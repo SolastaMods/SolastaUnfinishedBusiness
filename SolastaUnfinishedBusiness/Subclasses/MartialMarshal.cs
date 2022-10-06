@@ -29,20 +29,28 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialMarshal : AbstractSubclass
 {
+    private const string FeatureSetMarshalKnowYourEnemyName = "FeatureSetMarshalKnowYourEnemy";
+
+    private const string MarshalCoordinatedAttackName = "MarshalCoordinatedAttack";
+
+    private const string EternalComradeName = "MarshalEternalComrade";
+
+    private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
+
     internal MartialMarshal()
     {
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3,
-                MarshalCoordinatedAttackBuilder.BuildMarshalCoordinatedAttack(),
-                FeatureSetMarshalKnowYourEnemyBuilder.BuildFeatureSetMarshalKnowYourEnemyFeatureSet(),
-                PowerMarshalStudyYourEnemyBuilder.BuildStudyEnemyPower())
+                BuildMarshalCoordinatedAttack(),
+                BuildFeatureSetMarshalKnowYourEnemyFeatureSet(),
+                BuildStudyEnemyPower())
             .AddFeaturesAtLevel(7,
-                EternalComradeBuilder.BuildFeatureSetMarshalEternalComrade())
+                BuildFeatureSetMarshalEternalComrade())
             .AddFeaturesAtLevel(10,
-                FeatureSetMarshalFearlessCommanderBuilder.BuildFeatureSetMarshalFearlessCommander(),
-                EncourageBuilder.BuildEncourage())
+                BuildFeatureSetMarshalFearlessCommander(),
+                BuildEncourage())
             .AddToDB();
     }
 
@@ -50,11 +58,6 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-}
-
-internal static class FeatureSetMarshalKnowYourEnemyBuilder
-{
-    private const string FeatureSetMarshalKnowYourEnemy = "FeatureSetMarshalKnowYourEnemy";
 
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
@@ -79,14 +82,14 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
 
         attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
         attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-            FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemy, null));
+            FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemyName, null));
     }
 
-    internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
+    private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionOnComputeAttackModifierBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
-            .SetGuiPresentation(FeatureSetMarshalKnowYourEnemy, Category.Feature)
+            .SetGuiPresentation(FeatureSetMarshalKnowYourEnemyName, Category.Feature)
             .SetOnComputeAttackModifierDelegate(FeatureSetMarshalKnowYourEnemyComputeAttackModifier)
             .AddToDB();
 
@@ -102,7 +105,7 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
         additionalDamageMarshalFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetMarshalKnowYourEnemy)
+            .Create(FeatureSetMarshalKnowYourEnemyName)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 onComputeAttackModifierMarshalKnowYourEnemy,
@@ -124,11 +127,8 @@ internal static class FeatureSetMarshalKnowYourEnemyBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
-}
 
-internal static class PowerMarshalStudyYourEnemyBuilder
-{
-    internal static FeatureDefinitionPower BuildStudyEnemyPower()
+    private static FeatureDefinitionPower BuildStudyEnemyPower()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
@@ -149,72 +149,6 @@ internal static class PowerMarshalStudyYourEnemyBuilder
                 .SetEffectForms(new StudyEnemyEffectDescription()))
             .AddToDB();
     }
-
-    private sealed class StudyEnemyEffectDescription : CustomEffectForm
-    {
-        internal override void ApplyForm(
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            List<string> effectiveDamageTypes,
-            bool retargeting,
-            bool proxyOnly,
-            bool forceSelfConditionOnly,
-            EffectApplication effectApplication = EffectApplication.All,
-            [CanBeNull] List<EffectFormFilter> filters = null)
-        {
-            var manager = ServiceRepository.GetService<IGameLoreService>();
-            var gameLocationCharacter = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
-
-            if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
-            {
-                return;
-            }
-
-            if (!manager.Bestiary.TryGetBestiaryEntry(creature, out var entry)
-                && (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full
-                    || (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Reference &&
-                        creature.MonsterDefinition.BestiaryReference.BestiaryEntry ==
-                        BestiaryDefinitions.BestiaryEntry.Full)))
-            {
-                entry = manager.Bestiary.AddNewMonsterEntry(creature.MonsterDefinition);
-                manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);
-            }
-
-            if (entry == null)
-            {
-                return;
-            }
-
-            var checkModifier = new ActionModifier();
-            var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
-
-            roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
-                10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
-                false, -1, out var outcome, out _, true);
-
-            var level = entry.KnowledgeLevelDefinition.Level;
-            var num = level;
-
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                var num2 = outcome == RollOutcome.Success ? 1 : 2;
-
-                num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
-                manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
-            }
-
-            gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
-                gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
-        }
-
-        internal override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-        {
-        }
-    }
-}
-
-internal static class MarshalCoordinatedAttackBuilder
-{
-    private const string MarshalCoordinatedAttack = "MarshalCoordinatedAttack";
 
     private static IEnumerator MarshalCoordinatedAttackOnAttackHitDelegate(
         GameLocationCharacter attacker,
@@ -239,8 +173,7 @@ internal static class MarshalCoordinatedAttackBuilder
         foreach (var guestCharacter in characterService.GuestCharacters)
         {
             if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
-                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeBuilder
-                    .EternalComradeName))
+                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))
             {
                 continue;
             }
@@ -308,7 +241,7 @@ internal static class MarshalCoordinatedAttackBuilder
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
                 allAttackMode, defender, actionModifierBefore)
             {
-                StringParameter2 = MarshalCoordinatedAttack, BoolParameter4 = !canAttack
+                StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = !canAttack
             };
 
             reactions.Add(reactionParams);
@@ -330,21 +263,14 @@ internal static class MarshalCoordinatedAttackBuilder
         yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
-    internal static FeatureDefinition BuildMarshalCoordinatedAttack()
+    private static FeatureDefinition BuildMarshalCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
-            .Create(MarshalCoordinatedAttack)
+            .Create(MarshalCoordinatedAttackName)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackFinished(MarshalCoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
     }
-}
-
-internal static class EternalComradeBuilder
-{
-    internal const string EternalComradeName = "MarshalEternalComrade";
-
-    private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
 
     private static MonsterDefinition BuildEternalComradeMonster()
     {
@@ -416,7 +342,7 @@ internal static class EternalComradeBuilder
             .AddToDB();
     }
 
-    internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
+    private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
         //TODO: make this use concentration and reduce the duration to may be 3 rounds
         //TODO: increase the number of use to 2 and recharge per long rest
@@ -498,11 +424,8 @@ internal static class EternalComradeBuilder
             .SetFeatureSet(summoningAffinityMarshalEternalComrade, powerMarshalSummonEternalComrade)
             .AddToDB();
     }
-}
 
-internal static class FeatureSetMarshalFearlessCommanderBuilder
-{
-    internal static FeatureDefinitionFeatureSet BuildFeatureSetMarshalFearlessCommander()
+    private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalFearlessCommander()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetMarshalFearlessCommander")
@@ -511,11 +434,8 @@ internal static class FeatureSetMarshalFearlessCommanderBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
-}
 
-internal static class EncourageBuilder
-{
-    internal static FeatureDefinitionPower BuildEncourage()
+    private static FeatureDefinitionPower BuildEncourage()
     {
         var conditionMarshalEncouraged = ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
@@ -570,5 +490,66 @@ internal static class EncourageBuilder
                     .Build())
             .SetShowCasting(false)
             .AddToDB();
+    }
+
+    private sealed class StudyEnemyEffectDescription : CustomEffectForm
+    {
+        internal override void ApplyForm(
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            List<string> effectiveDamageTypes,
+            bool retargeting,
+            bool proxyOnly,
+            bool forceSelfConditionOnly,
+            EffectApplication effectApplication = EffectApplication.All,
+            [CanBeNull] List<EffectFormFilter> filters = null)
+        {
+            var manager = ServiceRepository.GetService<IGameLoreService>();
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+
+            if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
+            {
+                return;
+            }
+
+            if (!manager.Bestiary.TryGetBestiaryEntry(creature, out var entry)
+                && (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full
+                    || (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Reference &&
+                        creature.MonsterDefinition.BestiaryReference.BestiaryEntry ==
+                        BestiaryDefinitions.BestiaryEntry.Full)))
+            {
+                entry = manager.Bestiary.AddNewMonsterEntry(creature.MonsterDefinition);
+                manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);
+            }
+
+            if (entry == null)
+            {
+                return;
+            }
+
+            var checkModifier = new ActionModifier();
+            var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
+
+            roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
+                10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
+                false, -1, out var outcome, out _, true);
+
+            var level = entry.KnowledgeLevelDefinition.Level;
+            var num = level;
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                var num2 = outcome == RollOutcome.Success ? 1 : 2;
+
+                num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
+                manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
+            }
+
+            gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
+                gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
+        }
+
+        internal override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+        {
+        }
     }
 }

@@ -145,6 +145,8 @@ internal static class ItemsAndCraftingDisplay
             CraftingContext.UpdateRecipeCost();
         }
 
+        UI.Label("");
+
         intValue = Main.Settings.TotalCraftingTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
         {

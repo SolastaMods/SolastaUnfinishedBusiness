@@ -137,8 +137,13 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Misaye, proficiencyCraftySmithsTools, proficiencyCraftyBows)
             .AddToDB();
 
-        feats.AddRange(featApothecaryInt, featApothecaryWis, featManacalonCrafter, featToxicologistInt,
+        feats.AddRange(
+            featApothecaryInt,
+            featApothecaryWis,
+            featManacalonCrafter,
+            featToxicologistInt,
             featToxicologistWis,
-            featCraftyScribe, featCraftyFletcher);
+            featCraftyScribe,
+            featCraftyFletcher);
     }
 }

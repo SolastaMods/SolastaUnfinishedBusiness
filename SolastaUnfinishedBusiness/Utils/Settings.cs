@@ -167,11 +167,10 @@ public class Settings : UnityModManager.ModSettings
     // General
 #if DEBUG
     public bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; } = true;
 #else
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #if DEBUG
     public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
 #else

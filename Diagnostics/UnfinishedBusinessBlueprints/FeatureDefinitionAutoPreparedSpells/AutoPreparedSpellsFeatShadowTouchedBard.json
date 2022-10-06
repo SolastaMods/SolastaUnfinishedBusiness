@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerShadowTouchedTitle",
-    "description": "Feature/&PowerShadowTouchedDescription",
+    "title": "Feature/&AutoPreparedSpellsFeatShadowTouchedTitle",
+    "description": "Feature/&AutoPreparedSpellsFeatShadowTouchedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

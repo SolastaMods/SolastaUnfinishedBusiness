@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCelestialTouchedTitle",
-    "description": "Feature/&PowerCelestialTouchedDescription",
+    "title": "Feature/&AutoPreparedSpellsFeatCelestialTouchedTitle",
+    "description": "Feature/&AutoPreparedSpellsFeatCelestialTouchedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
