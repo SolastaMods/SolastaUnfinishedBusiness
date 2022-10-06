@@ -76,6 +76,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {

@@ -612,6 +612,54 @@
       "odds": 30,
       "itemDefinition": "Definition:Bolt_Alchemy_Flash:e7b4d298edc34fd46a4209a5ac3e53fc",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_RapierOfHarmony:273a8678b734bde479f70c377a6680d2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_EldritchWounds:081970c911c936445bee945da1b2579e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_GauntletOfAcuteness:399e4a1116d2d74409a87ddaecf27e25",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_GauntletOfSharpness:24f0ef2e6a7ffa74090b0859585c107f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_WandOfWarMage+1:e960fcffb655ff941b3a5a71cb83f93b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_WandOfWarMage+2:909e72b02909c6e4597af137312a96d2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_ScimitarOfSpeed:e560b3dc6cd4d7a488cc04e8600d261e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Item_RestorativeOintment:2e685b93a8e898040a2939e061c640b1",
+      "amount": 1
     }
   ],
   "guiPresentation": {

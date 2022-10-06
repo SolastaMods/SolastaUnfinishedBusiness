@@ -77,7 +77,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionRaging:1567bb2d092a2bf4fbe78f6ea6afdf49",
+          "conditionDefinition": "Definition:ConditionRagingNormal:804b1d48468ede74f970bbabd5be661f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

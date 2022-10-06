@@ -37,7 +37,7 @@
   "requiredAttunementClasses": [
     "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb"
   ],
-  "itemRarity": "Rare",
+  "itemRarity": "VeryRare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -143,6 +143,7 @@
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePiercing",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
@@ -177,6 +178,7 @@
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePsychic",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,

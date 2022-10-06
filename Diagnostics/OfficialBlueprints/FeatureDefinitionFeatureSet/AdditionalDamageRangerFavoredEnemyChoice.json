@@ -17,6 +17,7 @@
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 1,
   "uniqueChoices": true,
   "enumerateInDescription": false,

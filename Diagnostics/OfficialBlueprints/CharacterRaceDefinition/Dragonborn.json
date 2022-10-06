@@ -53,7 +53,7 @@
     "Language_Elvish"
   ],
   "audioSwitches": [],
-  "audioRaceRTPCValue": 6.0,
+  "audioRaceRTPCValue": 66.0,
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Dragonborn",
@@ -163,7 +163,8 @@
       "Horns_B",
       "Horns_C",
       "Horns_D",
-      "Horns_E"
+      "Horns_E",
+      "Horns_None"
     ],
     "maleTailOptions": [
       "Tail_A",
@@ -177,7 +178,8 @@
       "Tail_B",
       "Tail_C",
       "Tail_D",
-      "Tail_E"
+      "Tail_E",
+      "Tail_None"
     ],
     "maleBeardShapeOptions": [
       "BeardShape_None"

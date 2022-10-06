@@ -124,6 +124,7 @@
           "versatileDieType": "D1",
           "bonusDamage": 0,
           "damageType": "DamageRadiant",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,

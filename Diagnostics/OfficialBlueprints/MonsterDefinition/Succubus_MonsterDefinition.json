@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "Monster",
+  "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [
@@ -132,7 +132,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Reference",
+  "bestiaryEntry": "None",
   "bestiaryReference": "Definition:Incubus_MonsterDefinition:b66bd35008bf8a34aa2b57a1305dcecf",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

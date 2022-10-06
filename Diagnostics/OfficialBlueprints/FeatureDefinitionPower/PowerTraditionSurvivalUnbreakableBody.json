@@ -80,7 +80,7 @@
           "conditionDefinition": "Definition:ConditionTraditionSurvivalUnbreakableBody:1555aa4ca1535134a9ceff3570a0407c",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

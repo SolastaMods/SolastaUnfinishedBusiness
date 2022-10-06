@@ -495,6 +495,12 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:ScrollHaste:86282f21c767a9743be81fe51d2f72ba",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
       "odds": 6,
       "itemDefinition": "Definition:PotionOfInvisibility:9f3974b2b1468d242af51b8bd8a28420",
       "amount": 1
@@ -545,12 +551,6 @@
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 4,
       "itemDefinition": "Definition:ScrollFly:ee195999a17fbeb499cc04a1b3218b53",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 4,
-      "itemDefinition": "Definition:ScrollHaste:86282f21c767a9743be81fe51d2f72ba",
       "amount": 1
     },
     {
@@ -923,6 +923,30 @@
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:ScrollWallOfThorns:c0c4c8bcbefe2514ebccbbde7c7b02c1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:ChargedBlueSapphire:a54c8c582a8a5cf4a8c908196e190c1d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:ChargedRedCorundum:b75abfba69f9c634fb85eb968328a0cc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:ChargedYellowDiamond:1cd6e35747e3f2241934e09ca43e394c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:RestorativeOintment:97987a31b6e74b94b8dbd6f9d59f9716",
       "amount": 1
     }
   ],

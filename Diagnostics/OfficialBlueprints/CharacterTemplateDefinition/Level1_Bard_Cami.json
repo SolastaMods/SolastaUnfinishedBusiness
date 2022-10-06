@@ -43,11 +43,12 @@
   "alignmentPersonalityFlag2": "Pragmatism",
   "fightingStyle": null,
   "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Lute:bf3245124743f6340804f14ffb022fa1",
     "Definition:Bard_Armor:d041a8030f0a2f34abc7df69f32bd8c5",
     "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
     "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
     "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df",
-    "Definition:Lute:bf3245124743f6340804f14ffb022fa1",
     "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
     "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a"
   ],

@@ -7,8 +7,8 @@
     "description": "Equipment/&ItemFlag_Clue_Incriminating",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "883466816dd825049939a99aa0fd3aa5",
-      "m_SubObjectName": "Poison_1D4",
+      "m_AssetGUID": "23adb747132e1d64d9116fe552cfbb7b",
+      "m_SubObjectName": "IncriminatingClue",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

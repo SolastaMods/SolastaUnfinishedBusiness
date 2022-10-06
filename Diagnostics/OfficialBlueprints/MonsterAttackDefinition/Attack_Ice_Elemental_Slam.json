@@ -95,6 +95,7 @@
           "versatileDieType": "D1",
           "bonusDamage": 5,
           "damageType": "DamageCold",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -132,7 +133,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "5ec0915f26b506148a31977bd96c2b94",
+        "m_AssetGUID": "4f77e85460bfce848b7203ed55bec09f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -180,7 +181,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7e9c1b56c578beb45b6b7cbcfba03ecc",
+        "m_AssetGUID": "22aadb68bb052994f9d2d713f0107a84",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": true,
+  "ancestryType": "Sorcerer",
   "damageType": "DamageFire",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,

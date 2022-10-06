@@ -1,6 +1,6 @@
 {
   "$type": "ClueDefinition, Assembly-CSharp",
-  "suspicionModifier": 0.3,
+  "suspicionModifier": 0.5,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

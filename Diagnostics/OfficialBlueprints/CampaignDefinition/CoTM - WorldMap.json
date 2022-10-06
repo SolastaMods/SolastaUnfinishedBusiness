@@ -8,7 +8,7 @@
   "minStartLevel": 1,
   "maxStartLevel": 5,
   "maxLevelImport": 12,
-  "levelCap": 13,
+  "levelCap": 12,
   "predefinedParty": [
     "Level1_Paladin_Berden_Redstone",
     "Level1_Wizard_Nialla_Wildwind",

@@ -1689,6 +1689,62 @@
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Forge",
       "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_EldritchWounds:081970c911c936445bee945da1b2579e",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Forge",
+      "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Item_RestorativeOintment:2e685b93a8e898040a2939e061c640b1",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Forge",
+      "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:RestorativeOintment:97987a31b6e74b94b8dbd6f9d59f9716",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 3,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 24,
+      "requiredFaction": "DLC1_Faction_Forge",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed Gauntlet:51acb92856627d6409c7da52009bdb2d",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 24,
+      "requiredFaction": "DLC1_Faction_Forge",
+      "factionStatus": "Sympathy"
     }
   ],
   "guiPresentation": {

@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f"
+        "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968"
       ]
     },
     {

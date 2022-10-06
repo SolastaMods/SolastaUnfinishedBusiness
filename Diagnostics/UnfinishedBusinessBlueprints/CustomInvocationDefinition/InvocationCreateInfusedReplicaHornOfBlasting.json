@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Horn of Blasting",
-    "description": "Create replica <b>Horn of Blasting</b>:\nYou can use an action to speak the horn's Command Word and then blow the horn, which emits a thunderous blast in a 6 cells cone that is audible 120 cells away. Each creature in the cone must make a DC 15 Constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.",
+    "description": "Create replica <b>Horn of Blasting</b>:\nYou can use an action to speak the horn's command word, and then blow the horn, which emits a thunderous blast in a 6-cell cone that is audible 120 cells away. Each creature in the cone must make a DC 15 constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a006b9ee2509c4c44a43ff59ee733be1",

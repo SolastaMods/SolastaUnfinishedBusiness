@@ -28,7 +28,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "CharacterOnly",
-    "targetFilteringTag": 255,
+    "targetFilteringTag": "Unarmored",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
