@@ -285,7 +285,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             { 19, 9 },
             { 20, 10 }
         };
-        
+
         if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
             conditionSource.IsDead)
         {

@@ -123,10 +123,13 @@ internal static class SpellsContext
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, InventorClass.SpellList);
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            InventorClass.SpellList);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            InventorClass.SpellList);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
-        RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard, InventorClass.SpellList);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
+            InventorClass.SpellList);
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
@@ -152,7 +155,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildPowerWordHeal(), 0, SpellListCleric);
-        RegisterSpell(BuildPowerWordKill(), 0,  SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWizard);
