@@ -127,7 +127,8 @@ internal class ReactionRequestWarcaster : ReactionRequest
                 target.LocationPosition,
                 actionModifier);
 
-            return !battle.IsValidAttackForReadiedAction(attackParams, false);
+            //TODO: TPA to confirm this is correct
+            return !battle.IsValidAttackForReadiedAction(attackParams, false, RuleDefinitions.CoverType.None);
         });
 
         return cantrips;

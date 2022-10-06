@@ -829,9 +829,12 @@ internal static class GameLocationBattleManagerTweaks
                              power.PowerDefinition.SurrogateToSpell != null &&
                              power.PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
+                    //TODO: TPA to confirm this is correct
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
                         when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
-                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms):
+                             (attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.BarbarianClaw, actualEffectForms)
+                                || attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.Dragonborn, actualEffectForms)
+                                || attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.Sorcerer, actualEffectForms)):
                         validTrigger = true;
                         break;
 
