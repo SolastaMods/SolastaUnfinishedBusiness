@@ -144,10 +144,10 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     {
         Assert.IsNotNull(Definition);
 
-        InitializeCollectionFields(Definition.GetType());
+        LocalInitializeCollectionFields(Definition.GetType());
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-        void InitializeCollectionFields(Type type)
+        void LocalInitializeCollectionFields(Type type)
         {
             if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
                 type == typeof(Object))
@@ -175,7 +175,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
             }
 
             // So travel down the hierarchy
-            InitializeCollectionFields(type.BaseType);
+            LocalInitializeCollectionFields(type.BaseType);
 
             [Conditional("DEBUG")]
             static void LogFieldInitialization(string message)
@@ -344,7 +344,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="assertIfDuplicate"></param>
     /// <returns></returns>
     /// <exception cref="SolastaUnfinishedBusinessException"></exception>
-    internal TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
+    private TDefinition AddToDB(
+        bool assertIfDuplicate,
+        BaseDefinition.Copyright? copyright,
         GamingPlatformDefinitions.ContentPack? contentPack)
     {
         Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
@@ -379,7 +381,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         foreach (var type in types)
         {
-            if (AddToDB(type))
+            if (LocalAddToDB(type))
             {
                 addedToAnyDB = true;
             }
@@ -395,7 +397,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         return Definition;
 
-        bool AddToDB(Type type)
+        bool LocalAddToDB(Type type)
         {
             // attempt to get database matching the target type
             var getDatabaseMethodInfoGeneric = GetDatabaseMethodInfo.MakeGenericMethod(type);
@@ -411,24 +413,24 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
             if (assertIfDuplicate)
             {
-                if (dbHasElement(Definition.name))
+                if (DBHasElement(Definition.name))
                 {
                     throw new SolastaUnfinishedBusinessException(
                         $"The definition with name '{Definition.name}' already exists in database '{type.Name}' by name.");
                 }
 
-                if (dbHasElementByGuid(Definition.GUID))
+                if (DBHasElementByGuid(Definition.GUID))
                 {
                     throw new SolastaUnfinishedBusinessException(
                         $"The definition with name '{Definition.name}' and guid '{Definition.GUID}' already exists in database '{type.Name}' by GUID.");
                 }
             }
 
-            addToDB();
+            LocalLocalAddToDB();
 
             return true;
 
-            void addToDB()
+            void LocalLocalAddToDB()
             {
                 var methodInfo = dbType.GetMethod("Add");
 
@@ -441,7 +443,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 methodInfo.Invoke(db, new object[] { Definition });
             }
 
-            bool dbHasElement(string name)
+            bool DBHasElement(string name)
             {
                 var methodInfo = dbType.GetMethod("HasElement");
 
@@ -451,10 +453,10 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                         $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                 }
 
-                return (bool)methodInfo.Invoke(db, new object[] { name });
+                return (bool)methodInfo.Invoke(db, new object[] { name, true });
             }
 
-            bool dbHasElementByGuid(string guid)
+            bool DBHasElementByGuid(string guid)
             {
                 var methodInfo = dbType.GetMethod("HasElementByGuid");
 
