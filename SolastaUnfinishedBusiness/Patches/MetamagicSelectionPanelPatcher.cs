@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿//TODO: review before RELEASE if TA fixed this...
+
+#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -17,3 +20,4 @@ public static class MetamagicSelectionPanelPatcher
         }
     }
 }
+#endif
