@@ -691,6 +691,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ClothesWizard { get; } = GetDefinition<ItemDefinition>("ClothesWizard");
         internal static ItemDefinition ClothesWizard_B { get; } = GetDefinition<ItemDefinition>("ClothesWizard_B");
         internal static ItemDefinition Club { get; } = GetDefinition<ItemDefinition>("Club");
+        internal static ItemDefinition ComponentPouch_Belt { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Belt");
+        internal static ItemDefinition ComponentPouch_Bracers { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Bracers");
         internal static ItemDefinition ComponentPouch { get; } = GetDefinition<ItemDefinition>("ComponentPouch");
         internal static ItemDefinition ComponentPouch_ArcaneAmulet { get; } = GetDefinition<ItemDefinition>("ComponentPouch_ArcaneAmulet");
         internal static ItemDefinition CraftingManual_Enchant_EmpressGarb { get; } = GetDefinition<ItemDefinition>("CraftingManual_Enchant_EmpressGarb");

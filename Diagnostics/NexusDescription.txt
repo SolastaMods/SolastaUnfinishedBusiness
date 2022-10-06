@@ -351,13 +351,13 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, gameplay, feats, multiclass, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
-[*][b]TPABOBAP[/b]: game UI, gameplay, infrastructure, subclasses improvements, feats, spells, Inventor
+[*][b]Zappastuff[/b]: multiclass, maintenance, gameplay, feats, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
 [*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
 [*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
-[*][b]Nd[/b]: Marshal, Opportunist, Raven
+[*][b]Nd[/b]: subclasses improvements, Marshal, Opportunist, Raven
 [*][b]AceHigh[/b]: SoulBlade, Tactician
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif
