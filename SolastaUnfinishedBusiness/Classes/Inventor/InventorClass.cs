@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -88,11 +89,13 @@ internal static class InventorClass
                 SkillDefinitions.Survival
             )
             .AddToolPreferences(
+                ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
             )
-            //TODO: add dynamic preferred feats that can include ones that are disabled, but offered if enabled
-            .AddFeatPreferences() //TODO: Add preferred feats
+            //TODO: Add more preferred feats
+            .AddFeatPreferences(EwFeats.WarcasterFeat)
 
             #endregion
 

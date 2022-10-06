@@ -20,7 +20,7 @@ internal static class EwFeats
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
     private const string RecklessAttackFeat = "FeatRecklessAttack";
-    private const string WarcasterFeat = "FeatWarCaster";
+    internal const string WarcasterFeat = "FeatWarCaster";
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {

@@ -197,6 +197,13 @@ internal class CharacterClassDefinitionBuilder
         Definition.FeatAutolearnPreference.Sort();
         return this;
     }
+    
+    internal CharacterClassDefinitionBuilder AddFeatPreferences(params string[] feats)
+    {
+        Definition.FeatAutolearnPreference.AddRange(feats);
+        Definition.FeatAutolearnPreference.Sort();
+        return this;
+    }
 
     #endregion
 
