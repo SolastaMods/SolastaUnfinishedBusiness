@@ -12,7 +12,7 @@ internal static class ClassesContext
 
     private static void SortClassesFeatures()
     {
-        foreach (var characterClassDefinition in Classes)
+        foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
         {
             characterClassDefinition.FeatureUnlocks.Sort((a, b) =>
             {

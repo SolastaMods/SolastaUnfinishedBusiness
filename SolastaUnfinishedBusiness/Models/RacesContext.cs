@@ -1,10 +1,9 @@
-﻿// using System;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Races;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -16,19 +15,30 @@ internal static class RacesContext
 
     private static void SortRacesFeatures()
     {
-        foreach (var characterRaceDefinition in Races)
+        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
         {
             characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
             {
                 var result = a.Level - b.Level;
 
-                if (result == 0)
+                if (result != 0)
                 {
-                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-                        StringComparison.CurrentCultureIgnoreCase);
+                    return result;
                 }
 
-                return result;
+                // hack as TA code requires this FEATURE to be last on list
+                if (a.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
+                {
+                    return 1;
+                }
+
+                if (b.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
+                {
+                    return -1;
+                }
+
+                return String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                    StringComparison.CurrentCultureIgnoreCase);
             });
         }
     }

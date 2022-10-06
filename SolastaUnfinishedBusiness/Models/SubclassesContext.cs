@@ -17,7 +17,7 @@ internal static class SubclassesContext
 
     private static void SortSubclassesFeatures()
     {
-        foreach (var characterSubclassDefinition in Subclasses)
+        foreach (var characterSubclassDefinition in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
         {
             characterSubclassDefinition.FeatureUnlocks.Sort((a, b) =>
             {
