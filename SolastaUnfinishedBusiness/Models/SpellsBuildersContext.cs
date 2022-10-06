@@ -178,7 +178,8 @@ internal static class SpellsBuildersContext
     {
         return SpellDefinitionBuilder
             .Create("MinorLifesteal")
-            .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.CreateAssetReferenceSprite("MinorLifesteal", Resources.MinorLifesteal, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)

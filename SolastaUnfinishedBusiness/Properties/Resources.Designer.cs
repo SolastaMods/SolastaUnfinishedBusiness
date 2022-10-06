@@ -430,6 +430,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MinorLifesteal {
+            get {
+                object obj = ResourceManager.GetObject("MinorLifesteal", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dwarf	Female	Abagtha
         ///Dwarf	Female	Bera
         ///Dwarf	Female	Birsha
