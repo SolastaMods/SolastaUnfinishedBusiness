@@ -99,6 +99,7 @@
           "versatileDieType": "D10",
           "bonusDamage": 0,
           "damageType": "DamageFire",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -305,7 +306,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,

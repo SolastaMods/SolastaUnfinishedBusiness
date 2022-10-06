@@ -13,12 +13,14 @@
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "DamagePiercing",
+  "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [
     {
@@ -90,6 +92,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidImpactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

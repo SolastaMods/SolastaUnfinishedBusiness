@@ -20,7 +20,6 @@ CharacterRaceDefinition
 CharacterSizeDefinition
 CharacterSubclassDefinition
 CharacterTemplateDefinition
-CharacterToLootPackMapDefinition
 ClueDefinition
 ConditionDefinition
 ContentPackDefinition

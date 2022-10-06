@@ -43,6 +43,7 @@
   "alignmentPersonalityFlag2": "Self-Preservation",
   "fightingStyle": null,
   "equipment": [
+    "Definition:MonkArmor:93cbf3e9ed6ac994f8ad95e03fb16d79",
     "Definition:CraftingStarterPack:9a568dd5f63486a44b5f8607441b3b36",
     "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
     "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",

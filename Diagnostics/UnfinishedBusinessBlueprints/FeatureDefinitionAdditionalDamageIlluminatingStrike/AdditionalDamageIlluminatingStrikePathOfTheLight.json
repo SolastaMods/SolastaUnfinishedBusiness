@@ -13,12 +13,14 @@
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageRadiant",
+  "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
     {
@@ -186,6 +188,7 @@
   },
   "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
   "coldImpactParticleReference": null,
   "fireImpactParticleReference": null,

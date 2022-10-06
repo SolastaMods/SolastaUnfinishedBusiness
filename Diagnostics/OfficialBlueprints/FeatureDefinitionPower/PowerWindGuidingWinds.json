@@ -290,8 +290,8 @@
   "triggeredBySpecialMove": false,
   "activationTime": "OnAttackSpellHitAutomatic",
   "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "",
-  "autoActivationPowerTag": "",
+  "autoActivationRequiredTargetCreatureTag": "None",
+  "autoActivationPowerTag": "None",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
@@ -327,9 +327,9 @@
     "description": "Feature/&PowerWindGuidingWindsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
+      "m_SubObjectName": "SolidColorWhite",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

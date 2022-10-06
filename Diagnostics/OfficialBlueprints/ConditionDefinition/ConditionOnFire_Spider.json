@@ -49,6 +49,7 @@
         "versatileDieType": "D1",
         "bonusDamage": 0,
         "damageType": "DamageFire",
+        "ancestryType": "Sorcerer",
         "healFromInflictedDamage": "Never",
         "hitPointsFloor": 0,
         "forceKillOnZeroHp": false,
@@ -103,6 +104,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {

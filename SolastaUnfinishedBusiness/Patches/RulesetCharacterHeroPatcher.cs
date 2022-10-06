@@ -43,6 +43,23 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), "CanCastInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class CanCastInvocation_Patch
+    {
+        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, RulesetInvocation invocation)
+        {
+            //PATCH: make sure we can't cast hidden invocations, so they will be hidden
+            if (invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            {
+                __result = false;
+                return false;
+            }
+
+            return true;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeAttackModeAbilityScoreReplacement")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeAttackModeAbilityScoreReplacement_Patch

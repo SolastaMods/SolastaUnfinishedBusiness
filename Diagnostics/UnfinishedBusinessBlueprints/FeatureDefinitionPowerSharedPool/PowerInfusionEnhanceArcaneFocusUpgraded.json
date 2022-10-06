@@ -330,9 +330,9 @@
     "description": "Feature/&InfusionEnhanceArcaneFocusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2e6a88bd540da2547a91813cfe68abe1",
-      "m_SubObjectName": "HeraldOfPain",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "be8e7a34-c968-52ac-a678-11640e6a5657",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -20,10 +20,10 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_A",
   "tailMorphotype": "Tail_A",
-  "armorDefinition": "BarbarianClothes",
+  "armorDefinition": "MonkArmor",
   "helmetDefinition": "",
   "tabardDefinition": "",
-  "showHelmet": true,
+  "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,

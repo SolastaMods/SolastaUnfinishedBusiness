@@ -82,7 +82,7 @@
           "addSpellCastingAbility": true,
           "addProficiencyBonus": false,
           "addAbilityBonus": false,
-          "abilityToAdd": ""
+          "abilityToAdd": "Strength"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -126,7 +126,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -138,7 +138,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0b09ecf0e5e6a8b4c886e6b5fe8c861f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

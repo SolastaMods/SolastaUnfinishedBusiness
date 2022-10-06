@@ -118,12 +118,20 @@ internal static class CharacterContext
             var gender = columns[1];
             var name = columns[2];
             var race = (CharacterRaceDefinition)AccessTools
-                .Property(typeof(CharacterRaceDefinitions), raceName).GetValue(null);
-            var racePresentation = race.RacePresentation;
-            var options = (List<string>)
-                AccessTools.Property(racePresentation.GetType(), $"{gender}NameOptions").GetValue(racePresentation);
+                .Property(typeof(CharacterRaceDefinitions), raceName)?.GetValue(null);
 
-            options.Add(name);
+            if (race != null)
+            {
+                var racePresentation = race.RacePresentation;
+                var options = (List<string>)
+                    AccessTools.Property(racePresentation.GetType(), $"{gender}NameOptions").GetValue(racePresentation);
+
+                options.Add(name);
+            }
+            else
+            {
+                Main.Error($"cannot load: {raceName} - {gender} - {name}.");
+            }
         }
     }
 

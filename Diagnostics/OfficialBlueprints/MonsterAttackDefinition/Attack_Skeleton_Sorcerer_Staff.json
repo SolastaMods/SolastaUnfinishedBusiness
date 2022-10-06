@@ -95,6 +95,7 @@
           "versatileDieType": "D1",
           "bonusDamage": 1,
           "damageType": "DamageBludgeoning",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,

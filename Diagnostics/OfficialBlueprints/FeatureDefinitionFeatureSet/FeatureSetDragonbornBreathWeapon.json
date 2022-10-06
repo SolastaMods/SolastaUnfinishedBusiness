@@ -15,6 +15,7 @@
     "DamagePoison",
     "DamageCold"
   ],
+  "ancestryType": "Dragonborn",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

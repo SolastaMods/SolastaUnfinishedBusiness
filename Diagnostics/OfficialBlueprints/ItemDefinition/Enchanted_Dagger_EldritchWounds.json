@@ -36,7 +36,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -144,6 +144,7 @@
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePiercing",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
@@ -178,6 +179,7 @@
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamageForce",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,

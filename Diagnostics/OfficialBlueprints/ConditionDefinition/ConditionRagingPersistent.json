@@ -67,6 +67,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": true,
+  "ancestryType": "BarbarianClaw",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {

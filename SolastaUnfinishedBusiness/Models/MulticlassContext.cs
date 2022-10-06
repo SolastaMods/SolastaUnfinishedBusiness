@@ -24,7 +24,7 @@ internal static class MulticlassContext
 
     private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
-    internal static readonly FeatureDefinitionProficiency ProficiencyBarbarianArmorMulticlass =
+    private static readonly FeatureDefinitionProficiency ProficiencyBarbarianArmorMulticlass =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBarbarianArmorMulticlass")
             .SetGuiPresentation("Feature/&BarbarianArmorProficiencyTitle", ArmorTrainingDescription)
@@ -32,7 +32,7 @@ internal static class MulticlassContext
                 EquipmentDefinitions.ShieldCategory)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionProficiency ProficiencyFighterArmorMulticlass =
+    private static readonly FeatureDefinitionProficiency ProficiencyFighterArmorMulticlass =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFighterArmorMulticlass")
             .SetGuiPresentation("Feature/&FighterArmorProficiencyTitle", ArmorTrainingDescription)
@@ -42,7 +42,7 @@ internal static class MulticlassContext
                 EquipmentDefinitions.ShieldCategory)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionProficiency ProficiencyPaladinArmorMulticlass =
+    private static readonly FeatureDefinitionProficiency ProficiencyPaladinArmorMulticlass =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyPaladinArmorMulticlass")
             .SetGuiPresentation("Feature/&PaladinArmorProficiencyTitle", ArmorTrainingDescription)
@@ -52,7 +52,7 @@ internal static class MulticlassContext
                 EquipmentDefinitions.ShieldCategory)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
+    private static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolBardSkillPointsMulticlass")
             .SetGuiPresentation("Feature/&BardSkillPointsTitle", SkillGainChoicesDescription)
@@ -79,7 +79,7 @@ internal static class MulticlassContext
             )
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
+    private static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRangerSkillPointsMulticlass")
             .SetGuiPresentation("Feature/&RangerSkillsTitle", SkillGainChoicesDescription)
@@ -96,7 +96,7 @@ internal static class MulticlassContext
             )
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
+    private static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRogueSkillPointsMulticlass")
             .SetGuiPresentation("Feature/&RogueSkillPointsTitle", SkillGainChoicesDescription)
@@ -176,10 +176,10 @@ internal static class MulticlassContext
 
     internal static void LateLoad()
     {
+        AddNonOfficialBlueprintsToFeaturesCollections();
         PatchClassLevel();
         PatchEquipmentAssignment();
         PatchFeatureUnlocks();
-        AddNonOfficialBlueprintsToFeaturesCollections();
     }
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()

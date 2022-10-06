@@ -13,12 +13,14 @@
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": "Definition:Plant:73b3f5827d7ba394c92f2b3847489a81",
   "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "TargetKnowledgeLevel",
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
+  "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
@@ -59,6 +61,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidImpactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

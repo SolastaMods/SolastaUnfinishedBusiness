@@ -13,12 +13,14 @@
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "AncestryDamageType",
-  "specificDamageType": "Radiant",
+  "specificDamageType": "DamageAcid",
+  "ancestryTypeForDamageType": "BarbarianClaw",
   "damageAdvancement": "None",
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
@@ -59,6 +61,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": true,
+  "ancestryType": "BarbarianClaw",
   "acidImpactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "1c05167cf2515904dbda5a5ac1586f49",

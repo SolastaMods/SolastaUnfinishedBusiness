@@ -67,6 +67,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
@@ -260,7 +261,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {

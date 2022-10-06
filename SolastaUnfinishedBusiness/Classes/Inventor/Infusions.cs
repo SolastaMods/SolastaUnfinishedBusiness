@@ -5,6 +5,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -25,9 +27,8 @@ internal static class Infusions
     public static void Build()
     {
         var name = "InfusionEnhanceArcaneFocus";
-        AssetReferenceSprite sprite;
-        var power = BuildInfuseItemPowerInvocation(2, name,
-            FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain.GuiPresentation.SpriteReference, IsFocusOrStaff,
+        var sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
+        var power = BuildInfuseItemPowerInvocation(2, name, sprite, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
@@ -35,41 +36,38 @@ internal static class Infusions
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain,
-            IsFocusOrStaff, FeatureDefinitionMagicAffinityBuilder
-                //TODO: RAW needs to require attunement
-                .Create($"MagicAffinity{name}Upgraded")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .SetCastingModifiers(2, dcModifier: 2)
-                .AddToDB());
+        BuildUpgradedInfuseItemPower(name, power, sprite, IsFocusOrStaff, FeatureDefinitionMagicAffinityBuilder
+            //TODO: RAW needs to require attunement
+            .Create($"MagicAffinity{name}Upgraded")
+            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+            .SetCastingModifiers(2, dcModifier: 2)
+            .AddToDB());
 
         name = "InfusionEnhanceDefense";
-        power = BuildInfuseItemPowerInvocation(2, name,
-            SpellDefinitions.MageArmor.GuiPresentation.SpriteReference, IsArmor,
-            FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{name}")
-                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                .AddToDB());
+        sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
+        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+            .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MageArmor, IsArmor,
-            FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{name}Upgraded")
-                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-                .AddToDB());
+        BuildUpgradedInfuseItemPower(name, power, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{name}Upgraded")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .AddToDB());
 
         name = "InfusionEnhanceWeapon";
-        power = BuildInfuseItemPowerInvocation(2, name, SpellDefinitions.MagicWeapon.GuiPresentation.SpriteReference,
-            IsWeapon, FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .SetAttackRollModifier(1)
-                .SetDamageRollModifier(1)
-                .SetMagicalWeapon()
-                .AddToDB());
+        sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
+        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{name}")
+            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+            .SetAttackRollModifier(1)
+            .SetDamageRollModifier(1)
+            .SetMagicalWeapon()
+            .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, SpellDefinitions.MagicWeapon, IsWeapon,
+        BuildUpgradedInfuseItemPower(name, power, sprite, IsWeapon,
             FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}Upgraded")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -79,16 +77,15 @@ internal static class Infusions
                 .AddToDB());
 
         name = "InfusionMindSharpener";
-        BuildInfuseItemPowerInvocation(2, name,
-            SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference, IsBodyArmor,
-            FeatureDefinitionMagicAffinityBuilder
-                .Create($"MagicAffinity{name}")
-                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
-                //RAW it adds reaction to not break concentration
-                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
-                .AddToDB());
+        sprite = CustomIcons.CreateAssetReferenceSprite("MindSharpener", Resources.MindSharpener, 128);
+        BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
+            //RAW it adds reaction to not break concentration
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
+            .AddToDB());
 
-        sprite = SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference;
+        sprite = CustomIcons.CreateAssetReferenceSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeaponWithBonus";
         var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
@@ -184,6 +181,7 @@ internal static class Infusions
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
+            .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
             .SetRequiredLevel(level)
             .SetGrantedFeature(power)
@@ -198,6 +196,7 @@ internal static class Infusions
         var invocation = CustomInvocationDefinitionBuilder
             .Create($"InvocationCreate{replica.name}")
             .SetGuiPresentation(Category.Feature, replica)
+            .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
             .SetRequiredLevel(level)
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
@@ -246,10 +245,10 @@ internal static class Infusions
     }
 
     private static void BuildUpgradedInfuseItemPower(string name, FeatureDefinitionPower power,
-        BaseDefinition sprite, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
+        AssetReferenceSprite sprite, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
     {
         var upgrade = BuildInfuseItemPower($"{name}Upgraded", name,
-            sprite.GuiPresentation.SpriteReference, itemFilter, features);
+            sprite, itemFilter, features);
         upgrade.overriddenPower = power;
         upgrade.AddCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
         ImprovedInfusions.FeatureSet.Add(upgrade);

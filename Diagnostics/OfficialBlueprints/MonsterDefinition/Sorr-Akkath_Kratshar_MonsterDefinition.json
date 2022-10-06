@@ -140,7 +140,7 @@
     "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
     "Definition:SavingThrowAffinityShapechangerMoonbeam:e9f14453bf46ca745ab8318d4dc3102f",
     "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
-    "Definition:CastSpell_DLC3_Kratshar:f66a79a01f1142241b66089e41d14963",
+    "Definition:CastSpell_Kratshar:f66a79a01f1142241b66089e41d14963",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3"
   ],
@@ -164,7 +164,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

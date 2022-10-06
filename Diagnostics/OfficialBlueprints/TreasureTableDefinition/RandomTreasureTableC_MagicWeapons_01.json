@@ -114,6 +114,18 @@
       "odds": 3,
       "itemDefinition": "Definition:Spear+1:bbf2a17886b21cb49b66ec825f32834b",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Enchanted_Dagger_EldritchWounds:1b6adcaeebb8ad34db2a78538b107108",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:MonkGauntlet+1:ada62b8f68d16b446b76c4761f7e584f",
+      "amount": 1
     }
   ],
   "guiPresentation": {

@@ -23,7 +23,35 @@
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
   "conditionTags": [],
-  "recurrentEffectForms": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Healing",
+      "addBonusMode": "Proficiency",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 0,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": true,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "StartOfTurn",
+      "healingForm": {
+        "$type": "HealingForm, Assembly-CSharp",
+        "healingComputation": "Dice",
+        "diceNumber": 0,
+        "dieType": "D1",
+        "bonusHealing": 0,
+        "variablePool": false,
+        "healingCap": "MaximumHitPoints"
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
+  ],
   "cancellingConditions": [
     "Definition:ConditionUnconscious:2d543b2740ecddd4a977d8a706a8a2c9",
     "Definition:ConditionDying:81b9b336561369544b3c0151033efa34",
@@ -71,6 +99,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
@@ -233,35 +262,7 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
-  "effectFormsOnRemoved": [
-    {
-      "$type": "EffectForm, Assembly-CSharp",
-      "formType": "Healing",
-      "addBonusMode": "Proficiency",
-      "applyLevel": "No",
-      "levelType": "ClassLevel",
-      "levelMultiplier": 0,
-      "diceByLevelTable": [],
-      "createdByCharacter": false,
-      "createdByCondition": true,
-      "hasSavingThrow": false,
-      "savingThrowAffinity": "None",
-      "dcModifier": 0,
-      "canSaveToCancel": false,
-      "saveOccurence": "StartOfTurn",
-      "healingForm": {
-        "$type": "HealingForm, Assembly-CSharp",
-        "healingComputation": "Dice",
-        "diceNumber": 0,
-        "dieType": "D1",
-        "bonusHealing": 0,
-        "variablePool": false,
-        "healingCap": "MaximumHitPoints"
-      },
-      "hasFilterId": false,
-      "filterId": 0
-    }
-  ],
+  "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
   "battlePackage": null,

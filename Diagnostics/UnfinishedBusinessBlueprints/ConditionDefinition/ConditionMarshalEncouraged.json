@@ -65,6 +65,7 @@
     "m_SubObjectType": null
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": null,
   "coldParticleParameters": null,
   "fireParticleParameters": null,
