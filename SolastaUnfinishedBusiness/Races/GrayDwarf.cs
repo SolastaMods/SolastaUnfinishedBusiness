@@ -213,7 +213,7 @@ internal static class GrayDwarfSubraceBuilder
             .AddFeaturesAtLevel(5, powerGrayDwarfInvisibility)
             .AddToDB();
 
-        raceGrayDwarf.GuiPresentation.sortOrder = 100;
+        raceGrayDwarf.GuiPresentation.sortOrder = DwarfSnow.GuiPresentation.sortOrder + 1;
         raceGrayDwarf.subRaces.Clear();
         Dwarf.SubRaces.Add(raceGrayDwarf);
 

@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -81,7 +82,7 @@ internal static class RaceBolgrifBuilder
                 "Language_Elvish")
             .AddToDB();
 
-        var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
+        var bolgrifRacePresentation = Dwarf.RacePresentation.DeepCopy();
 
         bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add("BeardShape_None");
@@ -89,7 +90,7 @@ internal static class RaceBolgrifBuilder
         bolgrifRacePresentation.preferedHairColors = new RangedInt(16, 32);
 
         var raceBolgrif = CharacterRaceDefinitionBuilder
-            .Create(CharacterRaceDefinitions.Human, "RaceBolgrif")
+            .Create(Human, "RaceBolgrif")
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(bolgrifRacePresentation)
@@ -107,6 +108,8 @@ internal static class RaceBolgrifBuilder
                 castSpellBolgrifMagic,
                 proficiencyBolgrifLanguages)
             .AddToDB();
+
+        raceBolgrif.GuiPresentation.sortOrder = Dwarf.GuiPresentation.sortOrder - 1;
 
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceBolgrif.name);
 
