@@ -111,10 +111,10 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         raceBolgrif.GuiPresentation.sortOrder = Dwarf.GuiPresentation.sortOrder - 1;
-        
+
         RacesContext.RaceScaleMap[raceBolgrif] = 8.8f / 6.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceBolgrif.name);
-        
+
         return raceBolgrif;
     }
 }

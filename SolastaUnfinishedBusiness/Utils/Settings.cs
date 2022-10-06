@@ -44,13 +44,17 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
+
     public bool EnableSameWidthFeatSelection { get; set; } = true;
+
     // public bool EnableSortingClasses { get; set; } = true;
     // public bool EnableSortingDeities { get; set; } = true;
     public bool EnableSortingDungeonMakerAssets { get; set; } = true;
     public bool EnableSortingFeats { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
+
     public bool EnableSortingFutureFeatures { get; set; } = true;
+
     // public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;

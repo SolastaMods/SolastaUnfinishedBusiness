@@ -27,7 +27,7 @@ internal static class InventorClass
         CustomIcons.CreateAssetReferenceSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        CharacterClassDefinitions.Wizard.ClassPictogramReference;
+        Wizard.ClassPictogramReference;
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -101,7 +101,7 @@ internal static class InventorClass
             #endregion
 
             .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
-            .SetIngredientGatheringOdds(CharacterClassDefinitions.Fighter.IngredientGatheringOdds)
+            .SetIngredientGatheringOdds(Fighter.IngredientGatheringOdds)
             .SetHitDice(DieType.D8)
 
             #region Equipment
@@ -381,7 +381,7 @@ internal static class InventorClass
         }
 
         Class = builder.AddToDB();
-        
+
         // Inventor appears after Fighter
         Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;
 

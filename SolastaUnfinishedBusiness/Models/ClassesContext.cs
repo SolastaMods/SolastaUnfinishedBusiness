@@ -17,13 +17,13 @@ internal static class ClassesContext
             characterClassDefinition.FeatureUnlocks.Sort((a, b) =>
             {
                 var result = a.Level - b.Level;
-    
+
                 if (result == 0)
                 {
                     result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
                         StringComparison.CurrentCulture);
                 }
-    
+
                 return result;
             });
         }
@@ -42,7 +42,7 @@ internal static class ClassesContext
         {
             Main.Settings.ClassEnabled.Remove(name);
         }
-        
+
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             SortClassesFeatures();

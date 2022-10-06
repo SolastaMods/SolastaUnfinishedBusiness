@@ -21,13 +21,13 @@ internal static class RacesContext
             characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
             {
                 var result = a.Level - b.Level;
-    
+
                 if (result == 0)
                 {
                     result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
                         StringComparison.CurrentCultureIgnoreCase);
                 }
-    
+
                 return result;
             });
         }
