@@ -316,13 +316,17 @@ internal static class GameLocationBattleManagerTweaks
                     attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAncestry>(
                         FeatureDefinitionAncestry.FeaturesToBrowse);
 
-                    // Pick the first one
-                    if (FeatureDefinitionAncestry.FeaturesToBrowse.Count > 0)
+                    // Pick the first matching one
+                    foreach (var definition in FeatureDefinitionAncestry.FeaturesToBrowse)
                     {
-                        additionalDamageForm.DamageType =
-                            (FeatureDefinitionAncestry.FeaturesToBrowse[0] as FeatureDefinitionAncestry).DamageType;
+                        var definitionAncestry = definition as FeatureDefinitionAncestry;
+                        if (definitionAncestry.Type == provider.AncestryTypeForDamageType && !string.IsNullOrEmpty(definitionAncestry.DamageType))
+                            additionalDamageForm.DamageType = definitionAncestry.DamageType;
                     }
-
+                    if (string.IsNullOrEmpty(additionalDamageForm.DamageType))
+                    {
+                        Trace.LogError("Couldn't find relevant ancestry/damage type for " + provider.Name + " (attacker: " + attacker.Name + ")");
+                    }
                     break;
             }
 
@@ -829,12 +833,9 @@ internal static class GameLocationBattleManagerTweaks
                              power.PowerDefinition.SurrogateToSpell != null &&
                              power.PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
-                    //TODO: TPA to confirm this is correct
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
                         when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
-                             (attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.BarbarianClaw, actualEffectForms)
-                                || attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.Dragonborn, actualEffectForms)
-                                || attacker.RulesetCharacter.HasAncestryMatchingDamageType(RuleDefinitions.AncestryType.Sorcerer, actualEffectForms)):
+                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(provider.RequiredAncestryType, actualEffectForms):
                         validTrigger = true;
                         break;
 
