@@ -1,3 +1,4 @@
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -124,7 +125,7 @@ public static class InnovationAlchemy
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
                 .SetRecharge(RuleDefinitions.RechargeRate.ShortRest)
-                .SetSaveDc(-1) //Set to -1 so that it will calculate based on actual powers
+                .SetSaveDc(EffectHelpers.BASED_ON_USER)
                 .AddFunctions(
                     new DeviceFunctionDescriptionBuilder()
                         .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -31,16 +28,22 @@ public static class NewAdventurePanelPatcher
             }
 
             // scales down the plates table if required
-            if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
-            {
-                var scale = (float)Math.Pow(DungeonMakerContext.AdventurePanelDefaultScale,
-                    Main.Settings.OverridePartySize - DungeonMakerContext.GamePartySize);
+            var parentRectTransform = __instance.characterSessionPlatesTable.parent.GetComponent<RectTransform>();
 
-                __instance.characterSessionPlatesTable.localScale = new Vector3(scale, scale, scale);
-            }
-            else
+            switch (Main.Settings.OverridePartySize)
             {
-                __instance.characterSessionPlatesTable.localScale = new Vector3(1, 1, 1);
+                case 6:
+                    parentRectTransform.anchoredPosition = new Vector2(45, -78);
+                    parentRectTransform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                    break;
+                case 5:
+                    parentRectTransform.anchoredPosition = new Vector2(125, -78);
+                    parentRectTransform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                    break;
+                default:
+                    parentRectTransform.anchoredPosition = new Vector2(210, -78);
+                    parentRectTransform.localScale = new Vector3(1, 1, 1);
+                    break;
             }
         }
     }

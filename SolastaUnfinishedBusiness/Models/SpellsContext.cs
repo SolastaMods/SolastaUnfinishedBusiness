@@ -123,10 +123,13 @@ internal static class SpellsContext
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListWizard);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer, InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
+            InventorClass.SpellList);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListWarlock, SpellListWizard, SpellListSorcerer,
+            InventorClass.SpellList);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
-        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListWizard, SpellListSorcerer, SpellListDruid,
+            InventorClass.SpellList);
 
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWarlock, SpellListWizard);
@@ -139,7 +142,8 @@ internal static class SpellsContext
 
         // 3rd level
         RegisterSpell(BuildEarthTremor(), 0, SpellListWizardGreenmage, SpellListDruid);
-        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
+        RegisterSpell(BuildWinterBreath(), 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer,
+            SpellListDruid);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
@@ -170,7 +174,7 @@ internal static class SpellsContext
             var spellListName = kvp.Key.Name;
 
             foreach (var name in Main.Settings.SpellListSpellEnabled[spellListName]
-                         .Where(name => Spells.All(x => x.Name != name)))
+                         .Where(name => Spells.All(x => x.Name != name)).ToList())
             {
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
             }

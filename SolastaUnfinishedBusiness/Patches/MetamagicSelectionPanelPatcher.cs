@@ -12,7 +12,7 @@ public static class MetamagicSelectionPanelPatcher
     {
         public static void Prefix([NotNull] MetamagicSelectionPanel __instance)
         {
-            //BUGFIX: leaked metamagic panel
+            //BUGFIX: fixes leaked metamagic panel
             Gui.ReleaseChildrenToPool(__instance.metamagicOptionsTable.transform);
         }
     }

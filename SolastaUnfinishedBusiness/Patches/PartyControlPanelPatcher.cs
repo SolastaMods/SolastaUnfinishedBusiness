@@ -16,16 +16,11 @@ public static class PartyControlPanelPatcher
         {
             //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
+            var parentRectTransform = __instance.partyPlatesTable.parent.GetComponent<RectTransform>();
 
-            if (partyCount > DungeonMakerContext.GamePartySize)
-            {
-                var scale = DungeonMakerContext.GetPartyControlScale();
-                __instance.partyPlatesTable.localScale = new Vector3(scale, scale, scale);
-            }
-            else
-            {
-                __instance.partyPlatesTable.localScale = new Vector3(1, 1, 1);
-            }
+            parentRectTransform.localScale = partyCount > DungeonMakerContext.GamePartySize
+                ? new Vector3(0.8f, 0.8f, 0.8f)
+                : new Vector3(1, 1, 1);
         }
     }
 

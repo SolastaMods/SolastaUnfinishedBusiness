@@ -21,6 +21,12 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+    internal ItemDefinitionBuilder HideFromDungeonEditor()
+    {
+        Definition.inDungeonEditor = false;
+        return this;
+    }
+
 #if false
     internal ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
     {

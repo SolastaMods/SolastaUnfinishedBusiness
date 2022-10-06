@@ -393,7 +393,7 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
-    //BUGFIX: fixes a TA issue that not consider subclass morphotype preferences
+    //BUGFIX: considers subclass morphotype preferences
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public class AssignDefaultMorphotypes_Patch
@@ -449,7 +449,7 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
-    //BUGFIX: replaces this method completely to remove weird 'return' on FeatureDefinitionCastSpell check
+    //BUGFIX: replaces weird 'return' on FeatureDefinitionCastSpell check
     [HarmonyPatch(typeof(CharacterBuildingManager), "BrowseGrantedFeaturesHierarchically")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class BrowseGrantedFeaturesHierarchically_Patch

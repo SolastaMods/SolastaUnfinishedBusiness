@@ -33,6 +33,18 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 
+    internal UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
+    {
+        description.magicAttackBonus = bonus;
+        return this;
+    }
+
+    internal UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
+    {
+        description.outOfChargesConsequence = consequence;
+        return this;
+    }
+
     internal UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
         description.usage = usage;
@@ -52,7 +64,6 @@ internal class UsableDeviceDescriptionBuilder
 
     #region Charge
 
-#if false
     internal UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
@@ -89,7 +100,6 @@ internal class UsableDeviceDescriptionBuilder
         description.chargesCapitalBonus = bonus;
         return this;
     }
-#endif
 
     #endregion
 
