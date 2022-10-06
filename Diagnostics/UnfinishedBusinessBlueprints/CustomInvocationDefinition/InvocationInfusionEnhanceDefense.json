@@ -15,9 +15,9 @@
     "description": "Feature/&InfusionEnhanceDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
-      "m_SubObjectName": "MageArmor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "732d8ae0-2843-5de2-8607-872ce1197b16",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

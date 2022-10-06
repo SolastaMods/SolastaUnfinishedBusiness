@@ -330,9 +330,9 @@
     "description": "Feature/&InfusionMindSharpenerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dc492d05bca42fb439c18a715e754bf4",
-      "m_SubObjectName": "CalmEmotions",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3f259572-350c-5fc0-8390-d2968c2e3160",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
