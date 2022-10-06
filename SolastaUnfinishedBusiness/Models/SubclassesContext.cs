@@ -15,26 +15,26 @@ internal static class SubclassesContext
 
     internal static HashSet<CharacterSubclassDefinition> Subclasses { get; } = new();
 
-    private static void SortSubclassesFeatures()
-    {
-        var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
-
-        foreach (var characterSubclassDefinition in dbCharacterSubclassDefinition)
-        {
-            characterSubclassDefinition.FeatureUnlocks.Sort((a, b) =>
-            {
-                var result = a.Level - b.Level;
-
-                if (result == 0)
-                {
-                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-                        StringComparison.CurrentCultureIgnoreCase);
-                }
-
-                return result;
-            });
-        }
-    }
+    // private static void SortSubclassesFeatures()
+    // {
+    //     var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+    //
+    //     foreach (var characterSubclassDefinition in dbCharacterSubclassDefinition)
+    //     {
+    //         characterSubclassDefinition.FeatureUnlocks.Sort((a, b) =>
+    //         {
+    //             var result = a.Level - b.Level;
+    //
+    //             if (result == 0)
+    //             {
+    //                 result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+    //                     StringComparison.CurrentCultureIgnoreCase);
+    //             }
+    //
+    //             return result;
+    //         });
+    //     }
+    // }
 
     internal static void Load()
     {
@@ -85,10 +85,10 @@ internal static class SubclassesContext
             Main.Settings.SubclassEnabled.Remove(name);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            SortSubclassesFeatures();
-        }
+        // if (Main.Settings.EnableSortingFutureFeatures)
+        // {
+        //     SortSubclassesFeatures();
+        // }
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
