@@ -152,7 +152,7 @@ internal static class DarkelfSubraceBuilder
             darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
         }
 
-        var darkelf = CharacterRaceDefinitionBuilder
+        var raceDarkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceDarkelf")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
@@ -168,9 +168,10 @@ internal static class DarkelfSubraceBuilder
             .AddFeaturesAtLevel(5, PowerDarkelfDarkness)
             .AddToDB();
 
-        darkelf.subRaces.Clear();
-        Elf.SubRaces.Add(darkelf);
+        raceDarkelf.GuiPresentation.sortOrder = 100;
+        raceDarkelf.subRaces.Clear();
+        Elf.SubRaces.Add(raceDarkelf);
 
-        return darkelf;
+        return raceDarkelf;
     }
 }

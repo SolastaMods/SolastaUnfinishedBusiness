@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
@@ -8,6 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageDeitySelectionPanelPatcher
 {
+#if false
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(DeityDefinition),
         typeof(DeityDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -42,6 +42,7 @@ public static class CharacterStageDeitySelectionPanelPatcher
             }
         }
     }
+#endif
 
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "UpdateRelevance")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

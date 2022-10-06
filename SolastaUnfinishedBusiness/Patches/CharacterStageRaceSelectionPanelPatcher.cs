@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -10,6 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageRaceSelectionPanelPatcher
 {
+#if false
     //PATCH: sorts the races panel by Title
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -24,6 +24,7 @@ public static class CharacterStageRaceSelectionPanelPatcher
             }
         }
     }
+#endif
 
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -35,12 +36,13 @@ public static class CharacterStageRaceSelectionPanelPatcher
             var allRaces = new List<CharacterRaceDefinition>();
             var subRaces = new List<CharacterRaceDefinition>();
 
-            allRaces.AddRange(DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden));
+            allRaces.AddRange(
+                DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                    .Where(x => !x.GuiPresentation.Hidden));
 
             __instance.eligibleRaces.Clear();
-            __instance.selectedSubRace.Clear();
             __instance.sortedSubRaces.Clear();
+            __instance.selectedSubRace.Clear();
 
             foreach (var characterRaceDefinition in allRaces
                          .Where(x => x.SubRaces is { Count: > 0 }))
