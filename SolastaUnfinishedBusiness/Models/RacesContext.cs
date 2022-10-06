@@ -1,5 +1,6 @@
 ﻿// using System;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -13,26 +14,24 @@ internal static class RacesContext
 
     internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
 
-    // private static void SortRacesFeatures()
-    // {
-    //     var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-    //
-    //     foreach (var characterRaceDefinition in dbCharacterRaceDefinition)
-    //     {
-    //         characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
-    //         {
-    //             var result = a.Level - b.Level;
-    //
-    //             if (result == 0)
-    //             {
-    //                 result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-    //                     StringComparison.CurrentCultureIgnoreCase);
-    //             }
-    //
-    //             return result;
-    //         });
-    //     }
-    // }
+    private static void SortRacesFeatures()
+    {
+        foreach (var characterRaceDefinition in Races)
+        {
+            characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
+            {
+                var result = a.Level - b.Level;
+    
+                if (result == 0)
+                {
+                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+                        StringComparison.CurrentCultureIgnoreCase);
+                }
+    
+                return result;
+            });
+        }
+    }
 
     internal static void Load()
     {
@@ -53,13 +52,10 @@ internal static class RacesContext
             Main.Settings.RaceEnabled.Remove(name);
         }
 
-        //TODO: Check why this is causing 2 exceptions during load
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     SortRacesFeatures();
-        // }
-
-        RaceScaleMap[RaceBolgrifBuilder.RaceBolgrif] = 8.8f / 6.4f;
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            SortRacesFeatures();
+        }
     }
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)
