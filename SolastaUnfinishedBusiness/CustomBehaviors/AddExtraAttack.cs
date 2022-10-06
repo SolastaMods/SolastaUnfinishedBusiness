@@ -382,6 +382,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             offHandItem
         );
 
+        var attackModes = new List<RulesetAttackMode> { attackMode };
         var features = new List<FeatureDefinition>();
 
         offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
@@ -391,9 +392,14 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             where modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
             select modifier.ModifierValue).Sum();
 
+        if (offHandItem.ItemDefinition.Magical || bonus > 0)
+        {
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
+        }
+
         if (bonus == 0)
         {
-            return new List<RulesetAttackMode> { attackMode };
+            return attackModes;
         }
 
         var damage = attackMode.EffectDescription?.FindFirstDamageForm();
@@ -404,12 +410,12 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (damage == null)
         {
-            return new List<RulesetAttackMode> { attackMode };
+            return attackModes;
         }
 
         damage.BonusDamage += bonus;
         damage.DamageBonusTrends.Add(trendInfo);
 
-        return new List<RulesetAttackMode> { attackMode };
+        return attackModes;
     }
 }

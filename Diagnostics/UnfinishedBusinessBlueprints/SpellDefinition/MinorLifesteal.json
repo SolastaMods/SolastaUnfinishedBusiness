@@ -353,9 +353,9 @@
     "description": "Spell/&MinorLifestealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7261d9799cd30d8438e95e5a09f33343",
-      "m_SubObjectName": "VampiricTouch",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "d30023d0-f3cd-5c86-a404-3eb4f573fde6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

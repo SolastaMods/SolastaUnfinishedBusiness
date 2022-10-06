@@ -88,18 +88,15 @@ internal class CharacterClassDefinitionBuilder
     }
 
     internal CharacterClassDefinitionBuilder AddEquipmentRow(
-        IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentListA,
-        IEnumerable<CharacterClassDefinition.HeroEquipmentOption> equipmentListB)
+        params IEnumerable<CharacterClassDefinition.HeroEquipmentOption>[] equipmentLists)
     {
-        var equipmentColumnA = new CharacterClassDefinition.HeroEquipmentColumn();
-        equipmentColumnA.EquipmentOptions.AddRange(equipmentListA);
-
-        var equipmentColumnB = new CharacterClassDefinition.HeroEquipmentColumn();
-        equipmentColumnB.EquipmentOptions.AddRange(equipmentListB);
-
         var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
-        equipmentRow.EquipmentColumns.Add(equipmentColumnA);
-        equipmentRow.EquipmentColumns.Add(equipmentColumnB);
+        foreach (var list in equipmentLists)
+        {
+            var column = new CharacterClassDefinition.HeroEquipmentColumn();
+            column.EquipmentOptions.AddRange(list);
+            equipmentRow.EquipmentColumns.Add(column);
+        }
 
         Definition.EquipmentRows.Add(equipmentRow);
 
@@ -194,6 +191,13 @@ internal class CharacterClassDefinitionBuilder
     internal CharacterClassDefinitionBuilder AddFeatPreferences(params FeatDefinition[] featTypes)
     {
         Definition.FeatAutolearnPreference.AddRange(featTypes.Select(ft => ft.Name));
+        Definition.FeatAutolearnPreference.Sort();
+        return this;
+    }
+
+    internal CharacterClassDefinitionBuilder AddFeatPreferences(params string[] feats)
+    {
+        Definition.FeatAutolearnPreference.AddRange(feats);
         Definition.FeatAutolearnPreference.Sort();
         return this;
     }

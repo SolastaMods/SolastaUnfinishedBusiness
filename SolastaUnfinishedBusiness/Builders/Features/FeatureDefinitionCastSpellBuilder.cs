@@ -212,6 +212,12 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
+    internal FeatureDefinitionCastSpellBuilder SetFocusType(EquipmentDefinitions.FocusType focus)
+    {
+        Definition.focusType = focus;
+        return this;
+    }
+
     internal FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
     {
         Definition.ScribedSpells.SetRange(scribedCount);

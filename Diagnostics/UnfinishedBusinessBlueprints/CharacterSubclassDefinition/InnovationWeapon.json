@@ -1,6 +1,12 @@
 {
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
-  "featureUnlocks": [],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInnovationWeaponBattleReady:073495cf-41ae-548e-8741-517ccb3f3f6a",
+      "level": 3
+    }
+  ],
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {

@@ -43,6 +43,29 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeAttackModeAbilityScoreReplacement")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ComputeAttackModeAbilityScoreReplacement_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
+            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+
+            var mods = modifiers;
+            if (attackMode.sourceObject is RulesetItem item)
+            {
+                mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+                mods.AddRange(modifiers);
+            }
+
+            foreach (var modifier in mods)
+            {
+                modifier.ModifyAttribute(__instance, attackMode, attackMode.sourceObject as RulesetItem);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackModes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshAttackModes_Patch

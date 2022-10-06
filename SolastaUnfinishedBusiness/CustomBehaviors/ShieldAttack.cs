@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 
@@ -58,5 +59,21 @@ internal static class ShieldAttack
     private static bool CustomIsWeapon(ItemDefinition item)
     {
         return item.IsWeapon || ShieldStrike.IsShield(item);
+    }
+
+    internal static bool IsMagicShield(RulesetItem shield)
+    {
+        if (shield == null) { return false; }
+
+        if (shield.ItemDefinition.Magical) { return true; }
+
+        var features = new List<FeatureDefinition>();
+
+        shield.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+
+        return (from modifier in features.OfType<FeatureDefinitionAttributeModifier>()
+            where modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass
+            where modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
+            select modifier.ModifierValue).Sum() > 0;
     }
 }

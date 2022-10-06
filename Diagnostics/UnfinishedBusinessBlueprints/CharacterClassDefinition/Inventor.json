@@ -84,6 +84,30 @@
               "number": 1
             }
           ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Focus",
+              "itemReference": "Definition:ComponentPouch_Belt:435cd1abb9c57514c975f7c8ea93447a",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Focus",
+              "itemReference": "Definition:ComponentPouch_Bracers:affcfdfae885bed49a92c35cd09071cc",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
         }
       ],
       "defaultColumn": 0
@@ -407,11 +431,15 @@
     "Survival"
   ],
   "toolAutolearnPreference": [
-    "ArtisanToolSmithToolsType",
-    "HerbalismKitType"
+    "EnchantingToolType",
+    "HerbalismKitType",
+    "PoisonersKitType",
+    "ScrollKitType"
   ],
   "expertiseAutolearnPreference": [],
-  "featAutolearnPreference": [],
+  "featAutolearnPreference": [
+    "FeatWarCaster"
+  ],
   "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 7,

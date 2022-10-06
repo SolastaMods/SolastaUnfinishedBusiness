@@ -1,0 +1,4 @@
+Subclass/&InnovationWeaponDescription=Weapon Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InnovationWeaponTitle=Weapon Innovation
+Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After studying and experimenting on weapons you became proficient with all martial weapons and you can use Intelligence for attack and damage rolls with magic weapons. 
+Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Inventive Weapon Use

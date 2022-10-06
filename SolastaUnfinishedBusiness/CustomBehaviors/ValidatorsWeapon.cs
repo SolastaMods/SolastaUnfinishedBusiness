@@ -93,6 +93,14 @@ internal static class ValidatorsWeapon
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
+    internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+    {
+        if (attackMode.Magical) { return true; }
+
+        if (weapon == null) { return false; }
+
+        return weapon.IsMagicalWeapon() || ShieldAttack.IsMagicShield(weapon);
+    }
 
     internal static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {

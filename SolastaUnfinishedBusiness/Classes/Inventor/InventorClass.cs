@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -88,11 +89,13 @@ internal static class InventorClass
                 SkillDefinitions.Survival
             )
             .AddToolPreferences(
+                ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType
+                ToolTypeDefinitions.PoisonersKitType,
+                ToolTypeDefinitions.ScrollKitType
             )
-            //TODO: add dynamic preferred feats that can include ones that are disabled, but offered if enabled
-            .AddFeatPreferences() //TODO: Add preferred feats
+            //TODO: Add more preferred feats
+            .AddFeatPreferences(EwFeats.WarcasterFeat)
 
             #endregion
 
@@ -125,8 +128,21 @@ internal static class InventorClass
                     EquipmentDefinitions.OptionAmmoPack, 1)
             )
             .AddEquipmentRow(
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
-                    EquipmentDefinitions.OptionFocus, 1)
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
+                        EquipmentDefinitions.OptionFocus, 1)
+                },
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch_Belt,
+                        EquipmentDefinitions.OptionFocus, 1)
+                },
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch_Bracers,
+                        EquipmentDefinitions.OptionFocus, 1)
+                }
             )
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
@@ -513,6 +529,7 @@ internal static class InventorClass
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetFocusType(EquipmentDefinitions.FocusType.Universal) //should we add custom focus type?
             .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSpellKnowledge(SpellKnowledge.WholeList)

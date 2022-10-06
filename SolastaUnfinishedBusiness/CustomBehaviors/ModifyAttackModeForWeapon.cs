@@ -4,6 +4,46 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
+{
+    private readonly IsCharacterValidHandler[] _validators;
+    private readonly string attribute;
+    private readonly IsWeaponValidHandler isWeaponValid;
+
+    internal CanUseAttributeForWeapon(string attribute, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators)
+    {
+        this.attribute = attribute;
+        this.isWeaponValid = isWeaponValid;
+        _validators = validators;
+    }
+
+    public void ModifyAttribute(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        if (attackMode == null)
+        {
+            return;
+        }
+
+        if (!character.IsValid(_validators))
+        {
+            return;
+        }
+
+        if (!isWeaponValid(attackMode, weapon, character))
+        {
+            return;
+        }
+
+        if (character.GetAttribute(attribute).CurrentValue >
+            character.GetAttribute(attackMode.AbilityScore).CurrentValue)
+        {
+            attackMode.AbilityScore = attribute;
+        }
+    }
+}
+
 internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 {
     private readonly IsWeaponValidHandler isWeaponValid;
