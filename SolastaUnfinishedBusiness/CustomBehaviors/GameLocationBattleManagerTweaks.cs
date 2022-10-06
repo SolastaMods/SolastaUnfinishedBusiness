@@ -320,13 +320,19 @@ internal static class GameLocationBattleManagerTweaks
                     foreach (var definition in FeatureDefinitionAncestry.FeaturesToBrowse)
                     {
                         var definitionAncestry = definition as FeatureDefinitionAncestry;
-                        if (definitionAncestry.Type == provider.AncestryTypeForDamageType && !string.IsNullOrEmpty(definitionAncestry.DamageType))
+                        if (definitionAncestry.Type == provider.AncestryTypeForDamageType &&
+                            !string.IsNullOrEmpty(definitionAncestry.DamageType))
+                        {
                             additionalDamageForm.DamageType = definitionAncestry.DamageType;
+                        }
                     }
+
                     if (string.IsNullOrEmpty(additionalDamageForm.DamageType))
                     {
-                        Trace.LogError("Couldn't find relevant ancestry/damage type for " + provider.Name + " (attacker: " + attacker.Name + ")");
+                        Trace.LogError("Couldn't find relevant ancestry/damage type for " + provider.Name +
+                                       " (attacker: " + attacker.Name + ")");
                     }
+
                     break;
             }
 
@@ -835,7 +841,8 @@ internal static class GameLocationBattleManagerTweaks
                              RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
                         when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
-                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(provider.RequiredAncestryType, actualEffectForms):
+                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(provider.RequiredAncestryType,
+                                 actualEffectForms):
                         validTrigger = true;
                         break;
 

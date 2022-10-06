@@ -9,6 +9,7 @@
 // using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 // using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 // using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
