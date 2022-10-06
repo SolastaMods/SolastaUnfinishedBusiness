@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
@@ -380,6 +381,9 @@ internal static class InventorClass
         }
 
         Class = builder.AddToDB();
+        
+        // Inventor appears after Fighter
+        Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;
 
         return Class;
     }

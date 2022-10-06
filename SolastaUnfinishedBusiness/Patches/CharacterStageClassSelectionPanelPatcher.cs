@@ -14,6 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageClassSelectionPanelPatcher
 {
+#if false
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Compare_Patch
@@ -28,6 +29,7 @@ public static class CharacterStageClassSelectionPanelPatcher
             }
         }
     }
+#endif
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
