@@ -128,8 +128,21 @@ internal static class InventorClass
                     EquipmentDefinitions.OptionAmmoPack, 1)
             )
             .AddEquipmentRow(
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
-                    EquipmentDefinitions.OptionFocus, 1)
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch,
+                        EquipmentDefinitions.OptionFocus, 1)
+                },
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch_Belt,
+                        EquipmentDefinitions.OptionFocus, 1)
+                },
+                new List<CharacterClassDefinition.HeroEquipmentOption>
+                {
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch_Bracers,
+                        EquipmentDefinitions.OptionFocus, 1)
+                }
             )
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
@@ -516,6 +529,7 @@ internal static class InventorClass
             .Create("CastSpellsInventor")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetFocusType(EquipmentDefinitions.FocusType.Universal) //should we add custom focus type?
             .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSpellKnowledge(SpellKnowledge.WholeList)
