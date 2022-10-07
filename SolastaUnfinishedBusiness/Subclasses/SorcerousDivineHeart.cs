@@ -77,22 +77,21 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
 
-        var dieRollModifierDivineHeartEmpoweredHealing = FeatureDefinitionDieRollModifierBuilder
-            .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
-                "DieRollModifierDivineHeartEmpoweredHealing")
-            .SetGuiPresentation("PowerDivineHeartEmpoweredHealing", Category.Feature)
-            .SetModifiers(
-                RollContext.HealValueRoll,
-                1,
-                0,
-                2,
-                "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription")
-            .AddToDB();
-
         var conditionDivineHeartEmpoweredHealing = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetFeatures(dieRollModifierDivineHeartEmpoweredHealing)
+            .SetFeatures(
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
+                        "DieRollModifierDivineHeartEmpoweredHealing")
+                    .SetGuiPresentation("PowerDivineHeartEmpoweredHealing", Category.Feature)
+                    .SetModifiers(
+                        RollContext.HealValueRoll,
+                        1,
+                        0,
+                        2,
+                        "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription")
+                    .AddToDB())
             .AddToDB();
 
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder

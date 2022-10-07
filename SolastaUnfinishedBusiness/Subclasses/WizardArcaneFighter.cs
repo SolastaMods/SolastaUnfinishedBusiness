@@ -62,14 +62,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var attackModifierArcaneFighterIntBonus = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierArcaneFighterIntBonus")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
-            .AddToDB();
-
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
@@ -105,7 +97,16 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                             .SetItemPropertyForm(
                                 ItemPropertyUsage.Unlimited,
                                 0,
-                                new FeatureUnlockByLevel(attackModifierArcaneFighterIntBonus, 0))
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttackModifierBuilder
+                                        .Create("AttackModifierArcaneFighterIntBonus")
+                                        .SetGuiPresentation(Category.Feature,
+                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation
+                                                .SpriteReference)
+                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                        .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                                        .AddToDB(),
+                                    0))
                             .Build()
                     )
                     .Build())
