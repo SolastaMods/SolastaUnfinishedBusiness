@@ -200,7 +200,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         rt.anchorMax = new Vector2(1, 1);
         rt.pivot = new Vector2(0f, 0f);
         rt.position = new Vector3(0, 0, 0);
-        rt.sizeDelta = new Vector2(3440, 1440);
+        rt.sizeDelta = new Vector2(5120, 2160);
 
         background = tmp.AddComponent<Image>();
         background.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
