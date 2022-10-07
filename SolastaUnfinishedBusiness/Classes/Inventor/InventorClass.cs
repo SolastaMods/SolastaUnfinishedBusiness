@@ -101,7 +101,7 @@ internal static class InventorClass
             #endregion
 
             .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
-            .SetIngredientGatheringOdds(Fighter.IngredientGatheringOdds)
+            .SetIngredientGatheringOdds(Wizard.IngredientGatheringOdds)
             .SetHitDice(DieType.D8)
 
             #region Equipment
@@ -109,14 +109,14 @@ internal static class InventorClass
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Shield,
                         EquipmentDefinitions.OptionArmor, 1)
                 },
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
