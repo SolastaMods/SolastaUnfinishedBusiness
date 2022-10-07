@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassGameUiContext
 {
-    private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
+    private static readonly Color LightGreenSlot = new(37f / 256, 150f / 256, 10f / 256, 1f);
     private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
     private static readonly float[] FontSizes = { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
 
