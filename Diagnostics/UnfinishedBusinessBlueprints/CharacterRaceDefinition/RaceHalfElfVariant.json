@@ -15,11 +15,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "level": 1
     },
@@ -32,12 +27,17 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHalfElfLanguages:3219c863ddf6e214dafa891d17e97375",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
     }
   ],
   "subRaces": [
-    "Definition:RaceHalfElfDark:c1b0effd-683a-5a5b-a088-d7bcb4e5adfa",
     "Definition:RaceHalfElfHigh:3c9b6628-be66-5f1a-bb4d-fba8560e8fe3",
-    "Definition:RaceHalfElfSylvan:e0236015-e2fc-585d-a1b9-6db5ee88c3c8"
+    "Definition:RaceHalfElfSylvan:e0236015-e2fc-585d-a1b9-6db5ee88c3c8",
+    "Definition:RaceHalfElfDark:c1b0effd-683a-5a5b-a088-d7bcb4e5adfa"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
