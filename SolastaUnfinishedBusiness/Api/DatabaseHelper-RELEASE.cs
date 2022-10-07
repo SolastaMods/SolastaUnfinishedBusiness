@@ -208,6 +208,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition PathMagebane { get; } = GetDefinition<CharacterSubclassDefinition>("PathMagebane");
         internal static CharacterSubclassDefinition RangerMarksman { get; } = GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
         internal static CharacterSubclassDefinition RangerShadowTamer { get; } = GetDefinition<CharacterSubclassDefinition>("RangerShadowTamer");
+        internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
         internal static CharacterSubclassDefinition RoguishDarkweaver { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
         internal static CharacterSubclassDefinition SorcerousChildRift { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousChildRift");
