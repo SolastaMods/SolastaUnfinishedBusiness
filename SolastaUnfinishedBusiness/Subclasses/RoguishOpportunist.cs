@@ -28,8 +28,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetTargetingData(
                 Side.Enemy,
                 RangeType.MeleeHit,
-                0, // I think this parameter is irrelevant if range type is melee hit.
-                TargetType.Individuals, // allow multiple effect stack ?
+                0,
+                TargetType.Individuals,
                 0,
                 0)
             .SetSavingThrowData(

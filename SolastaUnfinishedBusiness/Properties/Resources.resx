@@ -311,9 +311,8 @@
   <data name="EnhanceWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Infusions\EnhanceWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <!-- TODO: FIX THIS ONCE IMAGE IS IN -->
   <data name="MindSharpener" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Infusions\ReturningWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Infusions\MindSharpener.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReturningWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Infusions\ReturningWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

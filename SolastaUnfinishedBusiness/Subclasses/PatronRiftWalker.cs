@@ -73,12 +73,6 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
 
-        var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
-                "DamageAffinityRiftWalkerFadeIntoTheVoid")
-            .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
-            .AddToDB();
-
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature,
@@ -118,6 +112,12 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 DimensionDoor.EffectDescription,
                 true)
+            .AddToDB();
+
+        var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
+                "DamageAffinityRiftWalkerFadeIntoTheVoid")
+            .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
             .AddToDB();
 
         var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder

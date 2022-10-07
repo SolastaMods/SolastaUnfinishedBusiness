@@ -21,6 +21,84 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+    protected override void Initialise()
+    {
+        if (!Definition.isWeapon)
+        {
+            Definition.weaponDefinition = null;
+        }
+
+        if (!Definition.isDocument)
+        {
+            Definition.documentDescription = null;
+        }
+
+        if (!Definition.isMusicalInstrument)
+        {
+            Definition.musicalInstrumentDefinition = null;
+        }
+
+        if (!Definition.isUsableDevice)
+        {
+            Definition.usableDeviceDescription = null;
+        }
+
+        if (!Definition.isContainerItem)
+        {
+            Definition.containerItemDefinition = null;
+        }
+
+        if (!Definition.isStarterPack)
+        {
+            Definition.starterPackDefinition = null;
+        }
+
+        if (!Definition.isLightSourceItem)
+        {
+            Definition.lightSourceItemDefinition = null;
+        }
+
+        if (!Definition.isTool)
+        {
+            Definition.toolDefinition = null;
+        }
+
+        if (!Definition.isArmor)
+        {
+            Definition.armorDefinition = null;
+        }
+
+        if (!Definition.isAmmunition)
+        {
+            Definition.ammunitionDefinition = null;
+        }
+
+        if (!Definition.isFocusItem)
+        {
+            Definition.focusItemDefinition = null;
+        }
+
+        if (!Definition.isSpellbook)
+        {
+            Definition.spellbookDefinition = null;
+        }
+
+        if (!Definition.isWealthPile)
+        {
+            Definition.wealthPileDefinition = null;
+        }
+
+        if (!Definition.isFood)
+        {
+            Definition.foodDescription = null;
+        }
+
+        if (!Definition.isFactionRelic)
+        {
+            Definition.factionRelicDescription = null;
+        }
+    }
+
     internal ItemDefinitionBuilder HideFromDungeonEditor()
     {
         Definition.inDungeonEditor = false;

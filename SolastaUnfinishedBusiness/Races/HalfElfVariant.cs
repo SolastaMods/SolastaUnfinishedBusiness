@@ -59,8 +59,12 @@ internal static class RaceHalfElfVariantRaceBuilder
 
         raceHalfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>
         {
-            raceHalfElfDark, raceHalfElfHigh, raceHalfElfSylvan
+            raceHalfElfHigh, raceHalfElfSylvan, raceHalfElfDark
         });
+
+        raceHalfElfHigh.GuiPresentation.sortOrder = 0;
+        raceHalfElfSylvan.GuiPresentation.sortOrder = 1;
+        raceHalfElfDark.GuiPresentation.sortOrder = 2;
 
         raceHalfElfVariant.FeatureUnlocks
             .RemoveAll(x =>

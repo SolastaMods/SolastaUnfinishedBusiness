@@ -439,7 +439,7 @@ internal static class CasterFeats
                     .Create(namePrefix + x.Name)
                     .SetGuiPresentation(learnShadowTouchedPresentation)
                     .SetPreparedSpellGroups(spellGroup)
-                    .SetCastingClass(x)
+                    .SetSpellcastingClass(x)
                     .SetAutoTag(autoPrepTag)
                     .AddToDB())
             .Cast<FeatureDefinition>()

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
@@ -24,3 +25,4 @@ public static class PropBlueprintSelectionPanelPatcher
         }
     }
 }
+#endif

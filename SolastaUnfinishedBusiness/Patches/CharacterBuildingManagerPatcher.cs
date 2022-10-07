@@ -33,7 +33,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             ref bool checkPool)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is CustomInvocationDefinition)
             {
                 checkPool = false;
@@ -50,7 +50,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             ref bool checkPool)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is CustomInvocationDefinition)
             {
                 checkPool = false;
@@ -67,7 +67,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             string tag)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not CustomInvocationDefinition)
             {
                 return true;
@@ -91,7 +91,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             string tag)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not CustomInvocationDefinition)
             {
                 return true;
@@ -332,8 +332,8 @@ public static class CharacterBuildingManagerPatcher
                     case CastingOrigin.Subclass when spellRepertoire.SpellCastingSubclass != selectedSubclass:
                         continue;
                     case CastingOrigin.Subclass:
-                        poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel,
-                            selectedSubclass);
+                        poolName = AttributeDefinitions.GetSubclassTag(
+                            selectedClass, selectedClassLevel, selectedSubclass);
                         break;
                     case CastingOrigin.Race:
                         poolName = AttributeDefinitions.TagRace;
@@ -449,6 +449,9 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
+    // we now ensure that any FeatureDefinitionCastSpell gets sorted last on future features sorting logic (Builders.Features.Helpers.cs)
+    // this issue shouldn't happen anymore so disabling this patch for now
+#if false
     //BUGFIX: replaces weird 'return' on FeatureDefinitionCastSpell check
     [HarmonyPatch(typeof(CharacterBuildingManager), "BrowseGrantedFeaturesHierarchically")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -513,4 +516,5 @@ public static class CharacterBuildingManagerPatcher
             return false;
         }
     }
+#endif
 }

@@ -31,8 +31,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("AttributeModifierArcaneFighterExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.AttacksNumber, 1)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
@@ -60,14 +60,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 AdditionalDamageAdvancement.None,
                 new List<DiceByRank>())
             .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        var attackModifierArcaneFighterIntBonus = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierArcaneFighterIntBonus")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
@@ -105,7 +97,16 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                             .SetItemPropertyForm(
                                 ItemPropertyUsage.Unlimited,
                                 0,
-                                new FeatureUnlockByLevel(attackModifierArcaneFighterIntBonus, 0))
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttackModifierBuilder
+                                        .Create("AttackModifierArcaneFighterIntBonus")
+                                        .SetGuiPresentation(Category.Feature,
+                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation
+                                                .SpriteReference)
+                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                        .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                                        .AddToDB(),
+                                    0))
                             .Build()
                     )
                     .Build())

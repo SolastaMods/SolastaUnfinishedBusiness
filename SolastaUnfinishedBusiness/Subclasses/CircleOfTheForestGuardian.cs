@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -31,13 +31,13 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var attributeModifierForestGuardianExtraAttack = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierForestGuardianExtraAttack")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
         var attributeModifierForestGuardianSylvanDurability = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierForestGuardianSylvanDurability")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
         var magicAffinityForestGuardianSylvanWarMagic = FeatureDefinitionMagicAffinityBuilder

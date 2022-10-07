@@ -29,6 +29,7 @@ internal static class ValidatorsWeapon
     internal static bool IsPolearm([CanBeNull] ItemDefinition weapon)
     {
         return weapon != null
+               && weapon.IsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 

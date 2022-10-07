@@ -2,10 +2,12 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -81,7 +83,7 @@ internal static class RaceBolgrifBuilder
                 "Language_Elvish")
             .AddToDB();
 
-        var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
+        var bolgrifRacePresentation = Dwarf.RacePresentation.DeepCopy();
 
         bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add("BeardShape_None");
@@ -89,7 +91,7 @@ internal static class RaceBolgrifBuilder
         bolgrifRacePresentation.preferedHairColors = new RangedInt(16, 32);
 
         var raceBolgrif = CharacterRaceDefinitionBuilder
-            .Create(CharacterRaceDefinitions.Human, "RaceBolgrif")
+            .Create(Human, "RaceBolgrif")
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(bolgrifRacePresentation)
@@ -98,16 +100,19 @@ internal static class RaceBolgrifBuilder
             .SetBaseHeight(84)
             .SetBaseWeight(170)
             .SetFeaturesAtLevel(1,
-                FeatureDefinitionMoveModes.MoveModeMove6,
-                attributeModifierBolgrifWisdomAbilityScoreIncrease,
                 attributeModifierBolgrifStrengthAbilityScoreIncrease,
-                FeatureDefinitionSenses.SenseNormalVision,
+                attributeModifierBolgrifWisdomAbilityScoreIncrease,
                 equipmentAffinityBolgrifPowerfulBuild,
                 powerBolgrifInvisibility,
+                FeatureDefinitionSenses.SenseNormalVision,
                 castSpellBolgrifMagic,
+                FeatureDefinitionMoveModes.MoveModeMove6,
                 proficiencyBolgrifLanguages)
             .AddToDB();
 
+        raceBolgrif.GuiPresentation.sortOrder = Dwarf.GuiPresentation.sortOrder - 1;
+
+        RacesContext.RaceScaleMap[raceBolgrif] = 8.8f / 6.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceBolgrif.name);
 
         return raceBolgrif;

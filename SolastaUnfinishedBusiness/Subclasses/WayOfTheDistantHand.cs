@@ -107,21 +107,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var conditionWayOfTheDistantHandDistract = ConditionDefinitionBuilder
-            .Create("ConditionWayOfTheDistantHandDistract")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
-            .SetDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create("CombatAffinityWayOfTheDistantHandDistract")
-                .SetGuiPresentationNoContent(true)
-                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                .AddToDB())
-            .AddToDB();
-
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
@@ -143,12 +128,29 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetConditionForm(conditionWayOfTheDistantHandDistract, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionWayOfTheDistantHandDistract")
+                            .SetGuiPresentation(Category.Condition,
+                                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
+                            .SetDuration(DurationType.Round, 1)
+                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                            .SetConditionType(ConditionType.Detrimental)
+                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                                .Create("CombatAffinityWayOfTheDistantHandDistract")
+                                .SetGuiPresentationNoContent(true)
+                                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                .AddToDB())
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowTechnique, true,
+        PowersBundleContext.RegisterPowerBundle(
+            powerWayOfTheDistantHandZenArrowTechnique,
+            true,
             powerWayOfTheDistantHandZenArrowProne,
             powerWayOfTheDistantHandZenArrowPush,
             powerWayOfTheDistantHandZenArrowDistract);
@@ -173,21 +175,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .AddToDB();
 
-        var conditionWayOfTheDistantHandAttackedWithMonkWeapon = ConditionDefinitionBuilder
-            .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
         //
         // LEVEL 06
         //
-
-        var attackedWithMonkWeapon =
-            ValidatorsCharacter.HasAnyOfConditions(conditionWayOfTheDistantHandAttackedWithMonkWeapon);
 
         var flurryOfArrowsSprite =
             CustomIcons.CreateAssetReferenceSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
@@ -200,7 +190,19 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetShowCasting(false)
             .SetCustomSubFeatures(new ValidatorPowerUse(
-                attackedWithMonkWeapon, ValidatorsCharacter.NoShield, ValidatorsCharacter.NoArmor))
+                ValidatorsCharacter.HasAnyOfConditions(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetDuration(DurationType.Round, 1)
+                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                        .SetSpecialInterruptions(
+                            ConditionInterruption.BattleEnd,
+                            ConditionInterruption.AnyBattleTurnEnd)
+                        .AddToDB()),
+                ValidatorsCharacter.NoShield,
+                ValidatorsCharacter.NoArmor))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
@@ -212,7 +214,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
                                 ConditionInterruption.AnyBattleTurnEnd)
-                            .SetFeatures(additionalActionWayOfTheDistantHandExtraAttack1,
+                            .SetFeatures(
+                                additionalActionWayOfTheDistantHandExtraAttack1,
                                 additionalActionWayOfTheDistantHandExtraAttack2)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add, true, true)
@@ -357,7 +360,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(powerWayOfTheDistantHandZenArrowUpgradedTechnique, true,
+        PowersBundleContext.RegisterPowerBundle(
+            powerWayOfTheDistantHandZenArrowUpgradedTechnique,
+            true,
             powerWayOfTheDistantHandZenArrowUpgradedProne,
             powerWayOfTheDistantHandUpgradedPush,
             powerWayOfTheDistantHandUpgradedDistract);

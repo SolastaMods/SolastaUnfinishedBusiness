@@ -1,6 +1,7 @@
 ﻿using System;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static FeatureDefinitionSavingThrowAffinity;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -26,6 +27,41 @@ internal enum Category
 
 internal static class Sorting
 {
+    internal static int CompareFeatureUnlock(FeatureUnlockByLevel a, FeatureUnlockByLevel b)
+    {
+        var result = a.Level - b.Level;
+
+        if (result != 0)
+        {
+            return result;
+        }
+
+        // hack as TA code requires this FEATURE to be last on list (DRAGONBORN only)
+        if (a.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
+        {
+            return 1;
+        }
+
+        if (b.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
+        {
+            return -1;
+        }
+
+        // CharacterBuildingManager.BrowseGrantedFeaturesHierarchically expects CastSpell to be last
+        if (a.FeatureDefinition is FeatureDefinitionCastSpell)
+        {
+            return 1;
+        }
+
+        if (b.FeatureDefinition is FeatureDefinitionCastSpell)
+        {
+            return -1;
+        }
+
+        return String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
+            StringComparison.CurrentCulture);
+    }
+
     internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
     {
         return String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);

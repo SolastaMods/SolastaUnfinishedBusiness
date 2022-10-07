@@ -28,7 +28,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
             .AddToDB();
 
-        var rallyingCryPower = FeatureDefinitionPowerBuilder
+        var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
             .Configure(
@@ -46,9 +46,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         // TODO: use EffectDescriptionBuilder
-        rallyingCryPower.EffectDescription.EffectForms[0].HealingForm.HealingCap = HealingCap.MaximumHitPoints;
-        rallyingCryPower.EffectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-        rallyingCryPower.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
+        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.HealingCap =
+            HealingCap.MaximumHitPoints;
+        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
+        powerRoyalKnightRallyingCry.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
@@ -77,7 +78,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 CharacterSubclassDefinitions.OathOfDevotion.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(3,
-                rallyingCryPower)
+                powerRoyalKnightRallyingCry)
             .AddFeaturesAtLevel(7,
                 featureSetRoyalKnightRoyalEnvoy)
             .AddFeaturesAtLevel(10,

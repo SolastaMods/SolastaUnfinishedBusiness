@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using TA.AI;
@@ -107,14 +106,14 @@ internal class CharacterClassDefinitionBuilder
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        }
-        else
-        {
-            features.Do(x => x.GuiPresentation.sortOrder = level);
-        }
+        // if (Main.Settings.EnableSortingFutureFeatures)
+        // {
+        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
+        // }
+        // else
+        // {
+        //     features.Do(x => x.GuiPresentation.sortOrder = level);
+        // }
 
         return this;
     }

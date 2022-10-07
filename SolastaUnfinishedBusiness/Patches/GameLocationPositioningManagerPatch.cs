@@ -21,11 +21,10 @@ public static class GameLocationPositioningManagerPatcher
         {
             var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
                 Type.DefaultBinder, new[] { typeof(string) }, null);
-            var found = 0;
 
             foreach (var instruction in instructions)
             {
-                if (instruction.Calls(logErrorMethod) && ++found == 1)
+                if (instruction.Calls(logErrorMethod))
                 {
                     yield return new CodeInstruction(OpCodes.Pop);
                 }

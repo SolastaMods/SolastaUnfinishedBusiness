@@ -123,20 +123,18 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 powerPoolAncientForestHerbalBrew.name)
             .AddToDB();
 
-        var conditionAncientForestPhotosynthesis = ConditionDefinitionBuilder
-            .Create("ConditionAncientForestPhotosynthesis")
-            .SetGuiPresentation(Category.Condition)
-            .SetSilent(Silent.None)
-            .AddFeatures(DatabaseHelper.FeatureDefinitionRegenerations.RegenerationRing)
-            .AddToDB();
-
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityAncientForestPhotosynthesis")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Bright,
-                condition = conditionAncientForestPhotosynthesis
+                condition = ConditionDefinitionBuilder
+                    .Create("ConditionAncientForestPhotosynthesis")
+                    .SetGuiPresentation(Category.Condition)
+                    .SetSilent(Silent.None)
+                    .AddFeatures(DatabaseHelper.FeatureDefinitionRegenerations.RegenerationRing)
+                    .AddToDB()
             })
             .AddToDB();
 

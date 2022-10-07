@@ -11,17 +11,20 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAutoPreparedSpellsBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
 {
+    internal FeatureDefinitionAutoPreparedSpellsBuilder AddPreparedSpellGroup(int classLevel,
+        params SpellDefinition[] spells)
+    {
+        Definition.AutoPreparedSpellsGroups.Add(new AutoPreparedSpellsGroup
+        {
+            ClassLevel = classLevel, spellsList = spells.ToList()
+        });
+        return this;
+    }
+
     internal FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
         params AutoPreparedSpellsGroup[] autoSpellLists)
     {
         Definition.AutoPreparedSpellsGroups.SetRange(autoSpellLists);
-        return this;
-    }
-
-    internal FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(
-        CharacterClassDefinition castingClass)
-    {
-        Definition.spellcastingClass = castingClass;
         return this;
     }
 

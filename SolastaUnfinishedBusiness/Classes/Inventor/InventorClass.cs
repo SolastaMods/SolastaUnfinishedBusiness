@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor;
 
@@ -26,7 +27,7 @@ internal static class InventorClass
         CustomIcons.CreateAssetReferenceSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        CharacterClassDefinitions.Wizard.ClassPictogramReference;
+        Wizard.ClassPictogramReference;
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -100,7 +101,7 @@ internal static class InventorClass
             #endregion
 
             .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
-            .SetIngredientGatheringOdds(CharacterClassDefinitions.Fighter.IngredientGatheringOdds)
+            .SetIngredientGatheringOdds(Wizard.IngredientGatheringOdds)
             .SetHitDice(DieType.D8)
 
             #region Equipment
@@ -108,14 +109,14 @@ internal static class InventorClass
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Shield,
                         EquipmentDefinitions.OptionArmor, 1)
                 },
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Club,
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
@@ -237,22 +238,6 @@ internal static class InventorClass
                     SkillDefinitions.Perception,
                     SkillDefinitions.SleightOfHand
                 ).AddToDB())
-
-            #endregion
-
-            #region Subclasses
-
-            .AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
-                .Create("SubclassChoiceInventor")
-                .SetGuiPresentation("InventorInnovation", Category.Subclass)
-                .SetSubclassSuffix("InventorInnovation")
-                .SetFilterByDeity(false)
-                .SetSubclasses(
-                    InnovationAlchemy.Build(),
-                    // InnovationNecromancy.Build(),
-                    InnovationWeapon.Build()
-                )
-                .AddToDB())
 
             #endregion
 
@@ -380,6 +365,25 @@ internal static class InventorClass
         }
 
         Class = builder.AddToDB();
+
+        #region Subclasses
+
+        builder.AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
+            .Create("SubclassChoiceInventor")
+            .SetGuiPresentation("InventorInnovation", Category.Subclass)
+            .SetSubclassSuffix("InventorInnovation")
+            .SetFilterByDeity(false)
+            .SetSubclasses(
+                InnovationAlchemy.Build(),
+                // InnovationNecromancy.Build(),
+                InnovationWeapon.Build()
+            )
+            .AddToDB());
+
+        #endregion
+
+        // Inventor appears after Fighter
+        Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;
 
         return Class;
     }

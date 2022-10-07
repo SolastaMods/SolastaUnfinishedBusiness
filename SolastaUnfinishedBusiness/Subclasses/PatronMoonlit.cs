@@ -138,14 +138,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         powerMoonlitDanceOfTheNightSky.EffectDescription.SetTargetParameter(4);
 
-        var conditionMoonlitMoonTouched = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "ConditionMoonlitMoonTouched")
-            .SetGuiPresentation(Category.Condition)
-            .SetConditionType(ConditionType.Neutral)
-            .SetFeatures(MoveModeFly2)
-            .SetFeatures(MovementAffinityConditionLevitate)
-            .AddToDB();
-
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
@@ -183,7 +175,14 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         new List<SaveAffinityBySenseDescription>())
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            conditionMoonlitMoonTouched,
+                            ConditionDefinitionBuilder
+                                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                                    "ConditionMoonlitMoonTouched")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetConditionType(ConditionType.Neutral)
+                                .SetFeatures(MoveModeFly2)
+                                .SetFeatures(MovementAffinityConditionLevitate)
+                                .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
                             false,
                             false,
@@ -197,8 +196,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-                    .Build()
-                ,
+                    .Build(),
                 true)
             .AddToDB();
 
@@ -226,8 +224,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
             //TODO: should this be indeed on 2?
             .AddFeaturesAtLevel(2, lightAffinityMoonlitWeak)
             .AddFeaturesAtLevel(6,
-                lightAffinityMoonlitStrong
-                , powerMoonlitDarkMoon,
+                lightAffinityMoonlitStrong,
+                powerMoonlitDarkMoon,
                 powerMoonlitFullMoon)
             .AddFeaturesAtLevel(10,
                 powerMoonlitDanceOfTheNightSky,

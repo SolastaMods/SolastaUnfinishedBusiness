@@ -1,8 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -37,7 +35,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var autoPreparedSpellsArcanist = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsArcanist")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Ranger)
+            .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Shield),
                 BuildSpellGroup(5, MistyStep),
@@ -73,10 +71,6 @@ internal sealed class RangerArcanist : AbstractSubclass
         //
         // LEVEL 07
         //
-
-        var assetReference = new AssetReference();
-
-        assetReference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
@@ -117,7 +111,7 @@ internal sealed class RangerArcanist : AbstractSubclass
                 (19, 2),
                 (20, 2))
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .SetImpactParticleReference(assetReference)
+            .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         //
@@ -138,9 +132,9 @@ internal sealed class RangerArcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = DamageTypeForce,
-                DieType = DieType.D8,
-                DiceNumber = 4,
+                damageType = DamageTypeForce,
+                dieType = DieType.D8,
+                diceNumber = 4,
                 healFromInflictedDamage = HealFromInflictedDamage.Never
             },
             SavingThrowAffinity = EffectSavingThrowType.None
@@ -169,9 +163,9 @@ internal sealed class RangerArcanist : AbstractSubclass
         {
             DamageForm = new DamageForm
             {
-                DamageType = DamageTypeForce,
-                DieType = DieType.D8,
-                DiceNumber = 8,
+                damageType = DamageTypeForce,
+                dieType = DieType.D8,
+                diceNumber = 8,
                 healFromInflictedDamage = HealFromInflictedDamage.Never
             },
             SavingThrowAffinity = EffectSavingThrowType.None

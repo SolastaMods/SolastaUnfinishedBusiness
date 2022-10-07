@@ -9,8 +9,11 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -176,10 +179,40 @@ internal static class MulticlassContext
 
     internal static void LateLoad()
     {
+        FixExtraAttacksScenarios();
         AddNonOfficialBlueprintsToFeaturesCollections();
         PatchClassLevel();
         PatchEquipmentAssignment();
         PatchFeatureUnlocks();
+    }
+
+    private static void FixExtraAttacksScenarios()
+    {
+        // make all extra attacks use Force If Better
+        foreach (var featureDefinitionAttributeModifier in DatabaseRepository
+                     .GetDatabase<FeatureDefinitionAttributeModifier>()
+                     .Where(x => x.modifiedAttribute == AttributeDefinitions.AttacksNumber))
+        {
+            featureDefinitionAttributeModifier.modifierValue = 2;
+            featureDefinitionAttributeModifier.modifierOperation = AttributeModifierOperation.ForceIfBetter;
+        }
+
+        // fix use cases at level 11 when certain classes / subs get a 3rd attack
+        var attributeModifierExtraAttackForce3 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce3")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
+            .AddToDB();
+
+        // leave here for now as we will need this on level 20...
+        _ = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce4")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 4)
+            .AddToDB();
+
+        Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+        RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
     }
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
@@ -477,11 +510,6 @@ internal static class MulticlassContext
             new Func<CharacterClassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
                 ClassFilteredFeatureUnlocks).Method;
 
-        var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-        var subclassFilteredFeatureUnlocksMethod =
-            new Func<CharacterSubclassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
-                SubclassFilteredFeatureUnlocks).Method;
-
         foreach (var instruction in instructions)
         {
             if (instruction.Calls(classFeatureUnlocksMethod))
@@ -492,15 +520,6 @@ internal static class MulticlassContext
                 }
 
                 yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-            }
-            else if (instruction.Calls(subclassFeatureUnlocksMethod))
-            {
-                foreach (var inst in YieldHero())
-                {
-                    yield return inst;
-                }
-
-                yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
             }
             else
             {
@@ -525,27 +544,16 @@ internal static class MulticlassContext
             && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
             && selectedSubClass != null)
         {
-            filteredFeatureUnlockByLevels.AddRange(SubclassFilteredFeatureUnlocks(selectedSubClass,
-                rulesetCharacterHero));
+            filteredFeatureUnlockByLevels.AddRange(selectedSubClass.FeatureUnlocks);
         }
 
+        // don't mess up with very first class taken
         if (!LevelUpContext.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
         {
             return characterClassDefinition.FeatureUnlocks;
         }
 
-        // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
-        var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
-
-        if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
-        {
-            filteredFeatureUnlockByLevels.RemoveAll(x =>
-                x.FeatureDefinition is FeatureDefinitionAttributeModifier
-                {
-                    ModifiedAttribute: AttributeDefinitions.AttacksNumber
-                });
-        }
-
+        // replace features per mc rules
         foreach (var featureNameToReplace in from featureNameToReplace in FeaturesToReplace
                  let count = filteredFeatureUnlockByLevels.RemoveAll(
                      x => x.FeatureDefinition == featureNameToReplace.Key)
@@ -556,52 +564,13 @@ internal static class MulticlassContext
         }
 
         // exclude features per mc rules
-        FeaturesToExclude.TryGetValue(selectedClass, out var featureNamesToExclude);
-
-        if (featureNamesToExclude != null)
+        if (FeaturesToExclude.TryGetValue(selectedClass, out var featureNamesToExclude))
         {
             filteredFeatureUnlockByLevels.RemoveAll(x => featureNamesToExclude.Contains(x.FeatureDefinition));
         }
 
         // sort back results
-        filteredFeatureUnlockByLevels.Sort((a, b) =>
-        {
-            var result = a.Level.CompareTo(b.Level);
-
-            if (result == 0)
-            {
-                result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-                    StringComparison.CurrentCultureIgnoreCase);
-            }
-
-            return result;
-        });
-
-        return filteredFeatureUnlockByLevels;
-    }
-
-    // support subclass filtered feature unlocks
-    private static IEnumerable<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
-        [NotNull] CharacterSubclassDefinition characterSubclassDefinition, RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))
-        {
-            return characterSubclassDefinition.FeatureUnlocks;
-        }
-
-        var filteredFeatureUnlockByLevels = characterSubclassDefinition.FeatureUnlocks.ToList();
-
-        // remove any extra attacks except on classes that get them at 11 (fighter and swiftBlade)
-        var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
-
-        if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
-        {
-            filteredFeatureUnlockByLevels.RemoveAll(x =>
-                x.FeatureDefinition is FeatureDefinitionAttributeModifier
-                {
-                    ModifiedAttribute: AttributeDefinitions.AttacksNumber
-                });
-        }
+        filteredFeatureUnlockByLevels.Sort(Sorting.CompareFeatureUnlock);
 
         return filteredFeatureUnlockByLevels;
     }

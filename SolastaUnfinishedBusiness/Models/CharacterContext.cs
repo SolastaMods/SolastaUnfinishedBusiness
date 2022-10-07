@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -111,26 +110,37 @@ internal static class CharacterContext
 
             if (columns.Length != 3)
             {
+                Main.Error($"additional names cannot load: {line}.");
+
                 continue;
             }
 
             var raceName = columns[0];
             var gender = columns[1];
             var name = columns[2];
-            var race = (CharacterRaceDefinition)AccessTools
-                .Property(typeof(CharacterRaceDefinitions), raceName)?.GetValue(null);
 
-            if (race != null)
+            if (DatabaseRepository.GetDatabase<CharacterRaceDefinition>().TryGetElement(raceName, out var race))
             {
                 var racePresentation = race.RacePresentation;
-                var options = (List<string>)
-                    AccessTools.Property(racePresentation.GetType(), $"{gender}NameOptions").GetValue(racePresentation);
 
-                options.Add(name);
+                switch (gender)
+                {
+                    case "Male":
+                        racePresentation.MaleNameOptions.Add(name);
+                        break;
+
+                    case "Female":
+                        racePresentation.FemaleNameOptions.Add(name);
+                        break;
+
+                    case "Sur":
+                        racePresentation.SurNameOptions.Add(name);
+                        break;
+                }
             }
             else
             {
-                Main.Error($"cannot load: {raceName} - {gender} - {name}.");
+                Main.Error($"additional names cannot load: {line}.");
             }
         }
     }

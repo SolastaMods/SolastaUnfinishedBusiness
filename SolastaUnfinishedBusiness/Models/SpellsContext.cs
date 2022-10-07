@@ -113,7 +113,7 @@ internal static class SpellsContext
             SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
             Main.Settings.SpellListSpellEnabled.TryAdd(name, new List<string>());
-            Main.Settings.DisplaySpellListsToggle.TryAdd(name, false);
+            Main.Settings.DisplaySpellListsToggle.TryAdd(name, true);
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 

@@ -5,6 +5,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -12,82 +13,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 {
     internal PatronSoulBlade()
     {
-        var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
-            .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.NoCost)
-            .AddToDB();
-
-        powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
-
-        var attackModifierSoulBladeEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierSoulBladeEmpowerWeapon")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-            .AddToDB();
-
-        var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeEmpowerWeapon")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
-                ActivationTime.Action,
-                1,
-                RechargeRate.LongRest,
-                true,
-                true,
-                AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(Side.Ally,
-                        RangeType.Self,
-                        1,
-                        TargetType.Item,
-                        1,
-                        1,
-                        ActionDefinitions.ItemSelectionType.Weapon
-                    )
-                    .AddEffectForms(new EffectFormBuilder()
-                        .SetItemPropertyForm(
-                            ItemPropertyUsage.Unlimited,
-                            1, new FeatureUnlockByLevel(attackModifierSoulBladeEmpowerWeapon, 0)
-                        )
-                        .Build()
-                    )
-                    .Build()
-            )
-            .AddToDB();
-
-        var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "PowerSoulBladeSoulShield")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
-                ActivationTime.BonusAction,
-                1,
-                RechargeRate.ShortRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                FeatureDefinitionPowers.PowerFighterSecondWind.EffectDescription
-                    .Copy()
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetTempHPForm(-1, DieType.D1, 1)
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
-                        .Build())
-                    .SetDurationType(DurationType.UntilLongRest))
-            .AddToDB();
-
         var spellListSoulBlade = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
@@ -116,14 +41,89 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeEmpowerWeapon")
+            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.Action,
+                1,
+                RechargeRate.LongRest,
+                true,
+                true,
+                AttributeDefinitions.Charisma,
+                new EffectDescriptionBuilder()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Item,
+                        1,
+                        1,
+                        ActionDefinitions.ItemSelectionType.Weapon
+                    )
+                    .AddEffectForms(new EffectFormBuilder()
+                        .SetItemPropertyForm(
+                            ItemPropertyUsage.Unlimited,
+                            1, new FeatureUnlockByLevel(
+                                FeatureDefinitionAttackModifierBuilder
+                                    .Create("AttackModifierSoulBladeEmpowerWeapon")
+                                    .SetGuiPresentation(Category.Feature,
+                                        PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                                    .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                    .AddToDB(),
+                                0)
+                        )
+                        .Build()
+                    )
+                    .Build()
+            )
+            .AddToDB();
+
+        var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
+            .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
+            .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
+            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
+            .SetRechargeRate(RechargeRate.ShortRest)
+            .SetActivationTime(ActivationTime.NoCost)
+            .AddToDB();
+
+        powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+
+        var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
+            .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .Configure(
+                1,
+                UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                ActivationTime.BonusAction,
+                1,
+                RechargeRate.ShortRest,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                PowerFighterSecondWind.EffectDescription
+                    .Copy()
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetTempHPForm(-1, DieType.D1, 1)
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                        .Build())
+                    .SetDurationType(DurationType.UntilLongRest))
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronSoulBlade")
             .SetOrUpdateGuiPresentation(Category.Subclass,
                 CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
             .AddFeaturesAtLevel(1,
+                magicAffinitySoulBladeExpandedSpells,
                 proficiencySoulBladeArmor,
                 proficiencySoulBladeWeapon,
-                magicAffinitySoulBladeExpandedSpells,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,
                 powerSoulBladeSummonPactWeapon)

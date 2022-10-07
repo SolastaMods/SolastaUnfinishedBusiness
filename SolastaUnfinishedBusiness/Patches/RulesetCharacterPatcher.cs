@@ -870,11 +870,7 @@ public static class RulesetCharacterPatcher
                          .Select(featureDefinition => featureDefinition as FeatureDefinitionAutoPreparedSpells)
                          .Where(autoPreparedSpells => autoPreparedSpells!.SpellcastingClass == spellcastingClass))
             {
-                //SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = true;
-
-                var classLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
-
-                //SharedSpellsContext.UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior = false;
+                var classLevel = __instance.GetSpellcastingLevel(spellRepertoire);
 
                 foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
                              .Where(preparedSpellsGroup => preparedSpellsGroup.ClassLevel <= classLevel))

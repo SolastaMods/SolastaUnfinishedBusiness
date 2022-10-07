@@ -338,10 +338,7 @@
   "isUsableDevice": false,
   "isTool": false,
   "isMusicalInstrument": false,
-  "musicalInstrumentDefinition": {
-    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "LuteType"
-  },
+  "musicalInstrumentDefinition": null,
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,

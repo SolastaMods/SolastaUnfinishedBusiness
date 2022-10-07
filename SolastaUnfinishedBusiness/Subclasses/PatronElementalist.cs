@@ -170,7 +170,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetUniqueChoices(false)
             .AddToDB();
 
-        var minorElementalBonusCantrip = FeatureDefinitionBonusCantripsBuilder
+        var bonusCantripElementalistMinorElemental = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripElementalistMinorElemental")
             .SetGuiPresentation(Category.Feature)
             .SetBonusCantrips(
@@ -191,7 +191,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 powerElementalistElementalEnhancedFormPool)
             .AddFeaturesAtLevel(14,
-                minorElementalBonusCantrip)
+                bonusCantripElementalistMinorElemental)
             .AddToDB();
     }
 

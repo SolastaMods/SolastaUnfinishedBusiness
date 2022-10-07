@@ -46,12 +46,12 @@ internal static class Main
 
     internal static void Error(Exception ex)
     {
-        Logger?.Error(ex.ToString());
+        Logger.Error(ex.ToString());
     }
 
     internal static void Error(string msg)
     {
-        Logger?.Error(msg);
+        Logger.Error(msg);
     }
 
     // ReSharper disable once UnusedMember.Global
