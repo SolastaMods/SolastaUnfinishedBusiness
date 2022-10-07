@@ -14,7 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static FeatureDefinitionAttributeModifier;
-    
+
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassContext
@@ -203,9 +203,9 @@ internal static class MulticlassContext
             .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
-        
+
         // leave here for now as we will need this on level 20...
-        var attributeModifierExtraAttackForce4 = FeatureDefinitionAttributeModifierBuilder
+        _ = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce4")
             .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 4)
