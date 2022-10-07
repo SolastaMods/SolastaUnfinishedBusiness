@@ -31,8 +31,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("AttributeModifierArcaneFighterExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.AttacksNumber, 1)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
