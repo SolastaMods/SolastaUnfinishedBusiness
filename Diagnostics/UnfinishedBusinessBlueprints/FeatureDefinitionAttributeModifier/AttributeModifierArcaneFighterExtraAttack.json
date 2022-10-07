@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 2,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,
