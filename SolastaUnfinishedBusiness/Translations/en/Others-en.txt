@@ -8,6 +8,7 @@ Equipment/&ScrollDeathWardTitle=Scroll of Deathward
 Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this target with current weapon
 Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
 Feature/&AttributeModifier{0}Description={0}
+Feature/&Emptystring=
 Feature/&EmptyString=
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}

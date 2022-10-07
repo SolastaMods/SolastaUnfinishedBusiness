@@ -25,8 +25,6 @@ public class Settings : UnityModManager.ModSettings
     //
     // SETTINGS UI TOGGLES
     //
-
-    public bool DisplayGeneralRaceClassSubClassToggle { get; set; } = true;
     public bool DisplayRacesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;

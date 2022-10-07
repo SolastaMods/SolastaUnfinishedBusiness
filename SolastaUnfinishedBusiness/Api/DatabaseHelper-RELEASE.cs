@@ -188,14 +188,14 @@ internal static partial class DatabaseHelper
     internal static class CharacterSubclassDefinitions
     {
         internal static CharacterSubclassDefinition DomainBattle { get; } = GetDefinition<CharacterSubclassDefinition>("DomainBattle");
-        internal static CharacterSubclassDefinition DomainElementalCold { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalCold");
+        //internal static CharacterSubclassDefinition DomainElementalCold { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalCold");
         internal static CharacterSubclassDefinition DomainElementalFire { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalFire");
-        internal static CharacterSubclassDefinition DomainElementalLighting { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalLighting");
+        //internal static CharacterSubclassDefinition DomainElementalLighting { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalLighting");
         internal static CharacterSubclassDefinition DomainInsight { get; } = GetDefinition<CharacterSubclassDefinition>("DomainInsight");
-        internal static CharacterSubclassDefinition DomainLaw { get; } = GetDefinition<CharacterSubclassDefinition>("DomainLaw");
+        //internal static CharacterSubclassDefinition DomainLaw { get; } = GetDefinition<CharacterSubclassDefinition>("DomainLaw");
         internal static CharacterSubclassDefinition DomainLife { get; } = GetDefinition<CharacterSubclassDefinition>("DomainLife");
         internal static CharacterSubclassDefinition DomainMischief { get; } = GetDefinition<CharacterSubclassDefinition>("DomainMischief");
-        internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
+        //internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
         internal static CharacterSubclassDefinition DomainSun { get; } = GetDefinition<CharacterSubclassDefinition>("DomainSun");
         internal static CharacterSubclassDefinition MartialChampion { get; } = GetDefinition<CharacterSubclassDefinition>("MartialChampion");
         internal static CharacterSubclassDefinition MartialCommander { get; } = GetDefinition<CharacterSubclassDefinition>("MartialCommander");
