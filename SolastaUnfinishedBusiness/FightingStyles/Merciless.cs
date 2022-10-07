@@ -63,8 +63,8 @@ internal sealed class Merciless : AbstractFightingStyle
             var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
             var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var usablePower = new RulesetUsablePower(powerFightingStyleMerciless, attacker.RaceDefinition,
-                attacker.ClassesHistory[0]);
+            var usablePower = new RulesetUsablePower(
+                powerFightingStyleMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
             var effectPower = new RulesetEffectPower(attacker, usablePower);
 
             usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
@@ -78,22 +78,20 @@ internal sealed class Merciless : AbstractFightingStyle
             }
         }
 
-        var additionalActionFightingStyleMerciless = FeatureDefinitionAdditionalActionBuilder
-            .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-            .SetGuiPresentationNoContent()
-            .AddToDB();
-
-        var onCharacterKillFightingStyleMerciless = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillFightingStyleMerciless")
-            .SetGuiPresentationNoContent()
-            .SetOnCharacterKill(OnMercilessKill)
-            .AddToDB();
-
         FightingStyle = CustomizableFightingStyleBuilder
             .Create("Merciless")
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
-            .SetFeatures(additionalActionFightingStyleMerciless, onCharacterKillFightingStyleMerciless)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+                    .SetGuiPresentationNoContent()
+                    .AddToDB(),
+                FeatureDefinitionOnCharacterKillBuilder
+                    .Create("OnCharacterKillFightingStyleMerciless")
+                    .SetGuiPresentationNoContent()
+                    .SetOnCharacterKill(OnMercilessKill)
+                    .AddToDB())
             .AddToDB();
     }
 
