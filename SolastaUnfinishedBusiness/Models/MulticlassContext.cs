@@ -9,9 +9,12 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
-
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static FeatureDefinitionAttributeModifier;
+    
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassContext
@@ -176,10 +179,40 @@ internal static class MulticlassContext
 
     internal static void LateLoad()
     {
+        FixExtraAttacksScenarios();
         AddNonOfficialBlueprintsToFeaturesCollections();
         PatchClassLevel();
         PatchEquipmentAssignment();
         PatchFeatureUnlocks();
+    }
+
+    private static void FixExtraAttacksScenarios()
+    {
+        // make all extra attacks use Force If Better
+        foreach (var featureDefinitionAttributeModifier in DatabaseRepository
+                     .GetDatabase<FeatureDefinitionAttributeModifier>()
+                     .Where(x => x.modifiedAttribute == AttributeDefinitions.AttacksNumber))
+        {
+            featureDefinitionAttributeModifier.modifierValue = 2;
+            featureDefinitionAttributeModifier.modifierOperation = AttributeModifierOperation.ForceIfBetter;
+        }
+
+        // fix use cases at level 11 when certain classes / subs get a 3rd attack
+        var attributeModifierExtraAttackForce3 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce3")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
+            .AddToDB();
+        
+        // leave here for now as we will need this on level 20...
+        var attributeModifierExtraAttackForce4 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce4")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 4)
+            .AddToDB();
+
+        Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+        RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
     }
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
