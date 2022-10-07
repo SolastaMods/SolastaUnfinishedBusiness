@@ -1,4 +1,6 @@
 Subclass/&InnovationWeaponDescription=Weapon Innovation blah-blah subclass details TODO: Add proper description.
 Subclass/&InnovationWeaponTitle=Weapon Innovation
-Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After studying and experimenting on weapons you became proficient with all martial weapons and you can use Intelligence for attack and damage rolls with magic weapons. 
+Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After studying and experimenting on weapons you learned that you don't have to be strong or dextrous to properly handle weapons, if you are smart about it:\n• You became proficient with all martial weapons\n• You can use Intelligence for attack and damage rolls with magic weapons
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Inventive Weapon Use
+Feature/&ProficiencyInnovationWeaponExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
+Feature/&ProficiencyInnovationWeaponExtraAttackTitle=Extra Attack
