@@ -33,7 +33,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             ref bool checkPool)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is CustomInvocationDefinition)
             {
                 checkPool = false;
@@ -50,7 +50,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             ref bool checkPool)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is CustomInvocationDefinition)
             {
                 checkPool = false;
@@ -67,7 +67,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             string tag)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not CustomInvocationDefinition)
             {
                 return true;
@@ -91,7 +91,7 @@ public static class CharacterBuildingManagerPatcher
             InvocationDefinition invocation,
             string tag)
         {
-            //PATCH: do not chec or modify point pools when dealing with custom invocations
+            //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not CustomInvocationDefinition)
             {
                 return true;
@@ -332,8 +332,8 @@ public static class CharacterBuildingManagerPatcher
                     case CastingOrigin.Subclass when spellRepertoire.SpellCastingSubclass != selectedSubclass:
                         continue;
                     case CastingOrigin.Subclass:
-                        poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel,
-                            selectedSubclass);
+                        poolName = AttributeDefinitions.GetSubclassTag(
+                            selectedClass, selectedClassLevel, selectedSubclass);
                         break;
                     case CastingOrigin.Race:
                         poolName = AttributeDefinitions.TagRace;

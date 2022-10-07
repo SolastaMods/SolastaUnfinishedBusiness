@@ -11,7 +11,7 @@ public static class LoadPanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnBeginShow_Patch
     {
-        public static bool Prefix([NotNull] LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
+        public static bool Prefix([NotNull] LoadPanel __instance)
         {
             //PATCH: EnableSaveByLocation
             if (Main.Settings.EnableSaveByLocation)

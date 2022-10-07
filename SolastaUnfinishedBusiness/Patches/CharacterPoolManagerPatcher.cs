@@ -10,7 +10,7 @@ public static class CharacterPoolManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class SaveCharacter_Patch
     {
-        public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
+        public static void Prefix(RulesetCharacterHero heroCharacter)
         {
             //PATCH: Keeps last level up hero selected
             if (heroCharacter == null)
