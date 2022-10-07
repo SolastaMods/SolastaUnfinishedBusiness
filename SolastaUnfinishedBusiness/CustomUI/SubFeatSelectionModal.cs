@@ -166,7 +166,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         SortIndex = levelUp.SortIndex + 1;
 
         //put it visually just above levelUp screen
-        transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform;
+        transform.parent = Find("Application/GUI/BackgroundCanvas/ForegroundCanvas").transform.parent;
 
         var levelUpIndex = levelUp.transform.GetSiblingIndex();
 
@@ -200,6 +200,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         rt.anchorMax = new Vector2(1, 1);
         rt.pivot = new Vector2(0f, 0f);
         rt.position = new Vector3(0, 0, 0);
+        rt.sizeDelta = new Vector2(3440, 1440);
 
         background = tmp.AddComponent<Image>();
         background.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
