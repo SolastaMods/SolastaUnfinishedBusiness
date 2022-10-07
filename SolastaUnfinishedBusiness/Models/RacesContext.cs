@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Races;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -12,36 +12,6 @@ internal static class RacesContext
     internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = new();
 
     internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
-
-    private static void SortRacesFeatures()
-    {
-        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
-        {
-            characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
-            {
-                var result = a.Level - b.Level;
-
-                if (result != 0)
-                {
-                    return result;
-                }
-
-                // hack as TA code requires this FEATURE to be last on list
-                if (a.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
-                {
-                    return 1;
-                }
-
-                if (b.FeatureDefinition == FeatureSetDragonbornBreathWeapon)
-                {
-                    return -1;
-                }
-
-                return String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-                    StringComparison.CurrentCultureIgnoreCase);
-            });
-        }
-    }
 
     internal static void Load()
     {
@@ -64,7 +34,8 @@ internal static class RacesContext
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            SortRacesFeatures();
+            DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
         }
     }
 

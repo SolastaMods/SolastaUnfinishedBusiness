@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -14,25 +15,6 @@ internal static class SubclassesContext
     } = new();
 
     internal static HashSet<CharacterSubclassDefinition> Subclasses { get; } = new();
-
-    private static void SortSubclassesFeatures()
-    {
-        foreach (var characterSubclassDefinition in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
-        {
-            characterSubclassDefinition.FeatureUnlocks.Sort((a, b) =>
-            {
-                var result = a.Level - b.Level;
-
-                if (result == 0)
-                {
-                    result = String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-                        StringComparison.CurrentCultureIgnoreCase);
-                }
-
-                return result;
-            });
-        }
-    }
 
     internal static void Load()
     {
@@ -85,7 +67,8 @@ internal static class SubclassesContext
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            SortSubclassesFeatures();
+            DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
         }
     }
 

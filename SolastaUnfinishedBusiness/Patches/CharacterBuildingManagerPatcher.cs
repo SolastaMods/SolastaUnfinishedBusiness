@@ -449,6 +449,9 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
+    // we now ensure that any FeatureDefinitionCastSpell gets sorted last on future features sorting logic (Builders.Features.Helpers.cs)
+    // this issue shouldn't happen anymore so disabling this patch for now
+#if false
     //BUGFIX: replaces weird 'return' on FeatureDefinitionCastSpell check
     [HarmonyPatch(typeof(CharacterBuildingManager), "BrowseGrantedFeaturesHierarchically")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -513,4 +516,5 @@ public static class CharacterBuildingManagerPatcher
             return false;
         }
     }
+#endif
 }
