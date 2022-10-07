@@ -31,7 +31,7 @@ public static class InnovationWeapon
     }
 
     private static FeatureDefinition BuildAutoPreparedSpells()
-    {Main.Log2($"BuildAutoPreparedSpells class: <{InventorClass.Class}>");
+    {
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsInnovationWeapon")
             .SetGuiPresentation(Category.Feature)
