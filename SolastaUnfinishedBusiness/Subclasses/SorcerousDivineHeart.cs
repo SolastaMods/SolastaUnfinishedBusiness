@@ -16,7 +16,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartArun")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Sorcerer)
+            .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, ProtectionFromEvilGood))
             .AddToDB();
@@ -24,7 +24,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartEinar")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Sorcerer)
+            .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, InflictWounds))
             .AddToDB();
@@ -32,7 +32,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMariake")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Sorcerer)
+            .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, CureWounds))
             .AddToDB();
@@ -40,7 +40,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMisaye")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Sorcerer)
+            .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, Bane))
             .AddToDB();
@@ -48,7 +48,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartPakri")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingClass(CharacterClassDefinitions.Sorcerer)
+            .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, Bless))
             .AddToDB();
