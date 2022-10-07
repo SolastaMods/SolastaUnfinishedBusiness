@@ -14,13 +14,13 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
     internal FeatureDefinitionAutoPreparedSpellsBuilder AddPreparedSpellGroup(int classLevel,
         params SpellDefinition[] spells)
     {
-        Definition.AutoPreparedSpellsGroups.Add(new AutoPreparedSpellsGroup()
+        Definition.AutoPreparedSpellsGroups.Add(new AutoPreparedSpellsGroup
         {
             ClassLevel = classLevel, spellsList = spells.ToList()
         });
         return this;
     }
-    
+
     internal FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
         params AutoPreparedSpellsGroup[] autoSpellLists)
     {
@@ -74,6 +74,6 @@ internal static class AutoPreparedSpellsGroupBuilder
 
     internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellNames)
     {
-        return new AutoPreparedSpellsGroup {ClassLevel = classLevel, SpellsList = spellNames.ToList()};
+        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellNames.ToList() };
     }
 }

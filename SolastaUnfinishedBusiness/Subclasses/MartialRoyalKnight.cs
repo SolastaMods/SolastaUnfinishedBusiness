@@ -46,7 +46,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         // TODO: use EffectDescriptionBuilder
-        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.HealingCap = HealingCap.MaximumHitPoints;
+        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.HealingCap =
+            HealingCap.MaximumHitPoints;
         powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
         powerRoyalKnightRallyingCry.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
