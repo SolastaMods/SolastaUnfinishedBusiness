@@ -145,17 +145,19 @@ internal static class BootContext
             f.scope == TooltipDefinitions.Scope.All &&
             f.featurePrefab.GetComponent<TooltipFeature>() is TooltipFeaturePrerequisites);
 
-        if (prerequisites >= 0)
+        if (prerequisites < 0)
         {
-            var custom = GuiTooltipClassDefinitionBuilder
-                .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
-                .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
-                //TODO: figure out why only background widens, but not content
-                // .SetPanelWidth(400f) //items have 340f by default
-                .AddToDB();
-
-            gui.tooltipClassDefinitions.Add(custom.Name, custom);
+            return;
         }
+
+        var custom = GuiTooltipClassDefinitionBuilder
+            .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
+            .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
+            //TODO: figure out why only background widens, but not content
+            // .SetPanelWidth(400f) //items have 340f by default
+            .AddToDB();
+
+        gui.tooltipClassDefinitions.Add(custom.Name, custom);
     }
 
     private static void Load()
@@ -268,10 +270,10 @@ internal static class BootContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             message,
-            "Donate",
             "Message/&MessageOkTitle",
-            () => OpenDonate(),
-            null);
+            "Donate",
+            null,
+            OpenDonate);
     }
 
     private static void DisplayUpdateMessage(string version, string changeLog)
@@ -297,10 +299,10 @@ internal static class BootContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             "Message/&MessageModWelcomeDescription",
-            "Donate",
             "Message/&MessageOkTitle",
-            () => OpenDonate(),
-            null);
+            "Donate",
+            null,
+            OpenDonate);
     }
 
     internal static void OpenWiki()
@@ -313,7 +315,7 @@ internal static class BootContext
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
-    internal static void OpenUrl(string url)
+    private static void OpenUrl(string url)
     {
         try
         {
