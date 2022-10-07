@@ -241,22 +241,6 @@ internal static class InventorClass
 
             #endregion
 
-            #region Subclasses
-
-            .AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
-                .Create("SubclassChoiceInventor")
-                .SetGuiPresentation("InventorInnovation", Category.Subclass)
-                .SetSubclassSuffix("InventorInnovation")
-                .SetFilterByDeity(false)
-                .SetSubclasses(
-                    InnovationAlchemy.Build(),
-                    // InnovationNecromancy.Build(),
-                    InnovationWeapon.Build()
-                )
-                .AddToDB())
-
-            #endregion
-
             #region Level 01
 
             .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips())
@@ -381,6 +365,22 @@ internal static class InventorClass
         }
 
         Class = builder.AddToDB();
+
+        #region Subclasses
+
+        builder.AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
+            .Create("SubclassChoiceInventor")
+            .SetGuiPresentation("InventorInnovation", Category.Subclass)
+            .SetSubclassSuffix("InventorInnovation")
+            .SetFilterByDeity(false)
+            .SetSubclasses(
+                InnovationAlchemy.Build(),
+                // InnovationNecromancy.Build(),
+                InnovationWeapon.Build()
+            )
+            .AddToDB());
+
+        #endregion
 
         // Inventor appears after Fighter
         Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;

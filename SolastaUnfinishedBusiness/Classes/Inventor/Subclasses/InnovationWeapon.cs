@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 
@@ -13,7 +14,7 @@ public static class InnovationWeapon
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationWeapon")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfJugement)
-            .AddFeaturesAtLevel(3, BuildBattleReady())
+            .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddToDB();
     }
@@ -26,6 +27,21 @@ public static class InnovationWeapon
             .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence,
                 ValidatorsWeapon.IsMagic))
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildAutoPreparedSpells()
+    {Main.Log2($"BuildAutoPreparedSpells class: <{InventorClass.Class}>");
+        return FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsInnovationWeapon")
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellcastingClass(InventorClass.Class)
+            .SetAutoTag("InventorWeaponsmith")
+            .AddPreparedSpellGroup(3, Heroism, Shield)
+            .AddPreparedSpellGroup(5, BrandingSmite, SpiritualWeapon)
+            .AddPreparedSpellGroup(9, RemoveCurse, BeaconOfHope)
+            .AddPreparedSpellGroup(13, FireShield, DeathWard)
+            .AddPreparedSpellGroup(17, MassCureWounds, WallOfForce)
             .AddToDB();
     }
 
