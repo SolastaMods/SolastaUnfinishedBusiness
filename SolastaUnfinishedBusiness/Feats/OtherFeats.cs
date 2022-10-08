@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
 
@@ -36,6 +37,19 @@ internal static class OtherFeats
                     .Create("AttributeModifierFeatImprovedCritical")
                     .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
                     .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
+                    .AddToDB())
+            .AddToDB();
+
+        // Master Critical
+        var featMasterCritical = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatMasterCritical")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.ValidateHasFeat(featImprovedCritical))
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierFeatMasterCritical")
+                    .SetGuiPresentation("FeatMasterCritical", Category.Feat)
+                    .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 18)
                     .AddToDB())
             .AddToDB();
 
@@ -84,7 +98,11 @@ internal static class OtherFeats
             .SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.ShieldCategory)
             .AddToDB();
 
-        feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featShieldExpert);
+        GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", null,
+            featImprovedCritical,
+            featMasterCritical);
+        
+        feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featMasterCritical, featShieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildFeatSavageAttackerDieRollModifier(

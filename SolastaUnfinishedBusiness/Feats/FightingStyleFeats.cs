@@ -36,7 +36,7 @@ internal static class FightingStyleFeats
                 var hasFightingStyle = hero.TrainedFightingStyles
                     .Any(x => x.Name == fightingStyle.Name);
 
-                var guiFormat = Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                var guiFormat = Gui.Format("Tooltip/&FeatPreReqDoesNotHaveFightingStyle",
                     fightingStyle.FormatTitle());
 
                 return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);

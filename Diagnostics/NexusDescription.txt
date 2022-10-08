@@ -194,6 +194,7 @@ You gain proficiency with light armor.
 You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
 Requires the ability to cast spells.
 [*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
+[*][b]Master Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.

@@ -20,8 +20,8 @@ internal static class ValidatorsFeat
         var param = $"{elfTitle}, {halfElfTitle}";
 
         return isElf
-            ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", param))
-            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", param), Gui.ColorFailure));
+            ? (true, Gui.Format("Tooltip/&FeatPreReqIs", param))
+            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIs", param), Gui.ColorFailure));
     }
 
     [NotNull]
@@ -34,11 +34,30 @@ internal static class ValidatorsFeat
 
             if (isLevelValid)
             {
-                return (true, Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()));
+                return (true, Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString()));
             }
 
             return (false,
-                Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()),
+                Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString()),
+                    Gui.ColorFailure));
+        };
+    }
+
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeat(
+        FeatDefinition featDefinition)
+    {
+        return (_, hero) =>
+        {
+            var isValid = hero.TrainedFeats.Contains(featDefinition);
+
+            if (isValid)
+            {
+                return (true, Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle()));
+            }
+
+            return (false,
+                Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle()),
                     Gui.ColorFailure));
         };
     }
@@ -54,8 +73,8 @@ internal static class ValidatorsFeat
     //         var isRace = characterRaceDefinition == hero.RaceDefinition;
     //
     //         return isRace
-    //             ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName))
-    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIs", raceName), Gui.ColorFailure));
+    //             ? (true, Gui.Format("Tooltip/&FeatPreReqIs", raceName))
+    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIs", raceName), Gui.ColorFailure));
     //     };
     // }
 
@@ -70,21 +89,8 @@ internal static class ValidatorsFeat
             var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
 
             return isNotClass
-                ? (true, Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNot", className), Gui.ColorFailure));
+                ? (true, Gui.Format("Tooltip/&FeatPreReqIsNot", className))
+                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIsNot", className), Gui.ColorFailure));
         };
     }
-
-    // internal static (bool, string) ValidateHasStealthAttack(FeatDefinition _, [NotNull] RulesetCharacterHero hero)
-    // {
-    //     var features = new List<FeatureDefinition>();
-    //
-    //     hero.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(features);
-    //
-    //     var hasStealthAttack = features.Any(x => x.Name.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag));
-    //
-    //     return hasStealthAttack
-    //         ? (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"))
-    //         : (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), Gui.ColorFailure));
-    // }
 }

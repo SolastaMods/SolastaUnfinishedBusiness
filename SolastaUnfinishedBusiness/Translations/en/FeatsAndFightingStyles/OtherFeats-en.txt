@@ -1,5 +1,7 @@
 Feat/&FeatImprovedCriticalDescription=Your attacks are critical hits on a roll of 19 or 20.
 Feat/&FeatImprovedCriticalTitle=Improved Critical
+Feat/&FeatMasterCriticalDescription=Your attacks are critical hits on a roll of 18, 19 or 20.
+Feat/&FeatMasterCriticalTitle=Master Critical
 Feat/&FeatSavageAttackerDescription=Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
 Feat/&FeatSavageAttackerReroll=Due to being a Savage Attacker {0} re-rolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle=Savage Attacker
