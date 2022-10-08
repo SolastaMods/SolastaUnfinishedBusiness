@@ -94,7 +94,7 @@ internal static class CustomReactionsContext
 
     internal static void ReadReadyActionPreferredCantrip(CharacterActionParams actionParams)
     {
-        if (actionParams is { ReadyActionType: ReadyActionType.Cantrip })
+        if (actionParams is {ReadyActionType: ReadyActionType.Cantrip})
         {
             _forcePreferredCantrip = actionParams.BoolParameter4;
         }
@@ -138,9 +138,7 @@ internal static class CustomReactionsContext
 
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
-            //TODO: is this indeed required?
-            // toggle.PersonalityFlagDefinition =
-            //     DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
+            toggle.PersonalityFlagDefinition = DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
 
             toggle.PersonalityFlagSelected = (_, _, state) =>
             {

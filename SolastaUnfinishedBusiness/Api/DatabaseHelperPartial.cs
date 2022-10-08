@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
     [NotNull]
-    private static T GetDefinition<T>(string key) where T : BaseDefinition
+    internal static T GetDefinition<T>(string key) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
