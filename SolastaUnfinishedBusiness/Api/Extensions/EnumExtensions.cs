@@ -50,7 +50,8 @@ internal enum ExtraOriginOfAmount
     // SourceSpellAttack = ConditionDefinition.OriginOfAmount.SourceSpellAttack,
     SourceProficiencyBonus = 9000,
     SourceCharacterLevel = 9001,
-    SourceClassLevel = 9002
+    SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
+    SourceAbilityBonus = 9003 //Attribute name should be in the `additionalDamageType` field of the condition
 }
 
 public enum ExtraConditionInterruption
