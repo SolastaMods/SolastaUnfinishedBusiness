@@ -5,6 +5,11 @@
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
+    internal static class FactionDefinitions
+    {
+        internal static FactionDefinition HostileMonsters { get; } = GetDefinition<FactionDefinition>("HostileMonsters");
+    }
+    
     internal static class EffectProxyDefinitions
     {
         internal static EffectProxyDefinition ProxyInsectPlague { get; } = GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");

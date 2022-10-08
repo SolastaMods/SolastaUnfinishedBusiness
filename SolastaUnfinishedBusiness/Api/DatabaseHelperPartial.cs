@@ -52,12 +52,6 @@ internal static partial class DatabaseHelper
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
 
-    internal static class FactionDefinitions
-    {
-        internal static FactionDefinition HostileMonsters { get; } =
-            GetDefinition<FactionDefinition>("HostileMonsters");
-    }
-
     internal static class FormationDefinitions
     {
         internal static FormationDefinition Squad4 { get; } =
