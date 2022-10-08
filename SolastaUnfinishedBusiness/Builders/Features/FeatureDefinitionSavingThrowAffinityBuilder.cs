@@ -20,7 +20,7 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
 
         foreach (var ability in abilityScores)
         {
-            var group = new SavingThrowAffinityGroup { abilityScoreName = ability, affinity = affinityType };
+            var group = new SavingThrowAffinityGroup {abilityScoreName = ability, affinity = affinityType};
 
             if (againstMagic)
             {
@@ -39,6 +39,12 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
         }
 
         Definition.AffinityGroups.Sort(Sorting.Compare);
+        return this;
+    }
+
+    internal FeatureDefinitionSavingThrowAffinityBuilder UseControllerSavingThrows(bool value = true)
+    {
+        Definition.useControllerSavingThrows = value;
         return this;
     }
 

@@ -317,4 +317,10 @@
   <data name="ReturningWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Infusions\ReturningWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SteelDefenderPower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\SteelDefenderPower.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteelDefenderMonster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\SteelDefenderMonster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

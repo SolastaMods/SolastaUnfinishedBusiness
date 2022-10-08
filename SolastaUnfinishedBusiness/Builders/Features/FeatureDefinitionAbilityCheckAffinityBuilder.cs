@@ -30,12 +30,19 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionB
         return this;
     }
 
-    internal FeatureDefinitionAbilityCheckAffinityBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
+    internal FeatureDefinitionAbilityCheckAffinityBuilder SetAffinityGroups(
+        params AbilityCheckAffinityGroup[] affinityGroups)
     {
         Definition.AffinityGroups.SetRange(affinityGroups);
         return this;
     }
-    
+
+    internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks(bool value = true)
+    {
+        Definition.useControllerAbilityChecks = value;
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,

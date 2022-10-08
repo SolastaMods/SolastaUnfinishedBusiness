@@ -12,7 +12,13 @@ internal class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackD
         Definition.EffectDescription = effect;
         return this;
     }
-    
+
+    public MonsterAttackDefinitionBuilder SetToHitBonus(int bonus)
+    {
+        Definition.toHitBonus = bonus;
+        return this;
+    }
+
     #region Constructors
 
     internal MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
