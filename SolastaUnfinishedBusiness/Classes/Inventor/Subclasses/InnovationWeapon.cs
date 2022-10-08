@@ -142,7 +142,8 @@ public static class InnovationWeapon
                 //Bonuses from Inventor's spell attack
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+                    .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(toHit)
                     .AddToDB(),
@@ -179,7 +180,7 @@ public static class InnovationWeapon
     {
         var rend = MonsterAttackDefinitionBuilder
             .Create("MonsterAttackSteelDefender")
-            //TODO: add gui presentation
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetToHitBonus(0)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetEffectForms(new EffectFormBuilder()

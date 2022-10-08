@@ -14,3 +14,5 @@ Feature/&PowerInnovationWeaponSummonSteelDefenderDescription=Summon Defending Bl
 Feature/&PowerInnovationWeaponSummonSteelDefenderTitle=Defending Blade
 Monster/&MonsterInnovationWeaponSteelDefenderDescription=Faithful defender of the weaponsmith.
 Monster/&MonsterInnovationWeaponSteelDefenderTitle=Defending Blade
+Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=spell attack bonus of its creator
+Item/&MonsterAttackSteelDefenderTitle=Force Slash

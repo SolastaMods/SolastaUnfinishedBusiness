@@ -149,7 +149,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return This();
     }
 
-    internal TBuilder SetPossessive(bool value)
+    internal TBuilder SetPossessive(bool value = true)
     {
         Definition.possessive = value;
         return This();
