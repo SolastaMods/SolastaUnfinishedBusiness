@@ -122,7 +122,7 @@ internal static class ValidatorsWeapon
     //     return tagsMap.Keys.Any(tags.Contains);
     // }
 
-    private static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)
+    internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)
     {
         return HasAnyWeaponTag(item?.ItemDefinition, tags);
     }

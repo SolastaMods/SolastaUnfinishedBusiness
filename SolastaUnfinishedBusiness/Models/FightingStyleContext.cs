@@ -17,6 +17,7 @@ internal static class FightingStyleContext
     internal static void Load()
     {
         LoadStyle(new Crippling());
+        LoadStyle(new LightFooted());
         LoadStyle(new Pugilist());
         LoadStyle(new Reactionary());
         LoadStyle(new TitanFighting());

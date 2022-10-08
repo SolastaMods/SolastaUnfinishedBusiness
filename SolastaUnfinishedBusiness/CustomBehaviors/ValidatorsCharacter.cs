@@ -56,6 +56,9 @@ internal static class ValidatorsCharacter
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
+    internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
+        ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), "Finesse");
+
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 

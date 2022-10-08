@@ -19,6 +19,10 @@ internal static class CustomSituationalContext
                 || (ValidatorsCharacter.LightArmor(contextParams.source)
                     && ValidatorsCharacter.NoShield(contextParams.source)),
 
+            ExtraSituationalContext.MainWeaponIsFinesseOrRange =>
+                ValidatorsCharacter.MainHandIsFinesseWeapon(contextParams.source)
+                || ValidatorsCharacter.HasTwoHandedRangeWeapon(contextParams.source),
+
             _ => def
         };
     }

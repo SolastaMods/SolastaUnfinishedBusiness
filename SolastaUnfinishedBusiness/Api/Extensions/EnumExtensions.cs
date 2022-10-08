@@ -6,7 +6,8 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal enum ExtraSituationalContext
 {
     MainWeaponIsMelee = 1000,
-    WearingNoArmorOrLightArmorWithoutShield = 1001
+    WearingNoArmorOrLightArmorWithoutShield = 1001,
+    MainWeaponIsFinesseOrRange = 1002
 }
 
 internal enum ExtraEffectFormType
