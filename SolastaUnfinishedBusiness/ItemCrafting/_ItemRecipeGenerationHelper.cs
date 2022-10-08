@@ -16,12 +16,13 @@ internal static class ItemRecipeGenerationHelper
             foreach (var itemData in itemCollection.MagicToCopy)
             {
                 // Generate new items
-                var newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemData.Name,
-                    itemData.Item);
-                // Generate recipes for items
+                var newItem = ItemBuilder.BuildNewMagicArmor(
+                    baseItem, itemData.Name, itemData.Item);
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName);
+                
                 builder.AddIngredient(baseItem);
+                
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
@@ -32,8 +33,8 @@ internal static class ItemRecipeGenerationHelper
                 builder.SetCraftingCheckData(itemData.Recipe.CraftingHours, itemData.Recipe.CraftingDC,
                     itemData.Recipe.ToolType);
                 builder.SetGuiPresentation(newItem.GuiPresentation);
+                
                 var newRecipe = builder.AddToDB();
-                // Stock item Recipes
                 var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb,
                     "CraftingManual_" + newRecipe.Name,
@@ -70,10 +71,11 @@ internal static class ItemRecipeGenerationHelper
                 // Generate new items
                 var newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name,
                     itemData.Item);
-                // Generate recipes for items
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName);
+                
                 builder.AddIngredient(baseItem);
+                
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
@@ -84,8 +86,8 @@ internal static class ItemRecipeGenerationHelper
                 builder.SetCraftingCheckData(itemData.Recipe.CraftingHours, itemData.Recipe.CraftingDC,
                     itemData.Recipe.ToolType);
                 builder.SetGuiPresentation(newItem.GuiPresentation);
+                
                 var newRecipe = builder.AddToDB();
-                // Stock item Recipes
                 var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy,
                     "CraftingManual_" + newRecipe.Name,
@@ -127,6 +129,7 @@ internal static class ItemRecipeGenerationHelper
             reassortRateValue = 1,
             reassortRateType = RuleDefinitions.DurationType.Hour
         };
+        
         merchant.StockUnitDescriptions.Add(stockUnit);
     }
 
@@ -211,6 +214,7 @@ internal static class ItemRecipeGenerationHelper
         {
             var recipeName = "RecipeEnchanting" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
+            
             builder.AddIngredient(enchantedToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
@@ -219,6 +223,7 @@ internal static class ItemRecipeGenerationHelper
         }
 
         const string GROUP_KEY = "EnchantingIngredients";
+        
         RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
@@ -276,6 +281,7 @@ internal static class ItemRecipeGenerationHelper
         var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(primedToBase[item], item));
 
         const string GROUP_KEY = "PrimedItems";
+        
         RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
 
         foreach (var recipe in recipes)
@@ -324,6 +330,7 @@ internal static class ItemRecipeGenerationHelper
         {
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
+            
             builder.AddIngredient(forgeryToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
@@ -364,6 +371,7 @@ internal static class ItemRecipeGenerationHelper
         {
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
+            
             builder.AddIngredient(scrollForgeries[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
@@ -400,10 +408,12 @@ internal static class ItemRecipeGenerationHelper
     {
         var recipeName = "RecipePriming" + baseItem.Name;
         var builder = RecipeDefinitionBuilder.Create(recipeName);
+        
         builder.AddIngredient(baseItem);
         builder.SetCraftedItem(primed);
         builder.SetCraftingCheckData(8, 15, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
         builder.SetGuiPresentation(primed.GuiPresentation);
+        
         return builder.AddToDB();
     }
 }

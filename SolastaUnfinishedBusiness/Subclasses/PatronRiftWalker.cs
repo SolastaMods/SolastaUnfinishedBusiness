@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -32,11 +33,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.BonusAction,
+                ActivationTime.BonusAction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Charisma,
@@ -50,11 +51,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 FeatureDefinitionPowers.PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.BonusAction,
+                ActivationTime.BonusAction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Charisma,
@@ -62,10 +63,10 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
-        powerRiftWalkerBlink.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        powerRiftWalkerBlink.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
+        powerRiftWalkerBlink.EffectDescription.DurationType = DurationType.Round;
+        powerRiftWalkerBlink.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerBlink.EffectDescription.HasSavingThrow = false;
-        powerRiftWalkerBlink.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+        powerRiftWalkerBlink.EffectDescription.TargetType = TargetType.Self;
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
             .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,
@@ -79,11 +80,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.Reaction,
+                ActivationTime.Reaction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Charisma,
@@ -91,10 +92,10 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 true)
             .AddToDB();
 
-        powerRiftWalkerRiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
+        powerRiftWalkerRiftStrike.EffectDescription.DurationType = DurationType.Round;
+        powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerRiftStrike.EffectDescription.HasSavingThrow = false;
-        powerRiftWalkerRiftStrike.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
+        powerRiftWalkerRiftStrike.reactionContext = ReactionTriggerContext.HitByMelee;
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftControl")
@@ -102,11 +103,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                UsesDetermination.ProficiencyBonus,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.BonusAction,
+                ActivationTime.BonusAction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Charisma,

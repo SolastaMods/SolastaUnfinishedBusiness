@@ -8,6 +8,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -18,69 +19,63 @@ internal static class CraftyFeats
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyArcana")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyArcanaDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
-                DatabaseHelper.SkillDefinitions.Arcana.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Arcana.Name)
             .AddToDB();
 
         var proficiencyCraftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyMedicine")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle",
                 "Feature/&ProficiencyCraftyMedicineDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
-                DatabaseHelper.SkillDefinitions.Medecine.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Medecine.Name)
             .AddToDB();
 
         var proficiencyCraftyNature = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyNature")
             .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyNatureDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.SkillOrExpertise,
-                DatabaseHelper.SkillDefinitions.Nature.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Nature.Name)
             .AddToDB();
 
         var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyHerbalismKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.HerbalismKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
         var proficiencyCraftyManacalonRosary = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyManacalonRosary")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.EnchantingToolType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
         var proficiencyCraftyPoisonersKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyPoisonersKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.PoisonersKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.PoisonersKitType.Name)
             .AddToDB();
 
         var proficiencyCraftyScrollKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyScrollKit")
             .SetGuiPresentation("Feature/&ProficiencyCraftyScribeTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.ScrollKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
         var proficiencyCraftySmithsTools = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftySmithsTools")
             .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
             .AddToDB();
 
         var proficiencyCraftyBows = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyBows")
             .SetGuiPresentation("Feature/&ProficiencyCraftyBowsTitle", "Feature/&ProficiencyCraftyBowsDescription")
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name,
+            .SetProficiencies(ProficiencyType.Weapon,
+                ShortbowType.Name,
+                LongbowType.Name,
                 LightCrossbowType.Name,
                 HeavyCrossbowType.Name)
             .AddToDB();

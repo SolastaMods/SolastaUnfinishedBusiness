@@ -12,7 +12,7 @@ internal sealed class TitanFighting : AbstractFightingStyle
 {
     internal TitanFighting()
     {
-        void TitanFightingComputeAttackModifier(
+        void TitanFightingOnComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             RulesetAttackMode attackMode,
@@ -32,22 +32,20 @@ internal sealed class TitanFighting : AbstractFightingStyle
             }
 
             attackModifier.attackRollModifier += 2;
-            attackModifier.attackToHitTrends.Add(
-                new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
-                    "Titan", this));
+            attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
+                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Titan", this));
         }
-
-        var onComputeAttackModifierFightingStyleTitan = FeatureDefinitionOnComputeAttackModifierBuilder
-            .Create("OnComputeAttackModifierFightingStyleTitan")
-            .SetGuiPresentationNoContent()
-            .SetOnComputeAttackModifierDelegate(TitanFightingComputeAttackModifier)
-            .AddToDB();
 
         FightingStyle = CustomizableFightingStyleBuilder
             .Create("Titan")
             .SetGuiPresentation(Category.FightingStyle,
                 PathBerserker.GuiPresentation.SpriteReference)
-            .SetFeatures(onComputeAttackModifierFightingStyleTitan)
+            .SetFeatures(
+                FeatureDefinitionOnComputeAttackModifierBuilder
+                    .Create("OnComputeAttackModifierFightingStyleTitan")
+                    .SetGuiPresentationNoContent()
+                    .SetOnComputeAttackModifierDelegate(TitanFightingOnComputeAttackModifier)
+                    .AddToDB())
             .AddToDB();
     }
 

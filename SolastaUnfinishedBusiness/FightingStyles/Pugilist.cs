@@ -16,29 +16,21 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Pugilist : AbstractFightingStyle
 {
-    internal Pugilist()
-    {
-        var actionAffinityFightingStylePugilist = FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityFightingStylePugilist")
-            .SetGuiPresentation("Pugilist", Category.FightingStyle)
-            .SetDefaultAllowedActonTypes()
-            .SetAuthorizedActions(Id.ShoveBonus)
-            .SetCustomSubFeatures(
-                new AddExtraUnarmedAttack(ActionType.Bonus),
-                new AdditionalUnarmedDice(),
-                new ValidatorDefinitionApplication(ValidatorsCharacter.HasUnarmedHand)
-            )
-            .AddToDB();
-
-        FightingStyle = CustomizableFightingStyleBuilder
-            .Create("Pugilist")
-            .SetFeatures(actionAffinityFightingStylePugilist)
-            .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
-            .SetIsActive(_ => true)
-            .AddToDB();
-    }
-
-    internal override FightingStyleDefinition FightingStyle { get; }
+    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+        .Create("Pugilist")
+        .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
+        .SetFeatures(
+            FeatureDefinitionActionAffinityBuilder
+                .Create("ActionAffinityFightingStylePugilist")
+                .SetGuiPresentation("Pugilist", Category.FightingStyle)
+                .SetDefaultAllowedActonTypes()
+                .SetAuthorizedActions(Id.ShoveBonus)
+                .SetCustomSubFeatures(
+                    new AddExtraUnarmedAttack(ActionType.Bonus),
+                    new AdditionalUnarmedDice(),
+                    new ValidatorDefinitionApplication(ValidatorsCharacter.HasUnarmedHand))
+                .AddToDB())
+        .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
@@ -49,7 +41,12 @@ internal sealed class Pugilist : AbstractFightingStyle
     // Replaces call to RulesetActor.IsWearingShield with custom method that always returns true
     internal static void RemoveShieldRequiredForBonusPush(List<CodeInstruction> codes)
     {
-        var customMethod = new Func<RulesetActor, bool>(CustomMethod).Method;
+        static bool True(RulesetActor actor)
+        {
+            return true;
+        }
+
+        var customMethod = new Func<RulesetActor, bool>(True).Method;
 
         var bindIndex = codes.FindIndex(x =>
         {
@@ -67,11 +64,6 @@ internal sealed class Pugilist : AbstractFightingStyle
         {
             codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
         }
-    }
-
-    private static bool CustomMethod(RulesetActor actor)
-    {
-        return true;
     }
 
     private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
