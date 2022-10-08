@@ -1,5 +1,14 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
+  "conditionType": "ConditionSurprised",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "conditionAffinityType": "Immunity",
+  "silent": false,
+  "rerollSaveWhenGained": false,
+  "rerollAdvantageType": "None",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

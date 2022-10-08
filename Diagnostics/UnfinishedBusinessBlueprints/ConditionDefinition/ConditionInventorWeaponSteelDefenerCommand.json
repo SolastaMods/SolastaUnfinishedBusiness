@@ -3,19 +3,17 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AttackModifierInnovationWeaponSummonSteelDefenderToHit:3b7a7415-7abc-59c5-8cef-26174848a042"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
+  "specialDuration": true,
+  "durationType": "Round",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -85,8 +83,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
-  "amountOrigin": "SourceSpellAttack",
+  "possessive": false,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -127,7 +125,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle",
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -148,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f4897b53-d5dd-57b4-bcef-ee0ed0bea433",
+  "guid": "401eb5b1-cc21-52c1-9bb6-d26705e074ef",
   "contentPack": 9999,
-  "name": "ConditionInnovationWeaponSummonSteelDefenderSpellAttack"
+  "name": "ConditionInventorWeaponSteelDefenerCommand"
 }
