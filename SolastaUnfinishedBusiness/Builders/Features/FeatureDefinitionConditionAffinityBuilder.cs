@@ -3,53 +3,23 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
-        TBuilder>
-    where TDefinition : FeatureDefinitionConditionAffinity
-    where TBuilder : FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder>
-{
-    internal TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
-    {
-        Definition.conditionAffinityType = value;
-        return This();
-    }
-
-    internal TBuilder SetConditionType(ConditionDefinition value)
-    {
-        Definition.conditionType = value.Name;
-        return This();
-    }
-
-    #region Constructors
-
-    protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionConditionAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionConditionAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionConditionAffinityBuilder(TDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
 [UsedImplicitly]
 internal class FeatureDefinitionConditionAffinityBuilder
-    : FeatureDefinitionConditionAffinityBuilder<FeatureDefinitionConditionAffinity,
+    : FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity,
         FeatureDefinitionConditionAffinityBuilder>
 {
+    internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
+    {
+        Definition.conditionAffinityType = value;
+        return this;
+    }
+
+    internal FeatureDefinitionConditionAffinityBuilder SetConditionType(ConditionDefinition value)
+    {
+        Definition.conditionType = value.Name;
+        return this;
+    }
+    
     #region Constructors
 
     protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

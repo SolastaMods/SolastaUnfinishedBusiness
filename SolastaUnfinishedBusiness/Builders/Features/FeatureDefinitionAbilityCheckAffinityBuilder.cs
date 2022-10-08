@@ -7,13 +7,11 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder> :
-        FeatureDefinitionAffinityBuilder<TDefinition, TBuilder>
-    where TDefinition : FeatureDefinitionAbilityCheckAffinity
-    where TBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder>
+[UsedImplicitly]
+internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionBuilder<
+    FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {
-    internal TBuilder BuildAndSetAffinityGroups(
+    internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType,
         DieType dieType,
         int diceNumber,
@@ -29,44 +27,15 @@ internal abstract class
                 abilityCheckModifierDieType = dieType
             }));
         Definition.AffinityGroups.Sort(Sorting.Compare);
-        return This();
+        return this;
     }
 
-    internal TBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
+    internal FeatureDefinitionAbilityCheckAffinityBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
     {
         Definition.AffinityGroups.SetRange(affinityGroups);
-        return This();
+        return this;
     }
-
-    #region Constructors
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,
-        namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, string definitionGuid)
-        : base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<
-    FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
-{
+    
     #region Constructors
 
     protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,

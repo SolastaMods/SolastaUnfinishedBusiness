@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaUnfinishedBusiness.Api;
+using static EquipmentDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -15,13 +16,14 @@ internal class ItemPropertyDescriptionBuilder
             featureDefinition = null,
             type = ItemPropertyDescription.PropertyType.Feature,
             appliesOnItemOnly = true,
-            knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+            knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden
         };
     }
 
-    internal static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
-        EquipmentDefinitions.KnowledgeAffinity knowledgeAffinity =
-            EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
+    internal static ItemPropertyDescriptionBuilder From(
+        FeatureDefinition feature,
+        bool appliesOnItemOnly = true,
+        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
     {
         return new ItemPropertyDescriptionBuilder()
             .SetFeatureDefinition(feature)
@@ -49,7 +51,7 @@ internal class ItemPropertyDescriptionBuilder
         return this;
     }
 
-    internal ItemPropertyDescriptionBuilder SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity value)
+    internal ItemPropertyDescriptionBuilder SetKnowledgeAffinity(KnowledgeAffinity value)
     {
         property.knowledgeAffinity = value;
         return this;

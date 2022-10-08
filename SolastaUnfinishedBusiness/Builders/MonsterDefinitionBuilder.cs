@@ -95,15 +95,9 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder ClearAbilityScores()
-    {
-        Array.Clear(Definition.AbilityScores, 0, Definition.AbilityScores.Length);
-        return this;
-    }
-
     internal MonsterDefinitionBuilder SetAbilityScores(int STR, int DEX, int CON, int INT, int WIS, int CHA)
     {
-        ClearAbilityScores();
+        Array.Clear(Definition.AbilityScores, 0, Definition.AbilityScores.Length);
 
         Definition.AbilityScores.SetValue(STR, 0); // STR
         Definition.AbilityScores.SetValue(DEX, 1); // DEX

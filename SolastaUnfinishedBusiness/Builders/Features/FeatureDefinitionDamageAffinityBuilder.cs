@@ -3,38 +3,8 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionDamageAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
-        TBuilder>
-    where TDefinition : FeatureDefinitionDamageAffinity
-    where TBuilder : FeatureDefinitionDamageAffinityBuilder<TDefinition, TBuilder>
-{
-    #region Constructors
-
-    protected FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionDamageAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionDamageAffinityBuilder(TDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
 [UsedImplicitly]
-internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<
+internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder<
     FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
     internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)

@@ -4,64 +4,34 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-internal abstract class
-    MorphotypeElementDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
-    where TDefinition : MorphotypeElementDefinition
-    where TBuilder : MorphotypeElementDefinitionBuilder<TDefinition, TBuilder>
+[UsedImplicitly]
+internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<MorphotypeElementDefinition,
+    MorphotypeElementDefinitionBuilder>
 {
-    internal TBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
+    internal MorphotypeElementDefinitionBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
     {
         Definition.category = value;
         return This();
     }
 
-    internal TBuilder SetMainColor(Color value)
+    internal MorphotypeElementDefinitionBuilder SetMainColor(Color value)
     {
         Definition.mainColor = value;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
+    internal MorphotypeElementDefinitionBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
     {
         Definition.subClassFilterMask = value;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetSortOrder(int value)
+    internal MorphotypeElementDefinitionBuilder SetSortOrder(int value)
     {
         Definition.guiPresentation.sortOrder = value;
-        return This();
+        return this;
     }
-
-    #region Constructors
-
-    protected MorphotypeElementDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected MorphotypeElementDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
-    protected MorphotypeElementDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-        name,
-        namespaceGuid)
-    {
-    }
-
-    protected MorphotypeElementDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(
-        original, name,
-        definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class MorphotypeElementDefinitionBuilder : MorphotypeElementDefinitionBuilder<MorphotypeElementDefinition,
-    MorphotypeElementDefinitionBuilder>
-{
+    
     #region Constructors
 
     protected MorphotypeElementDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

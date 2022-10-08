@@ -4,13 +4,12 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
-    where TDefinition : FeatureDefinitionPointPool
-    where TBuilder : FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder>
+[UsedImplicitly]
+internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool,
+    FeatureDefinitionPointPoolBuilder>
 {
 #if false
-    internal TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
+    internal FeatureDefinitionPointPoolBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
         bool uniqueChoices, params string[] choices)
     {
         Definition.poolType = poolType;
@@ -19,65 +18,38 @@ internal abstract class
         Definition.uniqueChoices = uniqueChoices;
         Definition.RestrictedChoices.Sort();
 
-        return This();
+        return this;
     }
 #endif
 
-    internal TBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
+    internal FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
     {
         Definition.poolType = poolType;
         Definition.poolAmount = poolAmount;
-        return This();
+        return this;
     }
 
-    internal TBuilder RestrictChoices(params string[] choices)
+    internal FeatureDefinitionPointPoolBuilder RestrictChoices(params string[] choices)
     {
         Definition.RestrictedChoices.AddRange(choices);
         Definition.RestrictedChoices.Sort();
-        return This();
+        return this;
     }
 
 
-    internal TBuilder RestrictChoices(params ToolTypeDefinition[] choices)
+    internal FeatureDefinitionPointPoolBuilder RestrictChoices(params ToolTypeDefinition[] choices)
     {
         Definition.RestrictedChoices.AddRange(choices.Select(t => t.Name));
         Definition.RestrictedChoices.Sort();
-        return This();
+        return this;
     }
 
-    internal TBuilder OnlyUniqueChoices()
+    internal FeatureDefinitionPointPoolBuilder OnlyUniqueChoices()
     {
         Definition.uniqueChoices = true;
-        return This();
+        return this;
     }
-
-    #region Constructors
-
-    protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionPointPoolBuilder<FeatureDefinitionPointPool,
-    FeatureDefinitionPointPoolBuilder>
-{
+    
     #region Constructors
 
     internal FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
