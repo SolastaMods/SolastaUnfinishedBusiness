@@ -48,11 +48,6 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
         }
     }
 
-    internal ResultNode<TNode> FindChild(TNode node)
-    {
-        return Children.Find(rn => rn.Node == node);
-    }
-
     [CanBeNull]
     private ResultNode<TNode> FindOrAddChild(TNode node)
     {

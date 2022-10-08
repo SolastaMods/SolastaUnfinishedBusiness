@@ -1,55 +1,24 @@
-﻿//
-// TO DO:
-// 1. ref ReturnType
-// 2. Nullable<T> support
-//
-
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
-using System.Reflection.Emit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
 internal static partial class ReflectionCache
 {
     private const BindingFlags AllFlags =
-        BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
-        BindingFlags.NonPublic /*| BindingFlags.FlattenHierarchy*/;
+        BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+
+    private const int SizeLimit = 1000;
 
     private static readonly Queue Cache = new();
 
-    internal static int Count => Cache.Count;
-
-    private static int SizeLimit { get; } = 1000;
-
-    //internal static void Clear() {
-    //    _fieldCache.Clear();
-    //    _propertieCache.Clear();
-    //    _methodCache.Clear();
-    //    _cache.Clear();
-    //}
-
     private static void EnqueueCache(object obj)
     {
-        while (Cache.Count >= SizeLimit && Cache.Count > 0)
+        while (Cache.Count is >= SizeLimit and > 0)
         {
             Cache.Dequeue();
         }
 
         Cache.Enqueue(obj);
-    }
-
-    private static bool IsStatic(Type type)
-    {
-        return type.IsAbstract && type.IsSealed;
-    }
-
-    private static TypeBuilder RequestTypeBuilder()
-    {
-        AssemblyName asmName = new(nameof(ReflectionCache) + "." + Guid.NewGuid());
-        var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndCollect);
-        var moduleBuilder = asmBuilder.DefineDynamicModule("<Module>");
-        return moduleBuilder.DefineType("<Type>");
     }
 }

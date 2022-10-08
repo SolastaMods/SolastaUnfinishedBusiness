@@ -125,6 +125,7 @@ internal abstract class Node
             {
                 return count;
             }
+#pragma warning restore CS0618 // Type or member is obsolete
 
             count += GetItemNodes().Sum(child => child.ExpandedNodeCount);
 
@@ -152,7 +153,7 @@ internal abstract class Node
         }
     }
 
-    internal bool hasChildren
+    internal bool HasChildren
     {
         get
         {
@@ -345,18 +346,12 @@ internal abstract class GenericNode<TNode> : Node
     {
         get
         {
-            int? result = null;
-            if (Value is Object unityObject)
+            return Value switch
             {
-                result = unityObject.GetInstanceID();
-            }
-
-            if (Value is object obj)
-            {
-                return obj.GetHashCode();
-            }
-
-            return result;
+                Object unityObject => unityObject.GetInstanceID(),
+                object obj => obj.GetHashCode(),
+                _ => null
+            };
         }
     }
 
@@ -596,7 +591,7 @@ internal class RootNode<TNode> : PassiveNode<TNode>
 
 internal class ComponentNode : PassiveNode<Component>
 {
-    protected readonly WeakReference<Node> _parentNode;
+    private readonly WeakReference<Node> _parentNode;
 
     protected ComponentNode(Node parentNode, string name, Component value) : base(name, value, NodeType.Component)
     {
@@ -611,7 +606,7 @@ internal class ComponentNode : PassiveNode<Component>
 
 internal class ItemNode<TNode> : PassiveNode<TNode>
 {
-    protected readonly WeakReference<Node> _parentNode;
+    private readonly WeakReference<Node> _parentNode;
 
     protected ItemNode(Node parentNode, string name, TNode value) : base(name, value, NodeType.Item)
     {
@@ -626,12 +621,12 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 
 internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 {
-    protected readonly WeakReference<GenericNode<TParent>> _parentNode;
+    protected readonly WeakReference<GenericNode<TParent>> ParentNode;
     protected bool _isException;
 
     protected ChildNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(nodeType)
     {
-        _parentNode = new WeakReference<GenericNode<TParent>>(parentNode);
+        ParentNode = new WeakReference<GenericNode<TParent>>(parentNode);
         Name = name;
     }
 
@@ -651,7 +646,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 
     internal override Node GetParent()
     {
-        return _parentNode.TryGetTarget(out var parent) ? parent : null;
+        return ParentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -667,7 +662,7 @@ internal abstract class ChildOfStructNode<TParent, TParentInst, TNode> : ChildNo
 
     protected bool TryGetParentValue(out TParentInst value)
     {
-        if (_parentNode.TryGetTarget(out var parent) && parent.InstType == typeof(TParentInst))
+        if (ParentNode.TryGetTarget(out var parent) && parent.InstType == typeof(TParentInst))
         {
             value = _forceCast(parent.Value);
             return true;
@@ -690,7 +685,7 @@ internal abstract class ChildOfNullableNode<TParent, TUnderlying, TNode> : Child
 
     protected bool TryGetParentValue(out TUnderlying value)
     {
-        if (_parentNode.TryGetTarget(out var parent))
+        if (ParentNode.TryGetTarget(out var parent))
         {
             var parentValue = _forceCast(parent.Value);
             if (parentValue.HasValue)
@@ -715,7 +710,7 @@ internal abstract class ChildOfClassNode<TParent, TParentInst, TNode> : ChildNod
 
     protected bool TryGetParentValue(out TParentInst value)
     {
-        if (_parentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)
+        if (ParentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)
         {
             return true;
         }

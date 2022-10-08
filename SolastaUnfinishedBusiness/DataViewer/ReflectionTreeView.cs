@@ -37,13 +37,11 @@ internal class ReflectionTreeView
 
     private static int MaxRows => GameServicesDisplay.MaxRows;
 
-    internal object Root => _tree.Root;
-
     private static float TitleMinWidth => 300f;
 
-    private void UpdateCounts(int visitCount, int depth, int breadth)
+    private void UpdateCounts(int visits, int depth, int breadth)
     {
-        this.visitCount = visitCount;
+        visitCount = visits;
         searchDepth = depth;
         searchBreadth = breadth;
     }
@@ -195,7 +193,7 @@ internal class ReflectionTreeView
                                 _searchResults.Traverse((node, depth) =>
                                 {
                                     var toggleState = node.ToggleState;
-                                    if (!node.Node.hasChildren)
+                                    if (!node.Node.HasChildren)
                                     {
                                         toggleState = ToggleState.None;
                                     }
@@ -303,7 +301,7 @@ internal class ReflectionTreeView
         var expanded = node.Expanded;
         if (depth >= _skipLevels && !(collapse && depth > 0))
         {
-            if (!node.hasChildren)
+            if (!node.HasChildren)
             {
                 expanded = ToggleState.None;
             }
