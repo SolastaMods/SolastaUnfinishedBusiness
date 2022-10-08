@@ -11,16 +11,6 @@ internal class CharacterSubclassDefinitionBuilder
     internal CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        // }
-        // else
-        // {
-        //     features.Do(x => x.GuiPresentation.sortOrder = level);
-        // }
-
         return this;
     }
 

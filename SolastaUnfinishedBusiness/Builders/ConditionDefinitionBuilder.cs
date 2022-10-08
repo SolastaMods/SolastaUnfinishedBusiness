@@ -20,7 +20,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
 {
-    private static ConditionDefinition SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
+    private static void SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
     {
         var assetReference = new AssetReference();
 
@@ -28,14 +28,11 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         definition.conditionParticleReference ??= assetReference;
         definition.conditionEndParticleReference ??= assetReference;
         definition.characterShaderReference ??= assetReference;
-
-        return definition;
     }
 
     protected override void Initialise()
     {
         base.Initialise();
-
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 

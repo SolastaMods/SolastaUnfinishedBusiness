@@ -19,7 +19,7 @@ internal class EffectDescriptionBuilder
         };
     }
 
-    internal EffectDescriptionBuilder(EffectDescription effect)
+    private EffectDescriptionBuilder(EffectDescription effect)
     {
         this.effect = effect.Copy();
     }

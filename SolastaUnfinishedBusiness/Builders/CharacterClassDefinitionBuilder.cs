@@ -18,10 +18,9 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-    internal CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third,
-        string fourth, string fifth, string sixth)
+    internal CharacterClassDefinitionBuilder SetAbilityScorePriorities(params string[] abilityScores)
     {
-        Definition.AbilityScoresPriority.SetRange(first, second, third, fourth, fifth, sixth);
+        Definition.AbilityScoresPriority.SetRange(abilityScores);
         return this;
     }
 
@@ -76,13 +75,14 @@ internal class CharacterClassDefinitionBuilder
         params CharacterClassDefinition.HeroEquipmentOption[] equipmentList)
     {
         var equipmentColumn = new CharacterClassDefinition.HeroEquipmentColumn();
+
         equipmentColumn.EquipmentOptions.AddRange(equipmentList);
 
         var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
+
         equipmentRow.EquipmentColumns.Add(equipmentColumn);
 
         Definition.EquipmentRows.Add(equipmentRow);
-
         return this;
     }
 
@@ -90,9 +90,11 @@ internal class CharacterClassDefinitionBuilder
         params IEnumerable<CharacterClassDefinition.HeroEquipmentOption>[] equipmentLists)
     {
         var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
+
         foreach (var list in equipmentLists)
         {
             var column = new CharacterClassDefinition.HeroEquipmentColumn();
+
             column.EquipmentOptions.AddRange(list);
             equipmentRow.EquipmentColumns.Add(column);
         }
@@ -105,16 +107,6 @@ internal class CharacterClassDefinitionBuilder
     internal CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        // }
-        // else
-        // {
-        //     features.Do(x => x.GuiPresentation.sortOrder = level);
-        // }
-
         return this;
     }
 
@@ -168,6 +160,7 @@ internal class CharacterClassDefinitionBuilder
     #endregion
 
     #region Expertise preference
+
 #if false
     internal CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
     {
@@ -183,6 +176,7 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 #endif
+
     #endregion
 
     #region Feat preference
@@ -202,8 +196,9 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
-    
+
     #region Metamagic preference
+
 #if false
     internal CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
@@ -219,6 +214,6 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 #endif
-    #endregion
 
+    #endregion
 }
