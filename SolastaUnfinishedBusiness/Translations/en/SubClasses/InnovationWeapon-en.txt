@@ -16,3 +16,5 @@ Monster/&MonsterInnovationWeaponSteelDefenderDescription=Faithful defender of th
 Monster/&MonsterInnovationWeaponSteelDefenderTitle=Defending Blade
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=spell attack bonus of its creator
 Item/&MonsterAttackSteelDefenderTitle=Force Slash
+Feature/&PowerInventorWeaponSteelDefenderCommandDescription=Issue command for your Defending Blade - until the start of your next turn it is not limited in types of action it can take.
+Feature/&PowerInventorWeaponSteelDefenderCommandTitle=Command Defending Blade

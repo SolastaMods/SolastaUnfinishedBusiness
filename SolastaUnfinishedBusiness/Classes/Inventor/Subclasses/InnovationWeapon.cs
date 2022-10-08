@@ -2,8 +2,10 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
+using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -14,6 +16,7 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 public static class InnovationWeapon
 {
     private const string SteelDefenderTag = "SteelDefender";
+    private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
 
     public static CharacterSubclassDefinition Build()
     {
@@ -66,7 +69,9 @@ public static class InnovationWeapon
             .Create("FeatureSetInnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
+                //TODO: add short-rest camping activity to Inventor that would heal Blade by 1d8, Inventor level times per long rest, similar to Hit Die rolling by heroes 
                 BuildSteelDefenderPower(),
+                BuildCommandSteelDefender(),
                 BuildSteelDefenderAffinity()
             )
             .AddToDB();
@@ -217,13 +222,20 @@ public static class InnovationWeapon
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
 
                 //TODO: add repair power
-                //TODO: make it only have reaction and dodge unless summoner used bonus action to grant full actions
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("FeatureInnovationWeaponSteelDefenderInitiative")
                     .SetGuiPresentationNoContent()
                     .SetConditionAffinityType(ConditionAffinityType.Immunity)
                     .SetConditionType(ConditionDefinitions.ConditionSurprised)
                     .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+                    .AddToDB(),
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinitySteelDefenderBasic")
+                    .SetGuiPresentationNoContent()
+                    .SetDefaultAllowedActonTypes()
+                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready, Id.Shove,
+                        Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                    .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
@@ -253,5 +265,54 @@ public static class InnovationWeapon
             .AddToDB();
 
         return monster;
+    }
+
+    private static FeatureDefinition BuildCommandSteelDefender()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerInventorWeaponSteelDefenderCommand")
+            .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetActivationTime(ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create(CommandSteelDefenderCondition)
+                        .SetGuiPresentationNoContent()
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetDuration(DurationType.Round, 0)
+                        .SetSpecialDuration(true)
+                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character)
+        {
+            //can act freely outside of battle
+            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
+
+            var summoner = character.GetMySummoner()?.RulesetCharacter;
+
+            //shouldn't happen, but do not apply in this case
+            if (summoner == null) { return false; }
+
+            //can act if summoner is KO
+            if (summoner.IsUnconscious) { return false; }
+
+            //can act if summoner commanded
+            if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
+
+            return true;
+        }
     }
 }
