@@ -20,10 +20,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
 {
     private const string ConditionPathOfTheLightIlluminatedName = "ConditionPathOfTheLightIlluminated";
 
-    private const string AdditionalDamageIlluminatingStrikePathOfTheLightName =
-        "AdditionalDamageIlluminatingStrikePathOfTheLight";
+    private const string AdditionalDamagePathOfTheLightIlluminatingStrikeName =
+        "AdditionalDamagePathOfTheLightIlluminatingStrike";
 
-    private const string PowerIlluminatingBurstPathOfTheLightName = "PowerIlluminatingBurstPathOfTheLight";
+    private const string PowerPathOfTheLightIlluminatingBurstName = "PowerPathOfTheLightIlluminatingBurst";
 
     private static readonly List<ConditionDefinition> InvisibleConditions =
         new() { ConditionInvisibleBase, ConditionDefinitions.ConditionInvisible, ConditionInvisibleGreater };
@@ -64,7 +64,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetDuration(DurationType.Irrelevant, 1, false)
             .SetSilent(Silent.WhenAdded)
             .SetSpecialDuration(true)
-            .AddFeatures(attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
+            .AddFeatures(
+                attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
             .AddToDB();
 
@@ -100,7 +101,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         .SetFeatures(
                                             FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder
                                                 .Create(
-                                                    AdditionalDamageIlluminatingStrikePathOfTheLightName, 
+                                                    AdditionalDamagePathOfTheLightIlluminatingStrikeName, 
                                                     conditionPathOfTheLightIlluminated)
                                                 .SetGuiPresentationNoContent(
                                                     AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference)
@@ -248,7 +249,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .SetShowCasting(false)
                     .AddToDB(),
                 FeatureDefinitionPowerIlluminatingBurstBuilder
-                    .Create(PowerIlluminatingBurstPathOfTheLightName, 
+                    .Create(PowerPathOfTheLightIlluminatingBurstName, 
                         conditionPathOfTheLightIlluminated, conditionPathOfTheLightSuppressedIlluminatingBurst)
                     .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
                     .AddToDB(),
@@ -330,8 +331,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         // includes conditions that have Illuminated as their parent (like the Illuminating Burst condition)
         if (character.HasConditionOfTypeOrSubType(ConditionPathOfTheLightIlluminatedName) ||
-            (character.PersonalLightSource?.SourceName != AdditionalDamageIlluminatingStrikePathOfTheLightName &&
-             character.PersonalLightSource?.SourceName != PowerIlluminatingBurstPathOfTheLightName))
+            (character.PersonalLightSource?.SourceName != AdditionalDamagePathOfTheLightIlluminatingStrikeName &&
+             character.PersonalLightSource?.SourceName != PowerPathOfTheLightIlluminatingBurstName))
         {
             return;
         }

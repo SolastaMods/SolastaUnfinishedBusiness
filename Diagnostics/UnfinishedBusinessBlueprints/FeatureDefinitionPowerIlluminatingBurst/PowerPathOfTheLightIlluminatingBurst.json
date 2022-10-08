@@ -396,8 +396,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerIlluminatingBurstPathOfTheLightTitle",
-    "description": "Feature/&PowerIlluminatingBurstPathOfTheLightDescription",
+    "title": "Feature/&PowerPathOfTheLightIlluminatingBurstTitle",
+    "description": "Feature/&PowerPathOfTheLightIlluminatingBurstDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c702ac588026d8b4c90ffee27a600506",
@@ -417,7 +417,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ec426204-bb26-5a44-a4dd-3a0c86272271",
+  "guid": "e4e99b02-b403-5b0a-9a8b-2b0343d90cf6",
   "contentPack": 9999,
-  "name": "PowerIlluminatingBurstPathOfTheLight"
+  "name": "PowerPathOfTheLightIlluminatingBurst"
 }
