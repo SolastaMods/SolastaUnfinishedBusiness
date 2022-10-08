@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
+﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -185,8 +184,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                                 conditionAncientForestRooted,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true,
-                                new List<ConditionDefinition>())
+                                true)
                             .Build())
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(

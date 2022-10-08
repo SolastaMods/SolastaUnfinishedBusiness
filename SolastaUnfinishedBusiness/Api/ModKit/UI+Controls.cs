@@ -40,19 +40,16 @@ internal static partial class UI
 
     // Text Fields
 
-    internal static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
-    {
-        if (name != null) { GUI.SetNextControlName(name); }
-
-        text = GL.TextField(text, options.AddDefaults());
-        return text;
-    }
-
-    internal static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
+    private static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
 
-        TextField(ref text, name, options);
+        if (name != null)
+        {
+            GUI.SetNextControlName(name);
+        }
+
+        text = GL.TextField(text, options.AddDefaults());
 
         if (float.TryParse(text, out var val))
         {
@@ -97,6 +94,7 @@ internal static partial class UI
     }
 
     // Sliders
+    
     internal static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {

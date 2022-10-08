@@ -146,7 +146,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         LocalInitializeCollectionFields(Definition.GetType());
 
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         void LocalInitializeCollectionFields(Type type)
         {
             if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
@@ -186,7 +185,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 }
             }
         }
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
     #endregion

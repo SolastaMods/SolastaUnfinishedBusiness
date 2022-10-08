@@ -22,24 +22,18 @@ internal abstract class ResultNode
 
 internal class ResultNode<TNode> : ResultNode where TNode : class
 {
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-    protected const BindingFlags ALL_FLAGS =
+    private const BindingFlags AllFlags =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
     internal TNode Node { get; set; }
 
-    internal HashSet<TNode> matches => Children.Select(c => c.Node).ToHashSet();
+    internal HashSet<TNode> Matches => Children.Select(c => c.Node).ToHashSet();
 
-    internal List<ResultNode<TNode>> Children { get; } = new();
+    private List<ResultNode<TNode>> Children { get; } = new();
 
     internal ToggleState ToggleState { get; set; } = ToggleState.Off;
 
-    internal ToggleState ShowSiblings { get; set; } = ToggleState.Off;
-
-    internal int Count { get; set; }
-
-    internal bool IsMatch { get; set; }
+    internal int Count { get; private set; }
 
     internal void Traverse(TraversalCallback callback, int depth = 0)
     {
@@ -59,7 +53,7 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
         return Children.Find(rn => rn.Node == node);
     }
 
-    [NotNull]
+    [CanBeNull]
     private ResultNode<TNode> FindOrAddChild(TNode node)
     {
         var rNode = Children.Find(rn => rn.Node == node);
@@ -69,7 +63,13 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
             return rNode;
         }
 
-        rNode = Activator.CreateInstance(GetType(), ALL_FLAGS, null, null, null) as ResultNode<TNode>;
+        rNode = Activator.CreateInstance(GetType(), AllFlags, null, null, null) as ResultNode<TNode>;
+
+        if (rNode == null)
+        {
+            return null;
+        }
+
         rNode.Node = node;
         Children.Add(rNode);
 
@@ -78,12 +78,23 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
 
     internal void AddSearchResult(IEnumerable<TNode> path)
     {
-        var rnode = this;
+        var rNode = this;
+
         Count++;
+
         foreach (var node in path)
         {
-            rnode = rnode.FindOrAddChild(node);
-            rnode.Count++;
+            if (rNode == null)
+            {
+                break;
+            }
+
+            rNode = rNode.FindOrAddChild(node);
+
+            if (rNode != null)
+            {
+                rNode.Count++;
+            }
         }
     }
 

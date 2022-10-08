@@ -48,7 +48,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var effectFormTemporaryHitPoints = EffectFormBuilder
             .Create()
-            .SetTempHPForm(4)
+            .SetTempHpForm(4)
             .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
             .CreatedByCharacter()
             .Build();

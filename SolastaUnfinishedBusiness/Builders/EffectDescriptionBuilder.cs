@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -208,28 +207,6 @@ internal class EffectDescriptionBuilder
         int fixedSavingThrowDifficultyClass = 10,
         bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
-    {
-        return SetSavingThrowData(
-            hasSavingThrow, disableSavingThrowOnAllies,
-            savingThrowAbility,
-            ignoreCover,
-            difficultyClassComputation,
-            savingThrowDifficultyAbility,
-            fixedSavingThrowDifficultyClass,
-            advantageForEnemies,
-            savingThrowAffinitiesBySense.AsEnumerable());
-    }
-
-    internal EffectDescriptionBuilder SetSavingThrowData(
-        bool hasSavingThrow,
-        bool disableSavingThrowOnAllies,
-        string savingThrowAbility,
-        bool ignoreCover,
-        RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
-        string savingThrowDifficultyAbility,
-        int fixedSavingThrowDifficultyClass,
-        bool advantageForEnemies,
-        IEnumerable<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense)
     {
         effect.hasSavingThrow = hasSavingThrow;
         effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;

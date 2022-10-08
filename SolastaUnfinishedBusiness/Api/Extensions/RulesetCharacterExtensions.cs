@@ -11,30 +11,28 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class RulesetCharacterExtensions
 {
+#if false
     internal static bool IsWearingLightArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }
+#endif
 
     internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }
 
+#if false
     internal static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
     {
         return false;
     }
+#endif
 
     internal static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
     {
         return validators.All(v => v(instance));
-    }
-
-    internal static bool IsValid(this RulesetCharacter instance,
-        [CanBeNull] IEnumerable<IsCharacterValidHandler> validators)
-    {
-        return validators == null || validators.All(v => v(instance));
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
@@ -111,20 +109,17 @@ internal static class RulesetCharacterExtensions
     /**@returns true if item holds an infusion created by this character*/
     internal static bool HoldsMyInfusion(this RulesetCharacter instance, RulesetItem item)
     {
-        if (item == null) { return false; }
-
-        if (instance.IsMyInfusion(item.SourceSummoningEffectGuid)) { return true; }
-
-        foreach (var property in item.dynamicItemProperties)
+        if (item == null)
         {
-            if (instance.IsMyInfusion(property.SourceEffectGuid)) { return true; }
+            return false;
         }
 
-        return false;
+        return instance.IsMyInfusion(item.SourceSummoningEffectGuid)
+               || item.dynamicItemProperties.Any(property => instance.IsMyInfusion(property.SourceEffectGuid));
     }
 
     /**@returns true if effect with this guid is an infusion created by this character*/
-    internal static bool IsMyInfusion(this RulesetCharacter instance, ulong guid)
+    private static bool IsMyInfusion(this RulesetCharacter instance, ulong guid)
     {
         if (instance == null || guid == 0) { return false; }
 

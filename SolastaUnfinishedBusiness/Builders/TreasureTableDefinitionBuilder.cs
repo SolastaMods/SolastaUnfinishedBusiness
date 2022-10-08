@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -9,11 +8,6 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class
     TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
 {
-    internal TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)
-    {
-        return AddTreasureOptions(treasureOptions.AsEnumerable());
-    }
-
     internal TreasureTableDefinitionBuilder AddTreasureOptions(IEnumerable<TreasureOption> treasureOptions)
     {
         Definition.TreasureOptions.AddRange(treasureOptions);

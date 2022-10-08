@@ -545,10 +545,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     AttributeDefinitions.Constitution,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Constitution,
-                    10,
-                    false,
-                    new List<SaveAffinityBySenseDescription>())
+                    AttributeDefinitions.Constitution)
                 .SetDurationData(
                     DurationType.Minute,
                     1,

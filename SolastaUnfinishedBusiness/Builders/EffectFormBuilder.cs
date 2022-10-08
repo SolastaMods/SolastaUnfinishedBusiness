@@ -19,7 +19,6 @@ internal class EffectFormBuilder
     internal EffectFormBuilder(EffectForm reference)
     {
         effectForm = new EffectForm();
-
         effectForm.Copy(reference);
     }
 
@@ -55,8 +54,10 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetLevelAdvancement(EffectForm.LevelApplianceType applyLevel,
-        LevelSourceType levelType, int levelMultiplier = 1)
+    internal EffectFormBuilder SetLevelAdvancement(
+        EffectForm.LevelApplianceType applyLevel,
+        LevelSourceType levelType,
+        int levelMultiplier = 1)
     {
         effectForm.applyLevel = applyLevel;
         effectForm.levelType = levelType;
@@ -88,25 +89,22 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetConditionForm(ConditionDefinition condition,
+    internal EffectFormBuilder SetConditionForm(
+        ConditionDefinition condition,
         ConditionForm.ConditionOperation operation)
     {
         return SetConditionForm(condition, operation, false, false, condition);
     }
 
-    internal EffectFormBuilder SetConditionForm(ConditionDefinition condition,
-        ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf,
+    internal EffectFormBuilder SetConditionForm(
+        ConditionDefinition condition,
+        ConditionForm.ConditionOperation operation,
+        bool applyToSelf,
+        bool forceOnSelf,
         params ConditionDefinition[] detrimentalConditions)
     {
-        return SetConditionForm(condition, operation, applyToSelf, forceOnSelf,
-            detrimentalConditions.AsEnumerable());
-    }
-
-    internal EffectFormBuilder SetConditionForm(ConditionDefinition condition,
-        ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf,
-        IEnumerable<ConditionDefinition> detrimentalConditions)
-    {
         effectForm.FormType = EffectForm.EffectFormType.Condition;
+
         var conditionForm = new ConditionForm
         {
             Operation = operation,
@@ -125,14 +123,18 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetCounterForm(CounterForm.CounterType type, int automaticSpellLevel, int checkBaseDC,
-        bool addSpellCastingAbility, bool addProficiencyBonus)
+    internal EffectFormBuilder SetCounterForm(
+        CounterForm.CounterType type,
+        int automaticSpellLevel,
+        int checkBaseDc,
+        bool addSpellCastingAbility,
+        bool addProficiencyBonus)
     {
         var counterForm = new CounterForm
         {
             type = type,
             automaticSpellLevel = automaticSpellLevel,
-            checkBaseDC = checkBaseDC,
+            checkBaseDC = checkBaseDc,
             addSpellCastingAbility = addSpellCastingAbility,
             addProficiencyBonus = addProficiencyBonus
         };
@@ -141,20 +143,15 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetDamageForm(bool versatile = false, DieType versatileDieType = DieType.D1,
-        string damageType = DamageTypeBludgeoning, int bonusDamage = 0,
-        DieType dieType = DieType.D1, int diceNumber = 0,
+    internal EffectFormBuilder SetDamageForm(
+        bool versatile = false,
+        DieType versatileDieType = DieType.D1,
+        string damageType = DamageTypeBludgeoning,
+        int bonusDamage = 0,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
         HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
         params TrendInfo[] damageBonusTrends)
-    {
-        return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
-            diceNumber, healFromInflictedDamage, damageBonusTrends.AsEnumerable());
-    }
-
-    internal EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType,
-        int bonusDamage,
-        DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
-        IEnumerable<TrendInfo> damageBonusTrends)
     {
         var damageForm = new DamageForm
         {
@@ -185,7 +182,8 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetDivinationForm(DivinationForm.Type divinationType,
+    internal EffectFormBuilder SetDivinationForm(
+        DivinationForm.Type divinationType,
         IEnumerable<CharacterFamilyDefinition> creatureFamilies,
         IEnumerable<string> revealedTags, int rangeCells)
     {
@@ -202,8 +200,12 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetHealingForm(HealingComputation healingComputation,
-        int bonusHitPoints, DieType dieType, int diceNumber, bool variablePool,
+    internal EffectFormBuilder SetHealingForm(
+        HealingComputation healingComputation,
+        int bonusHitPoints,
+        DieType dieType,
+        int diceNumber,
+        bool variablePool,
         HealingCap healingCap)
     {
         var healingForm = new HealingForm
@@ -221,14 +223,10 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetItemPropertyForm(ItemPropertyUsage usageLimitation, int useAmount,
+    internal EffectFormBuilder SetItemPropertyForm(
+        ItemPropertyUsage usageLimitation,
+        int useAmount,
         params FeatureUnlockByLevel[] featureBySlotLevel)
-    {
-        return SetItemPropertyForm(featureBySlotLevel.AsEnumerable(), usageLimitation, useAmount);
-    }
-
-    internal EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel,
-        ItemPropertyUsage usageLimitation, int useAmount)
     {
         var itemForm = new ItemPropertyForm
         {
@@ -242,9 +240,12 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetLightSourceForm(LightSourceType lightSourceType, int brightRange,
+    internal EffectFormBuilder SetLightSourceForm(
+        LightSourceType lightSourceType,
+        int brightRange,
         int dimAdditionalRange,
-        Color color, AssetReference graphicsPrefabReference)
+        Color color,
+        AssetReference graphicsPrefabReference)
     {
         var lightSourceForm = new LightSourceForm
         {
@@ -269,14 +270,10 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetReviveForm(int secondsSinceDeath, ReviveHitPoints reviveHitPoints,
+    internal EffectFormBuilder SetReviveForm(
+        int secondsSinceDeath,
+        ReviveHitPoints reviveHitPoints,
         params ConditionDefinition[] removedConditions)
-    {
-        return SetReviveForm(secondsSinceDeath, reviveHitPoints, removedConditions.AsEnumerable());
-    }
-
-    internal EffectFormBuilder SetReviveForm(int secondsSinceDeath, ReviveHitPoints reviveHitPoints,
-        IEnumerable<ConditionDefinition> removedConditions)
     {
         var reviveForm = new ReviveForm
         {
@@ -302,9 +299,14 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetSummonForm(SummonForm.Type summonType, ItemDefinition item, int number,
-        string monsterDefinitionName, ConditionDefinition conditionDefinition,
-        bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage,
+    internal EffectFormBuilder SetSummonForm(
+        SummonForm.Type summonType,
+        ItemDefinition item,
+        int number,
+        string monsterDefinitionName,
+        ConditionDefinition conditionDefinition,
+        bool persistOnConcentrationLoss,
+        DecisionPackageDefinition decisionPackage,
         EffectProxyDefinition effectProxyDefinition)
     {
         var summonForm = new SummonForm
@@ -324,8 +326,11 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
-        bool persistOnConcentrationLoss = false, ConditionDefinition condition = null,
+    internal EffectFormBuilder SetSummonCreatureForm(
+        int number,
+        string monsterDefinitionName,
+        bool persistOnConcentrationLoss = false,
+        ConditionDefinition condition = null,
         DecisionPackageDefinition decisionPackage = null)
     {
         var summonForm = new SummonForm
@@ -365,7 +370,10 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetTempHPForm(int bonusHitPoints = 0, DieType dieType = DieType.D1, int diceNumber = 0,
+    internal EffectFormBuilder SetTempHpForm(
+        int bonusHitPoints = 0,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
         bool applyToSelf = false)
     {
         var tempHpForm = new TemporaryHitPointsForm

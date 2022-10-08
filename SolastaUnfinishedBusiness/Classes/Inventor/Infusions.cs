@@ -238,7 +238,7 @@ internal static class Infusions
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(new EffectFormBuilder()
                     .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetItemPropertyForm(properties, ItemPropertyUsage.Unlimited, 1)
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
                     .Build())
                 .Build())
             .AddToDB();

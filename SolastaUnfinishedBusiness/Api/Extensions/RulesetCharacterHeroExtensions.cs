@@ -45,6 +45,7 @@ internal static class RulesetCharacterHeroExtensions
         return list;
     }
 
+#if false
     internal static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
     {
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
@@ -91,6 +92,7 @@ internal static class RulesetCharacterHeroExtensions
 
         return false;
     }
+#endif
 
     internal static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {

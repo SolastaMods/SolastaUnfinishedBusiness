@@ -125,7 +125,7 @@ public static class InnovationAlchemy
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
                 .SetRecharge(RuleDefinitions.RechargeRate.ShortRest)
-                .SetSaveDc(EffectHelpers.BASED_ON_USER)
+                .SetSaveDc(EffectHelpers.BasedOnUser)
                 .AddFunctions(
                     new DeviceFunctionDescriptionBuilder()
                         .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)

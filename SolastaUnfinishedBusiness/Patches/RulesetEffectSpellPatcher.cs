@@ -41,7 +41,7 @@ public static class RulesetEffectSpellPatcher
             var caster = __instance.Caster;
             string className = null;
 
-            if (__result == EffectHelpers.BASED_ON_ITEM_SUMMONER)
+            if (__result == EffectHelpers.BasedOnItemSummoner)
             {
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
@@ -73,7 +73,7 @@ public static class RulesetEffectSpellPatcher
             var caster = __instance.Caster;
             string className = null;
 
-            if (__result == EffectHelpers.BASED_ON_ITEM_SUMMONER)
+            if (__result == EffectHelpers.BasedOnItemSummoner)
             {
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
@@ -110,7 +110,7 @@ public static class RulesetEffectSpellPatcher
             var caster = __instance.Caster;
             string className = null;
 
-            if (originItem.UsableDeviceDescription.magicAttackBonus == EffectHelpers.BASED_ON_ITEM_SUMMONER)
+            if (originItem.UsableDeviceDescription.magicAttackBonus == EffectHelpers.BasedOnItemSummoner)
             {
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }

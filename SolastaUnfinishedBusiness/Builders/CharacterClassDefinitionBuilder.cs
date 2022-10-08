@@ -168,7 +168,7 @@ internal class CharacterClassDefinitionBuilder
     #endregion
 
     #region Expertise preference
-
+#if false
     internal CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
     {
         Definition.ExpertiseAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
@@ -182,7 +182,7 @@ internal class CharacterClassDefinitionBuilder
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
-
+#endif
     #endregion
 
     #region Feat preference
@@ -202,10 +202,9 @@ internal class CharacterClassDefinitionBuilder
     }
 
     #endregion
-
-#if false
+    
     #region Metamagic preference
-
+#if false
     internal CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
         Definition.MetamagicAutolearnPreference.Add(option.Name);
@@ -215,17 +214,11 @@ internal class CharacterClassDefinitionBuilder
 
     internal CharacterClassDefinitionBuilder AddMetamagicPreferences(params MetamagicOptionDefinition[] options)
     {
-        AddMetamagicPreferences(options.AsEnumerable());
-        return this;
-    }
-
-    internal CharacterClassDefinitionBuilder AddMetamagicPreferences(IEnumerable<MetamagicOptionDefinition> options)
-    {
         Definition.FeatAutolearnPreference.AddRange(options.Select(o => o.Name));
         Definition.MetamagicAutolearnPreference.Sort();
         return this;
     }
-
-    #endregion
 #endif
+    #endregion
+
 }

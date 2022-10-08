@@ -134,7 +134,11 @@ internal class ReflectionTreeView
                 }
 
                 GUILayout.Space(10f);
-                GameServicesDisplay.MaxRows = GUIHelper.AdjusterButton(GameServicesDisplay.MaxRows, "Max Rows:", 10);
+                int maxRows = GameServicesDisplay.MaxRows;
+                if (GUIHelper.AdjusterButton(ref maxRows, "Max Rows:", 10))
+                {
+                    GameServicesDisplay.MaxRows = maxRows;
+                }
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
@@ -202,7 +206,7 @@ internal class ReflectionTreeView
 
                                     if (node.Node.NodeType == NodeType.Root)
                                     {
-                                        if (node.matches.Count == 0)
+                                        if (node.Matches.Count == 0)
                                         {
                                             return false;
                                         }

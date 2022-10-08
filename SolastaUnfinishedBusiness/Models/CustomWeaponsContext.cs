@@ -175,7 +175,7 @@ internal static class CustomWeaponsContext
         HandwrapsOfPulling.IsUsableDevice = true;
         HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-            .SetSaveDc(EffectHelpers.BASED_ON_USER)
+            .SetSaveDc(EffectHelpers.BasedOnUser)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")

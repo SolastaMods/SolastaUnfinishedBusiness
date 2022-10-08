@@ -7,12 +7,6 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 internal static class RichText
 {
     [NotNull]
-    internal static string Size(this string s, int size)
-    {
-        return _ = $"<size={size}>{s}</size>";
-    }
-
-    [NotNull]
     internal static string Bold(this string s)
     {
         return _ = $"<b>{s}</b>";
@@ -58,12 +52,6 @@ internal static class RichText
     internal static string Red(this string s)
     {
         return s.Color("#C04040E0");
-    }
-
-    [NotNull]
-    internal static string Pink(this string s)
-    {
-        return s.Color("#FFA0A0E0");
     }
 
     [NotNull]

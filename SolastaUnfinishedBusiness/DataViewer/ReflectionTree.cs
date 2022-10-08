@@ -54,13 +54,11 @@ internal class ReflectionTree<TRoot>
 
 internal abstract class Node
 {
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-    protected const BindingFlags ALL_FLAGS =
+    protected const BindingFlags AllFlags =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
     // the graph will not show any child nodes of following types
-    internal static readonly HashSet<Type> BASE_TYPES = new()
+    internal static readonly HashSet<Type> BaseTypes = new()
     {
         typeof(object),
         typeof(DBNull),
@@ -180,7 +178,7 @@ internal abstract class Node
     internal static IEnumerable<FieldInfo> GetFields(Type type)
     {
         var names = new HashSet<string>();
-        foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(ALL_FLAGS))
+        foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(AllFlags))
         {
             if (!field.IsStatic &&
                 !field.IsDefined(typeof(CompilerGeneratedAttribute), false) && // ignore backing field
@@ -194,7 +192,7 @@ internal abstract class Node
     internal static IEnumerable<PropertyInfo> GetProperties(Type type)
     {
         var names = new HashSet<string>();
-        foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(ALL_FLAGS))
+        foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(AllFlags))
         {
             if (property.GetMethod != null &&
                 !property.GetMethod.IsStatic &&
@@ -320,7 +318,7 @@ internal abstract class GenericNode<TNode> : Node
             UpdateValue();
             return _isBaseType ??
                    (_isBaseType =
-                       BASE_TYPES.Contains(Nullable.GetUnderlyingType(InstType ?? Type) ?? InstType ?? Type)).Value;
+                       BaseTypes.Contains(Nullable.GetUnderlyingType(InstType ?? Type) ?? InstType ?? Type)).Value;
         }
     }
 
@@ -405,7 +403,7 @@ internal abstract class GenericNode<TNode> : Node
 
     private static Node FindOrCreateChildForValue(Type type, params object[] childArgs)
     {
-        return Activator.CreateInstance(type, ALL_FLAGS, null, childArgs, null) as Node;
+        return Activator.CreateInstance(type, AllFlags, null, childArgs, null) as Node;
     }
 
     private void UpdateComponentNodes()
