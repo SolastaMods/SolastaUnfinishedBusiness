@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -34,7 +35,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCastingModifiers(
                 0,
-                RuleDefinitions.SpellParamsModifierType.None,
+                SpellParamsModifierType.None,
                 2)
             .AddToDB();
 
@@ -42,7 +43,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .Create("ProficiencyMasterManipulatorMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.SavingThrow,
+                ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
@@ -52,11 +53,11 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .SetGuiPresentation(Category.Feature, DominatePerson.GuiPresentation.SpriteReference)
             .Configure(
                 0,
-                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction,
+                ActivationTime.BonusAction,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Intelligence,

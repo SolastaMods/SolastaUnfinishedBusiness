@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -16,7 +17,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .Create("AbilityCheckAffinityConArtist")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
+                CharacterAbilityCheckAffinity.Advantage, DieType.D8, 0,
                 (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
                 (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion),
                 (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
@@ -29,10 +30,14 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
-            .AddRestrictedSchools(SchoolConjuration, SchoolTransmutation, SchoolEnchantment, SchoolIllusion)
-            .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
-            .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .AddRestrictedSchools(
+                SchoolEnchantment,
+                SchoolOfMagicDefinitions.SchoolConjuration,
+                SchoolOfMagicDefinitions.SchoolTransmutation,
+                SchoolOfMagicDefinitions.SchoolIllusion)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
             .SetReplacedSpells(4, 1)
             .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .SetKnownSpells(4, FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
@@ -43,8 +48,8 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint")
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
-            .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
-            .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetAdditionalDamageData(DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
             .AddToDB();
 
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
@@ -52,23 +57,23 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .Configure(
                 0,
-                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.BonusAction,
+                ActivationTime.BonusAction,
                 0,
-                RuleDefinitions.RechargeRate.AtWill,
+                RechargeRate.AtWill,
                 false,
                 false,
                 AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
-                        RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
-                        RuleDefinitions.TargetType.Individuals, 1, 0)
-                    .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                        Side.Enemy, RangeType.Distance, 12,
+                        TargetType.Individuals, 1, 0)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
                     .SetSavingThrowData(
                         true, false, AttributeDefinitions.Wisdom, true,
-                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Charisma,
                         15)
                     .AddEffectForm(
@@ -84,14 +89,14 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityConArtistDC")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 3)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 3)
             .AddToDB();
 
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.SavingThrow,
+                ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();

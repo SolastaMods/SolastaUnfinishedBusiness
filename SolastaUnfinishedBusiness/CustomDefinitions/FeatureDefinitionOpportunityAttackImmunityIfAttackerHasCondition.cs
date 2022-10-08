@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -16,32 +17,32 @@ internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCon
 
     public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
         bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier,
-        RuleDefinitions.FeatureOrigin featureOrigin,
+        FeatureOrigin featureOrigin,
         float distance)
     {
         // Intentionally empty?
     }
 
-    public RuleDefinitions.SituationalContext SituationalContext => RuleDefinitions.SituationalContext.None;
+    public SituationalContext SituationalContext => SituationalContext.None;
     public bool CanRageToOvercomeSurprise => false;
     public bool AutoCritical => false;
     public bool CriticalHitImmunity => false;
     [CanBeNull] public ConditionDefinition RequiredCondition => null;
     public bool IgnoreCover => false;
-    public RuleDefinitions.CoverType PermanentCover => RuleDefinitions.CoverType.None;
-    public RuleDefinitions.AdvantageType ReadyAttackAdvantage => RuleDefinitions.AdvantageType.None;
+    public CoverType PermanentCover => CoverType.None;
+    public AdvantageType ReadyAttackAdvantage => AdvantageType.None;
     public bool ShoveOnReadyAttackHit => false;
 
     public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode,
-        ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin, int bardicDieRoll, float distance)
+        ActionModifier attackModifier, FeatureOrigin featureOrigin, int bardicDieRoll, float distance)
     {
         // Intentionally empty?
     }
 
-    public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
+    public AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
         RulesetCharacter attacker, float distance)
     {
-        return RuleDefinitions.AdvantageType.None;
+        return AdvantageType.None;
     }
 
     public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, [NotNull] RulesetCharacter attacker,

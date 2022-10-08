@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -15,29 +16,29 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         var magicAffinitySpellMasterPrepared = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterPrepared")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
-                RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus)
+            .SetSpellLearnAndPrepModifiers(1f, 1f, 0, AdvantageType.None,
+                PreparedSpellsModifier.ProficiencyBonus)
             .AddToDB();
 
         var magicAffinitySpellMasterExtraPrepared = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterExtraPrepared")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None,
-                RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus)
+            .SetSpellLearnAndPrepModifiers(1f, 1f, 0, AdvantageType.None,
+                PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
         var magicAffinitySpellMasterKnowledge = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterKnowledge")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(1f, 1f, 1, RuleDefinitions.AdvantageType.None,
-                RuleDefinitions.PreparedSpellsModifier.None)
+            .SetSpellLearnAndPrepModifiers(1f, 1f, 1, AdvantageType.None,
+                PreparedSpellsModifier.None)
             .AddToDB();
 
         var magicAffinitySpellMasterScriber = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellMasterScriber")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, RuleDefinitions.AdvantageType.Advantage,
-                RuleDefinitions.PreparedSpellsModifier.None)
+            .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, AdvantageType.Advantage,
+                PreparedSpellsModifier.None)
             .AddToDB();
 
         var pointPoolSpellMasterBonusCantrips = FeatureDefinitionPointPoolBuilder
@@ -51,7 +52,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Create("SavingThrowAffinitySpellMasterSpellResistance")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
-                RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
+                CharacterSavingThrowAffinity.Advantage, true,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
@@ -66,19 +67,19 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
                 PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
             .Configure(1,
-                RuleDefinitions.UsesDetermination.Fixed,
+                UsesDetermination.Fixed,
                 AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.Rest,
+                ActivationTime.Rest,
                 1,
-                RuleDefinitions.RechargeRate.LongRest,
+                RechargeRate.LongRest,
                 false,
                 false,
                 AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
-                        RuleDefinitions.Side.All,
-                        RuleDefinitions.RangeType.Self,
+                        Side.All,
+                        RangeType.Self,
                         0,
                         0,
                         0,
@@ -89,7 +90,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                             .Create()
                             .SetSpellForm(9)
                             .Build())
-                    .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
                     .Build())
             .AddToDB();
@@ -98,7 +99,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Create("SpellMasterArcaneDepth")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
-                RuleDefinitions.RestType.ShortRest,
+                RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
                 magicAffinitySpellMasterRecovery.Name)

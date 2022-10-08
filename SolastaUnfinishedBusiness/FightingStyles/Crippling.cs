@@ -6,6 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -18,11 +19,11 @@ internal sealed class Crippling : AbstractFightingStyle
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
                 .SetGuiPresentation(Category.Feature)
-                .SetDamageDice(RuleDefinitions.DieType.D1, 0)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+                .SetDamageDice(DieType.D1, 0)
+                .SetFrequencyLimit(FeatureLimitedUsage.None)
                 .SetNotificationTag("Crippling")
-                .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetConditionOperations(
                     new ConditionOperationDescription
                     {
@@ -34,8 +35,8 @@ internal sealed class Crippling : AbstractFightingStyle
                             .AddToDB(),
                         hasSavingThrow = false,
                         operation = ConditionOperationDescription.ConditionOperation.Add,
-                        saveAffinity = RuleDefinitions.EffectSavingThrowType.None,
-                        saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn
+                        saveAffinity = EffectSavingThrowType.None,
+                        saveOccurence = TurnOccurenceType.EndOfTurn
                     })
                 .AddToDB())
         .AddToDB();
