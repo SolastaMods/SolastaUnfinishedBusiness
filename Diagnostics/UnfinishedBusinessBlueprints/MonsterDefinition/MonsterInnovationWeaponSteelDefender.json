@@ -1,4 +1,4 @@
-{
+﻿{
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
@@ -203,8 +203,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&MonsterInovationWeaponSteelDefenderTitle",
-    "description": "Monster/&MonsterInovationWeaponSteelDefenderDescription",
+    "title": "Monster/&MonsterInnovationWeaponSteelDefenderTitle",
+    "description": "Monster/&MonsterInnovationWeaponSteelDefenderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "476439c7-46b8-5b70-aaa1-b38b8805ebe2",
@@ -224,7 +224,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "11372f38-75f3-5782-92c9-2af2c64324f4",
+  "guid": "78ab8f6d-4b14-5d05-8cf2-7bb440c430cc",
   "contentPack": 9999,
-  "name": "MonsterInovationWeaponSteelDefender"
+  "name": "MonsterInnovationWeaponSteelDefender"
 }

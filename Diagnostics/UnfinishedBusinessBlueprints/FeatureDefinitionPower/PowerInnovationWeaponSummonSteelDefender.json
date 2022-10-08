@@ -79,7 +79,7 @@
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "MonsterInovationWeaponSteelDefender",
+          "monsterDefinitionName": "MonsterInnovationWeaponSteelDefender",
           "number": 1,
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,
