@@ -139,7 +139,7 @@ public static class InnovationWeapon
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(savingThrows, skills)
                     .AddToDB(),
-                //Bonuses from Inventor's spell atack
+                //Bonuses from Inventor's spell attack
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
                     .SetGuiPresentationNoContent()
@@ -190,7 +190,7 @@ public static class InnovationWeapon
             .AddToDB();
 
         var monster = MonsterDefinitionBuilder
-            .Create("MonsterInovationWeaponSteelDefender")
+            .Create("MonsterInnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
                 CustomIcons.CreateAssetReferenceSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160,
                     240))
@@ -217,7 +217,7 @@ public static class InnovationWeapon
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
 
                 //TODO: add repair power
-                //TODO: add `Deflect Attack` - reaction to impose disadvantage on attack agains ally in 5ft
+                //TODO: add `Deflect Attack` - reaction to impose disadvantage on attack against ally in 5ft
                 //TODO: add Surprised immunity
                 //TODO: make it only have reaction and dodge unless summoner used bonus action to grant full actions
                 //TODO: make it share initiative roll with summoner

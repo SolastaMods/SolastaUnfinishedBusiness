@@ -12,5 +12,5 @@ Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments wit
 Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Defending Blade
 Feature/&PowerInnovationWeaponSummonSteelDefenderDescription=Summon Defending Blade to help you in battles. 
 Feature/&PowerInnovationWeaponSummonSteelDefenderTitle=Defending Blade
-Monster/&MonsterInovationWeaponSteelDefenderDescription=Faithful defender of the weaponsmith.
-Monster/&MonsterInovationWeaponSteelDefenderTitle=Defending Blade
+Monster/&MonsterInnovationWeaponSteelDefenderDescription=Faithful defender of the weaponsmith.
+Monster/&MonsterInnovationWeaponSteelDefenderTitle=Defending Blade
