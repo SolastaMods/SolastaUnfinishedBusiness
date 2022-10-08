@@ -1,4 +1,4 @@
-﻿{
+{
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
@@ -69,6 +69,7 @@
     "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:FeatureInnovationWeaponSteelDefenderInitiative:5cd5fc7f-db51-5e83-bc92-85fb0e3fe9b4",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
