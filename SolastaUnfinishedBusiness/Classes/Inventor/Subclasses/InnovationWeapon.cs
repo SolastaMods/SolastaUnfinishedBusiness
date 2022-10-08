@@ -212,18 +212,19 @@ public static class InnovationWeapon
             //.SetGroupAttacks(true)
             .SetFeatures(
                 FeatureDefinitionMoveModes.MoveModeMove8,
-                FeatureDefinitionSenses.SenseNormalVision,
                 FeatureDefinitionSenses.SenseDarkvision12,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
 
                 //TODO: add repair power
-                //TODO: add `Deflect Attack` - reaction to impose disadvantage on attack against ally in 5ft
-                //TODO: add Surprised immunity
                 //TODO: make it only have reaction and dodge unless summoner used bonus action to grant full actions
-                FeatureDefinitionBuilder.Create("FeatureInnovationWeaponSteelDefenderInitiative")
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create("FeatureInnovationWeaponSteelDefenderInitiative")
                     .SetGuiPresentationNoContent()
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .SetConditionType(ConditionDefinitions.ConditionSurprised)
                     .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
                     .AddToDB(),
+                FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity
