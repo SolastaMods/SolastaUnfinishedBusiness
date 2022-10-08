@@ -220,7 +220,10 @@ public static class InnovationWeapon
                 //TODO: add `Deflect Attack` - reaction to impose disadvantage on attack against ally in 5ft
                 //TODO: add Surprised immunity
                 //TODO: make it only have reaction and dodge unless summoner used bonus action to grant full actions
-                //TODO: make it share initiative roll with summoner
+                FeatureDefinitionBuilder.Create("FeatureInnovationWeaponSteelDefenderInitiative")
+                    .SetGuiPresentationNoContent()
+                    .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+                    .AddToDB(),
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity

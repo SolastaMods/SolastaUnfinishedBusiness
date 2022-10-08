@@ -132,4 +132,23 @@ internal static class RulesetCharacterExtensions
                && definition.GetAllSubFeaturesOfType<ILimitedEffectInstances>()
                    .Contains(InventorClass.InfusionLimiter);
     }
+
+    /**@returns character who summoned thios creature, or null*/
+    internal static GameLocationCharacter GetMySummoner(this RulesetCharacter instance)
+    {
+        if (instance == null) { return null; }
+
+        if (!instance.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
+                RuleDefinitions.ConditionConjuredCreature, out var conjured))
+        {
+            return null;
+        }
+
+        if (RulesetEntity.TryGetEntity<RulesetCharacter>(conjured.SourceGuid, out var actor))
+        {
+            return GameLocationCharacter.GetFromActor(actor);
+        }
+
+        return null;
+    }
 }
