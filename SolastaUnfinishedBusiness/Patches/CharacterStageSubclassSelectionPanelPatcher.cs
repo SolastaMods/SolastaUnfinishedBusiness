@@ -3,8 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,21 +14,18 @@ public static class CharacterStageSubclassSelectionPanelPatcher
     {
         public static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
+            //PATCH: changes the subclasses layout to allow more offering
+            LevelUpContext.ApplyCommonSelectionLayout(__instance.subclassesTable);
+
             //PATCH: sorts the sub classes panel by Title
-            if (Main.Settings.EnableSortingSubclasses)
+            if (!Main.Settings.EnableSortingSubclasses)
             {
-                __instance.compatibleSubclasses
-                    .Sort((a, b) =>
-                        String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+                return;
             }
 
-            //PATCH: changes the subclasses layout to allow more offering
-            var rectTransform = __instance.subclassesTable.parent.parent.parent.GetComponent<RectTransform>();
-            var gridLayoutGroup = __instance.subclassesTable.GetComponent<GridLayoutGroup>();
-
-            rectTransform.anchoredPosition = new Vector2(-245.5f, 15f);
-            gridLayoutGroup.spacing = new Vector2(50, 100);
-            gridLayoutGroup.constraintCount = 3;
+            __instance.compatibleSubclasses
+                .Sort((a, b) =>
+                    String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
     }
 

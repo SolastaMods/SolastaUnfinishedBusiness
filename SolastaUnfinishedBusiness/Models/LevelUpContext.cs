@@ -4,6 +4,8 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using UnityEngine;
+using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
@@ -591,6 +593,17 @@ internal static class LevelUpContext
                 return false;
             });
         })!;
+    }
+
+    // opens more space for subclasses and fighting styles on their respective selection panels
+    internal static void ApplyCommonSelectionLayout(RectTransform table)
+    {
+        var rectTransform = table.parent.parent.parent.GetComponent<RectTransform>();
+        var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
+
+        rectTransform.anchoredPosition = new Vector2(-245.5f, 30f);
+        gridLayoutGroup.spacing = new Vector2(50, 100);
+        gridLayoutGroup.constraintCount = 3;
     }
 
     // keeps the multiclass level up context
