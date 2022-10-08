@@ -18,6 +18,7 @@ internal static class FightingStyleContext
     {
         LoadStyle(new Crippling());
         LoadStyle(new Pugilist());
+        LoadStyle(new Reactionary());
         LoadStyle(new TitanFighting());
         LoadStyle(new Merciless());
 
