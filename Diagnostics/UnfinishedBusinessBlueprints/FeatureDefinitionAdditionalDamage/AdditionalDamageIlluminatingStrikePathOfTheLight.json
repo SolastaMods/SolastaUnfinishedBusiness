@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+FeatureDefinitionAdditionalDamageIlluminatingStrike, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "IlluminatingStrike",
   "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
@@ -200,12 +200,7 @@
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
