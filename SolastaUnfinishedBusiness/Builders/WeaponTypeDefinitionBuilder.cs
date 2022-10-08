@@ -18,7 +18,7 @@ internal class WeaponTypeDefinitionBuilder
         Definition.animationTag = tag;
         return this;
     }
-    
+
     #region Constructors
 
     internal WeaponTypeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

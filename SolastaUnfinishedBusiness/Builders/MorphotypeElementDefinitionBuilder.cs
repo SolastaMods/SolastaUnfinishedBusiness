@@ -20,7 +20,8 @@ internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<Morphotype
         return this;
     }
 
-    internal MorphotypeElementDefinitionBuilder SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag value)
+    internal MorphotypeElementDefinitionBuilder SetSubClassFilterMask(
+        GraphicsDefinitions.MorphotypeSubclassFilterTag value)
     {
         Definition.subClassFilterMask = value;
         return this;
@@ -31,7 +32,7 @@ internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<Morphotype
         Definition.guiPresentation.sortOrder = value;
         return this;
     }
-    
+
     #region Constructors
 
     protected MorphotypeElementDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

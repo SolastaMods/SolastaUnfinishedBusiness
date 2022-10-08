@@ -20,7 +20,7 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
 
         foreach (var ability in abilityScores)
         {
-            var group = new SavingThrowAffinityGroup {abilityScoreName = ability, affinity = affinityType};
+            var group = new SavingThrowAffinityGroup { abilityScoreName = ability, affinity = affinityType };
 
             if (againstMagic)
             {

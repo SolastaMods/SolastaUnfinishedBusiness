@@ -101,7 +101,7 @@ internal static class OtherFeats
         GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", null,
             featImprovedCritical,
             featMasterCritical);
-        
+
         feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featMasterCritical, featShieldExpert);
     }
 

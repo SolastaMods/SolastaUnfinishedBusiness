@@ -78,11 +78,11 @@ internal static partial class ReflectionCache
                 new[] { isInstByRef ? _info.DeclaringType?.MakeByRefType() : _info.DeclaringType },
                 typeof(CachedField<TField>),
                 true);
-            
+
             method.DefineParameter(1, ParameterAttributes.In, "instance");
 
             var il = method.GetILGenerator();
-            
+
             if (_info.IsStatic)
             {
                 il.Emit(OpCodes.Ldsfld, _info);

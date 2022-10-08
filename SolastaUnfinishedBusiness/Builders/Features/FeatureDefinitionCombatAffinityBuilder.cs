@@ -14,7 +14,8 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign modifierSign)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(
+        RuleDefinitions.AttackModifierSign modifierSign)
     {
         Definition.myAttackModifierSign = modifierSign;
         return this;
@@ -31,7 +32,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
         Definition.ignoreCover = true;
         return this;
     }
-    
+
     #region Constructors
 
     protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

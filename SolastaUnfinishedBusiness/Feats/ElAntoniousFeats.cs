@@ -21,7 +21,7 @@ internal static class ElAntoniousFeats
             .SetGuiPresentation(Category.Condition)
             .SetDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive(true)
+            .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
             .AddToDB();
@@ -31,7 +31,7 @@ internal static class ElAntoniousFeats
             .SetGuiPresentation(Category.Condition)
             .SetDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive(true)
+            .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(

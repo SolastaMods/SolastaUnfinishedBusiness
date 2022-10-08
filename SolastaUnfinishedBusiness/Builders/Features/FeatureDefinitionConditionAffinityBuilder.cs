@@ -8,7 +8,8 @@ internal class FeatureDefinitionConditionAffinityBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity,
         FeatureDefinitionConditionAffinityBuilder>
 {
-    internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
+    internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(
+        RuleDefinitions.ConditionAffinityType value)
     {
         Definition.conditionAffinityType = value;
         return this;
@@ -19,7 +20,7 @@ internal class FeatureDefinitionConditionAffinityBuilder
         Definition.conditionType = value.Name;
         return this;
     }
-    
+
     #region Constructors
 
     protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

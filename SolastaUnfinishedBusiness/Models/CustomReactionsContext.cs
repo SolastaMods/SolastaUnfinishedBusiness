@@ -94,7 +94,7 @@ internal static class CustomReactionsContext
 
     internal static void ReadReadyActionPreferredCantrip(CharacterActionParams actionParams)
     {
-        if (actionParams is {ReadyActionType: ReadyActionType.Cantrip})
+        if (actionParams is { ReadyActionType: ReadyActionType.Cantrip })
         {
             _forcePreferredCantrip = actionParams.BoolParameter4;
         }

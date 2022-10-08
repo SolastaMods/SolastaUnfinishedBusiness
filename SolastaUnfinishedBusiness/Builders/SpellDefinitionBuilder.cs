@@ -108,7 +108,7 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         Definition.concentrationAction = concentrationAction;
         return this;
     }
-    
+
     #region Constructors
 
     internal SpellDefinitionBuilder(string name, string guid) : base(name, guid)

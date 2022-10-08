@@ -86,14 +86,14 @@ internal static partial class ReflectionCache
                 new[] { isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType },
                 typeof(CachedProperty<TProperty>),
                 true);
-            
+
             method.DefineParameter(1, ParameterAttributes.In, "instance");
-            
+
             var il = method.GetILGenerator();
-            
+
             il.Emit(OpCodes.Call, getter);
             il.Emit(OpCodes.Ret);
-            
+
             return method.CreateDelegate(delType);
         }
 
@@ -110,16 +110,16 @@ internal static partial class ReflectionCache
                 new[] { isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
                 typeof(CachedProperty<TProperty>),
                 true);
-            
+
             method.DefineParameter(1, ParameterAttributes.In, "instance");
             method.DefineParameter(2, ParameterAttributes.In, "value");
-            
+
             var il = method.GetILGenerator();
-            
+
             il.Emit(OpCodes.Ldarg_1);
             il.Emit(OpCodes.Call, setter);
             il.Emit(OpCodes.Ret);
-            
+
             return method.CreateDelegate(delType);
         }
     }

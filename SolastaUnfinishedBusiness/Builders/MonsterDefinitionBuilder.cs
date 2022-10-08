@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using TA.AI;
-using UnityEngine.AddressableAssets;
 using static BestiaryDefinitions;
 using static RuleDefinitions;
 
@@ -69,7 +68,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     public MonsterDefinitionBuilder SetSavingThrowScores(params (string, int)[] saves)
     {
         return SetSavingThrowScores(saves.Select(x =>
-            new MonsterSavingThrowProficiency() {abilityScoreName = x.Item1, bonus = x.Item2}));
+            new MonsterSavingThrowProficiency { abilityScoreName = x.Item1, bonus = x.Item2 }));
     }
 
     public MonsterDefinitionBuilder SetSavingThrowScores(params MonsterSavingThrowProficiency[] saves)
@@ -210,7 +209,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     internal MonsterDefinitionBuilder SetAttackIterations(params (int, MonsterAttackDefinition)[] iterations)
     {
         Definition.AttackIterations.SetRange(iterations.Select(x =>
-            new MonsterAttackIteration() {number = x.Item1, monsterAttackDefinition = x.Item2}));
+            new MonsterAttackIteration { number = x.Item1, monsterAttackDefinition = x.Item2 }));
         return this;
     }
 

@@ -107,7 +107,7 @@ internal class ReflectionSearch : MonoBehaviour
 
         SequenceNumber++;
         Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
-        
+
         if (searchText.Length == 0)
         {
             return;
@@ -184,11 +184,11 @@ internal class ReflectionSearch : MonoBehaviour
             {
                 Main.Log($"{depth} caught - {e}");
             }
-            
+
 #pragma warning disable CS0618 // Type or member is obsolete
             node.Matches = foundMatch;
 #pragma warning restore CS0618 // Type or member is obsolete
-            
+
             if (!foundMatch && visitCount % 100 == 0)
             {
                 updater(visitCount, depth, breadth);

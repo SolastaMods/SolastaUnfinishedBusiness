@@ -5,7 +5,8 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders;
 
 [UsedImplicitly]
-internal class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
+internal class
+    TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
 {
     internal TreasureTableDefinitionBuilder AddTreasureOptions(IEnumerable<TreasureOption> treasureOptions)
     {

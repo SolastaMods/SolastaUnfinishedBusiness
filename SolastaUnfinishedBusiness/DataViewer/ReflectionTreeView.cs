@@ -132,11 +132,12 @@ internal class ReflectionTreeView
                 }
 
                 GUILayout.Space(10f);
-                int maxRows = GameServicesDisplay.MaxRows;
+                var maxRows = GameServicesDisplay.MaxRows;
                 if (GUIHelper.AdjusterButton(ref maxRows, "Max Rows:", 10))
                 {
                     GameServicesDisplay.MaxRows = maxRows;
                 }
+
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);

@@ -49,7 +49,7 @@ internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<Feat
         Definition.uniqueChoices = true;
         return this;
     }
-    
+
     #region Constructors
 
     internal FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

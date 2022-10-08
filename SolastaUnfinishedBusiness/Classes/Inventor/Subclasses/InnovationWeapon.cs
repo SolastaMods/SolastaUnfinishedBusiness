@@ -285,7 +285,8 @@ public static class InnovationWeapon
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetDuration(DurationType.Round, 0)
+                        //TODO: is duration 0 correct here?
+                        .SetDuration(DurationType.Round, 0, false)
                         .SetSpecialDuration(true)
                         .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)

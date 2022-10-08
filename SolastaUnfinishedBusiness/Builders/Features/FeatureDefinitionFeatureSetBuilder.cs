@@ -39,6 +39,7 @@ internal class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionBuilder<Fea
         Definition.uniqueChoices = uniqueChoice;
         return this;
     }
+
     #region Constructors
 
     protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

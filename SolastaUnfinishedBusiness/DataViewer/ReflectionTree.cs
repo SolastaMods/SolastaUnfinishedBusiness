@@ -342,18 +342,13 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    internal override int? InstanceID
-    {
-        get
+    internal override int? InstanceID =>
+        Value switch
         {
-            return Value switch
-            {
-                Object unityObject => unityObject.GetInstanceID(),
-                object obj => obj.GetHashCode(),
-                _ => null
-            };
-        }
-    }
+            Object unityObject => unityObject.GetInstanceID(),
+            object obj => obj.GetHashCode(),
+            _ => null
+        };
 
     internal override bool IsNull => Value == null || (Value is Object unityObject && !unityObject);
 

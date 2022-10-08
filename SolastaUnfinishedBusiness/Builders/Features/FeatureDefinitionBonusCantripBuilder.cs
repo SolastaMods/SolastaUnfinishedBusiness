@@ -14,7 +14,7 @@ internal class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<
         Definition.BonusCantrips.Sort(Sorting.Compare);
         return this;
     }
-    
+
     #region Constructors
 
     internal FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

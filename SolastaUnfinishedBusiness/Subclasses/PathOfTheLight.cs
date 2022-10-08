@@ -101,10 +101,11 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         .SetFeatures(
                                             FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder
                                                 .Create(
-                                                    AdditionalDamagePathOfTheLightIlluminatingStrikeName, 
+                                                    AdditionalDamagePathOfTheLightIlluminatingStrikeName,
                                                     conditionPathOfTheLightIlluminated)
                                                 .SetGuiPresentationNoContent(
-                                                    AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference)
+                                                    AdditionalDamageDomainLifeDivineStrike.GuiPresentation
+                                                        .SpriteReference)
                                                 .AddToDB())
                                         .AddToDB()
                                 }
@@ -177,7 +178,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetRechargeRate(RechargeRate.AtWill)
             .SetActivationTime(ActivationTime.Permanent)
             .AddToDB();
-        
+
         //
         // Illuminating Burst
         //
@@ -249,7 +250,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .SetShowCasting(false)
                     .AddToDB(),
                 FeatureDefinitionPowerIlluminatingBurstBuilder
-                    .Create(PowerPathOfTheLightIlluminatingBurstName, 
+                    .Create(PowerPathOfTheLightIlluminatingBurstName,
                         conditionPathOfTheLightIlluminated, conditionPathOfTheLightSuppressedIlluminatingBurst)
                     .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
                     .AddToDB(),
@@ -339,7 +340,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(removedFrom);
-        
+
         visibilityService.RemoveCharacterLightSource(gameLocationCharacter, character.PersonalLightSource);
         character.PersonalLightSource = null;
     }
@@ -421,7 +422,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
             lightSourceForm.brightRange = 4;
             lightSourceForm.dimAdditionalRange = 4;
-            
+
             Definition.additionalDamageType = AdditionalDamageType.Specific;
             Definition.specificDamageType = DamageTypeRadiant;
             Definition.triggerCondition = AdditionalDamageTriggerCondition.AlwaysActive;
