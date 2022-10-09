@@ -4,9 +4,6 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
-    internal static class AdventureLogDefinitions
-    {
-    }
     internal static class AlignmentDefinitions
     {
         internal static AlignmentDefinition ChaoticEvil { get; } =
@@ -57,12 +54,6 @@ internal static partial class DatabaseHelper
         internal static ArmorCategoryDefinition ShieldCategory { get; } =
             GetDefinition<ArmorCategoryDefinition>("ShieldCategory");
 
-    }
-    internal static class BestiaryStatsDefinitions
-    {
-    }
-    internal static class BestiaryTableDefinitions
-    {
     }
     internal static class CharacterBackgroundDefinitions
     {
@@ -1984,15 +1975,6 @@ internal static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionWounded_Quest_WhiteCity");
 
     }
-    internal static class ConsoleTableDefinitions
-    {
-    }
-    internal static class CreditsTableDefinitions
-    {
-    }
-    internal static class DailyLogDefinitions
-    {
-    }
     internal static class DamageDefinitions
     {
         internal static DamageDefinition DamageAcid { get; } =
@@ -2034,9 +2016,6 @@ internal static partial class DatabaseHelper
         internal static DamageDefinition DamageThunder { get; } =
             GetDefinition<DamageDefinition>("DamageThunder");
 
-    }
-    internal static class DocumentTableDefinitions
-    {
     }
     internal static class EffectProxyDefinitions
     {
@@ -13861,15 +13840,6 @@ internal static partial class DatabaseHelper
             GetDefinition<MonsterDefinition>("Zombie");
 
     }
-    internal static class NarrativeTreeDefinitions
-    {
-    }
-    internal static class PropBlueprints
-    {
-    }
-    internal static class QuestTreeDefinitions
-    {
-    }
     internal static class RecipeDefinitions
     {
         internal static RecipeDefinition Recipe_Antitoxin { get; } =
@@ -14628,9 +14598,6 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition RecipeScroll_L5_ScrollRaiseDead { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L5_ScrollRaiseDead");
 
-    }
-    internal static class RoomBlueprints
-    {
     }
     internal static class SchoolOfMagicDefinitions
     {
@@ -15718,9 +15685,6 @@ internal static partial class DatabaseHelper
             GetDefinition<SpellListDefinition>("SpellListWizardGreenmage");
 
     }
-    internal static class SubtitleTableDefinitions
-    {
-    }
     internal static class ToolTypeDefinitions
     {
         internal static ToolTypeDefinition ArtisanToolSmithToolsType { get; } =
@@ -15750,15 +15714,6 @@ internal static partial class DatabaseHelper
         internal static ToolTypeDefinition ThievesToolsType { get; } =
             GetDefinition<ToolTypeDefinition>("ThievesToolsType");
 
-    }
-    internal static class TravelJournalDefinitions
-    {
-    }
-    internal static class TutorialTableDefinitions
-    {
-    }
-    internal static class TutorialTocDefinitions
-    {
     }
     internal static class WeaponCategoryDefinitions
     {
