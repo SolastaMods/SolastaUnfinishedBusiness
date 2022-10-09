@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -53,11 +52,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return SetCharacterFamily(family.Name);
     }
 
+#if false
     public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
     {
         Definition.forceNoFlyAnimation = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetMonsterPresentation(MonsterPresentation presentation)
     {
@@ -67,21 +68,18 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
 
     public MonsterDefinitionBuilder SetSavingThrowScores(params (string, int)[] saves)
     {
-        return SetSavingThrowScores(saves.Select(x =>
+        Definition.savingThrowScores.SetRange(saves.Select(x =>
             new MonsterSavingThrowProficiency { abilityScoreName = x.Item1, bonus = x.Item2 }));
+        return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetSavingThrowScores(params MonsterSavingThrowProficiency[] saves)
     {
         Definition.savingThrowScores.SetRange(saves);
         return this;
     }
-
-    public MonsterDefinitionBuilder SetSavingThrowScores(IEnumerable<MonsterSavingThrowProficiency> saves)
-    {
-        Definition.savingThrowScores.SetRange(saves);
-        return this;
-    }
+#endif
 
     public MonsterDefinitionBuilder HideFromDungeonEditor()
     {

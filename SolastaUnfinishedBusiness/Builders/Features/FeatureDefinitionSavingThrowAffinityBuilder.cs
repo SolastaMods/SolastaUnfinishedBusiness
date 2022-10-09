@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSavingThrowAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionSavingThrowAffinity,
+    : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity,
         FeatureDefinitionSavingThrowAffinityBuilder>
 {
     internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(

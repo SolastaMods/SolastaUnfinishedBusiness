@@ -396,7 +396,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     [UsedImplicitly]
     private class FeatureDefinitionMoonlitInvisibilityBuilder :
-        FeatureDefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
+        DefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
     {
         #region Constructors
 

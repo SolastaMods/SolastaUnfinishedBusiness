@@ -716,7 +716,7 @@ internal static class ZappaFeats
     }
 }
 
-internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitionBuilder<
+internal sealed class FeatureDefinitionMetamagicOptionBuilder : DefinitionBuilder<
     FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
 {
     internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =

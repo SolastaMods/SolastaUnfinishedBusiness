@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionReduceDamageBuilder : FeatureDefinitionBuilder<FeatureDefinitionReduceDamage,
+internal class FeatureDefinitionReduceDamageBuilder : DefinitionBuilder<FeatureDefinitionReduceDamage,
     FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]

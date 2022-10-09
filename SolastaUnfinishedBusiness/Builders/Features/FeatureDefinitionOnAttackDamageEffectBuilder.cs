@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionOnAttackDamageEffectBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionOnAttackDamageEffectBuilder : DefinitionBuilder<
     FeatureDefinitionOnAttackDamageEffect, FeatureDefinitionOnAttackDamageEffectBuilder>
 {
     internal FeatureDefinitionOnAttackDamageEffectBuilder SetOnAttackDamageDelegates(OnAttackDamageDelegate before,

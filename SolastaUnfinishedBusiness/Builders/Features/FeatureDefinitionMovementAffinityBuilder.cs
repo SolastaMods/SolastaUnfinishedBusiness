@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionMovementAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
+    : DefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
 {
     internal FeatureDefinitionMovementAffinityBuilder SetAdditiveModifierAdvancement(
         RuleDefinitions.MovementAffinityAdvancement value)

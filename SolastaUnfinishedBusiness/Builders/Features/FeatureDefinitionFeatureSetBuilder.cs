@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionBuilder<FeatureDefinitionFeatureSet,
+internal class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet,
     FeatureDefinitionFeatureSetBuilder>
 {
     internal FeatureDefinitionFeatureSetBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)

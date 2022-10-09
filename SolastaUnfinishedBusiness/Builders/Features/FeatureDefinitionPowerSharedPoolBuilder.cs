@@ -1,10 +1,11 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-// ReSharper disable once ClassNeverInstantiated.Global
+[UsedImplicitly]
 internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {

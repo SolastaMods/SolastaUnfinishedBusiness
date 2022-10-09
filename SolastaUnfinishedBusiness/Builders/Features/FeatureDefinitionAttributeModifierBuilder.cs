@@ -5,7 +5,7 @@ using static FeatureDefinitionAttributeModifier;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier,
+internal class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier,
     FeatureDefinitionAttributeModifierBuilder>
 {
     internal FeatureDefinitionAttributeModifierBuilder SetModifier(

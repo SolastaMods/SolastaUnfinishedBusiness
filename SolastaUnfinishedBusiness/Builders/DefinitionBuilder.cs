@@ -64,7 +64,7 @@ internal abstract class DefinitionBuilder
 #if DEBUG
             throw new SolastaUnfinishedBusinessException(msg);
 #else
-            Main.Log(msg);
+            Main.Error(msg);
 #endif
         }
 
@@ -202,18 +202,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         IsNew = true;
     }
 
-    /// <summary>
-    ///     Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
-    /// </summary>
-    /// <param name="name">The name assigned to the definition (mandatory)</param>
-    /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-    private protected DefinitionBuilder(string name, string definitionGuid) :
-        this(name, definitionGuid, Guid.Empty, false)
-    {
-        Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
-        IsNew = true;
-    }
-
     // TODO: two very similar ctors - worth combining?
     private DefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
     {
@@ -264,18 +252,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     {
     }
 
-    /// <summary>
-    ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
-    ///     definition guid.
-    /// </summary>
-    /// <param name="original">The definition being copied.</param>
-    /// <param name="name">The name assigned to the definition (mandatory).</param>
-    /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
-    private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) :
-        this(original, name, definitionGuid, Guid.Empty, false)
-    {
-    }
-
     // TODO: two very similar ctors - worth combining?
     private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
         bool useNamespaceGuid)
@@ -307,16 +283,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         }
     }
 
-    /// <summary>
-    ///     Take ownership of a definition without changing the name or guid.
-    /// </summary>
-    /// <param name="original">The definition</param>
-    private protected DefinitionBuilder(TDefinition original)
-    {
-        Preconditions.ArgumentIsNotNull(original, nameof(original));
-        Definition = original;
-    }
-
     #endregion
 
     #region Add to dbs
@@ -336,12 +302,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
     }
 
-    /// <summary>
-    ///     Add the TDefinition to every compatible database
-    /// </summary>
-    /// <param name="assertIfDuplicate"></param>
-    /// <returns></returns>
-    /// <exception cref="SolastaUnfinishedBusinessException"></exception>
     private TDefinition AddToDB(
         bool assertIfDuplicate,
         BaseDefinition.Copyright? copyright,
@@ -583,51 +543,6 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
     internal static TBuilder Create(TDefinition original, string name)
     {
         return CreateImpl(original, name, CeNamespaceGuid);
-    }
-
-    /// <summary>
-    ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
-    ///     <paramref name="namespaceGuid" /> plus <paramref name="name" />.
-    /// </summary>
-    /// <param name="name">The name assigned to the definition (mandatory)</param>
-    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    internal static TBuilder Create(string name, Guid namespaceGuid)
-    {
-        return CreateImpl(name, namespaceGuid);
-    }
-
-    /// <summary>
-    ///     Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
-    /// </summary>
-    /// <param name="name">The name assigned to the definition (mandatory)</param>
-    /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-    internal static TBuilder Create(string name, string definitionGuid)
-    {
-        return CreateImpl(name, definitionGuid);
-    }
-
-    /// <summary>
-    ///     Create clone or <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a guid
-    ///     from <paramref name="name" /> plus <paramref name="namespaceGuid" />.
-    /// </summary>
-    /// <param name="original">The definition being copied.</param>
-    /// <param name="name">The name assigned to the definition (mandatory).</param>
-    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
-    {
-        return CreateImpl(original, name, namespaceGuid);
-    }
-
-    /// <summary>
-    ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
-    ///     definition guid.
-    /// </summary>
-    /// <param name="original">The definition being copied.</param>
-    /// <param name="name">The name assigned to the definition (mandatory).</param>
-    /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
-    internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
-    {
-        return CreateImpl(original, name, definitionGuid);
     }
 
     internal TBuilder This()

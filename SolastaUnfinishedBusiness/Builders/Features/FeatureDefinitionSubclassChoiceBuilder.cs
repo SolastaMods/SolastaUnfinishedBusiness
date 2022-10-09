@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSubclassChoiceBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
+    : DefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
 {
     internal FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
     {

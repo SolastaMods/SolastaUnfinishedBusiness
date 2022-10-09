@@ -173,11 +173,13 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return This();
     }
 
+#if false
     internal TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return This();
     }
+#endif
 
     internal TBuilder SetInterruptionDamageThreshold(int value)
     {

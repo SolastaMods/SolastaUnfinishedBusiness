@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionConditionAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity,
+    : DefinitionBuilder<FeatureDefinitionConditionAffinity,
         FeatureDefinitionConditionAffinityBuilder>
 {
     internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(

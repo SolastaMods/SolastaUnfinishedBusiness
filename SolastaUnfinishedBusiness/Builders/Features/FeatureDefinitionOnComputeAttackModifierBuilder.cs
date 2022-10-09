@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionOnComputeAttackModifierBuilder : DefinitionBuilder<
     FeatureDefinitionOnComputeAttackModifier,
     FeatureDefinitionOnComputeAttackModifierBuilder>
 {

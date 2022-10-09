@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api.Diagnostics;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell,
+internal class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefinitionCastSpell,
     FeatureDefinitionCastSpellBuilder>
 {
     internal static void EnumerateReplacedSpells(

@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class
-    FeatureDefinitionSenseBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, FeatureDefinitionSenseBuilder>
+    FeatureDefinitionSenseBuilder : DefinitionBuilder<FeatureDefinitionSense, FeatureDefinitionSenseBuilder>
 {
     internal FeatureDefinitionSenseBuilder SetSenseRange(int senseRange)
     {

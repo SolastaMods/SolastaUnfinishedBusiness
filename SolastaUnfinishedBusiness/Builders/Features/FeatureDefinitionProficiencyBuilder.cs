@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<FeatureDefinitionProficiency,
+internal class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDefinitionProficiency,
     FeatureDefinitionProficiencyBuilder>
 {
     internal FeatureDefinitionProficiencyBuilder SetProficiencies(

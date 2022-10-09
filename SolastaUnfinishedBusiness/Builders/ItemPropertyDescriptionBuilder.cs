@@ -8,7 +8,7 @@ internal class ItemPropertyDescriptionBuilder
 {
     private readonly ItemPropertyDescription property;
 
-    internal ItemPropertyDescriptionBuilder()
+    private ItemPropertyDescriptionBuilder()
     {
         property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0])
         {
@@ -31,27 +31,29 @@ internal class ItemPropertyDescriptionBuilder
             .SetKnowledgeAffinity(knowledgeAffinity);
     }
 
+#if false
     internal ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)
     {
         property.type = ItemPropertyDescription.PropertyType.Condition;
         property.conditionDefinition = condition;
         return this;
     }
+#endif
 
-    internal ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
+    private ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
     {
         property.type = ItemPropertyDescription.PropertyType.Feature;
         property.featureDefinition = feature;
         return this;
     }
 
-    internal ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
+    private ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
     {
         property.appliesOnItemOnly = value;
         return this;
     }
 
-    internal ItemPropertyDescriptionBuilder SetKnowledgeAffinity(KnowledgeAffinity value)
+    private ItemPropertyDescriptionBuilder SetKnowledgeAffinity(KnowledgeAffinity value)
     {
         property.knowledgeAffinity = value;
         return this;

@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
+internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity,
     FeatureDefinitionActionAffinityBuilder>
 {
     internal FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)

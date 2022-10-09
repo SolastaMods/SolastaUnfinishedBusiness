@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -56,7 +56,7 @@ internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCon
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition,
+    : DefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition,
         FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
 {
     protected FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name,

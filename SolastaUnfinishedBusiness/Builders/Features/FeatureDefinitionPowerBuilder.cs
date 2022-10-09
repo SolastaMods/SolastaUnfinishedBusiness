@@ -23,7 +23,7 @@ internal class FeatureDefinitionPowerBuilder
 }
 
 internal abstract class
-    FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+    FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionPower
     where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
 {
@@ -105,12 +105,14 @@ internal abstract class
         return This();
     }
 
+    #if false
     internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
     {
         Definition.hasCastingFailure = hasCastingFailure;
         return This();
     }
-
+#endif
+    
     internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         Definition.rechargeRate = rate;
@@ -150,12 +152,14 @@ internal abstract class
         return This();
     }
 
+    #if false
     internal TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
         Definition.usesAbilityScoreName = abilityScoreName;
         return This();
     }
-
+#endif
+    
     internal TBuilder SetUsesAbility(int fixedUses, string attribute)
     {
         Definition.fixedUsesPerRecharge = fixedUses;

@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionAttackModifierBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
+    : DefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
     internal FeatureDefinitionAttackModifierBuilder Configure(
         AttackModifierMethod attackRollModifierMethod = AttackModifierMethod.None,

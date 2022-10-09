@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionEquipmentAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionEquipmentAffinity,
+    : DefinitionBuilder<FeatureDefinitionEquipmentAffinity,
         FeatureDefinitionEquipmentAffinityBuilder>
 {
     #region Constructors

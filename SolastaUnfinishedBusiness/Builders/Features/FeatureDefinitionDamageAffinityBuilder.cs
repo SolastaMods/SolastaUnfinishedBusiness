@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<
     FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
     internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
