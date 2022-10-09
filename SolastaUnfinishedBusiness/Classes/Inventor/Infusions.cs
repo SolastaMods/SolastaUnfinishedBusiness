@@ -89,7 +89,7 @@ internal static class Infusions
         name = "InfusionReturningWeaponWithBonus";
         var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}WithBonus")
+                .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
                 .SetCustomSubFeatures(ReturningWeapon.Instance)
                 .SetAttackRollModifier(1)
@@ -285,7 +285,7 @@ internal static class Infusions
     {
         var replica = ItemDefinitionBuilder
             .Create(baseItem, $"InfusedReplica{baseItem.name}")
-            .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custon tag, instead of quest
+            .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custom tag, instead of quest
             .SetGold(0)
             .HideFromDungeonEditor()
             .SetRequiresIdentification(false)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -33,14 +34,14 @@ internal static class InventorClass
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
 
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
-    private static int infusionPoolIncreases;
+    private static int _infusionPoolIncreases;
 
-    internal static CharacterClassDefinition Class { get; set; }
+    internal static CharacterClassDefinition Class { get; private set; }
 
     public static FeatureDefinitionPower InfusionPool { get; private set; }
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
-    public static FeatureDefinitionCastSpell SpellCasting { get; private set; }
+    private static FeatureDefinitionCastSpell SpellCasting { get; set; }
 
     public static CharacterClassDefinition Build()
     {
@@ -352,11 +353,11 @@ internal static class InventorClass
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             );
 
-        #endregion
+            #endregion
 
-        #region Level 20
+            #region Level 20
 
-        #endregion
+            #endregion
 
 
         for (var i = 3; i <= 20; i++)
@@ -450,7 +451,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildInfusionPoolIncrease()
     {
         return FeatureDefinitionPowerPoolModifierBuilder
-            .Create($"PowerIncreaseInventorInfusionPool{infusionPoolIncreases++:D2}")
+            .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
             .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
             .AddToDB();
@@ -610,11 +611,12 @@ internal static class InventorClass
             .AddToDB();
 
         var powers = new List<FeatureDefinitionPower>();
-        foreach (var spell in SpellList.GetSpellsOfLevels(1, 2))
+        
+        foreach (var spell in SpellList.GetSpellsOfLevels(1, 2)
+                     .Where(x => x.castingTime == ActivationTime.Action))
         {
-            if (spell.castingTime != ActivationTime.Action) { continue; }
-
             var power = BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master);
+            
             powers.Add(power);
         }
 
@@ -624,8 +626,8 @@ internal static class InventorClass
         return master;
     }
 
-    public static FeatureDefinitionPowerSharedPool BuildCreateSpellStoringItemPower(ItemDefinition item,
-        SpellDefinition spell, FeatureDefinitionPower pool)
+    private static FeatureDefinitionPowerSharedPool BuildCreateSpellStoringItemPower(
+        ItemDefinition item, SpellDefinition spell, FeatureDefinitionPower pool)
     {
         var description = Gui.Format("Item/&CreateSpellStoringWandFormatDescription", spell.FormatTitle(),
             Gui.ToRoman(spell.spellLevel));
