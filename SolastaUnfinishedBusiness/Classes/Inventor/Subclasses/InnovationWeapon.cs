@@ -1,3 +1,4 @@
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -17,6 +18,7 @@ public static class InnovationWeapon
 {
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
+    private const string SummonSteeldefenderPower = "PowerInnovationWeaponSummonSteelDefender";
 
     public static CharacterSubclassDefinition Build()
     {
@@ -82,7 +84,7 @@ public static class InnovationWeapon
         var defender = BuildSteelDefenderMonster();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerInnovationWeaponSummonSteelDefender")
+            .Create(SummonSteeldefenderPower)
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(1)
@@ -220,7 +222,6 @@ public static class InnovationWeapon
                 FeatureDefinitionMoveModes.MoveModeMove8,
                 FeatureDefinitionSenses.SenseDarkvision12,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
@@ -285,7 +286,6 @@ public static class InnovationWeapon
 
     private static FeatureDefinition BuildCommandSteelDefender()
     {
-        //TODO: show this power only if we in battle and blade is summoned
         return FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
@@ -293,16 +293,15 @@ public static class InnovationWeapon
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
             .SetActivationTime(ActivationTime.BonusAction)
+            .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        //TODO: is duration 0 correct here?
                         .SetDuration(DurationType.Round, 0, false)
                         .SetSpecialDuration(true)
                         .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
@@ -331,6 +330,16 @@ public static class InnovationWeapon
             if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
 
             return true;
+        }
+    }
+
+    private class ShowInCombatWhenHasBlade : IPowerUseValidity
+    {
+        public bool CanUsePower(RulesetCharacter character)
+        {
+            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
+
+            return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteeldefenderPower);
         }
     }
 }
