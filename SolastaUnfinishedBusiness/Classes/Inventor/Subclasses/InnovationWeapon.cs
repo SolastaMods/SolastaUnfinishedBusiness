@@ -221,7 +221,23 @@ public static class InnovationWeapon
                 FeatureDefinitionSenses.SenseDarkvision12,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
 
-                //TODO: add repair power
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerInnovationWeaponSteelDefenderRepair")
+                    .SetGuiPresentation(Category.Feature,
+                        CustomIcons.CreateAssetReferenceSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
+                            256, 128))
+                    .SetUsesFixed(3)
+                    .SetRechargeRate(RechargeRate.LongRest)
+                    .SetActivationTime(ActivationTime.Action)
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        //RAW this can heal any other Inventor construct, this verion only heals self
+                        .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.Create()
+                            .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                        .Build())
+                    .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("FeatureInnovationWeaponSteelDefenderInitiative")
                     .SetGuiPresentationNoContent()
@@ -269,6 +285,7 @@ public static class InnovationWeapon
 
     private static FeatureDefinition BuildCommandSteelDefender()
     {
+        //TODO: show this power only if we in battle and blade is summoned
         return FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
