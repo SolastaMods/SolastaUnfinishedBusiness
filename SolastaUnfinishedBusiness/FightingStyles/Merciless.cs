@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using TA;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
 
@@ -84,10 +83,10 @@ internal sealed class Merciless : AbstractFightingStyle
             .SetGuiPresentation(Category.FightingStyle,
                 DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
             .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-                    .SetGuiPresentationNoContent()
-                    .AddToDB(),
+                // FeatureDefinitionAdditionalActionBuilder
+                //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+                //     .SetGuiPresentationNoContent()
+                //     .AddToDB(),
                 FeatureDefinitionOnCharacterKillBuilder
                     .Create("OnCharacterKillFightingStyleMerciless")
                     .SetGuiPresentationNoContent()
