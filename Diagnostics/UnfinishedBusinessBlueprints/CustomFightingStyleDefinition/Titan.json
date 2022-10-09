@@ -11,8 +11,8 @@
     "description": "FightingStyle/&TitanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
-      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
+      "m_SubObjectName": "DomainMischief",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
