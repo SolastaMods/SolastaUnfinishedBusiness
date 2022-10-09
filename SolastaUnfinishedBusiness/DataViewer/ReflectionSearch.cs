@@ -25,7 +25,7 @@ namespace SolastaUnfinishedBusiness.DataViewer;
      * *
      * * Add to node
      * *      HashSet
-     * <String>
+     * String
      *     matches
      *     *      searchText
      *     *
@@ -35,7 +35,7 @@ namespace SolastaUnfinishedBusiness.DataViewer;
      *     *     yield
      *     *
      *     * Node.Search(string[] keyPath, Func
-     *     <Node, Bool>
+     *     Node, Bool
      *         matches, int depth) - background thread
      *         *      autoMatchKeys.Clear()
      *         *      foreach (key, value)
@@ -86,7 +86,7 @@ internal class ReflectionSearch : MonoBehaviour
         }
     }
 
-    internal void StartSearch(Node node, string searchText, SearchProgress updator, ReflectionSearchResult resultRoot)
+    internal void StartSearch(Node node, string searchText, SearchProgress updater, ReflectionSearchResult resultRoot)
     {
         if (searchCoroutine != null)
         {
@@ -98,7 +98,7 @@ internal class ReflectionSearch : MonoBehaviour
         resultRoot.Clear();
         resultRoot.Node = node;
         StopAllCoroutines();
-        updator(0, 0, 1);
+        updater(0, 0, 1);
 
         if (node == null)
         {
@@ -107,6 +107,7 @@ internal class ReflectionSearch : MonoBehaviour
 
         SequenceNumber++;
         Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
+
         if (searchText.Length == 0)
         {
             return;
@@ -114,7 +115,7 @@ internal class ReflectionSearch : MonoBehaviour
 
         var todo = new List<Node> { node };
 
-        searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
+        searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updater, resultRoot);
         StartCoroutine(searchCoroutine);
     }
 
@@ -129,8 +130,14 @@ internal class ReflectionSearch : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator Search(string searchText, List<Node> todo, int depth, int visitCount, int sequenceNumber,
-        SearchProgress updator, ReflectionSearchResult resultRoot)
+    private IEnumerator Search(
+        string searchText,
+        List<Node> todo,
+        int depth,
+        int visitCount,
+        int sequenceNumber,
+        SearchProgress updater,
+        ReflectionSearchResult resultRoot)
     {
         yield return null;
 
@@ -141,17 +148,18 @@ internal class ReflectionSearch : MonoBehaviour
 
         var newTodo = new List<Node>();
         var breadth = todo.Count;
+
         foreach (var node in todo)
         {
             var foundMatch = false;
             var instanceID = node.InstanceID;
-            var alreadyVisted = false;
+            var alreadyVisited = false;
 
             if (instanceID is { } instID)
             {
                 if (VisitedInstanceIDs.Contains(instID))
                 {
-                    alreadyVisted = true;
+                    alreadyVisited = true;
                 }
                 else
                 {
@@ -166,7 +174,7 @@ internal class ReflectionSearch : MonoBehaviour
                 if (Matches(node.Name, searchText) || Matches(node.ValueText, searchText))
                 {
                     foundMatch = true;
-                    updator(visitCount, depth, breadth);
+                    updater(visitCount, depth, breadth);
                     resultRoot.AddSearchResult(node);
                     Main.Log($"{depth} matched: {node.GetPath()} - {node.ValueText}");
                     Main.Log($"{resultRoot}");
@@ -176,15 +184,17 @@ internal class ReflectionSearch : MonoBehaviour
             {
                 Main.Log($"{depth} caught - {e}");
             }
+
 #pragma warning disable CS0618 // Type or member is obsolete
             node.Matches = foundMatch;
 #pragma warning restore CS0618 // Type or member is obsolete
+
             if (!foundMatch && visitCount % 100 == 0)
             {
-                updator(visitCount, depth, breadth);
+                updater(visitCount, depth, breadth);
             }
 
-            if (node.hasChildren && !alreadyVisted)
+            if (node.HasChildren && !alreadyVisited)
             {
                 if (node.InstanceID is { } instID2 && instID2 == GetInstanceID())
                 {
@@ -241,7 +251,7 @@ internal class ReflectionSearch : MonoBehaviour
 
         if (newTodo.Count > 0 && depth < GameServicesDisplay.MaxSearchDepth)
         {
-            yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updator, resultRoot);
+            yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updater, resultRoot);
         }
         else
         {

@@ -109,7 +109,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     .Copy()
                     .SetEffectForms(EffectFormBuilder
                         .Create()
-                        .SetTempHPForm(-1, DieType.D1, 1)
+                        .SetTempHpForm(-1, DieType.D1, 1)
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
                         .Build())

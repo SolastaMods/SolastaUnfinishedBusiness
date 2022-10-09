@@ -10,20 +10,7 @@ internal static class EquipmentOptionsBuilder
         {
             number = number, optionType = optionType, itemReference = itemType, defaultChoice = itemType.Name
         };
+
         return itemOption;
     }
-
-#if false
-    internal static HeroEquipmentOption Option(string defaultChoice, string optionType, int number)
-    {
-        var itemOption =
-            new HeroEquipmentOption { number = number, optionType = optionType, defaultChoice = defaultChoice };
-        return itemOption;
-    }
-
-    internal static IEnumerable<HeroEquipmentOption> Column(params HeroEquipmentOption[] options)
-    {
-        return options.AsEnumerable();
-    }
-#endif
 }

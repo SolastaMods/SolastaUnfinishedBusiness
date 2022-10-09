@@ -13,8 +13,9 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Main
 {
-    internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
     private static ModManager<Core, Settings> Mod { get; set; }
+
+    internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
 
     internal static string ModFolder { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -54,7 +55,7 @@ internal static class Main
         Logger.Error(msg);
     }
 
-    // ReSharper disable once UnusedMember.Global
+    [UsedImplicitly]
     public static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
         try

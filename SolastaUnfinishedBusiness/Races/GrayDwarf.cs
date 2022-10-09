@@ -54,7 +54,7 @@ internal static class GrayDwarfSubraceBuilder
                 "LightAffinityGrayDwarfLightSensitivity", Category.Feature,
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetPossessive(true)
+            .SetPossessive()
             .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
             .SetFeatures(abilityCheckAffinityGrayDwarfLightSensitivity, grayDwarfCombatAffinityLightSensitivity)
             .AddToDB();

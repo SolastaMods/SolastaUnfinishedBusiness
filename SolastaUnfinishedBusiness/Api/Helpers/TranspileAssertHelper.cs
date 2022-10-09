@@ -11,6 +11,7 @@ internal static class TranspileAssertHelper
     {
         int assertIndex;
         var noAssert = new Action<bool>(NoAssert).Method;
+
         while ((assertIndex = GetNextAssert(codes, typeof(bool))) >= 0)
         {
             codes[assertIndex] = new CodeInstruction(OpCodes.Call, noAssert);
@@ -20,6 +21,7 @@ internal static class TranspileAssertHelper
     private static int GetNextAssert(List<CodeInstruction> codes, params Type[] types)
     {
         var assert = typeof(Trace).GetMethod("Assert", types);
+
         return codes.FindIndex(x => x.Calls(assert));
     }
 

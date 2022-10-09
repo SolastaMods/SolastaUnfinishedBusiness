@@ -31,7 +31,7 @@ internal sealed class BlueprintLoader : MonoBehaviour
         }
     }
 
-    internal float Progress { get; set; }
+    internal float Progress { get; private set; }
 
     private void UpdateProgress(int loaded, int total)
     {

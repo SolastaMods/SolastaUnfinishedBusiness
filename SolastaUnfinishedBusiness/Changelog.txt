@@ -1,6 +1,9 @@
 ﻿CHANGES:
 
 - Rebrand to Unfinished Business
-- Remove class themed feats
-- Remove Gnome and Tinkerer
+- Add Inventor class
+- Add Feats and Fighting Styles
+- Remove class themed Feats
 - Remove Level Down feature
+- Remove all older classes
+- Remove Gnome

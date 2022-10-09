@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageIlluminatingStrikePathOfTheLight:b9f99d7a-6be6-577d-b3be-f13388b87218"
+    "Definition:AdditionalDamagePathOfTheLightIlluminatingStrike:5122d618-800b-5a76-9dc3-e6af9a934416"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

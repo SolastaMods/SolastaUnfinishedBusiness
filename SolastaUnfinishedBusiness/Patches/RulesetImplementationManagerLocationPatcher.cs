@@ -108,6 +108,8 @@ public static class RulesetImplementationManagerLocationPatcher
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             ConditionDefinition addedCondition)
         {
+            var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
+
             switch (addedCondition.AmountOrigin)
             {
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
@@ -121,7 +123,7 @@ public static class RulesetImplementationManagerLocationPatcher
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
-                    var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
+
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
                     if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(classType,
@@ -130,6 +132,15 @@ public static class RulesetImplementationManagerLocationPatcher
                         && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
                     {
                         sourceAmount = classLevel;
+                    }
+
+                    break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
+                    // Find a better place to put this in?
+                    var attributeName = addedCondition.AdditionalDamageType;
+                    if (sourceCharacter.TryGetAttribute(attributeName, out var attribute))
+                    {
+                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
                     }
 
                     break;

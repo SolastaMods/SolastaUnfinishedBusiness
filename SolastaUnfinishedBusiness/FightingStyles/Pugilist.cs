@@ -18,7 +18,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Pugilist")
-        .SetGuiPresentation(Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, TraditionLight.GuiPresentation.SpriteReference)
         .SetFeatures(
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityFightingStylePugilist")

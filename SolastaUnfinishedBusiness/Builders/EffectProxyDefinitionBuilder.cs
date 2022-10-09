@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 
@@ -35,11 +33,6 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
     }
 
     internal EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
-    {
-        return AddAdditionalFeatures(features.AsEnumerable());
-    }
-
-    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.AdditionalFeatures.AddRange(features);
         return this;

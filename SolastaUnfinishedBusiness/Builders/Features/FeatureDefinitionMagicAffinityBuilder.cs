@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity,
+internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionMagicAffinity,
     FeatureDefinitionMagicAffinityBuilder>
 {
     internal FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(

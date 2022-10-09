@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaUnfinishedBusiness.Api;
+using static DeviceFunctionDescription;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -9,16 +10,16 @@ internal class DeviceFunctionDescriptionBuilder
 
     internal DeviceFunctionDescriptionBuilder()
     {
-        description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
-            .UsableDeviceDescription.DeviceFunctions[0])
+        description = new DeviceFunctionDescription(
+            DatabaseHelper.ItemDefinitions.BeltOfRegeneration.UsableDeviceDescription.DeviceFunctions[0])
         {
             parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
-            useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill,
+            useAffinity = FunctionUseAffinity.AtWill,
             useAmount = 1,
             rechargeRate = RuleDefinitions.RechargeRate.Dawn,
             durationType = RuleDefinitions.DurationType.Instantaneous,
             canOverchargeSpell = false,
-            type = DeviceFunctionDescription.FunctionType.Power,
+            type = FunctionType.Power,
             spellDefinition = null,
             featureDefinitionPower = null
         };
@@ -26,7 +27,7 @@ internal class DeviceFunctionDescriptionBuilder
 
     internal DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power, bool canOvercharge = false)
     {
-        description.type = DeviceFunctionDescription.FunctionType.Power;
+        description.type = FunctionType.Power;
         description.featureDefinitionPower = power;
         description.canOverchargeSpell = canOvercharge;
         return this;
@@ -34,7 +35,7 @@ internal class DeviceFunctionDescriptionBuilder
 
     internal DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
-        description.type = DeviceFunctionDescription.FunctionType.Spell;
+        description.type = FunctionType.Spell;
         description.spellDefinition = spell;
         description.canOverchargeSpell = canOverchargeSpell;
         return this;
@@ -42,8 +43,7 @@ internal class DeviceFunctionDescriptionBuilder
 
     internal DeviceFunctionDescriptionBuilder SetUsage(
         EquipmentDefinitions.ItemUsage parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
-        DeviceFunctionDescription.FunctionUseAffinity useAffinity =
-            DeviceFunctionDescription.FunctionUseAffinity.AtWill,
+        FunctionUseAffinity useAffinity = FunctionUseAffinity.AtWill,
         int useAmount = 1)
     {
         description.parentUsage = parentUsage;
@@ -56,9 +56,9 @@ internal class DeviceFunctionDescriptionBuilder
     {
         switch (description.Type)
         {
-            case DeviceFunctionDescription.FunctionType.Power when description.FeatureDefinitionPower == null:
+            case FunctionType.Power when description.FeatureDefinitionPower == null:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
-            case DeviceFunctionDescription.FunctionType.Spell when description.SpellDefinition == null:
+            case FunctionType.Spell when description.SpellDefinition == null:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
         }
     }

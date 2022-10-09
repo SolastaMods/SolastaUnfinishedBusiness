@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -35,3 +36,4 @@ internal class
 
     #endregion
 }
+#endif

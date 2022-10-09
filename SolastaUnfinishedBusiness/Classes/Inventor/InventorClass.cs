@@ -666,8 +666,8 @@ internal static class InventorClass
                 .SetChargesCapitalNumber(6) //TODO: try to make this based off Inventor's INT bonus x2
                 .SetOutOfChargesConsequence(EquipmentDefinitions.ItemOutOfCharges.Destroy)
                 .SetRecharge(RechargeRate.None)
-                .SetSaveDc(EffectHelpers.BASED_ON_ITEM_SUMMONER)
-                .SetMagicAttackBonus(EffectHelpers.BASED_ON_ITEM_SUMMONER)
+                .SetSaveDc(EffectHelpers.BasedOnItemSummoner)
+                .SetMagicAttackBonus(EffectHelpers.BasedOnItemSummoner)
                 .AddFunctions(new DeviceFunctionDescriptionBuilder()
                     .SetUsage(useAmount: 1, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
                     .SetSpell(spell)

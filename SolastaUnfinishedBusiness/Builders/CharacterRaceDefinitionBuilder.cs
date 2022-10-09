@@ -47,34 +47,13 @@ internal class CharacterRaceDefinitionBuilder
     internal CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.Clear();
-
         AddFeaturesAtLevel(level, features);
-
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        // }
-        // else
-        // {
-        //     features.Do(x => x.GuiPresentation.sortOrder = level);
-        // }
-
         return this;
     }
 
     internal CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        // }
-        // else
-        // {
-        //     features.Do(x => x.GuiPresentation.sortOrder = level);
-        // }
-
         return this;
     }
 

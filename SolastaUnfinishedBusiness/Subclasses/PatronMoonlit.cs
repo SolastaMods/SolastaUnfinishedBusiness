@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -170,9 +169,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Dexterity,
-                        20,
-                        false,
-                        new List<SaveAffinityBySenseDescription>())
+                        20)
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
                             ConditionDefinitionBuilder
@@ -185,8 +182,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
                             false,
-                            false,
-                            new List<ConditionDefinition>())
+                            false)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                     .AddEffectForm(new EffectFormBuilder()

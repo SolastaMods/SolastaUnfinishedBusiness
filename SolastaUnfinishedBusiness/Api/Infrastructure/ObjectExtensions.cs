@@ -8,10 +8,8 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 internal static class ObjectExtensions
 {
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     private static readonly MethodInfo CloneMethod =
         typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
     private static bool IsPrimitive([NotNull] this Type type)
     {

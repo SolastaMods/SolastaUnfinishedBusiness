@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -68,11 +67,6 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
 internal static class AutoPreparedSpellsGroupBuilder
 {
     internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellNames)
-    {
-        return BuildSpellGroup(classLevel, spellNames.AsEnumerable());
-    }
-
-    internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellNames)
     {
         return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellNames.ToList() };
     }

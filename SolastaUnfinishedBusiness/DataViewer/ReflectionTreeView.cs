@@ -37,13 +37,11 @@ internal class ReflectionTreeView
 
     private static int MaxRows => GameServicesDisplay.MaxRows;
 
-    internal object Root => _tree.Root;
-
     private static float TitleMinWidth => 300f;
 
-    private void UpdateCounts(int visitCount, int depth, int breadth)
+    private void UpdateCounts(int visits, int depth, int breadth)
     {
-        this.visitCount = visitCount;
+        visitCount = visits;
         searchDepth = depth;
         searchBreadth = breadth;
     }
@@ -134,7 +132,12 @@ internal class ReflectionTreeView
                 }
 
                 GUILayout.Space(10f);
-                GameServicesDisplay.MaxRows = GUIHelper.AdjusterButton(GameServicesDisplay.MaxRows, "Max Rows:", 10);
+                var maxRows = GameServicesDisplay.MaxRows;
+                if (GUIHelper.AdjusterButton(ref maxRows, "Max Rows:", 10))
+                {
+                    GameServicesDisplay.MaxRows = maxRows;
+                }
+
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
@@ -191,7 +194,7 @@ internal class ReflectionTreeView
                                 _searchResults.Traverse((node, depth) =>
                                 {
                                     var toggleState = node.ToggleState;
-                                    if (!node.Node.hasChildren)
+                                    if (!node.Node.HasChildren)
                                     {
                                         toggleState = ToggleState.None;
                                     }
@@ -202,7 +205,7 @@ internal class ReflectionTreeView
 
                                     if (node.Node.NodeType == NodeType.Root)
                                     {
-                                        if (node.matches.Count == 0)
+                                        if (node.Matches.Count == 0)
                                         {
                                             return false;
                                         }
@@ -299,7 +302,7 @@ internal class ReflectionTreeView
         var expanded = node.Expanded;
         if (depth >= _skipLevels && !(collapse && depth > 0))
         {
-            if (!node.hasChildren)
+            if (!node.HasChildren)
             {
                 expanded = ToggleState.None;
             }

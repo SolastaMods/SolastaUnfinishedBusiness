@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -39,9 +38,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>())
+                20)
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -51,13 +48,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                     ConditionForm.ConditionOperation.AddRandom,
                     false,
                     false,
-                    new List<ConditionDefinition>
-                    {
-                        ConditionBaned,
-                        ConditionBleeding,
-                        ConditionDefinitions.ConditionBlinded,
-                        ConditionDefinitions.ConditionStunned
-                    })
+                    ConditionBaned,
+                    ConditionBleeding,
+                    ConditionDefinitions.ConditionBlinded,
+                    ConditionDefinitions.ConditionStunned
+                )
                 .HasSavingThrow(EffectSavingThrowType.Negates)
                 .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build());

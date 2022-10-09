@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "SteelDefender",
+  "addedConditions": [
+    "Definition:ConditionInnovationWeaponSummonSteelDefenderGeneric:b33c0d17-f0ca-562c-92a1-75e4118458db",
+    "Definition:ConditionInnovationWeaponSummonSteelDefenderIntelligence:22b92a74-e93b-5983-ad9c-8c370d4cbfeb",
+    "Definition:ConditionInnovationWeaponSummonSteelDefenderLevel:fbf130f7-4b64-54d1-a7b0-20ca00732915",
+    "Definition:ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus:4461aa13-cde0-5bd4-a8d0-3a51d7b35bf4",
+    "Definition:ConditionInnovationWeaponSummonSteelDefenderSpellAttack:f4897b53-d5dd-57b4-bcef-ee0ed0bea433"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e1f271a7-ad06-5ffc-b4b6-fae7ac0a8430",
+  "contentPack": 9999,
+  "name": "SummoningAffinityInnovationWeaponSummonSteelDefender"
+}

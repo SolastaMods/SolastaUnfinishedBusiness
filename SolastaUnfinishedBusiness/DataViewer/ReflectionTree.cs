@@ -54,13 +54,11 @@ internal class ReflectionTree<TRoot>
 
 internal abstract class Node
 {
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-    protected const BindingFlags ALL_FLAGS =
+    protected const BindingFlags AllFlags =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
     // the graph will not show any child nodes of following types
-    internal static readonly HashSet<Type> BASE_TYPES = new()
+    internal static readonly HashSet<Type> BaseTypes = new()
     {
         typeof(object),
         typeof(DBNull),
@@ -127,6 +125,7 @@ internal abstract class Node
             {
                 return count;
             }
+#pragma warning restore CS0618 // Type or member is obsolete
 
             count += GetItemNodes().Sum(child => child.ExpandedNodeCount);
 
@@ -154,7 +153,7 @@ internal abstract class Node
         }
     }
 
-    internal bool hasChildren
+    internal bool HasChildren
     {
         get
         {
@@ -180,7 +179,7 @@ internal abstract class Node
     internal static IEnumerable<FieldInfo> GetFields(Type type)
     {
         var names = new HashSet<string>();
-        foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(ALL_FLAGS))
+        foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(AllFlags))
         {
             if (!field.IsStatic &&
                 !field.IsDefined(typeof(CompilerGeneratedAttribute), false) && // ignore backing field
@@ -194,7 +193,7 @@ internal abstract class Node
     internal static IEnumerable<PropertyInfo> GetProperties(Type type)
     {
         var names = new HashSet<string>();
-        foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(ALL_FLAGS))
+        foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(AllFlags))
         {
             if (property.GetMethod != null &&
                 !property.GetMethod.IsStatic &&
@@ -320,7 +319,7 @@ internal abstract class GenericNode<TNode> : Node
             UpdateValue();
             return _isBaseType ??
                    (_isBaseType =
-                       BASE_TYPES.Contains(Nullable.GetUnderlyingType(InstType ?? Type) ?? InstType ?? Type)).Value;
+                       BaseTypes.Contains(Nullable.GetUnderlyingType(InstType ?? Type) ?? InstType ?? Type)).Value;
         }
     }
 
@@ -343,24 +342,13 @@ internal abstract class GenericNode<TNode> : Node
         }
     }
 
-    internal override int? InstanceID
-    {
-        get
+    internal override int? InstanceID =>
+        Value switch
         {
-            int? result = null;
-            if (Value is Object unityObject)
-            {
-                result = unityObject.GetInstanceID();
-            }
-
-            if (Value is object obj)
-            {
-                return obj.GetHashCode();
-            }
-
-            return result;
-        }
-    }
+            Object unityObject => unityObject.GetInstanceID(),
+            object obj => obj.GetHashCode(),
+            _ => null
+        };
 
     internal override bool IsNull => Value == null || (Value is Object unityObject && !unityObject);
 
@@ -405,7 +393,7 @@ internal abstract class GenericNode<TNode> : Node
 
     private static Node FindOrCreateChildForValue(Type type, params object[] childArgs)
     {
-        return Activator.CreateInstance(type, ALL_FLAGS, null, childArgs, null) as Node;
+        return Activator.CreateInstance(type, AllFlags, null, childArgs, null) as Node;
     }
 
     private void UpdateComponentNodes()
@@ -598,7 +586,7 @@ internal class RootNode<TNode> : PassiveNode<TNode>
 
 internal class ComponentNode : PassiveNode<Component>
 {
-    protected readonly WeakReference<Node> _parentNode;
+    private readonly WeakReference<Node> _parentNode;
 
     protected ComponentNode(Node parentNode, string name, Component value) : base(name, value, NodeType.Component)
     {
@@ -613,7 +601,7 @@ internal class ComponentNode : PassiveNode<Component>
 
 internal class ItemNode<TNode> : PassiveNode<TNode>
 {
-    protected readonly WeakReference<Node> _parentNode;
+    private readonly WeakReference<Node> _parentNode;
 
     protected ItemNode(Node parentNode, string name, TNode value) : base(name, value, NodeType.Item)
     {
@@ -628,12 +616,12 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 
 internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 {
-    protected readonly WeakReference<GenericNode<TParent>> _parentNode;
+    protected readonly WeakReference<GenericNode<TParent>> ParentNode;
     protected bool _isException;
 
     protected ChildNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(nodeType)
     {
-        _parentNode = new WeakReference<GenericNode<TParent>>(parentNode);
+        ParentNode = new WeakReference<GenericNode<TParent>>(parentNode);
         Name = name;
     }
 
@@ -653,7 +641,7 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 
     internal override Node GetParent()
     {
-        return _parentNode.TryGetTarget(out var parent) ? parent : null;
+        return ParentNode.TryGetTarget(out var parent) ? parent : null;
     }
 }
 
@@ -669,7 +657,7 @@ internal abstract class ChildOfStructNode<TParent, TParentInst, TNode> : ChildNo
 
     protected bool TryGetParentValue(out TParentInst value)
     {
-        if (_parentNode.TryGetTarget(out var parent) && parent.InstType == typeof(TParentInst))
+        if (ParentNode.TryGetTarget(out var parent) && parent.InstType == typeof(TParentInst))
         {
             value = _forceCast(parent.Value);
             return true;
@@ -692,7 +680,7 @@ internal abstract class ChildOfNullableNode<TParent, TUnderlying, TNode> : Child
 
     protected bool TryGetParentValue(out TUnderlying value)
     {
-        if (_parentNode.TryGetTarget(out var parent))
+        if (ParentNode.TryGetTarget(out var parent))
         {
             var parentValue = _forceCast(parent.Value);
             if (parentValue.HasValue)
@@ -717,7 +705,7 @@ internal abstract class ChildOfClassNode<TParent, TParentInst, TNode> : ChildNod
 
     protected bool TryGetParentValue(out TParentInst value)
     {
-        if (_parentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)
+        if (ParentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)
         {
             return true;
         }

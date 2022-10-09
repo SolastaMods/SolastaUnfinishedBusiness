@@ -7,6 +7,7 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 internal static class Preconditions
 {
+    [Conditional("DEBUG")]
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
     internal static void ArgumentIsNotNull<T>([NotNull] [NoEnumeration] T paramValue,
@@ -19,6 +20,7 @@ internal static class Preconditions
         }
     }
 
+    [Conditional("DEBUG")]
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
     internal static void IsNotNullOrEmpty([NotNull] string paramValue, [InvokerParameterName] string paramName)
@@ -29,6 +31,7 @@ internal static class Preconditions
         }
     }
 
+    [Conditional("DEBUG")]
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
     internal static void IsNotNullOrWhiteSpace([NotNull] string paramValue, [InvokerParameterName] string paramName)

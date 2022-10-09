@@ -21,8 +21,8 @@
     "description": "FightingStyle/&PugilistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
-      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_AssetGUID": "a9f6675a067f5c74890a2acf2201e5a8",
+      "m_SubObjectName": "Monk_Light",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -5,10 +5,10 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 internal static class EffectHelpers
 {
     /**DC and magic attack bonus will be calculated based on the stats of the user, not from device itself*/
-    public const int BASED_ON_USER = -1;
+    public const int BasedOnUser = -1;
 
     /**DC and magic attack bonus will be calculated based on the stats of character who summoned item, not from device itself*/
-    public const int BASED_ON_ITEM_SUMMONER = -2;
+    public const int BasedOnItemSummoner = -2;
 
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
         string className, int def = 10)
@@ -19,6 +19,7 @@ internal static class EffectHelpers
             case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
             {
                 var rulesetSpellRepertoire = character.GetClassSpellRepertoire(className);
+
                 if (rulesetSpellRepertoire != null)
                 {
                     return rulesetSpellRepertoire.SaveDC;
@@ -43,39 +44,33 @@ internal static class EffectHelpers
     {
         if (guid == 0) { return null; }
 
-        if (RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
+        if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
         {
-            if (effect is RulesetEffectSpell spell)
-            {
-                return spell.Caster;
-            }
-
-            if (effect is RulesetEffectPower power)
-            {
-                return power.User;
-            }
+            return null;
         }
 
-        return null;
+        return effect switch
+        {
+            RulesetEffectSpell spell => spell.Caster,
+            RulesetEffectPower power => power.User,
+            _ => null
+        };
     }
 
     internal static (RulesetCharacter, BaseDefinition) GetCharacterAndSourceDefinitionByEffectGuid(ulong guid)
     {
         if (guid == 0) { return (null, null); }
 
-        if (RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
+        if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
         {
-            if (effect is RulesetEffectSpell spell)
-            {
-                return (spell.Caster, spell.SourceDefinition);
-            }
-
-            if (effect is RulesetEffectPower power)
-            {
-                return (power.User, power.PowerDefinition);
-            }
+            return (null, null);
         }
 
-        return (null, null);
+        return effect switch
+        {
+            RulesetEffectSpell spell => (spell.Caster, spell.SourceDefinition),
+            RulesetEffectPower power => (power.User, power.PowerDefinition),
+            _ => (null, null)
+        };
     }
 }

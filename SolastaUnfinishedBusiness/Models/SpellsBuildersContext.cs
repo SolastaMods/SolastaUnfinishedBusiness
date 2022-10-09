@@ -197,7 +197,7 @@ internal static class SpellsBuildersContext
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
                 .AddEffectForm(new EffectFormBuilder()
-                    .SetTempHPForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
+                    .SetTempHpForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
                 .SetParticleEffectParameters(VampiricTouch.EffectDescription.EffectParticleParameters)
@@ -934,9 +934,7 @@ internal static class SpellsBuildersContext
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>())
+                20)
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -950,8 +948,7 @@ internal static class SpellsBuildersContext
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
-                    false,
-                    new List<ConditionDefinition>())
+                    false)
                 .HasSavingThrow(EffectSavingThrowType.Negates)
                 .Build())
             .AddEffectForm(new EffectFormBuilder()
@@ -1008,9 +1005,7 @@ internal static class SpellsBuildersContext
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
-                    false,
-                    new List<ConditionDefinition>()
-                )
+                    false)
                 .Build()
         );
 
@@ -1061,8 +1056,7 @@ internal static class SpellsBuildersContext
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
-                    false,
-                    new List<ConditionDefinition>())
+                    false)
                 .Build());
 
         return SpellDefinitionBuilder
@@ -1135,9 +1129,7 @@ internal static class SpellsBuildersContext
                         DamageTypeFire,
                         0,
                         DieType.D6,
-                        20, // 20 because hits dont stack even on single target
-                        HealFromInflictedDamage.Never,
-                        new List<TrendInfo>())
+                        20) // 20 because hits dont stack even on single target
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .AddEffectForm(new EffectFormBuilder()
@@ -1147,9 +1139,7 @@ internal static class SpellsBuildersContext
                     DamageTypeBludgeoning,
                     0,
                     DieType.D6,
-                    20, // 20 because hits dont stack even on single target
-                    HealFromInflictedDamage.Never,
-                    new List<TrendInfo>())
+                    20) // 20 because hits dont stack even on single target)
                 .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                 .Build())
             .SetSavingThrowData(
@@ -1159,9 +1149,7 @@ internal static class SpellsBuildersContext
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>())
+                20)
             .SetParticleEffectParameters(FlameStrike.EffectDescription.EffectParticleParameters);
 
         return SpellDefinitionBuilder
@@ -1203,21 +1191,18 @@ internal static class SpellsBuildersContext
                     ConditionForm.ConditionOperation.RemoveDetrimentalAll,
                     false,
                     false,
-                    new List<ConditionDefinition>
-                    {
-                        ConditionDefinitions.ConditionCharmed,
-                        ConditionCharmedByHypnoticPattern,
-                        ConditionDefinitions.ConditionFrightened,
-                        ConditionDefinitions.ConditionFrightenedFear,
-                        ConditionFrightenedPhantasmalKiller,
-                        ConditionDefinitions.ConditionParalyzed,
-                        ConditionParalyzed_CrimsonSpiderVenom,
-                        ConditionParalyzed_GhoulsCaress,
-                        ConditionDefinitions.ConditionStunned,
-                        ConditionStunned_MutantApeSlam,
-                        ConditionStunnedConjuredDeath,
-                        ConditionDefinitions.ConditionProne
-                    })
+                    ConditionDefinitions.ConditionCharmed,
+                    ConditionCharmedByHypnoticPattern,
+                    ConditionDefinitions.ConditionFrightened,
+                    ConditionDefinitions.ConditionFrightenedFear,
+                    ConditionFrightenedPhantasmalKiller,
+                    ConditionDefinitions.ConditionParalyzed,
+                    ConditionParalyzed_CrimsonSpiderVenom,
+                    ConditionParalyzed_GhoulsCaress,
+                    ConditionDefinitions.ConditionStunned,
+                    ConditionStunned_MutantApeSlam,
+                    ConditionStunnedConjuredDeath,
+                    ConditionDefinitions.ConditionProne)
                 .Build());
 
         return SpellDefinitionBuilder
@@ -1357,8 +1342,8 @@ internal static class SpellsBuildersContext
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
-                    false,
-                    new List<ConditionDefinition>()).Build())
+                    false)
+                .Build())
             .ExcludeCaster();
 
         return SpellDefinitionBuilder
@@ -1395,9 +1380,7 @@ internal static class SpellsBuildersContext
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Constitution,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>())
+                20)
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -1406,8 +1389,7 @@ internal static class SpellsBuildersContext
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
-                    false,
-                    new List<ConditionDefinition>())
+                    false)
                 .HasSavingThrow(EffectSavingThrowType.Negates)
                 .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build());

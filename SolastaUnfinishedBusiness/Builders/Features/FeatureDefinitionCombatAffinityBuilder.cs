@@ -3,68 +3,36 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionCombatAffinityBuilder<TDefinition, TBuilder> : FeatureDefinitionAffinityBuilder<TDefinition,
-        TBuilder>
-    where TDefinition : FeatureDefinitionCombatAffinity
-    where TBuilder : FeatureDefinitionCombatAffinityBuilder<TDefinition, TBuilder>
+[UsedImplicitly]
+internal class FeatureDefinitionCombatAffinityBuilder
+    : FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity, FeatureDefinitionCombatAffinityBuilder>
 {
-    // Methods specific to FeatureDefinitionCombatAffinity
-
-    internal TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
     {
         Definition.myAttackModifierValueDetermination = RuleDefinitions.CombatAffinityValueDetermination.Die;
         Definition.myAttackModifierDieType = dieType;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign modifierSign)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(
+        RuleDefinitions.AttackModifierSign modifierSign)
     {
         Definition.myAttackModifierSign = modifierSign;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetIgnoreCover()
+    internal FeatureDefinitionCombatAffinityBuilder SetIgnoreCover()
     {
         Definition.ignoreCover = true;
-        return This();
+        return this;
     }
 
-    #region Constructors
-
-    protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionCombatAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionCombatAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionCombatAffinityBuilder(TDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class FeatureDefinitionCombatAffinityBuilder
-    : FeatureDefinitionCombatAffinityBuilder<FeatureDefinitionCombatAffinity,
-        FeatureDefinitionCombatAffinityBuilder>
-{
     #region Constructors
 
     protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

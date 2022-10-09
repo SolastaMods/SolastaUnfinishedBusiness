@@ -146,7 +146,7 @@ internal static partial class UI
     }
 
     // CheckBox
-    internal static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
+    private static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
         params GUILayoutOption[] options)
     {
         return Toggle(SetLabelContent(label), value, CheckOn, CheckOff, GUI.skin.box, style, isEmpty, options);

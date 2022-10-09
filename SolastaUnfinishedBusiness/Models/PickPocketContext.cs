@@ -80,9 +80,12 @@ internal static class PickPocketContext
         var pickpocketTableUndead = TreasureTableDefinitionBuilder
             .Create("PickPocketTableUndead")
             .SetGuiPresentationNoContent()
-            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[3])
-            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[9])
-            .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions[16])
+            .AddTreasureOptions(new List<TreasureOption>
+            {
+                RandomTreasureTableE_Ingredients.TreasureOptions[3],
+                RandomTreasureTableE_Ingredients.TreasureOptions[9],
+                RandomTreasureTableE_Ingredients.TreasureOptions[16]
+            })
             .AddToDB();
 
         var lootPickpocketTableLow = new ItemOccurence

@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
-internal static class RulesetitemExtensions
+internal static class RulesetItemExtensions
 {
     [NotNull]
     private static List<T> FeaturesByType<T>([CanBeNull] RulesetItem item) where T : class

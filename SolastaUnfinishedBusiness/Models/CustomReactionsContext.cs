@@ -138,9 +138,7 @@ internal static class CustomReactionsContext
 
             tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
-            //TODO: is this indeed required?
-            // toggle.PersonalityFlagDefinition =
-            //     DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
+            toggle.PersonalityFlagDefinition = DatabaseHelper.GetDefinition<PersonalityFlagDefinition>("Authority");
 
             toggle.PersonalityFlagSelected = (_, _, state) =>
             {

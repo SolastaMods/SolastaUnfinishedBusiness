@@ -3,7 +3,6 @@
 using System;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -13,9 +12,6 @@ internal static partial class UI
     private const float UmmWidth = 960f;
     internal static bool UserHasHitReturn = false;
     internal static string FocusedControlName = null;
-
-    internal static Rect UmmRect = new();
-
     private static bool IsNarrow => UmmWidth < 1200;
 
     /*** UI Builders
@@ -47,7 +43,7 @@ internal static partial class UI
             });
     */
 
-    internal static void If(bool value, params Action[] actions)
+    private static void If(bool value, params Action[] actions)
     {
         if (!value)
         {

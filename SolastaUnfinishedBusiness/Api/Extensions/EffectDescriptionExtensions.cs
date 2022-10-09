@@ -1,6 +1,5 @@
 using System;
 using System.CodeDom.Compiler;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
@@ -108,14 +107,6 @@ internal static class EffectDescriptionExtensions
 
     [NotNull]
     internal static T AddEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
-        where T : EffectDescription
-    {
-        AddEffectForms(entity, value.AsEnumerable());
-        return entity;
-    }
-
-    [NotNull]
-    internal static T AddEffectForms<T>([NotNull] this T entity, [NotNull] IEnumerable<EffectForm> value)
         where T : EffectDescription
     {
         entity.EffectForms.AddRange(value);
@@ -237,14 +228,6 @@ internal static class EffectDescriptionExtensions
 
     [NotNull]
     internal static T SetEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
-        where T : EffectDescription
-    {
-        SetEffectForms(entity, value.AsEnumerable());
-        return entity;
-    }
-
-    [NotNull]
-    internal static T SetEffectForms<T>([NotNull] this T entity, IEnumerable<EffectForm> value)
         where T : EffectDescription
     {
         entity.EffectForms.SetRange(value);

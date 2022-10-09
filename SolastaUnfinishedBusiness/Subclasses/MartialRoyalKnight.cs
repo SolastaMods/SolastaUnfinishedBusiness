@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -29,7 +30,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
+            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
             .Configure(
                 0,
@@ -41,8 +42,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription)
-            .SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind)
+                PowerDomainLifePreserveLife.EffectDescription)
+            .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
         // TODO: use EffectDescriptionBuilder
@@ -52,12 +53,12 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         powerRoyalKnightRallyingCry.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
+            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
             .SetActivationTime(ActivationTime.BonusAction)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetEffectDescription(
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription
+                PowerDomainLifePreserveLife.EffectDescription
                     .Copy()
                     .SetTargetType(TargetType.Individuals)
                     .SetTargetParameter(1)
@@ -69,7 +70,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .SetDurationType(DurationType.Round)
                     .SetRequiresVisibilityForPosition(true)
                     .SetRangeType(RangeType.Distance)
-                    .SetEffectForms(FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms)
+                    .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
                     .SetRangeParameter(20))
             .AddToDB();
 

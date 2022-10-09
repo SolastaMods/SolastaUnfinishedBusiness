@@ -49,7 +49,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .SetAdditionalDamageData(DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
+            .SetAdditionalDamageWhenHit(ConditionDefinition.DamageQuantity.Dice, DieType.D8, 3)
             .AddToDB();
 
         var powerConArtistFeint = FeatureDefinitionPowerBuilder

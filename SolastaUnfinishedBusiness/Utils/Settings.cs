@@ -43,10 +43,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
-    // public bool EnableSortingRaces { get; set; } = true;
-    // public bool EnableSortingClasses { get; set; } = true;
-    // public bool EnableSortingDeities { get; set; } = true;
-    // public bool EnableSortingDungeonMakerAssets { get; set; } = true;
     public bool EnableSortingFeats { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
@@ -60,9 +56,6 @@ public class Settings : UnityModManager.ModSettings
 
     // Initial Choices
     public bool AddHelpActionToAllRaces { get; set; }
-
-    // public bool DisableSenseDarkVisionFromAllRaces { get; set; }
-    // public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
@@ -220,7 +213,38 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogVariantMisuse { get; set; }
 #endif
 
-    // Faction Relations
+    //
+    // Interface - Game UI
+    //
+
+    // Campaigns and Locations
+    public bool DontFollowCharacterInBattle { get; set; }
+    public int DontFollowMargin { get; set; } = 5;
+    public bool FollowCharactersOnTeleport { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
+    public bool EnableAdditionalBackstoryDisplay { get; set; }
+    public bool EnableLogDialoguesToConsole { get; set; }
+    public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+
+    // Input
+    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
+    public bool InvertAltBehaviorOnTooltips { get; set; }
+    public bool EnableHotkeyToggleHud { get; set; }
+    public bool EnableCharacterExport { get; set; }
+    public bool EnableHotkeyDebugOverlay { get; set; }
+    public bool EnableTeleportParty { get; set; }
+
+    // Inventory and Items
+    public bool DisableAutoEquip { get; set; }
+    public bool EnableInventoryFilteringAndSorting { get; set; }
+    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    public bool EnableInvisibleCrownOfTheMagister { get; set; }
+
+    // Monsters
+    public bool HideMonsterHitPoints { get; set; }
+    public bool RemoveBugVisualModels { get; set; }
 
     //
     // Interface - Dungeon Maker
@@ -230,49 +254,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
-
-    //
-    // Interface - Game UI
-    //
-
-    // Campaigns and Locations
-    public bool DontFollowCharacterInBattle { get; set; }
-    public int DontFollowMargin { get; set; } = 5;
-
-    // public bool AutoPauseOnVictory { get; set; }
-    public bool FollowCharactersOnTeleport { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
-    public bool EnableAdditionalBackstoryDisplay { get; set; }
-    public bool EnableLogDialoguesToConsole { get; set; }
-    public bool EnableAdditionalIconsOnLevelMap { get; set; }
-    public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
-
-
-    // Inventory and Items
-    public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInvisibleCrownOfTheMagister { get; set; }
-
-
-    // Monsters
-    public bool HideMonsterHitPoints { get; set; }
-    public bool RemoveBugVisualModels { get; set; }
-
-    // Spells
-    // public int MaxSpellLevelsPerLine { get; set; } = 4;
-
-    //
-    // Interface - Keyboard & Mouse
-    //
-
-    public bool EnableHotkeyToggleHud { get; set; }
-    public bool EnableCharacterExport { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
-    public bool EnableTeleportParty { get; set; }
-    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool InvertAltBehaviorOnTooltips { get; set; }
 
     //
     // Interface - Translations

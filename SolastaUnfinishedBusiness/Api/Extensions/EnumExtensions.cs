@@ -6,7 +6,9 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal enum ExtraSituationalContext
 {
     MainWeaponIsMelee = 1000,
-    WearingNoArmorOrLightArmorWithoutShield = 1001
+    WearingNoArmorOrLightArmorWithoutShield = 1001,
+    MainWeaponIsFinesseOrRange = 1002,
+    MainWeaponIsVersatileWithoutShield = 1003
 }
 
 internal enum ExtraEffectFormType
@@ -50,7 +52,8 @@ internal enum ExtraOriginOfAmount
     // SourceSpellAttack = ConditionDefinition.OriginOfAmount.SourceSpellAttack,
     SourceProficiencyBonus = 9000,
     SourceCharacterLevel = 9001,
-    SourceClassLevel = 9002
+    SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
+    SourceAbilityBonus = 9003 //Attribute name should be in the `additionalDamageType` field of the condition
 }
 
 public enum ExtraConditionInterruption

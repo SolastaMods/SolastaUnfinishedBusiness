@@ -883,4 +883,20 @@ public static class RulesetCharacterPatcher
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "RollInitiative")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollInitiative_Patch
+    {
+        public static void Prefix(RulesetCharacter __instance, ref int forcedInitiative)
+        {
+            //PATCH: allows summons to have forced initiative of a summoner
+            if (!__instance.HasSubFeatureOfType<ForceInitiativeToSummoner>()) { return; }
+
+            var summoner = __instance.GetMySummoner();
+            if (summoner == null) { return; }
+
+            forcedInitiative = summoner.lastInitiative;
+        }
+    }
 }

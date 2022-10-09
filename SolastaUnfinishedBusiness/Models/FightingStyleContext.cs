@@ -17,8 +17,12 @@ internal static class FightingStyleContext
     internal static void Load()
     {
         LoadStyle(new Crippling());
+        LoadStyle(new Executioner());
+        LoadStyle(new HandAndAHalf());
+        LoadStyle(new LightFooted());
         LoadStyle(new Pugilist());
-        LoadStyle(new TitanFighting());
+        LoadStyle(new Reactionary());
+        LoadStyle(new Titan());
         LoadStyle(new Merciless());
 
         // sorting
@@ -89,6 +93,7 @@ internal static class FightingStyleContext
         foreach (var trainedFightingStyle in hero.trainedFightingStyles)
         {
             bool? isActive = null;
+
             switch (trainedFightingStyle.Condition)
             {
                 // Make hand crossbows benefit from Archery Fighting Style
@@ -131,6 +136,18 @@ internal static class FightingStyleContext
                         }
                     }
 
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.WearingArmor:
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon:
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.TwoHandedMeleeWeapon:
+                    break;
+
+                case FightingStyleDefinition.TriggerCondition.ShieldEquiped:
                     break;
             }
 

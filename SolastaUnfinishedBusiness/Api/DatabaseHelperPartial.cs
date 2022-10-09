@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
     [NotNull]
-    private static T GetDefinition<T>(string key) where T : BaseDefinition
+    internal static T GetDefinition<T>(string key) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
@@ -50,12 +50,6 @@ internal static partial class DatabaseHelper
 
         internal static DecisionPackageDefinition IdleGuard_Default { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
-    }
-
-    internal static class FactionDefinitions
-    {
-        internal static FactionDefinition HostileMonsters { get; } =
-            GetDefinition<FactionDefinition>("HostileMonsters");
     }
 
     internal static class FormationDefinitions

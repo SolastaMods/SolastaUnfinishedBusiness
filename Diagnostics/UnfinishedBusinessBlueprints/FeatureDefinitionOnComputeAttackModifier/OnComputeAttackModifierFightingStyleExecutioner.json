@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain"
-  ],
-  "maxAttacksNumber": 1,
-  "triggerCondition": "HasDownedAnEnemy",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "baf21e0d-b2ac-5321-ae36-5dfeddfb43e3",
+  "guid": "9b7c3f8b-1e75-5882-adc2-e6974f35167a",
   "contentPack": 9999,
-  "name": "AdditionalActionFightingStyleMerciless"
+  "name": "OnComputeAttackModifierFightingStyleExecutioner"
 }

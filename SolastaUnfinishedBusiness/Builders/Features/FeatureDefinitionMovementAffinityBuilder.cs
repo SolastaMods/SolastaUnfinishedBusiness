@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -7,6 +8,25 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionMovementAffinityBuilder
     : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
 {
+    internal FeatureDefinitionMovementAffinityBuilder SetAdditiveModifierAdvancement(
+        RuleDefinitions.MovementAffinityAdvancement value)
+    {
+        Definition.additiveModifierAdvancement = value;
+        return This();
+    }
+
+    internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
+    {
+        Definition.baseSpeedAdditiveModifier = value;
+        return This();
+    }
+
+    internal FeatureDefinitionMovementAffinityBuilder SetSituationalContext(ExtraSituationalContext situationalContext)
+    {
+        Definition.situationalContext = (RuleDefinitions.SituationalContext)situationalContext;
+        return This();
+    }
+
     internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
     {
         Definition.baseSpeedMultiplicativeModifier = value;

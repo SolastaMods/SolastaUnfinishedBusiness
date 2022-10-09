@@ -18,10 +18,9 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-    internal CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third,
-        string fourth, string fifth, string sixth)
+    internal CharacterClassDefinitionBuilder SetAbilityScorePriorities(params string[] abilityScores)
     {
-        Definition.AbilityScoresPriority.SetRange(first, second, third, fourth, fifth, sixth);
+        Definition.AbilityScoresPriority.SetRange(abilityScores);
         return this;
     }
 
@@ -76,13 +75,14 @@ internal class CharacterClassDefinitionBuilder
         params CharacterClassDefinition.HeroEquipmentOption[] equipmentList)
     {
         var equipmentColumn = new CharacterClassDefinition.HeroEquipmentColumn();
+
         equipmentColumn.EquipmentOptions.AddRange(equipmentList);
 
         var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
+
         equipmentRow.EquipmentColumns.Add(equipmentColumn);
 
         Definition.EquipmentRows.Add(equipmentRow);
-
         return this;
     }
 
@@ -90,9 +90,11 @@ internal class CharacterClassDefinitionBuilder
         params IEnumerable<CharacterClassDefinition.HeroEquipmentOption>[] equipmentLists)
     {
         var equipmentRow = new CharacterClassDefinition.HeroEquipmentRow();
+
         foreach (var list in equipmentLists)
         {
             var column = new CharacterClassDefinition.HeroEquipmentColumn();
+
             column.EquipmentOptions.AddRange(list);
             equipmentRow.EquipmentColumns.Add(column);
         }
@@ -105,16 +107,6 @@ internal class CharacterClassDefinitionBuilder
     internal CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
         Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
-
-        // if (Main.Settings.EnableSortingFutureFeatures)
-        // {
-        //     Definition.FeatureUnlocks.Sort(Sorting.Compare);
-        // }
-        // else
-        // {
-        //     features.Do(x => x.GuiPresentation.sortOrder = level);
-        // }
-
         return this;
     }
 
@@ -153,11 +145,13 @@ internal class CharacterClassDefinitionBuilder
 
     #region Skill preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddSkillPreferences(params SkillDefinition[] skillTypes)
     {
         Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
         return this;
     }
+#endif
 
     internal CharacterClassDefinitionBuilder AddSkillPreferences(params string[] skillTypes)
     {
@@ -169,6 +163,7 @@ internal class CharacterClassDefinitionBuilder
 
     #region Expertise preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
     {
         Definition.ExpertiseAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
@@ -182,17 +177,20 @@ internal class CharacterClassDefinitionBuilder
         Definition.ExpertiseAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
 
     #region Feat preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddFeatPreferences(params FeatDefinition[] featTypes)
     {
         Definition.FeatAutolearnPreference.AddRange(featTypes.Select(ft => ft.Name));
         Definition.FeatAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     internal CharacterClassDefinitionBuilder AddFeatPreferences(params string[] feats)
     {
@@ -203,9 +201,9 @@ internal class CharacterClassDefinitionBuilder
 
     #endregion
 
-#if false
     #region Metamagic preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
     {
         Definition.MetamagicAutolearnPreference.Add(option.Name);
@@ -215,17 +213,11 @@ internal class CharacterClassDefinitionBuilder
 
     internal CharacterClassDefinitionBuilder AddMetamagicPreferences(params MetamagicOptionDefinition[] options)
     {
-        AddMetamagicPreferences(options.AsEnumerable());
-        return this;
-    }
-
-    internal CharacterClassDefinitionBuilder AddMetamagicPreferences(IEnumerable<MetamagicOptionDefinition> options)
-    {
         Definition.FeatAutolearnPreference.AddRange(options.Select(o => o.Name));
         Definition.MetamagicAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     #endregion
-#endif
 }

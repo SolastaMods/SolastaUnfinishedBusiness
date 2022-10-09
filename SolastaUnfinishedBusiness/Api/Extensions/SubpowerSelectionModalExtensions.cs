@@ -8,7 +8,8 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal static class SubpowerSelectionModalExtensions
 {
     //Re-implements native method, but uses lust of powers instead of feature set
-    internal static void Bind(this SubpowerSelectionModal instance,
+    internal static void Bind(
+        this SubpowerSelectionModal instance,
         List<FeatureDefinitionPower> powers,
         RulesetCharacter caster,
         SubpowerSelectionModal.SubpowerEngagedHandler subpowerEngaged,
@@ -16,6 +17,7 @@ internal static class SubpowerSelectionModalExtensions
     {
         var wasActive = instance.gameObject.activeSelf;
         var mainPanel = instance.mainPanel;
+
         instance.gameObject.SetActive(true);
         mainPanel.gameObject.SetActive(true);
         instance.caster = caster;
@@ -56,7 +58,9 @@ internal static class SubpowerSelectionModalExtensions
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel.RectTransform);
+
         var fourCornersArray = new Vector3[4];
+
         attachment.GetWorldCorners(fourCornersArray);
         mainPanel.RectTransform.position =
             (0.5f * (fourCornersArray[1] + fourCornersArray[2])) + new Vector3(0.0f, 4f, 0.0f);

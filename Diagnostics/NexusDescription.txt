@@ -164,6 +164,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blind, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -183,21 +184,24 @@ You gain the ability to cast the burning hands and scorching ray spells once per
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and damage rolls when you use a versatile weapon in two hands.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Armor[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with light armor.
+[*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
 Requires the ability to cast spells.
 [*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
+[*][b]Master Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
-[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Careful metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Distant[/b]: Increase your Charisma by 1, to a maximum of 20.
@@ -217,11 +221,11 @@ You learn the Twinned metamagic and gain 2 sorcery points.
 • While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 [*][b]Power Attack[/b]: You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
-If you have free hand, you can shove as a bonus action.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
+[*][b]Reactionary[/b]: You gain a +2 hit with attacks of opportunity.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
 [*][b]Scribe[/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -245,7 +249,7 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
 [*][b]Telekinetic [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
-[*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size Large or bigger.
+[*][b]Titan Hunter[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 [*][b]Toxicologist [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -267,10 +271,13 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
-[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
-If you have free hand, you can shove as a bonus action.
-[*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size Large or bigger.
+[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blind, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and damage rolls when you use a versatile weapon in two hands.
+[*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
+[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
+[*][b]Reactionary[/b]: You gain a +2 hit with attacks of opportunity.
+[*][b]Titan Hunter[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [/list]
 
 [size=3][b]Spells[/b][/size]
@@ -351,10 +358,10 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 
 [list]
 
-[*][b]Zappastuff[/b]: multiclass, maintenance, gameplay, feats, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
+[*][b]Zappastuff[/b]: multiclass, maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
 [*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
 [*][b]SilverGriffon[/b]: gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: subclasses improvements, Marshal, Opportunist, Raven
@@ -364,7 +371,7 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [*][b]RedOrca[/b]: Path Of The Light
 [*][b]DreadMaker[/b]: Circle Of The Forest Guardian
 [*][b]DemonSlayer730[/b]: Path Of The Rage Mage
-[*][b]Bazou[/b]: rules, spells
+[*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Esker[/b]: ruleset support, qa
 [*][b]Lyraele[/b]: ruleset support, qa
 [*][b]Nyowwww[/b]: Chinese, qa

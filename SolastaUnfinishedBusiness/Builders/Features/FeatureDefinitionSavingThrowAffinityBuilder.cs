@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSavingThrowAffinityBuilder
-    : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity,
+    : FeatureDefinitionBuilder<FeatureDefinitionSavingThrowAffinity,
         FeatureDefinitionSavingThrowAffinityBuilder>
 {
     internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
@@ -39,6 +39,12 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
         }
 
         Definition.AffinityGroups.Sort(Sorting.Compare);
+        return this;
+    }
+
+    internal FeatureDefinitionSavingThrowAffinityBuilder UseControllerSavingThrows(bool value = true)
+    {
+        Definition.useControllerSavingThrows = value;
         return this;
     }
 

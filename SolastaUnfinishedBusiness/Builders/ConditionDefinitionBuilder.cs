@@ -20,7 +20,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
 {
-    private static ConditionDefinition SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
+    private static void SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
     {
         var assetReference = new AssetReference();
 
@@ -28,14 +28,11 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         definition.conditionParticleReference ??= assetReference;
         definition.conditionEndParticleReference ??= assetReference;
         definition.characterShaderReference ??= assetReference;
-
-        return definition;
     }
 
     protected override void Initialise()
     {
         base.Initialise();
-
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
@@ -107,13 +104,16 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return This();
     }
 
-    internal TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
-        ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
+    internal TBuilder SetAdditionalDamageWhenHit(
+        ConditionDefinition.DamageQuantity damageQuantity = ConditionDefinition.DamageQuantity.Dice,
+        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1, int numberOfDie = 0,
+        string damageType = "", bool active = true)
     {
-        Definition.additionalDamageWhenHit = additionalDamageWhenHit;
+        Definition.additionalDamageWhenHit = active;
         Definition.additionalDamageDieType = dieType;
         Definition.additionalDamageDieNumber = numberOfDie;
         Definition.additionalDamageQuantity = damageQuantity;
+        Definition.additionalDamageType = damageType;
 
         return This();
     }
@@ -149,7 +149,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return This();
     }
 
-    internal TBuilder SetPossessive(bool value)
+    internal TBuilder SetPossessive(bool value = true)
     {
         Definition.possessive = value;
         return This();
