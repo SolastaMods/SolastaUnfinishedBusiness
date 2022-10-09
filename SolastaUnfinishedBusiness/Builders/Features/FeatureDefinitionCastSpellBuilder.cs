@@ -728,7 +728,6 @@ internal class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefi
     protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
-        InitializeFields();
     }
 
     #endregion
