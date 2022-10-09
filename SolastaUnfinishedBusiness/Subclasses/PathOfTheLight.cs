@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -405,10 +406,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 
-    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder :
-        FeatureDefinitionAdditionalDamageBuilder<
-            FeatureDefinitionAdditionalDamageIlluminatingStrike,
-            FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder>
+    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder : FeatureDefinitionBuilder<
+        FeatureDefinitionAdditionalDamageIlluminatingStrike, FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder>
     {
         private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(
             string name,
@@ -435,28 +434,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
             Definition.requiredProperty = RestrictedContextRequiredProperty.None;
             Definition.addLightSource = true;
             Definition.lightSourceForm = lightSourceForm;
-
-            SetAdvancement(
-                AdditionalDamageAdvancement.ClassLevel,
-                (3, 1),
-                (4, 1),
-                (5, 1),
-                (6, 1),
-                (7, 1),
-                (8, 1),
-                (9, 1),
-                (10, 2),
-                (11, 2),
-                (12, 2),
-                (13, 2),
-                (14, 2),
-                (15, 2),
-                (16, 2),
-                (17, 2),
-                (18, 2),
-                (19, 2),
-                (20, 2)
-            );
+            Definition.damageAdvancement = AdditionalDamageAdvancement.ClassLevel;
+            Definition.DiceByRankTable.SetRange(new[]
+            {
+                (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2),
+                (15, 2), (16, 2), (17, 2), (18, 2), (19, 2), (20, 2)
+            }.Select(d => DiceByRankBuilder.BuildDiceByRank(d.Item1, d.Item2)));
 
             Definition.ConditionOperations.Add(
                 new ConditionOperationDescription

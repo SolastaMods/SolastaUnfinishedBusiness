@@ -7,146 +7,120 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-internal abstract class
-    FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition,
-        TBuilder>
-    where TDefinition : FeatureDefinitionAdditionalDamage
-    where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
+[UsedImplicitly]
+internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionBuilder<
+    FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
 {
-    internal TBuilder SetSpecificDamageType(string damageType)
+    internal FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
     {
         Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
         Definition.specificDamageType = damageType;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
     {
         Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
         Definition.damageDiceNumber = diceNumber;
         Definition.damageDieType = dieType;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetNotificationTag(string tag)
+    internal FeatureDefinitionAdditionalDamageBuilder SetNotificationTag(string tag)
     {
         Definition.notificationTag = tag;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetNoAdvancement()
+    internal FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
     {
         Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        RuleDefinitions.AdditionalDamageAdvancement advancement,
         params (int rank, int dice)[] diceByRank)
     {
         Definition.damageAdvancement = advancement;
         Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
-        return This();
+        return this;
     }
 
-    internal TBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+    internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
+        RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
         Definition.triggerCondition = trigger;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetNoSave()
+    internal FeatureDefinitionAdditionalDamageBuilder SetNoSave()
     {
         Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
+    internal FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(
+        params ConditionOperationDescription[] operations)
     {
         Definition.ConditionOperations.SetRange(operations);
-        return This();
+        return this;
     }
 
-    internal TBuilder SetTargetCondition(
+    internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
         ConditionDefinition requiredCondition,
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
         Definition.requiredTargetCondition = requiredCondition;
         Definition.triggerCondition = trigger;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
+    internal FeatureDefinitionAdditionalDamageBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
     {
         Definition.limitedUsage = limit;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetImpactParticleReference(AssetReference asset)
+    internal FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty property)
+    internal FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(
+        RuleDefinitions.RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType damageType)
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdditionalDamageType(
+        RuleDefinitions.AdditionalDamageType damageType)
     {
         Definition.additionalDamageType = damageType;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
+        RuleDefinitions.AdditionalDamageValueDetermination determination)
     {
         Definition.damageValueDetermination = determination;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetAddLightSource(bool addLightSource)
+    internal FeatureDefinitionAdditionalDamageBuilder SetAddLightSource(bool addLightSource)
     {
         Definition.addLightSource = addLightSource;
-        return This();
+        return this;
     }
 
-    internal TBuilder SetLightSourceForm(LightSourceForm form)
+    internal FeatureDefinitionAdditionalDamageBuilder SetLightSourceForm(LightSourceForm form)
     {
         Definition.lightSourceForm = form;
-        return This();
+        return this;
     }
 
-    #region Constructors
-
-    protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
-    FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
-{
-    // Can we give this a specific name? ConfigureXXX.
-    // Or move into ArcaneFighter.
     internal FeatureDefinitionAdditionalDamageBuilder Configure(
         string notificationTag,
         RuleDefinitions.FeatureLimitedUsage limitedUsage,
@@ -181,7 +155,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAddit
         Definition.damageDieType = damageDieType;
 
         Definition.ignoreCriticalDoubleDice = ignoreCriticalDoubleDice;
-        return This();
+        return this;
     }
 
     #region Constructors

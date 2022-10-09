@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
+[UsedImplicitly]
 internal class FeatureDefinitionPowerBuilder
     : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
 {

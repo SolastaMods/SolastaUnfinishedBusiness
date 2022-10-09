@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -23,8 +24,8 @@ internal sealed class CustomFightingStyleDefinition : FightingStyleDefinition, I
     }
 }
 
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<
+[UsedImplicitly]
+internal class CustomizableFightingStyleBuilder : DefinitionBuilder<
     CustomFightingStyleDefinition,
     CustomizableFightingStyleBuilder>
 {
@@ -37,9 +38,19 @@ internal class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder
     }
 
     [NotNull]
+    internal CustomizableFightingStyleBuilder SetFeatures(params FeatureDefinition[] features)
+    {
+        Definition.Features.SetRange(features.OrderBy(f => f.Name));
+        Definition.Features.Sort(Sorting.Compare);
+        return this;
+    }
+
+#if false
+    [NotNull]
     internal CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
     {
         Definition.SetIsActiveDelegate(del);
         return this;
     }
+#endif
 }

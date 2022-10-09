@@ -22,13 +22,15 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
         return This();
     }
 
+    #if false
     internal FeatureDefinitionActionAffinityBuilder SetRestrictedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.RestrictedActions.SetRange(actions);
         Definition.RestrictedActions.Sort();
         return This();
     }
-
+#endif
+    
     internal FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {

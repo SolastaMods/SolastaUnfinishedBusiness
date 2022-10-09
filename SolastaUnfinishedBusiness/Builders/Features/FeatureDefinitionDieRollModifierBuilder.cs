@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionDieRollModifierBuilder
-    : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
+    : FeatureDefinitionBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
 {
     internal FeatureDefinitionDieRollModifierBuilder SetModifiers(
         RuleDefinitions.RollContext context,

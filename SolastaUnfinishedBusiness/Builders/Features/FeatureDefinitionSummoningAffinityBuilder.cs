@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSummoningAffinityBuilder
-    : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity,
+    : FeatureDefinitionBuilder<FeatureDefinitionSummoningAffinity,
         FeatureDefinitionSummoningAffinityBuilder>
 {
     internal FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
