@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionConditionAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity,
+    : DefinitionBuilder<FeatureDefinitionConditionAffinity,
         FeatureDefinitionConditionAffinityBuilder>
 {
     internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(
@@ -27,18 +27,8 @@ internal class FeatureDefinitionConditionAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionConditionAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionConditionAffinityBuilder(FeatureDefinitionConditionAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionConditionAffinityBuilder(FeatureDefinitionConditionAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

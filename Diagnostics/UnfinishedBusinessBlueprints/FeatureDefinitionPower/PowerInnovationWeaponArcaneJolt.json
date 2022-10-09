@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Distance",
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
@@ -29,7 +29,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,16 +74,22 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInventorWeaponSteelDefenerCommand",
-          "conditionDefinition": "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 2,
+          "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageForce",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -290,7 +296,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "OnAttackHit",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -305,33 +311,33 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 0,
+  "rechargeRate": "LongRest",
+  "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "AbilityBonusPlusFixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "usesAbilityScoreName": "Intelligence",
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInventorWeaponSteelDefenderCommandTitle",
-    "description": "Feature/&PowerInventorWeaponSteelDefenderCommandDescription",
+    "title": "Feature/&PowerInnovationWeaponArcaneJoltTitle",
+    "description": "Feature/&PowerInnovationWeaponArcaneJoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
-      "m_SubObjectName": "Command",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -346,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "429ff712-f9ee-5c0d-bd48-945da7881d33",
+  "guid": "6042eb1a-b0f4-5f41-b50f-5bc9282079f8",
   "contentPack": 9999,
-  "name": "PowerInventorWeaponSteelDefenderCommand"
+  "name": "PowerInnovationWeaponArcaneJolt"
 }

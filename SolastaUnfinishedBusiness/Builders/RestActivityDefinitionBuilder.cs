@@ -19,8 +19,7 @@ internal class
         Definition.condition = condition;
         Definition.functor = functor;
         Definition.stringParameter = stringParameter;
-
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -29,17 +28,8 @@ internal class
     {
     }
 
-    protected RestActivityDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected RestActivityDefinitionBuilder(RestActivityDefinition original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    protected RestActivityDefinitionBuilder(RestActivityDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 

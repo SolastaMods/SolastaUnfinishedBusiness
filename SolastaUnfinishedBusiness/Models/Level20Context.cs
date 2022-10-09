@@ -48,7 +48,6 @@ internal static class Level20Context
         WizardLoad();
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
-        TraditionLightLoad();
 
         // required to ensure level 20 and multiclass will work correctly on higher level heroes
         var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
@@ -514,13 +513,6 @@ internal static class Level20Context
 
         EnumerateReplacedSpells(
             4, 1, CastSpellShadowcaster.ReplacedSpells);
-    }
-
-    private static void TraditionLightLoad()
-    {
-        EnumerateSlotsPerLevel(
-            CasterProgression.OneThird,
-            CastSpellTraditionLight.SlotsPerLevels);
     }
 
     [NotNull]

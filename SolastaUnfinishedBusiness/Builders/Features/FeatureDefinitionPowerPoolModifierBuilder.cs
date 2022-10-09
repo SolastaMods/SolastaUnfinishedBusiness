@@ -55,8 +55,7 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
         Definition.overriddenPower = Definition;
 
         Definition.PoolPower = poolPower;
-
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -65,18 +64,8 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
     {
     }
 
-    protected FeatureDefinitionPowerPoolModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

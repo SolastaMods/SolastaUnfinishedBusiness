@@ -30,6 +30,7 @@ internal static class StringExtensions
         }
 
         var substr = source.Substring(index, other.Length);
+
         source = source.Replace(substr, substr.Cyan()).Bold();
 
         return source;

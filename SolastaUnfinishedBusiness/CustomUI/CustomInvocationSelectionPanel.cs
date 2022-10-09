@@ -1264,7 +1264,7 @@ internal static class SpellBoxExtensions
 
         title.Text = gui.Title;
 
-        image.SetupSprite(gui);
+        image.SetupSprite(gui.spriteReference);
     }
 
     internal static void CustomUnbind(this SpellBox instance)

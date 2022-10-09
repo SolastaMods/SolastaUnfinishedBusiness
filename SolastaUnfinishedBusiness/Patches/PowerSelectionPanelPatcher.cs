@@ -48,7 +48,7 @@ public static class PowerSelectionPanelPatcher
             {
                 var power = relevantPowers[i];
                 var validator = power.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
-                if (validator != null && !validator.CanUsePower(character))
+                if (validator != null && !validator.CanUsePower(character, power.powerDefinition))
                 {
                     relevantPowers.RemoveAt(i);
                 }

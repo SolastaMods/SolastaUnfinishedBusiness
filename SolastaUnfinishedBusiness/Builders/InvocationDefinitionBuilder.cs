@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -10,42 +11,33 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
     {
     }
 
-    protected InvocationDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 
     internal TBuilder SetRequiredLevel(int level)
     {
         Definition.requiredLevel = level;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetRequiredSpell(SpellDefinition spell)
     {
         Definition.requiredKnownSpell = spell;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetRequiredPact(FeatureDefinition pact)
     {
         Definition.requiredPact = pact;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
     {
         Definition.grantedFeature = featureDefinition;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
@@ -53,10 +45,11 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         Definition.grantedSpell = spell;
         Definition.consumesSpellSlot = consumeSlot;
         Definition.overrideMaterialComponent = overrideMaterial;
-        return This();
+        return (TBuilder)this;
     }
 }
 
+[UsedImplicitly]
 internal class InvocationDefinitionBuilder :
     InvocationDefinitionBuilder<InvocationDefinition, InvocationDefinitionBuilder>
 {
@@ -66,17 +59,8 @@ internal class InvocationDefinitionBuilder :
     {
     }
 
-    protected InvocationDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid) : base(
         original, name, namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(InvocationDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

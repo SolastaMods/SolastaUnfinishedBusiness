@@ -39,7 +39,11 @@ internal static class SubpowerSelectionModalExtensions
             if (i < powers.Count)
             {
                 child.gameObject.SetActive(true);
-                component.Bind(caster, instance.powerDefinitions[i], i, index =>
+
+                var power = instance.powerDefinitions[i];
+                var valid = caster.CanUsePower(power);
+                
+                component.Bind(caster, power, i, index =>
                 {
                     if (instance.subpowerEngaged != null)
                     {
@@ -49,6 +53,10 @@ internal static class SubpowerSelectionModalExtensions
 
                     instance.Hide();
                 });
+
+                component.Button.enabled = valid;
+                component.GetComponent<GuiLabelHighlighter>().enabled = valid;
+                component.powerTitle.TMP_Text.color = Color.gray;
             }
             else
             {

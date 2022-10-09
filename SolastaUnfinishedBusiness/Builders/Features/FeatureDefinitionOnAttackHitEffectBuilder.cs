@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionOnAttackHitEffectBuilder : FeatureDefinitionBuilder<FeatureDefinitionOnAttackHitEffect
+internal class FeatureDefinitionOnAttackHitEffectBuilder : DefinitionBuilder<FeatureDefinitionOnAttackHitEffect
     , FeatureDefinitionOnAttackHitEffectBuilder>
 {
     internal FeatureDefinitionOnAttackHitEffectBuilder SetOnAttackHitDelegates(OnAttackHitDelegate before,
@@ -22,18 +22,8 @@ internal class FeatureDefinitionOnAttackHitEffectBuilder : FeatureDefinitionBuil
     {
     }
 
-    protected FeatureDefinitionOnAttackHitEffectBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionOnAttackHitEffectBuilder(FeatureDefinitionOnAttackHitEffect original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionOnAttackHitEffectBuilder(FeatureDefinitionOnAttackHitEffect original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

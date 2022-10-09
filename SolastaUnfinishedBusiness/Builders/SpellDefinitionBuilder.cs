@@ -111,22 +111,12 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
 
     #region Constructors
 
-    internal SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+    protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
     {
         InitializeFields();
     }
 
-    internal SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
-    {
-        InitializeFields();
-    }
-
-    internal SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
-    {
-        InitializeFields();
-    }
-
-    internal SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name,
+    protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name,
         guidNamespace)
     {
         InitializeFields();

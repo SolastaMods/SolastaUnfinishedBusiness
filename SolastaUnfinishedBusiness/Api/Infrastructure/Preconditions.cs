@@ -23,17 +23,6 @@ internal static class Preconditions
     [Conditional("DEBUG")]
     [ContractAnnotation("halt <= paramValue : null")]
     [AssertionMethod]
-    internal static void IsNotNullOrEmpty([NotNull] string paramValue, [InvokerParameterName] string paramName)
-    {
-        if (string.IsNullOrEmpty(paramValue))
-        {
-            throw new ArgumentException(@"The parameter must not be null or an empty string.", paramName);
-        }
-    }
-
-    [Conditional("DEBUG")]
-    [ContractAnnotation("halt <= paramValue : null")]
-    [AssertionMethod]
     internal static void IsNotNullOrWhiteSpace([NotNull] string paramValue, [InvokerParameterName] string paramName)
     {
         if (string.IsNullOrWhiteSpace(paramValue))

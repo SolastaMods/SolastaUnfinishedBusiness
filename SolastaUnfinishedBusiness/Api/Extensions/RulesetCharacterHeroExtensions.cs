@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -7,6 +6,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class RulesetCharacterHeroExtensions
 {
+#if false
     [NotNull]
     internal static List<(string, T)> GetTaggedFeaturesByType<T>([NotNull] this RulesetCharacterHero hero)
         where T : class
@@ -20,7 +20,7 @@ internal static class RulesetCharacterHeroExtensions
 
         return list;
     }
-
+    
     [NotNull]
     private static IEnumerable<(string, T)> GetTaggedFeatures<T>(
         string tag,
@@ -45,7 +45,6 @@ internal static class RulesetCharacterHeroExtensions
         return list;
     }
 
-#if false
     internal static bool IsWearingLightArmor([NotNull] this RulesetCharacterHero hero)
     {
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
@@ -112,17 +111,18 @@ internal static class RulesetCharacterHeroExtensions
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
     }
 
-
     internal static int GetAttunementLimit([CanBeNull] this RulesetCharacterHero hero)
     {
         var limit = 3;
-        if (hero == null) { return limit; }
+
+        if (hero == null)
+        {
+            return limit;
+        }
 
         var mods = hero.GetSubFeaturesByType<AttunementLimitModifier>();
-        foreach (var mod in mods)
-        {
-            limit += mod.Value;
-        }
+
+        limit += mods.Sum(mod => mod.Value);
 
         return limit;
     }

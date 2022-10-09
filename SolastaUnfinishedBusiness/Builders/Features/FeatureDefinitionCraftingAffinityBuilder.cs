@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionCraftingAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionCraftingAffinity,
+internal class FeatureDefinitionCraftingAffinityBuilder : DefinitionBuilder<FeatureDefinitionCraftingAffinity,
     FeatureDefinitionCraftingAffinityBuilder>
 {
     public FeatureDefinitionCraftingAffinityBuilder SetAffinityGroups(
@@ -28,17 +28,8 @@ internal class FeatureDefinitionCraftingAffinityBuilder : FeatureDefinitionBuild
     {
     }
 
-    public FeatureDefinitionCraftingAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     public FeatureDefinitionCraftingAffinityBuilder(FeatureDefinitionCraftingAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    public FeatureDefinitionCraftingAffinityBuilder(FeatureDefinitionCraftingAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

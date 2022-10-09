@@ -14,17 +14,8 @@ internal class FeatureDefinitionPowerBuilder
     {
     }
 
-    protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 
@@ -32,7 +23,7 @@ internal class FeatureDefinitionPowerBuilder
 }
 
 internal abstract class
-    FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+    FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatureDefinitionPower
     where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
 {
@@ -66,27 +57,27 @@ internal abstract class
         Definition.abilityScore = abilityScore;
         Definition.effectDescription = effectDescription.Copy();
         Definition.uniqueInstance = uniqueInstance;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetEffectDescription(EffectDescription effect)
     {
         Definition.effectDescription = effect;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetExplicitAbilityScore(string ability)
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.Explicit;
         Definition.abilityScore = ability;
-        return This();
+        return (TBuilder)this;
     }
 
 #if false
     internal TBuilder SetSpellcastingAbilityScore()
     {
         Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
-        return This();
+        return (TBuilder)this;
     }
 #endif
 
@@ -96,7 +87,7 @@ internal abstract class
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
-        return This();
+        return (TBuilder)this;
     }
 
 #if false
@@ -104,85 +95,89 @@ internal abstract class
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
         Definition.fixedAttackHit = bonus;
-        return This();
+        return (TBuilder)this;
     }
 #endif
 
     internal TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
     {
         Definition.activationTime = time;
-        return This();
+        return (TBuilder)this;
     }
 
+#if false
     internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
     {
         Definition.hasCastingFailure = hasCastingFailure;
-        return This();
+        return (TBuilder)this;
     }
+#endif
 
     internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         Definition.rechargeRate = rate;
 
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetUsesFixed(int fixedUses)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
         Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetFixedUsesPerRecharge(int fixedUses)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetCostPerUse(int costPerUse)
     {
         Definition.costPerUse = costPerUse;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetUniqueInstance(bool unique = true)
     {
         Definition.uniqueInstance = unique;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetAbilityScoreDetermination(
         RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
     {
         Definition.abilityScoreDetermination = abilityScoreNameDetermination;
-        return This();
+        return (TBuilder)this;
     }
 
+#if false
     internal TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
         Definition.usesAbilityScoreName = abilityScoreName;
-        return This();
+        return (TBuilder)this;
     }
+#endif
 
     internal TBuilder SetUsesAbility(int fixedUses, string attribute)
     {
         Definition.fixedUsesPerRecharge = fixedUses;
         Definition.usesAbilityScoreName = attribute;
         Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetShowCasting(bool casting)
     {
         Definition.showCasting = casting;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
         Definition.overriddenPower = overridenPower;
-        return This();
+        return (TBuilder)this;
     }
 
     #region Constructors
@@ -191,17 +186,8 @@ internal abstract class
     {
     }
 
-    protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

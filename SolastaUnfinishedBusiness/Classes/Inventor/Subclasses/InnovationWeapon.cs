@@ -1,7 +1,9 @@
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -17,6 +19,7 @@ public static class InnovationWeapon
 {
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
+    private const string SummonSteeldefenderPower = "PowerInnovationWeaponSummonSteelDefender";
 
     public static CharacterSubclassDefinition Build()
     {
@@ -25,6 +28,7 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfJugement)
             .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), BuildSteelDefenderFeatureSet())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
+            .AddFeaturesAtLevel(9, BuildArcaneJolt())
             .AddToDB();
     }
 
@@ -82,13 +86,13 @@ public static class InnovationWeapon
         var defender = BuildSteelDefenderMonster();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerInnovationWeaponSummonSteelDefender")
+            .Create(SummonSteeldefenderPower)
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(1)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
@@ -220,8 +224,23 @@ public static class InnovationWeapon
                 FeatureDefinitionMoveModes.MoveModeMove8,
                 FeatureDefinitionSenses.SenseDarkvision12,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-
-                //TODO: add repair power
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerInnovationWeaponSteelDefenderRepair")
+                    .SetGuiPresentation(Category.Feature,
+                        CustomIcons.CreateAssetReferenceSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
+                            256, 128))
+                    .SetUsesFixed(3)
+                    .SetRechargeRate(RechargeRate.LongRest)
+                    .SetActivationTime(ActivationTime.Action)
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        //RAW this can heal any other Inventor construct, this verion only heals self
+                        .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.Create()
+                            .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                        .Build())
+                    .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("FeatureInnovationWeaponSteelDefenderInitiative")
                     .SetGuiPresentationNoContent()
@@ -276,20 +295,40 @@ public static class InnovationWeapon
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
             .SetActivationTime(ActivationTime.BonusAction)
+            .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        //TODO: is duration 0 correct here?
                         .SetDuration(DurationType.Round, 0, false)
                         .SetSpecialDuration(true)
                         .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildArcaneJolt()
+    {
+        //TODO: make Steel defender able to trigger this power
+        //TODO: bunus points if we manage to add healing part of this ability
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationWeaponArcaneJolt")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1))
+            .SetUsesAbility(0, AttributeDefinitions.Intelligence)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetDamageForm(dieType: DieType.D6, diceNumber: 2, damageType: DamageTypeForce)
                     .Build())
                 .Build())
             .AddToDB();
@@ -314,6 +353,16 @@ public static class InnovationWeapon
             if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
 
             return true;
+        }
+    }
+
+    private class ShowInCombatWhenHasBlade : IPowerUseValidity
+    {
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
+
+            return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteeldefenderPower);
         }
     }
 }

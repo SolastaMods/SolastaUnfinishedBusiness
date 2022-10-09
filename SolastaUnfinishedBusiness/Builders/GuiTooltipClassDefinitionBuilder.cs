@@ -33,17 +33,8 @@ internal class
     {
     }
 
-    internal GuiTooltipClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal GuiTooltipClassDefinitionBuilder(GuiTooltipClassDefinition original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    internal GuiTooltipClassDefinitionBuilder(GuiTooltipClassDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 

@@ -85,19 +85,19 @@ internal static class Infusions
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
             .AddToDB());
 
+        #region Returning Weapon
+
         sprite = CustomIcons.CreateAssetReferenceSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeaponWithBonus";
         var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}WithBonus")
+                .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
                 .SetCustomSubFeatures(ReturningWeapon.Instance)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
                 .SetMagicalWeapon()
                 .AddToDB());
-
-        #region Returning Weapon
 
         name = "InfusionReturningWeaponNoBonus";
         var noBonusModifier = FeatureDefinitionAttackModifierBuilder
@@ -118,6 +118,7 @@ internal static class Infusions
         var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
             .SetUniqueInstance()
@@ -229,7 +230,7 @@ internal static class Infusions
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
-                SkipEffectRemovalOnLocationChange.Always, itemFilter)
+                SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat, itemFilter)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
@@ -262,7 +263,7 @@ internal static class Infusions
             .SetCostPerUse(1)
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
-                InventorClass.InfusionLimiter)
+                InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
@@ -285,7 +286,7 @@ internal static class Infusions
     {
         var replica = ItemDefinitionBuilder
             .Create(baseItem, $"InfusedReplica{baseItem.name}")
-            .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custon tag, instead of quest
+            .AddItemTags(TagsDefinitions.ItemTagQuest) //TODO: implement custom tag, instead of quest
             .SetGold(0)
             .HideFromDungeonEditor()
             .SetRequiresIdentification(false)

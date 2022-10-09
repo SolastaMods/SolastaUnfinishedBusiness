@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionAttackModifierBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
+    : DefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
     internal FeatureDefinitionAttackModifierBuilder Configure(
         AttackModifierMethod attackRollModifierMethod = AttackModifierMethod.None,
@@ -27,14 +27,14 @@ internal class FeatureDefinitionAttackModifierBuilder
         Definition.damageRollAbilityScore = damageRollAbilityScore;
         Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
         Definition.additionalBonusUnarmedStrikeAttacksTag = additionalAttackTag;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
         AbilityScoreReplacement replacement)
     {
         Definition.abilityScoreReplacement = replacement;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
@@ -43,7 +43,7 @@ internal class FeatureDefinitionAttackModifierBuilder
     {
         Definition.attackRollModifierMethod = method;
         Definition.attackRollModifier = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetDamageRollModifier(
@@ -52,32 +52,32 @@ internal class FeatureDefinitionAttackModifierBuilder
     {
         Definition.damageRollModifierMethod = method;
         Definition.damageRollModifier = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetMagicalWeapon(bool value = true)
     {
         Definition.magicalWeapon = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
         Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetRequiredProperty(
         RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -86,18 +86,8 @@ internal class FeatureDefinitionAttackModifierBuilder
     {
     }
 
-    protected FeatureDefinitionAttackModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

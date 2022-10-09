@@ -79,6 +79,35 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), "GetLowestSlotLevelAndRepertoireToCastSpell")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetLowestSlotLevelAndRepertoireToCastSpell_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance,
+            SpellDefinition spellDefinitionToCast,
+            ref int __result,
+            ref RulesetSpellRepertoire matchingRepertoire)
+        {
+            //PATCH: BUGFIX: as of (v1.4.15) game doesn't consider cantrips gained from BonusCantrips feature
+            //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
+            //this patch tries to find requested cantrip in reprtoire's ExtraSpellsByTag0
+            if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
+            {
+                return;
+            }
+
+            foreach (var repertoire in __instance.SpellRepertoires)
+            {
+                if (repertoire.ExtraSpellsByTag.Any(x => x.Value.Contains(spellDefinitionToCast)))
+                {
+                    matchingRepertoire = repertoire;
+                    __result = 0;
+                    break;
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentSomaticValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class IsComponentSomaticValid_Patch
@@ -373,6 +402,9 @@ public static class RulesetCharacterPatcher
 
             //PATCH: update usage for power pools 
             __instance.UpdateUsageForPowerPool(usablePower, usablePower.PowerDefinition.CostPerUse);
+
+            //PATCH: support for counting uses of power in the UsedSpecialFeatures dictionary of the GameLocationCharacter
+            CountPowerUseInSpecialFeatures.Count(__instance, usablePower);
         }
     }
 

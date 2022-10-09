@@ -4,7 +4,8 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class CustomSituationalContext
 {
-    internal static bool IsContextValid(RulesetImplementationDefinitions.SituationalContextParams contextParams,
+    internal static bool IsContextValid(
+        RulesetImplementationDefinitions.SituationalContextParams contextParams,
         bool def)
     {
         var context = contextParams.situationalContext;

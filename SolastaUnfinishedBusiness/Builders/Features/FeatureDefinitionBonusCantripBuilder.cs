@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionBonusCantripsBuilder : DefinitionBuilder<
     FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
 {
     internal FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
@@ -21,17 +21,8 @@ internal class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<
     {
     }
 
-    internal FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    internal FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

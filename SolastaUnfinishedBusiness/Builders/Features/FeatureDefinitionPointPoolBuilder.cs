@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool,
+internal class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefinitionPointPool,
     FeatureDefinitionPointPoolBuilder>
 {
 #if false
@@ -56,17 +56,8 @@ internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<Feat
     {
     }
 
-    internal FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    internal FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

@@ -8,7 +8,7 @@ using static RuleDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<
     FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
@@ -50,18 +50,8 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionB
     {
     }
 
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original,
         string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original,
-        string name, string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

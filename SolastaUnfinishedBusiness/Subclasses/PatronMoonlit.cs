@@ -396,7 +396,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
 
     [UsedImplicitly]
     private class FeatureDefinitionMoonlitInvisibilityBuilder :
-        FeatureDefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
+        DefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
     {
         #region Constructors
 
@@ -407,22 +407,9 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         }
 
         internal FeatureDefinitionMoonlitInvisibilityBuilder(
-            string name,
-            string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        internal FeatureDefinitionMoonlitInvisibilityBuilder(
             FeatureDefinitionMoonlitInvisibility original,
             string name,
             Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        internal FeatureDefinitionMoonlitInvisibilityBuilder(
-            FeatureDefinitionMoonlitInvisibility original,
-            string name,
-            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
 

@@ -71,8 +71,8 @@ internal class EffectDescriptionBuilder
         int additionalDicePerIncrement = 0,
         int additionalSpellLevelPerIncrement = 0,
         int additionalSummonsPerIncrement = 0,
-        int additionalHPPerIncrement = 0,
-        int additionalTempHPPerIncrement = 0,
+        int additionalHpPerIncrement = 0,
+        int additionalTempHpPerIncrement = 0,
         int additionalTargetCellsPerIncrement = 0,
         int additionalItemBonus = 0,
         RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
@@ -85,8 +85,8 @@ internal class EffectDescriptionBuilder
             additionalDicePerIncrement = additionalDicePerIncrement,
             additionalSpellLevelPerIncrement = additionalSpellLevelPerIncrement,
             additionalSummonsPerIncrement = additionalSummonsPerIncrement,
-            additionalHPPerIncrement = additionalHPPerIncrement,
-            additionalTempHPPerIncrement = additionalTempHPPerIncrement,
+            additionalHPPerIncrement = additionalHpPerIncrement,
+            additionalTempHPPerIncrement = additionalTempHpPerIncrement,
             additionalTargetCellsPerIncrement = additionalTargetCellsPerIncrement,
             additionalItemBonus = additionalItemBonus,
             alteredDuration = alteredDuration

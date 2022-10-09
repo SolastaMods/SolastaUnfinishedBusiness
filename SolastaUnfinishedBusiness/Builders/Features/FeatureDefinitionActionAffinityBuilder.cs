@@ -5,43 +5,43 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
+internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity,
     FeatureDefinitionActionAffinityBuilder>
 {
     internal FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.AuthorizedActions.SetRange(actions);
         Definition.AuthorizedActions.Sort();
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionActionAffinityBuilder SetForbiddenActions(params ActionDefinitions.Id[] actions)
     {
         Definition.ForbiddenActions.SetRange(actions);
         Definition.ForbiddenActions.Sort();
-        return This();
+        return this;
     }
 
-    #if false
+#if false
     internal FeatureDefinitionActionAffinityBuilder SetRestrictedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.RestrictedActions.SetRange(actions);
         Definition.RestrictedActions.Sort();
-        return This();
+        return (TBuilder)this;
     }
 #endif
-    
+
     internal FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {
         Definition.ActionExecutionModifiers.SetRange(modifiers);
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
     {
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -50,18 +50,8 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
     {
     }
 
-    protected FeatureDefinitionActionAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

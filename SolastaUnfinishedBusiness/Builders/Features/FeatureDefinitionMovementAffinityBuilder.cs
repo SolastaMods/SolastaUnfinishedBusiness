@@ -6,31 +6,31 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionMovementAffinityBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
+    : DefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
 {
     internal FeatureDefinitionMovementAffinityBuilder SetAdditiveModifierAdvancement(
         RuleDefinitions.MovementAffinityAdvancement value)
     {
         Definition.additiveModifierAdvancement = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
     {
         Definition.baseSpeedAdditiveModifier = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetSituationalContext(ExtraSituationalContext situationalContext)
     {
         Definition.situationalContext = (RuleDefinitions.SituationalContext)situationalContext;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
     {
         Definition.baseSpeedMultiplicativeModifier = value;
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -39,18 +39,8 @@ internal class FeatureDefinitionMovementAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionMovementAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

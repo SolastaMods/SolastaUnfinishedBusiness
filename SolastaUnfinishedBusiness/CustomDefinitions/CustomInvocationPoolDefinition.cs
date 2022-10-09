@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -16,24 +16,15 @@ internal class CustomInvocationPoolDefinition : FeatureDefinition
 }
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class CustomInvocationPoolDefinitionBuilder : FeatureDefinitionBuilder
+internal class CustomInvocationPoolDefinitionBuilder : DefinitionBuilder
     <CustomInvocationPoolDefinition, CustomInvocationPoolDefinitionBuilder>
 {
     protected CustomInvocationPoolDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    protected CustomInvocationPoolDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected CustomInvocationPoolDefinitionBuilder(CustomInvocationPoolDefinition original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected CustomInvocationPoolDefinitionBuilder(CustomInvocationPoolDefinition original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

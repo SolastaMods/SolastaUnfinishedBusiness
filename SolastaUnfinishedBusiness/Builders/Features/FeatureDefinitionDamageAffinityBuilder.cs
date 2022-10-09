@@ -4,29 +4,26 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<
     FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
     internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
     {
         Definition.DamageType = damageType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
         Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
         RuleDefinitions.DamageAffinityType damageAffinityType)
     {
         Definition.DamageAffinityType = damageAffinityType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetRetaliate(
@@ -37,8 +34,7 @@ internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder
         Definition.retaliatePower = featureDefinitionPower;
         Definition.retaliateRangeCells = rangeCells;
         Definition.retaliateWhenHit = retaliateWhenHit;
-
-        return This();
+        return this;
     }
 
     #region Constructors
@@ -47,18 +43,8 @@ internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder
     {
     }
 
-    protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

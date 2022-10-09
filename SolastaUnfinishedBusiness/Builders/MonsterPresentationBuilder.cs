@@ -1,17 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.AddressableAssets;
+﻿using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
 internal class MonsterPresentationBuilder
 {
     private readonly MonsterPresentation presentation;
-
-    private MonsterPresentationBuilder(MonsterPresentation presentation)
-    {
-        presentation = new MonsterPresentation(presentation);
-        InitDefaults();
-    }
 
     private MonsterPresentationBuilder()
     {
@@ -24,14 +17,8 @@ internal class MonsterPresentationBuilder
         presentation.customShaderReference = new AssetReference();
         presentation.attachedParticlesReference = new AssetReference();
         presentation.bestiaryAttachedParticlesReference = new AssetReference();
-
         presentation.hasPhantomDistortion = false;
         presentation.hasPhantomFadingFeet = false;
-    }
-
-    internal static MonsterPresentationBuilder Copy(MonsterPresentation basePresentation)
-    {
-        return new MonsterPresentationBuilder(basePresentation);
     }
 
     internal static MonsterPresentationBuilder Create()
@@ -56,11 +43,13 @@ internal class MonsterPresentationBuilder
         return this;
     }
 
+#if false
     internal MonsterPresentationBuilder SetCustomShaderReference(AssetReference shaderReference)
     {
         presentation.customShaderReference = shaderReference;
         return this;
     }
+#endif
 
     internal MonsterPresentationBuilder SetModelScale(float scale)
     {
@@ -76,6 +65,7 @@ internal class MonsterPresentationBuilder
         return this;
     }
 
+#if false
     internal MonsterPresentationBuilder SetPortraitFOV(float fov)
     {
         presentation.portraitCameraFOV = fov;
@@ -87,4 +77,5 @@ internal class MonsterPresentationBuilder
         presentation.portraitCameraFollowOffset = new Vector3(x, y, z);
         return this;
     }
+#endif
 }

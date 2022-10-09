@@ -33,7 +33,7 @@ public static class RulesetItemDevicePatcher
                 return;
             }
 
-            __result = validator.CanUsePower(character);
+            __result = validator.CanUsePower(character, power);
         }
     }
 }

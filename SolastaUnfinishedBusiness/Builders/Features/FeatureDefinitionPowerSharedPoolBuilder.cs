@@ -1,10 +1,11 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-// ReSharper disable once ClassNeverInstantiated.Global
+[UsedImplicitly]
 internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
     FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {
@@ -50,8 +51,7 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
         Definition.effectDescription = effectDescription;
         Definition.uniqueInstance = uniqueInstance;
         Definition.SharedPool = poolPower;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
@@ -76,18 +76,8 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
     {
     }
 
-    protected FeatureDefinitionPowerSharedPoolBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

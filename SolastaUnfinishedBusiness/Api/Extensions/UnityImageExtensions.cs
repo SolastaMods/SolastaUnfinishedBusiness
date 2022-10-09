@@ -9,13 +9,6 @@ internal static class UnityImageExtensions
 {
     internal static void SetupSprite(
         [NotNull] this Image imageComponent,
-        [NotNull] GuiPresentation presentation)
-    {
-        SetupSprite(imageComponent, presentation.SpriteReference);
-    }
-
-    internal static void SetupSprite(
-        [NotNull] this Image imageComponent,
         [CanBeNull] AssetReferenceSprite spriteReference,
         bool changeActiveStatus = false)
     {

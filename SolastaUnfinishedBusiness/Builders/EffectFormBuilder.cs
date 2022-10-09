@@ -13,12 +13,6 @@ internal class EffectFormBuilder
         effectForm = new EffectForm();
     }
 
-    internal EffectFormBuilder(EffectForm reference)
-    {
-        effectForm = new EffectForm();
-        effectForm.Copy(reference);
-    }
-
     internal EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity)
     {
         effectForm.HasSavingThrow = true;

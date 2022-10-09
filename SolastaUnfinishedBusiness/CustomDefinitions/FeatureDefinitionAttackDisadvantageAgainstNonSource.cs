@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -59,7 +59,7 @@ internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : Feat
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
+    : DefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
         FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
 {
     protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(

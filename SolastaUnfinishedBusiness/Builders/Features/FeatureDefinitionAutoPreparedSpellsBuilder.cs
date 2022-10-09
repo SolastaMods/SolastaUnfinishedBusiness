@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionAutoPreparedSpellsBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
+    : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
 {
     internal FeatureDefinitionAutoPreparedSpellsBuilder AddPreparedSpellGroup(int classLevel,
         params SpellDefinition[] spells)
@@ -46,18 +46,8 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
     {
     }
 
-    protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

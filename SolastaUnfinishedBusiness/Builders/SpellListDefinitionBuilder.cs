@@ -99,17 +99,8 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     {
     }
 
-    protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
         original, name, namespaceGuid)
-    {
-    }
-
-    protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

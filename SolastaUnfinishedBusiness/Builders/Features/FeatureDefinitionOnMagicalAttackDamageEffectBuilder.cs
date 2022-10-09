@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefinitionBuilder<
+internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : DefinitionBuilder<
     FeatureDefinitionOnMagicalAttackDamageEffect, FeatureDefinitionOnMagicalAttackDamageEffectBuilder>
 {
     internal FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegates(
@@ -23,20 +23,9 @@ internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefi
     {
     }
 
-    protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(
         FeatureDefinitionOnMagicalAttackDamageEffect original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(
-        FeatureDefinitionOnMagicalAttackDamageEffect original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 

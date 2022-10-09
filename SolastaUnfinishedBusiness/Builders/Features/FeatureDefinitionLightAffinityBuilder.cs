@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionLightAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionLightAffinity,
+internal class FeatureDefinitionLightAffinityBuilder : DefinitionBuilder<FeatureDefinitionLightAffinity,
     FeatureDefinitionLightAffinityBuilder>
 {
     internal FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
@@ -20,17 +20,8 @@ internal class FeatureDefinitionLightAffinityBuilder : FeatureDefinitionBuilder<
     {
     }
 
-    protected FeatureDefinitionLightAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionLightAffinityBuilder(FeatureDefinitionLightAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionLightAffinityBuilder(FeatureDefinitionLightAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

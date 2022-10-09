@@ -7,16 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition, EffectProxyDefinitionBuilder>
 {
-    protected EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
-    {
-    }
-
     protected EffectProxyDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid)
-        : base(original, name, guid)
     {
     }
 

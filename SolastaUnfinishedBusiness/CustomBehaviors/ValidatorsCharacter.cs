@@ -57,10 +57,12 @@ internal static class ValidatorsCharacter
     };
 
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), "Finesse");
+        ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            TagsDefinitions.WeaponTagFinesse);
 
     internal static readonly IsCharacterValidHandler MainHandIsVersatileWeapon = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), "Versatile");
+        ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            TagsDefinitions.WeaponTagVersatile);
 
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));

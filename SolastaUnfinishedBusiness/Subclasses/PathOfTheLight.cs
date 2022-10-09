@@ -406,7 +406,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 
-    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder : FeatureDefinitionBuilder<
+    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder : DefinitionBuilder<
         FeatureDefinitionAdditionalDamageIlluminatingStrike, FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder>
     {
         private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(

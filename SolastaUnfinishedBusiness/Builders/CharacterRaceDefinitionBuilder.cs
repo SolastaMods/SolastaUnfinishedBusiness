@@ -63,17 +63,8 @@ internal class CharacterRaceDefinitionBuilder
     {
     }
 
-    protected CharacterRaceDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 
