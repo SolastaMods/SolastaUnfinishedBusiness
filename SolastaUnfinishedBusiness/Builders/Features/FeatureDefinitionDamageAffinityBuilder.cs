@@ -10,23 +10,20 @@ internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<
     internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
     {
         Definition.DamageType = damageType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
         Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
         RuleDefinitions.DamageAffinityType damageAffinityType)
     {
         Definition.DamageAffinityType = damageAffinityType;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionDamageAffinityBuilder SetRetaliate(
@@ -37,8 +34,7 @@ internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<
         Definition.retaliatePower = featureDefinitionPower;
         Definition.retaliateRangeCells = rangeCells;
         Definition.retaliateWhenHit = retaliateWhenHit;
-
-        return This();
+        return this;
     }
 
     #region Constructors

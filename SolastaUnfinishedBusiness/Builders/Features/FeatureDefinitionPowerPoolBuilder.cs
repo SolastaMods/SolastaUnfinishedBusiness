@@ -44,14 +44,13 @@ internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder
         Definition.usesAbilityScoreName = usesAbilityScoreName;
         Definition.rechargeRate = recharge;
         Definition.overriddenPower = Definition;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionPowerPoolBuilder SetUsesProficiency()
     {
         Definition.proficiencyBonusToAttack = true;
-        return This();
+        return this;
     }
 
     #region Constructors

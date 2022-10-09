@@ -19,25 +19,25 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
     internal TBuilder SetRequiredLevel(int level)
     {
         Definition.requiredLevel = level;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetRequiredSpell(SpellDefinition spell)
     {
         Definition.requiredKnownSpell = spell;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetRequiredPact(FeatureDefinition pact)
     {
         Definition.requiredPact = pact;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
     {
         Definition.grantedFeature = featureDefinition;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
@@ -45,7 +45,7 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         Definition.grantedSpell = spell;
         Definition.consumesSpellSlot = consumeSlot;
         Definition.overrideMaterialComponent = overrideMaterial;
-        return This();
+        return (TBuilder)this;
     }
 }
 

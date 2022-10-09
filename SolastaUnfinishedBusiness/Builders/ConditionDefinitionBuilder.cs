@@ -45,63 +45,63 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     internal TBuilder SetAllowMultipleInstances(bool value)
     {
         Definition.allowMultipleInstances = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
         Definition.amountOrigin = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetConditionParticleReference(AssetReference value)
     {
         Definition.conditionParticleReference = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {
         Definition.conditionType = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
         Definition.turnOccurence = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder ClearFeatures()
     {
         Definition.Features.Clear();
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder AddFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetAdditionalDamageWhenHit(
@@ -115,76 +115,76 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.additionalDamageQuantity = damageQuantity;
         Definition.additionalDamageType = damageType;
 
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetTerminateWhenRemoved(bool value)
     {
         Definition.terminateWhenRemoved = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSilentWhenAdded(bool value)
     {
         Definition.silentWhenAdded = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSilentWhenRemoved(bool value)
     {
         Definition.silentWhenRemoved = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSilent(Silent silent)
     {
         SetSilentWhenRemoved(silent.HasFlag(Silent.WhenRemoved));
         SetSilentWhenAdded(silent.HasFlag(Silent.WhenAdded));
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSpecialDuration(bool value)
     {
         Definition.specialDuration = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetPossessive(bool value = true)
     {
         Definition.possessive = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value);
-        return This();
+        return (TBuilder)this;
     }
 
 #if false
     internal TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
-        return This();
+        return (TBuilder)this;
     }
 #endif
 
     internal TBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
@@ -197,7 +197,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.durationParameter = duration;
         Definition.durationType = type;
 
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder Configure(
@@ -214,13 +214,13 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
         if (!silent)
         {
-            return This();
+            return (TBuilder)this;
         }
 
         Definition.silentWhenAdded = true;
         Definition.silentWhenRemoved = true;
 
-        return This();
+        return (TBuilder)this;
     }
 
     #region Constructors

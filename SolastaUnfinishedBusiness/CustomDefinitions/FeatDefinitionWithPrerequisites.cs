@@ -26,7 +26,7 @@ internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<Fe
     {
         Definition.Validators.AddRange(validators);
 
-        return This();
+        return this;
     }
 }
 

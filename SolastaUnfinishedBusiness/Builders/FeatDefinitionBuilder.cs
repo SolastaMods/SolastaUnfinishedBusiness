@@ -12,14 +12,14 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
     {
         Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder AddFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.AddRange(features);
         Definition.Features.Sort(Sorting.Compare);
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetAbilityScorePrerequisite(string abilityScore, int value)
@@ -27,13 +27,13 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
         Definition.minimalAbilityScorePrerequisite = true;
         Definition.minimalAbilityScoreName = abilityScore;
         Definition.minimalAbilityScoreValue = value;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetMustCastSpellsPrerequisite()
     {
         Definition.mustCastSpellsPrerequisite = true;
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetFeatFamily(string family)
@@ -49,14 +49,14 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
             Definition.familyTag = family;
         }
 
-        return This();
+        return (TBuilder)this;
     }
 
     internal TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category = null)
     {
         Definition.armorProficiencyPrerequisite = category != null;
         Definition.armorProficiencyCategory = category == null ? String.Empty : category.Name;
-        return This();
+        return (TBuilder)this;
     }
 
     #region Constructors

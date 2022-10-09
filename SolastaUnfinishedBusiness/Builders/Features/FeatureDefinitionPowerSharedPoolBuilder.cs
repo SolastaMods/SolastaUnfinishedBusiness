@@ -51,8 +51,7 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
         Definition.effectDescription = effectDescription;
         Definition.uniqueInstance = uniqueInstance;
         Definition.SharedPool = poolPower;
-
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)

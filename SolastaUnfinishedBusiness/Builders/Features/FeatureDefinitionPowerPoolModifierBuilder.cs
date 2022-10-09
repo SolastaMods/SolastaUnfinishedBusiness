@@ -55,8 +55,7 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
         Definition.overriddenPower = Definition;
 
         Definition.PoolPower = poolPower;
-
-        return This();
+        return this;
     }
 
     #region Constructors

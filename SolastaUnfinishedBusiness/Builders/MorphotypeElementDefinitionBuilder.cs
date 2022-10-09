@@ -11,7 +11,7 @@ internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<Morphotype
     internal MorphotypeElementDefinitionBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
     {
         Definition.category = value;
-        return This();
+        return this;
     }
 
     internal MorphotypeElementDefinitionBuilder SetMainColor(Color value)

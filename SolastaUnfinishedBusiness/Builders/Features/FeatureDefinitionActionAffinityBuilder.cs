@@ -12,14 +12,14 @@ internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<Featur
     {
         Definition.AuthorizedActions.SetRange(actions);
         Definition.AuthorizedActions.Sort();
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionActionAffinityBuilder SetForbiddenActions(params ActionDefinitions.Id[] actions)
     {
         Definition.ForbiddenActions.SetRange(actions);
         Definition.ForbiddenActions.Sort();
-        return This();
+        return this;
     }
 
 #if false
@@ -27,7 +27,7 @@ internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<Featur
     {
         Definition.RestrictedActions.SetRange(actions);
         Definition.RestrictedActions.Sort();
-        return This();
+        return (TBuilder)this;
     }
 #endif
 
@@ -35,13 +35,13 @@ internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<Featur
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {
         Definition.ActionExecutionModifiers.SetRange(modifiers);
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
     {
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
-        return This();
+        return this;
     }
 
     #region Constructors

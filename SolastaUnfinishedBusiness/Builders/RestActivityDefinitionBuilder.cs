@@ -19,8 +19,7 @@ internal class
         Definition.condition = condition;
         Definition.functor = functor;
         Definition.stringParameter = stringParameter;
-
-        return This();
+        return this;
     }
 
     #region Constructors

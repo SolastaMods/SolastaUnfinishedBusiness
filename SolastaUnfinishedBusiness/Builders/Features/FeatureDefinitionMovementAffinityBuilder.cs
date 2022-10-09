@@ -12,25 +12,25 @@ internal class FeatureDefinitionMovementAffinityBuilder
         RuleDefinitions.MovementAffinityAdvancement value)
     {
         Definition.additiveModifierAdvancement = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
     {
         Definition.baseSpeedAdditiveModifier = value;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetSituationalContext(ExtraSituationalContext situationalContext)
     {
         Definition.situationalContext = (RuleDefinitions.SituationalContext)situationalContext;
-        return This();
+        return this;
     }
 
     internal FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
     {
         Definition.baseSpeedMultiplicativeModifier = value;
-        return This();
+        return this;
     }
 
     #region Constructors

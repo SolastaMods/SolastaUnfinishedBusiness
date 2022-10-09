@@ -525,16 +525,6 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
         return builder;
     }
 
-    // TODO:
-    // remove ctors from all derived builders
-    // make ctors private
-    // use private ctors in Create methods
-
-    /// <summary>
-    ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
-    ///     <b>CENamespaceGuid</b> plus <paramref name="name" />.
-    /// </summary>
-    /// <param name="name">The name assigned to the definition (mandatory)</param>
     internal static TBuilder Create(string name)
     {
         return CreateImpl(name, CeNamespaceGuid);
@@ -545,25 +535,9 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
         return CreateImpl(original, name, CeNamespaceGuid);
     }
 
-    internal TBuilder This()
-    {
-#if DEBUG
-#pragma warning disable S3060 // "is" should not be used with "this"
-        // TODO: check if this test is of any use
-        if (this is not TBuilder)
-        {
-            throw new SolastaUnfinishedBusinessException(
-                $"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
-        }
-#pragma warning restore S3060 // "is" should not be used with "this"
-#endif
-
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetCustomSubFeatures(params object[] features)
     {
         Definition.SetCustomSubFeatures(features);
-        return This();
+        return (TBuilder)this;
     }
 }
