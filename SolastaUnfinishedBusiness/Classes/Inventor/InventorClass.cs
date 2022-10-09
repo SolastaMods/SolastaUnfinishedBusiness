@@ -353,11 +353,11 @@ internal static class InventorClass
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             );
 
-            #endregion
+        #endregion
 
-            #region Level 20
+        #region Level 20
 
-            #endregion
+        #endregion
 
 
         for (var i = 3; i <= 20; i++)
@@ -611,12 +611,12 @@ internal static class InventorClass
             .AddToDB();
 
         var powers = new List<FeatureDefinitionPower>();
-        
+
         foreach (var spell in SpellList.GetSpellsOfLevels(1, 2)
                      .Where(x => x.castingTime == ActivationTime.Action))
         {
             var power = BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master);
-            
+
             powers.Add(power);
         }
 

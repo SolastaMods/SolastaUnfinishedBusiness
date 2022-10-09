@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Healing",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,16 +74,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInventorWeaponSteelDefenerCommand",
-          "conditionDefinition": "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 2,
+          "dieType": "D8",
+          "bonusHealing": 4,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -290,7 +288,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -305,13 +303,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 0,
+  "rechargeRate": "LongRest",
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 3,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -325,13 +323,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInventorWeaponSteelDefenderCommandTitle",
-    "description": "Feature/&PowerInventorWeaponSteelDefenderCommandDescription",
+    "title": "Feature/&PowerInnovationWeaponSteelDefenderRepairTitle",
+    "description": "Feature/&PowerInnovationWeaponSteelDefenderRepairDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
-      "m_SubObjectName": "Command",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "91f553ee-1804-56b2-b412-a817ac231c00",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -346,7 +344,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "429ff712-f9ee-5c0d-bd48-945da7881d33",
+  "guid": "a60028a8-b127-5bcb-9304-946d6b8387c3",
   "contentPack": 9999,
-  "name": "PowerInventorWeaponSteelDefenderCommand"
+  "name": "PowerInnovationWeaponSteelDefenderRepair"
 }

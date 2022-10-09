@@ -105,14 +105,14 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    #if false
+#if false
     internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
     {
         Definition.hasCastingFailure = hasCastingFailure;
         return (TBuilder)this;
     }
 #endif
-    
+
     internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         Definition.rechargeRate = rate;
@@ -152,14 +152,14 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    #if false
+#if false
     internal TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
         Definition.usesAbilityScoreName = abilityScoreName;
         return (TBuilder)this;
     }
 #endif
-    
+
     internal TBuilder SetUsesAbility(int fixedUses, string attribute)
     {
         Definition.fixedUsesPerRecharge = fixedUses;

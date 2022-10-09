@@ -78,7 +78,7 @@ public static class RulesetCharacterPatcher
                 (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "GetLowestSlotLevelAndRepertoireToCastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class GetLowestSlotLevelAndRepertoireToCastSpell_Patch

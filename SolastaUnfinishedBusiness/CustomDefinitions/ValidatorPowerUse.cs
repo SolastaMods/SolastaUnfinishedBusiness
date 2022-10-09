@@ -6,13 +6,13 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal sealed class ValidatorPowerUse : IPowerUseValidity
 {
-    private readonly IsCharacterValidHandler[] validators;
-
-    public static IPowerUseValidity NotInCombat = new ValidatorPowerUse(_ =>
+    public static readonly IPowerUseValidity NotInCombat = new ValidatorPowerUse(_ =>
         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
-    public static IPowerUseValidity InCombat = new ValidatorPowerUse(_ =>
+    public static readonly IPowerUseValidity InCombat = new ValidatorPowerUse(_ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
+
+    private readonly IsCharacterValidHandler[] validators;
 
     internal ValidatorPowerUse(params IsCharacterValidHandler[] validators)
     {
