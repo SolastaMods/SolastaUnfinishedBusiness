@@ -12,8 +12,7 @@ internal sealed class Titan : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Titan")
-        .SetGuiPresentation(Category.FightingStyle,
-            PathBerserker.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, DomainMischief.GuiPresentation.SpriteReference)
         .SetFeatures(
             FeatureDefinitionOnComputeAttackModifierBuilder
                 .Create("OnComputeAttackModifierFightingStyleTitan")

@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -17,8 +18,18 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             //PATCH: changes the fighting style layout to allow more offerings
             var table = __instance.fightingStylesTable;
             var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
+            var fightingStylesCount = __instance.compatibleFightingStyles.Count;
 
-            gridLayoutGroup.constraintCount = ((__instance.compatibleFightingStyles.Count - 1) / 4) + 1;
+            if (fightingStylesCount > 12)
+            {
+                gridLayoutGroup.constraintCount = Math.Min(4, ((fightingStylesCount - 1) / 5) + 1);
+                table.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+            }
+            else
+            {
+                gridLayoutGroup.constraintCount = Math.Min(3, ((fightingStylesCount - 1) / 4) + 1);
+                table.localScale = new Vector3(1f, 1f, 1f);
+            }
 
             //PATCH: sorts the fighting style panel by Title
             if (!Main.Settings.EnableSortingFightingStyles)
