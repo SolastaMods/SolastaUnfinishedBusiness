@@ -80,15 +80,9 @@ internal static class CharacterContext
             .Create("PowerHelp")
             .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.Action,
-                0,
                 RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 effectDescription,
                 true)
             .AddToDB();

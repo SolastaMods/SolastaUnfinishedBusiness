@@ -56,15 +56,9 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                0,
                 UsesDetermination.AbilityBonusPlusFixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                0,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
@@ -83,7 +77,11 @@ internal sealed class RoguishConArtist : AbstractSubclass
                             .SetConditionForm(
                                 conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
                             .Build())
-                    .Build())
+                    .Build(),
+                false,
+                1,
+                1,
+                AttributeDefinitions.Charisma)
             .AddToDB();
 
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder

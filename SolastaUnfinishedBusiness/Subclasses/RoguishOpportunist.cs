@@ -62,17 +62,10 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerOpportunistDebilitatingStrike")
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
                 ActivationTime.OnSneakAttackHitAuto,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Dexterity,
-                debilitatingStrikeEffectBuilder.Build()
-            )
+                debilitatingStrikeEffectBuilder.Build())
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

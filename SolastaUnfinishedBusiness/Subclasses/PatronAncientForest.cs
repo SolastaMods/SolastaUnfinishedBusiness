@@ -87,17 +87,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.Rest,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                new EffectDescription())
+                new EffectDescription(), false, 1, 1, AttributeDefinitions.Charisma, false, false,
+                AttributeDefinitions.Charisma)
             .SetUsesProficiency()
             .AddToDB();
 
@@ -140,18 +134,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestEntangleAtWill = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.Action,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Entangle.EffectDescription,
-                true)
+                true, 1, 1, AttributeDefinitions.Charisma, false, false, AttributeDefinitions.Charisma)
             .AddToDB();
 
         var conditionAncientForestRooted = ConditionDefinitionBuilder
@@ -167,16 +154,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestRooted = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
                         new EffectFormBuilder()
@@ -194,7 +174,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         TargetType.Self)
                     .Build()
                 ,
-                true)
+                true, 1, 1, AttributeDefinitions.Charisma, false, false, AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
@@ -362,15 +342,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 .SetTitle("Equipment/&FunctionPotionDrinkTitle")
                 .Build())
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .AddEffectForm(
                         new EffectFormBuilder()

@@ -507,8 +507,17 @@ internal static class CasterFeats
             .Create(name)
             .SetGuiPresentation(guiPresentation)
             .Configure(
-                usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge,
-                proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription)
+                usesDetermination,
+                activationTime,
+                recharge,
+                effectDescription,
+                false,
+                costPerUse,
+                usesPerRecharge,
+                abilityScore,
+                proficiencyBonusToAttack,
+                abilityScoreBonusToAttack,
+                abilityScore)
             .AddToDB();
     }
 }

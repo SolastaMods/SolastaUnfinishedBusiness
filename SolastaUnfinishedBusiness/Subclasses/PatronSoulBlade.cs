@@ -44,16 +44,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                true,
-                true,
-                AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally,
@@ -78,8 +71,14 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                         )
                         .Build()
                     )
-                    .Build()
-            )
+                    .Build(),
+                false,
+                1,
+                1,
+                AttributeDefinitions.Charisma,
+                true,
+                true,
+                AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
@@ -95,16 +94,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
             .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.ShortRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 PowerFighterSecondWind.EffectDescription
                     .Copy()
                     .SetEffectForms(EffectFormBuilder

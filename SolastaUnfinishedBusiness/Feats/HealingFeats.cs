@@ -95,9 +95,17 @@ internal static class HealingFeats
             .Create(name)
             .SetGuiPresentation(name, Category.Feature, assetReferenceSprite)
             .Configure(
-                usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
+                usesDetermination,
+                activationTime,
+                recharge,
+                effectDescription,
+                false,
+                costPerUse,
+                usesPerRecharge,
+                usesAbilityScoreName,
                 proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription)
+                abilityScoreBonusToAttack,
+                abilityScore)
             .AddToDB();
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -20,16 +19,10 @@ internal sealed class Merciless : AbstractFightingStyle
             .Create("PowerFightingStyleMerciless")
             .SetGuiPresentation("Fear", Category.Spell)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Strength,
                 ActivationTime.NoCost,
-                0,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Strength,
-                DatabaseHelper.SpellDefinitions.Fear.EffectDescription.Copy())
+                DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
             .AddToDB();
 
         powerFightingStyleMerciless.effectDescription.targetParameter = 1;

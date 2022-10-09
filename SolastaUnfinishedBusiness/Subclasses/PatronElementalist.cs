@@ -85,15 +85,9 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create("PowerElementalistElementalFormPool")
             .SetGuiPresentation(Category.Feature, formRegular)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetUsesProficiency()
             .SetRechargeRate(RechargeRate.LongRest)
@@ -102,16 +96,9 @@ internal sealed class PatronElementalist : AbstractSubclass
         var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalEnhancedFormPool")
             .SetGuiPresentation(Category.Feature, formEnhanced)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetUsesProficiency()
             .SetOverriddenPower(powerElementalistElementalFormPool)

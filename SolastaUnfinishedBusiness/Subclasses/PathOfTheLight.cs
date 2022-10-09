@@ -227,15 +227,9 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
                     .Configure(
-                        1,
                         UsesDetermination.Fixed,
-                        AttributeDefinitions.Charisma,
                         ActivationTime.OnRageStartAutomatic,
-                        1,
                         RechargeRate.AtWill,
-                        false,
-                        false,
-                        AttributeDefinitions.Charisma,
                         new EffectDescriptionBuilder()
                             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
                             .AddEffectForm(new EffectForm

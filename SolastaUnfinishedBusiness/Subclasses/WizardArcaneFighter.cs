@@ -67,15 +67,9 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
             .Configure(
-                0,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Intelligence,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.ShortRest,
-                false,
-                false,
-                AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(

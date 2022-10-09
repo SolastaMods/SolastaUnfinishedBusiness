@@ -84,15 +84,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Darkness.EffectDescription
                     .Copy()
                     .SetDuration(DurationType.Minute, 1),
@@ -102,16 +96,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Daylight.EffectDescription
                     .Copy()
                     .SetDuration(DurationType.Minute, 1),
@@ -122,15 +109,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Fly.EffectDescription.Copy(),
                 true)
             .AddToDB();
@@ -141,15 +122,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescriptionBuilder()
                     .SetDurationData(
                         DurationType.Minute,

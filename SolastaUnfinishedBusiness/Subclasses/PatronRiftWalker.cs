@@ -32,15 +32,9 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 MistyStep.EffectDescription,
                 true)
             .AddToDB();
@@ -50,15 +44,9 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Banishment.EffectDescription,
                 true)
             .AddToDB();
@@ -78,16 +66,9 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Reaction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Banishment.EffectDescription,
                 true)
             .AddToDB();
@@ -102,15 +83,9 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 DimensionDoor.EffectDescription,
                 true)
             .AddToDB();

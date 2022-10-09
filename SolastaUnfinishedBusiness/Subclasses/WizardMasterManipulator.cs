@@ -51,17 +51,14 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         var powerMasterManipulatorDominatePerson = FeatureDefinitionPowerBuilder
             .Create("PowerMasterManipulatorDominatePerson")
             .SetGuiPresentation(Category.Feature, DominatePerson.GuiPresentation.SpriteReference)
-            .Configure(
-                0,
-                UsesDetermination.AbilityBonusPlusFixed,
-                AttributeDefinitions.Intelligence,
+            .Configure(UsesDetermination.AbilityBonusPlusFixed,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
+                DominatePerson.EffectDescription,
                 false,
-                false,
-                AttributeDefinitions.Intelligence,
-                DominatePerson.EffectDescription)
+                1,
+                1,
+                AttributeDefinitions.Intelligence)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

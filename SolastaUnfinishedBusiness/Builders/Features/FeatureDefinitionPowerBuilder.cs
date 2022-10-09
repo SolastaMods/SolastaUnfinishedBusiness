@@ -34,29 +34,29 @@ internal abstract class
     }
 
     internal TBuilder Configure(
-        int usesPerRecharge,
         RuleDefinitions.UsesDetermination usesDetermination,
-        string usesAbilityScoreName,
         RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
         RuleDefinitions.RechargeRate recharge,
-        bool proficiencyBonusToAttack,
-        bool abilityScoreBonusToAttack,
-        string abilityScore,
         EffectDescription effectDescription,
-        bool uniqueInstance = false)
+        bool uniqueInstance = false,
+        int costPerUse = 1,
+        int usesPerRecharge = 1,
+        string usesAbilityScoreName = "",
+        bool proficiencyBonusToAttack = false,
+        bool abilityScoreBonusToAttack = false,
+        string abilityScore = "")
     {
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
         Definition.usesDetermination = usesDetermination;
-        Definition.usesAbilityScoreName = usesAbilityScoreName;
         Definition.activationTime = activationTime;
-        Definition.costPerUse = costPerUse;
         Definition.rechargeRate = recharge;
+        Definition.effectDescription = effectDescription.Copy();
+        Definition.uniqueInstance = uniqueInstance;
+        Definition.costPerUse = costPerUse;
+        Definition.fixedUsesPerRecharge = usesPerRecharge;
+        Definition.usesAbilityScoreName = usesAbilityScoreName;
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.abilityScore = abilityScore;
-        Definition.effectDescription = effectDescription.Copy();
-        Definition.uniqueInstance = uniqueInstance;
         return (TBuilder)this;
     }
 
@@ -81,7 +81,8 @@ internal abstract class
     }
 #endif
 
-    internal TBuilder SetAttackAbilityToHit(bool abilityScoreBonusToAttack = true,
+    internal TBuilder SetAttackAbilityToHit(
+        bool abilityScoreBonusToAttack = true,
         bool proficiencyBonusToAttack = false)
     {
         Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
@@ -116,7 +117,6 @@ internal abstract class
     internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
         Definition.rechargeRate = rate;
-
         return (TBuilder)this;
     }
 

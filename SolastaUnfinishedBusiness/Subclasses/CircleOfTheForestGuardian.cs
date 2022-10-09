@@ -57,15 +57,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create("PowerForestGuardianImprovedBarkWard")
             .SetGuiPresentationNoContent()
             .Configure(
-                0,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
                 ActivationTime.NoCost,
-                0,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
                 EffectDescriptionBuilder
                     .Create()
                     .AddEffectForm(
@@ -82,15 +76,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create("PowerForestGuardianSuperiorBarkWard")
             .SetGuiPresentationNoContent()
             .Configure(
-                0,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
                 ActivationTime.NoCost,
-                0,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
                 EffectDescriptionBuilder
                     .Create()
                     .AddEffectForm(

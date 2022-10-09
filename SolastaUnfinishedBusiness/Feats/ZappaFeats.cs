@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -49,7 +50,7 @@ internal static class ZappaFeats
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat)
-            .SetDuration(RuleDefinitions.DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 0, false)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
@@ -69,7 +70,7 @@ internal static class ZappaFeats
             .Create("ConditionDeadeyeTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("DeadeyeTriggerFeature")
@@ -81,16 +82,15 @@ internal static class ZappaFeats
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
-                    Resources.DeadeyeIcon, 128, 64))
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+                CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Add)
@@ -106,14 +106,14 @@ internal static class ZappaFeats
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffDeadeye")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                    TargetType.Self)
+                .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Remove)
@@ -157,7 +157,7 @@ internal static class ZappaFeats
                     .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd")
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense)
-                    .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                     .AddToDB()
             )
@@ -171,21 +171,21 @@ internal static class ZappaFeats
             .Create("AttackModifierArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var effectArcanePrecision = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */,
-                RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
+                TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Minute, 1 /* duration */,
+                TurnOccurenceType.EndOfTurn)
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0,
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                         new FeatureUnlockByLevel(attackModifierArcanePrecision, 0))
                     .Build()
             )
@@ -195,9 +195,11 @@ internal static class ZappaFeats
             .Create("PowerArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
-                AttributeDefinitions.Intelligence, effectArcanePrecision /* unique instance */)
+            .Configure(
+                UsesDetermination.ProficiencyBonus,
+                ActivationTime.BonusAction,
+                RechargeRate.LongRest,
+                effectArcanePrecision)
             .AddToDB();
 
         var featArcanePrecision = FeatDefinitionBuilder
@@ -233,7 +235,7 @@ internal static class ZappaFeats
                     .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd")
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense)
-                    .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                     .AddToDB()
             )
@@ -247,21 +249,21 @@ internal static class ZappaFeats
             .Create("AttackModifierCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var effectCharismaticPrecision = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */,
-                RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
+                TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Minute, 1 /* duration */,
+                TurnOccurenceType.EndOfTurn)
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0,
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                         new FeatureUnlockByLevel(attackModifierCharismaticPrecision, 0))
                     .Build()
             )
@@ -271,9 +273,11 @@ internal static class ZappaFeats
             .Create("PowerCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
-                AttributeDefinitions.Charisma, effectCharismaticPrecision /* unique instance */)
+            .Configure(
+                UsesDetermination.ProficiencyBonus,
+                ActivationTime.BonusAction,
+                RechargeRate.LongRest,
+                effectCharismaticPrecision)
             .AddToDB();
 
         var featCharismaticPrecision = FeatDefinitionBuilder
@@ -560,9 +564,9 @@ internal static class ZappaFeats
         //         FeatureDefinitionAdditionalDamageBuilder
         //             .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
         //             .SetGuiPresentation(Category.Feature)
-        //             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+        //             .SetDamageDice(DieType.D6, 1)
         //             .SetAdvancement(
-        //                 (RuleDefinitions.AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+        //                 (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
         //                 (1, 0),
         //                 (2, 0),
         //                 (3, 0),
@@ -584,9 +588,9 @@ internal static class ZappaFeats
         //                 (19, 2),
         //                 (20, 4)
         //             )
-        //             .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
-        //             .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-        //             .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+        //             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+        //             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+        //             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
         //             .AddToDB()
         //     )
         //     .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -611,21 +615,21 @@ internal static class ZappaFeats
             .Create("AttackModifierWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat,
                 FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
-            .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var effectWisePrecision = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */,
-                RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
+                TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Minute, 1 /* duration */,
+                TurnOccurenceType.EndOfTurn)
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
-                    .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0,
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                         new FeatureUnlockByLevel(attackModifierWisePrecision, 0))
                     .Build()
             )
@@ -635,9 +639,11 @@ internal static class ZappaFeats
             .Create("PowerWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Wisdom,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, true,
-                AttributeDefinitions.Intelligence, effectWisePrecision /* unique instance */)
+            .Configure(
+                UsesDetermination.ProficiencyBonus,
+                ActivationTime.BonusAction,
+                RechargeRate.LongRest,
+                effectWisePrecision)
             .AddToDB();
 
         var featWisePrecision = FeatDefinitionBuilder
@@ -810,11 +816,11 @@ internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
         const int TO_DAMAGE = 10;
 
         attackMode.ToHitBonus += TO_HIT;
-        attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
-            RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT,
+            FeatureSourceType.Power, "Deadeye", null));
 
         damage.BonusDamage += TO_DAMAGE;
-        damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_DAMAGE,
-            RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
+        damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE,
+            FeatureSourceType.Power, "Deadeye", null));
     }
 }
