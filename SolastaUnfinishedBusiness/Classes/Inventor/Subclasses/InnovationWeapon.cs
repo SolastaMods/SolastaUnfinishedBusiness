@@ -28,6 +28,7 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfJugement)
             .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), BuildSteelDefenderFeatureSet())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
+            .AddFeaturesAtLevel(9, BuildArcaneJolt())
             .AddToDB();
     }
 
@@ -312,6 +313,27 @@ public static class InnovationWeapon
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildArcaneJolt()
+    {
+        //TODO: make Steel defender able to trigger this power
+        //TODO: bunus points if we manage to add healing part of this ability
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationWeaponArcaneJolt")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1))
+            .SetUsesAbility(0, AttributeDefinitions.Intelligence)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetDamageForm(dieType: DieType.D6, diceNumber: 2, damageType: RuleDefinitions.DamageTypeForce)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
     private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
@@ -336,7 +358,7 @@ public static class InnovationWeapon
 
     private class ShowInCombatWhenHasBlade : IPowerUseValidity
     {
-        public bool CanUsePower(RulesetCharacter character)
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
 
