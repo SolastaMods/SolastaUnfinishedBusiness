@@ -25,6 +25,6 @@ internal sealed class LightFooted : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
+        FightingStyleRanger
     };
 }

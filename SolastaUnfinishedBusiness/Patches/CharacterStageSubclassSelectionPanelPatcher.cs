@@ -3,6 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -15,8 +17,14 @@ public static class CharacterStageSubclassSelectionPanelPatcher
         public static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
             //PATCH: changes the subclasses layout to allow more offering
-            LevelUpContext.ApplyCommonSelectionLayout(__instance.subclassesTable);
+            var table = __instance.subclassesTable;
+            var rectTransform = table.parent.parent.parent.GetComponent<RectTransform>();
+            var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
 
+            rectTransform.anchoredPosition = new Vector2(-245.5f, 30f);
+            gridLayoutGroup.spacing = new Vector2(50, 100);
+            gridLayoutGroup.constraintCount = (__instance.compatibleSubclasses.Count - 1) / 4 + 2;
+            
             //PATCH: sorts the sub classes panel by Title
             if (!Main.Settings.EnableSortingSubclasses)
             {
