@@ -59,17 +59,8 @@ internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Rec
     {
     }
 
-    protected RecipeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected RecipeDefinitionBuilder(RecipeDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

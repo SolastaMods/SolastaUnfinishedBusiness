@@ -48,19 +48,8 @@ internal class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuil
     {
     }
 
-    protected FeatureDefinitionAttributeModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-
     protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

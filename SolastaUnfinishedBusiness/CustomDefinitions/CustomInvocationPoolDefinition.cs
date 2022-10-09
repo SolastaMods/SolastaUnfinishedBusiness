@@ -23,17 +23,8 @@ internal class CustomInvocationPoolDefinitionBuilder : FeatureDefinitionBuilder
     {
     }
 
-    protected CustomInvocationPoolDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected CustomInvocationPoolDefinitionBuilder(CustomInvocationPoolDefinition original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected CustomInvocationPoolDefinitionBuilder(CustomInvocationPoolDefinition original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

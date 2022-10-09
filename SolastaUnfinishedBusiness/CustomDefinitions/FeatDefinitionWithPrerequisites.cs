@@ -15,17 +15,8 @@ internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<Fe
     {
     }
 
-    protected FeatDefinitionWithPrerequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

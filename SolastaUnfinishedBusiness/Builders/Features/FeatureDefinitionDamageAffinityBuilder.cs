@@ -47,18 +47,8 @@ internal class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionBuilder
     {
     }
 
-    protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

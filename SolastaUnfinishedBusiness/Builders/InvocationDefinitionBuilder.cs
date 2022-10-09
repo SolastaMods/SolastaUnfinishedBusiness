@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -10,17 +11,8 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
     {
     }
 
-    protected InvocationDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 
@@ -57,6 +49,7 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
     }
 }
 
+[UsedImplicitly]
 internal class InvocationDefinitionBuilder :
     InvocationDefinitionBuilder<InvocationDefinition, InvocationDefinitionBuilder>
 {
@@ -66,17 +59,8 @@ internal class InvocationDefinitionBuilder :
     {
     }
 
-    protected InvocationDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid) : base(
         original, name, namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(InvocationDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

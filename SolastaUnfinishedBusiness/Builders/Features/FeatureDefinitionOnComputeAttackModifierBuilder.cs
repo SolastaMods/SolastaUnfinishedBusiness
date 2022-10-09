@@ -24,20 +24,9 @@ internal class FeatureDefinitionOnComputeAttackModifierBuilder : FeatureDefiniti
     {
     }
 
-    protected FeatureDefinitionOnComputeAttackModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original,
         string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionOnComputeAttackModifierBuilder(FeatureDefinitionOnComputeAttackModifier original,
-        string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

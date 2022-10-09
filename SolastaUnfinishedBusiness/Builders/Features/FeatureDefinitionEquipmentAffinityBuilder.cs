@@ -14,18 +14,8 @@ internal class FeatureDefinitionEquipmentAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionEquipmentAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionEquipmentAffinityBuilder(FeatureDefinitionEquipmentAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionEquipmentAffinityBuilder(FeatureDefinitionEquipmentAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

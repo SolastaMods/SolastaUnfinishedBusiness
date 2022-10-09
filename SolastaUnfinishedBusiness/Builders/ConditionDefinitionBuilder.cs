@@ -228,18 +228,8 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull();
     }
 
-    protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-        SetEmptyParticleReferencesWhereNull();
-    }
-
     protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 
@@ -256,17 +246,8 @@ internal class ConditionDefinitionBuilder :
     {
     }
 
-    protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(
         original, name, namespaceGuid)
-    {
-    }
-
-    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

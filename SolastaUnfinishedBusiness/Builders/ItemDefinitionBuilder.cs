@@ -259,17 +259,8 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
     {
     }
 
-    protected ItemDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected ItemDefinitionBuilder(ItemDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 

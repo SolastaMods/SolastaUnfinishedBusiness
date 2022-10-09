@@ -34,18 +34,8 @@ internal class FeatureDefinitionSummoningAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionSummoningAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

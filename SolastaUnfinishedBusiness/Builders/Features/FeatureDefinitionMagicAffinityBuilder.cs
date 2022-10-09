@@ -98,19 +98,8 @@ internal class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionBuilder<
 
     #region Constructors
 
-    protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
-        : base(name, guid)
-    {
-    }
-
     protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
         : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
-        string guid)
-        : base(original, name, guid)
     {
     }
 

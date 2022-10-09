@@ -22,18 +22,8 @@ internal class FeatureDefinitionOnCharacterKillBuilder : FeatureDefinitionBuilde
     {
     }
 
-    protected FeatureDefinitionOnCharacterKillBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionOnCharacterKillBuilder(FeatureDefinitionOnCharacterKill original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionOnCharacterKillBuilder(FeatureDefinitionOnCharacterKill original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

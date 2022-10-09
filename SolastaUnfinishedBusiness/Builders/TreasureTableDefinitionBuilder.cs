@@ -20,17 +20,8 @@ internal class
     {
     }
 
-    protected TreasureTableDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 

@@ -21,17 +21,8 @@ internal class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<
     {
     }
 
-    internal FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    internal FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

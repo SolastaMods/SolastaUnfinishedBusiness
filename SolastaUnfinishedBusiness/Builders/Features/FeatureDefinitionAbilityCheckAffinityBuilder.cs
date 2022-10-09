@@ -50,18 +50,8 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionB
     {
     }
 
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original,
         string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original,
-        string name, string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

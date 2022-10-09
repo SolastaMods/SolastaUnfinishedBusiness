@@ -46,18 +46,8 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
     {
     }
 
-    protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

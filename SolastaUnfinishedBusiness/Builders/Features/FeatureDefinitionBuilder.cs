@@ -13,17 +13,8 @@ internal abstract class FeatureDefinitionBuilder<TDefinition, TBuilder> : Defini
     {
     }
 
-    protected FeatureDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 
@@ -39,17 +30,8 @@ internal class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefini
     {
     }
 
-    protected FeatureDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionBuilder(FeatureDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionBuilder(FeatureDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

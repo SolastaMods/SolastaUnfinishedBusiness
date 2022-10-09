@@ -76,18 +76,8 @@ internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerB
     {
     }
 
-    protected FeatureDefinitionPowerSharedPoolBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

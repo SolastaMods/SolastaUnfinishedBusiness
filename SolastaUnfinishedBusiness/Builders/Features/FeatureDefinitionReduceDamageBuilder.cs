@@ -42,18 +42,8 @@ internal class FeatureDefinitionReduceDamageBuilder : FeatureDefinitionBuilder<F
     {
     }
 
-    protected FeatureDefinitionReduceDamageBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionReduceDamageBuilder(FeatureDefinitionReduceDamage original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionReduceDamageBuilder(FeatureDefinitionReduceDamage original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

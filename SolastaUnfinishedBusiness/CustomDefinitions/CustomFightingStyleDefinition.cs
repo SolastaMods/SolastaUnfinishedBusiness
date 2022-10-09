@@ -29,10 +29,6 @@ internal class CustomizableFightingStyleBuilder : DefinitionBuilder<
     CustomFightingStyleDefinition,
     CustomizableFightingStyleBuilder>
 {
-    protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
-    {
-    }
-
     protected CustomizableFightingStyleBuilder(string name, Guid guid) : base(name, guid)
     {
     }

@@ -23,20 +23,9 @@ internal class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefi
     {
     }
 
-    protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(
         FeatureDefinitionOnMagicalAttackDamageEffect original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(
-        FeatureDefinitionOnMagicalAttackDamageEffect original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 

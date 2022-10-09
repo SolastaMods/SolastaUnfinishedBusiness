@@ -65,18 +65,8 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
     {
     }
 
-    protected FeatureDefinitionPowerPoolModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

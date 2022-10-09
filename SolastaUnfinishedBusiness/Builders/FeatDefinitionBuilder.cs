@@ -65,17 +65,8 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
     {
     }
 
-    protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected FeatDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name,
-        definitionGuid)
     {
     }
 
@@ -91,17 +82,8 @@ internal class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, Fea
     {
     }
 
-    protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid) : base(original, name,
         namespaceGuid)
-    {
-    }
-
-    protected FeatDefinitionBuilder(FeatDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 

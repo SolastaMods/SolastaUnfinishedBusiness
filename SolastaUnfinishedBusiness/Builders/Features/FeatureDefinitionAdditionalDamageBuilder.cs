@@ -164,18 +164,8 @@ internal class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionBuild
     {
     }
 
-    protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

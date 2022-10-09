@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -141,6 +142,7 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
     }
 }
 
+[UsedImplicitly]
 internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
     CustomInvocationDefinitionBuilder>
 {
@@ -148,17 +150,8 @@ internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<C
     {
     }
 
-    internal CustomInvocationDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
-    {
-    }
-
-    internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, string definitionGuid)
-        : base(original, name, definitionGuid)
     {
     }
 

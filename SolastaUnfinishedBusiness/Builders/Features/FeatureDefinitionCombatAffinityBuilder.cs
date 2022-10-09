@@ -39,18 +39,8 @@ internal class FeatureDefinitionCombatAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionCombatAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionCombatAffinityBuilder(FeatureDefinitionCombatAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionCombatAffinityBuilder(FeatureDefinitionCombatAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

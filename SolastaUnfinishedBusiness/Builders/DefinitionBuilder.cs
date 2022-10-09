@@ -526,18 +526,10 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
     where TDefinition : BaseDefinition
     where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
 {
-    // TODO: merge with base class?
-
     private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
-    private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
 
     private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-        name, definitionGuid)
     {
     }
 

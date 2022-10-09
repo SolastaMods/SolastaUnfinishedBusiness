@@ -28,18 +28,8 @@ internal class FeatureDefinitionDieRollModifierBuilder
     {
     }
 
-    protected FeatureDefinitionDieRollModifierBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

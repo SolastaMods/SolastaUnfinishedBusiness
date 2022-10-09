@@ -50,19 +50,8 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
 
     #region Constructors
 
-    protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
-        : base(name, guid)
-    {
-    }
-
     protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
         : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
-        string name, string guid)
-        : base(original, name, guid)
     {
     }
 

@@ -28,17 +28,8 @@ internal class FeatureDefinitionCraftingAffinityBuilder : FeatureDefinitionBuild
     {
     }
 
-    public FeatureDefinitionCraftingAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     public FeatureDefinitionCraftingAffinityBuilder(FeatureDefinitionCraftingAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    public FeatureDefinitionCraftingAffinityBuilder(FeatureDefinitionCraftingAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

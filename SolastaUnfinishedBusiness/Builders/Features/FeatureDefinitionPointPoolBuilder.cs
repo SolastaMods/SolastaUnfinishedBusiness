@@ -56,17 +56,8 @@ internal class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<Feat
     {
     }
 
-    internal FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     internal FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    internal FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

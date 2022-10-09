@@ -22,7 +22,7 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
         return This();
     }
 
-    #if false
+#if false
     internal FeatureDefinitionActionAffinityBuilder SetRestrictedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.RestrictedActions.SetRange(actions);
@@ -30,7 +30,7 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
         return This();
     }
 #endif
-    
+
     internal FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {
@@ -50,18 +50,8 @@ internal class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder
     {
     }
 
-    protected FeatureDefinitionActionAffinityBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 

@@ -14,17 +14,8 @@ internal class FeatureDefinitionPowerBuilder
     {
     }
 
-    protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
     {
     }
 
@@ -191,17 +182,8 @@ internal abstract class
     {
     }
 
-    protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

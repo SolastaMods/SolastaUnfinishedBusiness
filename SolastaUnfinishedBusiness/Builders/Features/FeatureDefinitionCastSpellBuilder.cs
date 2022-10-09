@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -218,14 +217,14 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 
-    #if false
+#if false
     internal FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
     {
         Definition.ScribedSpells.SetRange(scribedCount);
         return this;
     }
 #endif
-    
+
     internal FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
         RuleDefinitions.SpellPreparationCount prepCount)
     {
@@ -242,14 +241,14 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    #if false
+#if false
     internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
     {
         Definition.KnownCantrips.SetRange(cantripsCount);
         return this;
     }
 #endif
-    
+
     internal FeatureDefinitionCastSpellBuilder SetKnownCantrips(
         int startingAmount,
         int startingLevel,
@@ -376,35 +375,35 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         }
     }
 
-    #if false
+#if false
     internal FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
     {
         Definition.KnownSpells.SetRange(spellsCount);
         return this;
     }
 #endif
-    
+
     internal FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, CasterProgression progression)
     {
         EnumerateKnownSpells(startingAmount, progression, Definition.KnownSpells);
         return this;
     }
 
-    #if false
+#if false
     internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
     {
         Definition.ReplacedSpells.SetRange(spellsCount);
         return this;
     }
 #endif
-    
+
     internal FeatureDefinitionCastSpellBuilder SetReplacedSpells(int startingLevel, int replaces)
     {
         EnumerateReplacedSpells(startingLevel, replaces, Definition.ReplacedSpells);
         return this;
     }
 
-    #if false
+#if false
     internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
         params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
     {
@@ -412,7 +411,7 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         return this;
     }
 #endif
-    
+
     internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(CasterProgression progression)
     {
         EnumerateSlotsPerLevel(progression, Definition.SlotsPerLevels);
@@ -726,19 +725,10 @@ internal class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Feat
         InitializeFields();
     }
 
-    protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-        InitializeFields();
-    }
-
     protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
-    }
-
-    protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
-    {
+        InitializeFields();
     }
 
     #endregion

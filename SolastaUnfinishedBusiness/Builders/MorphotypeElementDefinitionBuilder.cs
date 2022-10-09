@@ -39,19 +39,8 @@ internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<Morphotype
     {
     }
 
-    protected MorphotypeElementDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected MorphotypeElementDefinitionBuilder(MorphotypeElementDefinition original, string name, Guid namespaceGuid)
-        : base(original, name,
-            namespaceGuid)
-    {
-    }
-
-    protected MorphotypeElementDefinitionBuilder(MorphotypeElementDefinition original, string name,
-        string definitionGuid) : base(original,
-        name, definitionGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

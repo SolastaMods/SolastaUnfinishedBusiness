@@ -225,17 +225,8 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     {
     }
 
-    protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original,
         name, namespaceGuid)
-    {
-    }
-
-    protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(
-        original, name, definitionGuid)
     {
     }
 

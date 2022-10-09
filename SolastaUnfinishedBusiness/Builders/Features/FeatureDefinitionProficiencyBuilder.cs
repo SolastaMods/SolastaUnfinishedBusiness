@@ -36,17 +36,8 @@ internal class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<Fe
     {
     }
 
-    protected FeatureDefinitionProficiencyBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
     protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
     {
     }
 
