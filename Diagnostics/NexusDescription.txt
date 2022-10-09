@@ -201,7 +201,7 @@ Requires the ability to cast spells.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
-[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Careful metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Distant[/b]: Increase your Charisma by 1, to a maximum of 20.
@@ -221,8 +221,7 @@ You learn the Twinned metamagic and gain 2 sorcery points.
 • While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 [*][b]Power Attack[/b]: You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
-If you have free hand, you can shove as a bonus action.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
@@ -275,9 +274,8 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Executioner[/b]: You gain a +2 hit against creatures that are blind, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and damage rolls when you use a versatile weapon in two hands.
 [*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
-[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
-If you have free hand, you can shove as a bonus action.
+[*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
 [*][b]Reactionary[/b]: You gain a +2 hit with attacks of opportunity.
 [*][b]Titan Hunter[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [/list]

@@ -1,7 +1,6 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomFightingStyleDefinition, SolastaUnfinishedBusiness",
   "features": [
-    "Definition:AdditionalActionFightingStyleMerciless:baf21e0d-b2ac-5321-ae36-5dfeddfb43e3",
     "Definition:OnCharacterKillFightingStyleMerciless:99f641dd-ab04-5df1-9cf3-838975085d8b"
   ],
   "condition": "RangedWeaponAttack",
