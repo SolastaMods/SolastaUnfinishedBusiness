@@ -46,6 +46,7 @@ internal class CustomItemFilter : ICustomItemFilter
             if (item == null)
             {
                 box.ValidForItemSelection = false;
+
                 continue;
             }
 

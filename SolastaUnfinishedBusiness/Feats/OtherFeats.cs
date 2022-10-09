@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -22,9 +23,9 @@ internal static class OtherFeats
             .Create(FeatSavageAttackerName)
             .SetFeatures(
                 BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageAttacker",
-                    AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */),
+                    AttackDamageValueRoll, 1, 1),
                 BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
-                    MagicDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */))
+                    MagicDamageValueRoll, 1, 1))
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -32,25 +33,15 @@ internal static class OtherFeats
         var featImprovedCritical = FeatDefinitionBuilder
             .Create("FeatImprovedCritical")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatImprovedCritical")
-                    .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
-                    .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
-                    .AddToDB())
+            .SetFeatures(AttributeModifierMartialChampionImprovedCritical)
             .AddToDB();
 
-        // Master Critical
-        var featMasterCritical = FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatMasterCritical")
+        // Superior Critical
+        var featSuperiorCritical = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatSuperiorCritical")
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.ValidateHasFeat(featImprovedCritical))
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatMasterCritical")
-                    .SetGuiPresentation("FeatMasterCritical", Category.Feat)
-                    .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 18)
-                    .AddToDB())
+            .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .AddToDB();
 
         // Tough
@@ -69,7 +60,8 @@ internal static class OtherFeats
         var featShieldExpert = FeatDefinitionBuilder
             .Create(FeatShieldExpertName)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionBuilder
+            .SetFeatures(
+                FeatureDefinitionBuilder
                     .Create("FeatShieldExpertBonusShieldAttack")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new AddBonusShieldAttack())
@@ -100,9 +92,9 @@ internal static class OtherFeats
 
         GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", null,
             featImprovedCritical,
-            featMasterCritical);
+            featSuperiorCritical);
 
-        feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featMasterCritical, featShieldExpert);
+        feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featSuperiorCritical, featShieldExpert);
     }
 
     private static FeatureDefinitionDieRollModifier BuildFeatSavageAttackerDieRollModifier(

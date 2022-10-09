@@ -620,7 +620,7 @@ internal static class InventorClass
             powers.Add(power);
         }
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers);
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers.ToArray());
         PowersBundleContext.RegisterPowerBundle(master, true, powers);
 
         return master;

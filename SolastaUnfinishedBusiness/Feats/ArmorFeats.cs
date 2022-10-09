@@ -21,13 +21,16 @@ internal static class ArmorFeats
             ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
 
         var featLightArmor = BuildFeat("FeatLightArmor", null,
-            proficiencyFeatLightArmor, AttributeModifierCreed_Of_Misaye);
+            proficiencyFeatLightArmor,
+            AttributeModifierCreed_Of_Misaye);
 
         var featMediumArmorDex = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
-            proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye);
+            proficiencyFeatMediumArmor,
+            AttributeModifierCreed_Of_Misaye);
 
         var featMediumArmorStr = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
-            proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar);
+            proficiencyFeatMediumArmor,
+            AttributeModifierCreed_Of_Einar);
 
         var featHeavyArmorMaster = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
             DamageAffinityBludgeoningResistance,
@@ -41,7 +44,9 @@ internal static class ArmorFeats
             featMediumArmorStr);
     }
 
-    private static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
+    private static FeatDefinition BuildFeat(
+        string name,
+        ArmorCategoryDefinition prerequisite,
         params FeatureDefinition[] features)
     {
         return FeatDefinitionBuilder
@@ -52,7 +57,9 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
+    private static FeatureDefinitionProficiency BuildProficiency(
+        string name,
+        ProficiencyType type,
         params string[] proficiencies)
     {
         return FeatureDefinitionProficiencyBuilder

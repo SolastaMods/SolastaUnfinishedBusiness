@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
-    internal RulesetEffectPowerWithAdvancement(
+    private RulesetEffectPowerWithAdvancement(
         int extraCharges,
         RulesetCharacter user,
         RulesetUsablePower usablePower,

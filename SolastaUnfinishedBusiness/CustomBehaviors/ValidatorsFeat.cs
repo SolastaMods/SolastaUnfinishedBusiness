@@ -18,10 +18,11 @@ internal static class ValidatorsFeat
         var elfTitle = DatabaseHelper.CharacterRaceDefinitions.Elf.FormatTitle();
         var halfElfTitle = DatabaseHelper.CharacterRaceDefinitions.HalfElf.FormatTitle();
         var param = $"{elfTitle}, {halfElfTitle}";
+        var guiFormat = Gui.Format("Tooltip/&FeatPreReqIs", param);
 
         return isElf
-            ? (true, Gui.Format("Tooltip/&FeatPreReqIs", param))
-            : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIs", param), Gui.ColorFailure));
+            ? (true, guiFormat)
+            : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
     }
 
     [NotNull]
@@ -31,15 +32,11 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var isLevelValid = hero.ClassesHistory.Count >= minCharLevel;
+            var guiFormat = Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString());
 
-            if (isLevelValid)
-            {
-                return (true, Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString()));
-            }
-
-            return (false,
-                Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString()),
-                    Gui.ColorFailure));
+            return isLevelValid
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
 
@@ -50,33 +47,13 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var isValid = hero.TrainedFeats.Contains(featDefinition);
+            var guiFormat = Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle());
 
-            if (isValid)
-            {
-                return (true, Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle()));
-            }
-
-            return (false,
-                Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle()),
-                    Gui.ColorFailure));
+            return isValid
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
-
-    // [NotNull]
-    // internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateRace(
-    //     CharacterRaceDefinition characterRaceDefinition)
-    // {
-    //     var raceName = characterRaceDefinition.FormatTitle();
-    //
-    //     return (_, hero) =>
-    //     {
-    //         var isRace = characterRaceDefinition == hero.RaceDefinition;
-    //
-    //         return isRace
-    //             ? (true, Gui.Format("Tooltip/&FeatPreReqIs", raceName))
-    //             : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIs", raceName), Gui.ColorFailure));
-    //     };
-    // }
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
@@ -87,10 +64,11 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
+            var guiFormat = Gui.Format("Tooltip/&FeatPreReqIsNot", className);
 
             return isNotClass
-                ? (true, Gui.Format("Tooltip/&FeatPreReqIsNot", className))
-                : (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPreReqIsNot", className), Gui.ColorFailure));
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
 }

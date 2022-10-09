@@ -328,7 +328,7 @@ public static class InnovationWeapon
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetDamageForm(dieType: DieType.D6, diceNumber: 2, damageType: RuleDefinitions.DamageTypeForce)
+                    .SetDamageForm(dieType: DieType.D6, diceNumber: 2, damageType: DamageTypeForce)
                     .Build())
                 .Build())
             .AddToDB();

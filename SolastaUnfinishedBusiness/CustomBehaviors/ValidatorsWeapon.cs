@@ -35,8 +35,9 @@ internal static class ValidatorsWeapon
 
     internal static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
-        return weapon == null //for unarmed
-               || IsMelee(weapon.ItemDefinition)
+        return weapon == null // for unarmed
+               || weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
+               RuleDefinitions.AttackProximity.Melee
                || weapon.ItemDefinition.IsArmor;
     }
 
@@ -44,13 +45,6 @@ internal static class ValidatorsWeapon
     {
         //TODO: test if this is enough, or we need to check SourceDefinition too
         return !attack.ranged;
-    }
-
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static bool IsMelee([CanBeNull] ItemDefinition weapon)
-    {
-        return weapon != null &&
-               weapon.WeaponDescription?.WeaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee;
     }
 
     internal static bool IsRanged(RulesetItem weapon)
@@ -63,9 +57,9 @@ internal static class ValidatorsWeapon
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static bool IsUnarmedWeapon([CanBeNull] RulesetAttackMode attackMode, RulesetItem weapon,
-        RulesetCharacter character)
+    private static bool IsUnarmedWeapon(
+        [CanBeNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
     {
         var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
 
@@ -80,12 +74,12 @@ internal static class ValidatorsWeapon
 
     internal static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
     {
-        return IsUnarmedWeapon(attackMode, null, null);
+        return IsUnarmedWeapon(attackMode, null);
     }
 
     internal static bool IsUnarmedWeapon(RulesetItem weapon)
     {
-        return IsUnarmedWeapon(null, weapon, null);
+        return IsUnarmedWeapon(null, weapon);
     }
 
     internal static bool IsTwoHanded([CanBeNull] RulesetItem weapon)
@@ -96,9 +90,15 @@ internal static class ValidatorsWeapon
 
     internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
     {
-        if (attackMode.Magical) { return true; }
+        if (attackMode.Magical)
+        {
+            return true;
+        }
 
-        if (weapon == null) { return false; }
+        if (weapon == null)
+        {
+            return false;
+        }
 
         return weapon.IsMagicalWeapon() || ShieldAttack.IsMagicShield(weapon);
     }

@@ -11,7 +11,8 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal abstract class AddExtraAttackBase : IAddExtraAttack
 {
     protected readonly ActionDefinitions.ActionType ActionType;
-    private readonly List<string> additionalTags = new();
+
+    // private readonly List<string> additionalTags = new();
     private readonly bool clearSameType;
     private readonly IsCharacterValidHandler[] validators;
 
@@ -66,10 +67,10 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
         foreach (var attackMode in newAttacks)
         {
-            foreach (var tag in additionalTags)
-            {
-                attackMode.AddAttackTagAsNeeded(tag);
-            }
+            // foreach (var tag in additionalTags)
+            // {
+            //     attackMode.AddAttackTagAsNeeded(tag);
+            // }
 
             var same = attackModes.FirstOrDefault(m => ModesEqual(attackMode, m));
 
@@ -87,6 +88,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
         }
     }
 
+#if false
     [NotNull]
     internal AddExtraAttackBase SetTags([NotNull] params string[] tags)
     {
@@ -94,6 +96,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
         return this;
     }
+#endif
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
 
@@ -193,12 +196,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         ActionDefinitions.ActionType actionType,
         bool clearSameType,
         params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
-    {
-    }
-
-    internal AddExtraMainHandAttack(ActionDefinitions.ActionType actionType,
-        params IsCharacterValidHandler[] validators) :
-        base(actionType, validators)
     {
     }
 

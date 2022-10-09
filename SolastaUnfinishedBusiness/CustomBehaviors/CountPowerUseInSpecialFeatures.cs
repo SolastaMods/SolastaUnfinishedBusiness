@@ -5,11 +5,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class CountPowerUseInSpecialFeatures
 {
-    public static CountPowerUseInSpecialFeatures Marker { get; } = new();
-
     private CountPowerUseInSpecialFeatures()
     {
     }
+
+    public static CountPowerUseInSpecialFeatures Marker { get; } = new();
 
     internal static void Count(RulesetCharacter character, RulesetUsablePower usablePower)
     {

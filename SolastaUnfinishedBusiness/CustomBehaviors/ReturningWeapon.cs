@@ -26,6 +26,7 @@ internal class ReturningWeapon
         var inventory = hero.characterInventory;
         var num = inventory.CurrentConfiguration;
         var configurations = inventory.WieldedItemsConfigurations;
+
         if (inventory.CurrentConfiguration == configurations.Count - 1)
         {
             num = configurations[num].MainHandSlot.ShadowedSlot != configurations[0].MainHandSlot
