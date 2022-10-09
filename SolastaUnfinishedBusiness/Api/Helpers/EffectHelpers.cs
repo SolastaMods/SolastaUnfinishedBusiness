@@ -13,7 +13,6 @@ internal static class EffectHelpers
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
         string className, int def = 10)
     {
-        //TODO: implement missing computation methods (like Ki and Breath Weapon)
         switch (effectDescription.DifficultyClassComputation)
         {
             case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
@@ -35,6 +34,14 @@ internal static class EffectHelpers
 
             case RuleDefinitions.EffectDifficultyClassComputation.FixedValue:
                 return effectDescription.FixedSavingThrowDifficultyClass;
+
+            //TODO: implement missing computation methods (like Ki and Breath Weapon)
+            case RuleDefinitions.EffectDifficultyClassComputation.Ki:
+                break;
+            case RuleDefinitions.EffectDifficultyClassComputation.BreathWeapon:
+                break;
+            case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
+                break;
         }
 
         return def;

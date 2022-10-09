@@ -72,11 +72,13 @@ internal static class RulesetActorExtensions
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
     }
 
+#if false
     internal static bool HasAllFeatures(this RulesetActor actor, [NotNull] params FeatureDefinition[] features)
     {
         var all = FeaturesByType<FeatureDefinition>(actor);
         return FlattenFeatureList(features).All(f => all.Contains(f));
     }
+#endif
 
     [NotNull]
     public static IEnumerable<FeatureDefinition> FlattenFeatureList([NotNull] IEnumerable<FeatureDefinition> features)

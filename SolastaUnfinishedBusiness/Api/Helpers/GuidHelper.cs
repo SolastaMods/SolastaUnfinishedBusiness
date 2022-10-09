@@ -16,28 +16,14 @@ internal static class GuidHelper
     /// </summary>
     /// <param name="namespaceId">The ID of the namespace.</param>
     /// <param name="name">The name (within that namespace).</param>
-    /// <param name="version">
-    ///     The version number of the UUID to create; this value must be either
-    ///     3 (for MD5 hashing) or 5 (for SHA-1 hashing).
-    /// </param>
     /// <returns>A UUID derived from the namespace and name.</returns>
     /// <remarks>
     ///     See
     ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
     ///     .
     /// </remarks>
-    internal static Guid Create(Guid namespaceId, [NotNull] string name, int version = 5)
+    internal static Guid Create(Guid namespaceId, [NotNull] string name)
     {
-        if (name == null)
-        {
-            throw new ArgumentNullException(nameof(name));
-        }
-
-        if (version != 3 && version != 5)
-        {
-            throw new ArgumentOutOfRangeException(nameof(version), @"version must be either 3 or 5.");
-        }
-
         // convert the name to a sequence of octets (as defined by the standard or conventions of its namespace) (step 3)
         // ASSUME: UTF-8 encoding is always appropriate
         var nameBytes = Encoding.UTF8.GetBytes(name);
@@ -50,7 +36,7 @@ internal static class GuidHelper
         // compute the hash of the name space ID concatenated with the name (step 4)
         byte[] hash;
 
-        using (HashAlgorithm algorithm = version == 3 ? MD5.Create() : SHA1.Create())
+        using (HashAlgorithm algorithm = SHA1.Create())
         {
             algorithm.TransformBlock(namespaceBytes, 0, namespaceBytes.Length, null, 0);
             algorithm.TransformFinalBlock(nameBytes, 0, nameBytes.Length);
@@ -63,7 +49,7 @@ internal static class GuidHelper
         Array.Copy(hash, 0, newGuid, 0, 16);
 
         // set the four most significant bits (bits 12 through 15) of the time_hi_and_version field to the appropriate 4-bit version number from Section 4.1.3 (step 8)
-        newGuid[6] = (byte)((newGuid[6] & 0x0F) | (version << 4));
+        newGuid[6] = (byte)((newGuid[6] & 0x0F) | (5 << 4));
 
         // set the two most significant bits (bits 6 and 7) of the clock_seq_hi_and_reserved to zero and one, respectively (step 10)
         newGuid[8] = (byte)((newGuid[8] & 0x3F) | 0x80);

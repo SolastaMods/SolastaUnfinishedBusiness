@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
@@ -48,7 +47,7 @@ internal static class RulesetCharacterExtensions
             return false;
         }
 
-        return (power.GetAllSubFeaturesOfType<IPowerUseValidity>())
+        return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
             .All(v => v.CanUsePower(instance));
     }
 
@@ -58,6 +57,7 @@ internal static class RulesetCharacterExtensions
         [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
     {
         spellRepertoire = null;
+
         foreach (var repertoire in from repertoire in character.spellRepertoires
                  from knownCantrip in repertoire.KnownCantrips
                  where knownCantrip == cantrip
@@ -65,12 +65,14 @@ internal static class RulesetCharacterExtensions
                  select repertoire)
         {
             spellRepertoire = repertoire;
+
             return true;
         }
 
         return false;
     }
 
+#if false
     [NotNull]
     internal static List<RulesetAttackMode> GetAttackModesByActionType([NotNull] this RulesetCharacter instance,
         ActionDefinitions.ActionType actionType)
@@ -79,6 +81,7 @@ internal static class RulesetCharacterExtensions
             .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
             .ToList();
     }
+#endif
 
     internal static bool CanAddAbilityBonusToOffhand(this RulesetCharacter instance)
     {
@@ -136,7 +139,10 @@ internal static class RulesetCharacterExtensions
     /**@returns character who summoned thios creature, or null*/
     internal static GameLocationCharacter GetMySummoner(this RulesetCharacter instance)
     {
-        if (instance == null) { return null; }
+        if (instance == null)
+        {
+            return null;
+        }
 
         if (!instance.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                 RuleDefinitions.ConditionConjuredCreature, out var conjured))
@@ -144,11 +150,8 @@ internal static class RulesetCharacterExtensions
             return null;
         }
 
-        if (RulesetEntity.TryGetEntity<RulesetCharacter>(conjured.SourceGuid, out var actor))
-        {
-            return GameLocationCharacter.GetFromActor(actor);
-        }
-
-        return null;
+        return RulesetEntity.TryGetEntity<RulesetCharacter>(conjured.SourceGuid, out var actor)
+            ? GameLocationCharacter.GetFromActor(actor)
+            : null;
     }
 }

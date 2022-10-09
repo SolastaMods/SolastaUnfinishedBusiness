@@ -154,6 +154,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetCanBeDispersed<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
@@ -161,6 +162,7 @@ internal static class EffectDescriptionExtensions
         entity.canBeDispersed = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetCanBePlacedOnCharacter<T>([NotNull] this T entity, Boolean value)
@@ -186,6 +188,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetDisableSavingThrowOnAllies<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
@@ -193,6 +196,7 @@ internal static class EffectDescriptionExtensions
         entity.disableSavingThrowOnAllies = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetDurationParameter<T>([NotNull] this T entity, Int32 value)
@@ -210,6 +214,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetEffectAdvancement<T>([NotNull] this T entity, EffectAdvancement value)
         where T : EffectDescription
@@ -225,6 +230,7 @@ internal static class EffectDescriptionExtensions
         entity.effectAIParameters = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetEffectForms<T>([NotNull] this T entity, params EffectForm[] value)
@@ -242,6 +248,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetEffectPoolAmount<T>([NotNull] this T entity, Int32 value)
         where T : EffectDescription
@@ -297,6 +304,7 @@ internal static class EffectDescriptionExtensions
         entity.hasLimitedEffectPool = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetHasSavingThrow<T>([NotNull] this T entity, Boolean value)
@@ -306,6 +314,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetHasShoveRoll<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
@@ -377,6 +386,7 @@ internal static class EffectDescriptionExtensions
         entity.poolFilterDieType = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetRangeParameter<T>([NotNull] this T entity, Int32 value)
@@ -402,6 +412,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetRequiresTargetProximity<T>([NotNull] this T entity, Boolean value)
         where T : EffectDescription
@@ -409,6 +420,7 @@ internal static class EffectDescriptionExtensions
         entity.requiresTargetProximity = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetRequiresVisibilityForPosition<T>([NotNull] this T entity, Boolean value)
@@ -418,6 +430,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetRetargetActionType<T>([NotNull] this T entity, ActionDefinitions.ActionType value)
         where T : EffectDescription
@@ -433,6 +446,7 @@ internal static class EffectDescriptionExtensions
         entity.retargetAfterDeath = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetSavingThrowAbility<T>([NotNull] this T entity, String value)
@@ -450,6 +464,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetSpeedParameter<T>([NotNull] this T entity, Single value)
         where T : EffectDescription
@@ -457,6 +472,7 @@ internal static class EffectDescriptionExtensions
         entity.speedParameter = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetSpeedType<T>([NotNull] this T entity, SpeedType value)
@@ -466,6 +482,7 @@ internal static class EffectDescriptionExtensions
         return entity;
     }
 
+#if false
     [NotNull]
     internal static T SetTargetConditionAsset<T>([NotNull] this T entity, ConditionDefinition value)
         where T : EffectDescription
@@ -481,6 +498,7 @@ internal static class EffectDescriptionExtensions
         entity.targetConditionName = value;
         return entity;
     }
+#endif
 
     [NotNull]
     internal static T SetTargetExcludeCaster<T>([NotNull] this T entity, Boolean value)
