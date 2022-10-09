@@ -48,7 +48,7 @@ internal static class RulesetCharacterExtensions
         }
 
         return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
-            .All(v => v.CanUsePower(instance));
+            .All(v => v.CanUsePower(instance, power));
     }
 
     internal static bool CanCastCantrip(

@@ -15,6 +15,24 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class GameLocationBattleManagerPatcher
 {
+    [HarmonyPatch(typeof(GameLocationBattleManager), "CanCharacterUsePower")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class CanCharacterUsePower_Patch
+    {
+        public static bool Prefix(GameLocationBattleManager __instance, ref bool __result,
+            RulesetCharacter caster, GameLocationCharacter defaultTarget, RulesetUsablePower usablePower)
+        {
+            //PATCH: support for `IPowerUseValidity` when trying to react with power 
+            if (!caster.CanUsePower(usablePower.PowerDefinition))
+            {
+                __result = false;
+                return false;
+            }
+
+            return true;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "CanPerformReadiedActionOnCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanPerformReadiedActionOnCharacter_Patch

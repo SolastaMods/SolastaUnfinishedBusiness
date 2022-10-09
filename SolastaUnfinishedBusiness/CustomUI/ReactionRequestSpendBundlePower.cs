@@ -98,7 +98,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
         Main.Log($"{character.Name} can use {power.Name}?", true);
 
-        if (powerValidators.Any(v => !v.CanUsePower(character)))
+        if (powerValidators.Any(v => !v.CanUsePower(character, power)))
         {
             return false;
         }

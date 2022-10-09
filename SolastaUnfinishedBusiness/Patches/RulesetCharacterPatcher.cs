@@ -402,6 +402,9 @@ public static class RulesetCharacterPatcher
 
             //PATCH: update usage for power pools 
             __instance.UpdateUsageForPowerPool(usablePower, usablePower.PowerDefinition.CostPerUse);
+            
+            //PATCH: support for counting uses of power in the UsedSpecialFeatures dictionary of the GameLocationCharacter
+            CountPowerUseInSpecialFeatures.Count(__instance, usablePower);
         }
     }
 
