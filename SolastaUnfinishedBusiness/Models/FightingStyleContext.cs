@@ -30,7 +30,8 @@ internal static class FightingStyleContext
 
         // settings paring
         foreach (var name in Main.Settings.FightingStyleEnabled
-                     .Where(name => FightingStyles.All(x => x.Name != name)))
+                     .Where(name => FightingStyles.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
         }

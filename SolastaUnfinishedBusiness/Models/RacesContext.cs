@@ -27,7 +27,8 @@ internal static class RacesContext
 
         // settings paring
         foreach (var name in Main.Settings.RaceEnabled
-                     .Where(name => Races.All(x => x.Name != name)))
+                     .Where(name => Races.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.RaceEnabled.Remove(name);
         }
