@@ -164,6 +164,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blind, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -270,6 +271,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blind, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, you may make an additional melee weapon attack as part of the same action. Enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.

@@ -17,10 +17,11 @@ internal static class FightingStyleContext
     internal static void Load()
     {
         LoadStyle(new Crippling());
+        LoadStyle(new Executioner());
         LoadStyle(new LightFooted());
         LoadStyle(new Pugilist());
         LoadStyle(new Reactionary());
-        LoadStyle(new TitanFighting());
+        LoadStyle(new Titan());
         LoadStyle(new Merciless());
 
         // sorting

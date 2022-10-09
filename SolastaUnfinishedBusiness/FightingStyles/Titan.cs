@@ -8,7 +8,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFight
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
-internal sealed class TitanFighting : AbstractFightingStyle
+internal sealed class Titan : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Titan")
