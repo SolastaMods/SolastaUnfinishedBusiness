@@ -136,31 +136,46 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
+            var battleInProgress = ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
+
             if (__result)
             {
                 //PATCH: hide use power button if character has no valid powers
                 if (!rulesetCharacter.UsablePowers
-                        .Any(rulesetUsablePower => CanUsePower(rulesetCharacter, rulesetUsablePower)))
+                        .Any(rulesetUsablePower =>
+                        {
+                            var time = rulesetUsablePower.powerDefinition.ActivationTime;
+                            return (!battleInProgress
+                                    || (ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)
+                                        && actionType == type))
+                                   && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers);
+                        }))
                 {
                     __result = false;
                 }
             }
             //PATCH: force show power use button during exploration if it has at least one usable power
-            else if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress
-                     && actionType == ActionDefinitions.ActionType.Main
-                     && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                         rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0
-                         && (accountDelegatedPowers || !rulesetUsablePower.PowerDefinition.DelegatedToAction)
-                         && CanUsePower(rulesetCharacter, rulesetUsablePower)))
+            else
             {
-                __result = true;
+                if (!battleInProgress
+                    && actionType == ActionDefinitions.ActionType.Main
+                    && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                        rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0
+                        && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
+
+                {
+                    __result = true;
+                }
             }
         }
 
-        private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower)
+        private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower,
+            bool accountDelegatedPowers)
         {
-            var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
-            return validator == null || validator.CanUsePower(character);
+            var power = usablePower.PowerDefinition;
+            return (accountDelegatedPowers || !power.DelegatedToAction)
+                   && !power.GuiPresentation.Hidden
+                   && character.CanUsePower(power);
         }
     }
 
