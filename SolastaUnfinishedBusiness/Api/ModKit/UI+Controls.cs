@@ -94,7 +94,7 @@ internal static partial class UI
     }
 
     // Sliders
-    
+
     internal static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {

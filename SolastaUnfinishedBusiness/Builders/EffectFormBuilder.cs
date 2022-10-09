@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TA.AI;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -65,6 +62,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
         var alterationForm = new AlterationForm { alterationType = alterationType };
@@ -88,6 +86,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Alteration;
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetConditionForm(
         ConditionDefinition condition,
@@ -123,6 +122,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetCounterForm(
         CounterForm.CounterType type,
         int automaticSpellLevel,
@@ -142,6 +142,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Counter;
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetDamageForm(
         bool versatile = false,
@@ -170,6 +171,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
     {
         var killForm = new KillForm
@@ -199,6 +201,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Divination;
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetHealingForm(
         HealingComputation healingComputation,
@@ -240,6 +243,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetLightSourceForm(
         LightSourceType lightSourceType,
         int brightRange,
@@ -260,6 +264,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.LightSource;
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
     {
@@ -299,6 +304,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetSummonForm(
         SummonForm.Type summonType,
         ItemDefinition item,
@@ -325,6 +331,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetSummonCreatureForm(
         int number,
@@ -385,6 +392,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
         var topologyForm =
@@ -394,6 +402,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Topology;
         return this;
     }
+#endif
 
     internal EffectForm Build()
     {

@@ -23,8 +23,8 @@ public static class CharacterStageSubclassSelectionPanelPatcher
 
             rectTransform.anchoredPosition = new Vector2(-245.5f, 30f);
             gridLayoutGroup.spacing = new Vector2(50, 100);
-            gridLayoutGroup.constraintCount = (__instance.compatibleSubclasses.Count - 1) / 4 + 2;
-            
+            gridLayoutGroup.constraintCount = ((__instance.compatibleSubclasses.Count - 1) / 4) + 2;
+
             //PATCH: sorts the sub classes panel by Title
             if (!Main.Settings.EnableSortingSubclasses)
             {

@@ -145,11 +145,13 @@ internal class CharacterClassDefinitionBuilder
 
     #region Skill preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddSkillPreferences(params SkillDefinition[] skillTypes)
     {
         Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
         return this;
     }
+#endif
 
     internal CharacterClassDefinitionBuilder AddSkillPreferences(params string[] skillTypes)
     {
@@ -181,12 +183,14 @@ internal class CharacterClassDefinitionBuilder
 
     #region Feat preference
 
+#if false
     internal CharacterClassDefinitionBuilder AddFeatPreferences(params FeatDefinition[] featTypes)
     {
         Definition.FeatAutolearnPreference.AddRange(featTypes.Select(ft => ft.Name));
         Definition.FeatAutolearnPreference.Sort();
         return this;
     }
+#endif
 
     internal CharacterClassDefinitionBuilder AddFeatPreferences(params string[] feats)
     {
