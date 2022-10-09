@@ -31,7 +31,7 @@ internal sealed class Executioner : AbstractFightingStyle
                         }
 
                         // grant +2 hit if defender has
-                        // blind, frightened, restrained, incapacitated, paralyzed, prone or unconscious
+                        // blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned
                         if (!defender.HasConditionOfType(ConditionBlinded)
                             && !defender.HasConditionOfType(ConditionFrightened)
                             && !defender.HasConditionOfType(ConditionRestrained)

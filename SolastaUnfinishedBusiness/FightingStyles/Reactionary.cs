@@ -24,15 +24,8 @@ internal sealed class Reactionary : AbstractFightingStyle
                         RulesetAttackMode attackMode,
                         ref ActionModifier attackModifier) =>
                     {
-                        if (attackMode == null || defender == null)
-                        {
-                            return;
-                        }
-
-                        var hero = GameLocationCharacter.GetFromActor(myself);
-                        var target = GameLocationCharacter.GetFromActor(defender);
-
-                        if (attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+                        if (attackMode == null || defender == null ||
+                            attackMode.actionType != ActionDefinitions.ActionType.Reaction)
                         {
                             return;
                         }
