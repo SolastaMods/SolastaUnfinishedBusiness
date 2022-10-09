@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierFeatMasterCritical:caa50b31-9428-5bba-87eb-16b03eeacaaa"
+    "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMasterCriticalTitle",
-    "description": "Feat/&FeatMasterCriticalDescription",
+    "title": "Feat/&FeatSuperiorCriticalTitle",
+    "description": "Feat/&FeatSuperiorCriticalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "39c9470e-40c8-5ad4-a594-784a963c9885",
+  "guid": "0692ff14-3a3b-5996-93b5-7c3286665e60",
   "contentPack": 9999,
-  "name": "FeatMasterCritical"
+  "name": "FeatSuperiorCritical"
 }

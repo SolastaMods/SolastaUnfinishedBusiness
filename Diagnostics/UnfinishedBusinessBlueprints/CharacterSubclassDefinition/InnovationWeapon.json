@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInnovationWeaponExtraAttack:1b3cc585-0eef-5449-b5db-140c57f6ff9c",
       "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationWeaponArcaneJolt:6042eb1a-b0f4-5f41-b50f-5bc9282079f8",
+      "level": 9
     }
   ],
   "personalityFlagOccurences": [],
