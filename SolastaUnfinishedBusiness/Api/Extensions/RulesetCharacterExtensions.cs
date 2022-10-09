@@ -48,7 +48,7 @@ internal static class RulesetCharacterExtensions
             return false;
         }
 
-        return (power.GetAllSubFeaturesOfType<IPowerUseValidity>() ?? new List<IPowerUseValidity>())
+        return (power.GetAllSubFeaturesOfType<IPowerUseValidity>())
             .All(v => v.CanUsePower(instance));
     }
 
