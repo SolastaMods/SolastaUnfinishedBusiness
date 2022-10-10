@@ -1,4 +1,4 @@
-Subclass/&InnovationWeaponDescription=Weapon Innovation blah-blah subclass details TODO: Add proper description.
+Subclass/&InnovationWeaponDescription=Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 Subclass/&InnovationWeaponTitle=Weaponsmith
 Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After experimenting on weapons you learned that you can use your smarts to handle them:\n• You became proficient with all martial weapons\n• You can use Intelligence for attack and damage rolls with magic weapons
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Inventive Weapon Use
