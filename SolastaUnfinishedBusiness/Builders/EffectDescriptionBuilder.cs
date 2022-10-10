@@ -24,6 +24,11 @@ internal class EffectDescriptionBuilder
         this.effect = effect.Copy();
     }
 
+    internal EffectDescription Build()
+    {
+        return effect;
+    }
+
     internal static EffectDescriptionBuilder Create()
     {
         return new EffectDescriptionBuilder();
@@ -48,7 +53,7 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
     {
-        effect.canBePlacedOnCharacter = true;
+        effect.canBePlacedOnCharacter = value;
         return this;
     }
 
@@ -91,7 +96,6 @@ internal class EffectDescriptionBuilder
             additionalItemBonus = additionalItemBonus,
             alteredDuration = alteredDuration
         };
-
         return this;
     }
 
@@ -114,7 +118,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-#if false
     internal EffectDescriptionBuilder SetSlotTypes(params string[] slots)
     {
         effect.slotTypes.SetRange(slots);
@@ -126,7 +129,6 @@ internal class EffectDescriptionBuilder
         effect.slotTypes.SetRange(slots.Select(s => s.Name));
         return this;
     }
-#endif
 
     internal EffectDescriptionBuilder ExcludeCaster()
     {
@@ -193,7 +195,6 @@ internal class EffectDescriptionBuilder
 
         effect.durationParameter = duration;
         effect.durationType = type;
-
         return this;
     }
 
@@ -261,10 +262,5 @@ internal class EffectDescriptionBuilder
     {
         effect.EffectForms.Clear();
         return this;
-    }
-
-    internal EffectDescription Build()
-    {
-        return effect;
     }
 }

@@ -327,7 +327,7 @@ internal static class SpellsBuildersContext
                                     AdditionalDamageType.Specific,
                                     DamageTypeThunder,
                                     AdditionalDamageAdvancement.SlotLevel,
-                                    DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1),
+                                    DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1),
                                     true
                                 )
                                 .AddToDB()
@@ -443,7 +443,7 @@ internal static class SpellsBuildersContext
                                         AdditionalDamageType.Specific,
                                         DamageTypeRadiant,
                                         AdditionalDamageAdvancement.SlotLevel,
-                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                        DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1)
                                     )
                                     .SetTargetCondition(sunlitMark,
                                         AdditionalDamageTriggerCondition.TargetHasCondition)

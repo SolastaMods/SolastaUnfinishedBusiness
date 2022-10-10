@@ -124,7 +124,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixDivineSmiteDiceNumberWhenUsingHighLevelSlots()
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
-            DiceByRankMaker.MakeBySteps();
+            DiceByRankBuilder.BuildDiceByRankTable();
     }
 
     /**
