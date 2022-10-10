@@ -124,188 +124,21 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// </summary>
     internal virtual void Validate() { }
 
-    #region Helpers
+    #region AddToDB
 
-    // Explicit implementation not visible by default so doesn't clash with other extension methods
-    void IDefinitionBuilder.SetGuiPresentation(GuiPresentation presentation)
+    internal TDefinition AddToDB()
     {
-        Definition.GuiPresentation = presentation;
+#if DEBUG
+        return AddToDB(true);
+#else
+        return AddToDB(false);
+#endif
     }
-
-    GuiPresentation IDefinitionBuilder.GetGuiPresentation()
-    {
-        return Definition.GuiPresentation;
-    }
-
-    // NOTE: don't use Definition?. which bypasses Unity object lifetime check
-    string IDefinitionBuilder.Name => Definition ? Definition.Name ?? string.Empty : string.Empty;
-
-    private void InitializeCollectionFields()
-    {
-        Assert.IsNotNull(Definition);
-
-        LocalInitializeCollectionFields(Definition.GetType());
-
-        void LocalInitializeCollectionFields(Type type)
-        {
-            if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
-                type == typeof(Object))
-            {
-                return;
-            }
-
-            // Reflection will only return private fields declared on this type, not base classes
-            foreach (var field in type
-                         .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                         .Where(f => f.FieldType.IsGenericType)
-                         .Where(f => f.GetValue(Definition) == null))
-            {
-                try
-                {
-                    LogFieldInitialization(
-                        $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
-
-                    field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
-                }
-                catch (Exception ex)
-                {
-                    Main.Error(ex);
-                }
-            }
-
-            // So travel down the hierarchy
-            LocalInitializeCollectionFields(type.BaseType);
-
-            [Conditional("DEBUG")]
-            static void LogFieldInitialization(string message)
-            {
-                if (Main.Settings.DebugLogFieldInitialization)
-                {
-                    Main.Log(message);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    #region Constructors
-
-    /// <summary>
-    ///     Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid" /> plus
-    ///     <paramref name="name" />.
-    /// </summary>
-    /// <param name="name">The name assigned to the definition (mandatory)</param>
-    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    private protected DefinitionBuilder(string name, Guid namespaceGuid) : this(name, null, namespaceGuid, true)
-    {
-        IsNew = true;
-    }
-
-    // TODO: two very similar ctors - worth combining?
-    private DefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
-    {
-        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-        Definition = ScriptableObject.CreateInstance<TDefinition>();
-        Definition.name = name;
-
-        VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
-
-        InitializeCollectionFields();
-
-        if (useNamespaceGuid)
-        {
-            if (namespaceGuid == Guid.Empty)
-            {
-                throw new SolastaUnfinishedBusinessException("The namespace guid supplied is Guid.Empty.");
-            }
-
-            // create guid from namespace+name
-            Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
-
-            LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
-        }
-        else
-        {
-            if (string.IsNullOrWhiteSpace(definitionGuid))
-            {
-                throw new SolastaUnfinishedBusinessException("The guid supplied is null or empty.");
-            }
-
-            // assign guid
-            Definition.SetUserContentGUID(definitionGuid);
-
-            LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
-        }
-    }
-
-    /// <summary>
-    ///     Create a clone of <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a
-    ///     guid from <paramref name="namespaceGuid" /> plus <paramref name="name" />.
-    /// </summary>
-    /// <param name="original">The definition being copied.</param>
-    /// <param name="name">The name assigned to the definition (mandatory).</param>
-    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
-        this(original, name, null, namespaceGuid, true)
-    {
-    }
-
-    // TODO: two very similar ctors - worth combining?
-    private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
-        bool useNamespaceGuid)
-    {
-        Preconditions.ArgumentIsNotNull(original, nameof(original));
-        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-        Definition = Object.Instantiate(original);
-        Definition.name = name;
-
-        VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
-
-        InitializeCollectionFields();
-
-        if (useNamespaceGuid)
-        {
-            if (namespaceGuid == Guid.Empty)
-            {
-                throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
-            }
-
-            // create guid from namespace+name
-            Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
-        }
-        else
-        {
-            // directly assign guid
-            Definition.SetUserContentGUID(definitionGuid);
-        }
-    }
-
-    #endregion
-
-    #region Add to dbs
-
-    /// <summary>
-    ///     Add the TDefinition to every compatible database
-    /// </summary>
-    /// <remarks>
-    ///     By default AddToDB will set the copyright to 'User Content' and the content pack to 'Unfinished Business'.
-    ///     To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
-    /// </remarks>
-    /// <param name="assertIfDuplicate"></param>
-    /// <returns></returns>
-    /// <exception cref="SolastaUnfinishedBusinessException"></exception>
-    internal TDefinition AddToDB(bool assertIfDuplicate = true)
-    {
-        return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
-    }
-
+    
     private TDefinition AddToDB(
         bool assertIfDuplicate,
-        BaseDefinition.Copyright? copyright,
-        GamingPlatformDefinitions.ContentPack? contentPack)
+        BaseDefinition.Copyright copyright = BaseDefinition.Copyright.UserContent,
+        GamingPlatformDefinitions.ContentPack contentPack = CeContentPackContext.CeContentPack)
     {
         Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
         Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
@@ -319,22 +152,14 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         VerifyGuiPresentation();
 
-        if (copyright.HasValue)
-        {
-            Definition.contentCopyright = copyright.Value;
-        }
-
-        if (contentPack.HasValue)
-        {
-            Definition.contentPack = contentPack.Value;
-        }
+        Definition.contentCopyright = copyright;
+        Definition.contentPack = contentPack;
 
         Validate();
 
         // Get all base types for the target definition.  The definition needs to be added to all matching databases.
         // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
         var types = GetBaseTypes(Definition.GetType());
-
         var addedToAnyDB = false;
 
         foreach (var type in types)
@@ -359,7 +184,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         {
             // attempt to get database matching the target type
             var getDatabaseMethodInfoGeneric = GetDatabaseMethodInfo.MakeGenericMethod(type);
-
             var db = getDatabaseMethodInfoGeneric.Invoke(null, null);
 
             if (db == null)
@@ -469,6 +293,130 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
             }
         }
+    }
+
+    #endregion
+
+    #region Helpers
+
+    // Explicit implementation not visible by default so doesn't clash with other extension methods
+    void IDefinitionBuilder.SetGuiPresentation(GuiPresentation presentation)
+    {
+        Definition.GuiPresentation = presentation;
+    }
+
+    GuiPresentation IDefinitionBuilder.GetGuiPresentation()
+    {
+        return Definition.GuiPresentation;
+    }
+
+    // NOTE: don't use Definition?. which bypasses Unity object lifetime check
+    string IDefinitionBuilder.Name => Definition ? Definition.Name ?? string.Empty : string.Empty;
+
+    private void InitializeCollectionFields()
+    {
+        Assert.IsNotNull(Definition);
+
+        LocalInitializeCollectionFields(Definition.GetType());
+
+        void LocalInitializeCollectionFields(Type type)
+        {
+            if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
+                type == typeof(Object))
+            {
+                return;
+            }
+
+            // Reflection will only return private fields declared on this type, not base classes
+            foreach (var field in type
+                         .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                         .Where(f => f.FieldType.IsGenericType)
+                         .Where(f => f.GetValue(Definition) == null))
+            {
+                try
+                {
+                    LogFieldInitialization(
+                        $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+
+                    field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+            }
+
+            // So travel down the hierarchy
+            LocalInitializeCollectionFields(type.BaseType);
+
+            [Conditional("DEBUG")]
+            static void LogFieldInitialization(string message)
+            {
+                if (Main.Settings.DebugLogFieldInitialization)
+                {
+                    Main.Log(message);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Constructors
+
+    /// <summary>
+    ///     Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid" /> plus
+    ///     <paramref name="name" />.
+    /// </summary>
+    /// <param name="name">The name assigned to the definition (mandatory)</param>
+    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
+    private protected DefinitionBuilder(string name, Guid namespaceGuid)
+    {
+        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
+        Definition = ScriptableObject.CreateInstance<TDefinition>();
+        Definition.name = name;
+
+        VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
+
+        InitializeCollectionFields();
+
+        if (namespaceGuid == Guid.Empty)
+        {
+            throw new SolastaUnfinishedBusinessException("The namespace guid supplied is Guid.Empty.");
+        }
+
+        // create guid from namespace+name
+        Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
+
+        LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
+    }
+
+    /// <summary>
+    ///     Create a clone of <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a
+    ///     guid from <paramref name="namespaceGuid" /> plus <paramref name="name" />.
+    /// </summary>
+    /// <param name="original">The definition being copied.</param>
+    /// <param name="name">The name assigned to the definition (mandatory).</param>
+    /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
+    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+    {
+        Preconditions.ArgumentIsNotNull(original, nameof(original));
+        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
+        Definition = Object.Instantiate(original);
+        Definition.name = name;
+
+        VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
+        InitializeCollectionFields();
+
+        if (namespaceGuid == Guid.Empty)
+        {
+            throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
+        }
+
+        // create guid from namespace+name
+        Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
     }
 
     #endregion
