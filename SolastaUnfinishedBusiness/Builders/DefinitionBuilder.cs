@@ -203,47 +203,42 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 }
             }
 
-            LocalLocalAddToDB();
+            var methodInfo = dbType.GetMethod("Add");
+
+            if (methodInfo == null)
+            {
+                throw new SolastaUnfinishedBusinessException(
+                    $"Could not locate the 'Add' method for {dbType.FullName}.");
+            }
+
+            methodInfo.Invoke(db, new object[] { Definition });
 
             return true;
 
-            void LocalLocalAddToDB()
-            {
-                var methodInfo = dbType.GetMethod("Add");
-
-                if (methodInfo == null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'Add' method for {dbType.FullName}.");
-                }
-
-                methodInfo.Invoke(db, new object[] { Definition });
-            }
-
             bool DBHasElement(string name)
             {
-                var methodInfo = dbType.GetMethod("HasElement");
+                var hasElementMethodInfo = dbType.GetMethod("HasElement");
 
-                if (methodInfo == null)
+                if (hasElementMethodInfo == null)
                 {
                     throw new SolastaUnfinishedBusinessException(
                         $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                 }
 
-                return (bool)methodInfo.Invoke(db, new object[] { name, true });
+                return (bool)hasElementMethodInfo.Invoke(db, new object[] { name, true });
             }
 
             bool DBHasElementByGuid(string guid)
             {
-                var methodInfo = dbType.GetMethod("HasElementByGuid");
+                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid");
 
-                if (methodInfo == null)
+                if (hasElementByGuidMethodInfo == null)
                 {
                     throw new SolastaUnfinishedBusinessException(
                         $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                 }
 
-                return (bool)methodInfo.Invoke(db, new object[] { guid });
+                return (bool)hasElementByGuidMethodInfo.Invoke(db, new object[] { guid });
             }
         }
 
