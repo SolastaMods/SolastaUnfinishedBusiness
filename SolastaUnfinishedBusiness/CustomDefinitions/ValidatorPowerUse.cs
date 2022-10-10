@@ -46,7 +46,6 @@ internal sealed class ValidatorPowerUse : IPowerUseValidity
 
     internal static bool IsPowerNotValid(RulesetCharacter character, RulesetUsablePower power)
     {
-        var validator = power.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
-        return validator != null && !validator.CanUsePower(character, power.powerDefinition);
+        return !character.CanUsePower(power.PowerDefinition, false);
     }
 }

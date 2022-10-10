@@ -35,14 +35,14 @@ internal static class RulesetCharacterExtensions
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power)
+    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power, bool considerUses = true)
     {
         if (power == null)
         {
             return false;
         }
 
-        if (instance.GetRemainingPowerUses(power) <= 0)
+        if (considerUses && instance.GetRemainingPowerUses(power) <= 0)
         {
             return false;
         }
