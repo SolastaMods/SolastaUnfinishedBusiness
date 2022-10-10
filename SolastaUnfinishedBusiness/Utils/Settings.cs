@@ -233,6 +233,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
+    public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
