@@ -1,15 +1,15 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
-    "itemSelectionType": "None",
-    "targetParameter": 6,
-    "targetParameter2": 2,
+    "targetType": "Item",
+    "itemSelectionType": "Carried",
+    "targetParameter": 1,
+    "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -21,7 +21,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -61,7 +61,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "ItemProperty",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -69,21 +69,22 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
+        "hasSavingThrow": true,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInventorFlashOfGeniusAura",
-          "conditionDefinition": "Definition:ConditionInventorFlashOfGeniusAura:c0fc5877-d0ef-5523-9f22-a43f93be29d6",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInventorFlashOfGeniusAura:c0fc5877-d0ef-5523-9f22-a43f93be29d6"
+        "itemPropertyForm": {
+          "$type": "ItemPropertyForm, Assembly-CSharp",
+          "featureBySlotLevel": [
+            {
+              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+              "featureDefinition": "Definition:DamageAffinityInfusionResistantArmorDamageThunder:6d8f7709-7f3b-5f62-8085-4f94a64aeec7",
+              "level": 0
+            }
           ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+          "usageLimitation": "Unlimited",
+          "useAmount": 1
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "a7d48cc4b007b62429d59fdbebeb9df9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -265,16 +266,16 @@
         "m_SubObjectType": ""
       },
       "forceApplyZoneParticle": false,
-      "applyEmissionColorOnWeapons": false,
+      "applyEmissionColorOnWeapons": true,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.0,
-        "g": 0.0,
-        "b": 0.0,
+        "r": 2.99607849,
+        "g": 2.32156873,
+        "b": 1.082353,
         "a": 0.0
       },
-      "emissionColorFadeInDuration": 0.0,
-      "emissionColorFadeOutDuration": 0.0
+      "emissionColorFadeInDuration": 1.0,
+      "emissionColorFadeOutDuration": 1.0
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
@@ -284,13 +285,13 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "PermanentUnlessIncapacitated",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -305,7 +306,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -317,7 +318,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -325,11 +326,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInventorFlashOfGeniusTitle",
-    "description": "Feature/&PowerInventorFlashOfGeniusDescription",
+    "title": "Rules/&DamageThunderTitle",
+    "description": "Rules/&DamageThunderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2b04a772-e39b-56ca-bbc9-d14662c29421",
+      "m_AssetGUID": "92d58162-4508-5548-b2ba-0198419a64d8",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -346,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "82d1c730-c999-5b0f-b49e-a0d574d85bfb",
+  "guid": "4a7375f7-d0e0-594a-9078-f6085b3195d3",
   "contentPack": 9999,
-  "name": "PowerInventorFlashOfGeniusAura"
+  "name": "PowerInfusionResistantArmorDamageThunder"
 }

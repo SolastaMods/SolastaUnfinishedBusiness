@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -135,7 +135,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Reaction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -153,16 +153,16 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "AbilityBonusPlusFixed",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Intelligence",
-  "fixedUsesPerRecharge": 0,
+  "usesAbilityScoreName": "Charisma",
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -170,11 +170,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInventorFlashOfGeniusTitle",
-    "description": "Feature/&PowerInventorFlashOfGeniusDescription",
+    "title": "Feature/&InfusionResistantArmorTitle",
+    "description": "Feature/&InfusionResistantArmorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2b04a772-e39b-56ca-bbc9-d14662c29421",
+      "m_AssetGUID": "92d58162-4508-5548-b2ba-0198419a64d8",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -191,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8bdefff5-cbae-56f4-8642-c75fd661c940",
+  "guid": "600c76f6-b4cf-5eee-be00-862f18d788c4",
   "contentPack": 9999,
-  "name": "PowerInventorFlashOfGeniusBonus"
+  "name": "PowerInfusionResistantArmor"
 }
