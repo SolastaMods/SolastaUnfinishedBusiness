@@ -301,7 +301,7 @@ internal static class Infusions
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
+                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                 .SetDurationData(DurationType.Permanent)
