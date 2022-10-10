@@ -31,6 +31,15 @@ public static class UsablePowerBoxPatcher
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user
             Tooltips.AddContextToPowerBoxTooltip(__instance);
 
+            //PATCH: make reaction powers not activatable
+            if (__instance.usablePower.PowerDefinition.activationTime == RuleDefinitions.ActivationTime.Reaction)
+            {
+                __instance.button.interactable = false;
+                __instance.canvasGroup.interactable = false;
+                __instance.titleActiveLabel.gameObject.SetActive(false);
+                __instance.titleInactiveLabel.gameObject.SetActive(true);
+            }
+
             //PATCH: make power icons fit into box, instead of stretching
             var img = __instance.image;
             var aspect = img.GetComponent<AspectRatioFitter>();

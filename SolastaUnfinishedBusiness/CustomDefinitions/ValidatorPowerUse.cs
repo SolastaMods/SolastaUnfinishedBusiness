@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -41,5 +42,11 @@ internal sealed class ValidatorPowerUse : IPowerUseValidity
             user.UsedSpecialFeatures.TryGetValue(power.Name, out var uses);
             return uses < limit;
         });
+    }
+
+    internal static bool IsPowerNotValid(RulesetCharacter character, RulesetUsablePower power)
+    {
+        var validator = power.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
+        return validator != null && !validator.CanUsePower(character, power.powerDefinition);
     }
 }
