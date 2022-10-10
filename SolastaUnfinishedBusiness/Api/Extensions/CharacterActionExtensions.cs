@@ -34,4 +34,18 @@ internal static class CharacterActionExtensions
 
         return saveDC;
     }
+
+    internal static string FormatTitle(this CharacterAction action)
+    {
+        var magicEffect = action.actionParams.RulesetEffect;
+
+        if (magicEffect == null)
+        {
+            return Gui.Localize("Action/&AttackTitle");
+        }
+        else
+        {
+            return magicEffect.SourceDefinition.FormatTitle();
+        }
+    }
 }

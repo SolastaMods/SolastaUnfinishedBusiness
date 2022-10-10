@@ -811,4 +811,28 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 
         return true;
     }
+
+    internal override string FormatReactionDescription(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetCharacter helper,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck,
+        RollOutcome saveOutcome,
+        int saveOutcomeDelta)
+    {
+        string text;
+        if (defender.RulesetCharacter == helper)
+        {
+            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat";
+        }
+        else
+        {
+            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+        }
+
+        return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+    }
 }
