@@ -52,35 +52,40 @@ internal static class Level20Context
 
         // required to avoid issues on how game calculates caster / spell levels and some trace error messages
         // that might affect multiplayer sessions and prevent level up from 19 to 20
-        var a = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
             .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition)
-            .OfType<FeatureDefinitionCastSpell>();
-       
-        var b = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition)
-            .OfType<FeatureDefinitionCastSpell>();
+            .Select(b => b.FeatureDefinition);
 
-        var castSpellDefinitions = a.Concat(b);
-        
-        foreach (var castSpellDefinition in castSpellDefinitions)
+        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).ToList();
+        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
+        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
+
+        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
         {
-            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
 
-            if (spellListDefinition != null)
+            if (spellListDefinition == null)
             {
-                var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-                while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
-                {
-                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                    {
-                        Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                    });
-                }
+                continue;
             }
 
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+
+        foreach (var castSpellDefinition in castSpellDefinitions)
+        {
             while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownCantrips.Add(0);
@@ -99,6 +104,23 @@ internal static class Level20Context
             while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
             {
                 castSpellDefinition.ScribedSpells.Add(0);
+            }
+
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
             }
         }
     }

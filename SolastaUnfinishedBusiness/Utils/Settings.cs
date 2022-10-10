@@ -156,17 +156,9 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
-#if DEBUG
-    public bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
-#else
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
-#endif
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
-#if DEBUG
-    public bool AddPickPocketableLoot { get; set; } = true; // simplifies diags. creation (one less boot)
-#else
     public bool AddPickPocketableLoot { get; set; }
-#endif
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
