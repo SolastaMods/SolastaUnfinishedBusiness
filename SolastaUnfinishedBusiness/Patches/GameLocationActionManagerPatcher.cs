@@ -43,14 +43,18 @@ public static class GameLocationActionManagerPatcher
     {
         public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
-            //PATCH: replace `SpendPower` reaction for bundled powers
-            if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect ||
-                !powerEffect.PowerDefinition.IsBundlePower())
+            //PATCH: replace `SpendPower` reaction for bundled powers or customized one for other powers
+            if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect) { return true; }
+
+            if (powerEffect.PowerDefinition.IsBundlePower())
             {
-                return true;
+                __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
+            }
+            else
+            {
+                __instance.AddInterruptRequest(new ReactionRequestSpendPowerCustom(reactionParams));
             }
 
-            __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
             return false;
         }
     }

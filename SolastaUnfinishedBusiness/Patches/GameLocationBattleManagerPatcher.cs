@@ -462,7 +462,7 @@ public static class GameLocationBattleManagerPatcher
                 }
 
                 var locHelper = GameLocationCharacter.GetFromActor(helper);
-                
+
                 if (locHelper == null) { continue; }
 
                 if (!feature.ShouldTrigger(action, attacker, defender, helper, saveModifier, hasHitVisual,
@@ -480,10 +480,11 @@ public static class GameLocationBattleManagerPatcher
 
                 var usablePower = UsablePowersProvider.Get(power, helper);
 
-                var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
+                var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
                 {
-                    //TODO: customize description
                     StringParameter = feature.ReactionName,
+                    StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, helper,
+                        saveModifier, hasHitVisual, hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta),
                     RulesetEffect = rulesService.InstantiateEffectPower(helper, usablePower, false)
                 };
 

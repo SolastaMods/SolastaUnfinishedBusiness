@@ -38,4 +38,18 @@ internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
     {
         return true;
     }
+
+    internal virtual string FormatReactionDescription(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetCharacter helper,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck,
+        RuleDefinitions.RollOutcome saveOutcome,
+        int saveOutcomeDelta)
+    {
+        return null;
+    }
 }
