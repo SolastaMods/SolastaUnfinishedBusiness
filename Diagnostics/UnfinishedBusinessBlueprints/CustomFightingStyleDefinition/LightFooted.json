@@ -6,7 +6,7 @@
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "FightingStyle/&LightFootedTitle",
     "description": "FightingStyle/&LightFootedDescription",
     "spriteReference": {
