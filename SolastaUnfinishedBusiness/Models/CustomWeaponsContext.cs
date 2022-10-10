@@ -69,7 +69,8 @@ internal static class CustomWeaponsContext
     }
 
     [NotNull]
-    internal static ItemPresentation BuildPresentation(string unIdentifiedName,
+    internal static ItemPresentation BuildPresentation(
+        string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidentifiedDescription = false)
     {
@@ -114,13 +115,13 @@ internal static class CustomWeaponsContext
 
         if (twoHanded)
         {
-            builder
+            _ = builder
                 .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot);
         }
         else
         {
-            builder
+            _ = builder
                 .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot,
                     SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
@@ -128,23 +129,22 @@ internal static class CustomWeaponsContext
 
         if (!properties.Empty())
         {
-            builder.MakeMagical();
+            _ = builder.MakeMagical();
 
             if (needId)
             {
-                builder.SetRequiresIdentification(true);
+                _ = builder.SetRequiresIdentification(true);
             }
         }
 
         if (noDescription)
         {
-            builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon);
+            _ = builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon);
         }
         else
         {
-            builder.SetGuiPresentation(Category.Item, icon);
+            _ = builder.SetGuiPresentation(Category.Item, icon);
         }
-
 
         var weapon = builder.AddToDB();
 
@@ -337,9 +337,9 @@ internal static class CustomWeaponsContext
                 TagsDefinitions.WeaponTagTwoHanded
             }
         };
-
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
