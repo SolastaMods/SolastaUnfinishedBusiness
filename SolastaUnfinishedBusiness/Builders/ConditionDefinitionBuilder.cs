@@ -122,8 +122,8 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
     internal TBuilder SetSilent(Silent silent)
     {
-        Definition.silentWhenAdded = silent.HasFlag(Silent.WhenRemoved);
-        Definition.silentWhenRemoved = silent.HasFlag(Silent.WhenAdded);
+        Definition.silentWhenAdded = silent.HasFlag(Silent.WhenAdded);
+        Definition.silentWhenRemoved = silent.HasFlag(Silent.WhenRemoved);
         return (TBuilder)this;
     }
 
@@ -206,7 +206,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) 
+    protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }

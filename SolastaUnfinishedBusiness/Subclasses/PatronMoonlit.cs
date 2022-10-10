@@ -279,8 +279,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         return ConditionDefinitionBuilder
             .Create("ConditionMoonlitRevealed")
             .SetGuiPresentationNoContent()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .Configure(DurationType.Round, 1, false)
+            .Configure(DurationType.Round, 1, true)
             .AddToDB();
     }
 
