@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -49,27 +50,37 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
 
-        // required to ensure level 20 and multiclass will work correctly on higher level heroes
-        var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
+        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
+        // that might affect multiplayer sessions and prevent level up from 19 to 20
+        var a = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition)
+            .OfType<FeatureDefinitionCastSpell>();
+       
+        var b = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition)
+            .OfType<FeatureDefinitionCastSpell>();
 
-        foreach (var spellListDefinition in spellListDefinitions)
-        {
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
-
-        // required to avoid some trace error messages that might affect multiplayer sessions and prevent level up from 19 to 20
-        var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
-
+        var castSpellDefinitions = a.Concat(b);
+        
         foreach (var castSpellDefinition in castSpellDefinitions)
         {
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition != null)
+            {
+                var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+                while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+                {
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                    {
+                        Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                    });
+                }
+            }
+
             while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
             {
                 castSpellDefinition.KnownCantrips.Add(0);
