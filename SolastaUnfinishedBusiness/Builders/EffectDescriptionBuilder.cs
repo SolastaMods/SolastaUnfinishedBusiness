@@ -9,7 +9,7 @@ internal class EffectDescriptionBuilder
 {
     private readonly EffectDescription effect;
 
-    internal EffectDescriptionBuilder()
+    private EffectDescriptionBuilder()
     {
         effect = new EffectDescription
         {

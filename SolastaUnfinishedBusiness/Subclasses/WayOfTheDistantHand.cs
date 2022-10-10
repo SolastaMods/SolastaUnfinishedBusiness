@@ -63,7 +63,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -88,7 +89,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -113,7 +115,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -203,7 +206,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .AddToDB()),
                 ValidatorsCharacter.NoShield,
                 ValidatorsCharacter.NoArmor))
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
@@ -260,7 +264,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -301,7 +306,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -327,7 +333,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)

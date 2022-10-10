@@ -287,7 +287,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
 
-        var brewEffect = new EffectDescriptionBuilder()
+        var brewEffect = EffectDescriptionBuilder
+            .Create()
             .AddEffectForm(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(
@@ -386,7 +387,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
 
-        var brewEffect = new EffectDescriptionBuilder()
+        var brewEffect = EffectDescriptionBuilder
+            .Create()
             .AddEffectForm(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(

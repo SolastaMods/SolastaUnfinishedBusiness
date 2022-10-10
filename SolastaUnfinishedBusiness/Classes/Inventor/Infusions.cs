@@ -231,7 +231,8 @@ internal static class Infusions
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
                 SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat, itemFilter)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
@@ -264,7 +265,8 @@ internal static class Infusions
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)

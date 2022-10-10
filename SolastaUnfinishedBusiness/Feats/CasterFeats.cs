@@ -473,7 +473,8 @@ internal static class CasterFeats
             false,
             false,
             savingThrowDifficultyAbility,
-            new EffectDescriptionBuilder()
+            EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(

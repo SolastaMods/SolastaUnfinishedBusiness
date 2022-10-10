@@ -126,7 +126,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(
                         DurationType.Minute,
                         1,

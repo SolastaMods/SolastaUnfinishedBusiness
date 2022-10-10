@@ -33,7 +33,8 @@ public static class InnovationAlchemy
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Sphere)
@@ -61,7 +62,8 @@ public static class InnovationAlchemy
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new Overcharge())
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Cone, 4)
@@ -92,7 +94,8 @@ public static class InnovationAlchemy
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
             // .SetCustomSubFeatures(new ValidatorPowerUse(_ => false))
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 6,
                     RuleDefinitions.TargetType.Individuals)

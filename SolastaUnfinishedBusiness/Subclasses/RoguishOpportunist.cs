@@ -19,7 +19,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
-        var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
+        var debilitatingStrikeEffectBuilder = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(
                 DurationType.Round,
                 1,

@@ -179,7 +179,8 @@ internal static class EwFeats
             .SetUsesFixed(1)
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1,
                     TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
@@ -202,7 +203,8 @@ internal static class EwFeats
             .SetUsesFixed(1)
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1,
                     TargetType.Self)
                 .SetDurationData(DurationType.Round, 0, false)

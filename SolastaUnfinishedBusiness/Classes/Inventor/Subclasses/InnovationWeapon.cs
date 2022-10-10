@@ -191,7 +191,8 @@ public static class InnovationWeapon
             .Create("MonsterAttackSteelDefender")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetToHitBonus(0)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetEffectForms(new EffectFormBuilder()
                     .SetDamageForm(dieType: DieType.D8, diceNumber: 1, bonusDamage: 0, damageType: DamageTypeForce)
                     .Build())

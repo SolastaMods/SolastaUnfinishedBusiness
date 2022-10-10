@@ -124,7 +124,8 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
@@ -156,7 +157,8 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
@@ -188,7 +190,8 @@ internal static class HealingFeats
         RuleDefinitions.TurnOccurenceType endOfEffect,
         int secondsSinceDeath)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(
                 RuleDefinitions.Side.Ally,
                 rangeType,

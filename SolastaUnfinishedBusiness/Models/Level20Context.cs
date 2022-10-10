@@ -407,7 +407,7 @@ internal static class Level20Context
         //             .SetUsesAbilityScoreName(AttributeDefinitions.Charisma)
         //             .SetCostPerUse(1)
         //             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-        //             .SetEffectDescription(new EffectDescriptionBuilder()
+        //             .SetEffectDescription(EffectDescriptionBuilder.Create()
         //                 .SetEffectForms(powerSorcerousRestoration)
         //                 .SetTargetingData(
         //                     RuleDefinitions.Side.Ally,

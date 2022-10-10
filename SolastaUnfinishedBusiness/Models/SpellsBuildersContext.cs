@@ -186,7 +186,7 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(false)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
@@ -207,7 +207,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildResonatingStrike()
     {
-        var resonanceHighLevel = new EffectDescriptionBuilder()
+        var resonanceHighLevel = EffectDescriptionBuilder.Create()
             .SetParticleEffectParameters(AcidSplash)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
@@ -239,7 +239,7 @@ internal static class SpellsBuildersContext
                 new UpgradeEffectFromLevel(resonanceHighLevel, 5)
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(AcidSplash)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1,
@@ -274,7 +274,7 @@ internal static class SpellsBuildersContext
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
                 .SetTargetingData(
                     Side.Enemy,
@@ -391,7 +391,7 @@ internal static class SpellsBuildersContext
                 CustomSpellEffectLevel.ByCasterLevel
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
                 .SetTargetingData(
                     Side.Enemy,
@@ -915,7 +915,7 @@ internal static class SpellsBuildersContext
     {
         const string ReverseGravityName = "ReverseGravity";
 
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Minute,
                 1,
@@ -979,7 +979,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMindBlank()
     {
-        var effectDescription = new EffectDescriptionBuilder();
+        var effectDescription = EffectDescriptionBuilder.Create();
         effectDescription.SetDurationData(
             DurationType.Hour,
             24,
@@ -1028,7 +1028,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildForesight()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Hour,
                 8,
@@ -1074,7 +1074,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMassHeal()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Instantaneous,
                 1,
@@ -1110,7 +1110,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Instantaneous,
                 1,
@@ -1167,7 +1167,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildPowerWordHeal()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Instantaneous,
                 1,
@@ -1220,7 +1220,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildPowerWordKill()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Instantaneous,
                 1,
@@ -1255,7 +1255,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildShapechange()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Hour,
                 1,
@@ -1318,7 +1318,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildTimeStop()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Round,
                 3,
@@ -1361,7 +1361,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildWeird()
     {
-        var effectDescription = new EffectDescriptionBuilder()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Minute,
                 1,

@@ -183,7 +183,8 @@ internal static class CustomWeaponsContext
                     .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
                     .SetUsesFixed(1)
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                    .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetEffectDescription(EffectDescriptionBuilder
+                        .Create()
                         .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
                             RuleDefinitions.TargetType.Individuals)
                         .ExcludeCaster()
