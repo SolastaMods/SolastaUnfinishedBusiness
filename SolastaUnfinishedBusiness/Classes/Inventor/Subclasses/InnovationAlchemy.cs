@@ -49,7 +49,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
                         damageType: RuleDefinitions.DamageTypeFire)
@@ -78,7 +79,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.BurningHands)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
                         damageType: RuleDefinitions.DamageTypeFire)
@@ -110,7 +112,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 3,
                         damageType: RuleDefinitions.DamageTypeFire)

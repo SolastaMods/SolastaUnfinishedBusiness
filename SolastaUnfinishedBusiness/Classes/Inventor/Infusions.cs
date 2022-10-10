@@ -238,7 +238,8 @@ internal static class Infusions
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
                     .Build())
@@ -271,7 +272,8 @@ internal static class Infusions
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetSummonItemForm(item, 1, true)
                     .Build())

@@ -282,7 +282,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetGold(0)
             .AddToDB();
 
-        var brewForm = new EffectFormBuilder()
+        var brewForm = EffectFormBuilder
+            .Create()
             .SetSummonItemForm(brewItem, 1)
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
@@ -352,7 +353,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .AddEffectForm(
-                        new EffectFormBuilder()
+                        EffectFormBuilder
+                            .Create()
                             .SetConditionForm(
                                 conditionAncientForestHerbalBrew,
                                 ConditionForm.ConditionOperation.Add,
@@ -382,7 +384,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetRequiresIdentification(false)
             .AddToDB();
 
-        var brewForm = new EffectFormBuilder()
+        var brewForm = EffectFormBuilder
+            .Create()
             .SetSummonItemForm(brewItem, 1)
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();

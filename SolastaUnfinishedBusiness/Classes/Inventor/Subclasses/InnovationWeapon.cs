@@ -193,7 +193,8 @@ public static class InnovationWeapon
             .SetToHitBonus(0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetDamageForm(dieType: DieType.D8, diceNumber: 1, bonusDamage: 0, damageType: DamageTypeForce)
                     .Build())
                 .Build()

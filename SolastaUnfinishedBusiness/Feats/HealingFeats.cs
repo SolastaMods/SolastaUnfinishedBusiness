@@ -130,7 +130,8 @@ internal static class HealingFeats
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetTempHpForm(bonusHitPoints, dieType, diceNumber)
                     .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
                     .CreatedByCharacter()
@@ -163,7 +164,8 @@ internal static class HealingFeats
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetHealingForm(
                         RuleDefinitions.HealingComputation.Dice,
                         bonusHitPoints,
@@ -208,7 +210,8 @@ internal static class HealingFeats
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One)
                     .CreatedByCharacter()
                     .Build())

@@ -40,7 +40,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .AddEffectForm(new EffectFormBuilder()
+            .AddEffectForm(EffectFormBuilder
+                .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionDummy, "ConditionOpportunistDebilitated")

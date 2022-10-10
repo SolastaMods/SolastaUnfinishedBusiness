@@ -166,7 +166,8 @@ internal static class CustomWeaponsContext
 
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
-        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
@@ -197,7 +198,8 @@ internal static class CustomWeaponsContext
                         .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
                             .EffectDescription.EffectParticleParameters)
                         .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                        .SetEffectForms(new EffectFormBuilder()
+                        .SetEffectForms(EffectFormBuilder
+                            .Create()
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
                         .Build())
@@ -301,7 +303,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
-        HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
             .Build());
@@ -382,7 +385,8 @@ internal static class CustomWeaponsContext
             icon: PikePsychicIcon, needId: false,
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
-        PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypePsychic)
             .Build());
@@ -461,7 +465,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
-        LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeThunder)
             .Build());
@@ -550,7 +555,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
-        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeAcid)
             .Build());
@@ -578,7 +584,8 @@ internal static class CustomWeaponsContext
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
-        weapon.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        weapon.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
                 damageType: RuleDefinitions.DamageTypeFire)
             .Build());

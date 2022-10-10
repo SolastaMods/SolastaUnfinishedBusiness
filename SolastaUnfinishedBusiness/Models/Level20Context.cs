@@ -376,7 +376,8 @@ internal static class Level20Context
     {
         // const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
         //
-        // var powerSorcerousRestoration = new EffectFormBuilder()
+        // var powerSorcerousRestoration = EffectFormBuilder
+        //     .Create()
         //     .CreatedByCharacter()
         //     .SetSpellForm(9)
         //     .Build();

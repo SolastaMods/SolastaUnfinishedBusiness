@@ -171,10 +171,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                     TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Add)
                         .Build(),
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -195,11 +197,13 @@ internal sealed class RoguishRaven : AbstractSubclass
                     TargetType.Self)
                 .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionRavenHeartSeekingShotTrigger,
                             ConditionForm.ConditionOperation.Remove)
                         .Build(),
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
