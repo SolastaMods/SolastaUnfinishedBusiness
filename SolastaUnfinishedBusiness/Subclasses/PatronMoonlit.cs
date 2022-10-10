@@ -112,7 +112,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Fly.EffectDescription.Copy(),
+                Fly.EffectDescription
+                    .Copy(),
                 true)
             .AddToDB();
 
@@ -145,27 +146,31 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Dexterity,
                         20)
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                    "ConditionMoonlitMoonTouched")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetConditionType(ConditionType.Neutral)
-                                .SetFeatures(MoveModeFly2)
-                                .SetFeatures(MovementAffinityConditionLevitate)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetMotionForm(
-                            MotionForm.MotionType.Levitate,
-                            10)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                                        "ConditionMoonlitMoonTouched")
+                                    .SetGuiPresentation(Category.Condition)
+                                    .SetConditionType(ConditionType.Neutral)
+                                    .SetFeatures(MoveModeFly2)
+                                    .SetFeatures(MovementAffinityConditionLevitate)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add,
+                                false,
+                                false)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(
+                                MotionForm.MotionType.Levitate,
+                                10)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
                     .Build(),
                 true)
@@ -192,7 +197,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 magicAffinityMoonlitExpandedSpells,
                 conditionAffinityMoonlitDarknessImmunity,
                 SenseSuperiorDarkvision)
-            //TODO: should this be indeed on 2?
             .AddFeaturesAtLevel(2, lightAffinityMoonlitWeak)
             .AddFeaturesAtLevel(6,
                 lightAffinityMoonlitStrong,

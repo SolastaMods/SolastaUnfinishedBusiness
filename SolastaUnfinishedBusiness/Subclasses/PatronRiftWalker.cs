@@ -1,8 +1,11 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -41,8 +44,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
             .Configure(
                 UsesDetermination.ProficiencyBonus,
                 ActivationTime.BonusAction,
@@ -57,15 +59,13 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         powerRiftWalkerBlink.EffectDescription.TargetType = TargetType.Self;
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,
-                "ConditionAffinityRiftWalkerRestrainedImmunity")
+            .Create(ConditionAffinityRestrainedmmunity, "ConditionAffinityRiftWalkerRestrainedImmunity")
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
 
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Banishment.GuiPresentation.SpriteReference)
             .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Reaction,
                 RechargeRate.LongRest,
@@ -91,8 +91,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
-                "DamageAffinityRiftWalkerFadeIntoTheVoid")
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityRiftWalkerFadeIntoTheVoid")
             .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
             .AddToDB();
 

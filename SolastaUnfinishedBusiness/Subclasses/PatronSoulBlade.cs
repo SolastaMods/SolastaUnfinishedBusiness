@@ -47,29 +47,32 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Configure(UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(Side.Ally,
+                    .SetTargetingData(
+                        Side.Ally,
                         RangeType.Self,
                         1,
                         TargetType.Item,
                         1,
                         1,
-                        ActionDefinitions.ItemSelectionType.Weapon
-                    )
-                    .AddEffectForms(new EffectFormBuilder()
-                        .SetItemPropertyForm(
-                            ItemPropertyUsage.Unlimited,
-                            1, new FeatureUnlockByLevel(
-                                FeatureDefinitionAttackModifierBuilder
-                                    .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                    .SetGuiPresentation(Category.Feature,
-                                        PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-                                    .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                    .AddToDB(),
-                                0)
-                        )
-                        .Build()
+                        ActionDefinitions.ItemSelectionType.Weapon)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1, new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttackModifierBuilder
+                                        .Create("AttackModifierSoulBladeEmpowerWeapon")
+                                        .SetGuiPresentation(Category.Feature,
+                                            PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                        .AddToDB(),
+                                    0)
+                            )
+                            .Build()
                     )
                     .Build(),
                 false,
@@ -94,17 +97,20 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
             .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .Configure(UsesDetermination.Fixed,
+            .Configure(
+                UsesDetermination.Fixed,
                 ActivationTime.BonusAction,
                 RechargeRate.ShortRest,
-                PowerFighterSecondWind.EffectDescription
-                    .Copy()
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(-1, DieType.D1, 1)
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
-                        .Build())
+                EffectDescriptionBuilder
+                    .Create(PowerFighterSecondWind.EffectDescription)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(-1, DieType.D1, 1)
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                            .Build())
+                    .Build()
                     .SetDurationType(DurationType.UntilLongRest))
             .AddToDB();
 

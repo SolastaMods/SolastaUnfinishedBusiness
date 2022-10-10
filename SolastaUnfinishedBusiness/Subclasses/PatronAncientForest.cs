@@ -87,11 +87,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.Fixed,
+            .Configure(
+                UsesDetermination.Fixed,
                 ActivationTime.Rest,
                 RechargeRate.LongRest,
-                new EffectDescription(), false, 1, 1, AttributeDefinitions.Charisma, false, false,
-                AttributeDefinitions.Charisma)
+                new EffectDescription())
             .SetUsesProficiency()
             .AddToDB();
 
@@ -134,11 +134,12 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestEntangleAtWill = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
-            .Configure(UsesDetermination.Fixed,
+            .Configure(
+                UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.AtWill,
                 Entangle.EffectDescription,
-                true, 1, 1, AttributeDefinitions.Charisma, false, false, AttributeDefinitions.Charisma)
+                true)
             .AddToDB();
 
         var conditionAncientForestRooted = ConditionDefinitionBuilder
@@ -154,12 +155,15 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestRooted = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.Fixed,
+            .Configure(
+                UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .AddEffectForm(
-                        new EffectFormBuilder()
+                        EffectFormBuilder
+                            .Create()
                             .SetConditionForm(
                                 conditionAncientForestRooted,
                                 ConditionForm.ConditionOperation.Add,
@@ -172,9 +176,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build()
-                ,
-                true, 1, 1, AttributeDefinitions.Charisma, false, false, AttributeDefinitions.Charisma)
+                    .Build(),
+                true)
             .AddToDB();
 
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
@@ -264,10 +267,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerName = $"PowerAncientForestHerbalBrew{type}";
 
         var guiPresentation = new GuiPresentationBuilder(
-            itemTitle,
-            baseItem.GuiPresentation.Description,
-            baseItem.GuiPresentation.SpriteReference
-        ).Build();
+                itemTitle,
+                baseItem.GuiPresentation.Description,
+                baseItem.GuiPresentation.SpriteReference)
+            .Build();
 
         var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
@@ -345,7 +348,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.AtWill,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .AddEffectForm(
                         new EffectFormBuilder()
                             .SetConditionForm(
@@ -360,8 +364,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build()
-                ,
+                    .Build(),
                 true)
             .AddToDB();
 
