@@ -27,7 +27,7 @@ public static class InventoryShortcutsPanelPatcher
 
             var itemsConfigurations = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory
                 .WieldedItemsConfigurations;
-            for (int index = 0; index < itemsConfigurations.Count; ++index)
+            for (var index = 0; index < itemsConfigurations.Count; ++index)
             {
                 __instance.configurationsTable.GetChild(index).GetComponent<WieldedConfigurationSelector>().Selected =
                     index == rank;

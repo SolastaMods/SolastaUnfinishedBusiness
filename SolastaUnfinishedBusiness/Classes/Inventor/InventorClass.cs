@@ -718,7 +718,7 @@ internal static class InventorClass
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionInventorFlashOfGeniusAura")
-                        .SetGuiPresentationNoContent(hidden: true)
+                        .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetCustomSubFeatures(new FlashOfGenius(bonusPower, "InventorFlashOfGenius"))
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -790,7 +790,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         var rolled = saveDC + saveOutcomeDelta;
         var success = saveOutcomeDelta >= 0;
 
-        string text = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
+        var text = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
         string result;
         ConsoleStyleDuplet.ParameterType resultType;
 
@@ -807,7 +807,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");

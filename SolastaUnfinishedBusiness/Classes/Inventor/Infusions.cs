@@ -90,6 +90,7 @@ internal static class Infusions
         #endregion
 
         #region 02 Mind Sharpener
+
         name = "InfusionMindSharpener";
         sprite = CustomIcons.CreateAssetReferenceSprite("MindSharpener", Resources.MindSharpener, 128);
         BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
@@ -98,6 +99,7 @@ internal static class Infusions
             //RAW it adds reaction to not break concentration
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
             .AddToDB());
+
         #endregion
 
         #region 02 Returning Weapon
@@ -152,10 +154,8 @@ internal static class Infusions
 
         var elements = new[]
         {
-            RuleDefinitions.DamageTypeAcid, RuleDefinitions.DamageTypeCold, RuleDefinitions.DamageTypeFire,
-            RuleDefinitions.DamageTypeForce, RuleDefinitions.DamageTypeLightning,
-            RuleDefinitions.DamageTypeNecrotic, RuleDefinitions.DamageTypePoison, RuleDefinitions.DamageTypePsychic,
-            RuleDefinitions.DamageTypeRadiant, RuleDefinitions.DamageTypeThunder,
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeForce, DamageTypeLightning,
+            DamageTypeNecrotic, DamageTypePoison, DamageTypePsychic, DamageTypeRadiant, DamageTypeThunder
         };
         var powers = new List<FeatureDefinitionPower>();
 

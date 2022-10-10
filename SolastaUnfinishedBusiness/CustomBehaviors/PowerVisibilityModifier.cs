@@ -9,24 +9,22 @@ internal delegate bool IsPowerVisibleHandler(RulesetCharacter character, Feature
 
 internal class PowerVisibilityModifier
 {
-    internal static PowerVisibilityModifier Default = new PowerVisibilityModifier((_, power, actionType) =>
+    internal static PowerVisibilityModifier Default = new((_, power, actionType) =>
     {
         if (Gui.Battle != null)
         {
             var powerActivationTime = power.activationTime;
             CastingTimeToActionDefinition.TryGetValue(powerActivationTime, out var powerActionType);
             return powerActionType == actionType
-                   || actionType == ActionType.Main && (powerActivationTime == ActivationTime.Reaction
-                                                        || (powerActivationTime != ActivationTime.NoCost &&
-                                                            powerActionType == ActionType.NoCost));
+                   || (actionType == ActionType.Main && (powerActivationTime == ActivationTime.Reaction
+                                                         || (powerActivationTime != ActivationTime.NoCost &&
+                                                             powerActionType == ActionType.NoCost)));
         }
-        else
-        {
-            return true;
-        }
+
+        return true;
     });
 
-    internal static PowerVisibilityModifier Hidden = new PowerVisibilityModifier((_, _, _) => false);
+    internal static PowerVisibilityModifier Hidden = new((_, _, _) => false);
 
     private readonly IsPowerVisibleHandler handler;
 
@@ -35,7 +33,7 @@ internal class PowerVisibilityModifier
         this.handler = handler;
     }
 
-    virtual internal bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
+    internal virtual bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
     {
         return handler(character, power, actionType);
     }

@@ -40,7 +40,7 @@ public static class RulesetActorPatcher
             //PATCH: add `IDamageAffinityProvider` from dynamic item properties
             //fixes game not applying damage reductions from dynamic item properties
             //used for Inventor's Resistant Armor infusions
-            
+
             var myEnumerate = new Action<
                 RulesetActor,
                 List<FeatureDefinition>,
@@ -79,7 +79,7 @@ public static class RulesetActorPatcher
 
                 var equipedItem = slot.EquipedItem;
 
-                foreach (RulesetItemProperty dynamicItemProperty in equipedItem.DynamicItemProperties)
+                foreach (var dynamicItemProperty in equipedItem.DynamicItemProperties)
                 {
                     var definition = dynamicItemProperty.FeatureDefinition;
                     if (definition == null || definition is not IDamageAffinityProvider)

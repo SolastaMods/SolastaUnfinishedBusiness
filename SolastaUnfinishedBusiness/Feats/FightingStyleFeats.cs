@@ -24,7 +24,7 @@ internal static class FightingStyleFeats
     {
         // we need a brand new one to avoid issues with FS getting hidden
         var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
-        
+
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
             .Create($"Feat{fightingStyle.Name}")
             .SetFeatures(

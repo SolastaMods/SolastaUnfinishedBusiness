@@ -146,9 +146,11 @@ public static class GameLocationCharacterPatcher
                         {
                             var time = rulesetUsablePower.powerDefinition.ActivationTime;
                             return !battleInProgress
-                                    || (ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)
-                                        && (actionType == type||!PowerVisibilityModifier.IsPowerHidden(rulesetCharacter, rulesetUsablePower, actionType)))
-                                   && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers);
+                                   || (ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)
+                                       && (actionType == type ||
+                                           !PowerVisibilityModifier.IsPowerHidden(rulesetCharacter, rulesetUsablePower,
+                                               actionType))
+                                       && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers));
                         }))
                 {
                     __result = false;

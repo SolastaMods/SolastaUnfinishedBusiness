@@ -16,13 +16,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DiagnosticsContext
 {
-#if DEBUG
-    private const string GameFolder = ".";
-    internal const int Ta = 0;
-    internal const int Ce = 1;
-    internal const int Ta2 = 2;
-#endif
-
     // ReSharper disable once MemberCanBePrivate.Global
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
@@ -54,28 +47,6 @@ internal static class DiagnosticsContext
     // ReSharper disable once MemberCanBePrivate.Global
     internal static readonly string ProjectFolder =
         Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
-
-#if DEBUG
-    internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
-    
-    [NotNull]
-    private static string GetDiagnosticsFolder()
-    {
-        var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
-
-        EnsureFolderExists(path);
-
-        return path;
-    }
-
-    private static void EnsureFolderExists([NotNull] string path)
-    {
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-    }
-#endif
 
     internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
 
@@ -162,6 +133,34 @@ internal static class DiagnosticsContext
     {
         return _ceBaseDefinitions2.Contains(definition);
     }
+#if DEBUG
+    private const string GameFolder = ".";
+    internal const int Ta = 0;
+    internal const int Ce = 1;
+    internal const int Ta2 = 2;
+#endif
+
+#if DEBUG
+    internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
+
+    [NotNull]
+    private static string GetDiagnosticsFolder()
+    {
+        var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
+
+        EnsureFolderExists(path);
+
+        return path;
+    }
+
+    private static void EnsureFolderExists([NotNull] string path)
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
+#endif
 
 #if DEBUG
     private const string OfficialBpFolder = "OfficialBlueprints";

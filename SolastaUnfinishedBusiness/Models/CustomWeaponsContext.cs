@@ -339,7 +339,7 @@ internal static class CustomWeaponsContext
         };
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-        
+
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
