@@ -321,8 +321,10 @@ public static class InnovationWeapon
         //TODO: bunus points if we manage to add healing part of this ability
         return FeatureDefinitionPowerBuilder
             .Create("PowerInnovationWeaponArcaneJolt")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1))
+            .SetGuiPresentation(Category.Feature,
+                CustomIcons.CreateAssetReferenceSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
+            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1),
+                PowerVisibilityModifier.Default)
             .SetUsesAbility(0, AttributeDefinitions.Intelligence)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetShowCasting(false)

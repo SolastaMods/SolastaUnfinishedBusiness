@@ -106,6 +106,12 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetReactionContext(RuleDefinitions.ReactionTriggerContext context)
+    {
+        Definition.reactionContext = context;
+        return (TBuilder)this;
+    }
+
 #if false
     internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
     {

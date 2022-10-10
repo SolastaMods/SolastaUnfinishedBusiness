@@ -326,6 +326,9 @@
   <data name="SteelDefenderRepair" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\SteelDefenderRepair.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="InventorArcaneJolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\InventorArcaneJolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InventorQuickWit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\InventorQuickWit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
