@@ -55,8 +55,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetSpecificDamageType(DamageTypeForce)
             .SetDamageDice(DieType.D6, 0)
             .SetNotificationTag(ArcanistMarkTag)
-            .SetTargetCondition(conditionMarkedByArcanist,
-                AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
+            .SetTargetCondition(conditionMarkedByArcanist, AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
             .SetNoAdvancement()
             .SetConditionOperations(

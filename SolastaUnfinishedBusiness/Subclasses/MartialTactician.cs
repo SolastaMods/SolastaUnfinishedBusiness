@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -26,8 +27,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -36,7 +36,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription
+                PowerFighterActionSurge.EffectDescription
                     .Copy()
                     .SetEffectForms(
                         new EffectForm
@@ -66,8 +66,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -76,7 +75,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription
+                PowerDomainLifePreserveLife.EffectDescription
                     .Copy()
                     .SetEffectForms(
                         new EffectForm
@@ -101,8 +100,7 @@ internal sealed class MartialTactician : AbstractSubclass
         // (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability)
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation
-                .SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -111,7 +109,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription
+                PowerDomainLawHolyRetribution.EffectDescription
                     .Copy()
                     .SetEffectForms(
                         new EffectForm

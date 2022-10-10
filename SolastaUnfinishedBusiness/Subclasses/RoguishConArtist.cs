@@ -1,9 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -45,9 +46,8 @@ internal sealed class RoguishConArtist : AbstractSubclass
             .AddToDB();
 
         var conditionConArtistFeint = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionConArtistFeint")
-            .SetGuiPresentation(Category.Feature,
-                ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
+            .Create(ConditionTrueStrike, "ConditionConArtistFeint")
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .SetAdditionalDamageWhenHit(ConditionDefinition.DamageQuantity.Dice, DieType.D8, 3)
             .AddToDB();
@@ -61,12 +61,22 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(
+                        DurationType.Round,
+                        1,
+                        TurnOccurenceType.EndOfTurn)
                     .SetTargetingData(
-                        Side.Enemy, RangeType.Distance, 12,
-                        TargetType.Individuals, 1, 0)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                        Side.Enemy,
+                        RangeType.Distance,
+                        12,
+                        TargetType.Individuals,
+                        1,
+                        0)
                     .SetSavingThrowData(
-                        true, false, AttributeDefinitions.Wisdom, true,
+                        true,
+                        false,
+                        AttributeDefinitions.Wisdom,
+                        true,
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Charisma,
                         15)

@@ -19,7 +19,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
-        var debilitatingStrikeEffectBuilder = EffectDescriptionBuilder
+        var debilitatingStrikeEffect = EffectDescriptionBuilder
             .Create()
             .SetDurationData(
                 DurationType.Round,
@@ -57,7 +57,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 )
                 .HasSavingThrow(EffectSavingThrowType.Negates)
                 .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                .Build());
+                .Build())
+            .Build();
 
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
@@ -67,7 +68,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.OnSneakAttackHitAuto,
                 RechargeRate.AtWill,
-                debilitatingStrikeEffectBuilder.Build())
+                debilitatingStrikeEffect)
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

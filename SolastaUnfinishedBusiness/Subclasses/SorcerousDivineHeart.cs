@@ -17,40 +17,35 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create("AutoPreparedSpellsDivineHeartArun")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, ProtectionFromEvilGood))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, ProtectionFromEvilGood))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartEinar")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, InflictWounds))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, InflictWounds))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMariake")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, CureWounds))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, CureWounds))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMisaye")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, Bane))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, Bane))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartPakri")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, Bless))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, Bless))
             .AddToDB();
 
         var featureSetDivineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
