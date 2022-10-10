@@ -69,7 +69,8 @@ internal static class CustomWeaponsContext
     }
 
     [NotNull]
-    internal static ItemPresentation BuildPresentation(string unIdentifiedName,
+    internal static ItemPresentation BuildPresentation(
+        string unIdentifiedName,
         [NotNull] ItemPresentation basePresentation,
         float scale = 1.0f, bool hasUnidentifiedDescription = false)
     {
@@ -114,13 +115,13 @@ internal static class CustomWeaponsContext
 
         if (twoHanded)
         {
-            builder
+            _ = builder
                 .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot);
         }
         else
         {
-            builder
+            _ = builder
                 .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot,
                     SlotTypeDefinitions.ContainerSlot)
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
@@ -128,23 +129,22 @@ internal static class CustomWeaponsContext
 
         if (!properties.Empty())
         {
-            builder.MakeMagical();
+            _ = builder.MakeMagical();
 
             if (needId)
             {
-                builder.SetRequiresIdentification(true);
+                _ = builder.SetRequiresIdentification(true);
             }
         }
 
         if (noDescription)
         {
-            builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon);
+            _ = builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon);
         }
         else
         {
-            builder.SetGuiPresentation(Category.Item, icon);
+            _ = builder.SetGuiPresentation(Category.Item, icon);
         }
-
 
         var weapon = builder.AddToDB();
 
@@ -166,7 +166,8 @@ internal static class CustomWeaponsContext
 
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
-        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
@@ -183,7 +184,8 @@ internal static class CustomWeaponsContext
                     .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
                     .SetUsesFixed(1)
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                    .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetEffectDescription(EffectDescriptionBuilder
+                        .Create()
                         .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
                             RuleDefinitions.TargetType.Individuals)
                         .ExcludeCaster()
@@ -196,7 +198,8 @@ internal static class CustomWeaponsContext
                         .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
                             .EffectDescription.EffectParticleParameters)
                         .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                        .SetEffectForms(new EffectFormBuilder()
+                        .SetEffectForms(EffectFormBuilder
+                            .Create()
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
                         .Build())
@@ -300,7 +303,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
-        HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
             .Build());
@@ -333,9 +337,9 @@ internal static class CustomWeaponsContext
                 TagsDefinitions.WeaponTagTwoHanded
             }
         };
-
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
         damageForm.dieType = RuleDefinitions.DieType.D10;
         damageForm.diceNumber = 1;
 
@@ -381,7 +385,8 @@ internal static class CustomWeaponsContext
             icon: PikePsychicIcon, needId: false,
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
-        PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypePsychic)
             .Build());
@@ -460,7 +465,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
-        LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeThunder)
             .Build());
@@ -549,7 +555,8 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
-        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeAcid)
             .Build());
@@ -577,7 +584,8 @@ internal static class CustomWeaponsContext
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
-        weapon.EffectDescription.AddEffectForms(new EffectFormBuilder()
+        weapon.EffectDescription.AddEffectForms(EffectFormBuilder
+            .Create()
             .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
                 damageType: RuleDefinitions.DamageTypeFire)
             .Build());

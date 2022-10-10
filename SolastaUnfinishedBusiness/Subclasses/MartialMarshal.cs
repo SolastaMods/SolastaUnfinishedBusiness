@@ -356,7 +356,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(ConjureAnimalsOneBeast.EffectDescription.Copy())
+                    .Create(ConjureAnimalsOneBeast.EffectDescription)
                     .SetDurationData(DurationType.Round, 10)
                     .ClearEffectForms()
                     .AddEffectForm(new EffectForm
@@ -457,15 +457,9 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.PermanentUnlessIncapacitated,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
                     .SetCreatedByCharacter()

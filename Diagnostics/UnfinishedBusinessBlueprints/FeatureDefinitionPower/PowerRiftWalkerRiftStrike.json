@@ -298,9 +298,9 @@
   "spellcastingFeature": null,
   "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
+  "usesAbilityScoreName": "",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -317,8 +317,8 @@
     "description": "Feature/&PowerRiftWalkerRiftStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5516cbcbb42b26e4c83012b54d538d58",
-      "m_SubObjectName": "SpellTyrant",
+      "m_AssetGUID": "26dbfd9d59e6d624a9ae24f4e4c18b05",
+      "m_SubObjectName": "Banishment",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

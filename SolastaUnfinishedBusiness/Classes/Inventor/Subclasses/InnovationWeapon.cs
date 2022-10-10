@@ -191,8 +191,10 @@ public static class InnovationWeapon
             .Create("MonsterAttackSteelDefender")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetToHitBonus(0)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetEffectForms(new EffectFormBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetDamageForm(dieType: DieType.D8, diceNumber: 1, bonusDamage: 0, damageType: DamageTypeForce)
                     .Build())
                 .Build()
@@ -319,8 +321,10 @@ public static class InnovationWeapon
         //TODO: bunus points if we manage to add healing part of this ability
         return FeatureDefinitionPowerBuilder
             .Create("PowerInnovationWeaponArcaneJolt")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1))
+            .SetGuiPresentation(Category.Feature,
+                CustomIcons.CreateAssetReferenceSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
+            .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1),
+                PowerVisibilityModifier.Default)
             .SetUsesAbility(0, AttributeDefinitions.Intelligence)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetShowCasting(false)

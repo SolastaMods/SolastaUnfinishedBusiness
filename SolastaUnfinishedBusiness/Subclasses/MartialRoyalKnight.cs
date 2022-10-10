@@ -33,16 +33,14 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
             .Configure(
-                0,
                 UsesDetermination.AbilityBonusPlusFixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.ShortRest,
+                PowerDomainLifePreserveLife.EffectDescription,
                 false,
-                false,
-                AttributeDefinitions.Charisma,
-                PowerDomainLifePreserveLife.EffectDescription)
+                1,
+                1,
+                AttributeDefinitions.Charisma)
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 

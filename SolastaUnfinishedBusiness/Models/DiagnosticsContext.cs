@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 #if DEBUG
+using System.IO;
 using I2.Loc;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.DataMiner;
 using SolastaUnfinishedBusiness.Utils;
@@ -16,11 +16,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DiagnosticsContext
 {
-    private const string GameFolder = ".";
-    internal const int Ta = 0;
-    internal const int Ce = 1;
-    internal const int Ta2 = 2;
-
     // ReSharper disable once MemberCanBePrivate.Global
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
@@ -53,27 +48,7 @@ internal static class DiagnosticsContext
     internal static readonly string ProjectFolder =
         Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
-    internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
-
     internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
-
-    [NotNull]
-    private static string GetDiagnosticsFolder()
-    {
-        var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
-
-        EnsureFolderExists(path);
-
-        return path;
-    }
-
-    private static void EnsureFolderExists([NotNull] string path)
-    {
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-    }
 
     internal static void CacheTaDefinitions()
     {
@@ -158,6 +133,34 @@ internal static class DiagnosticsContext
     {
         return _ceBaseDefinitions2.Contains(definition);
     }
+#if DEBUG
+    private const string GameFolder = ".";
+    internal const int Ta = 0;
+    internal const int Ce = 1;
+    internal const int Ta2 = 2;
+#endif
+
+#if DEBUG
+    internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
+
+    [NotNull]
+    private static string GetDiagnosticsFolder()
+    {
+        var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
+
+        EnsureFolderExists(path);
+
+        return path;
+    }
+
+    private static void EnsureFolderExists([NotNull] string path)
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
+#endif
 
 #if DEBUG
     private const string OfficialBpFolder = "OfficialBlueprints";

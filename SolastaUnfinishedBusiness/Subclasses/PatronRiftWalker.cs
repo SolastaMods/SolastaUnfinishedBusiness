@@ -1,8 +1,11 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -32,33 +35,20 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 MistyStep.EffectDescription,
                 true)
             .AddToDB();
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Banishment.EffectDescription,
                 true)
             .AddToDB();
@@ -69,25 +59,16 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         powerRiftWalkerBlink.EffectDescription.TargetType = TargetType.Self;
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,
-                "ConditionAffinityRiftWalkerRestrainedImmunity")
+            .Create(ConditionAffinityRestrainedmmunity, "ConditionAffinityRiftWalkerRestrainedImmunity")
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
 
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
+            .SetGuiPresentation(Category.Feature, Banishment.GuiPresentation.SpriteReference)
+            .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Reaction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Banishment.EffectDescription,
                 true)
             .AddToDB();
@@ -102,22 +83,15 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 DimensionDoor.EffectDescription,
                 true)
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
-                "DamageAffinityRiftWalkerFadeIntoTheVoid")
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityRiftWalkerFadeIntoTheVoid")
             .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
             .AddToDB();
 

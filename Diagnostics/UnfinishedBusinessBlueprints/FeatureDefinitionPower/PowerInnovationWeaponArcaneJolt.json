@@ -335,7 +335,7 @@
     "description": "Feature/&PowerInnovationWeaponArcaneJoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "ff7b9618-0eae-5667-a2e7-5a188b1ddda3",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

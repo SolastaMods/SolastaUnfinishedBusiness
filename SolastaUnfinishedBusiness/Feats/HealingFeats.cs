@@ -95,9 +95,17 @@ internal static class HealingFeats
             .Create(name)
             .SetGuiPresentation(name, Category.Feature, assetReferenceSprite)
             .Configure(
-                usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
+                usesDetermination,
+                activationTime,
+                recharge,
+                effectDescription,
+                false,
+                costPerUse,
+                usesPerRecharge,
+                usesAbilityScoreName,
                 proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription)
+                abilityScoreBonusToAttack,
+                abilityScore)
             .AddToDB();
     }
 
@@ -116,12 +124,14 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetTempHpForm(bonusHitPoints, dieType, diceNumber)
                     .SetLevelAdvancement(applyLevel, levelType, levelMultiplier)
                     .CreatedByCharacter()
@@ -148,12 +158,14 @@ internal static class HealingFeats
         int diceNumber,
         int levelMultiplier)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetHealingForm(
                         RuleDefinitions.HealingComputation.Dice,
                         bonusHitPoints,
@@ -180,7 +192,8 @@ internal static class HealingFeats
         RuleDefinitions.TurnOccurenceType endOfEffect,
         int secondsSinceDeath)
     {
-        return new EffectDescriptionBuilder()
+        return EffectDescriptionBuilder
+            .Create()
             .SetTargetingData(
                 RuleDefinitions.Side.Ally,
                 rangeType,
@@ -197,7 +210,8 @@ internal static class HealingFeats
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead)
             .AddEffectForm(
-                new EffectFormBuilder()
+                EffectFormBuilder
+                    .Create()
                     .SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One)
                     .CreatedByCharacter()
                     .Build())

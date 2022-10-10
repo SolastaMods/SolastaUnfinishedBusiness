@@ -173,7 +173,8 @@ internal static class SpellsContext
             var spellListName = kvp.Key.Name;
 
             foreach (var name in Main.Settings.SpellListSpellEnabled[spellListName]
-                         .Where(name => Spells.All(x => x.Name != name)).ToList())
+                         .Where(name => Spells.All(x => x.Name != name))
+                         .ToList())
             {
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
             }

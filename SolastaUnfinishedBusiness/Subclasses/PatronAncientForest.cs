@@ -88,15 +88,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Rest,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetUsesProficiency()
             .AddToDB();
@@ -141,15 +135,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Entangle.EffectDescription,
                 true)
             .AddToDB();
@@ -168,18 +156,14 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .AddEffectForm(
-                        new EffectFormBuilder()
+                        EffectFormBuilder
+                            .Create()
                             .SetConditionForm(
                                 conditionAncientForestRooted,
                                 ConditionForm.ConditionOperation.Add,
@@ -192,8 +176,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build()
-                ,
+                    .Build(),
                 true)
             .AddToDB();
 
@@ -201,6 +184,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
             .SetUsesProficiency()
+            .SetActivationTime(ActivationTime.Permanent)
             .SetUsesAbility(1, AttributeDefinitions.Charisma)
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
@@ -284,10 +268,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerName = $"PowerAncientForestHerbalBrew{type}";
 
         var guiPresentation = new GuiPresentationBuilder(
-            itemTitle,
-            baseItem.GuiPresentation.Description,
-            baseItem.GuiPresentation.SpriteReference
-        ).Build();
+                itemTitle,
+                baseItem.GuiPresentation.Description,
+                baseItem.GuiPresentation.SpriteReference)
+            .Build();
 
         var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
 
@@ -299,12 +283,14 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetGold(0)
             .AddToDB();
 
-        var brewForm = new EffectFormBuilder()
+        var brewForm = EffectFormBuilder
+            .Create()
             .SetSummonItemForm(brewItem, 1)
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
 
-        var brewEffect = new EffectDescriptionBuilder()
+        var brewEffect = EffectDescriptionBuilder
+            .Create()
             .AddEffectForm(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(
@@ -362,18 +348,14 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 .SetTitle("Equipment/&FunctionPotionDrinkTitle")
                 .Build())
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .AddEffectForm(
-                        new EffectFormBuilder()
+                        EffectFormBuilder
+                            .Create()
                             .SetConditionForm(
                                 conditionAncientForestHerbalBrew,
                                 ConditionForm.ConditionOperation.Add,
@@ -386,8 +368,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build()
-                ,
+                    .Build(),
                 true)
             .AddToDB();
 
@@ -404,12 +385,14 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetRequiresIdentification(false)
             .AddToDB();
 
-        var brewForm = new EffectFormBuilder()
+        var brewForm = EffectFormBuilder
+            .Create()
             .SetSummonItemForm(brewItem, 1)
             .SetBonusMode(AddBonusMode.DoubleProficiency)
             .Build();
 
-        var brewEffect = new EffectDescriptionBuilder()
+        var brewEffect = EffectDescriptionBuilder
+            .Create()
             .AddEffectForm(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(

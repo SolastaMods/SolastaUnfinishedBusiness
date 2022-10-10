@@ -63,7 +63,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -74,7 +75,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.FallProne, 0)
@@ -88,7 +90,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -99,7 +102,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
@@ -113,7 +117,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -124,7 +129,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -203,8 +209,10 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .AddToDB()),
                 ValidatorsCharacter.NoShield,
                 ValidatorsCharacter.NoArmor))
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .AddEffectForm(new EffectFormBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .AddEffectForm(EffectFormBuilder
+                    .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
                             .SetGuiPresentationNoContent(true)
@@ -260,7 +268,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.KiPoints)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -271,12 +280,14 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                        .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .SetMotionForm(MotionForm.MotionType.FallProne, 0)
                         .Build(),
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
@@ -301,7 +312,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -312,7 +324,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
@@ -327,7 +340,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetActivationTime(ActivationTime.NoCost)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -339,7 +353,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
                 )
                 .SetEffectForms(
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .HasSavingThrow(EffectSavingThrowType.Negates)

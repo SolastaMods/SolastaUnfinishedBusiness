@@ -82,7 +82,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .SetGuiPresentationNoContent(true)
                     .SetActivationTime(ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(
-                        new EffectDescriptionBuilder()
+                        EffectDescriptionBuilder
+                            .Create()
                             .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                             .AddEffectForm(new EffectForm
                             {
@@ -148,7 +149,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
             .SetShowCasting(false)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(
                     Side.Ally,
@@ -227,16 +228,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
                     .Configure(
-                        1,
                         UsesDetermination.Fixed,
-                        AttributeDefinitions.Charisma,
                         ActivationTime.OnRageStartAutomatic,
-                        1,
                         RechargeRate.AtWill,
-                        false,
-                        false,
-                        AttributeDefinitions.Charisma,
-                        new EffectDescriptionBuilder()
+                        EffectDescriptionBuilder.Create()
                             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
                             .AddEffectForm(new EffectForm
                             {
@@ -514,7 +509,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             lightSourceForm.brightRange = 4;
             lightSourceForm.dimAdditionalRange = 4;
 
-            return new EffectDescriptionBuilder()
+            return EffectDescriptionBuilder.Create()
                 .SetSavingThrowData(
                     true,
                     false,

@@ -179,15 +179,18 @@ internal static class EwFeats
             .SetUsesFixed(1)
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1,
                     TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
                         .Build(),
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -202,15 +205,18 @@ internal static class EwFeats
             .SetUsesFixed(1)
             .SetCostPerUse(0)
             .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1,
                     TargetType.Self)
                 .SetDurationData(DurationType.Round, 0, false)
                 .SetEffectForms(
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
                         .Build(),
-                    new EffectFormBuilder()
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                         .Build()
                 )

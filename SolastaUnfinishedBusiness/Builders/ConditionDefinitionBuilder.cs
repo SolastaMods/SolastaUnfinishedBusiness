@@ -36,11 +36,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    private void SetEmptyParticleReferencesWhereNull()
-    {
-        SetEmptyParticleReferencesWhereNull(Definition);
-    }
-
     // Setters delegating to Definition
     internal TBuilder SetAllowMultipleInstances(bool value)
     {
@@ -106,15 +101,16 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
     internal TBuilder SetAdditionalDamageWhenHit(
         ConditionDefinition.DamageQuantity damageQuantity = ConditionDefinition.DamageQuantity.Dice,
-        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1, int numberOfDie = 0,
-        string damageType = "", bool active = true)
+        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
+        int numberOfDie = 0,
+        string damageType = "",
+        bool active = true)
     {
         Definition.additionalDamageWhenHit = active;
         Definition.additionalDamageDieType = dieType;
         Definition.additionalDamageDieNumber = numberOfDie;
         Definition.additionalDamageQuantity = damageQuantity;
         Definition.additionalDamageType = damageType;
-
         return (TBuilder)this;
     }
 
@@ -124,22 +120,10 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
-    internal TBuilder SetSilentWhenAdded(bool value)
-    {
-        Definition.silentWhenAdded = value;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetSilentWhenRemoved(bool value)
-    {
-        Definition.silentWhenRemoved = value;
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetSilent(Silent silent)
     {
-        SetSilentWhenRemoved(silent.HasFlag(Silent.WhenRemoved));
-        SetSilentWhenAdded(silent.HasFlag(Silent.WhenAdded));
+        Definition.silentWhenAdded = silent.HasFlag(Silent.WhenAdded);
+        Definition.silentWhenRemoved = silent.HasFlag(Silent.WhenRemoved);
         return (TBuilder)this;
     }
 
@@ -196,7 +180,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
         Definition.durationParameter = duration;
         Definition.durationType = type;
-
         return (TBuilder)this;
     }
 
@@ -211,15 +194,8 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.allowMultipleInstances = false;
         Definition.durationType = durationType;
         Definition.durationParameter = durationParameter;
-
-        if (!silent)
-        {
-            return (TBuilder)this;
-        }
-
-        Definition.silentWhenAdded = true;
-        Definition.silentWhenRemoved = true;
-
+        Definition.silentWhenAdded = silent;
+        Definition.silentWhenRemoved = silent;
         return (TBuilder)this;
     }
 
@@ -227,11 +203,11 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
     protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
-        SetEmptyParticleReferencesWhereNull();
+        SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-        name, namespaceGuid)
+    protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 
@@ -248,8 +224,8 @@ internal class ConditionDefinitionBuilder :
     {
     }
 
-    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
+    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

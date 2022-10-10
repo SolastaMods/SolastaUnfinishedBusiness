@@ -19,7 +19,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
-        var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
+        var debilitatingStrikeEffectBuilder = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(
                 DurationType.Round,
                 1,
@@ -39,7 +40,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .AddEffectForm(new EffectFormBuilder()
+            .AddEffectForm(EffectFormBuilder
+                .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
                         .Create(ConditionDummy, "ConditionOpportunistDebilitated")
@@ -62,17 +64,10 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerOpportunistDebilitatingStrike")
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
                 ActivationTime.OnSneakAttackHitAuto,
-                1,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Dexterity,
-                debilitatingStrikeEffectBuilder.Build()
-            )
+                debilitatingStrikeEffectBuilder.Build())
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

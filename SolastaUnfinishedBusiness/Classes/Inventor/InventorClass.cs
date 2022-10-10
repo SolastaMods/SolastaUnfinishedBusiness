@@ -280,6 +280,8 @@ internal static class InventorClass
 
             #region Level 07
 
+            .AddFeaturesAtLevel(7, BuildFlashOfGenius())
+
             #endregion
 
             #region Level 08
@@ -453,6 +455,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerPoolModifierBuilder
             .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
+            .SetActivationTime(ActivationTime.Permanent)
             .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
             .AddToDB();
     }
@@ -639,12 +642,14 @@ internal static class InventorClass
             .SetSharedPool(pool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetSummonItemForm(item, 1, true)
                     .Build())
@@ -656,10 +661,13 @@ internal static class InventorClass
 
     private static ItemDefinition BuildWandOfSpell(SpellDefinition spell)
     {
+        var spellName = spell.FormatTitle();
+        var title = Gui.Format("Item/&SpellStoringWandTitle", spellName);
+        var description = Gui.Format("Item/&SpellStoringWandDescription", spellName);
+
         return ItemDefinitionBuilder
             .Create(ItemDefinitions.WandMagicMissile, $"SpellStoringWandOf{spell.Name}")
-            .SetOrUpdateGuiPresentation($"Wand of {spell.FormatTitle()}",
-                $"This wand allows casting of the <b>{spell.Name}</b> spell using spell casting stats of the Inventor who created it.")
+            .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
             .SetCustomSubFeatures(InventorClassHolder.Marker)
@@ -678,6 +686,52 @@ internal static class InventorClass
                 .Build())
             .AddToDB();
     }
+
+    private static FeatureDefinition BuildFlashOfGenius()
+    {
+        var text = "PowerInventorFlashOfGenius";
+        var sprite = CustomIcons.CreateAssetReferenceSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
+
+        //ideally should be visible to player, but unusable, so remaining uses can be tracked
+        var bonusPower = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorFlashOfGeniusBonus")
+            .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Default)
+            .SetActivationTime(ActivationTime.Reaction)
+            .SetReactionContext(ReactionTriggerContext.None)
+            .SetUsesAbility(0, AttributeDefinitions.Intelligence)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .AddToDB();
+
+        //should be hidden from user
+        var auraPower = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorFlashOfGeniusAura")
+            .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6, 2)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionInventorFlashOfGeniusAura")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetCustomSubFeatures(new FlashOfGenius(bonusPower, "InventorFlashOfGenius"))
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInventorFlashOfGenius")
+            .SetGuiPresentation(text, Category.Feature)
+            .SetFeatureSet(auraPower, bonusPower)
+            .AddToDB();
+    }
 }
 
 internal class InventorClassHolder : IClassHoldingFeature
@@ -689,4 +743,103 @@ internal class InventorClassHolder : IClassHoldingFeature
     public static InventorClassHolder Marker { get; } = new();
 
     public CharacterClassDefinition Class => InventorClass.Class;
+}
+
+internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
+{
+    public FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
+    {
+    }
+
+    private static int GetBonus(RulesetCharacter helper)
+    {
+        var INT = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(INT), 1);
+    }
+
+    internal override bool ShouldTrigger(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetCharacter helper,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck,
+        RollOutcome saveOutcome,
+        int saveOutcomeDelta)
+    {
+        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
+    }
+
+
+    internal override bool TryModifyRoll(CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetCharacter helper,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck,
+        ref RollOutcome saveOutcome,
+        ref int saveOutcomeDelta)
+    {
+        var bonus = GetBonus(helper);
+        saveOutcomeDelta += bonus;
+
+        //reuse DC modifier from previous checks, not 100% sure this is correct
+        var saveDC = action.GetSaveDC() + saveModifier.SaveDCModifier;
+        var rolled = saveDC + saveOutcomeDelta;
+        var success = saveOutcomeDelta >= 0;
+
+        var text = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
+        string result;
+        ConsoleStyleDuplet.ParameterType resultType;
+
+        if (success)
+        {
+            result = "Feedback/&SaveSuccessOutcome";
+            resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
+            saveOutcome = RollOutcome.Success;
+        }
+        else
+        {
+            result = "Feedback/&SaveFailureOutcome";
+            resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
+        }
+
+        var console = Gui.Game.GameConsole;
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
+
+        console.AddCharacterEntry(helper, entry);
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
+        entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDC.ToString());
+
+        console.AddEntry(entry);
+
+        return true;
+    }
+
+    internal override string FormatReactionDescription(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetCharacter helper,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck,
+        RollOutcome saveOutcome,
+        int saveOutcomeDelta)
+    {
+        string text;
+        if (defender.RulesetCharacter == helper)
+        {
+            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat";
+        }
+        else
+        {
+            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+        }
+
+        return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+    }
 }

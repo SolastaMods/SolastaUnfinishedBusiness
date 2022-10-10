@@ -60,7 +60,8 @@ internal static class SubclassesContext
 
         // settings paring
         foreach (var name in Main.Settings.SubclassEnabled
-                     .Where(name => Subclasses.All(x => x.Name != name)))
+                     .Where(name => Subclasses.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.SubclassEnabled.Remove(name);
         }

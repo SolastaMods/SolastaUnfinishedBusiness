@@ -33,7 +33,8 @@ public static class InnovationAlchemy
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Sphere)
@@ -48,7 +49,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
                         damageType: RuleDefinitions.DamageTypeFire)
@@ -61,7 +63,8 @@ public static class InnovationAlchemy
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new Overcharge())
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Cone, 4)
@@ -76,7 +79,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.BurningHands)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
                         damageType: RuleDefinitions.DamageTypeFire)
@@ -92,7 +96,8 @@ public static class InnovationAlchemy
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
             // .SetCustomSubFeatures(new ValidatorPowerUse(_ => false))
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 6,
                     RuleDefinitions.TargetType.Individuals)
@@ -107,7 +112,8 @@ public static class InnovationAlchemy
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                     .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 3,
                         damageType: RuleDefinitions.DamageTypeFire)

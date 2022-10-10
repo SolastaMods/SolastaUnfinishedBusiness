@@ -72,6 +72,25 @@ internal sealed class PatronElementalist : AbstractSubclass
 
     internal PatronElementalist()
     {
+        var spellListElementalist = SpellListDefinitionBuilder
+            .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListElementalist")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
+            .SetSpellsAtLevel(1, BurningHands, Thunderwave, FogCloud)
+            .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay, HeatMetal)
+            .SetSpellsAtLevel(3, Fireball, LightningBolt, SleetStorm)
+            .SetSpellsAtLevel(4, Stoneskin, IceStorm, WallOfFire)
+            .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
+            .FinalizeSpells(true, 9)
+            .AddToDB();
+
+        var magicAffinityElementalistExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityElementalistExpandedSpells")
+            .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
+            .SetExtendedSpellList(spellListElementalist)
+            .AddToDB();
+
         var iconRegular = CustomIcons.CreateAssetReferenceSprite(
             "ElementalFormIcon", Resources.ElementalFormIcon, 24, 24);
         var iconEnhanced = CustomIcons.CreateAssetReferenceSprite(
@@ -85,15 +104,9 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create("PowerElementalistElementalFormPool")
             .SetGuiPresentation(Category.Feature, formRegular)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetUsesProficiency()
             .SetRechargeRate(RechargeRate.LongRest)
@@ -103,15 +116,9 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create("PowerElementalistElementalEnhancedFormPool")
             .SetGuiPresentation(Category.Feature, formEnhanced)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 new EffectDescription())
             .SetUsesProficiency()
             .SetOverriddenPower(powerElementalistElementalFormPool)
@@ -137,25 +144,6 @@ internal sealed class PatronElementalist : AbstractSubclass
 
         PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers);
         PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
-
-        var spellListElementalist = SpellListDefinitionBuilder
-            .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListElementalist")
-            .SetGuiPresentationNoContent(true)
-            .ClearSpells()
-            .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
-            .SetSpellsAtLevel(1, BurningHands, Thunderwave, FogCloud)
-            .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay, HeatMetal)
-            .SetSpellsAtLevel(3, Fireball, LightningBolt, SleetStorm)
-            .SetSpellsAtLevel(4, Stoneskin, IceStorm, WallOfFire)
-            .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
-            .FinalizeSpells(true, 9)
-            .AddToDB();
-
-        var magicAffinityElementalistExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityElementalistExpandedSpells")
-            .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
-            .SetExtendedSpellList(spellListElementalist)
-            .AddToDB();
 
         var featureSetElementalistKnowledge = FeatureDefinitionFeatureSetBuilder
             .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
@@ -240,8 +228,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 AdditionalDamageType.Specific,
                 elementalFormConfig.DamageType.Name,
                 AdditionalDamageAdvancement.None,
-                new List<DiceByRank>()
-            )
+                new List<DiceByRank>())
             .AddToDB();
 
         var conditionElementalistNormal = ConditionDefinitionBuilder
@@ -264,18 +251,19 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(
-                            conditionElementalistNormal,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true
-                        )
-                        .Build()
-                    )
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionElementalistNormal,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build(),
                 true)
             .AddToDB();
@@ -302,14 +290,17 @@ internal sealed class PatronElementalist : AbstractSubclass
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(conditionElementalistEnhanced,
-                            ConditionForm.ConditionOperation.Add, true, true)
-                        .Build()
-                    ).Build(),
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionElementalistEnhanced,
+                                ConditionForm.ConditionOperation.Add, true, true)
+                            .Build())
+                    .Build(),
                 true)
             .AddToDB();
 

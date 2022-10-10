@@ -473,13 +473,15 @@ internal static class CasterFeats
             false,
             false,
             savingThrowDifficultyAbility,
-            new EffectDescriptionBuilder()
+            EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
                     savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass)
-                .AddEffectForm(new EffectFormBuilder()
+                .AddEffectForm(EffectFormBuilder
+                    .Create()
                     .SetMotionForm(motionType, motionDistance)
                     .Build())
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
@@ -507,8 +509,17 @@ internal static class CasterFeats
             .Create(name)
             .SetGuiPresentation(guiPresentation)
             .Configure(
-                usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge,
-                proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription)
+                usesDetermination,
+                activationTime,
+                recharge,
+                effectDescription,
+                false,
+                costPerUse,
+                usesPerRecharge,
+                abilityScore,
+                proficiencyBonusToAttack,
+                abilityScoreBonusToAttack,
+                abilityScore)
             .AddToDB();
     }
 }

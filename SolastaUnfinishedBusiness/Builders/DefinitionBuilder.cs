@@ -105,11 +105,6 @@ internal interface IDefinitionBuilder
 internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
     where TDefinition : BaseDefinition
 {
-    /// <summary>
-    ///     Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
-    /// </summary>
-    protected bool IsNew { get; }
-
     protected TDefinition Definition { get; }
 
     /// <summary>
@@ -123,6 +118,174 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     ///     Verify post-condition checks here.
     /// </summary>
     internal virtual void Validate() { }
+
+    #region AddToDB
+
+    internal TDefinition AddToDB()
+    {
+#if DEBUG
+        return AddToDB(true);
+#else
+        return AddToDB(false);
+#endif
+    }
+
+    private TDefinition AddToDB(
+        bool assertIfDuplicate,
+        BaseDefinition.Copyright copyright = BaseDefinition.Copyright.UserContent,
+        GamingPlatformDefinitions.ContentPack contentPack = CeContentPackContext.CeContentPack)
+    {
+        Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
+        Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
+        Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
+
+        if (!Guid.TryParse(Definition.GUID, out _))
+        {
+            throw new SolastaUnfinishedBusinessException(
+                $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
+        }
+
+        VerifyGuiPresentation();
+
+        Definition.contentCopyright = copyright;
+        Definition.contentPack = contentPack;
+
+        Validate();
+
+        // Get all base types for the target definition.  The definition needs to be added to all matching databases.
+        // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
+        var types = GetBaseTypes(Definition.GetType());
+        var addedToAnyDB = false;
+
+        foreach (var type in types)
+        {
+            if (LocalAddToDB(type))
+            {
+                addedToAnyDB = true;
+            }
+        }
+
+        if (!addedToAnyDB)
+        {
+            throw new SolastaUnfinishedBusinessException(
+                $"Unable to locate any database(s) matching definition type='{Definition.GetType().FullName}', name='{Definition.name}', guid='{Definition.GUID}'.");
+        }
+
+        LogDefinition($"Added to db: name={Definition.Name}, guid={Definition.GUID}");
+
+        return Definition;
+
+        bool LocalAddToDB(Type type)
+        {
+            // attempt to get database matching the target type
+            var getDatabaseMethodInfoGeneric = GetDatabaseMethodInfo.MakeGenericMethod(type);
+            var db = getDatabaseMethodInfoGeneric.Invoke(null, null);
+
+            if (db == null)
+            {
+                return false;
+            }
+
+            var dbType = db.GetType();
+
+            if (assertIfDuplicate)
+            {
+                if (DBHasElement(Definition.name))
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"The definition with name '{Definition.name}' already exists in database '{type.Name}' by name.");
+                }
+
+                if (DBHasElementByGuid(Definition.GUID))
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"The definition with name '{Definition.name}' and guid '{Definition.GUID}' already exists in database '{type.Name}' by GUID.");
+                }
+            }
+
+            var methodInfo = dbType.GetMethod("Add");
+
+            if (methodInfo == null)
+            {
+                throw new SolastaUnfinishedBusinessException(
+                    $"Could not locate the 'Add' method for {dbType.FullName}.");
+            }
+
+            methodInfo.Invoke(db, new object[] { Definition });
+
+            return true;
+
+            bool DBHasElement(string name)
+            {
+                var hasElementMethodInfo = dbType.GetMethod("HasElement");
+
+                if (hasElementMethodInfo == null)
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"Could not locate the 'HasElement' method for {dbType.FullName}.");
+                }
+
+                return (bool)hasElementMethodInfo.Invoke(db, new object[] { name, true });
+            }
+
+            bool DBHasElementByGuid(string guid)
+            {
+                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid");
+
+                if (hasElementByGuidMethodInfo == null)
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
+                }
+
+                return (bool)hasElementByGuidMethodInfo.Invoke(db, new object[] { guid });
+            }
+        }
+
+        // Get list of base types down to but not including BaseDefinition.  
+        IEnumerable<Type> GetBaseTypes(Type t)
+        {
+            if (t.BaseType != typeof(object) && t != typeof(BaseDefinition))
+            {
+                return Enumerable.Repeat(t, 1).Concat(GetBaseTypes(t.BaseType));
+            }
+
+            return Enumerable.Empty<Type>();
+        }
+
+        void VerifyGuiPresentation()
+        {
+            if (Definition.GuiPresentation == null)
+            {
+                Main.Log(
+                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
+
+                Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
+                {
+                    Main.Log(
+                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+
+                    Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
+                }
+
+                if (!string.IsNullOrEmpty(Definition.GuiPresentation.Description))
+                {
+                    return;
+                }
+
+                Main.Log(
+                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
+            }
+        }
+    }
+
+    #endregion
 
     #region Helpers
 
@@ -197,13 +360,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// </summary>
     /// <param name="name">The name assigned to the definition (mandatory)</param>
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    private protected DefinitionBuilder(string name, Guid namespaceGuid) : this(name, null, namespaceGuid, true)
-    {
-        IsNew = true;
-    }
-
-    // TODO: two very similar ctors - worth combining?
-    private DefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
+    private protected DefinitionBuilder(string name, Guid namespaceGuid)
     {
         Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
@@ -214,30 +371,15 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         InitializeCollectionFields();
 
-        if (useNamespaceGuid)
+        if (namespaceGuid == Guid.Empty)
         {
-            if (namespaceGuid == Guid.Empty)
-            {
-                throw new SolastaUnfinishedBusinessException("The namespace guid supplied is Guid.Empty.");
-            }
-
-            // create guid from namespace+name
-            Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
-
-            LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
+            throw new SolastaUnfinishedBusinessException("The namespace guid supplied is Guid.Empty.");
         }
-        else
-        {
-            if (string.IsNullOrWhiteSpace(definitionGuid))
-            {
-                throw new SolastaUnfinishedBusinessException("The guid supplied is null or empty.");
-            }
 
-            // assign guid
-            Definition.SetUserContentGUID(definitionGuid);
+        // create guid from namespace+name
+        Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
-            LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
-        }
+        LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
     }
 
     /// <summary>
@@ -247,14 +389,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="original">The definition being copied.</param>
     /// <param name="name">The name assigned to the definition (mandatory).</param>
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
-        this(original, name, null, namespaceGuid, true)
-    {
-    }
-
-    // TODO: two very similar ctors - worth combining?
-    private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
-        bool useNamespaceGuid)
+    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
     {
         Preconditions.ArgumentIsNotNull(original, nameof(original));
         Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
@@ -263,212 +398,15 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         Definition.name = name;
 
         VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
-
         InitializeCollectionFields();
 
-        if (useNamespaceGuid)
+        if (namespaceGuid == Guid.Empty)
         {
-            if (namespaceGuid == Guid.Empty)
-            {
-                throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
-            }
-
-            // create guid from namespace+name
-            Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
-        }
-        else
-        {
-            // directly assign guid
-            Definition.SetUserContentGUID(definitionGuid);
-        }
-    }
-
-    #endregion
-
-    #region Add to dbs
-
-    /// <summary>
-    ///     Add the TDefinition to every compatible database
-    /// </summary>
-    /// <remarks>
-    ///     By default AddToDB will set the copyright to 'User Content' and the content pack to 'Unfinished Business'.
-    ///     To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
-    /// </remarks>
-    /// <param name="assertIfDuplicate"></param>
-    /// <returns></returns>
-    /// <exception cref="SolastaUnfinishedBusinessException"></exception>
-    internal TDefinition AddToDB(bool assertIfDuplicate = true)
-    {
-        return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
-    }
-
-    private TDefinition AddToDB(
-        bool assertIfDuplicate,
-        BaseDefinition.Copyright? copyright,
-        GamingPlatformDefinitions.ContentPack? contentPack)
-    {
-        Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
-        Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
-        Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
-
-        if (!Guid.TryParse(Definition.GUID, out _))
-        {
-            throw new SolastaUnfinishedBusinessException(
-                $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
+            throw new ArgumentException(@"Please supply a non-empty Guid", nameof(namespaceGuid));
         }
 
-        VerifyGuiPresentation();
-
-        if (copyright.HasValue)
-        {
-            Definition.contentCopyright = copyright.Value;
-        }
-
-        if (contentPack.HasValue)
-        {
-            Definition.contentPack = contentPack.Value;
-        }
-
-        Validate();
-
-        // Get all base types for the target definition.  The definition needs to be added to all matching databases.
-        // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
-        var types = GetBaseTypes(Definition.GetType());
-
-        var addedToAnyDB = false;
-
-        foreach (var type in types)
-        {
-            if (LocalAddToDB(type))
-            {
-                addedToAnyDB = true;
-            }
-        }
-
-        if (!addedToAnyDB)
-        {
-            throw new SolastaUnfinishedBusinessException(
-                $"Unable to locate any database(s) matching definition type='{Definition.GetType().FullName}', name='{Definition.name}', guid='{Definition.GUID}'.");
-        }
-
-        LogDefinition($"Added to db: name={Definition.Name}, guid={Definition.GUID}");
-
-        return Definition;
-
-        bool LocalAddToDB(Type type)
-        {
-            // attempt to get database matching the target type
-            var getDatabaseMethodInfoGeneric = GetDatabaseMethodInfo.MakeGenericMethod(type);
-
-            var db = getDatabaseMethodInfoGeneric.Invoke(null, null);
-
-            if (db == null)
-            {
-                return false;
-            }
-
-            var dbType = db.GetType();
-
-            if (assertIfDuplicate)
-            {
-                if (DBHasElement(Definition.name))
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"The definition with name '{Definition.name}' already exists in database '{type.Name}' by name.");
-                }
-
-                if (DBHasElementByGuid(Definition.GUID))
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"The definition with name '{Definition.name}' and guid '{Definition.GUID}' already exists in database '{type.Name}' by GUID.");
-                }
-            }
-
-            LocalLocalAddToDB();
-
-            return true;
-
-            void LocalLocalAddToDB()
-            {
-                var methodInfo = dbType.GetMethod("Add");
-
-                if (methodInfo == null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'Add' method for {dbType.FullName}.");
-                }
-
-                methodInfo.Invoke(db, new object[] { Definition });
-            }
-
-            bool DBHasElement(string name)
-            {
-                var methodInfo = dbType.GetMethod("HasElement");
-
-                if (methodInfo == null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'HasElement' method for {dbType.FullName}.");
-                }
-
-                return (bool)methodInfo.Invoke(db, new object[] { name, true });
-            }
-
-            bool DBHasElementByGuid(string guid)
-            {
-                var methodInfo = dbType.GetMethod("HasElementByGuid");
-
-                if (methodInfo == null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
-                }
-
-                return (bool)methodInfo.Invoke(db, new object[] { guid });
-            }
-        }
-
-        // Get list of base types down to but not including BaseDefinition.  
-        IEnumerable<Type> GetBaseTypes(Type t)
-        {
-            if (t.BaseType != typeof(object) && t != typeof(BaseDefinition))
-            {
-                return Enumerable.Repeat(t, 1).Concat(GetBaseTypes(t.BaseType));
-            }
-
-            return Enumerable.Empty<Type>();
-        }
-
-        void VerifyGuiPresentation()
-        {
-            if (Definition.GuiPresentation == null)
-            {
-                Main.Log(
-                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
-
-                Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
-                {
-                    Main.Log(
-                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
-
-                    Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
-                }
-
-                if (!string.IsNullOrEmpty(Definition.GuiPresentation.Description))
-                {
-                    return;
-                }
-
-                Main.Log(
-                    $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
-
-                Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
-            }
-        }
+        // create guid from namespace+name
+        Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
     }
 
     #endregion
@@ -486,10 +424,12 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
     where TDefinition : BaseDefinition
     where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
 {
-    private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+    private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
 
-    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-        name, namespaceGuid)
+    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

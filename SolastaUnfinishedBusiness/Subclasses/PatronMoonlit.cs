@@ -84,15 +84,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness.GuiPresentation.SpriteReference)
             .Configure(
-                1,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Darkness.EffectDescription
                     .Copy()
                     .SetDuration(DurationType.Minute, 1),
@@ -102,16 +96,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
                 Daylight.EffectDescription
                     .Copy()
                     .SetDuration(DurationType.Minute, 1),
@@ -122,16 +109,11 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                Fly.EffectDescription.Copy(),
+                Fly.EffectDescription
+                    .Copy(),
                 true)
             .AddToDB();
 
@@ -141,16 +123,11 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(
                         DurationType.Minute,
                         1,
@@ -170,27 +147,31 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Dexterity,
                         20)
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                    "ConditionMoonlitMoonTouched")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetConditionType(ConditionType.Neutral)
-                                .SetFeatures(MoveModeFly2)
-                                .SetFeatures(MovementAffinityConditionLevitate)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetMotionForm(
-                            MotionForm.MotionType.Levitate,
-                            10)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                                        "ConditionMoonlitMoonTouched")
+                                    .SetGuiPresentation(Category.Condition)
+                                    .SetConditionType(ConditionType.Neutral)
+                                    .SetFeatures(MoveModeFly2)
+                                    .SetFeatures(MovementAffinityConditionLevitate)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add,
+                                false,
+                                false)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(
+                                MotionForm.MotionType.Levitate,
+                                10)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
                     .Build(),
                 true)
@@ -217,7 +198,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 magicAffinityMoonlitExpandedSpells,
                 conditionAffinityMoonlitDarknessImmunity,
                 SenseSuperiorDarkvision)
-            //TODO: should this be indeed on 2?
             .AddFeaturesAtLevel(2, lightAffinityMoonlitWeak)
             .AddFeaturesAtLevel(6,
                 lightAffinityMoonlitStrong,
@@ -299,8 +279,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         return ConditionDefinitionBuilder
             .Create("ConditionMoonlitRevealed")
             .SetGuiPresentationNoContent()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .Configure(DurationType.Round, 1, false)
+            .Configure(DurationType.Round, 1, true)
             .AddToDB();
     }
 

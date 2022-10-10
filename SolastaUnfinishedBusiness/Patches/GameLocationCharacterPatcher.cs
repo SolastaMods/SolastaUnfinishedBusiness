@@ -136,20 +136,15 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var battleInProgress = ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
+            var battleInProgress = Gui.Battle != null;
 
             if (__result)
             {
                 //PATCH: hide use power button if character has no valid powers
-                if (!rulesetCharacter.UsablePowers
-                        .Any(rulesetUsablePower =>
-                        {
-                            var time = rulesetUsablePower.powerDefinition.ActivationTime;
-                            return (!battleInProgress
-                                    || (ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)
-                                        && actionType == type))
-                                   && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers);
-                        }))
+                if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                        IsActinoValid(rulesetCharacter, rulesetUsablePower, actionType)
+                        && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)
+                    ))
                 {
                     __result = false;
                 }
@@ -160,13 +155,23 @@ public static class GameLocationCharacterPatcher
                 if (!battleInProgress
                     && actionType == ActionDefinitions.ActionType.Main
                     && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                        rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0
-                        && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
+                        CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
 
                 {
                     __result = true;
                 }
             }
+        }
+
+        private static bool IsActinoValid(RulesetCharacter character, RulesetUsablePower power,
+            ActionDefinitions.ActionType actionType)
+        {
+            if (Gui.Battle == null) { return true; }
+
+            var time = power.powerDefinition.ActivationTime;
+            if (!ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)) { return false; }
+
+            return actionType == type || !PowerVisibilityModifier.IsPowerHidden(character, power, actionType);
         }
 
         private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower,
@@ -175,7 +180,7 @@ public static class GameLocationCharacterPatcher
             var power = usablePower.PowerDefinition;
             return (accountDelegatedPowers || !power.DelegatedToAction)
                    && !power.GuiPresentation.Hidden
-                   && character.CanUsePower(power);
+                   && character.CanUsePower(power, false);
         }
     }
 

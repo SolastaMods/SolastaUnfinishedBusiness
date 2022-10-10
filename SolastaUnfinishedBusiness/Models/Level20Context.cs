@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -49,11 +50,29 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
 
-        // required to ensure level 20 and multiclass will work correctly on higher level heroes
-        var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
+        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
+        // that might affect multiplayer sessions and prevent level up from 19 to 20
+        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
 
-        foreach (var spellListDefinition in spellListDefinitions)
+        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).ToList();
+        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
+        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
+
+        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
         {
+            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
             while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
@@ -64,9 +83,6 @@ internal static class Level20Context
                 });
             }
         }
-
-        // required to avoid some trace error messages that might affect multiplayer sessions and prevent level up from 19 to 20
-        var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
 
         foreach (var castSpellDefinition in castSpellDefinitions)
         {
@@ -88,6 +104,23 @@ internal static class Level20Context
             while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
             {
                 castSpellDefinition.ScribedSpells.Add(0);
+            }
+
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
             }
         }
     }
@@ -376,7 +409,8 @@ internal static class Level20Context
     {
         // const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
         //
-        // var powerSorcerousRestoration = new EffectFormBuilder()
+        // var powerSorcerousRestoration = EffectFormBuilder
+        //     .Create()
         //     .CreatedByCharacter()
         //     .SetSpellForm(9)
         //     .Build();
@@ -407,7 +441,7 @@ internal static class Level20Context
         //             .SetUsesAbilityScoreName(AttributeDefinitions.Charisma)
         //             .SetCostPerUse(1)
         //             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-        //             .SetEffectDescription(new EffectDescriptionBuilder()
+        //             .SetEffectDescription(EffectDescriptionBuilder.Create()
         //                 .SetEffectForms(powerSorcerousRestoration)
         //                 .SetTargetingData(
         //                     RuleDefinitions.Side.Ally,

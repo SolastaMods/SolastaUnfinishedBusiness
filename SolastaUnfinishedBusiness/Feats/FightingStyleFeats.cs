@@ -22,13 +22,16 @@ internal static class FightingStyleFeats
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
     {
+        // we need a brand new one to avoid issues with FS getting hidden
+        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
+
         return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
             .Create($"Feat{fightingStyle.Name}")
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
                     .Create($"ProficiencyFeat{fightingStyle.Name}")
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
-                    .SetGuiPresentation(fightingStyle.GuiPresentation)
+                    .SetGuiPresentation(guiPresentation)
                     .AddToDB()
             )
             .SetValidators((_, hero) =>
@@ -41,7 +44,7 @@ internal static class FightingStyleFeats
 
                 return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
             })
-            .SetGuiPresentation(fightingStyle.GuiPresentation)
+            .SetGuiPresentation(guiPresentation)
             .AddToDB();
     }
 }

@@ -8,9 +8,19 @@ internal class EffectFormBuilder
 {
     private readonly EffectForm effectForm;
 
-    internal EffectFormBuilder()
+    private EffectFormBuilder()
     {
         effectForm = new EffectForm();
+    }
+
+    internal EffectForm Build()
+    {
+        return effectForm;
+    }
+
+    internal static EffectFormBuilder Create()
+    {
+        return new EffectFormBuilder();
     }
 
     internal EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity)
@@ -397,11 +407,4 @@ internal class EffectFormBuilder
         return this;
     }
 #endif
-
-    internal EffectForm Build()
-    {
-        return effectForm;
-    }
-
-    internal static EffectFormBuilder Create() { return new EffectFormBuilder(); }
 }

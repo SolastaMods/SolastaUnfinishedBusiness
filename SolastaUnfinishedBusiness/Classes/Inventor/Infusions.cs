@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -26,6 +27,8 @@ internal static class Infusions
 
     public static void Build()
     {
+        #region 02 Enhance Focus
+
         var name = "InfusionEnhanceArcaneFocus";
         var sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
         var power = BuildInfuseItemPowerInvocation(2, name, sprite, IsFocusOrStaff,
@@ -43,6 +46,10 @@ internal static class Infusions
             .SetCastingModifiers(2, dcModifier: 2)
             .AddToDB());
 
+        #endregion
+
+        #region 02 Enhance Armor
+
         name = "InfusionEnhanceDefense";
         sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
         power = BuildInfuseItemPowerInvocation(2, name, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
@@ -56,6 +63,10 @@ internal static class Infusions
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB());
+
+        #endregion
+
+        #region 02 Enhance Weapon
 
         name = "InfusionEnhanceWeapon";
         sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
@@ -76,6 +87,10 @@ internal static class Infusions
                 .SetMagicalWeapon()
                 .AddToDB());
 
+        #endregion
+
+        #region 02 Mind Sharpener
+
         name = "InfusionMindSharpener";
         sprite = CustomIcons.CreateAssetReferenceSprite("MindSharpener", Resources.MindSharpener, 128);
         BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
@@ -85,7 +100,9 @@ internal static class Infusions
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
             .AddToDB());
 
-        #region Returning Weapon
+        #endregion
+
+        #region 02 Returning Weapon
 
         sprite = CustomIcons.CreateAssetReferenceSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeaponWithBonus";
@@ -129,6 +146,54 @@ internal static class Infusions
 
         #endregion
 
+        #region 06 Resistant Armor
+
+        sprite = CustomIcons.CreateAssetReferenceSprite("ResistantArmor", Resources.ResistantArmor, 256, 128);
+        name = "InfusionResistantArmor";
+        //TODO: RAW needs to require attunement
+
+        var elements = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeForce, DamageTypeLightning,
+            DamageTypeNecrotic, DamageTypePoison, DamageTypePsychic, DamageTypeRadiant, DamageTypeThunder
+        };
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var element in elements)
+        {
+            power = BuildInfuseItemPower(name + element, element, sprite, IsBodyArmor,
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create($"DamageAffinity{name}{element}")
+                    .SetGuiPresentation($"Feature/&{name}Title",
+                        Gui.Format("Feature/&DamageResistanceFormat", Gui.Localize($"Rules/&{element}Title")),
+                        ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetCustomSubFeatures(ReturningWeapon.Instance)
+                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                    .SetDamageType(element)
+                    .AddToDB());
+
+            power.GuiPresentation.Title = $"Rules/&{element}Title";
+            power.GuiPresentation.Description = $"Rules/&{element}Description";
+
+            powers.Add(power);
+        }
+
+        masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetUniqueInstance()
+            .SetSharedPool(InventorClass.InfusionPool)
+            .AddToDB());
+
+        PowersBundleContext.RegisterPowerBundle(masterPower, true, powers);
+
+        #endregion
+
+        #region Replicate Magic Item
+
         //Level 02
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
@@ -164,6 +229,8 @@ internal static class Infusions
 
         //Sadly this one is just a copy of Cloak of Protection as of v1.4.13
         // BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfBat, 14);
+
+        #endregion
     }
 
     private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level,
@@ -231,13 +298,15 @@ internal static class Infusions
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
                 SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat, itemFilter)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Item,
+                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
                     .Build())
@@ -264,12 +333,14 @@ internal static class Infusions
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
-            .SetEffectDescription(new EffectDescriptionBuilder()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(new EffectFormBuilder()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetSummonItemForm(item, 1, true)
                     .Build())

@@ -20,7 +20,8 @@ internal static class ClassesContext
 
         // settings paring
         foreach (var name in Main.Settings.ClassEnabled
-                     .Where(name => Classes.All(x => x.Name != name)))
+                     .Where(name => Classes.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.ClassEnabled.Remove(name);
         }

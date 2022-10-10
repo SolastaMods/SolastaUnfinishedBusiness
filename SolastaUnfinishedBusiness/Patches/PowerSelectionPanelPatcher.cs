@@ -5,7 +5,8 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,13 +43,26 @@ public static class PowerSelectionPanelPatcher
         //PATCH: remove invalid powers from display using our custom validators
         private static void RemoveInvalidPowers(PowerSelectionPanel panel, RulesetCharacter character)
         {
+            var usablePowers = character.UsablePowers;
             var relevantPowers = panel.relevantPowers;
+            var actionType = panel.ActionType;
+
+            foreach (var power in usablePowers)
+            {
+                var feature = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>();
+                if (feature == null) { continue; }
+
+                if (feature.IsVisible(character, power.PowerDefinition, actionType))
+                {
+                    relevantPowers.TryAdd(power);
+                }
+            }
 
             for (var i = relevantPowers.Count - 1; i >= 0; i--)
             {
                 var power = relevantPowers[i];
-                var validator = power.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
-                if (validator != null && !validator.CanUsePower(character, power.powerDefinition))
+                if (ValidatorPowerUse.IsPowerNotValid(character, power)
+                    || PowerVisibilityModifier.IsPowerHidden(character, power, actionType))
                 {
                     relevantPowers.RemoveAt(i);
                 }

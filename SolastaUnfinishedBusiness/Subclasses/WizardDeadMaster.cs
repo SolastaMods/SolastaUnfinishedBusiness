@@ -64,15 +64,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
             .Configure(
-                0,
                 UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Intelligence,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                false,
-                false,
-                AttributeDefinitions.Intelligence,
                 DominateBeast.EffectDescription)
             .SetAbilityScoreDetermination(AbilityScoreDetermination.Explicit)
             .AddToDB();

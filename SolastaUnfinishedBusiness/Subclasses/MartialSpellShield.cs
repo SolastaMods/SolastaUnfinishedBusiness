@@ -106,15 +106,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
             .Configure(
-                0,
                 UsesDetermination.AbilityBonusPlusFixed,
-                AttributeDefinitions.Intelligence,
                 ActivationTime.Reaction,
-                0,
                 RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
@@ -133,7 +127,11 @@ internal sealed class MartialSpellShield : AbstractSubclass
                             true,
                             true)
                         .Build())
-                    .Build())
+                    .Build(),
+                false,
+                1,
+                1,
+                AttributeDefinitions.Intelligence)
             .AddToDB();
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder

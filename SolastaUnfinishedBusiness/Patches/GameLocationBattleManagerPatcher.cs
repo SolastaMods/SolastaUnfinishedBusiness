@@ -5,6 +5,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
@@ -409,6 +410,108 @@ public static class GameLocationBattleManagerPatcher
             }
 
             Global.CriticalHit = false;
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleFailedSavingThrow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleFailedSavingThrow_Patch
+    {
+        internal static IEnumerator Postfix(IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck
+        )
+        {
+            //PATCH: allow source character of a condition to use power to augment failed save roll
+            //used mainly for Inventor's `Quick Wit`
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            var saveOutcome = action.SaveOutcome;
+
+            if (!IsFailed(saveOutcome))
+            {
+                yield break;
+            }
+
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var rulesetDefender = defender.RulesetCharacter;
+
+            var allConditions = new List<RulesetCondition>();
+            rulesetDefender.GetAllConditions(allConditions);
+
+            foreach (var condition in allConditions)
+            {
+                var feature = condition.ConditionDefinition
+                    .GetFirstSubFeatureOfType<ConditionSourceCanUsePowerToImproveFailedSaveRoll>();
+
+                if (feature == null) { continue; }
+
+                if (!RulesetEntity.TryGetEntity<RulesetCharacter>(condition.SourceGuid, out var helper))
+                {
+                    continue;
+                }
+
+                var locHelper = GameLocationCharacter.GetFromActor(helper);
+
+                if (locHelper == null) { continue; }
+
+                if (!feature.ShouldTrigger(action, attacker, defender, helper, saveModifier, hasHitVisual,
+                        hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta))
+                {
+                    continue;
+                }
+
+                var power = feature.Power;
+
+                if (!helper.CanUsePower(power))
+                {
+                    continue;
+                }
+
+                var usablePower = UsablePowersProvider.Get(power, helper);
+
+                var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
+                {
+                    StringParameter = feature.ReactionName,
+                    StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, helper,
+                        saveModifier, hasHitVisual, hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta),
+                    RulesetEffect = rulesService.InstantiateEffectPower(helper, usablePower, false)
+                };
+
+                var count = actionService.PendingReactionRequestGroups.Count;
+                actionService.ReactToSpendPower(reactionParams);
+
+                yield return __instance.WaitForReactions(locHelper, actionService, count);
+
+                if (reactionParams.ReactionValidated)
+                {
+                    GameConsoleHelper.LogCharacterUsedPower(helper, power, indent: true);
+
+                    action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, helper, saveModifier,
+                        hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
+                    action.SaveOutcome = saveOutcome;
+                }
+
+                if (!IsFailed(saveOutcome))
+                {
+                    yield break;
+                }
+            }
+        }
+
+        private static bool IsFailed(RuleDefinitions.RollOutcome outcome)
+        {
+            return outcome is RuleDefinitions.RollOutcome.Failure or RuleDefinitions.RollOutcome.CriticalFailure;
         }
     }
 }

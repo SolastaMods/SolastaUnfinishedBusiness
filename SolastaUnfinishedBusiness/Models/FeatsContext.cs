@@ -51,14 +51,16 @@ internal static class FeatsContext
 
         // settings paring feats
         foreach (var name in Main.Settings.FeatEnabled
-                     .Where(name => Feats.All(x => x.Name != name)))
+                     .Where(name => Feats.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.FeatEnabled.Remove(name);
         }
 
         // settings paring groups
         foreach (var name in Main.Settings.FeatGroupEnabled
-                     .Where(name => FeatGroups.All(x => x.Name != name)))
+                     .Where(name => FeatGroups.All(x => x.Name != name))
+                     .ToList())
         {
             Main.Settings.FeatGroupEnabled.Remove(name);
         }

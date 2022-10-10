@@ -44,42 +44,44 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
+            .Configure(UsesDetermination.Fixed,
                 ActivationTime.Action,
-                1,
                 RechargeRate.LongRest,
-                true,
-                true,
-                AttributeDefinitions.Charisma,
-                new EffectDescriptionBuilder()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(Side.Ally,
+                    .SetTargetingData(
+                        Side.Ally,
                         RangeType.Self,
                         1,
                         TargetType.Item,
                         1,
                         1,
-                        ActionDefinitions.ItemSelectionType.Weapon
+                        ActionDefinitions.ItemSelectionType.Weapon)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1, new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttackModifierBuilder
+                                        .Create("AttackModifierSoulBladeEmpowerWeapon")
+                                        .SetGuiPresentation(Category.Feature,
+                                            PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                        .AddToDB(),
+                                    0)
+                            )
+                            .Build()
                     )
-                    .AddEffectForms(new EffectFormBuilder()
-                        .SetItemPropertyForm(
-                            ItemPropertyUsage.Unlimited,
-                            1, new FeatureUnlockByLevel(
-                                FeatureDefinitionAttackModifierBuilder
-                                    .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                    .SetGuiPresentation(Category.Feature,
-                                        PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-                                    .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                    .AddToDB(),
-                                0)
-                        )
-                        .Build()
-                    )
-                    .Build()
-            )
+                    .Build(),
+                false,
+                1,
+                1,
+                AttributeDefinitions.Charisma,
+                true,
+                true,
+                AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
@@ -96,23 +98,19 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .Configure(
-                1,
                 UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
                 ActivationTime.BonusAction,
-                1,
                 RechargeRate.ShortRest,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                PowerFighterSecondWind.EffectDescription
-                    .Copy()
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(-1, DieType.D1, 1)
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
-                        .Build())
+                EffectDescriptionBuilder
+                    .Create(PowerFighterSecondWind.EffectDescription)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(-1, DieType.D1, 1)
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                            .Build())
+                    .Build()
                     .SetDurationType(DurationType.UntilLongRest))
             .AddToDB();
 
