@@ -661,10 +661,13 @@ internal static class InventorClass
 
     private static ItemDefinition BuildWandOfSpell(SpellDefinition spell)
     {
+        var spellName = spell.FormatTitle();
+        var title = Gui.Format("Item/&SpellStoringWandTitle", spellName);
+        var description = Gui.Format("Item/&SpellStoringWandDescription", spellName);
+
         return ItemDefinitionBuilder
             .Create(ItemDefinitions.WandMagicMissile, $"SpellStoringWandOf{spell.Name}")
-            .SetOrUpdateGuiPresentation($"Wand of {spell.FormatTitle()}",
-                $"This wand allows casting of the <b>{spell.Name}</b> spell using spell casting stats of the Inventor who created it.")
+            .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
             .SetCustomSubFeatures(InventorClassHolder.Marker)
