@@ -184,6 +184,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
             .SetUsesProficiency()
+            .SetActivationTime(ActivationTime.Permanent)
             .SetUsesAbility(1, AttributeDefinitions.Charisma)
             .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();

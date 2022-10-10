@@ -28,12 +28,13 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
+            .SetGuiPresentation(Category.Feature)
+            .SetActivationTime(ActivationTime.Permanent)
             .Configure(
                 2,
                 UsesDetermination.Fixed,
                 AttributeDefinitions.Intelligence,
                 RechargeRate.LongRest)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var conditionLifeTransmuterDarkvision = ConditionDefinitionBuilder
@@ -134,6 +135,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
             .SetGuiPresentation(Category.Feature)
+            .SetActivationTime(ActivationTime.Permanent)
             .Configure(
                 2,
                 UsesDetermination.Fixed,
@@ -193,6 +195,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
             .SetGuiPresentation(Category.Feature)
+            .SetActivationTime(ActivationTime.Permanent)
             .Configure(
                 4,
                 UsesDetermination.Fixed,

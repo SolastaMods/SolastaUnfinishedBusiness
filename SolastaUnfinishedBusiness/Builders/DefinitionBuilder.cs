@@ -105,11 +105,6 @@ internal interface IDefinitionBuilder
 internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
     where TDefinition : BaseDefinition
 {
-    /// <summary>
-    ///     Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
-    /// </summary>
-    protected bool IsNew { get; }
-
     protected TDefinition Definition { get; }
 
     /// <summary>
@@ -134,7 +129,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         return AddToDB(false);
 #endif
     }
-    
+
     private TDefinition AddToDB(
         bool assertIfDuplicate,
         BaseDefinition.Copyright copyright = BaseDefinition.Copyright.UserContent,
@@ -434,10 +429,12 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
     where TDefinition : BaseDefinition
     where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
 {
-    private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+    private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
 
-    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-        name, namespaceGuid)
+    private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

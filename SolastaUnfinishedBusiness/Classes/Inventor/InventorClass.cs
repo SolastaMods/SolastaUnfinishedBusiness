@@ -453,6 +453,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerPoolModifierBuilder
             .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
+            .SetActivationTime(ActivationTime.Permanent)
             .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
             .AddToDB();
     }

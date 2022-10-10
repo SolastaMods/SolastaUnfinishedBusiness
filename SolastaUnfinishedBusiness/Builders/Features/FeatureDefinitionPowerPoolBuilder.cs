@@ -9,22 +9,6 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
     FeatureDefinitionPowerPoolBuilder>
 {
-    protected override void Initialise()
-    {
-        base.Initialise();
-
-        if (!IsNew)
-        {
-            return;
-        }
-
-        // This is just an activation time that should not be shown in the UI.
-        Definition.activationTime = RuleDefinitions.ActivationTime.Permanent;
-
-        // Math for usage gets weird if this isn't 1.
-        Definition.costPerUse = 1;
-    }
-
     internal override void Validate()
     {
         base.Validate();
