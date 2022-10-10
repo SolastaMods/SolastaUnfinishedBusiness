@@ -66,8 +66,10 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
-        WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
+        var allowedClasses = new[] { Sorcerer, Warlock, Wizard };
+
+        GreenmageArmor.RequiredAttunementClasses.AddRange(allowedClasses);
+        WizardClothes_Alternate.RequiredAttunementClasses.AddRange(allowedClasses);
     }
 
     internal static void SwitchDruidAllowMetalArmor()
