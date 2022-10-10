@@ -31,6 +31,68 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), "ModulateSustainedDamage")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ModulateSustainedDamage_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
+            //fixes game not applying damage reductions from dynamic item properties
+            //used for Inventor's Resistant Armor infusions
+            
+            var myEnumerate = new Action<
+                RulesetActor,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(MyEnumerate).Method;
+
+            foreach (var instruction in instructions)
+            {
+                var operand = $"{instruction.operand}";
+                if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IDamageAffinityProvider"))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myEnumerate);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+
+        private static void MyEnumerate(
+            RulesetActor actor,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(actor.featuresToBrowse, featuresOrigin);
+            if (actor is not RulesetCharacterHero hero) { return; }
+
+            foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
+            {
+                var slot = keyValuePair.Value;
+                if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
+                {
+                    continue;
+                }
+
+                var equipedItem = slot.EquipedItem;
+
+                foreach (RulesetItemProperty dynamicItemProperty in equipedItem.DynamicItemProperties)
+                {
+                    var definition = dynamicItemProperty.FeatureDefinition;
+                    if (definition == null || definition is not IDamageAffinityProvider)
+                    {
+                        continue;
+                    }
+
+                    featuresToBrowse.Add(definition);
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RollDie_Patch
