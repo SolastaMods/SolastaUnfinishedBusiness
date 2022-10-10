@@ -25,8 +25,8 @@ internal static class DmProEditorContext
         UnleashGadgetsOnAllEnvironments();
         UnleashPropsOnAllEnvironments();
         UnleashRoomsOnAllEnvironments();
-        UnlockItems();
-        UnlockTraps();
+        // UnlockItems();
+        // UnlockTraps();
     }
 
     internal static void AddCustomDungeonSizes(UserLocationSettingsModal __instance)
@@ -44,6 +44,7 @@ internal static class DmProEditorContext
         }
     }
 
+#if false
     private static void UnlockItems()
     {
         var itemDefinitions = DatabaseRepository.GetDatabase<ItemDefinition>();
@@ -80,6 +81,7 @@ internal static class DmProEditorContext
             environmentEffectDefinition.inDungeonEditor = true;
         }
     }
+#endif
 
     internal static int Compare([NotNull] BaseBlueprint left, [NotNull] BaseBlueprint right)
     {
