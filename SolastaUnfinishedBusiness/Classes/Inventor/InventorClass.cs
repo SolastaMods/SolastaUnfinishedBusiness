@@ -687,11 +687,12 @@ internal static class InventorClass
     private static FeatureDefinition BuildFlashOfGenius()
     {
         var text = "PowerInventorFlashOfGenius";
+        var sprite = CustomIcons.CreateAssetReferenceSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
-            .SetGuiPresentation(text, Category.Feature)
+            .SetGuiPresentation(text, Category.Feature, sprite)
             .SetActivationTime(ActivationTime.Reaction)
             .SetUsesAbility(0, AttributeDefinitions.Intelligence)
             .SetRechargeRate(RechargeRate.LongRest)
@@ -700,7 +701,7 @@ internal static class InventorClass
         //should be hidden from user
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
-            .SetGuiPresentation(text, Category.Feature)
+            .SetGuiPresentation(text, Category.Feature, sprite)
             .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
             .SetRechargeRate(RechargeRate.AtWill)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
