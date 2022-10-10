@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -21,7 +20,8 @@ internal class EffectDescriptionBuilder
 
     private EffectDescriptionBuilder(EffectDescription effect)
     {
-        this.effect = effect.Copy();
+        this.effect = new EffectDescription();
+        this.effect.Copy(effect);
     }
 
     internal EffectDescription Build()

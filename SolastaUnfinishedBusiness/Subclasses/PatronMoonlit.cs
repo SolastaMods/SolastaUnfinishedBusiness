@@ -87,8 +87,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Darkness.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(Darkness.EffectDescription)
+                    .Build()
                     .SetDuration(DurationType.Minute, 1),
                 true)
             .AddToDB();
@@ -99,8 +100,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Daylight.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(Daylight.EffectDescription)
+                    .Build()
                     .SetDuration(DurationType.Minute, 1),
                 true)
             .AddToDB();
@@ -112,8 +114,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Fly.EffectDescription
-                    .Copy(),
+                EffectDescriptionBuilder
+                    .Create(Fly.EffectDescription)
+                    .Build(),
                 true)
             .AddToDB();
 

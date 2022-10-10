@@ -63,11 +63,12 @@ internal static class CharacterContext
 
     private static void LoadHelpPower()
     {
-        var effectDescription = TrueStrike.EffectDescription.Copy();
-
-        effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-        effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-        effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+        var effectDescription = EffectDescriptionBuilder
+            .Create(TrueStrike.EffectDescription)
+            .Build()
+            .SetRangeType(RuleDefinitions.RangeType.Touch)
+            .SetDurationType(RuleDefinitions.DurationType.Round)
+            .SetTargetType(RuleDefinitions.TargetType.Individuals);
 
         var conditionDistractedByAlly = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")

@@ -87,7 +87,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpiritualWeapon.EffectDescription)
+                    .Build())
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();

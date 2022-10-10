@@ -213,8 +213,9 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetActivationTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescription()
+            .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
+                .Build()
                 .SetCreatedByCharacter(true)
                 .SetTargetSide(Side.Enemy)
                 .SetTargetType(TargetType.Sphere)

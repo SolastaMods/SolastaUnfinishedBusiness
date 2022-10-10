@@ -95,8 +95,9 @@ internal static class ElAntoniousFeats
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
                 .SetActivationTime(ActivationTime.BonusAction)
-                .SetEffectDescription(new EffectDescription()
+                .SetEffectDescription(EffectDescriptionBuilder
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
+                    .Build()
                     .SetCreatedByCharacter(true)
                     .SetTargetSide(Side.Enemy)
                     .SetTargetType(TargetType.Individuals)

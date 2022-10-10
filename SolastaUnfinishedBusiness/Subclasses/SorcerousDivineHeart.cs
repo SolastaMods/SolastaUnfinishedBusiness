@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -100,7 +99,10 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
-            .SetEffectDescription(DimensionDoor.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DimensionDoor.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.AtWill)
@@ -111,7 +113,10 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartDivineRecovery")
             .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
-            .SetEffectDescription(Heal.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Heal.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.BonusAction)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.LongRest)

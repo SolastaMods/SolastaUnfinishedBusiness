@@ -56,8 +56,9 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetActivationTime(ActivationTime.BonusAction)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetEffectDescription(
-                PowerDomainLifePreserveLife.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLifePreserveLife.EffectDescription)
+                    .Build()
                     .SetTargetType(TargetType.Individuals)
                     .SetTargetParameter(1)
                     .SetTargetParameter2(2)

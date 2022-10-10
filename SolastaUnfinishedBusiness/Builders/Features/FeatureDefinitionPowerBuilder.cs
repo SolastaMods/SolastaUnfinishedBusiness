@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -49,7 +48,7 @@ internal abstract class
         Definition.usesDetermination = usesDetermination;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
-        Definition.effectDescription = effectDescription.Copy();
+        Definition.effectDescription.Copy(effectDescription);
         Definition.uniqueInstance = uniqueInstance;
         Definition.costPerUse = costPerUse;
         Definition.fixedUsesPerRecharge = usesPerRecharge;

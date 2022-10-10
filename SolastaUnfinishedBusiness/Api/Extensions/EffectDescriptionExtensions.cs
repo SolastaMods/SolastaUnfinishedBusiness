@@ -15,14 +15,6 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal static class EffectDescriptionExtensions
 {
     [NotNull]
-    internal static T Create<T>([NotNull] this T entity, T copy)
-        where T : EffectDescription
-    {
-        entity.Copy(copy);
-        return entity;
-    }
-
-    [NotNull]
     internal static T SetDuration<T>([NotNull] this T entity, DurationType type, int? duration = null)
         where T : EffectDescription
     {
@@ -133,16 +125,6 @@ internal static class EffectDescriptionExtensions
     {
         entity.RestrictedCreatureFamilies.Clear();
         return entity;
-    }
-
-    [NotNull]
-    internal static EffectDescription Copy(this EffectDescription entity)
-    {
-        var effectDescription = new EffectDescription();
-
-        effectDescription.Copy(entity);
-
-        return effectDescription;
     }
 
     [NotNull]

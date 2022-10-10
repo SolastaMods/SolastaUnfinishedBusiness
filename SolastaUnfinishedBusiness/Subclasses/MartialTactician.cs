@@ -36,8 +36,9 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                PowerFighterActionSurge.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerFighterActionSurge.EffectDescription)
+                    .Build()
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -75,8 +76,9 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                PowerDomainLifePreserveLife.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLifePreserveLife.EffectDescription)
+                    .Build()
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -109,8 +111,9 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                PowerDomainLawHolyRetribution.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLawHolyRetribution.EffectDescription)
+                    .Build()
                     .SetEffectForms(
                         new EffectForm
                         {

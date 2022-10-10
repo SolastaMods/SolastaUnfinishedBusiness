@@ -137,8 +137,9 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetCostPerUse(1)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.BonusAction)
-            .SetEffectDescription(IdentifyCreatures.EffectDescription
-                .Copy()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(IdentifyCreatures.EffectDescription)
+                .Build()
                 .SetDuration(DurationType.Instantaneous)
                 .SetHasSavingThrow(false)
                 .SetRange(RangeType.Distance, 12)
