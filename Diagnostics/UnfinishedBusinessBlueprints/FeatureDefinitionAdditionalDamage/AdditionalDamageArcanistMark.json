@@ -8,6 +8,7 @@
   "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "None",
   "attackModeOnly": true,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
