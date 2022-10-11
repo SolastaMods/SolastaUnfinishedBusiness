@@ -442,9 +442,11 @@ public static class GameLocationBattleManagerPatcher
             }
 
 
+            var rulesetDefender = defender.RulesetCharacter;
+            if (rulesetDefender == null) { yield break; }
+
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var rulesetDefender = defender.RulesetCharacter;
 
             var allConditions = new List<RulesetCondition>();
             rulesetDefender.GetAllConditions(allConditions);
