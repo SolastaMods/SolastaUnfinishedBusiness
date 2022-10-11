@@ -429,18 +429,11 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: allow source character of a condition to use power to augment failed save roll
             //used mainly for Inventor's `Quick Wit`
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
+            while (values.MoveNext()) { yield return values.Current; }
 
             var saveOutcome = action.SaveOutcome;
 
-            if (!IsFailed(saveOutcome))
-            {
-                yield break;
-            }
-
+            if (!IsFailed(saveOutcome)) { yield break; }
 
             var rulesetDefender = defender.RulesetCharacter;
             if (rulesetDefender == null) { yield break; }
@@ -475,10 +468,7 @@ public static class GameLocationBattleManagerPatcher
 
                 var power = feature.Power;
 
-                if (!helper.CanUsePower(power))
-                {
-                    continue;
-                }
+                if (!helper.CanUsePower(power)) { continue; }
 
                 var usablePower = UsablePowersProvider.Get(power, helper);
 
@@ -504,10 +494,7 @@ public static class GameLocationBattleManagerPatcher
                     action.SaveOutcome = saveOutcome;
                 }
 
-                if (!IsFailed(saveOutcome))
-                {
-                    yield break;
-                }
+                if (!IsFailed(saveOutcome)) { yield break; }
             }
         }
 
