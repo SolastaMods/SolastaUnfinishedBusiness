@@ -1,4 +1,4 @@
-// automatically generated on 10/8/2022 12:00:00 AM
+// automatically generated on 10/11/2022 12:00:00 AM
 
 namespace SolastaUnfinishedBusiness.Api;
 
