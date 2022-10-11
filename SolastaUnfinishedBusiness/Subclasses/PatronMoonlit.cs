@@ -141,7 +141,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         10,
                         10)
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Dexterity,
                         true,

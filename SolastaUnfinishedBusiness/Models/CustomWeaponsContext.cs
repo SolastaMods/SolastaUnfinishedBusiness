@@ -191,7 +191,6 @@ internal static class CustomWeaponsContext
                         .ExcludeCaster()
                         .SetSavingThrowData(
                             true,
-                            true,
                             AttributeDefinitions.Strength,
                             false,
                             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)

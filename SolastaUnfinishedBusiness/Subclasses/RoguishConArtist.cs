@@ -72,7 +72,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
                         1,
                         0)
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Wisdom,
                         true,

@@ -33,7 +33,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
             AttributeDefinitions.Intelligence,
             MotionForm.MotionType.PushFromOrigin, 1, 10,
@@ -43,7 +43,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
             AttributeDefinitions.Intelligence,
             MotionForm.MotionType.DragToOrigin, 1, 10,
@@ -65,7 +65,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma,
             MotionForm.MotionType.PushFromOrigin, 1, 10,
             "PowerFeatTelekineticChaPush", pushPresentation);
@@ -74,7 +74,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma,
             MotionForm.MotionType.DragToOrigin, 1, 10,
             "PowerFeatTelekineticChaPull", pullPresentation);
@@ -95,7 +95,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom,
             MotionForm.MotionType.PushFromOrigin, 1, 10,
             "PowerFeatTelekineticWisPush", pushPresentation);
@@ -104,7 +104,7 @@ internal static class CasterFeats
             1, RuleDefinitions.UsesDetermination.Fixed,
             RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
             RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength,
+            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom,
             MotionForm.MotionType.DragToOrigin, 1, 10,
             "PowerFeatTelekineticWisPull", pullPresentation);
@@ -457,7 +457,6 @@ internal static class CasterFeats
         int rangeParameter,
         RuleDefinitions.TargetType targetType,
         RuleDefinitions.Side target,
-        bool hasSavingThrow,
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,
         RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
@@ -478,8 +477,12 @@ internal static class CasterFeats
                 .SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
-                    hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
-                    savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass)
+                    disableSavingThrowOnAllies,
+                    savingThrowAbility,
+                    true,
+                    difficultyClassComputation,
+                    savingThrowDifficultyAbility,
+                    fixedSavingThrowDifficultyClass)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetMotionForm(motionType, motionDistance)

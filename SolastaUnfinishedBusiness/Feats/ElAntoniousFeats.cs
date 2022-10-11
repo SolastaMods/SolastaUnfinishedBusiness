@@ -116,7 +116,6 @@ internal static class ElAntoniousFeats
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Dexterity,
                         false,

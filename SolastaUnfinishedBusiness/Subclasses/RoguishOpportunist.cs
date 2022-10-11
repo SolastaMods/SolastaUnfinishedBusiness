@@ -32,7 +32,6 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 0,
                 0)
             .SetSavingThrowData(
-                true,
                 false,
                 AttributeDefinitions.Constitution,
                 true,

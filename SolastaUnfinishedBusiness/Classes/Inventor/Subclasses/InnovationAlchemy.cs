@@ -152,7 +152,6 @@ public static class InnovationAlchemy
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetSavingThrowData(
-                    false,
                     true,
                     savingThrowAbility,
                     false,
@@ -190,7 +189,6 @@ public static class InnovationAlchemy
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
                     true,
-                    true,
                     savingThrowAbility,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -225,7 +223,6 @@ public static class InnovationAlchemy
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
                 .SetSavingThrowData(
-                    true,
                     true,
                     savingThrowAbility,
                     false,

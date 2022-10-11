@@ -49,7 +49,6 @@ internal sealed class MartialTactician : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Strength,
                         false,

@@ -89,8 +89,13 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(true, false, AttributeDefinitions.Strength, false,
-                EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Strength,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals, 1, 2)
             .SetEffectForms(
@@ -130,8 +135,13 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false,
-                EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 13)
+            .SetSavingThrowData(
+                true,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                13)
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(BurningHands)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 1, 2)
@@ -290,7 +300,6 @@ internal static class SpellsBuildersContext
                 .SetTargetProximityData(true, 1)
                 .SetSavingThrowData(
                     false,
-                    false,
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.SpellCastingFeature,
@@ -406,7 +415,6 @@ internal static class SpellsBuildersContext
                 )
                 .SetSavingThrowData(
                     false,
-                    false,
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.SpellCastingFeature,
@@ -507,8 +515,13 @@ internal static class SpellsBuildersContext
             .Create()
             .SetEffectAdvancement(
                 EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false,
-                EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
+            .SetSavingThrowData(
+                true,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
             .SetEffectForms(
@@ -833,8 +846,13 @@ internal static class SpellsBuildersContext
             .Create()
             .SetEffectAdvancement(
                 EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
+            .SetSavingThrowData(
+                true,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Wisdom,
+                12)
             .SetDurationData(DurationType.Minute, 10)
             .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder)
@@ -879,8 +897,13 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
+            .SetSavingThrowData(
+                true,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Wisdom,
+                12)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(ConeOfCold)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3, 2)
@@ -934,7 +957,6 @@ internal static class SpellsBuildersContext
                 10,
                 10)
             .SetSavingThrowData(
-                true,
                 false,
                 AttributeDefinitions.Dexterity,
                 true,
@@ -1141,7 +1163,6 @@ internal static class SpellsBuildersContext
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .SetSavingThrowData(
-                true,
                 false,
                 AttributeDefinitions.Dexterity,
                 true,
@@ -1370,7 +1391,6 @@ internal static class SpellsBuildersContext
                 6,
                 6)
             .SetSavingThrowData(
-                true,
                 false,
                 AttributeDefinitions.Wisdom,
                 true,

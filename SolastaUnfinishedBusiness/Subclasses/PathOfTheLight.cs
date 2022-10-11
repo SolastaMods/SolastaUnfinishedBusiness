@@ -499,7 +499,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             return EffectDescriptionBuilder
                 .Create()
                 .SetSavingThrowData(
-                    true,
                     false,
                     AttributeDefinitions.Constitution,
                     false,

@@ -70,7 +70,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
@@ -97,7 +96,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Strength,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
@@ -123,7 +121,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
-                    true,
                     true,
                     AttributeDefinitions.Wisdom,
                     true,
@@ -275,7 +272,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
@@ -319,7 +315,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Strength,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency
@@ -346,7 +341,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
-                    true,
                     true,
                     AttributeDefinitions.Wisdom,
                     true,

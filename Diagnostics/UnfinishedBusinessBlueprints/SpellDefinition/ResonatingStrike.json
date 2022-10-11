@@ -44,7 +44,7 @@
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": true,
