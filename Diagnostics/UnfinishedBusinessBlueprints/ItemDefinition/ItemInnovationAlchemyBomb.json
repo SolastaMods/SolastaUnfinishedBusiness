@@ -58,7 +58,7 @@
         "canOverchargeSpell": true,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSingle:a2c2a098-d708-54b6-a645-d227ea9a7c04"
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombPreciseDamageFire:14754b04-3ab9-5fe2-b007-6530193c72af"
       },
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
@@ -70,19 +70,55 @@
         "canOverchargeSpell": true,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSplash:1c28ac8d-3f95-5d5c-8738-b0062f7ff49d"
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSplashDamageFire:ab1219bf-4eee-5f51-a971-5c5bab735a77"
       },
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
         "useAffinity": "ChargeCost",
-        "useAmount": 3,
+        "useAmount": 2,
         "rechargeRate": "Dawn",
         "durationType": "Instantaneous",
         "canOverchargeSpell": true,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombBreath:65894271-4b07-52a2-837d-774a6f13fbd1"
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombBreathDamageFire:a14b5886-59f0-57a8-81e9-971dcd52fd1a"
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "Dawn",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": true,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombPreciseDamageCold:24950ab9-87f8-54d1-8380-bc58da75ee88"
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "Dawn",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": true,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSplashDamageCold:6f23f833-7fd7-53b6-a34b-e5aa3b530fda"
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "Dawn",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": true,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombBreathDamageCold:9d9308dd-e5ce-5fa3-b475-cf8625c75c1b"
       }
     ],
     "usableDeviceTags": [],

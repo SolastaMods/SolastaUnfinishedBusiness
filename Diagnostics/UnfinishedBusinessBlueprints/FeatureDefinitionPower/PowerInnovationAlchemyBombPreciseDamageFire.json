@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "RangeHit",
-    "rangeParameter": 8,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
@@ -78,7 +78,7 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 3,
-          "dieType": "D6",
+          "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationAlchemyBombSingleTitle",
-    "description": "Feature/&PowerInnovationAlchemyBombSingleDescription",
+    "title": "Feature/&PowerInnovationAlchemyBombPreciseTitle",
+    "description": "Feature/&PowerInnovationAlchemyBombPreciseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5ab3d83f54acd7145925c5d96cd393c8",
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a2c2a098-d708-54b6-a645-d227ea9a7c04",
+  "guid": "14754b04-3ab9-5fe2-b007-6530193c72af",
   "contentPack": 9999,
-  "name": "PowerInnovationAlchemyBombSingle"
+  "name": "PowerInnovationAlchemyBombPreciseDamageFire"
 }

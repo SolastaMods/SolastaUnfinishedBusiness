@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 4,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Cone",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 4,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -78,7 +78,7 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 2,
-          "dieType": "D6",
+          "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -102,12 +102,12 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,
-      "additionalTargetCellsPerIncrement": 1,
+      "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
@@ -121,7 +121,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "179010f7336fe024b8d0d1892b2386c9",
+        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -145,7 +145,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ccc055a8b0493704d9c781da405bf44d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -157,7 +157,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0440791bf296e02439607481abe77f86",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -169,7 +169,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "97385df6362ff8a408b5b6d9702a8b67",
+        "m_AssetGUID": "8ec6fce55ab85a5449a811ba713366ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -290,7 +290,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation1",
+    "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -331,12 +331,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationAlchemyBombSplashTitle",
-    "description": "Feature/&PowerInnovationAlchemyBombSplashDescription",
+    "title": "Feature/&PowerInnovationAlchemyBombBreathTitle",
+    "description": "Feature/&PowerInnovationAlchemyBombBreathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c462c6ae1b665c74f995647ad5adaf79",
-      "m_SubObjectName": "Fireball",
+      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
+      "m_SubObjectName": "BurningHands",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1c28ac8d-3f95-5d5c-8738-b0062f7ff49d",
+  "guid": "a14b5886-59f0-57a8-81e9-971dcd52fd1a",
   "contentPack": 9999,
-  "name": "PowerInnovationAlchemyBombSplash"
+  "name": "PowerInnovationAlchemyBombBreathDamageFire"
 }
