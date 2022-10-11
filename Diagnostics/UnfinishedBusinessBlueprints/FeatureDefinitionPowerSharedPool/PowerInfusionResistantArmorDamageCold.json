@@ -2,8 +2,8 @@
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 3,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Item",
