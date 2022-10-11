@@ -35,7 +35,8 @@ internal static class RulesetCharacterExtensions
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power, bool considerUses = true)
+    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power,
+        bool considerUses = true)
     {
         if (power == null)
         {
@@ -153,5 +154,19 @@ internal static class RulesetCharacterExtensions
         return RulesetEntity.TryGetEntity<RulesetCharacter>(conjured.SourceGuid, out var actor)
             ? GameLocationCharacter.GetFromActor(actor)
             : null;
+    }
+
+    internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
+    {
+        if (instance is not RulesetCharacterHero hero) { return 0; }
+
+        return hero.GetClassLevel(classDefinition);
+    }
+
+    internal static int GetClassLevel(this RulesetCharacter instance, string className)
+    {
+        if (instance is not RulesetCharacterHero hero) { return 0; }
+
+        return hero.GetClassLevel(className);
     }
 }

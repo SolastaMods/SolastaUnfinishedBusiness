@@ -1,0 +1,10 @@
+﻿Subclass/&InnovationAlchemyDescription=Grenadiers study unstable substances and their use in creating explosions of various types.
+Subclass/&InnovationAlchemyTitle=Grenadier
+Feature/&FeatureInnovationAlchemyBombsDescription=Spend alchemy points to quickly mix and throw a bomb. TODO: add proper text
+Feature/&FeatureInnovationAlchemyBombsTitle=Alchemical Bombs
+Feature/&PowerInnovationAlchemyBombBreathDescription=Make bomb explode in a cone in front of you TODO: add proper text
+Feature/&PowerInnovationAlchemyBombBreathTitle=Cone
+Feature/&PowerInnovationAlchemyBombSingleDescription=Throw a bomb that deals damage to a single target TODO: add proper text
+Feature/&PowerInnovationAlchemyBombSingleTitle=Precise
+Feature/&PowerInnovationAlchemyBombSplashDescription=Throw a bomb that deals damage in a small area TODO: add proper text
+Feature/&PowerInnovationAlchemyBombSplashTitle=Splash
