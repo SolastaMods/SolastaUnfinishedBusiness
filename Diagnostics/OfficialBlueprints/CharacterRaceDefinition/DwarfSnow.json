@@ -105,7 +105,8 @@
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
-    }
+    },
+    "musicalInstrumentScale": 0.8
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

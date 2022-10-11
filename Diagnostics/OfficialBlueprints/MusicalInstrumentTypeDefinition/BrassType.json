@@ -1,6 +1,7 @@
 {
   "$type": "MusicalInstrumentTypeDefinition, Assembly-CSharp",
   "animationTag": "Brass",
+  "boneType": "Prop1",
   "isCompatibleWithSpellVocalization": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

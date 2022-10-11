@@ -529,7 +529,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_AssetGUID": "f7ef94b2da477d343937b673c94f4523",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

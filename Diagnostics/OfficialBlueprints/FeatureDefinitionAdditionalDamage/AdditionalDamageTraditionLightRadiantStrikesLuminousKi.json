@@ -10,6 +10,7 @@
   "triggerCondition": "TargetHasCondition",
   "requiredProperty": "None",
   "attackModeOnly": false,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionLuminousKi:af0a53f2cd83c114fb99aba99c9d129a",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

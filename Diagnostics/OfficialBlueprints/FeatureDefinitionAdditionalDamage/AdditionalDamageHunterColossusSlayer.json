@@ -8,6 +8,7 @@
   "triggerCondition": "TargetIsWounded",
   "requiredProperty": "None",
   "attackModeOnly": false,
+  "attackOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

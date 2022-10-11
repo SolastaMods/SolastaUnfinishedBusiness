@@ -15,7 +15,13 @@
               "number": 1
             }
           ]
-        },
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
         {
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
@@ -23,7 +29,7 @@
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Weapon",
               "itemReference": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
-              "defaultChoice": "Quarterstaff",
+              "defaultChoice": "",
               "number": 1
             }
           ]
@@ -33,8 +39,8 @@
           "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
-              "optionType": "WeaponSimpleChoice",
-              "itemReference": null,
+              "optionType": "Weapon",
+              "itemReference": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
               "defaultChoice": "Quarterstaff",
               "number": 1
             }

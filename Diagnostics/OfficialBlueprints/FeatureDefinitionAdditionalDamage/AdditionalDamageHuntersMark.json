@@ -8,6 +8,7 @@
   "triggerCondition": "TargetHasConditionCreatedByMe",
   "requiredProperty": "None",
   "attackModeOnly": true,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionMarkedByHunter:dbc2137c1fae2334da286399dea38fd0",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

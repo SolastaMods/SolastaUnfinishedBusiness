@@ -8,6 +8,7 @@
   "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "MeleeWeapon",
   "attackModeOnly": true,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionPoisonedDarkweaverPoisonous:93f05657b286a9e4c95530b36256ed2c",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
