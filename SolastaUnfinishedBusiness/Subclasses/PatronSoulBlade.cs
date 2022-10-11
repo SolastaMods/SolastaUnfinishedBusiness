@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -106,6 +105,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 RechargeRate.ShortRest,
                 EffectDescriptionBuilder
                     .Create(PowerFighterSecondWind.EffectDescription)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -113,8 +113,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
                             .Build())
-                    .Build()
-                    .SetDurationType(DurationType.UntilLongRest))
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

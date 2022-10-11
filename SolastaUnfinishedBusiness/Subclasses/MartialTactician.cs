@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -38,7 +37,8 @@ internal sealed class MartialTactician : AbstractSubclass
                 AttributeDefinitions.Strength,
                 EffectDescriptionBuilder
                     .Create(PowerFighterActionSurge.EffectDescription)
-                    .Build()
+                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -57,11 +57,15 @@ internal sealed class MartialTactician : AbstractSubclass
                             motionForm = new MotionForm { type = MotionForm.MotionType.FallProne, distance = 1 },
                             savingThrowAffinity = EffectSavingThrowType.Negates
                         })
-                    .SetSavingThrowDifficultyAbility(AttributeDefinitions.Strength)
-                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetSavingThrowAbility(AttributeDefinitions.Strength)
-                    .SetHasSavingThrow(true)
-                    .SetDurationType(DurationType.Round),
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Strength,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Strength,
+                        15)
+                    .Build(),
                 false)
             .AddToDB();
 
@@ -78,7 +82,17 @@ internal sealed class MartialTactician : AbstractSubclass
                 AttributeDefinitions.Strength,
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
-                    .Build()
+                    .SetCanBePlacedOnCharacter(true)
+                    .SetDurationData(DurationType.Day, 1)
+                    .SetTargetProximityData(false, 12)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Distance,
+                        30,
+                        TargetType.Individuals,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped)
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -88,13 +102,7 @@ internal sealed class MartialTactician : AbstractSubclass
                                 DiceNumber = 1, DieType = DieType.D6, BonusHitPoints = 2
                             }
                         })
-                    .SetHasSavingThrow(false)
-                    .SetDurationType(DurationType.Day)
-                    .SetTargetSide(Side.Ally)
-                    .SetTargetType(TargetType.Individuals)
-                    .SetTargetProximityDistance(12)
-                    .SetCanBePlacedOnCharacter(true)
-                    .SetRangeType(RangeType.Distance),
+                    .Build(),
                 false)
             .AddToDB();
 
@@ -113,7 +121,6 @@ internal sealed class MartialTactician : AbstractSubclass
                 AttributeDefinitions.Strength,
                 EffectDescriptionBuilder
                     .Create(PowerDomainLawHolyRetribution.EffectDescription)
-                    .Build()
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -125,7 +132,8 @@ internal sealed class MartialTactician : AbstractSubclass
                                 DamageType = DamageTypeBludgeoning
                             },
                             savingThrowAffinity = EffectSavingThrowType.None
-                        }),
+                        })
+                    .Build(),
                 false)
             .AddToDB();
 

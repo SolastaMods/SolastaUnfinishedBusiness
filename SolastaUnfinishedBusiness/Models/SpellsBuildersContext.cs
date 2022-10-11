@@ -165,11 +165,11 @@ internal static class SpellsBuildersContext
             .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        spell.EffectDescription.SetRangeType(RangeType.Distance);
-        spell.EffectDescription.SetRangeParameter(18);
-        spell.EffectDescription.SetTargetType(TargetType.Sphere);
-        spell.EffectDescription.SetTargetParameter(5);
-        spell.EffectDescription.SetEffectParticleParameters(SacredFlame_B);
+        spell.EffectDescription.rangeType = RangeType.Distance;
+        spell.EffectDescription.rangeParameter = 18;
+        spell.EffectDescription.targetType = TargetType.Sphere;
+        spell.EffectDescription.targetParameter = 5;
+        spell.EffectDescription.effectParticleParameters = SacredFlame_B.EffectDescription.EffectParticleParameters;
 
         return spell;
     }
@@ -189,8 +189,7 @@ internal static class SpellsBuildersContext
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
-                    additionalDicePerIncrement: 1)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .AddEffectForm(EffectFormBuilder
                     .Create()
                     .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
@@ -515,7 +514,7 @@ internal static class SpellsBuildersContext
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
             ).Build();
 
-        effectDescription.SetTargetExcludeCaster(true);
+        effectDescription.targetExcludeCaster = true;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -590,19 +589,17 @@ internal static class SpellsBuildersContext
             .AddToDB();
 
         spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
-        spell.EffectDescription.SetRangeType(RangeType.Distance);
-        spell.EffectDescription.SetRangeParameter(2);
-        spell.EffectDescription.SetDurationType(DurationType.Permanent);
-        spell.EffectDescription.SetTargetSide(Side.Ally);
-        spell.EffectDescription.EffectForms.Clear();
-
-        var summonForm = new SummonForm { monsterDefinitionName = owlFamiliar.name, decisionPackage = null };
-        var effectForm = new EffectForm
-        {
-            formType = EffectFormType.Summon, createdByCharacter = true, summonForm = summonForm
-        };
-
-        spell.EffectDescription.EffectForms.Add(effectForm);
+        spell.EffectDescription.rangeType = RangeType.Distance;
+        spell.EffectDescription.rangeParameter = 2;
+        spell.EffectDescription.durationType = DurationType.Permanent;
+        spell.EffectDescription.targetSide = Side.Ally;
+        spell.EffectDescription.EffectForms.SetRange(
+            new EffectForm
+            {
+                formType = EffectFormType.Summon,
+                createdByCharacter = true,
+                summonForm = new SummonForm { monsterDefinitionName = owlFamiliar.name, decisionPackage = null }
+            });
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
 
@@ -736,16 +733,15 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(true)
             .AddToDB();
 
-        spell.EffectDescription
-            .SetRangeType(RangeType.Distance)
-            .SetRangeParameter(12)
-            .SetDurationType(DurationType.Minute)
-            .SetDurationParameter(1)
-            .SetTargetType(TargetType.Cube)
-            .SetTargetParameter(3)
-            .SetHasSavingThrow(true)
-            .SetSavingThrowAbility(AttributeDefinitions.Strength)
-            .SetRecurrentEffect((RecurrentEffect)20);
+        spell.EffectDescription.rangeType = RangeType.Distance;
+        spell.EffectDescription.rangeParameter = 12;
+        spell.EffectDescription.durationType = DurationType.Minute;
+        spell.EffectDescription.durationParameter = 1;
+        spell.EffectDescription.targetType = TargetType.Cube;
+        spell.EffectDescription.targetParameter = 3;
+        spell.EffectDescription.hasSavingThrow = true;
+        spell.EffectDescription.savingThrowAbility = AttributeDefinitions.Strength;
+        spell.EffectDescription.recurrentEffect = (RecurrentEffect)20;
 
         spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
         spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
@@ -785,17 +781,17 @@ internal static class SpellsBuildersContext
             .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
 
-        spell.EffectDescription
-            .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-            .SetDurationParameter(10)
-            .SetDurationType(DurationType.Minute)
-            .SetHasSavingThrow(true)
-            .SetRangeParameter(1)
-            .SetRangeType(RangeType.Distance)
-            .SetRecurrentEffect(RecurrentEffect.OnEnter)
-            .SetSavingThrowAbility(AttributeDefinitions.Wisdom)
-            .SetTargetParameter(0)
-            .SetTargetType(TargetType.Sphere);
+        spell.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        spell.EffectDescription.durationParameter = 10;
+        spell.EffectDescription.durationType = DurationType.Minute;
+        spell.EffectDescription.hasSavingThrow = true;
+        spell.EffectDescription.rangeParameter = 1;
+        spell.EffectDescription.rangeType = RangeType.Distance;
+        spell.EffectDescription.recurrentEffect = RecurrentEffect.OnEnter;
+        spell.EffectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
+        spell.EffectDescription.targetParameter = 0;
+        spell.EffectDescription.targetType = TargetType.Sphere;
 
         spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
         spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;

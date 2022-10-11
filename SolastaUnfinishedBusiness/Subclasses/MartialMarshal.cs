@@ -139,15 +139,19 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
-                .Build()
                 .SetDuration(DurationType.Instantaneous)
-                .SetHasSavingThrow(false)
                 .SetRange(RangeType.Distance, 12)
-                .SetTargetType(TargetType.Individuals)
-                .SetTargetSide(Side.Enemy)
-                .SetTargetParameter(1)
                 .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(new StudyEnemyEffectDescription()))
+                .SetEffectForms(new StudyEnemyEffectDescription())
+                .SetTargetingData(
+                    Side.Enemy,
+                    RangeType.Distance,
+                    12,
+                    TargetType.Individuals,
+                    1,
+                    2,
+                    ActionDefinitions.ItemSelectionType.Equiped)
+                .Build())
             .AddToDB();
     }
 
@@ -277,6 +281,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
+            .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
             .SetEffectForms(
                 new EffectForm
                 {
@@ -288,9 +293,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 }
             )
             .Build();
-
-        //TODO: create a builder for this
-        effectDescription.SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count);
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
             .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")

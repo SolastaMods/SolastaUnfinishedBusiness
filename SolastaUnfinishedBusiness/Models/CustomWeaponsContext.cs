@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -166,7 +167,7 @@ internal static class CustomWeaponsContext
 
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
-        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+        HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
@@ -303,7 +304,7 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
-        HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+        HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
@@ -385,7 +386,7 @@ internal static class CustomWeaponsContext
             icon: PikePsychicIcon, needId: false,
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
-        PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+        PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypePsychic)
@@ -465,7 +466,7 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
-        LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+        LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeThunder)
@@ -555,7 +556,7 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
-        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(EffectFormBuilder
+        HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeAcid)
@@ -584,7 +585,7 @@ internal static class CustomWeaponsContext
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
-        weapon.EffectDescription.AddEffectForms(EffectFormBuilder
+        weapon.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
                 damageType: RuleDefinitions.DamageTypeFire)
@@ -953,11 +954,19 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
     {
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character,
+        [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
-        var damage = attackMode.EffectDescription.FindLastDamageForm();
-
+        DamageForm damage = null;
+        
+        foreach (var effectForm in attackMode.EffectDescription.effectForms
+                     .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
+        {
+            damage = effectForm.DamageForm;
+        }
+        
         if (damage == null)
         {
             return;

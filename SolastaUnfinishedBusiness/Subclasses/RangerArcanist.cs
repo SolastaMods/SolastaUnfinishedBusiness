@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -215,14 +214,17 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetActivationTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
-                .Build()
-                .SetCreatedByCharacter(true)
-                .SetTargetSide(Side.Enemy)
-                .SetTargetType(TargetType.Sphere)
-                .SetTargetParameter(3)
-                .SetRangeType(RangeType.Distance)
-                .SetRangeParameter(30)
-                .SetEffectForms(effectForms))
+                .SetCreatedByCharacter()
+                .SetTargetingData(
+                    Side.Enemy,
+                    RangeType.Distance,
+                    30,
+                    TargetType.Sphere,
+                    3,
+                    2,
+                    ActionDefinitions.ItemSelectionType.Equiped)
+                .SetEffectForms(effectForms)
+                .Build())
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();

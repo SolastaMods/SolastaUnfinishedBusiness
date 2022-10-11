@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static RuleDefinitions;
@@ -58,19 +57,24 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
-                    .Build()
-                    .SetTargetType(TargetType.Individuals)
-                    .SetTargetParameter(1)
-                    .SetTargetParameter2(2)
-                    .SetTargetSide(Side.Ally)
                     .SetCanBePlacedOnCharacter(true)
-                    .SetTargetFilteringMethod(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetFilteringTag(TargetFilteringTag.No)
-                    .SetDurationType(DurationType.Round)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Distance,
+                        20,
+                        TargetType.Individuals,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetTargetFiltering(
+                        TargetFilteringMethod.CharacterOnly,
+                        TargetFilteringTag.No,
+                        5,
+                        DieType.D8)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetRequiresVisibilityForPosition(true)
-                    .SetRangeType(RangeType.Distance)
                     .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
-                    .SetRangeParameter(20))
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

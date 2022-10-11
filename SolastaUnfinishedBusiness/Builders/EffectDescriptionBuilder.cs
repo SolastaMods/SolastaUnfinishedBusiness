@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -45,6 +48,24 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetTargetParameter2(Int32 value)
+    {
+        effect.targetParameter2 = value;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
+    {
+        effect.RestrictedCreatureFamilies.Clear();
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
+    {
+        effect.animationMagicEffect = value;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetCreatedByCharacter()
     {
         effect.createdByCharacter = true;
@@ -54,6 +75,53 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
     {
         effect.canBePlacedOnCharacter = value;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetDifficultyClassComputation(EffectDifficultyClassComputation value)
+    {
+        effect.difficultyClassComputation = value;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetDuration(DurationType type, int? duration = null)
+    {
+        switch (type)
+        {
+            case DurationType.Round:
+            case DurationType.Minute:
+            case DurationType.Hour:
+            case DurationType.Day:
+                if (duration == null)
+                {
+                    throw new ArgumentNullException(nameof(duration),
+                        $@"A duration value is required for duration type {type}.");
+                }
+
+                effect.durationParameter = duration.Value;
+                break;
+
+            case DurationType.Instantaneous:
+            case DurationType.Dispelled:
+            case DurationType.Permanent:
+            case DurationType.Irrelevant:
+            case DurationType.UntilShortRest:
+            case DurationType.UntilLongRest:
+            case DurationType.UntilAnyRest:
+            case DurationType.Deprecated_Turn:
+            case DurationType.HalfClassLevelHours:
+            default:
+                if (duration != null)
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"A duration value is not expected for duration type {type}");
+                }
+
+                effect.durationParameter = 0;
+                break;
+        }
+
+        effect.durationType = type;
         return this;
     }
 
@@ -69,8 +137,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetEffectAdvancement(
-        RuleDefinitions.EffectIncrementMethod effectIncrementMethod,
+    internal EffectDescriptionBuilder SetEffectAdvancement(EffectIncrementMethod effectIncrementMethod,
         int incrementMultiplier = 1,
         int additionalTargetsPerIncrement = 0,
         int additionalDicePerIncrement = 0,
@@ -80,7 +147,7 @@ internal class EffectDescriptionBuilder
         int additionalTempHpPerIncrement = 0,
         int additionalTargetCellsPerIncrement = 0,
         int additionalItemBonus = 0,
-        RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
+        AdvancementDuration alteredDuration = AdvancementDuration.None)
     {
         effect.effectAdvancement = new EffectAdvancement
         {
@@ -99,11 +166,47 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetRange(RangeType type, int? range = null)
+    {
+        switch (type)
+        {
+            case RangeType.RangeHit:
+            case RangeType.Distance:
+                if (range == null)
+                {
+                    throw new ArgumentNullException(nameof(range),
+                        $@"A range value is required for range type {type}.");
+                }
+
+                effect.rangeParameter = range.Value;
+                break;
+
+            case RangeType.Touch:
+                effect.rangeParameter = range ?? 0;
+                break;
+
+            case RangeType.Self:
+            case RangeType.MeleeHit:
+            default:
+                if (range != null)
+                {
+                    throw new SolastaUnfinishedBusinessException(
+                        $"A duration value is not expected for duration type {type}");
+                }
+
+                effect.rangeParameter = 0;
+                break;
+        }
+
+        effect.rangeType = type;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetTargetingData(
-        RuleDefinitions.Side targetSide,
-        RuleDefinitions.RangeType rangeType,
+        Side targetSide,
+        RangeType rangeType,
         int rangeParameter,
-        RuleDefinitions.TargetType targetType,
+        TargetType targetType,
         int targetParameter = 1,
         int targetParameter2 = 1,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
@@ -146,10 +249,10 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetTargetFiltering(
-        RuleDefinitions.TargetFilteringMethod targetFilteringMethod,
-        RuleDefinitions.TargetFilteringTag targetFilteringTag = RuleDefinitions.TargetFilteringTag.No,
+        TargetFilteringMethod targetFilteringMethod,
+        TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
         int poolFilterDiceNumber = 0,
-        RuleDefinitions.DieType poolFilterDieType = RuleDefinitions.DieType.D1
+        DieType poolFilterDieType = DieType.D1
     )
     {
         effect.targetFilteringMethod = targetFilteringMethod;
@@ -159,7 +262,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRecurrentEffect(RuleDefinitions.RecurrentEffect recurrentEffect)
+    internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
         effect.recurrentEffect = recurrentEffect;
         return this;
@@ -173,9 +276,9 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetDurationData(
-        RuleDefinitions.DurationType durationType,
+        DurationType durationType,
         int durationParameter,
-        RuleDefinitions.TurnOccurenceType endOfEffect)
+        TurnOccurenceType endOfEffect)
     {
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
@@ -184,7 +287,7 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetDurationData(
-        RuleDefinitions.DurationType type,
+        DurationType type,
         int duration = 0,
         bool validate = true)
     {
@@ -203,7 +306,7 @@ internal class EffectDescriptionBuilder
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,
         bool ignoreCover,
-        RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
+        EffectDifficultyClassComputation difficultyClassComputation,
         string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
         int fixedSavingThrowDifficultyClass = 10,
         bool advantageForEnemies = false,
@@ -227,7 +330,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetSpeed(RuleDefinitions.SpeedType speedType, float speedParameter)
+    internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
     {
         effect.speedType = speedType;
         effect.speedParameter = speedParameter;
@@ -237,6 +340,12 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetAnimation(AnimationDefinitions.AnimationMagicEffect animation)
     {
         effect.animationMagicEffect = animation;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition(Boolean value)
+    {
+        effect.requiresVisibilityForPosition = value;
         return this;
     }
 

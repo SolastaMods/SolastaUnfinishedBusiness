@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -97,20 +96,20 @@ internal static class ElAntoniousFeats
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-                    .Build()
-                    .SetCreatedByCharacter(true)
-                    .SetTargetSide(Side.Enemy)
-                    .SetTargetType(TargetType.Individuals)
-                    .SetTargetParameter(1)
-                    .SetRangeType(RangeType.Touch)
-                    .SetDurationType(DurationType.Round)
-                    .SetDurationParameter(3)
+                    .SetCreatedByCharacter()
                     .SetCanBePlacedOnCharacter(false)
-                    .SetHasSavingThrow(true)
-                    .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
-                    .SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity)
                     .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetSpeedType(SpeedType.Instant)
+                    .SetDurationData(DurationType.Round, 3)
+                    .SetSpeed(SpeedType.Instant, 11f)
+                    .SetTargetingData(
+                        Side.Enemy,
+                        RangeType.Touch,
+                        30,
+                        TargetType.Individuals,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped
+                        )
                     .SetEffectForms(new EffectForm
                     {
                         formType = EffectForm.EffectFormType.Condition,
@@ -119,7 +118,16 @@ internal static class ElAntoniousFeats
                             Operation = ConditionForm.ConditionOperation.Add,
                             ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
                         }
-                    }))
+                    })
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        15)
+                    .Build())
                 .SetUsesFixed(1)
                 .SetRechargeRate(RechargeRate.AtWill)
                 .SetShowCasting(false)
