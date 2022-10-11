@@ -127,13 +127,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var arcanistDamageEffect =
             EffectFormBuilder
                 .Create()
-                .SetDamageForm(
-                    false,
-                    DieType.D1,
-                    DamageTypeForce,
-                    0,
-                    DieType.D8,
-                    4)
+                .SetDamageForm(DamageTypeForce, 4, DieType.D8)
                 .Build();
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
@@ -158,13 +152,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var arcanistDamageUpgradeEffect =
             EffectFormBuilder
                 .Create()
-                .SetDamageForm(
-                    false,
-                    DieType.D1,
-                    DamageTypeForce,
-                    0,
-                    DieType.D8,
-                    8)
+                .SetDamageForm(DamageTypeForce, 8, DieType.D8)
                 .Build();
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(

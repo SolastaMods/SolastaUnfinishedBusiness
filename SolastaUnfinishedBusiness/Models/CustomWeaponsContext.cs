@@ -169,8 +169,7 @@ internal static class CustomWeaponsContext
             WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
-                damageType: RuleDefinitions.DamageTypeForce)
+            .SetDamageForm(RuleDefinitions.DamageTypeForce, 1, RuleDefinitions.DieType.D4)
             .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
@@ -305,8 +304,7 @@ internal static class CustomWeaponsContext
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeLightning)
+            .SetDamageForm(RuleDefinitions.DamageTypeLightning, 1, RuleDefinitions.DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16,
                 HalberdPrimed,
@@ -387,8 +385,7 @@ internal static class CustomWeaponsContext
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypePsychic)
+            .SetDamageForm(RuleDefinitions.DamageTypePsychic, 1, RuleDefinitions.DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16,
                 PikePrimed,
@@ -467,8 +464,7 @@ internal static class CustomWeaponsContext
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeThunder)
+            .SetDamageForm(RuleDefinitions.DamageTypeThunder, 1, RuleDefinitions.DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16,
                 LongMacePrimed,
@@ -557,8 +553,7 @@ internal static class CustomWeaponsContext
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeAcid)
+            .SetDamageForm(RuleDefinitions.DamageTypeAcid, 1, RuleDefinitions.DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HandXbowAcid, 48, 16,
                 HandXbowPrimed,
@@ -586,8 +581,7 @@ internal static class CustomWeaponsContext
 
         weapon.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
-                damageType: RuleDefinitions.DamageTypeFire)
+            .SetDamageForm(RuleDefinitions.DamageTypeFire, 1, RuleDefinitions.DieType.D8)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
             .Create("ProducedFlameThrower")
@@ -959,13 +953,13 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
         RulesetItem weapon)
     {
         DamageForm damage = null;
-        
+
         foreach (var effectForm in attackMode.EffectDescription.effectForms
                      .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
         {
             damage = effectForm.DamageForm;
         }
-        
+
         if (damage == null)
         {
             return;

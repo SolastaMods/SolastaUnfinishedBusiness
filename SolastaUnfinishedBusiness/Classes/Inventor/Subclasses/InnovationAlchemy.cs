@@ -163,7 +163,7 @@ public static class InnovationAlchemy
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetDamageForm(dieType: dieType, diceNumber: 3, damageType: damageType)
+                    .SetDamageForm(damageType, 3, dieType)
                     .Build())
                 .AddEffectForms(effects)
                 .Build())
@@ -199,7 +199,7 @@ public static class InnovationAlchemy
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
+                    .SetDamageForm(damageType, 2, dieType)
                     .Build())
                 .AddEffectForms(effects)
                 .Build())
@@ -222,7 +222,7 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 1)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
                 .SetSavingThrowData(
                     true,
@@ -235,7 +235,7 @@ public static class InnovationAlchemy
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
+                    .SetDamageForm(damageType, 2, dieType)
                     .Build())
                 .AddEffectForms(effects)
                 .Build())
@@ -257,8 +257,8 @@ public static class InnovationAlchemy
 internal sealed class Overcharge : ICustomOverchargeProvider
 {
     private static readonly (int, int)[] None = { };
-    private static readonly (int, int)[] Once = {(1, 1)};
-    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+    private static readonly (int, int)[] Once = { (1, 1) };
+    private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
 
     public (int, int)[] OverchargeSteps(RulesetCharacter character)
     {
@@ -268,7 +268,8 @@ internal sealed class Overcharge : ICustomOverchargeProvider
         {
             return Twice;
         }
-        else if (classLevel >= 5)
+
+        if (classLevel >= 5)
         {
             return Once;
         }

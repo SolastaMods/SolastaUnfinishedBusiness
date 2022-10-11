@@ -522,13 +522,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(
-                            false,
-                            DieType.D1,
-                            DamageTypeRadiant,
-                            0,
-                            DieType.D6,
-                            4)
+                        .SetDamageForm(DamageTypeRadiant, 4, DieType.D6)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder

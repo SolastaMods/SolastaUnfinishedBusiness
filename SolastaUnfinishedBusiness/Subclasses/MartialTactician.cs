@@ -41,13 +41,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(
-                                false,
-                                DieType.D1,
-                                DamageTypeBludgeoning,
-                                2,
-                                DieType.D6,
-                                1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6, 2)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -117,13 +111,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(
-                                false,
-                                DieType.D1,
-                                DamageTypeBludgeoning,
-                                2,
-                                DieType.D6,
-                                1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6, 2)
                             .Build())
                     .Build(),
                 false)

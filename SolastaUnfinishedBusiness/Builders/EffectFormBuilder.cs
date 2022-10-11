@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TA.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -151,29 +152,29 @@ internal class EffectFormBuilder
 #endif
 
     internal EffectFormBuilder SetDamageForm(
-        bool versatile = false,
-        DieType versatileDieType = DieType.D1,
-        string damageType = DamageTypeBludgeoning,
-        int bonusDamage = 0,
-        DieType dieType = DieType.D1,
-        int diceNumber = 0,
-        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
-        params TrendInfo[] damageBonusTrends)
+            string damageType = DamageTypeBludgeoning,
+            int diceNumber = 0,
+            DieType dieType = DieType.D1,
+            int bonusDamage = 0,
+            HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never)
+        // bool versatile = false,
+        // DieType versatileDieType = DieType.D1,
+        // params TrendInfo[] damageBonusTrends)
     {
         var damageForm = new DamageForm
         {
-            versatile = versatile,
-            VersatileDieType = versatileDieType,
+            versatile = false,
+            VersatileDieType = DieType.D1,
             BonusDamage = bonusDamage,
             DamageType = damageType,
             DiceNumber = diceNumber,
             DieType = dieType,
             healFromInflictedDamage = healFromInflictedDamage,
-            damageBonusTrends = damageBonusTrends.ToList()
+            damageBonusTrends = new List<TrendInfo>()
         };
 
+        effectForm.damageForm = damageForm;
         effectForm.FormType = EffectForm.EffectFormType.Damage;
-        effectForm.DamageForm = damageForm;
         return this;
     }
 

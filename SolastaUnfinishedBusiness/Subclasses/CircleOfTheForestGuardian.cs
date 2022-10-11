@@ -65,7 +65,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 2)
+                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
                             .CreatedByCondition()
                             .Build())
                     .Build(),
@@ -84,7 +84,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 3)
+                            .SetDamageForm(DamageTypePiercing, 3, DieType.D8)
                             .CreatedByCondition()
                             .Build())
                     .Build(),

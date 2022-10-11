@@ -284,13 +284,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(
-                        false,
-                        DieType.D1,
-                        DamageTypeSlashing,
-                        2,
-                        DieType.D6,
-                        2)
+                    .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
                     .Build())
             .Build();
 

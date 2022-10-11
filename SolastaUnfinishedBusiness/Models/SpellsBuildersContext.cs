@@ -100,7 +100,7 @@ internal static class SpellsBuildersContext
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D6, 1)
+                    .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
             ).Build();
 
@@ -138,7 +138,7 @@ internal static class SpellsBuildersContext
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D1, DamageTypeRadiant, 0, DieType.D6, 1)
+                    .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
             ).Build();
 
@@ -194,8 +194,7 @@ internal static class SpellsBuildersContext
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .SetEffectForms(EffectFormBuilder
                         .Create()
-                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
-                            healFromInflictedDamage: HealFromInflictedDamage.Half)
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8, 0, HealFromInflictedDamage.Half)
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .Build(),
                     EffectFormBuilder
@@ -515,7 +514,7 @@ internal static class SpellsBuildersContext
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D1, DamageTypeThunder, 0, DieType.D6, 1)
+                    .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
             ).Build();
 
@@ -847,7 +846,7 @@ internal static class SpellsBuildersContext
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D12, 3)
+                    .SetDamageForm(DamageTypeBludgeoning, 3, DieType.D12)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
             ).Build();
 
@@ -893,7 +892,7 @@ internal static class SpellsBuildersContext
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeCold, dieType: DieType.D8, diceNumber: 4)
+                    .SetDamageForm(DamageTypeCold, dieType: DieType.D8, diceNumber: 4)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build()
             )
@@ -1129,27 +1128,16 @@ internal static class SpellsBuildersContext
                 TargetType.Sphere,
                 8,
                 8)
+            // 20 dice number because hits dont stack even on single target
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(
-                        false,
-                        DieType.D6,
-                        DamageTypeFire,
-                        0,
-                        DieType.D6,
-                        20) // 20 because hits dont stack even on single target
+                    .SetDamageForm(DamageTypeFire, 20, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(
-                        false,
-                        DieType.D6,
-                        DamageTypeBludgeoning,
-                        0,
-                        DieType.D6,
-                        20) // 20 because hits dont stack even on single target)
+                    .SetDamageForm(DamageTypeBludgeoning, 0, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .SetSavingThrowData(
