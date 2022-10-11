@@ -96,8 +96,8 @@ internal static class ElAntoniousFeats
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-                    .SetCreatedByCharacter()
                     .SetCanBePlacedOnCharacter(false)
+                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Round, 3)
                     .SetSpeed(SpeedType.Instant, 11f)
                     .SetTargetingData(
@@ -109,15 +109,12 @@ internal static class ElAntoniousFeats
                         2,
                         ActionDefinitions.ItemSelectionType.Equiped)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            formType = EffectForm.EffectFormType.Condition,
-                            ConditionForm = new ConditionForm
-                            {
-                                Operation = ConditionForm.ConditionOperation.Add,
-                                ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
-                            }
-                        })
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .SetSavingThrowData(
                         true,
                         false,

@@ -39,23 +39,21 @@ internal sealed class MartialTactician : AbstractSubclass
                     .Create(PowerFighterActionSurge.EffectDescription)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            DamageForm = new DamageForm
-                            {
-                                DiceNumber = 1,
-                                DieType = DieType.D6,
-                                BonusDamage = 2,
-                                DamageType = DamageTypeBludgeoning
-                            },
-                            SavingThrowAffinity = EffectSavingThrowType.None
-                        },
-                        new EffectForm
-                        {
-                            formType = EffectForm.EffectFormType.Motion,
-                            motionForm = new MotionForm { type = MotionForm.MotionType.FallProne, distance = 1 },
-                            savingThrowAffinity = EffectSavingThrowType.Negates
-                        })
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(
+                                false,
+                                DieType.D1,
+                                DamageTypeBludgeoning,
+                                2,
+                                DieType.D6,
+                                1)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .SetSavingThrowData(
                         true,
                         false,
@@ -93,14 +91,10 @@ internal sealed class MartialTactician : AbstractSubclass
                         2,
                         ActionDefinitions.ItemSelectionType.Equiped)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            formType = EffectForm.EffectFormType.TemporaryHitPoints,
-                            temporaryHitPointsForm = new TemporaryHitPointsForm
-                            {
-                                DiceNumber = 1, DieType = DieType.D6, BonusHitPoints = 2
-                            }
-                        })
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(2, DieType.D6, 1)
+                            .Build())
                     .Build(),
                 false)
             .AddToDB();
@@ -121,17 +115,16 @@ internal sealed class MartialTactician : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(PowerDomainLawHolyRetribution.EffectDescription)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            damageForm = new DamageForm
-                            {
-                                DiceNumber = 1,
-                                DieType = DieType.D6,
-                                BonusDamage = 2,
-                                DamageType = DamageTypeBludgeoning
-                            },
-                            savingThrowAffinity = EffectSavingThrowType.None
-                        })
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(
+                                false,
+                                DieType.D1,
+                                DamageTypeBludgeoning,
+                                2,
+                                DieType.D6,
+                                1)
+                            .Build())
                     .Build(),
                 false)
             .AddToDB();

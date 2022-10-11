@@ -300,7 +300,7 @@ internal static class SpellsBuildersContext
                     additionalDicePerIncrement: 1,
                     incrementMultiplier: 1
                 )
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
@@ -416,7 +416,7 @@ internal static class SpellsBuildersContext
                     additionalDicePerIncrement: 1,
                     incrementMultiplier: 1
                 )
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
@@ -594,12 +594,11 @@ internal static class SpellsBuildersContext
         spell.EffectDescription.durationType = DurationType.Permanent;
         spell.EffectDescription.targetSide = Side.Ally;
         spell.EffectDescription.EffectForms.SetRange(
-            new EffectForm
-            {
-                formType = EffectFormType.Summon,
-                createdByCharacter = true,
-                summonForm = new SummonForm { monsterDefinitionName = owlFamiliar.name, decisionPackage = null }
-            });
+            EffectFormBuilder
+                .Create()
+                .SetSummonCreatureForm(1, owlFamiliar.name)
+                .CreatedByCharacter()
+                .Build());
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
 
@@ -634,8 +633,7 @@ internal static class SpellsBuildersContext
                 2, ActionDefinitions.ItemSelectionType.Equiped)
             .SetDurationData(
                 DurationType.Hour,
-                8,
-                TurnOccurenceType.EndOfTurn)
+                8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
             .AddEffectForm(
                 EffectFormBuilder
@@ -920,8 +918,7 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Minute,
-                1,
-                TurnOccurenceType.EndOfTurn)
+                1)
             .SetTargetingData(
                 Side.All,
                 RangeType.Distance,
@@ -986,8 +983,7 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder.Create();
         effectDescription.SetDurationData(
             DurationType.Hour,
-            24,
-            TurnOccurenceType.EndOfTurn
+            24
         );
         effectDescription.SetTargetingData(
             Side.Ally,
@@ -1037,8 +1033,7 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Hour,
-                8,
-                TurnOccurenceType.EndOfTurn)
+                8)
             .SetTargetingData(
                 Side.Ally,
                 RangeType.Touch,
@@ -1232,15 +1227,18 @@ internal static class SpellsBuildersContext
                 RangeType.Distance,
                 12,
                 TargetType.Individuals)
-            .AddEffectForm(new EffectForm
-            {
-                applyLevel = LevelApplianceType.No,
-                levelMultiplier = 1,
-                levelType = LevelSourceType.ClassLevel,
-                createdByCharacter = true,
-                formType = EffectFormType.Kill,
-                killForm = new KillForm { killCondition = KillCondition.UnderHitPoints, hitPoints = 100 }
-            });
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetKillForm(
+                        KillCondition.UnderHitPoints,
+                        0F,
+                        100)
+                    .SetLevelAdvancement(
+                        LevelApplianceType.No,
+                        LevelSourceType.ClassLevel)
+                    .CreatedByCharacter()
+                    .Build());
 
         return SpellDefinitionBuilder
             .Create("PowerWordKill")
@@ -1263,60 +1261,60 @@ internal static class SpellsBuildersContext
             .SetParticleEffectParameters(PowerDruidWildShape)
             .SetDurationData(
                 DurationType.Hour,
-                1,
-                TurnOccurenceType.EndOfTurn)
+                1)
             .SetTargetingData(
                 Side.Ally,
                 RangeType.Distance,
                 12,
                 TargetType.Self)
-            .AddEffectForm(new EffectForm
-            {
-                addBonusMode = AddBonusMode.None,
-                applyLevel = LevelApplianceType.No,
-                canSaveToCancel = false,
-                createdByCharacter = true,
-                formType = EffectFormType.ShapeChange,
-                shapeChangeForm = new ShapeChangeForm
+            .AddEffectForm(
+                new EffectForm
                 {
-                    keepMentalAbilityScores = true,
-                    shapeChangeType = ShapeChangeForm.Type.FreeListSelection,
-                    specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                    shapeOptions = new List<ShapeOptionDescription>
+                    addBonusMode = AddBonusMode.None,
+                    applyLevel = LevelApplianceType.No,
+                    canSaveToCancel = false,
+                    createdByCharacter = true,
+                    formType = EffectFormType.ShapeChange,
+                    shapeChangeForm = new ShapeChangeForm
                     {
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(GoldDragon_AerElai),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Divine_Avatar),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Sorr_Akkath_Tshar_Boss),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(GreenDragon_MasterOfConjuration),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(BlackDragon_MasterOfNecromancy),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Remorhaz),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Emperor_Laethar),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Giant_Ape),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Spider_Queen),
-                        new ShapeOptionDescription()
-                            .SetRequiredLevel(1)
-                            .SetSubstituteMonster(Sorr_Akkath_Shikkath)
+                        keepMentalAbilityScores = true,
+                        shapeChangeType = ShapeChangeForm.Type.FreeListSelection,
+                        specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
+                        shapeOptions = new List<ShapeOptionDescription>
+                        {
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(GoldDragon_AerElai),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Divine_Avatar),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Sorr_Akkath_Tshar_Boss),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(GreenDragon_MasterOfConjuration),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(BlackDragon_MasterOfNecromancy),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Remorhaz),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Emperor_Laethar),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Giant_Ape),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Spider_Queen),
+                            new ShapeOptionDescription()
+                                .SetRequiredLevel(1)
+                                .SetSubstituteMonster(Sorr_Akkath_Shikkath)
+                        }
                     }
-                }
-            });
+                });
 
         return SpellDefinitionBuilder
             .Create("Shapechange")
@@ -1337,8 +1335,7 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Round,
-                3,
-                TurnOccurenceType.EndOfTurn)
+                3)
             .SetTargetingData(
                 Side.All,
                 RangeType.Self,
@@ -1381,8 +1378,7 @@ internal static class SpellsBuildersContext
         var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(
                 DurationType.Minute,
-                1,
-                TurnOccurenceType.EndOfTurn)
+                1)
             .SetTargetingData(
                 Side.Enemy,
                 RangeType.Distance,

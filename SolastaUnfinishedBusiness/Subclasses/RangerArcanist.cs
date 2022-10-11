@@ -116,27 +116,25 @@ internal sealed class RangerArcanist : AbstractSubclass
         // LEVEL 07
         //
 
-        var arcanistMarkedEffect = new EffectForm
-        {
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = conditionMarkedByArcanist
-            },
-            FormType = EffectForm.EffectFormType.Condition
-        };
+        var arcanistMarkedEffect =
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    conditionMarkedByArcanist,
+                    ConditionForm.ConditionOperation.Add)
+                .Build();
 
-        var arcanistDamageEffect = new EffectForm
-        {
-            DamageForm = new DamageForm
-            {
-                damageType = DamageTypeForce,
-                dieType = DieType.D8,
-                diceNumber = 4,
-                healFromInflictedDamage = HealFromInflictedDamage.Never
-            },
-            SavingThrowAffinity = EffectSavingThrowType.None
-        };
+        var arcanistDamageEffect =
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(
+                    false,
+                    DieType.D1,
+                    DamageTypeForce,
+                    0,
+                    DieType.D8,
+                    4)
+                .Build();
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulse",
@@ -157,17 +155,17 @@ internal sealed class RangerArcanist : AbstractSubclass
         // LEVEL 15
         //
 
-        var arcanistDamageUpgradeEffect = new EffectForm
-        {
-            DamageForm = new DamageForm
-            {
-                damageType = DamageTypeForce,
-                dieType = DieType.D8,
-                diceNumber = 8,
-                healFromInflictedDamage = HealFromInflictedDamage.Never
-            },
-            SavingThrowAffinity = EffectSavingThrowType.None
-        };
+        var arcanistDamageUpgradeEffect =
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(
+                    false,
+                    DieType.D1,
+                    DamageTypeForce,
+                    0,
+                    DieType.D8,
+                    8)
+                .Build();
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulseUpgrade",

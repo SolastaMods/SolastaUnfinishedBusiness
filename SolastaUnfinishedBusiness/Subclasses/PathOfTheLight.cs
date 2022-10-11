@@ -85,33 +85,31 @@ internal sealed class PathOfTheLight : AbstractSubclass
                         EffectDescriptionBuilder
                             .Create()
                             .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                            .AddEffectForm(new EffectForm
-                            {
-                                FormType = EffectForm.EffectFormType.Condition,
-                                ConditionForm = new ConditionForm
-                                {
-                                    Operation = ConditionForm.ConditionOperation.Add,
-                                    ConditionDefinition = ConditionDefinitionBuilder
-                                        .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetAllowMultipleInstances(false)
-                                        .SetConditionType(ConditionType.Beneficial)
-                                        .SetDuration(DurationType.Minute, 1)
-                                        .SetTerminateWhenRemoved(true)
-                                        .SetSilent(Silent.WhenAddedOrRemoved)
-                                        .SetSpecialInterruptions(ConditionInterruption.RageStop)
-                                        .SetFeatures(
-                                            FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder
-                                                .Create(
-                                                    AdditionalDamagePathOfTheLightIlluminatingStrikeName,
-                                                    conditionPathOfTheLightIlluminated)
-                                                .SetGuiPresentationNoContent(
-                                                    AdditionalDamageDomainLifeDivineStrike.GuiPresentation
-                                                        .SpriteReference)
-                                                .AddToDB())
-                                        .AddToDB()
-                                }
-                            })
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(
+                                        ConditionDefinitionBuilder
+                                            .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetAllowMultipleInstances(false)
+                                            .SetConditionType(ConditionType.Beneficial)
+                                            .SetDuration(DurationType.Minute, 1)
+                                            .SetTerminateWhenRemoved(true)
+                                            .SetSilent(Silent.WhenAddedOrRemoved)
+                                            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+                                            .SetFeatures(
+                                                FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder
+                                                    .Create(
+                                                        AdditionalDamagePathOfTheLightIlluminatingStrikeName,
+                                                        conditionPathOfTheLightIlluminated)
+                                                    .SetGuiPresentationNoContent(
+                                                        AdditionalDamageDomainLifeDivineStrike.GuiPresentation
+                                                            .SpriteReference)
+                                                    .AddToDB())
+                                            .AddToDB(),
+                                        ConditionForm.ConditionOperation.Add)
+                                    .Build())
                             .Build())
                     .SetRechargeRate(RechargeRate.AtWill)
                     .AddToDB())
@@ -158,24 +156,22 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     TargetType.Self,
                     1,
                     0)
-                .AddEffectForm(new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.Condition,
-                    ConditionForm = new ConditionForm
-                    {
-                        Operation = ConditionForm.ConditionOperation.Add,
-                        ConditionDefinition = ConditionDefinitionBuilder
-                            .Create("ConditionPathOfTheLightEyesOfTruth")
-                            .SetGuiPresentation(Category.Condition,
-                                ConditionSeeInvisibility.GuiPresentation.SpriteReference)
-                            .SetAllowMultipleInstances(false)
-                            .SetConditionType(ConditionType.Beneficial)
-                            .SetDuration(DurationType.Permanent, 1, false)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
-                            .AddToDB()
-                    }
-                })
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionPathOfTheLightEyesOfTruth")
+                                .SetGuiPresentation(Category.Condition,
+                                    ConditionSeeInvisibility.GuiPresentation.SpriteReference)
+                                .SetAllowMultipleInstances(false)
+                                .SetConditionType(ConditionType.Beneficial)
+                                .SetDuration(DurationType.Permanent, 1, false)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
             .SetRechargeRate(RechargeRate.AtWill)
             .SetActivationTime(ActivationTime.Permanent)
@@ -205,15 +201,13 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
-                    .AddEffectForm(new EffectForm
-                    {
-                        FormType = EffectForm.EffectFormType.Condition,
-                        ConditionForm = new ConditionForm
-                        {
-                            Operation = ConditionForm.ConditionOperation.Add,
-                            ConditionDefinition = conditionPathOfTheLightSuppressedIlluminatingBurst
-                        }
-                    })
+                    .AddEffectForm(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionPathOfTheLightSuppressedIlluminatingBurst,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .AddToDB();
 
@@ -232,16 +226,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
                         ActivationTime.OnRageStartAutomatic,
                         RechargeRate.AtWill,
                         EffectDescriptionBuilder.Create()
-                            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
-                            .AddEffectForm(new EffectForm
-                            {
-                                FormType = EffectForm.EffectFormType.Condition,
-                                ConditionForm = new ConditionForm
-                                {
-                                    Operation = ConditionForm.ConditionOperation.Remove,
-                                    ConditionDefinition = conditionPathOfTheLightSuppressedIlluminatingBurst
-                                }
-                            })
+                            .SetDurationData(DurationType.Round, 1)
+                            .AddEffectForm(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(
+                                        conditionPathOfTheLightSuppressedIlluminatingBurst,
+                                        ConditionForm.ConditionOperation.Remove)
+                                    .Build())
                             .Build())
                     .SetShowCasting(false)
                     .AddToDB(),
@@ -509,7 +501,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             lightSourceForm.brightRange = 4;
             lightSourceForm.dimAdditionalRange = 4;
 
-            return EffectDescriptionBuilder.Create()
+            return EffectDescriptionBuilder
+                .Create()
                 .SetSavingThrowData(
                     true,
                     false,
@@ -519,8 +512,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     AttributeDefinitions.Constitution)
                 .SetDurationData(
                     DurationType.Minute,
-                    1,
-                    TurnOccurenceType.EndOfTurn)
+                    1)
                 .SetTargetingData(
                     Side.Enemy,
                     RangeType.Distance,
@@ -532,43 +524,41 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     SpeedType.CellsPerSeconds,
                     9.5f)
                 .SetParticleEffectParameters(GuidingBolt)
-                .AddEffectForm(
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(
+                            false,
+                            DieType.D1,
+                            DamageTypeRadiant,
+                            0,
+                            DieType.D6,
+                            4)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionIlluminatedByBurstBuilder
+                                .Create("ConditionPathOfTheLightIlluminatedByBurst")
+                                .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
+                                    ConditionBranded.GuiPresentation.SpriteReference)
+                                .SetAllowMultipleInstances(true)
+                                .SetConditionType(ConditionType.Detrimental)
+                                .SetDuration(DurationType.Minute, 1)
+                                .SetParentCondition(illuminatedCondition)
+                                .SetSilent(Silent.WhenAdded)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
                     new EffectForm
                     {
-                        FormType = EffectForm.EffectFormType.Damage,
-                        DamageForm =
-                            new DamageForm { DamageType = DamageTypeRadiant, DiceNumber = 4, DieType = DieType.D6 },
-                        SavingThrowAffinity = EffectSavingThrowType.Negates
+                        FormType = EffectForm.EffectFormType.LightSource,
+                        SavingThrowAffinity = EffectSavingThrowType.Negates,
+                        lightSourceForm = lightSourceForm
                     })
-                .AddEffectForm(
-                    new EffectForm
-                    {
-                        FormType = EffectForm.EffectFormType.Condition,
-                        ConditionForm =
-                            new ConditionForm
-                            {
-                                Operation = ConditionForm.ConditionOperation.Add,
-                                ConditionDefinition = ConditionDefinitionIlluminatedByBurstBuilder
-                                    .Create("ConditionPathOfTheLightIlluminatedByBurst")
-                                    .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
-                                        ConditionBranded.GuiPresentation.SpriteReference)
-                                    .SetAllowMultipleInstances(true)
-                                    .SetConditionType(ConditionType.Detrimental)
-                                    .SetDuration(DurationType.Minute, 1)
-                                    .SetParentCondition(illuminatedCondition)
-                                    .SetSilent(Silent.WhenAdded)
-                                    .AddToDB()
-                            },
-                        CanSaveToCancel = true,
-                        SaveOccurence = TurnOccurenceType.EndOfTurn,
-                        SavingThrowAffinity = EffectSavingThrowType.Negates
-                    })
-                .AddEffectForm(new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.LightSource,
-                    SavingThrowAffinity = EffectSavingThrowType.Negates,
-                    lightSourceForm = lightSourceForm
-                })
                 .Build();
         }
     }

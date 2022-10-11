@@ -282,15 +282,16 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create()
             .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
             .SetEffectForms(
-                new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.Damage,
-                    DamageForm = new DamageForm
-                    {
-                        BonusDamage = 2, DiceNumber = 2, DieType = DieType.D6, DamageType = DamageTypeSlashing
-                    }
-                }
-            )
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(
+                        false,
+                        DieType.D1,
+                        DamageTypeSlashing,
+                        2,
+                        DieType.D6,
+                        2)
+                    .Build())
             .Build();
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
@@ -360,13 +361,12 @@ internal sealed class MartialMarshal : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(ConjureAnimalsOneBeast.EffectDescription)
                     .SetDurationData(DurationType.Round, 10)
-                    .ClearEffectForms()
-                    .AddEffectForm(new EffectForm
-                    {
-                        formType = EffectForm.EffectFormType.Summon,
-                        createdByCharacter = true,
-                        summonForm = new SummonForm { monsterDefinitionName = EternalComrade.Name }
-                    })
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, EternalComradeName)
+                            .CreatedByCharacter()
+                            .Build())
                     .Build()
             )
             .AddToDB();

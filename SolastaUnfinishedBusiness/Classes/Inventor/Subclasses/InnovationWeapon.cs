@@ -93,14 +93,16 @@ public static class InnovationWeapon
             .SetRechargeRate(RechargeRate.LongRest)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetSummonCreatureForm(1, defender.Name)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetSummonCreatureForm(1, defender.Name)
+                        .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
-                .SetParticleEffectParameters(ConjureElementalAir)
-                .Build())
             .AddToDB();
     }
 

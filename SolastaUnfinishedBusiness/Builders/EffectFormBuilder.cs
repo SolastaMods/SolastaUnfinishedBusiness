@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using TA.AI;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -175,7 +177,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
     {
         var killForm = new KillForm
@@ -188,6 +189,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetDivinationForm(
         DivinationForm.Type divinationType,
         IEnumerable<CharacterFamilyDefinition> creatureFamilies,
@@ -247,7 +249,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetLightSourceForm(
         LightSourceType lightSourceType,
         int brightRange,
@@ -268,7 +269,6 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.LightSource;
         return this;
     }
-#endif
 
     internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
     {
@@ -308,35 +308,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
-    internal EffectFormBuilder SetSummonForm(
-        SummonForm.Type summonType,
-        ItemDefinition item,
-        int number,
-        string monsterDefinitionName,
-        ConditionDefinition conditionDefinition,
-        bool persistOnConcentrationLoss,
-        DecisionPackageDefinition decisionPackage,
-        EffectProxyDefinition effectProxyDefinition)
-    {
-        var summonForm = new SummonForm
-        {
-            summonType = summonType,
-            itemDefinition = item,
-            number = number,
-            monsterDefinitionName = monsterDefinitionName,
-            conditionDefinition = conditionDefinition,
-            persistOnConcentrationLoss = persistOnConcentrationLoss,
-            decisionPackage = decisionPackage,
-            effectProxyDefinitionName = effectProxyDefinition.Name
-        };
-
-        effectForm.summonForm = summonForm;
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
-        return this;
-    }
-#endif
-
     internal EffectFormBuilder SetSummonCreatureForm(
         int number,
         string monsterDefinitionName,
@@ -369,7 +340,7 @@ internal class EffectFormBuilder
             itemDefinition = item,
             number = number,
             trackItem = trackItem,
-            monsterDefinitionName = "", //do we even need this?
+            monsterDefinitionName = "",
             conditionDefinition = null,
             persistOnConcentrationLoss = true,
             decisionPackage = null,
