@@ -617,7 +617,7 @@ internal static class SpellsBuildersContext
             .Create("MovementAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
-        
+
         movementAffinity.heavyArmorImmunity = true;
         movementAffinity.encumbranceImmunity = true;
 
@@ -625,7 +625,7 @@ internal static class SpellsBuildersContext
             .Create("EquipmentAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
-        
+
         equipmentAffinity.additionalCarryingCapacity = 20;
 
         var effectDescription = EffectDescriptionBuilder
@@ -1294,36 +1294,19 @@ internal static class SpellsBuildersContext
                         specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                         shapeOptions = new List<ShapeOptionDescription>
                         {
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(GoldDragon_AerElai),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Divine_Avatar),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Sorr_Akkath_Tshar_Boss),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(GreenDragon_MasterOfConjuration),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(BlackDragon_MasterOfNecromancy),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Remorhaz),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Emperor_Laethar),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Giant_Ape),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Spider_Queen),
-                            new ShapeOptionDescription()
-                                .SetRequiredLevel(1)
-                                .SetSubstituteMonster(Sorr_Akkath_Shikkath)
+                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
+                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
+                            new()
+                            {
+                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
+                            },
+                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
+                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
+                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
+                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
+                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
+                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
                         }
                     }
                 });
