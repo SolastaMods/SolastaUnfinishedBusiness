@@ -24,7 +24,7 @@
   "inactiveTags": [],
   "magical": false,
   "requiresAttunement": false,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
@@ -58,19 +58,7 @@
         "canOverchargeSpell": true,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerAlchemyBombSplash:3fd9050d-e983-5722-908b-79cc2facac83"
-      },
-      {
-        "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "ByFunction",
-        "useAffinity": "ChargeCost",
-        "useAmount": 3,
-        "rechargeRate": "Dawn",
-        "durationType": "Instantaneous",
-        "canOverchargeSpell": true,
-        "type": "Power",
-        "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerAlchemyBombBreath:0c6740d8-a774-57d7-a5c8-482df890a0ef"
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSingle:a2c2a098-d708-54b6-a645-d227ea9a7c04"
       },
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
@@ -82,7 +70,19 @@
         "canOverchargeSpell": true,
         "type": "Power",
         "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerAlchemyBombSingle:a711078d-437e-52a0-a8a1-0cac2c097bb6"
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombSplash:1c28ac8d-3f95-5d5c-8738-b0062f7ff49d"
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "ChargeCost",
+        "useAmount": 3,
+        "rechargeRate": "Dawn",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": true,
+        "type": "Power",
+        "spellDefinition": null,
+        "featureDefinitionPower": "Definition:PowerInnovationAlchemyBombBreath:65894271-4b07-52a2-837d-774a6f13fbd1"
       }
     ],
     "usableDeviceTags": [],
@@ -137,13 +137,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureAlchemyBombsTitle",
-    "description": "Feature/&FeatureAlchemyBombsDescription",
+    "title": "Feature/&FeatureInnovationAlchemyBombsTitle",
+    "description": "Feature/&FeatureInnovationAlchemyBombsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cfd21b0edebfb5e42a9c59cc1de6b19b",
-      "m_SubObjectName": "Alchemist_Fire",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "91212f6d-03b0-5468-81d3-014a70b32d33",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -158,7 +158,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1caa91bd-ebcf-5c78-81cd-732b64795fc4",
+  "guid": "ed15a36d-1de1-5598-aead-29c807c57e65",
   "contentPack": 9999,
-  "name": "ItemAlchemyBomb"
+  "name": "ItemInnovationAlchemyBomb"
 }

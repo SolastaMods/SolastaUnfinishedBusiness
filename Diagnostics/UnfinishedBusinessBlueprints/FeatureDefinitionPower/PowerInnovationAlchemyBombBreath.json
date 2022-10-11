@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "RangeHit",
-    "rangeParameter": 6,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Cone",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 4,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -29,11 +29,11 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "All",
     "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": true,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
@@ -70,14 +70,14 @@
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "None",
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 3,
+          "diceNumber": 2,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -100,9 +100,9 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -145,7 +145,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e766280ec6dd2fa4ba0a28275aa732fb",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -157,7 +157,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0440791bf296e02439607481abe77f86",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -169,7 +169,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+        "m_AssetGUID": "8ec6fce55ab85a5449a811ba713366ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -290,7 +290,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation1",
+    "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -318,11 +318,11 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Dexterity",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": true,
-  "proficiencyBonusToAttack": true,
+  "abilityScoreBonusToAttack": false,
+  "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
@@ -331,12 +331,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAlchemyBombSingleTitle",
-    "description": "Feature/&PowerAlchemyBombSingleDescription",
+    "title": "Feature/&PowerInnovationAlchemyBombBreathTitle",
+    "description": "Feature/&PowerInnovationAlchemyBombBreathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5ab3d83f54acd7145925c5d96cd393c8",
-      "m_SubObjectName": "ProduceFlame",
+      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
+      "m_SubObjectName": "BurningHands",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a711078d-437e-52a0-a8a1-0cac2c097bb6",
+  "guid": "65894271-4b07-52a2-837d-774a6f13fbd1",
   "contentPack": 9999,
-  "name": "PowerAlchemyBombSingle"
+  "name": "PowerInnovationAlchemyBombBreath"
 }

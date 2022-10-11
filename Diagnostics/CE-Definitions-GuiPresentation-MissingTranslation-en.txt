@@ -1,2 +1,1 @@
-InnovationAlchemy	Title='Subclass/&InnovationAlchemyTitle'.
-InnovationAlchemy	Description='Subclass/&InnovationAlchemyDescription'.
+ActionAffinityInnovationAlchemyFastHands	Description='Feature/&ActionAffinityInnovationAlchemyFastHandsDescription'.

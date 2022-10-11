@@ -3,13 +3,18 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureAlchemyBombs:004c93ad-4646-5f71-84da-ede2933772dc",
-      "level": 1
+      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
+      "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TMPBonusAlchemy:f2575b38-bc54-5071-adca-ca54280cf328",
-      "level": 1
+      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityInnovationAlchemyFastHands:ce58b680-f8b3-5a2a-b8d2-eb7cb31f4b08",
+      "level": 3
     }
   ],
   "personalityFlagOccurences": [],
