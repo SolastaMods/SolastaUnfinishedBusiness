@@ -80,7 +80,7 @@
           "diceNumber": 2,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D8",
+          "versatileDieType": "D1",
           "bonusDamage": 0,
           "damageType": "DamagePiercing",
           "ancestryType": "Sorcerer",
