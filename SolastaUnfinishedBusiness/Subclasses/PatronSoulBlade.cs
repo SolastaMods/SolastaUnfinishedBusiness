@@ -57,7 +57,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                         1,
                         1,
                         ActionDefinitions.ItemSelectionType.Weapon)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetItemPropertyForm(

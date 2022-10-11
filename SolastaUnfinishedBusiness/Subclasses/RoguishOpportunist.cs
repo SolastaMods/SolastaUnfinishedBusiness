@@ -23,8 +23,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create()
             .SetDurationData(
                 DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfTurn)
+                1)
             .SetTargetingData(
                 Side.Enemy,
                 RangeType.MeleeHit,
@@ -40,7 +39,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .AddEffectForm(EffectFormBuilder
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder

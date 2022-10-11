@@ -129,7 +129,7 @@ internal static class HealingFeats
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetTempHpForm(bonusHitPoints, dieType, diceNumber)
@@ -162,7 +162,7 @@ internal static class HealingFeats
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0)
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetHealingForm(
@@ -207,7 +207,7 @@ internal static class HealingFeats
             .SetCreatedByCharacter()
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One)

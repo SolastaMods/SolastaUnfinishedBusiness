@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -53,7 +51,7 @@ internal class EffectDescriptionBuilder
         effect.EffectForms.Clear();
         return this;
     }
-    
+
     internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
     {
         effect.RestrictedCreatureFamilies.Clear();
@@ -227,12 +225,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetRequiresVisibilityForPosition(Boolean value)
     {
         effect.requiresVisibilityForPosition = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder AddEffectForm(EffectForm effectForm)
-    {
-        effect.EffectForms.Add(effectForm);
         return this;
     }
 

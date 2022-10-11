@@ -80,7 +80,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                         0,
                         0)
                     .SetCreatedByCharacter()
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetSpellForm(9)

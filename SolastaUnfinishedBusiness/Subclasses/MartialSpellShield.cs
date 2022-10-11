@@ -118,7 +118,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                         TargetType.Self,
                         1,
                         0)
-                    .AddEffectForm(EffectFormBuilder
+                    .SetEffectForms(EffectFormBuilder
                         .Create()
                         .CreatedByCharacter()
                         .SetConditionForm(

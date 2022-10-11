@@ -63,8 +63,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                     .Create()
                     .SetDurationData(
                         DurationType.Round,
-                        1,
-                        TurnOccurenceType.EndOfTurn)
+                        1)
                     .SetTargetingData(
                         Side.Enemy,
                         RangeType.Distance,
@@ -80,7 +79,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Charisma,
                         15)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .CreatedByCharacter()

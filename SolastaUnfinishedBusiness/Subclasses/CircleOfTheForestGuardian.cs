@@ -62,7 +62,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
                     .Create()
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 2)
@@ -81,7 +81,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
                     .Create()
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(false, DieType.D8, DamageTypePiercing, 0, DieType.D8, 3)
@@ -106,9 +106,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-                    .AddEffectForm(effectFormTemporaryHitPoints)
-                    .AddEffectForm(
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetEffectForms(
+                        effectFormTemporaryHitPoints,
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -142,9 +142,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-                    .AddEffectForm(effectFormTemporaryHitPoints)
-                    .AddEffectForm(
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetEffectForms(
+                        effectFormTemporaryHitPoints,
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -190,9 +190,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
-                    .AddEffectForm(effectFormTemporaryHitPoints)
-                    .AddEffectForm(
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetEffectForms(
+                        effectFormTemporaryHitPoints,
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(

@@ -715,7 +715,8 @@ internal static class InventorClass
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionInventorFlashOfGeniusAura")
                         .SetGuiPresentationNoContent(true)

@@ -581,7 +581,7 @@ internal static class CustomFeaturesContext
     }
 
     // [NotNull]
-    // internal static EffectDescription AddEffectForms(EffectDescription baseEffect,
+    // internal static EffectDescription SetEffectFormss(EffectDescription baseEffect,
     //     [NotNull] params EffectForm[] effectForms)
     // {
     //     var newEffect = baseEffect.Copy();

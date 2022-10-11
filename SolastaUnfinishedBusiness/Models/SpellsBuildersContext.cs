@@ -44,26 +44,29 @@ internal static class SpellsBuildersContext
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create(CONDITION)
-                        .SetGuiPresentation(Category.Condition,
-                            ConditionAcidSpit.GuiPresentation.SpriteReference)
-                        .SetDuration(DurationType.Round, 1)
-                        .SetSpecialDuration(true)
-                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                            .Create(MODIFIER)
-                            .SetGuiPresentation(Category.Feature)
-                            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                AttributeDefinitions.ArmorClass, -1)
-                            .AddToDB())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create(CONDITION)
+                            .SetGuiPresentation(Category.Condition,
+                                ConditionAcidSpit.GuiPresentation.SpriteReference)
+                            .SetDuration(DurationType.Round, 1)
+                            .SetSpecialDuration(true)
+                            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                                .Create(MODIFIER)
+                                .SetGuiPresentation(Category.Feature)
+                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                    AttributeDefinitions.ArmorClass, -1)
+                                .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build())
                 .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
@@ -90,12 +93,11 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals, 1, 2)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForm(
+                    .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D6, 1)
@@ -133,7 +135,7 @@ internal static class SpellsBuildersContext
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(BurningHands)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 1, 2)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(false, DieType.D1, DamageTypeRadiant, 0, DieType.D6, 1)
@@ -190,17 +192,17 @@ internal static class SpellsBuildersContext
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-                .AddEffectForm(EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
-                        healFromInflictedDamage: HealFromInflictedDamage.Half)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
-                .AddEffectForm(EffectFormBuilder
-                    .Create()
-                    .SetTempHpForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .Build())
+                .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic,
+                            healFromInflictedDamage: HealFromInflictedDamage.Half)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetTempHpForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build())
                 .SetParticleEffectParameters(VampiricTouch)
                 .Build())
             .AddToDB();
@@ -483,12 +485,15 @@ internal static class SpellsBuildersContext
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: DamageTypePiercing)
-                    .Build())
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                    .Build())
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: DamageTypePiercing)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                        .Build())
                 .Build())
             .AddToDB();
     }
@@ -507,7 +512,7 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(false, DieType.D1, DamageTypeThunder, 0, DieType.D6, 1)
@@ -567,8 +572,7 @@ internal static class SpellsBuildersContext
             .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions
-                .DefaultSupportCasterWithBackupAttacksDecisions)
+            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
@@ -613,6 +617,7 @@ internal static class SpellsBuildersContext
             .Create("MovementAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
+        
         movementAffinity.heavyArmorImmunity = true;
         movementAffinity.encumbranceImmunity = true;
 
@@ -620,6 +625,7 @@ internal static class SpellsBuildersContext
             .Create("EquipmentAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
+        
         equipmentAffinity.additionalCarryingCapacity = 20;
 
         var effectDescription = EffectDescriptionBuilder
@@ -631,11 +637,9 @@ internal static class SpellsBuildersContext
                 TargetType.Individuals,
                 1,
                 2, ActionDefinitions.ItemSelectionType.Equiped)
-            .SetDurationData(
-                DurationType.Hour,
-                8)
+            .SetDurationData(DurationType.Hour, 8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(
@@ -687,15 +691,18 @@ internal static class SpellsBuildersContext
                         5,
                         2,
                         ActionDefinitions.ItemSelectionType.Equiped)
-                    .AddEffectForm(Shine.EffectDescription.EffectForms[0])
+                    .SetEffectForms(
+                        Shine.EffectDescription.EffectForms[0],
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(diceNumber: 1, dieType: DieType.D1, damageType: DamageTypeRadiant)
+                            .Build())
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel,
-                        1, 2)
+                        1,
+                        2)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D1;
-        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeRadiant;
 
         return spell;
     }
@@ -832,13 +839,12 @@ internal static class SpellsBuildersContext
             .SetDurationData(DurationType.Minute, 10)
             .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne, 1)
                     .CreatedByCharacter()
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForm(
+                    .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D12, 3)
@@ -879,17 +885,19 @@ internal static class SpellsBuildersContext
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(ConeOfCold)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3, 2)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForm(
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(damageType: DamageTypeCold, dieType: DieType.D8, diceNumber: 4)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
-            ).Build();
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .Build()
+            )
+            .Build();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -934,30 +942,31 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
-                        .SetOrUpdateGuiPresentation(Category.Condition)
-                        .SetConditionType(ConditionType.Neutral)
-                        .SetFeatures(
-                            FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                            FeatureDefinitionMoveModes.MoveModeFly2
-                        )
-                        .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .Build())
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .SetMotionForm(
-                    MotionForm.MotionType.Levitate,
-                    10)
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .Build())
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
+                            .SetOrUpdateGuiPresentation(Category.Condition)
+                            .SetConditionType(ConditionType.Neutral)
+                            .SetFeatures(
+                                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
+                                FeatureDefinitionMoveModes.MoveModeFly2
+                            )
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(
+                        MotionForm.MotionType.Levitate,
+                        10)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
             .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect);
 
         return SpellDefinitionBuilder
@@ -991,7 +1000,7 @@ internal static class SpellsBuildersContext
             1,
             TargetType.Individuals
         );
-        effectDescription.AddEffectForm(
+        effectDescription.SetEffectForms(
             EffectFormBuilder
                 .Create()
                 .SetConditionForm(
@@ -1039,7 +1048,7 @@ internal static class SpellsBuildersContext
                 RangeType.Touch,
                 1,
                 TargetType.Individuals)
-            .AddEffectForm(EffectFormBuilder
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -1084,7 +1093,7 @@ internal static class SpellsBuildersContext
                 12,
                 TargetType.Individuals,
                 6)
-            .AddEffectForm(EffectFormBuilder
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetHealingForm(
                     HealingComputation.Dice,
@@ -1110,7 +1119,8 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(
                 Side.All,
@@ -1119,7 +1129,7 @@ internal static class SpellsBuildersContext
                 TargetType.Sphere,
                 8,
                 8)
-            .AddEffectForm(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(
@@ -1130,18 +1140,18 @@ internal static class SpellsBuildersContext
                         DieType.D6,
                         20) // 20 because hits dont stack even on single target
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(
+                        false,
+                        DieType.D6,
+                        DamageTypeBludgeoning,
+                        0,
+                        DieType.D6,
+                        20) // 20 because hits dont stack even on single target)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .SetDamageForm(
-                    false,
-                    DieType.D6,
-                    DamageTypeBludgeoning,
-                    0,
-                    DieType.D6,
-                    20) // 20 because hits dont stack even on single target)
-                .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                .Build())
             .SetSavingThrowData(
                 true,
                 false,
@@ -1174,36 +1184,38 @@ internal static class SpellsBuildersContext
                 RangeType.Distance,
                 12,
                 TargetType.Individuals)
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .SetHealingForm(
-                    HealingComputation.Dice,
-                    700,
-                    DieType.D1,
-                    0,
-                    false,
-                    HealingCap.MaximumHitPoints)
-                .Build())
-            .AddEffectForm(EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitions.ConditionParalyzed,
-                    ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                    false,
-                    false,
-                    ConditionDefinitions.ConditionCharmed,
-                    ConditionCharmedByHypnoticPattern,
-                    ConditionDefinitions.ConditionFrightened,
-                    ConditionDefinitions.ConditionFrightenedFear,
-                    ConditionFrightenedPhantasmalKiller,
-                    ConditionDefinitions.ConditionParalyzed,
-                    ConditionParalyzed_CrimsonSpiderVenom,
-                    ConditionParalyzed_GhoulsCaress,
-                    ConditionDefinitions.ConditionStunned,
-                    ConditionStunned_MutantApeSlam,
-                    ConditionStunnedConjuredDeath,
-                    ConditionDefinitions.ConditionProne)
-                .Build());
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetHealingForm(
+                        HealingComputation.Dice,
+                        700,
+                        DieType.D1,
+                        0,
+                        false,
+                        HealingCap.MaximumHitPoints)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitions.ConditionParalyzed,
+                        ConditionForm.ConditionOperation.RemoveDetrimentalAll,
+                        false,
+                        false,
+                        ConditionDefinitions.ConditionCharmed,
+                        ConditionCharmedByHypnoticPattern,
+                        ConditionDefinitions.ConditionFrightened,
+                        ConditionDefinitions.ConditionFrightenedFear,
+                        ConditionFrightenedPhantasmalKiller,
+                        ConditionDefinitions.ConditionParalyzed,
+                        ConditionParalyzed_CrimsonSpiderVenom,
+                        ConditionParalyzed_GhoulsCaress,
+                        ConditionDefinitions.ConditionStunned,
+                        ConditionStunned_MutantApeSlam,
+                        ConditionStunnedConjuredDeath,
+                        ConditionDefinitions.ConditionProne)
+                    .Build())
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("PowerWordHeal")
@@ -1213,7 +1225,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -1267,7 +1279,7 @@ internal static class SpellsBuildersContext
                 RangeType.Distance,
                 12,
                 TargetType.Self)
-            .AddEffectForm(
+            .SetEffectForms(
                 new EffectForm
                 {
                     addBonusMode = AddBonusMode.None,
@@ -1343,7 +1355,7 @@ internal static class SpellsBuildersContext
                 TargetType.Cylinder,
                 20,
                 10)
-            .AddEffectForm(EffectFormBuilder
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -1394,7 +1406,7 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Constitution,
                 20)
-            .AddEffectForm(EffectFormBuilder
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder

@@ -185,9 +185,8 @@ internal static class ZappaFeats
             .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
                 TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(DurationType.Minute, 1 /* duration */,
-                TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
+            .SetDurationData(DurationType.Minute, 1 /* duration */)
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
@@ -263,9 +262,8 @@ internal static class ZappaFeats
             .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
                 TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(DurationType.Minute, 1 /* duration */,
-                TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
+            .SetDurationData(DurationType.Minute, 1 /* duration */)
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
@@ -629,9 +627,8 @@ internal static class ZappaFeats
             .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
                 TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
             .SetCreatedByCharacter()
-            .SetDurationData(DurationType.Minute, 1 /* duration */,
-                TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
+            .SetDurationData(DurationType.Minute, 1 /* duration */)
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,

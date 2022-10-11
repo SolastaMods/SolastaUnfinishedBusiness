@@ -132,8 +132,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                     .Create()
                     .SetDurationData(
                         DurationType.Minute,
-                        1,
-                        TurnOccurenceType.EndOfTurn)
+                        1)
                     .SetTargetingData(
                         Side.All,
                         RangeType.Distance,
@@ -149,7 +148,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Dexterity,
                         20)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -165,8 +164,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                                 false,
                                 false)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .AddEffectForm(
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(

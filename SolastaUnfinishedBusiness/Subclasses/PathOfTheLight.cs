@@ -156,7 +156,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     TargetType.Self,
                     1,
                     0)
-                .AddEffectForm(
+                .SetEffectForms(
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(
@@ -201,7 +201,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -227,7 +227,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                         RechargeRate.AtWill,
                         EffectDescriptionBuilder.Create()
                             .SetDurationData(DurationType.Round, 1)
-                            .AddEffectForm(
+                            .SetEffectForms(
                                 EffectFormBuilder
                                     .Create()
                                     .SetConditionForm(
@@ -493,13 +493,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         private static EffectDescription CreateIlluminatingBurstPowerEffect(ConditionDefinition illuminatedCondition)
         {
-            var lightSourceForm = new LightSourceForm();
             var faerieFireLightSource = FaerieFire.EffectDescription
                 .GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
-
-            lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
-            lightSourceForm.brightRange = 4;
-            lightSourceForm.dimAdditionalRange = 4;
 
             return EffectDescriptionBuilder
                 .Create()
@@ -553,12 +548,15 @@ internal sealed class PathOfTheLight : AbstractSubclass
                         .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
-                    new EffectForm
-                    {
-                        FormType = EffectForm.EffectFormType.LightSource,
-                        SavingThrowAffinity = EffectSavingThrowType.Negates,
-                        lightSourceForm = lightSourceForm
-                    })
+                    EffectFormBuilder
+                        .Create()
+                        .SetLightSourceForm(
+                            LightSourceType.Basic,
+                            4,
+                            4,
+                            faerieFireLightSource.lightSourceForm.color,
+                            faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
+                        .Build())
                 .Build();
         }
     }

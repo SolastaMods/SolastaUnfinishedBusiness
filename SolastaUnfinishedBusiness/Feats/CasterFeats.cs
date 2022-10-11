@@ -480,7 +480,7 @@ internal static class CasterFeats
                 .SetSavingThrowData(
                     hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
                     savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass)
-                .AddEffectForm(EffectFormBuilder
+                .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetMotionForm(motionType, motionDistance)
                     .Build())

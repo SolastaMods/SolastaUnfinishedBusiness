@@ -219,7 +219,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                         0)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .CreatedByCharacter()

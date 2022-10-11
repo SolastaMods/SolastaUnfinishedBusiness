@@ -211,7 +211,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 ValidatorsCharacter.NoArmor))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .AddEffectForm(EffectFormBuilder
+                .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
