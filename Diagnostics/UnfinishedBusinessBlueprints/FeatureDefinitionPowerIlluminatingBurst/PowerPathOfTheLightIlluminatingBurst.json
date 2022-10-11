@@ -133,7 +133,7 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
+        "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,

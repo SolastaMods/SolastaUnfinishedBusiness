@@ -682,7 +682,7 @@ internal static class SpellsBuildersContext
             .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(MagicMissile.EffectDescription)
+                    .Create()
                     .SetTargetingData(
                         Side.Enemy,
                         RangeType.Distance,

@@ -556,6 +556,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             4,
                             faerieFireLightSource.lightSourceForm.color,
                             faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build();
         }
