@@ -56,7 +56,7 @@ internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     }
 }
 
-internal sealed class UpgradeRangeBasedOnWeaponReach : IModifySpellEffect
+internal sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
 {
     public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
     {
