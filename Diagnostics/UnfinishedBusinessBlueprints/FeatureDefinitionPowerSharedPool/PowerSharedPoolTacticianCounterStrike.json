@@ -80,7 +80,7 @@
           "diceNumber": 1,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D10",
+          "versatileDieType": "D1",
           "bonusDamage": 2,
           "damageType": "DamageBludgeoning",
           "ancestryType": "Sorcerer",

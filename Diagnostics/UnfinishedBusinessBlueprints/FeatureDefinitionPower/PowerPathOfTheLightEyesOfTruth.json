@@ -76,10 +76,12 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
+          "conditionDefinitionName": "ConditionPathOfTheLightEyesOfTruth",
           "conditionDefinition": "Definition:ConditionPathOfTheLightEyesOfTruth:e1651ba5-918b-56dd-987d-0996689dd75e",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionPathOfTheLightEyesOfTruth:e1651ba5-918b-56dd-987d-0996689dd75e"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
