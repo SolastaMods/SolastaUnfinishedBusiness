@@ -480,12 +480,12 @@ internal static class CasterFeats
                 .SetSavingThrowData(
                     hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
                     savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass)
-                .AddEffectForm(EffectFormBuilder
+                .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetMotionForm(motionType, motionDistance)
                     .Build())
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build(),
             name,
             guiPresentation);

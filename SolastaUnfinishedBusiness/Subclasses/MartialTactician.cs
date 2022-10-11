@@ -1,9 +1,9 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -26,8 +26,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -36,38 +35,40 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerFighterActionSurge.EffectDescription)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            DamageForm = new DamageForm
-                            {
-                                DiceNumber = 1,
-                                DieType = DieType.D6,
-                                BonusDamage = 2,
-                                DamageType = DamageTypeBludgeoning
-                            },
-                            SavingThrowAffinity = EffectSavingThrowType.None
-                        },
-                        new EffectForm
-                        {
-                            formType = EffectForm.EffectFormType.Motion,
-                            motionForm = new MotionForm { type = MotionForm.MotionType.FallProne, distance = 1 },
-                            savingThrowAffinity = EffectSavingThrowType.Negates
-                        })
-                    .SetSavingThrowDifficultyAbility(AttributeDefinitions.Strength)
-                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetSavingThrowAbility(AttributeDefinitions.Strength)
-                    .SetHasSavingThrow(true)
-                    .SetDurationType(DurationType.Round),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(
+                                false,
+                                DieType.D1,
+                                DamageTypeBludgeoning,
+                                2,
+                                DieType.D6,
+                                1)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Strength,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Strength,
+                        15)
+                    .Build(),
                 false)
             .AddToDB();
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
-            .SetGuiPresentation(Category.Feature,
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -76,24 +77,25 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLifePreserveLife.EffectDescription)
+                    .SetCanBePlacedOnCharacter()
+                    .SetDurationData(DurationType.Day, 1)
+                    .SetTargetProximityData(false, 12)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Distance,
+                        30,
+                        TargetType.Individuals,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            formType = EffectForm.EffectFormType.TemporaryHitPoints,
-                            temporaryHitPointsForm = new TemporaryHitPointsForm
-                            {
-                                DiceNumber = 1, DieType = DieType.D6, BonusHitPoints = 2
-                            }
-                        })
-                    .SetHasSavingThrow(false)
-                    .SetDurationType(DurationType.Day)
-                    .SetTargetSide(Side.Ally)
-                    .SetTargetType(TargetType.Individuals)
-                    .SetTargetProximityDistance(12)
-                    .SetCanBePlacedOnCharacter(true)
-                    .SetRangeType(RangeType.Distance),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(2, DieType.D6, 1)
+                            .Build())
+                    .Build(),
                 false)
             .AddToDB();
 
@@ -101,8 +103,7 @@ internal sealed class MartialTactician : AbstractSubclass
         // (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability)
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation
-                .SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference)
             .Configure(
                 powerPoolTacticianGambit,
                 RechargeRate.ShortRest,
@@ -111,20 +112,20 @@ internal sealed class MartialTactician : AbstractSubclass
                 true,
                 true,
                 AttributeDefinitions.Strength,
-                FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription
-                    .Copy()
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLawHolyRetribution.EffectDescription)
                     .SetEffectForms(
-                        new EffectForm
-                        {
-                            damageForm = new DamageForm
-                            {
-                                DiceNumber = 1,
-                                DieType = DieType.D6,
-                                BonusDamage = 2,
-                                DamageType = DamageTypeBludgeoning
-                            },
-                            savingThrowAffinity = EffectSavingThrowType.None
-                        }),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(
+                                false,
+                                DieType.D1,
+                                DamageTypeBludgeoning,
+                                2,
+                                DieType.D6,
+                                1)
+                            .Build())
+                    .Build(),
                 false)
             .AddToDB();
 

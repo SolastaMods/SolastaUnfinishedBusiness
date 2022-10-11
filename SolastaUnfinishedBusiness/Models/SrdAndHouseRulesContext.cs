@@ -180,14 +180,14 @@ internal static class SrdAndHouseRulesContext
             // This is half bug-fix, half houses rules since it's not completely SRD but better than implemented.
             // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
             // Fix by allowing 4 selectable targets.
-            spell.TargetType = TargetType.IndividualsUnique;
-            spell.SetTargetParameter(4);
+            spell.targetType = TargetType.IndividualsUnique;
+            spell.targetParameter = 4;
             spell.effectAdvancement.additionalTargetsPerIncrement = 1;
         }
         else
         {
-            spell.TargetType = TargetType.ArcFromIndividual;
-            spell.SetTargetParameter(3);
+            spell.targetType = TargetType.ArcFromIndividual;
+            spell.targetParameter = 3;
             spell.effectAdvancement.additionalTargetsPerIncrement = 0;
         }
     }
@@ -364,7 +364,7 @@ internal static class SrdAndHouseRulesContext
             {
                 // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
-                sd.EffectDescription.SetTargetParameter2(0);
+                sd.EffectDescription.targetParameter2 = 0;
             }
         }
     }

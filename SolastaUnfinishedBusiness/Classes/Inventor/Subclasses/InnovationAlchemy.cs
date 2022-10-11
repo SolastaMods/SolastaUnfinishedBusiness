@@ -35,7 +35,7 @@ public static class InnovationAlchemy
             // .SetCustomSubFeatures(new AddDie(), new MakeCone())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Sphere)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
@@ -65,7 +65,7 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(new Overcharge())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation0)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
                     RuleDefinitions.TargetType.Cone, 4)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
@@ -98,7 +98,7 @@ public static class InnovationAlchemy
             // .SetCustomSubFeatures(new ValidatorPowerUse(_ => false))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 6,
                     RuleDefinitions.TargetType.Individuals)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,

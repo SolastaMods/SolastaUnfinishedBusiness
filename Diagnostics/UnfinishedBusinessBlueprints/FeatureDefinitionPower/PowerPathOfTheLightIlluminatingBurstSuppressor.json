@@ -31,7 +31,7 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Permanent",
-    "durationParameter": 1,
+    "durationParameter": 0,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -76,10 +76,12 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
+          "conditionDefinitionName": "ConditionPathOfTheLightSuppressedIlluminatingBurst",
           "conditionDefinition": "Definition:ConditionPathOfTheLightSuppressedIlluminatingBurst:3b33e142-aaaf-57ea-ad7d-a39c908a1aff",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionPathOfTheLightSuppressedIlluminatingBurst:3b33e142-aaaf-57ea-ad7d-a39c908a1aff"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },

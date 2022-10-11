@@ -51,16 +51,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterDarkvision = BuildActionTransmuteConditionPower(
                 powerSharedPoolLifeTransmuterHealingPool,
-                RechargeRate.LongRest,
-                ActivationTime.BonusAction,
-                1, RangeType.Touch,
-                2,
-                TargetType.Individuals,
-                ActionDefinitions.ItemSelectionType.None,
-                DurationType.UntilLongRest,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.Intelligence, conditionLifeTransmuterDarkvision,
+                conditionLifeTransmuterDarkvision,
                 "PowerSharedPoolLifeTransmuterDarkvision")
             .SetGuiPresentation(
                 Category.Feature,
@@ -87,16 +78,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
                 powerSharedPoolLifeTransmuterHealingPool,
-                RechargeRate.LongRest,
-                ActivationTime.BonusAction,
-                1, RangeType.Touch,
-                2,
-                TargetType.Individuals,
-                ActionDefinitions.ItemSelectionType.None,
-                DurationType.UntilLongRest,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.Intelligence, conditionLifeTransmuterPoison,
+                conditionLifeTransmuterPoison,
                 "PowerSharedPoolLifeTransmuterPoison")
             .SetGuiPresentation(
                 "PowerLifeTransmuterElementalResistance",
@@ -116,16 +98,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterConstitution = BuildActionTransmuteConditionPower(
                 powerSharedPoolLifeTransmuterHealingPool,
-                RechargeRate.LongRest,
-                ActivationTime.BonusAction,
-                1, RangeType.Touch,
-                2,
-                TargetType.Individuals,
-                ActionDefinitions.ItemSelectionType.None,
-                DurationType.UntilLongRest,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.Intelligence, conditionLifeTransmuterConstitution,
+                conditionLifeTransmuterConstitution,
                 "PowerSharedPoolLifeTransmuterConstitution")
             .SetGuiPresentation(
                 Category.Feature,
@@ -145,16 +118,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower(
                 powerSharedPoolLifeTransmuterHealingPool,
-                RechargeRate.LongRest,
-                ActivationTime.BonusAction,
-                1, RangeType.Touch,
-                2,
-                TargetType.IndividualsUnique,
-                ActionDefinitions.ItemSelectionType.None,
-                DurationType.UntilLongRest,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.Intelligence,
                 ConditionDefinitions.ConditionFlying12,
                 "PowerSharedPoolLifeTransmuterFly")
             .SetGuiPresentation(
@@ -232,46 +195,36 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
     private static FeatureDefinitionPowerSharedPoolBuilder BuildActionTransmuteConditionPower(
         FeatureDefinitionPower poolPower,
-        RechargeRate recharge,
-        ActivationTime activationTime,
-        int costPerUse,
-        RangeType rangeType,
-        int rangeParameter,
-        TargetType targetType,
-        ActionDefinitions.ItemSelectionType itemSelectionType,
-        DurationType durationType,
-        int durationParameter,
-        TurnOccurenceType endOfEffect,
-        string abilityScore, ConditionDefinition condition,
+        ConditionDefinition condition,
         string name)
     {
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
             .Configure(
                 poolPower,
-                recharge,
-                activationTime,
-                costPerUse,
+                RechargeRate.LongRest,
+                ActivationTime.BonusAction,
+                1,
                 false,
                 false,
-                abilityScore,
+                AttributeDefinitions.Intelligence,
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
                         Side.Ally,
-                        rangeType,
-                        rangeParameter,
-                        targetType, 1, 0,
-                        itemSelectionType)
+                        RangeType.Touch,
+                        2,
+                        TargetType.IndividualsUnique,
+                        1,
+                        0)
                     .SetCreatedByCharacter()
-                    .SetDurationData(durationType, durationParameter, endOfEffect)
-                    .AddEffectForm(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false)
-                        .CreatedByCharacter()
-                        .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(MagicWeapon.EffectDescription.EffectParticleParameters)
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false)
+                            .Build())
                     .Build(),
                 false);
     }

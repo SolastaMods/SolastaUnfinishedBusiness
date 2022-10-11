@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Properties;
@@ -63,11 +62,18 @@ internal static class CharacterContext
 
     private static void LoadHelpPower()
     {
-        var effectDescription = TrueStrike.EffectDescription.Copy();
-
-        effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-        effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-        effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+        var effectDescription = EffectDescriptionBuilder
+            .Create(TrueStrike.EffectDescription)
+            .SetTargetingData(
+                RuleDefinitions.Side.Enemy,
+                RuleDefinitions.RangeType.Touch,
+                6,
+                RuleDefinitions.TargetType.Individuals,
+                1,
+                2,
+                ActionDefinitions.ItemSelectionType.Equiped)
+            .SetDurationData(RuleDefinitions.DurationType.Round, 1)
+            .Build();
 
         var conditionDistractedByAlly = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")

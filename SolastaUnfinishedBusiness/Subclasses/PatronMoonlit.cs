@@ -1,7 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -87,9 +86,10 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Darkness.EffectDescription
-                    .Copy()
-                    .SetDuration(DurationType.Minute, 1),
+                EffectDescriptionBuilder
+                    .Create(Darkness.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build(),
                 true)
             .AddToDB();
 
@@ -99,9 +99,10 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Configure(UsesDetermination.ProficiencyBonus,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Daylight.EffectDescription
-                    .Copy()
-                    .SetDuration(DurationType.Minute, 1),
+                EffectDescriptionBuilder
+                    .Create(Daylight.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build(),
                 true)
             .AddToDB();
 
@@ -112,12 +113,13 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 UsesDetermination.Fixed,
                 ActivationTime.Action,
                 RechargeRate.LongRest,
-                Fly.EffectDescription
-                    .Copy(),
+                EffectDescriptionBuilder
+                    .Create(Fly.EffectDescription)
+                    .Build(),
                 true)
             .AddToDB();
 
-        powerMoonlitDanceOfTheNightSky.EffectDescription.SetTargetParameter(4);
+        powerMoonlitDanceOfTheNightSky.EffectDescription.targetParameter = 4;
 
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
@@ -130,8 +132,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                     .Create()
                     .SetDurationData(
                         DurationType.Minute,
-                        1,
-                        TurnOccurenceType.EndOfTurn)
+                        1)
                     .SetTargetingData(
                         Side.All,
                         RangeType.Distance,
@@ -147,7 +148,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Dexterity,
                         20)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -163,8 +164,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                                 false,
                                 false)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .AddEffectForm(
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(
@@ -279,7 +279,8 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         return ConditionDefinitionBuilder
             .Create("ConditionMoonlitRevealed")
             .SetGuiPresentationNoContent()
-            .Configure(DurationType.Round, 1, true)
+            .SetDuration(DurationType.Round, 1)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
     }
 

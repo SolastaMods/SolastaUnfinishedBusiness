@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -100,7 +99,10 @@ internal static class DarkelfSubraceBuilder
         PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.FaerieFire.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.LongRest)
@@ -116,7 +118,10 @@ internal static class DarkelfSubraceBuilder
         PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Darkness.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.LongRest)

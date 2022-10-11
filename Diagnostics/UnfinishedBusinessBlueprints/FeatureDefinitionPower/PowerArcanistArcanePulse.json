@@ -76,10 +76,12 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
+          "conditionDefinitionName": "ConditionMarkedByArcanist",
           "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -107,7 +109,7 @@
           "diceNumber": 4,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D10",
+          "versatileDieType": "D1",
           "bonusDamage": 0,
           "damageType": "DamageForce",
           "ancestryType": "Sorcerer",

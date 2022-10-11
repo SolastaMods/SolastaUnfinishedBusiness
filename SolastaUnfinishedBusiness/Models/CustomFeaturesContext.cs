@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
@@ -563,7 +564,8 @@ internal static class CustomFeaturesContext
 
         if (!modifiers.Empty())
         {
-            result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(definition, current, caster));
+            result = modifiers.Aggregate(EffectDescriptionBuilder.Create(result).Build(),
+                (current, f) => f.ModifyEffect(definition, current, caster));
         }
 
         CacheEffect(caster, definition, result);
@@ -579,7 +581,7 @@ internal static class CustomFeaturesContext
     }
 
     // [NotNull]
-    // internal static EffectDescription AddEffectForms(EffectDescription baseEffect,
+    // internal static EffectDescription SetEffectFormss(EffectDescription baseEffect,
     //     [NotNull] params EffectForm[] effectForms)
     // {
     //     var newEffect = baseEffect.Copy();

@@ -93,14 +93,17 @@ public static class InnovationWeapon
             .SetRechargeRate(RechargeRate.LongRest)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                .AddEffectForm(EffectFormBuilder.Create()
-                    .SetSummonCreatureForm(1, defender.Name)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetSummonCreatureForm(1, defender.Name)
+                        .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
-                .SetParticleEffectParameters(ConjureElementalAir)
-                .Build())
             .AddToDB();
     }
 
@@ -237,7 +240,8 @@ public static class InnovationWeapon
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         //RAW this can heal any other Inventor construct, this verion only heals self
                         .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                        .SetEffectForms(EffectFormBuilder.Create()
+                        .SetEffectForms(EffectFormBuilder
+                            .Create()
                             .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
                                 HealingCap.MaximumHitPoints)
                             .Build())
@@ -301,7 +305,8 @@ public static class InnovationWeapon
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
@@ -331,7 +336,8 @@ public static class InnovationWeapon
             .SetActivationTime(ActivationTime.OnAttackHit)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetDamageForm(dieType: DieType.D6, diceNumber: 2, damageType: DamageTypeForce)
                     .Build())
                 .Build())

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -12,7 +11,10 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
     private void InitializeFields()
     {
         // should fix lots of official spells getting modified by spells on this mod
-        Definition.effectDescription = Definition.EffectDescription.Copy();
+        var copy = new EffectDescription();
+
+        copy.Copy(Definition.effectDescription);
+        Definition.effectDescription = copy;
         Definition.implemented = true;
     }
 
@@ -116,8 +118,8 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         InitializeFields();
     }
 
-    protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name,
-        guidNamespace)
+    protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
+        : base(original, name, guidNamespace)
     {
         InitializeFields();
     }

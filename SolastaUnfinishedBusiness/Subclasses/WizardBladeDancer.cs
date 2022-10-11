@@ -37,10 +37,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create("ConditionBladeDancerBladeDance")
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
-            .Configure(
-                DurationType.Minute,
-                1,
-                false,
+            .SetDuration(DurationType.Minute, 1)
+            .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDancerBladeDance")
@@ -74,15 +72,12 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 RangeType.Self, 1,
                 TargetType.Self)
             .SetCreatedByCharacter()
-            .SetDurationData(
-                DurationType.Minute, 1,
-                TurnOccurenceType.EndOfTurn)
-            .AddEffectForm(
+            .SetDurationData(DurationType.Minute, 1)
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionBladeDancerBladeDance, ConditionForm.ConditionOperation.Add)
-                    .Build()
-            )
+                    .Build())
             .Build();
 
         var powerBladeDancerBladeDance = FeatureDefinitionPowerBuilder

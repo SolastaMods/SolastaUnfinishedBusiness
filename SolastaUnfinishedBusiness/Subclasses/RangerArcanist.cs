@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -55,8 +54,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetSpecificDamageType(DamageTypeForce)
             .SetDamageDice(DieType.D6, 0)
             .SetNotificationTag(ArcanistMarkTag)
-            .SetTargetCondition(conditionMarkedByArcanist,
-                AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
+            .SetTargetCondition(conditionMarkedByArcanist, AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetNoSave()
             .SetNoAdvancement()
             .SetConditionOperations(
@@ -118,27 +116,25 @@ internal sealed class RangerArcanist : AbstractSubclass
         // LEVEL 07
         //
 
-        var arcanistMarkedEffect = new EffectForm
-        {
-            ConditionForm = new ConditionForm
-            {
-                Operation = ConditionForm.ConditionOperation.Add,
-                ConditionDefinition = conditionMarkedByArcanist
-            },
-            FormType = EffectForm.EffectFormType.Condition
-        };
+        var arcanistMarkedEffect =
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    conditionMarkedByArcanist,
+                    ConditionForm.ConditionOperation.Add)
+                .Build();
 
-        var arcanistDamageEffect = new EffectForm
-        {
-            DamageForm = new DamageForm
-            {
-                damageType = DamageTypeForce,
-                dieType = DieType.D8,
-                diceNumber = 4,
-                healFromInflictedDamage = HealFromInflictedDamage.Never
-            },
-            SavingThrowAffinity = EffectSavingThrowType.None
-        };
+        var arcanistDamageEffect =
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(
+                    false,
+                    DieType.D1,
+                    DamageTypeForce,
+                    0,
+                    DieType.D8,
+                    4)
+                .Build();
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulse",
@@ -159,17 +155,17 @@ internal sealed class RangerArcanist : AbstractSubclass
         // LEVEL 15
         //
 
-        var arcanistDamageUpgradeEffect = new EffectForm
-        {
-            DamageForm = new DamageForm
-            {
-                damageType = DamageTypeForce,
-                dieType = DieType.D8,
-                diceNumber = 8,
-                healFromInflictedDamage = HealFromInflictedDamage.Never
-            },
-            SavingThrowAffinity = EffectSavingThrowType.None
-        };
+        var arcanistDamageUpgradeEffect =
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(
+                    false,
+                    DieType.D1,
+                    DamageTypeForce,
+                    0,
+                    DieType.D8,
+                    8)
+                .Build();
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
             "PowerArcanistArcanePulseUpgrade",
@@ -214,15 +210,19 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetRechargeRate(RechargeRate.LongRest)
             .SetCostPerUse(1)
             .SetActivationTime(ActivationTime.Action)
-            .SetEffectDescription(new EffectDescription()
+            .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
-                .SetCreatedByCharacter(true)
-                .SetTargetSide(Side.Enemy)
-                .SetTargetType(TargetType.Sphere)
-                .SetTargetParameter(3)
-                .SetRangeType(RangeType.Distance)
-                .SetRangeParameter(30)
-                .SetEffectForms(effectForms))
+                .SetCreatedByCharacter()
+                .SetTargetingData(
+                    Side.Enemy,
+                    RangeType.Distance,
+                    30,
+                    TargetType.Sphere,
+                    3,
+                    2,
+                    ActionDefinitions.ItemSelectionType.Equiped)
+                .SetEffectForms(effectForms)
+                .Build())
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();

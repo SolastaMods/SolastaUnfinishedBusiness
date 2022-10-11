@@ -253,9 +253,9 @@ internal sealed class PatronElementalist : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -292,9 +292,9 @@ internal sealed class PatronElementalist : AbstractSubclass
                 AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionElementalistEnhanced,

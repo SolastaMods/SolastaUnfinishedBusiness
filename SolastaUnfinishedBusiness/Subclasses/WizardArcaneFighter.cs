@@ -83,9 +83,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                     .SetCreatedByCharacter()
                     .SetDurationData(
                         DurationType.Minute,
-                        10 /* duration */,
-                        TurnOccurenceType.EndOfTurn)
-                    .AddEffectForm(
+                        10 /* duration */)
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetItemPropertyForm(

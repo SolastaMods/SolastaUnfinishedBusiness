@@ -5,7 +5,6 @@
  * 07/08/2022 (MM/DD/YYYY)
  */
 
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
@@ -65,7 +64,10 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
                 .SetGuiPresentation(Category.Feature)
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
-                .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription.Copy())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create(SpellDefinitions.Darkvision.EffectDescription)
+                        .Build())
                 .SetActivationTime(ActivationTime.Action)
                 .SetFixedUsesPerRecharge(1)
                 .SetRechargeRate(RechargeRate.LongRest)
@@ -77,7 +79,10 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall.GuiPresentation.SpriteReference)
-                .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription.Copy())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create(SpellDefinitions.FeatherFall.EffectDescription)
+                        .Build())
                 .SetActivationTime(ActivationTime.Action)
                 .SetFixedUsesPerRecharge(1)
                 .SetRechargeRate(RechargeRate.LongRest)
@@ -88,7 +93,10 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var powerPathOfTheRageMageSupernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Jump.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.LongRest)
@@ -100,7 +108,10 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
-                .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription.Copy())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create(SpellDefinitions.SeeInvisibility.EffectDescription)
+                        .Build())
                 .SetActivationTime(ActivationTime.Action)
                 .SetFixedUsesPerRecharge(1)
                 .SetRechargeRate(RechargeRate.LongRest)

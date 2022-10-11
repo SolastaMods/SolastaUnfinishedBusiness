@@ -644,7 +644,7 @@ internal static class InventorClass
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
@@ -715,7 +715,8 @@ internal static class InventorClass
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionInventorFlashOfGeniusAura")
                         .SetGuiPresentationNoContent(true)

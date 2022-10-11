@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -95,30 +94,36 @@ internal static class ElAntoniousFeats
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
                 .SetActivationTime(ActivationTime.BonusAction)
-                .SetEffectDescription(new EffectDescription()
+                .SetEffectDescription(EffectDescriptionBuilder
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-                    .SetCreatedByCharacter(true)
-                    .SetTargetSide(Side.Enemy)
-                    .SetTargetType(TargetType.Individuals)
-                    .SetTargetParameter(1)
-                    .SetRangeType(RangeType.Touch)
-                    .SetDurationType(DurationType.Round)
-                    .SetDurationParameter(3)
                     .SetCanBePlacedOnCharacter(false)
-                    .SetHasSavingThrow(true)
-                    .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
-                    .SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity)
-                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetSpeedType(SpeedType.Instant)
-                    .SetEffectForms(new EffectForm
-                    {
-                        formType = EffectForm.EffectFormType.Condition,
-                        ConditionForm = new ConditionForm
-                        {
-                            Operation = ConditionForm.ConditionOperation.Add,
-                            ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
-                        }
-                    }))
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.Round, 3)
+                    .SetSpeed(SpeedType.Instant, 11f)
+                    .SetTargetingData(
+                        Side.Enemy,
+                        RangeType.Touch,
+                        30,
+                        TargetType.Individuals,
+                        1,
+                        2,
+                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        15)
+                    .Build())
                 .SetUsesFixed(1)
                 .SetRechargeRate(RechargeRate.AtWill)
                 .SetShowCasting(false)

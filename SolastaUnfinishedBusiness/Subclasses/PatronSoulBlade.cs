@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -58,7 +57,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                         1,
                         1,
                         ActionDefinitions.ItemSelectionType.Weapon)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetItemPropertyForm(
@@ -70,8 +69,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                             PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
-                                    0)
-                            )
+                                    0))
                             .Build()
                     )
                     .Build(),
@@ -87,7 +85,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpiritualWeapon.EffectDescription)
+                    .Build())
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
@@ -103,6 +104,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 RechargeRate.ShortRest,
                 EffectDescriptionBuilder
                     .Create(PowerFighterSecondWind.EffectDescription)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -110,8 +112,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
                             .Build())
-                    .Build()
-                    .SetDurationType(DurationType.UntilLongRest))
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

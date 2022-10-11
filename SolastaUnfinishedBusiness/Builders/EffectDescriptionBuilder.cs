@@ -1,7 +1,8 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -14,14 +15,14 @@ internal class EffectDescriptionBuilder
         effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
-            effectParticleParameters =
-                DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
+            effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
 
     private EffectDescriptionBuilder(EffectDescription effect)
     {
-        this.effect = effect.Copy();
+        this.effect = new EffectDescription();
+        this.effect.Copy(effect);
     }
 
     internal EffectDescription Build()
@@ -45,21 +46,21 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCreatedByCharacter()
+    internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
     {
-        effect.createdByCharacter = true;
+        effect.RestrictedCreatureFamilies.Clear();
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
+    internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
+    {
+        effect.createdByCharacter = value;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value = true)
     {
         effect.canBePlacedOnCharacter = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters particleParameters)
-    {
-        effect.effectParticleParameters = particleParameters;
         return this;
     }
 
@@ -70,7 +71,7 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetEffectAdvancement(
-        RuleDefinitions.EffectIncrementMethod effectIncrementMethod,
+        EffectIncrementMethod effectIncrementMethod,
         int incrementMultiplier = 1,
         int additionalTargetsPerIncrement = 0,
         int additionalDicePerIncrement = 0,
@@ -80,7 +81,7 @@ internal class EffectDescriptionBuilder
         int additionalTempHpPerIncrement = 0,
         int additionalTargetCellsPerIncrement = 0,
         int additionalItemBonus = 0,
-        RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
+        AdvancementDuration alteredDuration = AdvancementDuration.None)
     {
         effect.effectAdvancement = new EffectAdvancement
         {
@@ -100,10 +101,10 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetTargetingData(
-        RuleDefinitions.Side targetSide,
-        RuleDefinitions.RangeType rangeType,
+        Side targetSide,
+        RangeType rangeType,
         int rangeParameter,
-        RuleDefinitions.TargetType targetType,
+        TargetType targetType,
         int targetParameter = 1,
         int targetParameter2 = 1,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
@@ -115,18 +116,6 @@ internal class EffectDescriptionBuilder
         effect.targetParameter = targetParameter;
         effect.targetParameter2 = targetParameter2;
         effect.itemSelectionType = itemSelectionType;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetSlotTypes(params string[] slots)
-    {
-        effect.slotTypes.SetRange(slots);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetSlotTypes(params SlotTypeDefinition[] slots)
-    {
-        effect.slotTypes.SetRange(slots.Select(s => s.Name));
         return this;
     }
 
@@ -146,10 +135,10 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetTargetFiltering(
-        RuleDefinitions.TargetFilteringMethod targetFilteringMethod,
-        RuleDefinitions.TargetFilteringTag targetFilteringTag = RuleDefinitions.TargetFilteringTag.No,
+        TargetFilteringMethod targetFilteringMethod,
+        TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
         int poolFilterDiceNumber = 0,
-        RuleDefinitions.DieType poolFilterDieType = RuleDefinitions.DieType.D1
+        DieType poolFilterDieType = DieType.D1
     )
     {
         effect.targetFilteringMethod = targetFilteringMethod;
@@ -159,7 +148,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRecurrentEffect(RuleDefinitions.RecurrentEffect recurrentEffect)
+    internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
         effect.recurrentEffect = recurrentEffect;
         return this;
@@ -173,28 +162,15 @@ internal class EffectDescriptionBuilder
     }
 
     internal EffectDescriptionBuilder SetDurationData(
-        RuleDefinitions.DurationType durationType,
-        int durationParameter,
-        RuleDefinitions.TurnOccurenceType endOfEffect)
+        DurationType durationType,
+        int durationParameter = 0,
+        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
+        Preconditions.IsValidDuration(durationType, durationParameter);
+
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
         effect.endOfEffect = endOfEffect;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetDurationData(
-        RuleDefinitions.DurationType type,
-        int duration = 0,
-        bool validate = true)
-    {
-        if (validate)
-        {
-            Preconditions.IsValidDuration(type, duration);
-        }
-
-        effect.durationParameter = duration;
-        effect.durationType = type;
         return this;
     }
 
@@ -203,7 +179,7 @@ internal class EffectDescriptionBuilder
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,
         bool ignoreCover,
-        RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
+        EffectDifficultyClassComputation difficultyClassComputation,
         string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
         int fixedSavingThrowDifficultyClass = 10,
         bool advantageForEnemies = false,
@@ -227,40 +203,28 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetSpeed(RuleDefinitions.SpeedType speedType, float speedParameter)
+    internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
     {
         effect.speedType = speedType;
         effect.speedParameter = speedParameter;
         return this;
     }
 
-    internal EffectDescriptionBuilder SetAnimation(AnimationDefinitions.AnimationMagicEffect animation)
+    internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
     {
-        effect.animationMagicEffect = animation;
+        effect.animationMagicEffect = value;
         return this;
     }
 
-    internal EffectDescriptionBuilder AddEffectForm(EffectForm effectForm)
+    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition(Boolean value)
     {
-        effect.EffectForms.Add(effectForm);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
-    {
-        effect.EffectForms.AddRange(effectForms);
+        effect.requiresVisibilityForPosition = value;
         return this;
     }
 
     internal EffectDescriptionBuilder SetEffectForms(params EffectForm[] effectForms)
     {
         effect.EffectForms.SetRange(effectForms);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder ClearEffectForms()
-    {
-        effect.EffectForms.Clear();
         return this;
     }
 }

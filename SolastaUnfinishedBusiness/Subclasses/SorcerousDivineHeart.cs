@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -17,40 +16,35 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create("AutoPreparedSpellsDivineHeartArun")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, ProtectionFromEvilGood))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, ProtectionFromEvilGood))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartEinar")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, InflictWounds))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, InflictWounds))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMariake")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, CureWounds))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, CureWounds))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMisaye")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, Bane))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, Bane))
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartPakri")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(1, Bless))
+            .SetPreparedSpellGroups(BuildSpellGroup(1, Bless))
             .AddToDB();
 
         var featureSetDivineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
@@ -105,7 +99,10 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
-            .SetEffectDescription(DimensionDoor.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DimensionDoor.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.AtWill)
@@ -116,7 +113,10 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartDivineRecovery")
             .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
-            .SetEffectDescription(Heal.EffectDescription.Copy())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Heal.EffectDescription)
+                    .Build())
             .SetActivationTime(ActivationTime.BonusAction)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RechargeRate.LongRest)

@@ -161,7 +161,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 RechargeRate.LongRest,
                 EffectDescriptionBuilder
                     .Create()
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -291,7 +291,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var brewEffect = EffectDescriptionBuilder
             .Create()
-            .AddEffectForm(brewForm)
+            .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(
                 Side.Ally,
@@ -353,7 +353,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
                     .Create()
-                    .AddEffectForm(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
@@ -393,7 +393,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var brewEffect = EffectDescriptionBuilder
             .Create()
-            .AddEffectForm(brewForm)
+            .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
             .SetTargetingData(
                 Side.Ally,
