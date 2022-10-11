@@ -10,5 +10,5 @@ Feature/&PowerInnovationAlchemyBombSplashDescription=Throw a bomb that deals dam
 Feature/&PowerInnovationAlchemyBombSplashTitle=Splash
 Feature/&PowerInnovationAlchemyPoolDescription=todo: add proper description
 Feature/&PowerInnovationAlchemyPoolTitle=Alchemy Points
-Feature/&ActionAffinityInnovationAlchemyFastHands=You have learned to used various devices quickly - you can use bonus action at activate any device.
+Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=You have learned to use various devices quickly - you can use bonus action at activate any device. TODO: improve text
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=Fast Hands
