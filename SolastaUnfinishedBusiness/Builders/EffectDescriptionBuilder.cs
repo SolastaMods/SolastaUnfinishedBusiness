@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -16,8 +17,7 @@ internal class EffectDescriptionBuilder
         effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
-            effectParticleParameters =
-                DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
+            effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
 
@@ -48,86 +48,27 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetTargetParameter2(Int32 value)
+    internal EffectDescriptionBuilder ClearEffectForms()
     {
-        effect.targetParameter2 = value;
+        effect.EffectForms.Clear();
         return this;
     }
-
+    
     internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
     {
         effect.RestrictedCreatureFamilies.Clear();
         return this;
     }
 
-    internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
+    internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
     {
-        effect.animationMagicEffect = value;
+        effect.createdByCharacter = value;
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCreatedByCharacter()
-    {
-        effect.createdByCharacter = true;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
+    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value = true)
     {
         effect.canBePlacedOnCharacter = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetDifficultyClassComputation(EffectDifficultyClassComputation value)
-    {
-        effect.difficultyClassComputation = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetDuration(DurationType type, int? duration = null)
-    {
-        switch (type)
-        {
-            case DurationType.Round:
-            case DurationType.Minute:
-            case DurationType.Hour:
-            case DurationType.Day:
-                if (duration == null)
-                {
-                    throw new ArgumentNullException(nameof(duration),
-                        $@"A duration value is required for duration type {type}.");
-                }
-
-                effect.durationParameter = duration.Value;
-                break;
-
-            case DurationType.Instantaneous:
-            case DurationType.Dispelled:
-            case DurationType.Permanent:
-            case DurationType.Irrelevant:
-            case DurationType.UntilShortRest:
-            case DurationType.UntilLongRest:
-            case DurationType.UntilAnyRest:
-            case DurationType.Deprecated_Turn:
-            case DurationType.HalfClassLevelHours:
-            default:
-                if (duration != null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"A duration value is not expected for duration type {type}");
-                }
-
-                effect.durationParameter = 0;
-                break;
-        }
-
-        effect.durationType = type;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters particleParameters)
-    {
-        effect.effectParticleParameters = particleParameters;
         return this;
     }
 
@@ -137,7 +78,8 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetEffectAdvancement(EffectIncrementMethod effectIncrementMethod,
+    internal EffectDescriptionBuilder SetEffectAdvancement(
+        EffectIncrementMethod effectIncrementMethod,
         int incrementMultiplier = 1,
         int additionalTargetsPerIncrement = 0,
         int additionalDicePerIncrement = 0,
@@ -166,42 +108,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRange(RangeType type, int? range = null)
-    {
-        switch (type)
-        {
-            case RangeType.RangeHit:
-            case RangeType.Distance:
-                if (range == null)
-                {
-                    throw new ArgumentNullException(nameof(range),
-                        $@"A range value is required for range type {type}.");
-                }
-
-                effect.rangeParameter = range.Value;
-                break;
-
-            case RangeType.Touch:
-                effect.rangeParameter = range ?? 0;
-                break;
-
-            case RangeType.Self:
-            case RangeType.MeleeHit:
-            default:
-                if (range != null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"A duration value is not expected for duration type {type}");
-                }
-
-                effect.rangeParameter = 0;
-                break;
-        }
-
-        effect.rangeType = type;
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetTargetingData(
         Side targetSide,
         RangeType rangeType,
@@ -218,18 +124,6 @@ internal class EffectDescriptionBuilder
         effect.targetParameter = targetParameter;
         effect.targetParameter2 = targetParameter2;
         effect.itemSelectionType = itemSelectionType;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetSlotTypes(params string[] slots)
-    {
-        effect.slotTypes.SetRange(slots);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetSlotTypes(params SlotTypeDefinition[] slots)
-    {
-        effect.slotTypes.SetRange(slots.Select(s => s.Name));
         return this;
     }
 
@@ -277,27 +171,14 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetDurationData(
         DurationType durationType,
-        int durationParameter,
-        TurnOccurenceType endOfEffect)
+        int durationParameter = 0,
+        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
+        Preconditions.IsValidDuration(durationType, durationParameter);
+
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
         effect.endOfEffect = endOfEffect;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetDurationData(
-        DurationType type,
-        int duration = 0,
-        bool validate = true)
-    {
-        if (validate)
-        {
-            Preconditions.IsValidDuration(type, duration);
-        }
-
-        effect.durationParameter = duration;
-        effect.durationType = type;
         return this;
     }
 
@@ -337,9 +218,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetAnimation(AnimationDefinitions.AnimationMagicEffect animation)
+    internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
     {
-        effect.animationMagicEffect = animation;
+        effect.animationMagicEffect = value;
         return this;
     }
 
@@ -355,21 +236,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
-    {
-        effect.EffectForms.AddRange(effectForms);
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetEffectForms(params EffectForm[] effectForms)
     {
         effect.EffectForms.SetRange(effectForms);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder ClearEffectForms()
-    {
-        effect.EffectForms.Clear();
         return this;
     }
 }

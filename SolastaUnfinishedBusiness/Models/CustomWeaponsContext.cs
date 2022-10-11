@@ -196,8 +196,7 @@ internal static class CustomWeaponsContext
                             AttributeDefinitions.Strength,
                             false,
                             RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
-                            .EffectDescription.EffectParticleParameters)
+                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
                         .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
                         .SetEffectForms(EffectFormBuilder
                             .Create()

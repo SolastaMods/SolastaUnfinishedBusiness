@@ -86,7 +86,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                             .SetSpellForm(9)
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                     .Build())
             .AddToDB();
 

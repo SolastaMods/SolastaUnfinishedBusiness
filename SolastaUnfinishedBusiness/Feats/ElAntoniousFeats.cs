@@ -98,7 +98,6 @@ internal static class ElAntoniousFeats
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
                     .SetCreatedByCharacter()
                     .SetCanBePlacedOnCharacter(false)
-                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .SetDurationData(DurationType.Round, 3)
                     .SetSpeed(SpeedType.Instant, 11f)
                     .SetTargetingData(
@@ -108,17 +107,17 @@ internal static class ElAntoniousFeats
                         TargetType.Individuals,
                         1,
                         2,
-                        ActionDefinitions.ItemSelectionType.Equiped
-                        )
-                    .SetEffectForms(new EffectForm
-                    {
-                        formType = EffectForm.EffectFormType.Condition,
-                        ConditionForm = new ConditionForm
+                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetEffectForms(
+                        new EffectForm
                         {
-                            Operation = ConditionForm.ConditionOperation.Add,
-                            ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
-                        }
-                    })
+                            formType = EffectForm.EffectFormType.Condition,
+                            ConditionForm = new ConditionForm
+                            {
+                                Operation = ConditionForm.ConditionOperation.Add,
+                                ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
+                            }
+                        })
                     .SetSavingThrowData(
                         true,
                         false,

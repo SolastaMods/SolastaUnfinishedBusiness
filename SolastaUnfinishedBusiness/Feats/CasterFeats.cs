@@ -485,7 +485,7 @@ internal static class CasterFeats
                     .SetMotionForm(motionType, motionDistance)
                     .Build())
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build(),
             name,
             guiPresentation);

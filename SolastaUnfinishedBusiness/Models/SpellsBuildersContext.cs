@@ -131,7 +131,7 @@ internal static class SpellsBuildersContext
             .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false,
                 EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 13)
             .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(BurningHands.EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(BurningHands)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 1, 2)
             .AddEffectForm(
                 EffectFormBuilder
@@ -201,7 +201,7 @@ internal static class SpellsBuildersContext
                     .SetTempHpForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
-                .SetParticleEffectParameters(VampiricTouch.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(VampiricTouch)
                 .Build())
             .AddToDB();
     }
@@ -636,7 +636,7 @@ internal static class SpellsBuildersContext
                 DurationType.Hour,
                 8,
                 TurnOccurenceType.EndOfTurn)
-            .SetParticleEffectParameters(ExpeditiousRetreat.EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(ExpeditiousRetreat)
             .AddEffectForm(
                 EffectFormBuilder
                     .Create()
@@ -832,7 +832,7 @@ internal static class SpellsBuildersContext
             .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
             .SetDurationData(DurationType.Minute, 10)
-            .SetParticleEffectParameters(Grease.EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder)
             .AddEffectForm(
                 EffectFormBuilder
@@ -879,7 +879,7 @@ internal static class SpellsBuildersContext
             .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
             .SetDurationData(DurationType.Minute, 1)
-            .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(ConeOfCold)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3, 2)
             .AddEffectForm(
                 EffectFormBuilder
@@ -1082,10 +1082,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildMassHeal()
     {
         var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(
-                DurationType.Instantaneous,
-                1,
-                TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(
                 Side.All,
                 RangeType.Distance,
@@ -1119,10 +1116,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
         var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(
-                DurationType.Instantaneous,
-                1,
-                TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(
                 Side.All,
                 RangeType.Distance,
@@ -1161,7 +1155,7 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .SetParticleEffectParameters(FlameStrike.EffectDescription.EffectParticleParameters);
+            .SetParticleEffectParameters(FlameStrike);
 
         return SpellDefinitionBuilder
             .Create("MeteorSwarmSingleTarget")
@@ -1179,10 +1173,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildPowerWordHeal()
     {
         var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(
-                DurationType.Instantaneous,
-                1,
-                TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(
                 Side.Ally,
                 RangeType.Distance,
@@ -1235,10 +1226,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildPowerWordKill()
     {
         var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(
-                DurationType.Instantaneous,
-                1,
-                TurnOccurenceType.EndOfTurn)
+            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(
                 Side.Enemy,
                 RangeType.Distance,
@@ -1269,7 +1257,10 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildShapechange()
     {
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetCreatedByCharacter()
+            .SetParticleEffectParameters(PowerDruidWildShape)
             .SetDurationData(
                 DurationType.Hour,
                 1,
@@ -1293,28 +1284,39 @@ internal static class SpellsBuildersContext
                     specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                     shapeOptions = new List<ShapeOptionDescription>
                     {
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(GoldDragon_AerElai),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(Divine_Avatar),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(Sorr_Akkath_Tshar_Boss),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(GreenDragon_MasterOfConjuration),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(BlackDragon_MasterOfNecromancy),
-                        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Remorhaz),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
+                            .SetSubstituteMonster(Remorhaz),
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(Emperor_Laethar),
-                        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Giant_Ape),
-                        new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Spider_Queen),
-                        new ShapeOptionDescription().SetRequiredLevel(1)
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
+                            .SetSubstituteMonster(Giant_Ape),
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
+                            .SetSubstituteMonster(Spider_Queen),
+                        new ShapeOptionDescription()
+                            .SetRequiredLevel(1)
                             .SetSubstituteMonster(Sorr_Akkath_Shikkath)
                     }
                 }
-            })
-            .SetCreatedByCharacter()
-            .SetParticleEffectParameters(PowerDruidWildShape.EffectDescription.EffectParticleParameters);
+            });
 
         return SpellDefinitionBuilder
             .Create("Shapechange")

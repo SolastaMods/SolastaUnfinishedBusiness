@@ -195,7 +195,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1,
                     TargetType.Self)
-                .SetDurationData(DurationType.Round, 0, false)
+                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()

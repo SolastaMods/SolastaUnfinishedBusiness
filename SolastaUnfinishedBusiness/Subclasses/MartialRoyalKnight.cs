@@ -57,7 +57,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
-                    .SetCanBePlacedOnCharacter(true)
+                    .SetCanBePlacedOnCharacter()
                     .SetTargetingData(
                         Side.Ally,
                         RangeType.Distance,

@@ -139,8 +139,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
-                .SetDuration(DurationType.Instantaneous)
-                .SetRange(RangeType.Distance, 12)
+                .SetDurationData(DurationType.Instantaneous)
                 .ClearRestrictedCreatureFamilies()
                 .SetEffectForms(new StudyEnemyEffectDescription())
                 .SetTargetingData(
@@ -466,7 +465,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetCreatedByCharacter()
-                    .SetCanBePlacedOnCharacter(true)
+                    .SetCanBePlacedOnCharacter()
                     .SetTargetingData(
                         Side.Ally,
                         RangeType.Self,

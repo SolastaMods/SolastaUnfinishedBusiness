@@ -644,7 +644,7 @@ internal static class InventorClass
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)

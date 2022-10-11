@@ -88,7 +88,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 RechargeRate.LongRest,
                 EffectDescriptionBuilder
                     .Create(Darkness.EffectDescription)
-                    .SetDuration(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .Build(),
                 true)
             .AddToDB();
@@ -101,7 +101,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 RechargeRate.LongRest,
                 EffectDescriptionBuilder
                     .Create(Daylight.EffectDescription)
-                    .SetDuration(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .Build(),
                 true)
             .AddToDB();

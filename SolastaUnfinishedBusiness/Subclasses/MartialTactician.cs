@@ -37,8 +37,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 AttributeDefinitions.Strength,
                 EffectDescriptionBuilder
                     .Create(PowerFighterActionSurge.EffectDescription)
-                    .SetDifficultyClassComputation(EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetEffectForms(
                         new EffectForm
                         {
@@ -82,7 +81,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 AttributeDefinitions.Strength,
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
-                    .SetCanBePlacedOnCharacter(true)
+                    .SetCanBePlacedOnCharacter()
                     .SetDurationData(DurationType.Day, 1)
                     .SetTargetProximityData(false, 12)
                     .SetTargetingData(

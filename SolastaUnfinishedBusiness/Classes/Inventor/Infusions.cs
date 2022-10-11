@@ -300,7 +300,7 @@ internal static class Infusions
                 SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat, itemFilter)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
@@ -335,7 +335,7 @@ internal static class Infusions
                 InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetAnimation(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)

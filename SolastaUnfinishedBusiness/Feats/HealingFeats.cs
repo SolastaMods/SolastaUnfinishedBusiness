@@ -138,8 +138,7 @@ internal static class HealingFeats
                     .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                     .Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription
-                .EffectParticleParameters)
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon)
             .Build();
     }
 
@@ -177,8 +176,7 @@ internal static class HealingFeats
                     .CreatedByCharacter()
                     .Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(
-                DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon)
             .Build();
     }
 
@@ -216,8 +214,7 @@ internal static class HealingFeats
                     .CreatedByCharacter()
                     .Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon
-                .EffectDescription.EffectParticleParameters)
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicWeapon)
             .Build();
     }
 }

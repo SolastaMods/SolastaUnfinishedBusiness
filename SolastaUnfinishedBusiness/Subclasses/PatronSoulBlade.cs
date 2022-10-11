@@ -57,7 +57,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                         1,
                         1,
                         ActionDefinitions.ItemSelectionType.Weapon)
-                    .AddEffectForms(
+                    .AddEffectForm(
                         EffectFormBuilder
                             .Create()
                             .SetItemPropertyForm(
@@ -69,8 +69,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                             PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
-                                    0)
-                            )
+                                    0))
                             .Build()
                     )
                     .Build(),

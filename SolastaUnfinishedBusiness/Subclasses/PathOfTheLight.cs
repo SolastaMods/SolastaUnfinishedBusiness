@@ -150,7 +150,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
             .SetShowCasting(false)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(
                     Side.Ally,
                     RangeType.Self,
@@ -202,7 +202,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
                     .AddEffectForm(new EffectForm
@@ -531,8 +531,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetSpeed(
                     SpeedType.CellsPerSeconds,
                     9.5f)
-                .SetParticleEffectParameters(
-                    GuidingBolt.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(GuidingBolt)
                 .AddEffectForm(
                     new EffectForm
                     {
