@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TA.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -311,10 +310,7 @@ internal class EffectFormBuilder
 
     internal EffectFormBuilder SetSummonCreatureForm(
         int number,
-        string monsterDefinitionName,
-        bool persistOnConcentrationLoss = false,
-        ConditionDefinition condition = null,
-        DecisionPackageDefinition decisionPackage = null)
+        string monsterDefinitionName)
     {
         var summonForm = new SummonForm
         {
@@ -322,9 +318,9 @@ internal class EffectFormBuilder
             itemDefinition = null,
             number = number,
             monsterDefinitionName = monsterDefinitionName,
-            conditionDefinition = condition,
-            persistOnConcentrationLoss = persistOnConcentrationLoss,
-            decisionPackage = decisionPackage,
+            conditionDefinition = null,
+            persistOnConcentrationLoss = false,
+            decisionPackage = null,
             effectProxyDefinitionName = null
         };
 

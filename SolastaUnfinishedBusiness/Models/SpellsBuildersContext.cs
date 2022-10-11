@@ -199,7 +199,7 @@ internal static class SpellsBuildersContext
                         .Build(),
                     EffectFormBuilder
                         .Create()
-                        .SetTempHpForm(dieType: DieType.D4, diceNumber: 1, applyToSelf: true)
+                        .SetTempHpForm(0, DieType.D4, 1, true)
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .Build())
                 .SetParticleEffectParameters(VampiricTouch)
