@@ -18,6 +18,7 @@ internal static class ExtraAttacksOnActionPanel
             GameLocationCharacter,
             Id,
             bool,
+            bool,
             GuiCharacterAction,
             RulesetAttackMode
         >(FindExtraActionAttackModesFromGuiAction).Method;
@@ -40,11 +41,12 @@ internal static class ExtraAttacksOnActionPanel
         GameLocationCharacter character,
         Id actionId,
         bool getWithMostAttackNb,
+        bool onlyIfRemainingUses,
         GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
         {
-            return character.FindActionAttackMode(actionId, getWithMostAttackNb);
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
         }
 
         return guiAction.ForcedAttackMode;
@@ -57,6 +59,7 @@ internal static class ExtraAttacksOnActionPanel
         var method = new Func<
             GameLocationCharacter,
             Id,
+            bool,
             bool,
             RulesetAttackMode,
             RulesetAttackMode
@@ -80,11 +83,12 @@ internal static class ExtraAttacksOnActionPanel
         GameLocationCharacter character,
         Id actionId,
         bool getWithMostAttackNb,
+        bool onlyIfRemainingUses,
         [CanBeNull] RulesetAttackMode forcedAttack)
     {
         if (actionId != Id.AttackOff || forcedAttack == null)
         {
-            return character.FindActionAttackMode(actionId, getWithMostAttackNb);
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
         }
 
         return forcedAttack;
