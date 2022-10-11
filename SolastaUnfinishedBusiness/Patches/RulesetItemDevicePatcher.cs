@@ -26,14 +26,7 @@ public static class RulesetItemDevicePatcher
                 return;
             }
 
-            var validator = power.GetFirstSubFeatureOfType<IPowerUseValidity>();
-
-            if (validator == null)
-            {
-                return;
-            }
-
-            __result = validator.CanUsePower(character, power);
+            __result = character.CanUsePower(power, false);
         }
     }
 }
