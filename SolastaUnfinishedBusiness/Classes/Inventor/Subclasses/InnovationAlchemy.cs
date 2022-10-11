@@ -5,6 +5,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -58,7 +60,7 @@ public static class InnovationAlchemy
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.BurningHands_B)
+                .SetParticleEffectParameters(SpellDefinitions.ProduceFlameHurl)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
@@ -110,7 +112,7 @@ public static class InnovationAlchemy
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
+                .SetParticleEffectParameters(SpellDefinitions.ProduceFlameHurl)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
@@ -122,7 +124,8 @@ public static class InnovationAlchemy
 
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
-            .SetGuiPresentation(BombsFeatureName, Category.Feature, ItemDefinitions.AlchemistFire)
+            .SetGuiPresentation(BombsFeatureName, Category.Feature,
+                CustomIcons.CreateAssetReferenceSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
             .SetRequiresIdentification(false)
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
@@ -158,9 +161,9 @@ public static class InnovationAlchemy
     private static FeatureDefinitionPower BuildAlchemyPool()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("PowerAlchemyPool")
-            .SetGuiPresentationNoContent(true)
-            // .SetCustomSubFeatures(new MakeCold())
+            .Create("PowerInnovationAlchemyPool")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(6)
             .SetRechargeRate(RechargeRate.ShortRest)
             .AddToDB();
