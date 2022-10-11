@@ -48,6 +48,7 @@ public static class InnovationAlchemy
             .SetSaveDc(EffectHelpers.BasedOnUser);
 
         BuildFireBombs(deviceDescription);
+        BuildColdBombs(deviceDescription);
 
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
@@ -70,40 +71,73 @@ public static class InnovationAlchemy
     private static void BuildFireBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeFire;
-        var savingThrowAbility = AttributeDefinitions.Dexterity;
+        var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D8;
 
         var sprite = SpellDefinitions.Fireball.GuiPresentation.SpriteReference;
-        var particleParameters = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
-        var powerBombSplash = MakeSplashBombPower(damage, dieType, savingThrowAbility, sprite, particleParameters);
+        var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle);
 
         sprite = SpellDefinitions.BurningHands.GuiPresentation.SpriteReference;
-        particleParameters = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
-        var powerBombBreath = MakeBreathBombPower(damage, dieType, savingThrowAbility, sprite, particleParameters);
+        particle = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle);
 
         sprite = SpellDefinitions.ProduceFlame.GuiPresentation.SpriteReference;
-        particleParameters = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, savingThrowAbility, sprite, particleParameters);
+        particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle);
 
-        deviceDescription.AddFunctions(
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+    }
+
+    private static void BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var damage = DamageTypeCold;
+        var save = AttributeDefinitions.Dexterity;
+        var dieType = DieType.D6;
+        var effect = EffectFormBuilder.Create()
+            .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var sprite = SpellDefinitions.ProtectionFromEnergyCold.GuiPresentation.SpriteReference;
+        var particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, effect);
+
+        sprite = SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, effect);
+
+        sprite = SpellDefinitions.RayOfFrost.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.RayOfFrost.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+    }
+
+    private static void AddBombFunctions(UsableDeviceDescriptionBuilder device, FeatureDefinitionPower precise,
+        FeatureDefinitionPower splash, FeatureDefinitionPower breath)
+    {
+        device.AddFunctions(
             new DeviceFunctionDescriptionBuilder()
                 .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                .SetPower(powerBombPrecise, true)
+                .SetPower(precise, true)
                 .Build(),
             new DeviceFunctionDescriptionBuilder()
                 .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                .SetPower(powerBombSplash, true)
+                .SetPower(splash, true)
                 .Build(),
             new DeviceFunctionDescriptionBuilder()
-                .SetUsage(useAmount: 3, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                .SetPower(powerBombBreath, true)
+                .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                .SetPower(breath, true)
                 .Build()
         );
     }
 
-    private static FeatureDefinitionPower MakePreciseBombPower(string damageType, DieType dieType,
-        string savingThrowAbility, AssetReferenceSprite sprite,
-        EffectParticleParameters particleParameters)
+    private static FeatureDefinitionPower MakePreciseBombPower(string damageType,
+        DieType dieType,
+        string savingThrowAbility,
+        AssetReferenceSprite sprite,
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects)
     {
         const string name = "PowerInnovationAlchemyBombPrecise";
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
@@ -115,7 +149,7 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 8, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetSavingThrowData(
                     false,
@@ -131,14 +165,18 @@ public static class InnovationAlchemy
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetDamageForm(dieType: dieType, diceNumber: 3, damageType: damageType)
                     .Build())
+                .AddEffectForms(effects)
                 .Build())
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower MakeBreathBombPower(string damageType, DieType dieType,
+    private static FeatureDefinitionPower MakeBreathBombPower(string damageType,
+        DieType dieType,
         string savingThrowAbility,
         AssetReferenceSprite sprite,
-        EffectParticleParameters particleParameters)
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects
+    )
     {
         const string name = "PowerInnovationAlchemyBombBreath";
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
@@ -163,15 +201,20 @@ public static class InnovationAlchemy
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
                     .Build())
+                .AddEffectForms(effects)
                 .Build())
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower MakeSplashBombPower(string damageType, DieType dieType,
-        string savingThrowAbility, AssetReferenceSprite sprite,
-        EffectParticleParameters particleParameters)
+    private static FeatureDefinitionPower MakeSplashBombPower(string damageType,
+        DieType dieType,
+        string savingThrowAbility,
+        AssetReferenceSprite sprite,
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects)
     {
         const string name = "PowerInnovationAlchemyBombSplash";
+
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetActivationTime(ActivationTime.Action)
@@ -179,7 +222,7 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Sphere, 1)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 1)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
                 .SetSavingThrowData(
                     true,
@@ -194,6 +237,7 @@ public static class InnovationAlchemy
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
                     .Build())
+                .AddEffectForms(effects)
                 .Build())
             .AddToDB();
     }

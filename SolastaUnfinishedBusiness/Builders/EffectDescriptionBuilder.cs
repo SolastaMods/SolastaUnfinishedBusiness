@@ -232,4 +232,10 @@ internal class EffectDescriptionBuilder
         effect.EffectForms.SetRange(effectForms);
         return this;
     }
+
+    internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
+    {
+        effect.EffectForms.AddRange(effectForms);
+        return this;
+    }
 }
