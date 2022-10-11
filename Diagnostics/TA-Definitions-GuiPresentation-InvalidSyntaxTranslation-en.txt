@@ -76,7 +76,6 @@ Giant_Fire_Presentation_Citizen_WhiteCity_Hjalmar	Description='!PH! ally giant: 
 LavaBlast	Title='WIP POTION'.
 LavaBlast	Description='DO NOT PUT IN DUNGEON MAKER'.
 MapWaypointDefinition_GallivanBorder_1stFrontline	Title='1stFrontline'.
-None	Description='None'.
 NPC_Presentation_Aksha	Title='Alena'.
 NPC_Presentation_Alena_Swift	Title='Alena'.
 NPC_Presentation_Annie_Bagmordah	Title='annie'.

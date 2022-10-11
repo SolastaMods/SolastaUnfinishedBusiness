@@ -558,9 +558,9 @@ internal static class CustomFeaturesContext
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
 
-        var modifiers = caster.GetSubFeaturesByType<IModifySpellEffect>();
+        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>();
 
-        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifySpellEffect>());
+        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
 
         if (!modifiers.Empty())
         {

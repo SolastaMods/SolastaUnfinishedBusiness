@@ -8,6 +8,7 @@
   "triggerCondition": "TargetHasSenseType",
   "requiredProperty": "None",
   "attackModeOnly": false,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionLightSensitive:ca49770be06152b44aca3d6df2678a81",
   "requiredTargetSenseType": "SuperiorDarkvision",
   "requiredTargetCreatureTag": "",

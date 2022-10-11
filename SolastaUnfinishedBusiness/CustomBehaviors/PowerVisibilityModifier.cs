@@ -25,6 +25,7 @@ internal class PowerVisibilityModifier
     });
 
     internal static PowerVisibilityModifier Hidden = new((_, _, _) => false);
+    internal static PowerVisibilityModifier Visible = new((_, _, _) => true);
 
     private readonly IsPowerVisibleHandler handler;
 
@@ -40,7 +41,12 @@ internal class PowerVisibilityModifier
 
     internal static bool IsPowerHidden(RulesetCharacter character, RulesetUsablePower power, ActionType actionType)
     {
-        var validator = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>();
-        return validator != null && !validator.IsVisible(character, power.powerDefinition, actionType);
+        return IsPowerHidden(character, power.PowerDefinition, actionType);
+    }
+
+    internal static bool IsPowerHidden(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
+    {
+        var validator = power.GetFirstSubFeatureOfType<PowerVisibilityModifier>();
+        return validator != null && !validator.IsVisible(character, power, actionType);
     }
 }

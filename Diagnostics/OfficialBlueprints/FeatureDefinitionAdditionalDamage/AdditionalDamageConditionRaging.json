@@ -8,6 +8,7 @@
   "triggerCondition": "NotWearingHeavyArmor",
   "requiredProperty": "MeleeStrengthWeapon",
   "attackModeOnly": false,
+  "attackOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

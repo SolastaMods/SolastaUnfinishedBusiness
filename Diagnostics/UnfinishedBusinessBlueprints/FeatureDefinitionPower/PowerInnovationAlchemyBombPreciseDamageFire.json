@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "RangeHit",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
@@ -29,11 +29,11 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
+    "targetSide": "Enemy",
     "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": true,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
@@ -70,15 +70,15 @@
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "HalfDamage",
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 2,
-          "dieType": "D6",
+          "diceNumber": 3,
+          "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -100,14 +100,14 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,
-      "additionalTargetCellsPerIncrement": 1,
+      "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
@@ -121,7 +121,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
+        "m_AssetGUID": "179010f7336fe024b8d0d1892b2386c9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -145,7 +145,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e766280ec6dd2fa4ba0a28275aa732fb",
+        "m_AssetGUID": "ccc055a8b0493704d9c781da405bf44d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -169,7 +169,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+        "m_AssetGUID": "97385df6362ff8a408b5b6d9702a8b67",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -318,11 +318,11 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Dexterity",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
+  "abilityScoreBonusToAttack": true,
+  "proficiencyBonusToAttack": true,
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
@@ -331,12 +331,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAlchemyBombSplashTitle",
-    "description": "Feature/&PowerAlchemyBombSplashDescription",
+    "title": "Feature/&PowerInnovationAlchemyBombPreciseTitle",
+    "description": "Feature/&PowerInnovationAlchemyBombPreciseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c462c6ae1b665c74f995647ad5adaf79",
-      "m_SubObjectName": "Fireball",
+      "m_AssetGUID": "5ab3d83f54acd7145925c5d96cd393c8",
+      "m_SubObjectName": "ProduceFlame",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3fd9050d-e983-5722-908b-79cc2facac83",
+  "guid": "14754b04-3ab9-5fe2-b007-6530193c72af",
   "contentPack": 9999,
-  "name": "PowerAlchemyBombSplash"
+  "name": "PowerInnovationAlchemyBombPreciseDamageFire"
 }

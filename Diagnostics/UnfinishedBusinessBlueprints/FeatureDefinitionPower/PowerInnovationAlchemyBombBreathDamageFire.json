@@ -2,8 +2,8 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cone",
@@ -78,7 +78,7 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 2,
-          "dieType": "D6",
+          "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -102,12 +102,12 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,
-      "additionalTargetCellsPerIncrement": 1,
+      "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAlchemyBombBreathTitle",
-    "description": "Feature/&PowerAlchemyBombBreathDescription",
+    "title": "Feature/&PowerInnovationAlchemyBombBreathTitle",
+    "description": "Feature/&PowerInnovationAlchemyBombBreathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0c6740d8-a774-57d7-a5c8-482df890a0ef",
+  "guid": "a14b5886-59f0-57a8-81e9-971dcd52fd1a",
   "contentPack": 9999,
-  "name": "PowerAlchemyBombBreath"
+  "name": "PowerInnovationAlchemyBombBreathDamageFire"
 }

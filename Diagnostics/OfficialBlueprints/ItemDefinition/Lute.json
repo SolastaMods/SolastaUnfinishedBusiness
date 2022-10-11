@@ -4,12 +4,10 @@
   "merchantCategory": "All",
   "weight": 1.0,
   "slotTypes": [
-    "OffHandSlot",
     "UtilitySlot",
     "ContainerSlot"
   ],
   "slotsWhereActive": [
-    "OffHandSlot",
     "UtilitySlot"
   ],
   "activeOnGround": false,

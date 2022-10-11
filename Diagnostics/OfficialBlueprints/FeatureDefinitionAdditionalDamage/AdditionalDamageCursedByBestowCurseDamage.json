@@ -8,6 +8,7 @@
   "triggerCondition": "TargetHasConditionCreatedByMe",
   "requiredProperty": "None",
   "attackModeOnly": false,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionCursedByBestowCurseDamage:1066b9089fe64624d9dd40022fc84985",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

@@ -308,7 +308,7 @@
   "projectile": "Arrow",
   "projectileBone": "Prop1",
   "itemDefinitionMainHand": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e",
-  "itemDefinitionOffHand": null,
+  "itemDefinitionOffHand": "Definition:Shield+2:6bf62399e308acf42a0191b635f61297",
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,

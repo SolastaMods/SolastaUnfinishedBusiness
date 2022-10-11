@@ -82,7 +82,7 @@
   "isMusicalInstrument": true,
   "musicalInstrumentDefinition": {
     "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "BrassType"
+    "musicalInstrumentType": "WoodwindsType"
   },
   "isStarterPack": false,
   "isContainerItem": false,
@@ -208,7 +208,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_AssetGUID": "121cf08bae2ce5c4e80c6cb893bba8be",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

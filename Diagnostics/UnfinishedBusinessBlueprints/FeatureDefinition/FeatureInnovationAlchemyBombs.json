@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureAlchemyBombsTitle",
-    "description": "Feature/&FeatureAlchemyBombsDescription",
+    "title": "Feature/&FeatureInnovationAlchemyBombsTitle",
+    "description": "Feature/&FeatureInnovationAlchemyBombsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "004c93ad-4646-5f71-84da-ede2933772dc",
+  "guid": "d831282d-31f5-507f-88d9-c52083dcc036",
   "contentPack": 9999,
-  "name": "FeatureAlchemyBombs"
+  "name": "FeatureInnovationAlchemyBombs"
 }

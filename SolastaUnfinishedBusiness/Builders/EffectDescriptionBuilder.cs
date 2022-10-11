@@ -14,7 +14,7 @@ internal class EffectDescriptionBuilder
     {
         effect = new EffectDescription
         {
-            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
+            effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
             effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
@@ -66,7 +66,12 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetParticleEffectParameters(IMagicEffect reference)
     {
-        effect.effectParticleParameters = reference.EffectDescription.EffectParticleParameters;
+        return SetParticleEffectParameters(reference.EffectDescription.EffectParticleParameters);
+    }
+
+    internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
+    {
+        effect.effectParticleParameters = parameters;
         return this;
     }
 
@@ -225,6 +230,12 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetEffectForms(params EffectForm[] effectForms)
     {
         effect.EffectForms.SetRange(effectForms);
+        return this;
+    }
+
+    internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
+    {
+        effect.EffectForms.AddRange(effectForms);
         return this;
     }
 }

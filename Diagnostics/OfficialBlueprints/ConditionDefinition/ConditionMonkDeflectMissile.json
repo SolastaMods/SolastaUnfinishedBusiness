@@ -18,7 +18,8 @@
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "AnyBattleTurnEnd",
-    "PhysicalAttackReceivedExecuted"
+    "PhysicalAttackReceivedExecuted",
+    "Attacked"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

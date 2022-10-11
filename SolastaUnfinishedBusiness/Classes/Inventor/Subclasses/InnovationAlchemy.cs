@@ -1,233 +1,327 @@
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
+using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
+using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 
 public static class InnovationAlchemy
 {
+    private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
+    private static FeatureDefinitionPower AlchemyPool { get; set; }
+
     public static CharacterSubclassDefinition Build()
     {
+        AlchemyPool = BuildAlchemyPool();
+
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
-            .AddFeaturesAtLevel(1, BuildBombs())
-            //temporary test feature to grant use device as bonus action
-            .AddFeaturesAtLevel(1, FeatureDefinitionActionAffinityBuilder
-                .Create("TMPBonusAlchemy")
-                .SetGuiPresentationNoContent(true)
-                .SetDefaultAllowedActonTypes()
-                .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                .AddToDB())
+            .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands())
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionActionAffinity BuildFastHands()
+    {
+        return FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityInnovationAlchemyFastHands")
+            .SetGuiPresentation(Category.Feature)
+            .SetDefaultAllowedActonTypes()
+            .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
             .AddToDB();
     }
 
     private static FeatureDefinition BuildBombs()
     {
-        var powerBombSplash = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSplash")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Fireball)
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
-            .SetCostPerUse(1)
-            // .SetCustomSubFeatures(new AddDie(), new MakeCone())
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
-                    RuleDefinitions.TargetType.Sphere)
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTargetCellsPerIncrement: 1)
-                .SetSavingThrowData(
-                    true,
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
-                .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
-                        damageType: RuleDefinitions.DamageTypeFire)
-                    .Build())
-                .Build())
-            .AddToDB();
+        var deviceDescription = new UsableDeviceDescriptionBuilder()
+            .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
+            .SetRecharge(RechargeRate.ShortRest)
+            .SetSaveDc(EffectHelpers.BasedOnUser);
 
-        var powerBombBreath = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombBreath")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.BurningHands)
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
-            .SetCostPerUse(1)
-            .SetCustomSubFeatures(new Overcharge())
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
-                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
-                    RuleDefinitions.TargetType.Cone, 4)
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTargetCellsPerIncrement: 1)
-                .SetSavingThrowData(
-                    true,
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.BurningHands)
-                .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 2,
-                        damageType: RuleDefinitions.DamageTypeFire)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        var powerBombSingle = FeatureDefinitionPowerBuilder.Create("PowerAlchemyBombSingle")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.ProduceFlame)
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
-            .SetCostPerUse(1)
-            .SetAttackAbilityToHit(true, true)
-            .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
-            // .SetCustomSubFeatures(new AddDie(), new MakeCone())
-            // .SetCustomSubFeatures(new ValidatorPowerUse(_ => false))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 6,
-                    RuleDefinitions.TargetType.Individuals)
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTargetsPerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
-                .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
-                    .SetDamageForm(dieType: RuleDefinitions.DieType.D6, diceNumber: 3,
-                        damageType: RuleDefinitions.DamageTypeFire)
-                    .Build())
-                .Build())
-            .AddToDB();
+        BuildFireBombs(deviceDescription);
+        BuildColdBombs(deviceDescription);
 
         var bombItem = ItemDefinitionBuilder
-            .Create("ItemAlchemyBomb")
-            .SetGuiPresentation("FeatureAlchemyBombs", Category.Feature, ItemDefinitions.AlchemistFire)
-            .SetRequiresIdentification(true)
+            .Create("ItemInnovationAlchemyBomb")
+            .SetGuiPresentation(BombsFeatureName, Category.Feature,
+                CustomIcons.CreateAssetReferenceSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
+            .SetRequiresIdentification(false)
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
                 ItemDefinitions.ScrollFly.itemPresentation))
-            .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
-                .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
-                .SetRecharge(RuleDefinitions.RechargeRate.ShortRest)
-                .SetSaveDc(EffectHelpers.BasedOnUser)
-                .AddFunctions(
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetPower(powerBombSplash, true)
-                        .Build(),
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 3, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetPower(powerBombBreath, true)
-                        .Build(),
-                    new DeviceFunctionDescriptionBuilder()
-                        .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
-                        .SetPower(powerBombSingle, true)
-                        .Build()
-                )
-                .Build())
+            .SetUsableDeviceDescription(deviceDescription.Build())
             .AddToDB();
 
         return FeatureDefinitionBuilder
-            .Create("FeatureAlchemyBombs")
+            .Create(BombsFeatureName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, InventorClass.InfusionPool))
+            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool))
             .AddToDB();
     }
 
-
-    //Below is some temp test stuff
-    private sealed class Overcharge : ICustomOverchargeProvider
+    private static void BuildFireBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
-        private static readonly (int, int)[] Steps = { (2, 1), (3, 2) };
+        var damage = DamageTypeFire;
+        var save = AttributeDefinitions.Dexterity;
+        var dieType = DieType.D8;
 
-        public (int, int)[] OverchargeSteps(RulesetCharacter character)
-        {
-            return Steps;
-        }
+        var sprite = SpellDefinitions.Fireball.GuiPresentation.SpriteReference;
+        var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle);
+
+        sprite = SpellDefinitions.BurningHands.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle);
+
+        sprite = SpellDefinitions.ProduceFlame.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
     }
 
-    internal sealed class AddDie : IModifySpellEffect
+    private static void BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-            RulesetCharacter caster)
-        {
-            var damage = effect.FindFirstDamageForm();
-            if (damage != null)
-            {
-                damage.diceNumber += 1;
-            }
+        var damage = DamageTypeCold;
+        var save = AttributeDefinitions.Dexterity;
+        var dieType = DieType.D6;
+        var effect = EffectFormBuilder.Create()
+            .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
+            .Build();
 
-            return effect;
-        }
+        var sprite = SpellDefinitions.ProtectionFromEnergyCold.GuiPresentation.SpriteReference;
+        var particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, effect);
+
+        sprite = SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, effect);
+
+        sprite = SpellDefinitions.RayOfFrost.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.RayOfFrost.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
     }
 
-    internal sealed class MakeCold : IModifySpellEffect
+    private static void AddBombFunctions(UsableDeviceDescriptionBuilder device, FeatureDefinitionPower precise,
+        FeatureDefinitionPower splash, FeatureDefinitionPower breath)
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-            RulesetCharacter caster)
-        {
-            var damage = effect.FindFirstDamageForm();
-            if (damage != null)
-            {
-                damage.damageType = RuleDefinitions.DamageTypeCold;
-
-                var ray = SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters;
-                var ice = SpellDefinitions.SleetStorm.EffectDescription.EffectParticleParameters;
-
-                effect.speedType = RuleDefinitions.SpeedType.CellsPerSeconds;
-                effect.speedParameter = 8;
-
-                var particles = new EffectParticleParameters();
-                particles.Copy(ray);
-                particles.casterParticleReference = null; //new AssetReference();
-                particles.activeEffectCellStartParticleReference = ice.activeEffectCellStartParticleReference;
-                particles.activeEffectCellParticleReference = ice.activeEffectCellParticleReference;
-                particles.activeEffectSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
-                particles.emissiveBorderSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
-                // particles.forceApplyZoneParticle = true;
-                effect.animationMagicEffect = AnimationDefinitions.AnimationMagicEffect.Animation1;
-
-                effect.effectParticleParameters = particles;
-                // effect.SetEffectParticleParameters(SpellDefinitions.RayOfFrost);
-                // effect.SetEffectParticleParameters(SpellDefinitions.IceStorm);
-            }
-
-            return effect;
-        }
+        device.AddFunctions(
+            new DeviceFunctionDescriptionBuilder()
+                .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                .SetPower(precise, true)
+                .Build(),
+            new DeviceFunctionDescriptionBuilder()
+                .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                .SetPower(splash, true)
+                .Build(),
+            new DeviceFunctionDescriptionBuilder()
+                .SetUsage(useAmount: 2, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
+                .SetPower(breath, true)
+                .Build()
+        );
     }
 
-    internal sealed class MakeCone : IModifySpellEffect
+    private static FeatureDefinitionPower MakePreciseBombPower(string damageType,
+        DieType dieType,
+        string savingThrowAbility,
+        AssetReferenceSprite sprite,
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects)
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-            RulesetCharacter caster)
-        {
-            effect.TargetType = RuleDefinitions.TargetType.Cone;
-            effect.targetParameter = 3;
-            effect.targetParameter2 = 2;
+        const string name = "PowerInnovationAlchemyBombPrecise";
+        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetAttackAbilityToHit(true, true)
+            .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    true,
+                    savingThrowAbility,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetParticleEffectParameters(particleParameters)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetDamageForm(dieType: dieType, diceNumber: 3, damageType: damageType)
+                    .Build())
+                .AddEffectForms(effects)
+                .Build())
+            .AddToDB();
+    }
 
-            return effect;
+    private static FeatureDefinitionPower MakeBreathBombPower(string damageType,
+        DieType dieType,
+        string savingThrowAbility,
+        AssetReferenceSprite sprite,
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects
+    )
+    {
+        const string name = "PowerInnovationAlchemyBombBreath";
+        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
+                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    true,
+                    true,
+                    savingThrowAbility,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetParticleEffectParameters(particleParameters)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
+                    .Build())
+                .AddEffectForms(effects)
+                .Build())
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPower MakeSplashBombPower(string damageType,
+        DieType dieType,
+        string savingThrowAbility,
+        AssetReferenceSprite sprite,
+        EffectParticleParameters particleParameters,
+        params EffectForm[] effects)
+    {
+        const string name = "PowerInnovationAlchemyBombSplash";
+
+        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetActivationTime(ActivationTime.Action)
+            .SetCostPerUse(1)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 1)
+                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
+                .SetSavingThrowData(
+                    true,
+                    true,
+                    savingThrowAbility,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetParticleEffectParameters(particleParameters)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .SetDamageForm(dieType: dieType, diceNumber: 2, damageType: damageType)
+                    .Build())
+                .AddEffectForms(effects)
+                .Build())
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildAlchemyPool()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationAlchemyPool")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetUsesFixed(6)
+            .SetRechargeRate(RechargeRate.ShortRest)
+            .AddToDB();
+    }
+}
+
+internal sealed class Overcharge : ICustomOverchargeProvider
+{
+    private static readonly (int, int)[] None = { };
+    private static readonly (int, int)[] Once = {(1, 1)};
+    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+
+    public (int, int)[] OverchargeSteps(RulesetCharacter character)
+    {
+        //TODO: maybe rework to use features instead of levels?
+        var classLevel = character.GetClassLevel(InventorClass.Class);
+        if (classLevel >= 11)
+        {
+            return Twice;
         }
+        else if (classLevel >= 5)
+        {
+            return Once;
+        }
+
+        return None;
+    }
+}
+
+internal sealed class AddPBToDamage : IModifyMagicEffect
+{
+    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
+    {
+        var damage = effect.FindFirstDamageForm();
+        if (damage != null)
+        {
+            damage.bonusDamage += caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        }
+
+        return effect;
+    }
+}
+
+//TODO: maybe it is better to create full different powers, instead of modifying effect?
+internal sealed class MakeCold : IModifyMagicEffect
+{
+    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
+    {
+        var damage = effect.FindFirstDamageForm();
+        if (damage != null)
+        {
+            damage.damageType = DamageTypeCold;
+
+            var ray = SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters;
+            var ice = SpellDefinitions.SleetStorm.EffectDescription.EffectParticleParameters;
+
+            effect.speedType = SpeedType.CellsPerSeconds;
+            effect.speedParameter = 8;
+
+            var particles = new EffectParticleParameters();
+            particles.Copy(ray);
+            particles.casterParticleReference = null; //new AssetReference();
+            particles.activeEffectCellStartParticleReference = ice.activeEffectCellStartParticleReference;
+            particles.activeEffectCellParticleReference = ice.activeEffectCellParticleReference;
+            particles.activeEffectSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
+            particles.emissiveBorderSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
+            // particles.forceApplyZoneParticle = true;
+            effect.animationMagicEffect = AnimationDefinitions.AnimationMagicEffect.Animation1;
+
+            effect.effectParticleParameters = particles;
+            // effect.SetEffectParticleParameters(SpellDefinitions.RayOfFrost);
+            // effect.SetEffectParticleParameters(SpellDefinitions.IceStorm);
+        }
+
+        return effect;
     }
 }

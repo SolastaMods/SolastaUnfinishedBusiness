@@ -13,6 +13,7 @@ internal static class SpellListDefinitionExtensions
         }
 
         var index = list.spellsByLevel.FindIndex(d => d.level == spell.spellLevel);
+        
         if (index < 0)
         {
             list.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
@@ -26,11 +27,10 @@ internal static class SpellListDefinitionExtensions
         }
     }
 
-    internal static List<SpellDefinition> GetSpellsOfLevels(this SpellListDefinition list, params int[] levels)
+    internal static IEnumerable<SpellDefinition> GetSpellsOfLevels(this SpellListDefinition list, params int[] levels)
     {
         return list.spellsByLevel
             .Where(d => levels.Contains(d.level))
-            .SelectMany(d => d.spells)
-            .ToList();
+            .SelectMany(d => d.spells);
     }
 }
