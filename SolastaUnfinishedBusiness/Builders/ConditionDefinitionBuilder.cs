@@ -183,22 +183,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
-    internal TBuilder Configure(
-        RuleDefinitions.DurationType durationType,
-        int durationParameter,
-        bool silent,
-        params FeatureDefinition[] conditionFeatures)
-    {
-        Definition.Features.AddRange(conditionFeatures);
-        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
-        Definition.allowMultipleInstances = false;
-        Definition.durationType = durationType;
-        Definition.durationParameter = durationParameter;
-        Definition.silentWhenAdded = silent;
-        Definition.silentWhenRemoved = silent;
-        return (TBuilder)this;
-    }
-
     #region Constructors
 
     protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

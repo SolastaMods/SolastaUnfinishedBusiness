@@ -46,12 +46,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder ClearEffectForms()
-    {
-        effect.EffectForms.Clear();
-        return this;
-    }
-
     internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
     {
         effect.RestrictedCreatureFamilies.Clear();
