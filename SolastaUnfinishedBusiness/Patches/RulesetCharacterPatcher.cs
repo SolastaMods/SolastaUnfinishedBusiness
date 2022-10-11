@@ -931,4 +931,58 @@ public static class RulesetCharacterPatcher
             forcedInitiative = summoner.lastInitiative;
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "RefreshUsableDeviceFunctions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RefreshUsableDeviceFunctions_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
+            var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable",
+                BindingFlags.NonPublic | BindingFlags.Static);
+
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(isFunctionAvailable))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, customMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+
+        private static bool IsFunctionAvailable(RulesetItemDevice device,
+            RulesetDeviceFunction function,
+            RulesetCharacter character,
+            bool inCombat,
+            bool usedMainSpell,
+            bool usedBonusSpell,
+            out string failureFlag)
+        {
+            //PATCH: allow PowerVisibilityModifier to make power device functions visible even if not valid
+            //used to make Grenadier's grenade functions not be be hidden when you have not enough charges
+            var result = device.IsFunctionAvailable(function, character, inCombat, usedMainSpell, usedBonusSpell,
+                out failureFlag);
+
+            if (result || function.DeviceFunctionDescription.type != DeviceFunctionDescription.FunctionType.Power)
+            {
+                return result;
+            }
+
+            var power = function.DeviceFunctionDescription.FeatureDefinitionPower;
+            if (!PowerVisibilityModifier.IsPowerHidden(character, power, ActionDefinitions.ActionType.Main)
+                && character.CanUsePower(power, false))
+            {
+                result = true;
+                failureFlag = string.Empty;
+            }
+
+            return result;
+        }
+    }
 }
