@@ -456,38 +456,3 @@ internal sealed class AddPBToDamage : IModifyMagicEffect
         return effect;
     }
 }
-
-//TODO: maybe it is better to create full different powers, instead of modifying effect?
-internal sealed class MakeCold : IModifyMagicEffect
-{
-    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
-    {
-        var damage = effect.FindFirstDamageForm();
-        if (damage != null)
-        {
-            damage.damageType = DamageTypeCold;
-
-            var ray = SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters;
-            var ice = SpellDefinitions.SleetStorm.EffectDescription.EffectParticleParameters;
-
-            effect.speedType = SpeedType.CellsPerSeconds;
-            effect.speedParameter = 8;
-
-            var particles = new EffectParticleParameters();
-            particles.Copy(ray);
-            particles.casterParticleReference = null; //new AssetReference();
-            particles.activeEffectCellStartParticleReference = ice.activeEffectCellStartParticleReference;
-            particles.activeEffectCellParticleReference = ice.activeEffectCellParticleReference;
-            particles.activeEffectSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
-            particles.emissiveBorderSurfaceParticleReference = ice.activeEffectSurfaceParticleReference;
-            // particles.forceApplyZoneParticle = true;
-            effect.animationMagicEffect = AnimationDefinitions.AnimationMagicEffect.Animation1;
-
-            effect.effectParticleParameters = particles;
-            // effect.SetEffectParticleParameters(SpellDefinitions.RayOfFrost);
-            // effect.SetEffectParticleParameters(SpellDefinitions.IceStorm);
-        }
-
-        return effect;
-    }
-}
