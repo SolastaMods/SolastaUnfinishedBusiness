@@ -62,7 +62,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBranded.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(true)
             .SetConditionType(ConditionType.Detrimental)
-            .SetDuration(DurationType.Irrelevant, 1, false)
+            .SetDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
             .SetSpecialDuration(true)
             .AddFeatures(
@@ -166,7 +166,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                     ConditionSeeInvisibility.GuiPresentation.SpriteReference)
                                 .SetAllowMultipleInstances(false)
                                 .SetConditionType(ConditionType.Beneficial)
-                                .SetDuration(DurationType.Permanent, 1, false)
+                                .SetDuration(DurationType.Permanent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
                                 .AddToDB(),
@@ -186,7 +186,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
             .SetConditionType(ConditionType.Neutral)
-            .SetDuration(DurationType.Permanent, 1, false) // don't validate inconsistent data
+            .SetDuration(DurationType.Permanent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 

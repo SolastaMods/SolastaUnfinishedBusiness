@@ -18,7 +18,9 @@ internal static class ElAntoniousFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
+            //TODO: Double check duration equals 1 won't break things
+            // .SetDuration(DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -28,7 +30,9 @@ internal static class ElAntoniousFeats
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
+            //TODO: Double check duration equals 1 won't break things
+            // .SetDuration(DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)

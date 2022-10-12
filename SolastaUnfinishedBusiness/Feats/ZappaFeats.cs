@@ -50,7 +50,7 @@ internal static class ZappaFeats
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat)
-            .SetDuration(DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder

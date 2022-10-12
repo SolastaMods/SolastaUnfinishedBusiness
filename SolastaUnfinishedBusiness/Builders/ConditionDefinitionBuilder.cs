@@ -36,7 +36,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    // Setters delegating to Definition
     internal TBuilder SetAllowMultipleInstances(bool value)
     {
         Definition.allowMultipleInstances = value;
@@ -171,12 +170,9 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
-    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0)
     {
-        if (validate)
-        {
-            Preconditions.IsValidDuration(type, duration);
-        }
+        Preconditions.IsValidDuration(type, duration);
 
         Definition.durationParameter = duration;
         Definition.durationType = type;

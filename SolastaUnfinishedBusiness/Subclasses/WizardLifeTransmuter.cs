@@ -46,7 +46,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetFeatures(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
-            .SetDuration(DurationType.UntilLongRest, 1, false)
+            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterDarkvision = BuildActionTransmuteConditionPower(
@@ -73,7 +73,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 DamageAffinityNecroticResistance)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
-            .SetDuration(DurationType.UntilLongRest, 1, false)
+            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
@@ -93,7 +93,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
-            .SetDuration(DurationType.UntilLongRest, 1, false)
+            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterConstitution = BuildActionTransmuteConditionPower(
