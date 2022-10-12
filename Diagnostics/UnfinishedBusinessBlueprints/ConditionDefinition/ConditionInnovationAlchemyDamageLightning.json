@@ -2,9 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierAcidClawsACDebuff:228fc58d-9d34-5d37-aecf-75cf20e57e2c"
+    "Definition:ActionAffinityConditionShocked:9d9c23d1dafee674e81f1256feffd463"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -127,12 +127,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionAcidClawsTitle",
-    "description": "Condition/&ConditionAcidClawsDescription",
+    "title": "Rules/&ConditionShockedTitle",
+    "description": "Rules/&ConditionShockedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c970957be3c9d3e459cfe49d3f113f44",
-      "m_SubObjectName": "ConditionAcidified",
+      "m_AssetGUID": "37a0b9c04d666bc4eaf93a2a5ad0e2d2",
+      "m_SubObjectName": "ConditionShockingGrasp",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -148,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "479e2e19-8c6c-5718-8dbc-16d478177ae9",
+  "guid": "335c1058-8477-5fe5-8b96-17e10a4a03e3",
   "contentPack": 9999,
-  "name": "ConditionAcidClaws"
+  "name": "ConditionInnovationAlchemyDamageLightning"
 }

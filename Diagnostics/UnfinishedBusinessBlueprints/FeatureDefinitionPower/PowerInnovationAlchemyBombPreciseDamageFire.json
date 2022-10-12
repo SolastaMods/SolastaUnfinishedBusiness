@@ -33,7 +33,7 @@
     "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
@@ -41,9 +41,9 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "savingThrowDifficultyAbility": "Intelligence",
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -335,9 +335,9 @@
     "description": "Feature/&PowerInnovationAlchemyBombPreciseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5ab3d83f54acd7145925c5d96cd393c8",
-      "m_SubObjectName": "ProduceFlame",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "140c2366-18ad-5f95-8706-f1e4985f8452",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

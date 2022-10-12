@@ -2,16 +2,14 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:AttributeModifierAcidClawsACDebuff:228fc58d-9d34-5d37-aecf-75cf20e57e2c"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
+  "specialDuration": false,
+  "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
@@ -126,14 +124,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionAcidClawsTitle",
-    "description": "Condition/&ConditionAcidClawsDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c970957be3c9d3e459cfe49d3f113f44",
-      "m_SubObjectName": "ConditionAcidified",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -148,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "479e2e19-8c6c-5718-8dbc-16d478177ae9",
+  "guid": "79b02041-3a41-5f8b-abcb-bec5a0bfe7c5",
   "contentPack": 9999,
-  "name": "ConditionAcidClaws"
+  "name": "FeatureInnovationAlchemyMarkerDamageFire"
 }
