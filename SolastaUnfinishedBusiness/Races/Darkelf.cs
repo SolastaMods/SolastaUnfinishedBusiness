@@ -102,6 +102,13 @@ internal static class DarkelfSubraceBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.FaerieFire.EffectDescription)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Charisma,
+                        8)
                     .Build())
             .SetActivationTime(ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
@@ -109,11 +116,6 @@ internal static class DarkelfSubraceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
-
-        PowerDarkelfFaerieFire.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        PowerDarkelfFaerieFire.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        PowerDarkelfFaerieFire.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
@@ -128,11 +130,6 @@ internal static class DarkelfSubraceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
-
-        PowerDarkelfDarkness.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        PowerDarkelfDarkness.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        PowerDarkelfDarkness.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var proficiencyDarkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyDarkelfWeaponTraining")
@@ -169,8 +166,10 @@ internal static class DarkelfSubraceBuilder
                 proficiencyDarkelfWeaponTraining,
                 CastSpellDarkelfMagic,
                 lightAffinityDarkelfLightSensitivity)
-            .AddFeaturesAtLevel(3, PowerDarkelfFaerieFire)
-            .AddFeaturesAtLevel(5, PowerDarkelfDarkness)
+            .AddFeaturesAtLevel(3,
+                PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5,
+                PowerDarkelfDarkness)
             .AddToDB();
 
         raceDarkelf.GuiPresentation.sortOrder = ElfSylvan.GuiPresentation.sortOrder + 1;
