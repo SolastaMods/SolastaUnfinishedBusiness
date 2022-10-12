@@ -99,6 +99,9 @@ internal static class DarkelfSubraceBuilder
         PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.FaerieFire.EffectDescription)
@@ -110,24 +113,19 @@ internal static class DarkelfSubraceBuilder
                         AttributeDefinitions.Charisma,
                         8)
                     .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
         PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.Darkness.EffectDescription)
                     .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 

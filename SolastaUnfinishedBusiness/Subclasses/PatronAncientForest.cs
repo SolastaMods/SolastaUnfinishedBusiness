@@ -87,10 +87,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
-            .SetUsesFixed(
-                ActivationTime.Rest,
-                RechargeRate.LongRest)
-            .SetUsesProficiency()
+            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+            .SetBonusToAttack(true)
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(powerPoolAncientForestHerbalBrew, true,
@@ -179,10 +177,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
-            .SetUsesProficiency()
-            .SetActivationTime(ActivationTime.Permanent)
-            .SetUsesAbility(1, AttributeDefinitions.Charisma)
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesAbilityBonus(ActivationTime.Permanent, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+            .SetBonusToAttack(true)
             .AddToDB();
 
         var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder

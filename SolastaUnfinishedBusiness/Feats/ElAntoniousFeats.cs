@@ -97,38 +97,38 @@ internal static class ElAntoniousFeats
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
-                .SetActivationTime(ActivationTime.BonusAction)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-                    .SetCanBePlacedOnCharacter(false)
-                    .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Round, 3)
-                    .SetSpeed(SpeedType.Instant, 11f)
-                    .SetTargetingData(
-                        Side.Enemy,
-                        RangeType.Touch,
-                        30,
-                        TargetType.Individuals,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity,
-                        15)
-                    .Build())
-                .SetUsesFixed(1)
-                .SetRechargeRate(RechargeRate.AtWill)
+                .SetUsesFixed(
+                    ActivationTime.BonusAction,
+                    RechargeRate.AtWill,
+                    EffectDescriptionBuilder
+                        .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
+                        .SetCanBePlacedOnCharacter(false)
+                        .SetCreatedByCharacter()
+                        .SetDurationData(DurationType.Round, 3)
+                        .SetSpeed(SpeedType.Instant, 11f)
+                        .SetTargetingData(
+                            Side.Enemy,
+                            RangeType.Touch,
+                            30,
+                            TargetType.Individuals,
+                            1,
+                            2,
+                            ActionDefinitions.ItemSelectionType.Equiped)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
+                                    ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .SetSavingThrowData(
+                            false,
+                            AttributeDefinitions.Dexterity,
+                            false,
+                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                            AttributeDefinitions.Dexterity,
+                            15)
+                        .Build())
                 .SetShowCasting(false)
                 .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
                 .AddToDB())

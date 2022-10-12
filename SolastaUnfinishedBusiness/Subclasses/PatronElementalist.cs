@@ -103,20 +103,15 @@ internal sealed class PatronElementalist : AbstractSubclass
         var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalFormPool")
             .SetGuiPresentation(Category.Feature, formRegular)
-            .SetUsesFixed(
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest)
-            .SetUsesProficiency()
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetBonusToAttack(true)
             .AddToDB();
 
         var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerPoolBuilder
             .Create("PowerElementalistElementalEnhancedFormPool")
             .SetGuiPresentation(Category.Feature, formEnhanced)
-            .SetUsesFixed(
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest)
-            .SetUsesProficiency()
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetBonusToAttack(true)
             .SetOverriddenPower(powerElementalistElementalFormPool)
             .AddToDB();
 

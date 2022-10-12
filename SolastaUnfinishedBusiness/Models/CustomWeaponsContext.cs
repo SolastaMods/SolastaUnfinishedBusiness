@@ -181,26 +181,26 @@ internal static class CustomWeaponsContext
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")
                     .SetGuiPresentation(Category.Feature)
-                    .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-                    .SetUsesFixed(1)
-                    .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                    .SetEffectDescription(EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
-                            RuleDefinitions.TargetType.Individuals)
-                        .ExcludeCaster()
-                        .SetSavingThrowData(
-                            true,
-                            AttributeDefinitions.Strength,
-                            false,
-                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                        .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                        .SetEffectForms(EffectFormBuilder
+                    .SetUsesFixed(
+                        RuleDefinitions.ActivationTime.BonusAction,
+                        RuleDefinitions.RechargeRate.AtWill,
+                        EffectDescriptionBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
+                                RuleDefinitions.TargetType.Individuals)
+                            .ExcludeCaster()
+                            .SetSavingThrowData(
+                                true,
+                                AttributeDefinitions.Strength,
+                                false,
+                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
+                            .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
+                            .SetEffectForms(EffectFormBuilder
+                                .Create()
+                                .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                .Build())
                             .Build())
-                        .Build())
                     .AddToDB())
                 .Build())
             .Build();

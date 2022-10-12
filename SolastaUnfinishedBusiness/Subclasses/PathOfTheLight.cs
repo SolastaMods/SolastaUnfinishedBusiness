@@ -80,7 +80,9 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingStrike")
                     .SetGuiPresentationNoContent(true)
-                    .SetActivationTime(ActivationTime.OnRageStartAutomatic)
+                    .SetUsesFixed(
+                        ActivationTime.OnRageStartAutomatic,
+                        RechargeRate.AtWill)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -111,7 +113,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
-                    .SetRechargeRate(RechargeRate.AtWill)
                     .AddToDB())
             .AddToDB();
 
@@ -146,7 +147,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var powerPathOfTheLightEyesOfTruth = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
-            .SetShowCasting(false)
+            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.AtWill)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(
@@ -173,8 +174,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetActivationTime(ActivationTime.Permanent)
+            .SetShowCasting(false)
             .AddToDB();
 
         //
@@ -193,8 +193,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var powerPathOfTheLightIlluminatingBurstSuppressor = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightIlluminatingBurstSuppressor")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(ActivationTime.Permanent)
-            .SetRechargeRate(RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.AtWill)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

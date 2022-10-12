@@ -83,25 +83,23 @@ internal static class ZappaFeats
             .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
                 CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                    TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.AtWill,
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
@@ -109,24 +107,24 @@ internal static class ZappaFeats
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffDeadeye")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                    TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Remove)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
-                        .Build())
-                .Build())
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.AtWill,
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1,
+                        TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffDeadeye);

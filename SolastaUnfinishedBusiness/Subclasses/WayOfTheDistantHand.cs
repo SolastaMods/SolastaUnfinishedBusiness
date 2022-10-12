@@ -49,9 +49,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowTechnique = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
-            .SetActivationTime(ActivationTime.OnAttackHit)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
                 (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
             ))
@@ -60,9 +58,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowProne")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -86,9 +82,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowPush")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -112,9 +108,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -187,10 +183,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetCostPerUse(2)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetShowCasting(false)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, null, 2)
             .SetCustomSubFeatures(new ValidatorPowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(
                     ConditionDefinitionBuilder
@@ -227,6 +220,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         ConditionForm.ConditionOperation.Add, true, true)
                     .Build())
                 .Build())
+            .SetShowCasting(false)
             .AddToDB();
 
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
@@ -251,9 +245,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowUpgradedTechnique = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
-            .SetActivationTime(ActivationTime.OnAttackHit)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
                 (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
@@ -263,9 +255,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -306,9 +298,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedPush")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -332,10 +324,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedDistract")
             .SetGuiPresentation(Category.Feature)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)

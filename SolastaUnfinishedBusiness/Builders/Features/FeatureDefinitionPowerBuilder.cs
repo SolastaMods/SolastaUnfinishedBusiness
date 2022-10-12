@@ -13,8 +13,8 @@ internal class FeatureDefinitionPowerBuilder
     {
     }
 
-    protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
+    protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 
@@ -37,50 +37,71 @@ internal abstract class
         RuleDefinitions.RechargeRate recharge,
         EffectDescription effectDescription = null,
         int costPerUse = 1,
-        int usesPerRecharge = 1
-)
+        int usesPerRecharge = 1)
     {
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        Definition.activationTime = activationTime;
+        Definition.rechargeRate = recharge;
+        Definition.costPerUse = costPerUse;
+        Definition.fixedUsesPerRecharge = usesPerRecharge;
+
+        if (effectDescription != null)
+        {
+            Definition.effectDescription.Copy(effectDescription);
+        }
+
         return (TBuilder)this;
     }
-    
-    internal TBuilder SetUsesAbilityScore(
+
+    internal TBuilder SetUsesAbilityBonus(
         RuleDefinitions.ActivationTime activationTime,
         RuleDefinitions.RechargeRate recharge,
         string usesAbilityScoreName,
-        EffectDescription effectDescription = null)
-    {
-        return (TBuilder)this;
-    }
-    
-    internal TBuilder SetUsesProficiencyBonus(
-        RuleDefinitions.ActivationTime activationTime,
-        RuleDefinitions.RechargeRate recharge,
-        EffectDescription effectDescription = null)
-    {
-        return (TBuilder)this;
-    }
-    
-    internal TBuilder Configure(
-        RuleDefinitions.UsesDetermination usesDetermination,
-        RuleDefinitions.ActivationTime activationTime,
-        RuleDefinitions.RechargeRate recharge,
-        EffectDescription effectDescription,
-        bool uniqueInstance = false,
+        EffectDescription effectDescription = null,
         int costPerUse = 1,
-        int usesPerRecharge = 1,
-        string usesAbilityScoreName = "",
-        bool proficiencyBonusToAttack = false,
-        bool abilityScoreBonusToAttack = false,
-        string abilityScore = "")
+        int usesPerRecharge = 1)
     {
-        Definition.usesDetermination = usesDetermination;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
-        Definition.effectDescription.Copy(effectDescription);
-        Definition.uniqueInstance = uniqueInstance;
         Definition.costPerUse = costPerUse;
         Definition.fixedUsesPerRecharge = usesPerRecharge;
         Definition.usesAbilityScoreName = usesAbilityScoreName;
+
+        if (effectDescription != null)
+        {
+            Definition.effectDescription.Copy(effectDescription);
+        }
+
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetUsesProficiencyBonus(
+        RuleDefinitions.ActivationTime activationTime,
+        RuleDefinitions.RechargeRate recharge,
+        EffectDescription effectDescription = null,
+        int costPerUse = 1,
+        int usesPerRecharge = 1)
+    {
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.ProficiencyBonus;
+        Definition.activationTime = activationTime;
+        Definition.rechargeRate = recharge;
+        Definition.costPerUse = costPerUse;
+        Definition.fixedUsesPerRecharge = usesPerRecharge;
+
+        if (effectDescription != null)
+        {
+            Definition.effectDescription.Copy(effectDescription);
+        }
+
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetBonusToAttack(
+        bool proficiencyBonusToAttack = false,
+        bool abilityScoreBonusToAttack = false,
+        string abilityScore = AttributeDefinitions.Intelligence) // this is game default
+    {
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.abilityScore = abilityScore;
@@ -100,14 +121,6 @@ internal abstract class
         return (TBuilder)this;
     }
 
-#if false
-    internal TBuilder SetSpellcastingAbilityScore()
-    {
-        Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
-        return (TBuilder)this;
-    }
-#endif
-
     internal TBuilder SetAttackAbilityToHit(
         bool abilityScoreBonusToAttack = true,
         bool proficiencyBonusToAttack = false)
@@ -118,71 +131,15 @@ internal abstract class
         return (TBuilder)this;
     }
 
-#if false
-    internal TBuilder SetAttackFixedToHit(int bonus)
-    {
-        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
-        Definition.fixedAttackHit = bonus;
-        return (TBuilder)this;
-    }
-#endif
-
-    internal TBuilder SetActivationTime(RuleDefinitions.ActivationTime time)
-    {
-        Definition.activationTime = time;
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetReactionContext(RuleDefinitions.ReactionTriggerContext context)
     {
         Definition.reactionContext = context;
         return (TBuilder)this;
     }
 
-#if false
-    internal TBuilder SetHasCastingFailure(bool hasCastingFailure)
-    {
-        Definition.hasCastingFailure = hasCastingFailure;
-        return (TBuilder)this;
-    }
-#endif
-
-    internal TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
-    {
-        Definition.rechargeRate = rate;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetUsesFixed(int fixedUses)
-    {
-        Definition.fixedUsesPerRecharge = fixedUses;
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetFixedUsesPerRecharge(int fixedUses)
-    {
-        Definition.fixedUsesPerRecharge = fixedUses;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetCostPerUse(int costPerUse)
-    {
-        Definition.costPerUse = costPerUse;
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetUniqueInstance(bool unique = true)
     {
         Definition.uniqueInstance = unique;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetUsesAbility(int fixedUses, string attribute)
-    {
-        Definition.fixedUsesPerRecharge = fixedUses;
-        Definition.usesAbilityScoreName = attribute;
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
         return (TBuilder)this;
     }
 

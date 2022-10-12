@@ -99,28 +99,26 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.AtWill)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(DimensionDoor.EffectDescription)
                     .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartDivineRecovery")
             .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.BonusAction,
+                RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Heal.EffectDescription)
                     .Build())
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 

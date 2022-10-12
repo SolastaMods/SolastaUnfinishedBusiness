@@ -43,7 +43,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.LongRest,
                 EffectDescriptionBuilder
@@ -72,34 +72,28 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                     0))
                             .Build()
                     )
-                    .Build(),
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma,
-                true,
-                true,
-                AttributeDefinitions.Charisma)
+                    .Build())
+            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpiritualWeapon.EffectDescription)
                     .Build())
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
 
         powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
-            .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.Fixed,
+            .Create("PowerSoulBladeSoulShield")
+            .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
+            .SetUsesFixed(
                 ActivationTime.BonusAction,
                 RechargeRate.ShortRest,
                 EffectDescriptionBuilder

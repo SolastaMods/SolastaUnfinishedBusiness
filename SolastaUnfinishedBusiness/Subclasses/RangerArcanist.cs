@@ -193,11 +193,13 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
-            .SetUsesAbility(0, AttributeDefinitions.Wisdom)
-            .SetShowCasting(true)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
-            .SetActivationTime(ActivationTime.Action)
+            .SetUsesAbilityBonus(
+                ActivationTime.Action,
+                RechargeRate.LongRest,
+                AttributeDefinitions.Wisdom,
+                null,
+                1,
+                0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
                 .SetCreatedByCharacter()
@@ -211,7 +213,7 @@ internal sealed class RangerArcanist : AbstractSubclass
                     ActionDefinitions.ItemSelectionType.Equiped)
                 .SetEffectForms(effectForms)
                 .Build())
-            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
+            .SetShowCasting(true)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
     }

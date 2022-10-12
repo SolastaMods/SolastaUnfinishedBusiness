@@ -85,12 +85,11 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 "Feature/&FeatureBladeDanceTitle",
                 "Condition/&ConditionBladeDancerBladeDanceDescription",
                 FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
-                effectBladeDance,
-                true)
+                effectBladeDance)
+            .SetUniqueInstance()
             .SetCustomSubFeatures(
                 new ValidatorPowerUse(IsBladeDanceValid))
             .AddToDB();

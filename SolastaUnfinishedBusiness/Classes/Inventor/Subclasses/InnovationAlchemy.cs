@@ -57,12 +57,13 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature,
                 GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUniqueInstance()
-            .SetUsesFixed(1)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .Build())
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.AtWill,
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .Build())
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(ElementalBombs, true,
@@ -252,7 +253,7 @@ public static class InnovationAlchemy
     {
         var marker = ConditionDefinitionBuilder
             .Create($"FeatureInnovationAlchemyMarker{damage}")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetCustomSubFeatures(ModifiedBombElement.Marker)
             .AddToDB();
@@ -263,15 +264,16 @@ public static class InnovationAlchemy
                 .SetGuiPresentation(Category.Feature)
                 .SetShowCasting(false)
                 .SetUniqueInstance()
-                .SetUsesFixed(1)
-                .SetRechargeRate(RechargeRate.AtWill)
-                .SetActivationTime(ActivationTime.NoCost)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
+                .SetUsesFixed(
+                    ActivationTime.NoCost,
+                    RechargeRate.AtWill,
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Permanent)
+                        .SetEffectForms(EffectFormBuilder.Create()
+                            .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
+                            .Build())
                         .Build())
-                    .Build())
                 .AddToDB(),
             new ValidatorPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker))
         );
@@ -284,19 +286,20 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature)
             .SetShowCasting(false)
             .SetUniqueInstance()
-            .SetUsesFixed(1)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
-                        .SetGuiPresentationNoContent(hidden: true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetUsesFixed(
+                ActivationTime.NoCost,
+                RechargeRate.AtWill,
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 
@@ -330,8 +333,7 @@ public static class InnovationAlchemy
         const string name = "PowerInnovationAlchemyBombPrecise";
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetAttackAbilityToHit(true, true)
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -369,8 +371,7 @@ public static class InnovationAlchemy
         const string name = "PowerInnovationAlchemyBombBreath";
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
@@ -405,8 +406,7 @@ public static class InnovationAlchemy
 
         return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
@@ -435,8 +435,12 @@ public static class InnovationAlchemy
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetUsesFixed(6)
-            .SetRechargeRate(RechargeRate.ShortRest)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.ShortRest,
+                null,
+                1,
+                6)
             .AddToDB();
     }
 }
@@ -453,8 +457,8 @@ internal sealed class ModifiedBombElement
 internal sealed class Overcharge : ICustomOverchargeProvider
 {
     private static readonly (int, int)[] None = { };
-    private static readonly (int, int)[] Once = {(1, 1)};
-    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+    private static readonly (int, int)[] Once = { (1, 1) };
+    private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
 
     public (int, int)[] OverchargeSteps(RulesetCharacter character)
     {

@@ -55,15 +55,13 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.AbilityBonusPlusFixed,
+            .SetUsesAbilityBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.AtWill,
+                AttributeDefinitions.Charisma,
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(
-                        DurationType.Round,
-                        1)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(
                         Side.Enemy,
                         RangeType.Distance,
@@ -85,11 +83,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                             .SetConditionForm(
                                 conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
                             .Build())
-                    .Build(),
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma)
+                    .Build())
             .AddToDB();
 
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder

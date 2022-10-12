@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -32,20 +33,20 @@ internal static class GrayDwarfSubraceBuilder
             .Create("AbilityCheckAffinityGrayDwarfLightSensitivity")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
+                CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
         abilityCheckAffinityGrayDwarfLightSensitivity.AffinityGroups[0].lightingContext =
-            RuleDefinitions.LightingContext.BrightLight;
+            LightingContext.BrightLight;
 
         var grayDwarfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
                 "CombatAffinityGrayDwarfLightSensitivity")
             .SetGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
-            .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.None)
-            .SetMyAttackModifierSign(RuleDefinitions.AttackModifierSign.Substract)
-            .SetMyAttackModifierDieType(RuleDefinitions.DieType.D4)
+            .SetMyAttackAdvantage(AdvantageType.None)
+            .SetMyAttackModifierSign(AttackModifierSign.Substract)
+            .SetMyAttackModifierDieType(DieType.D4)
             .AddToDB();
 
         var conditionGrayDwarfLightSensitive = ConditionDefinitionBuilder
@@ -55,7 +56,7 @@ internal static class GrayDwarfSubraceBuilder
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
-            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(abilityCheckAffinityGrayDwarfLightSensitivity, grayDwarfCombatAffinityLightSensitivity)
             .AddToDB();
 
@@ -99,7 +100,7 @@ internal static class GrayDwarfSubraceBuilder
         for (var i = 0; i < 6; i++)
         {
             savingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].affinity =
-                RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
+                CharacterSavingThrowAffinity.Advantage;
             savingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].savingThrowModifierDiceNumber = 0;
         }
 
@@ -127,12 +128,12 @@ internal static class GrayDwarfSubraceBuilder
             .Create("AdditionalDamageGrayDwarfStoneStrength")
             .SetGuiPresentationNoContent()
             .SetNotificationTag("StoneStrength")
-            .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.MeleeStrengthWeapon)
-            .SetDamageDice(RuleDefinitions.DieType.D4, 1)
-            .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
-            .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage)
-            .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeStrengthWeapon)
+            .SetDamageDice(DieType.D4, 1)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddToDB();
 
         var conditionGrayDwarfStoneStrength = ConditionDefinitionBuilder
@@ -148,11 +149,11 @@ internal static class GrayDwarfSubraceBuilder
 
         var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
             .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self)
+                Side.Ally,
+                RangeType.Self, 1,
+                TargetType.Self)
             .Build();
 
         grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = conditionGrayDwarfStoneStrength;
@@ -160,31 +161,29 @@ internal static class GrayDwarfSubraceBuilder
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.BonusAction,
+                RechargeRate.ShortRest)
             .SetEffectDescription(grayDwarfStoneStrengthEffect)
-            .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
         var grayDwarfInvisibilityEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.Invisibility.EffectDescription)
-            .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
             .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self)
+                Side.Ally,
+                RangeType.Self, 1,
+                TargetType.Self)
             .Build();
 
         var powerGrayDwarfInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.ShortRest)
             .SetEffectDescription(grayDwarfInvisibilityEffect)
-            .SetActivationTime(RuleDefinitions.ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
