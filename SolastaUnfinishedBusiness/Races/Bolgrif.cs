@@ -54,10 +54,11 @@ internal static class RaceBolgrifBuilder
         var powerBolgrifInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerBolgrifInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
-            .SetEffectDescription(bolgrifInvisibilityEffect)
-            .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-            .SetUsesFixed(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
+            .Configure(
+                RuleDefinitions.UsesDetermination.Fixed,
+                RuleDefinitions.ActivationTime.BonusAction,
+                RuleDefinitions.RechargeRate.ShortRest,
+                bolgrifInvisibilityEffect)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -79,8 +80,8 @@ internal static class RaceBolgrifBuilder
         var proficiencyBolgrifLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBolgrifLanguages")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant",
-                "Language_Elvish")
+            .SetProficiencies(RuleDefinitions.ProficiencyType.Language,
+                "Language_Common", "Language_Giant", "Language_Elvish")
             .AddToDB();
 
         var bolgrifRacePresentation = Dwarf.RacePresentation.DeepCopy();
