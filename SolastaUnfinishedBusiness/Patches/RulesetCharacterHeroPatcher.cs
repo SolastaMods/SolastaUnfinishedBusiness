@@ -60,6 +60,21 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), "GrantInvocations")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GrantInvocations_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance)
+        {
+            //PATCH: mark some invocation as disabled by default
+            //used for Grenadier's bomb elements to not be enabled upon learning
+            foreach (var invocation in __instance.Invocations)
+            {
+                invocation.active = !invocation.invocationDefinition.HasSubFeatureOfType<InvocationDisabledByDefault>();
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeAttackModeAbilityScoreReplacement")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ComputeAttackModeAbilityScoreReplacement_Patch
