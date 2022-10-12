@@ -2,9 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierAcidClawsACDebuff:228fc58d-9d34-5d37-aecf-75cf20e57e2c"
+    "Definition:CombatAffinityPoisoned:44c97012ec61a4f42b380b291c9f3fce"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,7 +16,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacks"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -127,12 +129,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionAcidClawsTitle",
-    "description": "Condition/&ConditionAcidClawsDescription",
+    "title": "Rules/&ConditionPoisonedTitle",
+    "description": "Condition/&ConditionInnovationAlchemyDamagePoisonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c970957be3c9d3e459cfe49d3f113f44",
-      "m_SubObjectName": "ConditionAcidified",
+      "m_AssetGUID": "4231de4fdbf296c4b85f2afef769631b",
+      "m_SubObjectName": "Conditionpoisoned",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -148,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "479e2e19-8c6c-5718-8dbc-16d478177ae9",
+  "guid": "a2060437-057f-5de4-8b87-ab203595869a",
   "contentPack": 9999,
-  "name": "ConditionAcidClaws"
+  "name": "ConditionInnovationAlchemyDamagePoison"
 }
