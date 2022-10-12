@@ -159,11 +159,11 @@ internal static class ZappaFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd")
+                    .Create("AttributeModifierFeatArcaneDefenseAdd")
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense)
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
-                    .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
+                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .AddToDB()
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
@@ -236,11 +236,11 @@ internal static class ZappaFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Solasta,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd")
+                    .Create("AttributeModifierFeatCharismaticDefenseAdd")
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense)
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
-                    .SetModifierAbilityScore(AttributeDefinitions.Charisma)
+                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Charisma)
                     .AddToDB()
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)

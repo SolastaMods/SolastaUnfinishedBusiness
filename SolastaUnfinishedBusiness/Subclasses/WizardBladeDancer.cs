@@ -43,8 +43,10 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierBladeDancerBladeDance")
                     .SetGuiPresentation(Category.Feature)
-                    .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
-                    .SetModifierAbilityScore(AttributeDefinitions.Intelligence, true)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus, 
+                        AttributeDefinitions.ArmorClass, 1)
+                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .SetSituationalContext((SituationalContext)
                         ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
                     .AddToDB(),
