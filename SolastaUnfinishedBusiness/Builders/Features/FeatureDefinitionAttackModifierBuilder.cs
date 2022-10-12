@@ -55,9 +55,9 @@ internal class FeatureDefinitionAttackModifierBuilder
         return this;
     }
 
-    internal FeatureDefinitionAttackModifierBuilder SetMagicalWeapon(bool value = true)
+    internal FeatureDefinitionAttackModifierBuilder SetMagicalWeapon()
     {
-        Definition.magicalWeapon = value;
+        Definition.magicalWeapon = true;
         return this;
     }
 

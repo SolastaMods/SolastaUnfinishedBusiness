@@ -209,8 +209,10 @@ internal static class GrayDwarfSubraceBuilder
                 lightAffinityGrayDwarfLightSensitivity,
                 FeatureDefinitionProficiencys.ProficiencyDwarfLanguages
             )
-            .AddFeaturesAtLevel(3, powerGrayDwarfStoneStrength)
-            .AddFeaturesAtLevel(5, powerGrayDwarfInvisibility)
+            .AddFeaturesAtLevel(3,
+                powerGrayDwarfStoneStrength)
+            .AddFeaturesAtLevel(5,
+                powerGrayDwarfInvisibility)
             .AddToDB();
 
         raceGrayDwarf.GuiPresentation.sortOrder = DwarfSnow.GuiPresentation.sortOrder + 1;
