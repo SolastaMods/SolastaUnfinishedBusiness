@@ -338,4 +338,34 @@
   <data name="AlchemyFlask" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\AlchemyFlask.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AlchemyBombColdBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombColdBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombColdPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombColdPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombColdSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombColdSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombElement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\AlchemyBombElement.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombFireBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombFireBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombFirePrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombFirePrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombFireSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombFireSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombLightningBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombLightningBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombLightningPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombLightningPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombLightningSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombLightningSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

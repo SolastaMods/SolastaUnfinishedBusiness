@@ -82,6 +82,106 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] AlchemyBombColdBreath {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombColdBreath", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombColdPrecise {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombColdPrecise", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombColdSplash {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombColdSplash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombElement {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombElement", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombFireBreath {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombFireBreath", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombFirePrecise {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombFirePrecise", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombFireSplash {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombFireSplash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombLightningBreath {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombLightningBreath", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombLightningPrecise {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombLightningPrecise", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombLightningSplash {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombLightningSplash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] AlchemyFlask {
             get {
                 object obj = ResourceManager.GetObject("AlchemyFlask", resourceCulture);

@@ -7,11 +7,11 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Utils.CustomIcons;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 
@@ -54,7 +54,8 @@ public static class InnovationAlchemy
 
         ElementalBombs = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyBombsElemental")
-            .SetGuiPresentation(Category.Feature) //TODO: add icond
+            .SetGuiPresentation(Category.Feature,
+                CreateAssetReferenceSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUniqueInstance()
             .SetUsesFixed(1)
             .SetRechargeRate(RechargeRate.AtWill)
@@ -73,7 +74,7 @@ public static class InnovationAlchemy
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
             .SetGuiPresentation(BombsFeatureName, Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
+                CreateAssetReferenceSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
             .SetRequiresIdentification(false)
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
@@ -96,15 +97,15 @@ public static class InnovationAlchemy
         var validator =
             new ValidatorPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
-        var sprite = SpellDefinitions.Fireball.GuiPresentation.SpriteReference;
+        var sprite = CreateAssetReferenceSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator);
 
-        sprite = SpellDefinitions.BurningHands.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombFireBreath", Resources.AlchemyBombFireBreath, 128);
         particle = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator);
 
-        sprite = SpellDefinitions.ProduceFlame.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombFirePrecise", Resources.AlchemyBombFirePrecise, 128);
         particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator);
 
@@ -122,15 +123,15 @@ public static class InnovationAlchemy
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var sprite = SpellDefinitions.ProtectionFromEnergyCold.GuiPresentation.SpriteReference;
+        var sprite = CreateAssetReferenceSprite("AlchemyBombColdSplash", Resources.AlchemyBombColdSplash, 128);
         var particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombColdBreath", Resources.AlchemyBombColdBreath, 128);
         particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = SpellDefinitions.RayOfFrost.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombColdPrecise", Resources.AlchemyBombColdPrecise, 128);
         particle = SpellDefinitions.RayOfFrost.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
@@ -157,15 +158,16 @@ public static class InnovationAlchemy
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var sprite = SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference;
+        var sprite =
+            CreateAssetReferenceSprite("AlchemyBombLightningSplash", Resources.AlchemyBombLightningSplash, 128);
         var particle = SpellDefinitions.ShockingGrasp.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombLightningBreath", Resources.AlchemyBombLightningBreath, 128);
         particle = SpellDefinitions.LightningBolt.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = SpellDefinitions.CallLightning.GuiPresentation.SpriteReference;
+        sprite = CreateAssetReferenceSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
         particle = SpellDefinitions.CallLightning.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
