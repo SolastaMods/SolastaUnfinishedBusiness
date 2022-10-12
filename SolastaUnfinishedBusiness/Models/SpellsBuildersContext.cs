@@ -64,7 +64,7 @@ internal static class SpellsBuildersContext
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeNecrotic)
+                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeAcid)
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .Build(),
                     EffectFormBuilder
