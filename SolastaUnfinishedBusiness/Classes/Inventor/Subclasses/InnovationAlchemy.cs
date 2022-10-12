@@ -195,16 +195,21 @@ public static class InnovationAlchemy
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
+        var spray = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+
         var sprite = GetSprite("AlchemyBombPoisonSplash", Resources.AlchemyBombPoisonSplash, 128);
-        var particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        var particle = new EffectParticleParameters();
+        particle.Copy(FeatureDefinitionPowers.PowerSpiderQueenPoisonCloud.EffectDescription.effectParticleParameters);
+        particle.targetParticleReference = spray.targetParticleReference;
+        particle.casterParticleReference = new AssetReference();
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombPoisonBreath", Resources.AlchemyBombPoisonBreath, 128);
-        particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        particle = FeatureDefinitionPowers.PowerDragonBreath_Poison.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
-        particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        particle = spray;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
