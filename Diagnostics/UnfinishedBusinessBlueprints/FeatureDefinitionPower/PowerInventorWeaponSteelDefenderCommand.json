@@ -155,24 +155,14 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "activeEffectImpactParticleReference": null,
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -306,7 +296,7 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 0,
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
