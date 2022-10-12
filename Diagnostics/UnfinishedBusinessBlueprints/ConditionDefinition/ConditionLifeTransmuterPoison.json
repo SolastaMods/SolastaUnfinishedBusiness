@@ -19,7 +19,7 @@
   "specialDuration": false,
   "durationType": "UntilLongRest",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],

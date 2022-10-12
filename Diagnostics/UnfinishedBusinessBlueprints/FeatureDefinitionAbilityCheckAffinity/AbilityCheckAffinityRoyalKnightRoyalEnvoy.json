@@ -5,7 +5,7 @@
     {
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
-      "proficiencyName": null,
+      "proficiencyName": "",
       "affinity": "HalfProficiencyWhenNotProficient",
       "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
@@ -22,12 +22,7 @@
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
