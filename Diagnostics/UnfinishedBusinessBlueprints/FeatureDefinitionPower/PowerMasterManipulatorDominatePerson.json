@@ -302,7 +302,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Intelligence",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
