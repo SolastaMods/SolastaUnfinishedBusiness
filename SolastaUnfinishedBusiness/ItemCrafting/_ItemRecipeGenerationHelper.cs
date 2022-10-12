@@ -21,12 +21,12 @@ internal static class ItemRecipeGenerationHelper
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-                builder.AddIngredient(baseItem);
+                builder.AddIngredients(baseItem);
 
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
-                    builder.AddIngredient(ingredient);
+                    builder.AddIngredients(ingredient.ItemDefinition);
                 }
 
                 builder.SetCraftedItem(newItem, itemCollection.NumProduced);
@@ -74,12 +74,12 @@ internal static class ItemRecipeGenerationHelper
                 var recipeName = "RecipeEnchanting" + newItem.Name;
                 var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-                builder.AddIngredient(baseItem);
+                builder.AddIngredients(baseItem);
 
                 foreach (var ingredient in itemData.Recipe.Ingredients.Where(ingredient =>
                              !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition)))
                 {
-                    builder.AddIngredient(ingredient);
+                    builder.AddIngredients(ingredient.ItemDefinition);
                 }
 
                 builder.SetCraftedItem(newItem, itemCollection.NumProduced);
@@ -215,7 +215,7 @@ internal static class ItemRecipeGenerationHelper
             var recipeName = "RecipeEnchanting" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-            builder.AddIngredient(enchantedToIngredient[item]);
+            builder.AddIngredients(enchantedToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
             builder.SetGuiPresentation(item.GuiPresentation);
@@ -331,7 +331,7 @@ internal static class ItemRecipeGenerationHelper
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-            builder.AddIngredient(forgeryToIngredient[item]);
+            builder.AddIngredients(forgeryToIngredient[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
             builder.SetGuiPresentation(item.GuiPresentation);
@@ -372,7 +372,7 @@ internal static class ItemRecipeGenerationHelper
             var recipeName = "RecipeForgery" + item.Name;
             var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-            builder.AddIngredient(scrollForgeries[item]);
+            builder.AddIngredients(scrollForgeries[item]);
             builder.SetCraftedItem(item);
             builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
             builder.SetGuiPresentation(item.GuiPresentation);
@@ -409,7 +409,7 @@ internal static class ItemRecipeGenerationHelper
         var recipeName = "RecipePriming" + baseItem.Name;
         var builder = RecipeDefinitionBuilder.Create(recipeName);
 
-        builder.AddIngredient(baseItem);
+        builder.AddIngredients(baseItem);
         builder.SetCraftedItem(primed);
         builder.SetCraftingCheckData(8, 15, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
         builder.SetGuiPresentation(primed.GuiPresentation);
