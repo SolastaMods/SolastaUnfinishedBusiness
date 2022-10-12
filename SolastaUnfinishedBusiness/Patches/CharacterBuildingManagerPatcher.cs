@@ -192,6 +192,50 @@ public static class CharacterBuildingManagerPatcher
 
             return !(isLevelingUp && isClassSelectionStage);
         }
+
+        public static void Postfix(RulesetCharacterHero hero,
+            List<FeatureDefinition> grantedFeatures,
+            string tag)
+        {
+            //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
+            if (string.IsNullOrEmpty(tag)) { return; }
+
+            FeatureDefinitionGrantCustomInvocations.GrantInvocations(hero, tag, grantedFeatures);
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveActiveFeaturesFromHeroByTag")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RemoveActiveFeaturesFromHeroByTag_Patch
+    {
+        public static void Prefix(CharacterHeroBuildingData heroBuildingData,
+            RulesetCharacterHero hero,
+            string tag)
+        {
+            //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
+            if (string.IsNullOrEmpty(tag)) { return; }
+
+            if (hero.ActiveFeatures.TryGetValue(tag, out var features))
+            {
+                FeatureDefinitionGrantCustomInvocations.RemoveInvocations(hero, tag, features);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ClearPrevious_Patch
+    {
+        public static void Prefix(RulesetCharacterHero hero, string tag)
+        {
+            //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
+            if (string.IsNullOrEmpty(tag)) { return; }
+
+            if (hero.ActiveFeatures.TryGetValue(tag, out var features))
+            {
+                FeatureDefinitionGrantCustomInvocations.RemoveInvocations(hero, tag, features);
+            }
+        }
     }
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
