@@ -2,10 +2,10 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "AddAbilityScoreBonus",
-  "modifierValue": 2,
+  "modifierValue": 1,
   "modifierAbilityScore": "Charisma",
   "situationalContext": "NotWearingArmorOrMageArmor",
-  "minimum1": false,
+  "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
