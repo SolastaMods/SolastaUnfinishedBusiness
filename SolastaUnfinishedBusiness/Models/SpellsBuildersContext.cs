@@ -290,6 +290,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
+                .SetTargetProximityData(true, 1)
                 .SetTargetingData(
                     Side.Enemy,
                     RangeType.Distance,
@@ -297,14 +298,14 @@ internal static class SpellsBuildersContext
                     TargetType.IndividualsUnique,
                     2
                 )
-                .SetTargetProximityData(true, 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Charisma
-                )
+                .SetIgnoreCover()
+                // .SetSavingThrowData(
+                //     false,
+                //     AttributeDefinitions.Dexterity,
+                //     true,
+                //     EffectDifficultyClassComputation.SpellCastingFeature,
+                //     AttributeDefinitions.Charisma
+                // )
                 .SetEffectAdvancement(
                     EffectIncrementMethod.CasterLevelTable,
                     additionalDicePerIncrement: 1,
@@ -413,13 +414,14 @@ internal static class SpellsBuildersContext
                     1,
                     TargetType.IndividualsUnique
                 )
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Charisma
-                )
+                .SetIgnoreCover()
+                // .SetSavingThrowData(
+                //     false,
+                //     AttributeDefinitions.Dexterity,
+                //     true,
+                //     EffectDifficultyClassComputation.SpellCastingFeature,
+                //     AttributeDefinitions.Charisma
+                // )
                 .SetEffectAdvancement(
                     EffectIncrementMethod.CasterLevelTable,
                     additionalDicePerIncrement: 1,

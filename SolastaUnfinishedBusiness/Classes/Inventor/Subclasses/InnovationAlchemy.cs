@@ -151,12 +151,13 @@ public static class InnovationAlchemy
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
-                .SetSavingThrowData(
-                    true,
-                    savingThrowAbility,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
+                //TODO: double check we don't need this
+                // .SetSavingThrowData(
+                //     true,
+                //     savingThrowAbility,
+                //     false,
+                //     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                //     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder
