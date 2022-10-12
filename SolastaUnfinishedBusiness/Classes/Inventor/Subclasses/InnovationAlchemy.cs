@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -18,6 +19,7 @@ public static class InnovationAlchemy
 {
     private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
     private static FeatureDefinitionPower AlchemyPool { get; set; }
+    private static FeatureDefinition ElementalBombs { get; set; }
 
     public static CharacterSubclassDefinition Build()
     {
@@ -27,6 +29,7 @@ public static class InnovationAlchemy
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands())
+            .AddFeaturesAtLevel(5, ElementalBombs)
             .AddToDB();
     }
 
@@ -48,7 +51,14 @@ public static class InnovationAlchemy
             .SetSaveDc(EffectHelpers.BasedOnUser);
 
         BuildFireBombs(deviceDescription);
-        BuildColdBombs(deviceDescription);
+
+        ElementalBombs = FeatureDefinitionGrantCustomInvocationsBuilder
+            .Create("GrantInvocationsInnovationAlchemyBombsElemental")
+            .SetGuiPresentation(Category.Feature)
+            .SetInvocations(
+                BuildColdBombs(deviceDescription)
+            )
+            .AddToDB();
 
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
@@ -73,27 +83,29 @@ public static class InnovationAlchemy
         var damage = DamageTypeFire;
         var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D8;
+        var validator = new ValidatorPowerUse(character => !character.HasSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = SpellDefinitions.Fireball.GuiPresentation.SpriteReference;
         var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
-        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle);
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator);
 
         sprite = SpellDefinitions.BurningHands.GuiPresentation.SpriteReference;
         particle = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
-        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle);
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator);
 
         sprite = SpellDefinitions.ProduceFlame.GuiPresentation.SpriteReference;
         particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
     }
 
-    private static void BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    private static CustomInvocationDefinition BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeCold;
         var save = AttributeDefinitions.Constitution;
         var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
@@ -101,17 +113,38 @@ public static class InnovationAlchemy
 
         var sprite = SpellDefinitions.ProtectionFromEnergyCold.GuiPresentation.SpriteReference;
         var particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
-        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, effect);
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference;
         particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
-        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, effect);
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = SpellDefinitions.RayOfFrost.GuiPresentation.SpriteReference;
         particle = SpellDefinitions.RayOfFrost.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static (CustomInvocationDefinition, IPowerUseValidity) MakeElementToggleMarker(string damage)
+    {
+        var marker = FeatureDefinitionBuilder
+            .Create($"FeatureInnovationAlchemyMarker{damage}")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetCustomSubFeatures(ModifiedBombElement.Marker)
+            .AddToDB();
+
+        return (
+            CustomInvocationDefinitionBuilder
+                .Create($"InvocationInnovationAlchemyMarker{damage}")
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.ConeOfCold)
+                .SetPoolType(CustomInvocationPoolType.Pools.Alchemy)
+                .SetGrantedFeature(marker)
+                .AddToDB(),
+            new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(marker))
+        );
     }
 
     private static void AddBombFunctions(UsableDeviceDescriptionBuilder device, FeatureDefinitionPower precise,
@@ -138,6 +171,7 @@ public static class InnovationAlchemy
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
+        IPowerUseValidity validator,
         params EffectForm[] effects)
     {
         const string name = "PowerInnovationAlchemyBombPrecise";
@@ -147,7 +181,7 @@ public static class InnovationAlchemy
             .SetCostPerUse(1)
             .SetAttackAbilityToHit(true, true)
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
@@ -175,6 +209,7 @@ public static class InnovationAlchemy
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
+        IPowerUseValidity validator,
         params EffectForm[] effects
     )
     {
@@ -183,7 +218,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
@@ -210,6 +245,7 @@ public static class InnovationAlchemy
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
+        IPowerUseValidity validator,
         params EffectForm[] effects)
     {
         const string name = "PowerInnovationAlchemyBombSplash";
@@ -218,7 +254,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetActivationTime(ActivationTime.Action)
             .SetCostPerUse(1)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
@@ -252,11 +288,20 @@ public static class InnovationAlchemy
     }
 }
 
+internal sealed class ModifiedBombElement
+{
+    private ModifiedBombElement()
+    {
+    }
+
+    public static ModifiedBombElement Marker { get; } = new();
+}
+
 internal sealed class Overcharge : ICustomOverchargeProvider
 {
     private static readonly (int, int)[] None = { };
-    private static readonly (int, int)[] Once = { (1, 1) };
-    private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
+    private static readonly (int, int)[] Once = {(1, 1)};
+    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
 
     public (int, int)[] OverchargeSteps(RulesetCharacter character)
     {

@@ -12,3 +12,7 @@ Feature/&PowerInnovationAlchemyPoolDescription=todo: add proper description
 Feature/&PowerInnovationAlchemyPoolTitle=Alchemy Points
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=You have learned to use various devices quickly - you can use bonus action at activate any device. TODO: improve text
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=Fast Hands
+Feature/&GrantInvocationsInnovationAlchemyBombsElementalDescription=You've learned how to change damage type of a bomb into cold or lightning. TODO: update with extra elements
+Feature/&GrantInvocationsInnovationAlchemyBombsElementalTitle=Elemental bombs
+Feature/&InvocationInnovationAlchemyMarkerDamageColdDescription=Make bombs deal cold damage and hinder emenies that fail CON saving throw.
+Feature/&InvocationInnovationAlchemyMarkerDamageColdTitle=Cold Bombs
