@@ -92,9 +92,10 @@ public static class InnovationAlchemy
     private static void BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeCold;
-        var save = AttributeDefinitions.Dexterity;
+        var save = AttributeDefinitions.Constitution;
         var dieType = DieType.D6;
         var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
             .Build();
 
@@ -151,13 +152,12 @@ public static class InnovationAlchemy
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
-                //TODO: double check we don't need this
-                // .SetSavingThrowData(
-                //     true,
-                //     savingThrowAbility,
-                //     false,
-                //     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                //     AttributeDefinitions.Intelligence)
+                .SetSavingThrowData(
+                    false,
+                    savingThrowAbility,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder
@@ -189,7 +189,7 @@ public static class InnovationAlchemy
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
-                    true,
+                    false,
                     savingThrowAbility,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -224,7 +224,7 @@ public static class InnovationAlchemy
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
                 .SetSavingThrowData(
-                    true,
+                    false,
                     savingThrowAbility,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
