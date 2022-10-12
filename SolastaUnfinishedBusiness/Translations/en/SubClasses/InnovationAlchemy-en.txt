@@ -16,3 +16,5 @@ Feature/&GrantInvocationsInnovationAlchemyBombsElementalDescription=You've learn
 Feature/&GrantInvocationsInnovationAlchemyBombsElementalTitle=Elemental bombs
 Feature/&InvocationInnovationAlchemyMarkerDamageColdDescription=Make bombs deal cold damage and hinder emenies that fail CON saving throw.
 Feature/&InvocationInnovationAlchemyMarkerDamageColdTitle=Cold Bombs
+Feature/&InvocationInnovationAlchemyMarkerDamageLightningDescription=Make bombs deal lightning damage and shock emenies that fail DEX saving throw.
+Feature/&InvocationInnovationAlchemyMarkerDamageLightningTitle=Lightning Bombs

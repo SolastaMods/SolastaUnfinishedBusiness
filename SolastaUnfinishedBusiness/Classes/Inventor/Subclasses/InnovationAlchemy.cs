@@ -56,7 +56,8 @@ public static class InnovationAlchemy
             .Create("GrantInvocationsInnovationAlchemyBombsElemental")
             .SetGuiPresentation(Category.Feature)
             .SetInvocations(
-                BuildColdBombs(deviceDescription)
+                BuildColdBombs(deviceDescription),
+                BuildLightning(deviceDescription)
             )
             .AddToDB();
 
@@ -105,7 +106,8 @@ public static class InnovationAlchemy
         var damage = DamageTypeCold;
         var save = AttributeDefinitions.Constitution;
         var dieType = DieType.D6;
-        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var (toggle, validator) =
+            MakeElementToggleMarker(damage, SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
@@ -128,7 +130,44 @@ public static class InnovationAlchemy
         return toggle;
     }
 
-    private static (CustomInvocationDefinition, IPowerUseValidity) MakeElementToggleMarker(string damage)
+
+    private static CustomInvocationDefinition BuildLightning(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var damage = DamageTypeLightning;
+        var save = AttributeDefinitions.Dexterity;
+        var dieType = DieType.D6;
+        var (toggle, validator) =
+            MakeElementToggleMarker(damage, SpellDefinitions.ChainLightning.GuiPresentation.SpriteReference);
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create($"ConditionInnovationAlchemy{damage}")
+                .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionShocked)
+                .SetGuiPresentation(ConditionDefinitions.ConditionShocked.GuiPresentation)
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var sprite = SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference;
+        var particle = SpellDefinitions.ShockingGrasp.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.LightningBolt.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = SpellDefinitions.CallLightning.GuiPresentation.SpriteReference;
+        particle = SpellDefinitions.CallLightning.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static (CustomInvocationDefinition, IPowerUseValidity) MakeElementToggleMarker(string damage,
+        AssetReferenceSprite sprite)
     {
         var marker = FeatureDefinitionBuilder
             .Create($"FeatureInnovationAlchemyMarker{damage}")
@@ -139,7 +178,7 @@ public static class InnovationAlchemy
         return (
             CustomInvocationDefinitionBuilder
                 .Create($"InvocationInnovationAlchemyMarker{damage}")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.ConeOfCold)
+                .SetGuiPresentation(Category.Feature, sprite)
                 .SetCustomSubFeatures(InvocationDisabledByDefault.Marker)
                 .SetPoolType(CustomInvocationPoolType.Pools.Alchemy)
                 .SetGrantedFeature(marker)
