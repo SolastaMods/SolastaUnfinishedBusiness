@@ -223,8 +223,8 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     {
     }
 
-    protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original,
-        name, namespaceGuid)
+    protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

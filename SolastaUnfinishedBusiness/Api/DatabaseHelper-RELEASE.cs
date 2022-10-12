@@ -264,7 +264,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityIslandHalflingAcrobatics { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityIslandHalflingAcrobatics");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenHearing { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenHearing");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSight { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSight");
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityChampionRemarkableAthlete { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityChampionRemarkableAthlete");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityStealthDisadvantage { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityStealthDisadvantage");
     }
     internal static class FeatureDefinitionActionAffinitys

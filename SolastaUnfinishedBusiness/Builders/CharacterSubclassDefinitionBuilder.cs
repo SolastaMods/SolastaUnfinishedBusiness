@@ -20,8 +20,8 @@ internal class CharacterSubclassDefinitionBuilder
     {
     }
 
-    protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name,
-        Guid namespaceGuid) : base(original, name, namespaceGuid)
+    protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

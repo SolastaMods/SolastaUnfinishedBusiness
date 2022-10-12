@@ -25,9 +25,8 @@ internal class WeaponTypeDefinitionBuilder
     {
     }
 
-    protected WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, Guid namespaceGuid) : base(
-        original,
-        name, namespaceGuid)
+    protected WeaponTypeDefinitionBuilder(WeaponTypeDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

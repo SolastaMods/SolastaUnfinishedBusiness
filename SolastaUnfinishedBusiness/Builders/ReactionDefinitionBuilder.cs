@@ -10,8 +10,8 @@ internal class ReactionDefinitionBuilder : DefinitionBuilder<ReactionDefinition,
     {
     }
 
-    protected ReactionDefinitionBuilder(ReactionDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
+    protected ReactionDefinitionBuilder(ReactionDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 }

@@ -259,8 +259,8 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
     {
     }
 
-    protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
+    protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 
