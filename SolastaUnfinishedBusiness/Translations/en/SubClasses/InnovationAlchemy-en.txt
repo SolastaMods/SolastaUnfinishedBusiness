@@ -22,4 +22,6 @@ Feature/&PowerInnovationAlchemyMarkerDamageFireDescription=Make bombs deal fire 
 Feature/&PowerInnovationAlchemyMarkerDamageFireTitle=Fire Bombs
 Feature/&PowerInnovationAlchemyMarkerDamagePoisonDescription=Make bombs deal poison damage and poison enemies that fail CON saving throw.
 Feature/&PowerInnovationAlchemyMarkerDamagePoisonTitle=Poison Bombs
+Feature/&PowerInnovationAlchemyMarkerDamageAcidDescription=Make bombs deal acid damage and enemies that fail DEX saving throw get their AC lowered by 1.
+Feature/&PowerInnovationAlchemyMarkerDamageAcidTitle=Acid Bombs
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=Target gets disadvantage on next attack roll.

@@ -28,12 +28,29 @@ internal static class SpellsBuildersContext
     // CANTRIPS
     //
 
+    private static ConditionDefinition _acidClawCOndition;
+    internal static ConditionDefinition AcidClawCondition => _acidClawCOndition ??= BuildAcidClawCondition();
+
+    private static ConditionDefinition BuildAcidClawCondition()
+    {
+        return ConditionDefinitionBuilder
+            .Create("ConditionAcidClaws")
+            .SetGuiPresentation(Category.Condition, ConditionAcidSpit.GuiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(true)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierAcidClawsACDebuff")
+                .SetGuiPresentation(Category.Feature)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass, -1)
+                .AddToDB())
+            .AddToDB();
+    }
+
     internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
-        const string CONDITION = "ConditionAcidClaws";
-        const string MODIFIER = "AttributeModifierAcidClawsACDebuff";
-
         var spriteReference =
             CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
 
@@ -52,19 +69,7 @@ internal static class SpellsBuildersContext
                         .Build(),
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create(CONDITION)
-                            .SetGuiPresentation(Category.Condition,
-                                ConditionAcidSpit.GuiPresentation.SpriteReference)
-                            .SetDuration(DurationType.Round, 1)
-                            .SetSpecialDuration(true)
-                            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                                .Create(MODIFIER)
-                                .SetGuiPresentation(Category.Feature)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, -1)
-                                .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .Build())
                 .Build())
@@ -1305,19 +1310,16 @@ internal static class SpellsBuildersContext
                         specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                         shapeOptions = new List<ShapeOptionDescription>
                         {
-                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
-                            new()
-                            {
-                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                            },
-                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
+                            new() {requiredLevel = 1, substituteMonster = GoldDragon_AerElai},
+                            new() {requiredLevel = 1, substituteMonster = Divine_Avatar},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss},
+                            new() {requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration},
+                            new() {requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy},
+                            new() {requiredLevel = 1, substituteMonster = Remorhaz},
+                            new() {requiredLevel = 1, substituteMonster = Emperor_Laethar},
+                            new() {requiredLevel = 1, substituteMonster = Giant_Ape},
+                            new() {requiredLevel = 1, substituteMonster = Spider_Queen},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath}
                         }
                     }
                 });

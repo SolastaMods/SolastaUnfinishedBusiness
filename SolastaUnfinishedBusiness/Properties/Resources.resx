@@ -368,6 +368,15 @@
   <data name="AlchemyBombLightningSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\AlchemyBombLightningSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AlchemyBombAcidBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombAcidBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombAcidPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombAcidPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlchemyBombAcidSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\AlchemyBombAcidSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AlchemyBombPoisonBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\AlchemyBombPoisonBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

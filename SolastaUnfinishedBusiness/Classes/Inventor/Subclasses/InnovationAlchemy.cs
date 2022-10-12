@@ -69,6 +69,7 @@ public static class InnovationAlchemy
             MakeBombFireDamageToggle(),
             BuildColdBombs(deviceDescription),
             BuildLightningBombs(deviceDescription),
+            BuildAcidBombs(deviceDescription),
             BuildPoisonBombs(deviceDescription)
         );
 
@@ -210,6 +211,36 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
         particle = spray;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static FeatureDefinitionPower BuildAcidBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var damage = DamageTypeAcid;
+        var save = AttributeDefinitions.Constitution;
+        var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(SpellsBuildersContext.AcidClawCondition, ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var splash = SpellDefinitions.AcidSplash.EffectDescription.effectParticleParameters;
+
+        var sprite = GetSprite("AlchemyBombAcidSplash", Resources.AlchemyBombAcidSplash, 128);
+        var particle = splash;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombAcidBreath", Resources.AlchemyBombAcidBreath, 128);
+        particle = FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombAcidPrecise", Resources.AlchemyBombAcidPrecise, 128);
+        particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
