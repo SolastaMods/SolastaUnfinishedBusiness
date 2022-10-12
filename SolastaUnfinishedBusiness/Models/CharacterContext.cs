@@ -85,12 +85,11 @@ internal static class CharacterContext
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
             .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
-            .Configure(
-                RuleDefinitions.UsesDetermination.Fixed,
+            .SetUsesFixed(
                 RuleDefinitions.ActivationTime.Action,
                 RuleDefinitions.RechargeRate.AtWill,
-                effectDescription,
-                true)
+                effectDescription)
+            .SetUniqueInstance()
             .AddToDB();
     }
 

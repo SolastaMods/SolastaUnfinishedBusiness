@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -9,43 +8,17 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
     FeatureDefinitionPowerPoolBuilder>
 {
-    internal override void Validate()
-    {
-        base.Validate();
-
-        Preconditions.AreEqual(Definition.CostPerUse, 1,
-            $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
-    }
-
-    internal FeatureDefinitionPowerPoolBuilder Configure(
-        int usesPerRecharge,
-        RuleDefinitions.UsesDetermination usesDetermination,
-        string usesAbilityScoreName,
-        RuleDefinitions.RechargeRate recharge)
-    {
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
-        Definition.usesDetermination = usesDetermination;
-        Definition.usesAbilityScoreName = usesAbilityScoreName;
-        Definition.rechargeRate = recharge;
-        Definition.overriddenPower = Definition;
-        return this;
-    }
-
-    internal FeatureDefinitionPowerPoolBuilder SetUsesProficiency()
-    {
-        Definition.proficiencyBonusToAttack = true;
-        return this;
-    }
-
     #region Constructors
 
     protected FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
+        Definition.overriddenPower = Definition;
     }
 
     protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
         base(original, name, namespaceGuid)
     {
+        Definition.overriddenPower = Definition;
     }
 
     #endregion

@@ -135,9 +135,8 @@ internal static class Infusions
         var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -182,8 +181,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -292,8 +290,7 @@ internal static class Infusions
 
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
             .SetGuiPresentation(guiName, Category.Feature, icon)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
@@ -328,11 +325,13 @@ internal static class Infusions
     {
         var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
             .SetGuiPresentation(Category.Feature, item)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
-                InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always,
+                InventorClass.InfusionLimiter,
+                ValidatorPowerUse.NotInCombat)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)

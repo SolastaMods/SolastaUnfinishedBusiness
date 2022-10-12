@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -12,17 +11,29 @@ internal static class HealingFeats
 {
     internal static void CreateFeats(List<FeatDefinition> feats)
     {
-        var inspiringEffect = BuildEffectDescriptionTempHpForm(RuleDefinitions.RangeType.Distance, 10,
-            RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0,
+        var inspiringEffect = BuildEffectDescriptionTempHpForm(
+            RuleDefinitions.RangeType.Distance,
+            10,
+            RuleDefinitions.TargetType.Individuals,
+            6,
+            RuleDefinitions.DurationType.Permanent,
+            0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
-            EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, 0,
-            RuleDefinitions.DieType.D1, 0, 1);
+            EffectForm.LevelApplianceType.AddBonus,
+            RuleDefinitions.LevelSourceType.CharacterLevel,
+            0,
+            RuleDefinitions.DieType.D1,
+            0,
+            1);
 
-        var powerFeatInspiringLeader = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-            AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1,
-            RuleDefinitions.RechargeRate.ShortRest,
-            false, false, AttributeDefinitions.Charisma, inspiringEffect,
-            "PowerFeatInspiringLeader", PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
+        var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatInspiringLeader")
+            .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                RuleDefinitions.ActivationTime.Minute10,
+                RuleDefinitions.RechargeRate.ShortRest,
+                inspiringEffect)
+            .AddToDB();
 
         var medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
@@ -30,31 +41,44 @@ internal static class HealingFeats
             EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, 4,
             RuleDefinitions.DieType.D6, 1, 1);
 
-        var powerFeatHealerMedKit = BuildPowerFromEffectDescription(0,
-            RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
-            AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
-            RuleDefinitions.RechargeRate.ShortRest,
-            false, false, AttributeDefinitions.Wisdom, medKitEffect,
-            "PowerFeatHealerMedKit", PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
+        var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerMedKit")
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
+            .SetUsesAbilityBonus(
+                RuleDefinitions.ActivationTime.Action,
+                RuleDefinitions.RechargeRate.ShortRest,
+                AttributeDefinitions.Wisdom,
+                medKitEffect)
+            .AddToDB();
 
-        var resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
-            RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0,
+        var resuscitateEffect = BuildEffectDescriptionReviveForm(
+            RuleDefinitions.RangeType.Touch,
+            1,
+            RuleDefinitions.TargetType.Individuals,
+            1,
+            RuleDefinitions.DurationType.Permanent,
+            0,
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
-            12 /* seconds since death */);
+            12);
 
-        var powerFeatHealerResuscitate = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
-            AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
-            RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Wisdom, resuscitateEffect,
-            "PowerFeatHealerResuscitate", PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerResuscitate")
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                RuleDefinitions.ActivationTime.Action,
+                RuleDefinitions.RechargeRate.LongRest,
+                resuscitateEffect)
+            .AddToDB();
 
-        var powerFeatHealerStabilize = BuildPowerFromEffectDescription(0,
-            RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
-            AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1,
-            RuleDefinitions.RechargeRate.ShortRest,
-            false, false, AttributeDefinitions.Wisdom,
-            DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription,
-            "PowerFeatHealerStabilize", PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+        var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerStabilize")
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetUsesAbilityBonus(
+                RuleDefinitions.ActivationTime.Action,
+                RuleDefinitions.RechargeRate.ShortRest,
+                AttributeDefinitions.Wisdom,
+                DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription)
+            .AddToDB();
 
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
@@ -76,37 +100,6 @@ internal static class HealingFeats
                 .SetFeatures(powerFeatHealerMedKit,
                     powerFeatHealerResuscitate, powerFeatHealerStabilize, proficiencyFeatHealerMedicine)
                 .AddToDB());
-    }
-
-    private static FeatureDefinitionPower BuildPowerFromEffectDescription(
-        int usesPerRecharge,
-        RuleDefinitions.UsesDetermination usesDetermination,
-        string usesAbilityScoreName,
-        RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
-        RuleDefinitions.RechargeRate recharge,
-        bool proficiencyBonusToAttack,
-        bool abilityScoreBonusToAttack, string abilityScore,
-        EffectDescription effectDescription,
-        string name,
-        AssetReferenceSprite assetReferenceSprite)
-    {
-        return FeatureDefinitionPowerBuilder
-            .Create(name)
-            .SetGuiPresentation(name, Category.Feature, assetReferenceSprite)
-            .Configure(
-                usesDetermination,
-                activationTime,
-                recharge,
-                effectDescription,
-                false,
-                costPerUse,
-                usesPerRecharge,
-                usesAbilityScoreName,
-                proficiencyBonusToAttack,
-                abilityScoreBonusToAttack,
-                abilityScore)
-            .AddToDB();
     }
 
     private static EffectDescription BuildEffectDescriptionTempHpForm(

@@ -133,10 +133,12 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature, IdentifyCreatures.GuiPresentation.SpriteReference)
-            .SetFixedUsesPerRecharge(2)
-            .SetCostPerUse(1)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.BonusAction)
+            .SetUsesFixed(
+                ActivationTime.BonusAction,
+                RechargeRate.ShortRest,
+                null,
+                1,
+                2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
                 .SetDurationData(DurationType.Instantaneous)
@@ -346,12 +348,9 @@ internal sealed class MartialMarshal : AbstractSubclass
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature, Bane.GuiPresentation.SpriteReference)
-            .SetCostPerUse(1)
-            .SetUsesFixed(1)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetEffectDescription(
+            .SetUsesFixed(
+                ActivationTime.BonusAction,
+                RechargeRate.ShortRest,
                 EffectDescriptionBuilder
                     .Create(ConjureAnimalsOneBeast.EffectDescription)
                     .SetDurationData(DurationType.Round, 10)
@@ -452,8 +451,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.PermanentUnlessIncapacitated,
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder

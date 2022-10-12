@@ -28,17 +28,13 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
-            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.AbilityBonusPlusFixed,
+            .Create("PowerRoyalKnightRallyingCry")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord)
+            .SetUsesAbilityBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.ShortRest,
-                PowerDomainLifePreserveLife.EffectDescription,
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma)
+                AttributeDefinitions.Charisma,
+                PowerDomainLifePreserveLife.EffectDescription)
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
@@ -51,8 +47,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)

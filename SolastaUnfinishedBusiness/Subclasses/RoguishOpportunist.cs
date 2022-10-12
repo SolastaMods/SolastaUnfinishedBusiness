@@ -62,12 +62,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
         var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerOpportunistDebilitatingStrike")
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(
                 ActivationTime.OnSneakAttackHitAuto,
                 RechargeRate.AtWill,
                 debilitatingStrikeEffect)
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

@@ -16,12 +16,12 @@ internal sealed class MartialTactician : AbstractSubclass
         var powerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolTacticianGambit")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.Permanent)
-            .Configure(
-                4,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
-                RechargeRate.ShortRest)
+            .SetUsesFixed(
+                ActivationTime.Permanent,
+                RechargeRate.ShortRest,
+                null,
+                1,
+                4)
             .AddToDB();
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
@@ -119,7 +119,9 @@ internal sealed class MartialTactician : AbstractSubclass
         var powerPoolTacticianGambitAdd = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolTacticianGambitAdd")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.Permanent)
+            .SetUsesFixed(
+                ActivationTime.Permanent,
+                RechargeRate.AtWill)
             .Configure(
                 1,
                 UsesDetermination.Fixed,
