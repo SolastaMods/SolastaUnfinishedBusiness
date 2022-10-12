@@ -182,6 +182,36 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] AlchemyBombPoisonBreath {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombPoisonBreath", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombPoisonPrecise {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombPoisonPrecise", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombPoisonSplash {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombPoisonSplash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] AlchemyFlask {
             get {
                 object obj = ResourceManager.GetObject("AlchemyFlask", resourceCulture);

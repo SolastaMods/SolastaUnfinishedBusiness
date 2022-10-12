@@ -68,7 +68,8 @@ public static class InnovationAlchemy
         PowersBundleContext.RegisterPowerBundle(ElementalBombs, true,
             MakeBombFireDamageToggle(),
             BuildColdBombs(deviceDescription),
-            BuildLightningBombs(deviceDescription)
+            BuildLightningBombs(deviceDescription),
+            BuildPoisonBombs(deviceDescription)
         );
 
         var bombItem = ItemDefinitionBuilder
@@ -140,7 +141,6 @@ public static class InnovationAlchemy
         return toggle;
     }
 
-
     private static FeatureDefinitionPower BuildLightningBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeLightning;
@@ -168,6 +168,43 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
         particle = SpellDefinitions.CallLightning.EffectDescription.effectParticleParameters;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static FeatureDefinitionPower BuildPoisonBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var damage = DamageTypePoison;
+        var save = AttributeDefinitions.Constitution;
+        var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var poisoned = ConditionDefinitions.ConditionPoisoned.GuiPresentation;
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create($"ConditionInnovationAlchemy{damage}")
+                .SetGuiPresentation(poisoned.Title, "Condition/&ConditionInnovationAlchemyDamagePoisonDescription",
+                    poisoned.SpriteReference)
+                .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned)
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var sprite = GetSprite("AlchemyBombPoisonSplash", Resources.AlchemyBombPoisonSplash, 128);
+        var particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombPoisonBreath", Resources.AlchemyBombPoisonBreath, 128);
+        particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
+        particle = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);

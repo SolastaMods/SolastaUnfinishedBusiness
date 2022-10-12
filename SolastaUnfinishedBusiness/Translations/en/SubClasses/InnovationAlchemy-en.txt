@@ -20,3 +20,6 @@ Feature/&PowerInnovationAlchemyMarkerDamageLightningDescription=Make bombs deal 
 Feature/&PowerInnovationAlchemyMarkerDamageLightningTitle=Lightning Bombs
 Feature/&PowerInnovationAlchemyMarkerDamageFireDescription=Make bombs deal fire damage - they deal a bit more damage than other bombs.
 Feature/&PowerInnovationAlchemyMarkerDamageFireTitle=Fire Bombs
+Feature/&PowerInnovationAlchemyMarkerDamagePoisonDescription=Make bombs deal poison damage and poison enemies that fail CON saving throw.
+Feature/&PowerInnovationAlchemyMarkerDamagePoisonTitle=Poison Bombs
+Condition/&ConditionInnovationAlchemyDamagePoisonDescription=Target gets disadvantage on next attack roll.
