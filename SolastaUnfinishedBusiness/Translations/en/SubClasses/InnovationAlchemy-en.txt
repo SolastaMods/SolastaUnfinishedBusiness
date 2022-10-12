@@ -25,3 +25,7 @@ Feature/&PowerInnovationAlchemyMarkerDamagePoisonTitle=Poison Bombs
 Feature/&PowerInnovationAlchemyMarkerDamageAcidDescription=Make bombs deal acid damage and enemies that fail DEX saving throw get their AC lowered by 1.
 Feature/&PowerInnovationAlchemyMarkerDamageAcidTitle=Acid Bombs
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=Target gets disadvantage on next attack roll.
+Feature/&AutoPreparedSpellsInnovationAlchemyDescription=Learn and have always prepared:\n{0}
+Feature/&AutoPreparedSpellsInnovationAlchemyTitle=Grenadier Spells
+Screen/&InventorGrenadierSpellDescription=This Grenadier spell is always considered prepared. \nIt does not count towards your spell preparation limit.
+Screen/&InventorGrenadierSpellTitle=Grenadier

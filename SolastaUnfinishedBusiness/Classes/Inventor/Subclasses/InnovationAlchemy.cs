@@ -11,6 +11,7 @@ using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Utils.CustomIcons;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
@@ -28,8 +29,23 @@ public static class InnovationAlchemy
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
-            .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands())
+            .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildAutoPreparedSpells()
+    {
+        return FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsInnovationAlchemy")
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellcastingClass(InventorClass.Class)
+            .SetAutoTag("InventorGrenadier")
+            .AddPreparedSpellGroup(3, MagicMissile, Thunderwave)
+            .AddPreparedSpellGroup(5, Shatter, Blindness)
+            .AddPreparedSpellGroup(9, Fireball, StinkingCloud)
+            .AddPreparedSpellGroup(13, Confusion, FireShield)
+            .AddPreparedSpellGroup(17, CloudKill, ConeOfCold)
             .AddToDB();
     }
 
@@ -100,15 +116,15 @@ public static class InnovationAlchemy
             new ValidatorPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
-        var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator);
 
         sprite = GetSprite("AlchemyBombFireBreath", Resources.AlchemyBombFireBreath, 128);
-        particle = SpellDefinitions.BurningHands.EffectDescription.effectParticleParameters;
+        particle = BurningHands.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator);
 
         sprite = GetSprite("AlchemyBombFirePrecise", Resources.AlchemyBombFirePrecise, 128);
-        particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
+        particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
@@ -126,15 +142,15 @@ public static class InnovationAlchemy
             .Build();
 
         var sprite = GetSprite("AlchemyBombColdSplash", Resources.AlchemyBombColdSplash, 128);
-        var particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        var particle = ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombColdBreath", Resources.AlchemyBombColdBreath, 128);
-        particle = SpellDefinitions.ConeOfCold.EffectDescription.effectParticleParameters;
+        particle = ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombColdPrecise", Resources.AlchemyBombColdPrecise, 128);
-        particle = SpellDefinitions.RayOfFrost.EffectDescription.effectParticleParameters;
+        particle = RayOfFrost.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
@@ -160,15 +176,15 @@ public static class InnovationAlchemy
             .Build();
 
         var sprite = GetSprite("AlchemyBombLightningSplash", Resources.AlchemyBombLightningSplash, 128);
-        var particle = SpellDefinitions.ShockingGrasp.EffectDescription.effectParticleParameters;
+        var particle = ShockingGrasp.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombLightningBreath", Resources.AlchemyBombLightningBreath, 128);
-        particle = SpellDefinitions.LightningBolt.EffectDescription.effectParticleParameters;
+        particle = LightningBolt.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
-        particle = SpellDefinitions.CallLightning.EffectDescription.effectParticleParameters;
+        particle = CallLightning.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
@@ -196,7 +212,7 @@ public static class InnovationAlchemy
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var spray = SpellDefinitions.PoisonSpray.EffectDescription.effectParticleParameters;
+        var spray = PoisonSpray.EffectDescription.effectParticleParameters;
 
         var sprite = GetSprite("AlchemyBombPoisonSplash", Resources.AlchemyBombPoisonSplash, 128);
         var particle = new EffectParticleParameters();
@@ -229,7 +245,7 @@ public static class InnovationAlchemy
             .SetConditionForm(SpellsBuildersContext.AcidClawCondition, ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var splash = SpellDefinitions.AcidSplash.EffectDescription.effectParticleParameters;
+        var splash = AcidSplash.EffectDescription.effectParticleParameters;
 
         var sprite = GetSprite("AlchemyBombAcidSplash", Resources.AlchemyBombAcidSplash, 128);
         var particle = splash;
