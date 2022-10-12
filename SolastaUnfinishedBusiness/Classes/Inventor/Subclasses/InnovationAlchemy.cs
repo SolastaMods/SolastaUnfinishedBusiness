@@ -140,6 +140,7 @@ public static class InnovationAlchemy
             CustomInvocationDefinitionBuilder
                 .Create($"InvocationInnovationAlchemyMarker{damage}")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.ConeOfCold)
+                .SetCustomSubFeatures(InvocationDisabledByDefault.Marker)
                 .SetPoolType(CustomInvocationPoolType.Pools.Alchemy)
                 .SetGrantedFeature(marker)
                 .AddToDB(),
