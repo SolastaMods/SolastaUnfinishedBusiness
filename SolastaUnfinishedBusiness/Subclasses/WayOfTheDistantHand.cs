@@ -128,7 +128,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 )
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetConditionForm(
@@ -349,7 +348,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
