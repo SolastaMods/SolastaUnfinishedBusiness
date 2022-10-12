@@ -68,7 +68,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 ActivationTime.Action,
                 RechargeRate.LongRest,
                 DominateBeast.EffectDescription)
-            .SetAbilityScoreDetermination(AbilityScoreDetermination.Explicit)
             .AddToDB();
 
         var commandUndeadEffect = powerDeadMasterCommandUndead.EffectDescription;

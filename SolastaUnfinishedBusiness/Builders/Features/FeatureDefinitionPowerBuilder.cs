@@ -32,6 +32,34 @@ internal abstract class
         Definition.effectDescription ??= new EffectDescription();
     }
 
+    internal TBuilder SetUsesFixed(
+        RuleDefinitions.ActivationTime activationTime,
+        RuleDefinitions.RechargeRate recharge,
+        EffectDescription effectDescription = null,
+        int costPerUse = 1,
+        int usesPerRecharge = 1
+)
+    {
+        return (TBuilder)this;
+    }
+    
+    internal TBuilder SetUsesAbilityScore(
+        RuleDefinitions.ActivationTime activationTime,
+        RuleDefinitions.RechargeRate recharge,
+        string usesAbilityScoreName,
+        EffectDescription effectDescription = null)
+    {
+        return (TBuilder)this;
+    }
+    
+    internal TBuilder SetUsesProficiencyBonus(
+        RuleDefinitions.ActivationTime activationTime,
+        RuleDefinitions.RechargeRate recharge,
+        EffectDescription effectDescription = null)
+    {
+        return (TBuilder)this;
+    }
+    
     internal TBuilder Configure(
         RuleDefinitions.UsesDetermination usesDetermination,
         RuleDefinitions.ActivationTime activationTime,
@@ -149,21 +177,6 @@ internal abstract class
         Definition.uniqueInstance = unique;
         return (TBuilder)this;
     }
-
-    internal TBuilder SetAbilityScoreDetermination(
-        RuleDefinitions.AbilityScoreDetermination abilityScoreNameDetermination)
-    {
-        Definition.abilityScoreDetermination = abilityScoreNameDetermination;
-        return (TBuilder)this;
-    }
-
-#if false
-    internal TBuilder SetUsesAbilityScoreName(string abilityScoreName)
-    {
-        Definition.usesAbilityScoreName = abilityScoreName;
-        return (TBuilder)this;
-    }
-#endif
 
     internal TBuilder SetUsesAbility(int fixedUses, string attribute)
     {

@@ -18,8 +18,7 @@ internal sealed class Merciless : AbstractFightingStyle
         var powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
             .Create("PowerFightingStyleMerciless")
             .SetGuiPresentation("Fear", Category.Spell)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.NoCost,
                 RechargeRate.AtWill,
                 DatabaseHelper.SpellDefinitions.Fear.EffectDescription)

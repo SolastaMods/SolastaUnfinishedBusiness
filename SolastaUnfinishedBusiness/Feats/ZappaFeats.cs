@@ -199,8 +199,7 @@ internal static class ZappaFeats
             .Create("PowerArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
                 effectArcanePrecision)
@@ -276,8 +275,7 @@ internal static class ZappaFeats
             .Create("PowerCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
                 effectCharismaticPrecision)
@@ -641,8 +639,7 @@ internal static class ZappaFeats
             .Create("PowerWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat,
                 PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
                 effectWisePrecision)

@@ -221,8 +221,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
-                    .Configure(
-                        UsesDetermination.Fixed,
+                    .SetUsesFixed(
                         ActivationTime.OnRageStartAutomatic,
                         RechargeRate.AtWill,
                         EffectDescriptionBuilder.Create()

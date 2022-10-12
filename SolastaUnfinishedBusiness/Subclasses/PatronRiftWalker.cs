@@ -34,23 +34,21 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
-                MistyStep.EffectDescription,
-                true)
+                MistyStep.EffectDescription)
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
-                Banishment.EffectDescription,
-                true)
+                Banishment.EffectDescription)
+            .SetUniqueInstance()
             .AddToDB();
 
         powerRiftWalkerBlink.EffectDescription.DurationType = DurationType.Round;
@@ -66,11 +64,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.Reaction,
                 RechargeRate.LongRest,
-                Banishment.EffectDescription,
-                true)
+                Banishment.EffectDescription)
+            .SetUniqueInstance()
             .AddToDB();
 
         powerRiftWalkerRiftStrike.EffectDescription.DurationType = DurationType.Round;
@@ -82,12 +80,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftControl")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
+            .SetUsesProficiencyBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
-                DimensionDoor.EffectDescription,
-                true)
+                DimensionDoor.EffectDescription)
+            .SetUniqueInstance()
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder

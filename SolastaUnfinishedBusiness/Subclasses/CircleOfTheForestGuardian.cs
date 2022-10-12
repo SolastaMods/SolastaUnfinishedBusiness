@@ -56,8 +56,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var powerForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerForestGuardianImprovedBarkWard")
             .SetGuiPresentationNoContent()
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.NoCost,
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
@@ -68,15 +67,14 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
                             .CreatedByCondition()
                             .Build())
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerForestGuardianSuperiorBarkWard")
             .SetGuiPresentationNoContent()
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.NoCost,
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
@@ -87,8 +85,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .SetDamageForm(DamageTypePiercing, 3, DieType.D8)
                             .CreatedByCondition()
                             .Build())
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder

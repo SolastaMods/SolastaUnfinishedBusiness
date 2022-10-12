@@ -452,8 +452,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.PermanentUnlessIncapacitated,
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder

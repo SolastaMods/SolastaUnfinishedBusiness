@@ -87,11 +87,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.Rest,
-                RechargeRate.LongRest,
-                new EffectDescription())
+                RechargeRate.LongRest)
             .SetUsesProficiency()
             .AddToDB();
 
@@ -134,12 +132,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestEntangleAtWill = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.AtWill,
-                Entangle.EffectDescription,
-                true)
+                Entangle.EffectDescription)
+            .SetUniqueInstance()
             .AddToDB();
 
         var conditionAncientForestRooted = ConditionDefinitionBuilder
@@ -155,8 +152,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestRooted = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.LongRest,
                 EffectDescriptionBuilder
@@ -176,8 +172,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
@@ -347,8 +343,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation)
                 .SetTitle("Equipment/&FunctionPotionDrinkTitle")
                 .Build())
-            .Configure(
-                UsesDetermination.Fixed,
+            .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.AtWill,
                 EffectDescriptionBuilder
@@ -368,8 +363,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var foodDescription = new FoodDescription { nutritiveCapacity = 0, perishable = true };
