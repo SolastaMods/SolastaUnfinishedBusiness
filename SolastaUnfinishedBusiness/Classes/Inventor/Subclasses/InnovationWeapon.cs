@@ -88,7 +88,7 @@ public static class InnovationWeapon
         return FeatureDefinitionPowerBuilder
             .Create(SummonSteeldefenderPower)
             .SetGuiPresentation(Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
+                CustomIcons.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(1)
             .SetRechargeRate(RechargeRate.LongRest)
             .SetUniqueInstance()
@@ -207,7 +207,7 @@ public static class InnovationWeapon
         var monster = MonsterDefinitionBuilder
             .Create("MonsterInnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
-                CustomIcons.CreateAssetReferenceSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160,
+                CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160,
                     240))
             .HideFromDungeonEditor()
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
@@ -232,7 +232,7 @@ public static class InnovationWeapon
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
-                        CustomIcons.CreateAssetReferenceSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
+                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
                             256, 128))
                     .SetUsesFixed(3)
                     .SetRechargeRate(RechargeRate.LongRest)
@@ -329,7 +329,7 @@ public static class InnovationWeapon
         return FeatureDefinitionPowerBuilder
             .Create("PowerInnovationWeaponArcaneJolt")
             .SetGuiPresentation(Category.Feature,
-                CustomIcons.CreateAssetReferenceSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
+                CustomIcons.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
             .SetCustomSubFeatures(CountPowerUseInSpecialFeatures.Marker, ValidatorPowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)
             .SetUsesAbility(0, AttributeDefinitions.Intelligence)

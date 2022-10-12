@@ -141,7 +141,7 @@ internal static class EwFeats
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
-            "Tooltip/&PowerAttackConcentration", CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
+            "Tooltip/&PowerAttackConcentration", CustomIcons.GetSprite("PowerAttackConcentrationIcon",
                 Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionPowerAttackTrigger = ConditionDefinitionBuilder
@@ -174,7 +174,7 @@ internal static class EwFeats
         var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
+                CustomIcons.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetActivationTime(ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)

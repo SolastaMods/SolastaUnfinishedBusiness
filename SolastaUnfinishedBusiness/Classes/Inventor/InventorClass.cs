@@ -25,7 +25,7 @@ internal static class InventorClass
     public const string ClassName = "Inventor";
 
     private static readonly AssetReferenceSprite Sprite =
-        CustomIcons.CreateAssetReferenceSprite("Inventor", Resources.Inventor, 1024, 576);
+        CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
         Wizard.ClassPictogramReference;
@@ -690,7 +690,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildFlashOfGenius()
     {
         var text = "PowerInventorFlashOfGenius";
-        var sprite = CustomIcons.CreateAssetReferenceSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
+        var sprite = CustomIcons.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder

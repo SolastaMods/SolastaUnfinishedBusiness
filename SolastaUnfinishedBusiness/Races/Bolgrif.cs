@@ -19,7 +19,7 @@ internal static class RaceBolgrifBuilder
     private static CharacterRaceDefinition BuildBolgrif()
     {
         var bolgrifSpriteReference =
-            CustomIcons.CreateAssetReferenceSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
+            CustomIcons.GetSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
         var attributeModifierBolgrifWisdomAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease")

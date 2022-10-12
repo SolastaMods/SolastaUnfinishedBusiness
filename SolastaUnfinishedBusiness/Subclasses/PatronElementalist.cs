@@ -91,13 +91,13 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetExtendedSpellList(spellListElementalist)
             .AddToDB();
 
-        var iconRegular = CustomIcons.CreateAssetReferenceSprite(
+        var iconRegular = CustomIcons.GetSprite(
             "ElementalFormIcon", Resources.ElementalFormIcon, 24, 24);
-        var iconEnhanced = CustomIcons.CreateAssetReferenceSprite(
+        var iconEnhanced = CustomIcons.GetSprite(
             "ElementalFormIconEnhanced", Resources.ElementalFormIconEnhanced, 24, 24);
-        var formRegular = CustomIcons.CreateAssetReferenceSprite(
+        var formRegular = CustomIcons.GetSprite(
             "ElementalForm", Resources.ElementalForm, 128, 64);
-        var formEnhanced = CustomIcons.CreateAssetReferenceSprite(
+        var formEnhanced = CustomIcons.GetSprite(
             "ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
 
         var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder

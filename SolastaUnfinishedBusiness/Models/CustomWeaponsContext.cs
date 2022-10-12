@@ -771,23 +771,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite HalberdIcon =>
-        _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
+        _halberdIcon ??= CustomIcons.GetSprite("Halberd", Resources.Halberd, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
+        CustomIcons.GetSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
+        CustomIcons.GetSprite("Halberd_1", Resources.Halberd_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
+        CustomIcons.GetSprite("Halberd_2", Resources.Halberd_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
+        CustomIcons.GetSprite("HalberdLightning", Resources.HalberdLightning, 128);
 
     #endregion
 
@@ -801,23 +801,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite PikeIcon =>
-        _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
+        _pikeIcon ??= CustomIcons.GetSprite("Pike", Resources.Pike, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
+        CustomIcons.GetSprite("PikePrimed", Resources.PikePrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
+        CustomIcons.GetSprite("Pike_1", Resources.Pike_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
+        CustomIcons.GetSprite("Pike_2", Resources.Pike_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
+        CustomIcons.GetSprite("PikePsychic", Resources.PikePsychic, 128);
 
     #endregion
 
@@ -831,23 +831,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite LongMaceIcon =>
-        _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
+        _longMaceIcon ??= CustomIcons.GetSprite("LongMace", Resources.LongMace, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
+        CustomIcons.GetSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
+        CustomIcons.GetSprite("LongMace_1", Resources.LongMace_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
+        CustomIcons.GetSprite("LongMace_2", Resources.LongMace_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
+        CustomIcons.GetSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
 
     #endregion
 
@@ -861,23 +861,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite HandXbowIcon =>
-        _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
+        _handXbowIcon ??= CustomIcons.GetSprite("HandXbow", Resources.HandXbow, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
+        CustomIcons.GetSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
+        CustomIcons.GetSprite("HandXbow_1", Resources.HandXbow_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
+        CustomIcons.GetSprite("HandXbow_2", Resources.HandXbow_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
+        CustomIcons.GetSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
 
     #endregion
 
@@ -887,7 +887,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite ProducedFlameThrow => _producedFlameThrow ??=
-        CustomIcons.CreateAssetReferenceSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
+        CustomIcons.GetSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
     #endregion
 }

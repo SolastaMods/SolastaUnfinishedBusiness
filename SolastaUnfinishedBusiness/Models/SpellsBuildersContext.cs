@@ -35,7 +35,7 @@ internal static class SpellsBuildersContext
         const string MODIFIER = "AttributeModifierAcidClawsACDebuff";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AcidClaws, 128, 128);
+            CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -84,7 +84,7 @@ internal static class SpellsBuildersContext
         const string NAME = "AirBlast";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.AirBlast, 128, 128);
+            CustomIcons.GetSprite(NAME, Resources.AirBlast, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -130,7 +130,7 @@ internal static class SpellsBuildersContext
         const string NAME = "BurstOfRadiance";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.BurstOfRadiance, 128, 128);
+            CustomIcons.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -191,7 +191,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("MinorLifesteal")
             .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("MinorLifesteal", Resources.MinorLifesteal, 128))
+                CustomIcons.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -275,7 +275,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
+                CustomIcons.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(true)
@@ -392,7 +392,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("SunlightBlade")
             .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
+                CustomIcons.GetSprite("SunlightBlade", Resources.SunlightBlade, 128,
                     128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
@@ -482,7 +482,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("ThornyVines")
             .SetGuiPresentation(Category.Spell,
-                CustomIcons.CreateAssetReferenceSprite("ThornyVines", Resources.ThornyVines, 128))
+                CustomIcons.GetSprite("ThornyVines", Resources.ThornyVines, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSomaticComponent(true)
@@ -837,7 +837,7 @@ internal static class SpellsBuildersContext
         const string NAME = "EarthTremor";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.EarthTremor, 128, 128);
+            CustomIcons.GetSprite(NAME, Resources.EarthTremor, 128, 128);
 
         //var rubbleProxy = EffectProxyDefinitionBuilder
         //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
@@ -894,7 +894,7 @@ internal static class SpellsBuildersContext
         const string NAME = "WinterBreath";
 
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite(NAME, Resources.WinterBreath, 128, 128);
+            CustomIcons.GetSprite(NAME, Resources.WinterBreath, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
