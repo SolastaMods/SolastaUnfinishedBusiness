@@ -36,14 +36,6 @@ internal class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefi
         return this;
     }
 
-
-    internal FeatureDefinitionPointPoolBuilder RestrictChoices(params ToolTypeDefinition[] choices)
-    {
-        Definition.RestrictedChoices.AddRange(choices.Select(t => t.Name));
-        Definition.RestrictedChoices.Sort();
-        return this;
-    }
-
     internal FeatureDefinitionPointPoolBuilder OnlyUniqueChoices()
     {
         Definition.uniqueChoices = true;

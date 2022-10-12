@@ -414,11 +414,11 @@ internal static class InventorClass
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
             .OnlyUniqueChoices()
             .RestrictChoices(
-                ToolTypeDefinitions.DisguiseKitType,
-                ToolTypeDefinitions.EnchantingToolType,
-                ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.PoisonersKitType,
-                ToolTypeDefinitions.ScrollKitType
+                ToolTypeDefinitions.DisguiseKitType.Name,
+                ToolTypeDefinitions.EnchantingToolType.Name,
+                ToolTypeDefinitions.HerbalismKitType.Name,
+                ToolTypeDefinitions.PoisonersKitType.Name,
+                ToolTypeDefinitions.ScrollKitType.Name
             )
             .AddToDB();
     }
