@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsInnovationAlchemy:b85f31f8-8640-5851-bb5d-208cfe756082",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationAlchemyBombsElemental:9c6889e1-290c-5b52-bab3-4b4606489e5e",
       "level": 5
     }
