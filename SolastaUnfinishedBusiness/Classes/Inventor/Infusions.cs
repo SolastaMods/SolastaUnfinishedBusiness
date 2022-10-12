@@ -148,7 +148,7 @@ internal static class Infusions
 
         #region 06 Resistant Armor
 
-        sprite = CustomIcons.GetSprite("ResistantArmor", Resources.ResistantArmor, 256, 128);
+        sprite = CustomIcons.GetSprite("ResistantArmor", Resources.ResistantArmor, 128);
         name = "InfusionResistantArmor";
         //TODO: RAW needs to require attunement
 
@@ -178,7 +178,7 @@ internal static class Infusions
             powers.Add(power);
         }
 
-        masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+        masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
