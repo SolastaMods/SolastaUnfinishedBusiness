@@ -19,7 +19,7 @@ public static class InnovationAlchemy
 {
     private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
     private static FeatureDefinitionPower AlchemyPool { get; set; }
-    private static FeatureDefinition ElementalBombs { get; set; }
+    private static FeatureDefinitionPower ElementalBombs { get; set; }
 
     public static CharacterSubclassDefinition Build()
     {
@@ -52,14 +52,23 @@ public static class InnovationAlchemy
 
         BuildFireBombs(deviceDescription);
 
-        ElementalBombs = FeatureDefinitionGrantCustomInvocationsBuilder
-            .Create("GrantInvocationsInnovationAlchemyBombsElemental")
-            .SetGuiPresentation(Category.Feature)
-            .SetInvocations(
-                BuildColdBombs(deviceDescription),
-                BuildLightning(deviceDescription)
-            )
+        ElementalBombs = FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationAlchemyBombsElemental")
+            .SetGuiPresentation(Category.Feature) //TODO: add icond
+            .SetUniqueInstance()
+            .SetUsesFixed(1)
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Permanent)
+                .Build())
             .AddToDB();
+
+        PowersBundleContext.RegisterPowerBundle(ElementalBombs, true,
+            MakeBombFireDamageToggle(),
+            BuildColdBombs(deviceDescription),
+            BuildLightningBombs(deviceDescription)
+        );
 
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
@@ -84,7 +93,8 @@ public static class InnovationAlchemy
         var damage = DamageTypeFire;
         var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D8;
-        var validator = new ValidatorPowerUse(character => !character.HasSubFeatureOfType<ModifiedBombElement>());
+        var validator =
+            new ValidatorPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = SpellDefinitions.Fireball.GuiPresentation.SpriteReference;
         var particle = SpellDefinitions.ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -101,13 +111,12 @@ public static class InnovationAlchemy
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
     }
 
-    private static CustomInvocationDefinition BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    private static FeatureDefinitionPower BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeCold;
         var save = AttributeDefinitions.Constitution;
         var dieType = DieType.D6;
-        var (toggle, validator) =
-            MakeElementToggleMarker(damage, SpellDefinitions.ConeOfCold.GuiPresentation.SpriteReference);
+        var (toggle, validator) = MakeElementToggleMarker(damage);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
@@ -131,13 +140,12 @@ public static class InnovationAlchemy
     }
 
 
-    private static CustomInvocationDefinition BuildLightning(UsableDeviceDescriptionBuilder deviceDescription)
+    private static FeatureDefinitionPower BuildLightningBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var damage = DamageTypeLightning;
         var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D6;
-        var (toggle, validator) =
-            MakeElementToggleMarker(damage, SpellDefinitions.ChainLightning.GuiPresentation.SpriteReference);
+        var (toggle, validator) = MakeElementToggleMarker(damage);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitionBuilder
@@ -166,25 +174,56 @@ public static class InnovationAlchemy
         return toggle;
     }
 
-    private static (CustomInvocationDefinition, IPowerUseValidity) MakeElementToggleMarker(string damage,
-        AssetReferenceSprite sprite)
+    private static (FeatureDefinitionPower, IPowerUseValidity) MakeElementToggleMarker(string damage)
     {
-        var marker = FeatureDefinitionBuilder
+        var marker = ConditionDefinitionBuilder
             .Create($"FeatureInnovationAlchemyMarker{damage}")
             .SetGuiPresentationNoContent(hidden: true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetCustomSubFeatures(ModifiedBombElement.Marker)
             .AddToDB();
 
         return (
-            CustomInvocationDefinitionBuilder
-                .Create($"InvocationInnovationAlchemyMarker{damage}")
-                .SetGuiPresentation(Category.Feature, sprite)
-                .SetCustomSubFeatures(InvocationDisabledByDefault.Marker)
-                .SetPoolType(CustomInvocationPoolType.Pools.Alchemy)
-                .SetGrantedFeature(marker)
+            FeatureDefinitionPowerBuilder
+                .Create($"PowerInnovationAlchemyMarker{damage}")
+                .SetGuiPresentation(Category.Feature)
+                .SetShowCasting(false)
+                .SetUniqueInstance()
+                .SetUsesFixed(1)
+                .SetRechargeRate(RechargeRate.AtWill)
+                .SetActivationTime(ActivationTime.NoCost)
+                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
                 .AddToDB(),
-            new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(marker))
+            new ValidatorPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker))
         );
+    }
+
+    private static FeatureDefinitionPower MakeBombFireDamageToggle()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create($"PowerInnovationAlchemyMarker{DamageTypeFire}")
+            .SetGuiPresentation(Category.Feature)
+            .SetShowCasting(false)
+            .SetUniqueInstance()
+            .SetUsesFixed(1)
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
+                        .SetGuiPresentationNoContent(hidden: true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
     }
 
     private static void AddBombFunctions(UsableDeviceDescriptionBuilder device, FeatureDefinitionPower precise,

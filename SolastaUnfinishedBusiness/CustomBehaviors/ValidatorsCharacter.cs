@@ -159,6 +159,22 @@ internal static class ValidatorsCharacter
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     }
 
+    internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class
+    {
+        foreach (var keyValuePair in character.conditionsByCategory)
+        {
+            foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+            {
+                if (rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>())
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     [NotNull]
     internal static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
     {
