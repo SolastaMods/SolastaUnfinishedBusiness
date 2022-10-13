@@ -184,6 +184,12 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.CreatureTags.SetRange(tags);
         return this;
     }
+    
+    internal MonsterDefinitionBuilder SetHeight(int height)
+    {
+        Definition.height = height;
+        return this;
+    }
 
     #region Constructors
 
