@@ -43,8 +43,7 @@ internal static class EwFeats
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained
-            )
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -84,8 +83,7 @@ internal static class EwFeats
                 })
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
-                    AttacksOfOpportunity.SentinelFeatMarker
-                )
+                    AttacksOfOpportunity.SentinelFeatMarker)
                 .AddToDB())
             .AddToDB();
     }
@@ -100,8 +98,7 @@ internal static class EwFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanMakeAoOOnReachEntered(ValidatorsCharacter.HasPolearm),
-                    new AddPolearmFollowupAttack()
-                )
+                    new AddPolearmFollowupAttack())
                 .AddToDB())
             .AddToDB();
     }
@@ -117,8 +114,7 @@ internal static class EwFeats
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
                     new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked)
-                )
+                        ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }
@@ -158,8 +154,7 @@ internal static class EwFeats
 
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create("ConditionPowerAttack")
-            .SetGuiPresentation("PowerAttack", Category.Feature,
-                ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PowerAttack", Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
             .SetFeatures(
@@ -233,6 +228,7 @@ internal static class EwFeats
     {
         var warcaster = FeatDefinitionBuilder
             .Create(WarcasterFeat)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create(MagicAffinityWarcaster)
@@ -242,7 +238,6 @@ internal static class EwFeats
                     .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
-            .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
 

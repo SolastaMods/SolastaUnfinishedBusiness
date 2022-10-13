@@ -18,6 +18,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttri
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -83,7 +84,7 @@ internal static class ZappaFeats
             .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
                 CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -106,7 +107,7 @@ internal static class ZappaFeats
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffDeadeye")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -152,6 +153,7 @@ internal static class ZappaFeats
         // Arcane Defense
         var featArcaneDefense = FeatDefinitionBuilder
             .Create("FeatArcaneDefense")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
                 FeatureDefinitionAttributeModifierBuilder
@@ -164,22 +166,19 @@ internal static class ZappaFeats
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(DefenseExpert)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // Arcane Precision
         var attackModifierArcanePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierArcanePrecision")
-            .SetGuiPresentation("FeatArcanePrecision", Category.Feat,
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerArcanePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerArcanePrecision")
-            .SetGuiPresentation("FeatArcanePrecision", Category.Feat,
-                PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatArcanePrecision", Category.Feat, PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -200,12 +199,12 @@ internal static class ZappaFeats
 
         var featArcanePrecision = FeatDefinitionBuilder
             .Create("FeatArcanePrecision")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
                 powerArcanePrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(PrecisionFocused)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // // Brutal Thug
@@ -224,6 +223,7 @@ internal static class ZappaFeats
         // Charismatic Defense
         var featCharismaticDefense = FeatDefinitionBuilder
             .Create("FeatCharismaticDefense")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Solasta,
                 FeatureDefinitionAttributeModifierBuilder
@@ -236,22 +236,19 @@ internal static class ZappaFeats
             )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetFeatFamily(DefenseExpert)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // Charismatic Precision
         var attackModifierCharismaticPrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierCharismaticPrecision")
-            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat,
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerCharismaticPrecision = FeatureDefinitionPowerBuilder
             .Create("PowerCharismaticPrecision")
-            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat,
-                PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -270,12 +267,12 @@ internal static class ZappaFeats
 
         var featCharismaticPrecision = FeatDefinitionBuilder
             .Create("FeatCharismaticPrecision")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Solasta,
                 powerCharismaticPrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetFeatFamily(PrecisionFocused)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // Dead Eye
@@ -285,17 +282,17 @@ internal static class ZappaFeats
         var featDualWeaponDefense =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatDualWeaponDefense")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(AttributeModifierSwiftBladeBladeDance)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
         // Elven Accuracy (Dexterity)
         var featElvenAccuracyDexterity =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyDexterity")
-                .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
                 .SetValidators(IsElfOrHalfElf)
                 .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
@@ -305,8 +302,8 @@ internal static class ZappaFeats
         var featElvenAccuracyIntelligence =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyIntelligence")
-                .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
                 .SetValidators(IsElfOrHalfElf)
                 .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
@@ -316,8 +313,8 @@ internal static class ZappaFeats
         var featElvenAccuracyWisdom =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyWisdom")
-                .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
                 .SetValidators(IsElfOrHalfElf)
                 .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
@@ -327,8 +324,8 @@ internal static class ZappaFeats
         var featElvenAccuracyCharisma =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatElvenAccuracyCharisma")
-                .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetGuiPresentation(Category.Feat)
+                .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
                 .SetValidators(IsElfOrHalfElf)
                 .SetFeatFamily(ElvenPrecision)
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
@@ -377,9 +374,9 @@ internal static class ZappaFeats
         var featMarksman =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMarksman")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(ActionAffinityMarksmanReactionShot)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
         // Metamagic Sorcery Points Feature
@@ -395,6 +392,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptCareful =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptCareful")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful,
@@ -402,7 +400,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -410,6 +407,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptDistant =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptDistant")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant,
@@ -417,7 +415,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -425,6 +422,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptEmpowered =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptEmpowered")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered,
@@ -432,7 +430,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -440,6 +437,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptExtended =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptExtended")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended,
@@ -447,7 +445,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -455,6 +452,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptHeightened =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptHeightened")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
                     ActionAffinitySorcererMetamagicToggle,
@@ -462,7 +460,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2) // not a dup. adding 4 points
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -470,6 +467,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptQuickened =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptQuickened")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened,
@@ -477,7 +475,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -485,6 +482,7 @@ internal static class ZappaFeats
         var featMetamagicAdeptTwinned =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatMetamagicAdeptTwinned")
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned,
@@ -492,7 +490,6 @@ internal static class ZappaFeats
                     attributeModifierSorcererSorceryPointsBonus2)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetGuiPresentation(Category.Feat)
                 //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
@@ -577,27 +574,25 @@ internal static class ZappaFeats
         // Wise Defense
         var featWiseDefense = FeatDefinitionBuilder
             .Create("FeatWiseDefense")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike,
                 AttributeModifierMonkUnarmoredDefense)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .SetFeatFamily(DefenseExpert)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         // Wise Precision
         var attackModifierWisePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierWisePrecision")
-            .SetGuiPresentation("FeatWisePrecision", Category.Feat,
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerWisePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerWisePrecision")
-            .SetGuiPresentation("FeatWisePrecision", Category.Feat,
-                PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("FeatWisePrecision", Category.Feat, PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -618,12 +613,12 @@ internal static class ZappaFeats
 
         var featWisePrecision = FeatDefinitionBuilder
             .Create("FeatWisePrecision")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike,
                 powerWisePrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .SetFeatFamily(PrecisionFocused)
-            .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
         //

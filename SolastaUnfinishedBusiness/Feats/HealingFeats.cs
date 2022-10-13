@@ -14,7 +14,7 @@ internal static class HealingFeats
     {
         var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
             .Create("PowerFeatInspiringLeader")
-            .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -37,7 +37,7 @@ internal static class HealingFeats
 
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
-            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -65,18 +65,12 @@ internal static class HealingFeats
 
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerResuscitate")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Touch,
-                        1,
-                        TargetType.Individuals,
-                        1,
-                        0)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
                     .SetTargetFiltering(
                         TargetFilteringMethod.CharacterOnly,
                         TargetFilteringTag.No,
@@ -98,7 +92,7 @@ internal static class HealingFeats
 
         var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerStabilize")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription, true)
             .AddToDB();
@@ -118,7 +112,7 @@ internal static class HealingFeats
                 .AddToDB(),
             FeatDefinitionBuilder
                 .Create("FeatHealer")
-                .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
                 .SetFeatures(
                     powerFeatHealerMedKit,
                     powerFeatHealerResuscitate,

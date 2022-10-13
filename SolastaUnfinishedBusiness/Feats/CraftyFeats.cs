@@ -24,8 +24,7 @@ internal static class CraftyFeats
 
         var proficiencyCraftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyMedicine")
-            .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle",
-                "Feature/&ProficiencyCraftyMedicineDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftySkillsTitle", "Feature/&ProficiencyCraftyMedicineDescription")
             .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Medecine.Name)
             .AddToDB();
 
@@ -37,15 +36,13 @@ internal static class CraftyFeats
 
         var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyHerbalismKit")
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
-                "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
         var proficiencyCraftyManacalonRosary = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyAllLanguages, "ProficiencyCraftyManacalonRosary")
-            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle",
-                "Feature/&ToolProficiencyPluralShortDescription")
+            .SetGuiPresentation("Feature/&ProficiencyCraftyToolsTitle", "Feature/&ToolProficiencyPluralShortDescription")
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
