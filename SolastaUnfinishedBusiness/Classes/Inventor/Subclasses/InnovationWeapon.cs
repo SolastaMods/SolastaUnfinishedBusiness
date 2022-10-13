@@ -271,7 +271,7 @@ public static class InnovationWeapon
             .SetHeight(6)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetCharacterFamily(CharacterFamilyDefinitions.Construct)
-            .SetAlignment("Neutral")
+            .SetAlignment(AlignmentDefinitions.Neutral)
             // .SetLegendaryCreature(false)
             .NoExperienceGain()
             .SetChallengeRating(0)

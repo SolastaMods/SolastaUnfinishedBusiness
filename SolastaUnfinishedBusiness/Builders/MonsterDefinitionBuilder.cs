@@ -17,6 +17,11 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
+    internal MonsterDefinitionBuilder SetAlignment(AlignmentDefinition alignment)
+    {
+        return SetAlignment(alignment.Name);
+    }
+
     internal MonsterDefinitionBuilder SetArmorClass(int armorClass, string type = "")
     {
         Definition.armorClass = armorClass;
@@ -51,7 +56,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     public MonsterDefinitionBuilder SetSavingThrowScores(params (string, int)[] saves)
     {
         Definition.savingThrowScores.SetRange(saves.Select(x =>
-            new MonsterSavingThrowProficiency { abilityScoreName = x.Item1, bonus = x.Item2 }));
+            new MonsterSavingThrowProficiency {abilityScoreName = x.Item1, bonus = x.Item2}));
         return this;
     }
 
@@ -175,7 +180,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     internal MonsterDefinitionBuilder SetAttackIterations(params (int, MonsterAttackDefinition)[] iterations)
     {
         Definition.AttackIterations.SetRange(iterations.Select(x =>
-            new MonsterAttackIteration { number = x.Item1, monsterAttackDefinition = x.Item2 }));
+            new MonsterAttackIteration {number = x.Item1, monsterAttackDefinition = x.Item2}));
         return this;
     }
 
@@ -184,7 +189,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.CreatureTags.SetRange(tags);
         return this;
     }
-    
+
     internal MonsterDefinitionBuilder SetHeight(int height)
     {
         Definition.height = height;
