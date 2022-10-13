@@ -111,7 +111,7 @@ internal class EffectDescriptionBuilder
         int rangeParameter,
         TargetType targetType,
         int targetParameter = 1,
-        int targetParameter2 = 1,
+        int targetParameter2 = 2,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
     {
         effect.targetSide = targetSide;

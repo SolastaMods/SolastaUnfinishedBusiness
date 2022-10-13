@@ -13,6 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -38,7 +39,6 @@ internal static class CharacterContext
         {
             _ = FeatureDefinitionPointPoolBuilder
                 .Create($"PointPool{i}BonusFeats")
-                //.SetGuiPresentationNoContent()
                 .SetGuiPresentation($"PointPoolSelect{i}BonusFeats", Category.Feature)
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
@@ -64,15 +64,8 @@ internal static class CharacterContext
     {
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Touch,
-                6,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                2,
-                ActionDefinitions.ItemSelectionType.Equiped)
-            .SetDurationData(RuleDefinitions.DurationType.Round, 1)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 6, TargetType.Individuals)
+            .SetDurationData(DurationType.Round, 1)
             .Build();
 
         var conditionDistractedByAlly = ConditionDefinitionBuilder
@@ -85,7 +78,7 @@ internal static class CharacterContext
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
             .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action)
+            .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()
             .AddToDB();

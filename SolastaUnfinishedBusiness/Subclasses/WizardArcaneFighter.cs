@@ -15,8 +15,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Weapon,
+            .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -65,7 +64,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
-                FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+                FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -90,8 +89,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                     FeatureDefinitionAttackModifierBuilder
                                         .Create("AttackModifierArcaneFighterIntBonus")
                                         .SetGuiPresentation(Category.Feature,
-                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation
-                                                .SpriteReference)
+                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .SetAdditionalAttackTag(TagsDefinitions.Magical)
                                         .AddToDB(),

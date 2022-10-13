@@ -120,9 +120,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(
-                        DurationType.Minute,
-                        1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(
                         Side.All,
                         RangeType.Distance,
@@ -156,9 +154,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(
-                                MotionForm.MotionType.Levitate,
-                                10)
+                            .SetMotionForm(MotionForm.MotionType.Levitate, 10)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)

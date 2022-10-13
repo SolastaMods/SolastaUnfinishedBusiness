@@ -78,7 +78,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
-            .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
                 onCharacterKillDeadMasterStarkHarvest)

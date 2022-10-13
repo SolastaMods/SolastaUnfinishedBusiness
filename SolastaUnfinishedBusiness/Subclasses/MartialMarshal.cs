@@ -139,14 +139,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetDurationData(DurationType.Instantaneous)
                 .ClearRestrictedCreatureFamilies()
                 .SetEffectForms(new StudyEnemyEffectDescription())
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Distance,
-                    12,
-                    TargetType.Individuals,
-                    1,
-                    2,
-                    ActionDefinitions.ItemSelectionType.Equiped)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                 .Build())
             .AddToDB();
     }
@@ -426,8 +419,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         var conditionMarshalEncouraged = ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
-            .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature,
-                ConditionBlessed.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature, ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,

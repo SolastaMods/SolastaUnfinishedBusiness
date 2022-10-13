@@ -63,9 +63,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
-                .SetUsesFixed(
-                    ActivationTime.Action,
-                    RechargeRate.LongRest)
+                .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create(SpellDefinitions.Darkvision.EffectDescription)
@@ -88,9 +86,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var powerPathOfTheRageMageSupernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.Jump.EffectDescription)
@@ -102,9 +98,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
-                .SetUsesFixed(
-                    ActivationTime.Action,
-                    RechargeRate.LongRest)
+                .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create(SpellDefinitions.SeeInvisibility.EffectDescription)
@@ -134,7 +128,6 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("ArcaneExplosion")
             .SetDamageDice(DieType.D6, 1)
-            // damage increases to 2d6 at 14th level
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel,
                 (6, 1),
                 (7, 1),
@@ -154,7 +147,8 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             )
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.Raging)
-            .SetSpecificDamageType(DamageTypeForce).AddToDB();
+            .SetSpecificDamageType(DamageTypeForce)
+            .AddToDB();
 
         var pathOfTheRageMageEnhancedArcaneExplosion = FeatureDefinitionBuilder
             .Create("PathOfTheRageMageEnhancedArcaneExplosion")

@@ -93,8 +93,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.SavingThrow,
+            .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();

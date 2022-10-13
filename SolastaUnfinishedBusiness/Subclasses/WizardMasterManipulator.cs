@@ -11,14 +11,14 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
 {
     internal WizardMasterManipulator()
     {
-        // Make Control Master subclass
         var magicAffinityMasterManipulatorControlHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityMasterManipulatorControlHeightened")
+            .SetGuiPresentation(Category.Feature)
             .SetWarList(1,
                 CharmPerson, // enchantment
                 Sleep, // enchantment
                 ColorSpray, // illusion
-                HoldPerson, // enchantment,
+                HoldPerson, // enchantment
                 Invisibility, // illusion
                 Counterspell, // abjuration
                 DispelMagic, // abjuration
@@ -27,23 +27,18 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
                 PhantasmalKiller, // illusion
                 DominatePerson, // Enchantment
                 HoldMonster) // Enchantment
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var magicAffinityMasterManipulatorDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityMasterManipulatorDC")
             .SetGuiPresentation(Category.Feature)
-            .SetCastingModifiers(
-                0,
-                SpellParamsModifierType.None,
-                2)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 2)
             .AddToDB();
 
         var proficiencyMasterManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyMasterManipulatorMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.SavingThrow,
+            .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
@@ -51,10 +46,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         var powerMasterManipulatorDominatePerson = FeatureDefinitionPowerBuilder
             .Create("PowerMasterManipulatorDominatePerson")
             .SetGuiPresentation(Category.Feature, DominatePerson.GuiPresentation.SpriteReference)
-            .SetUsesAbilityBonus(
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest,
-                AttributeDefinitions.Intelligence)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(DominatePerson.EffectDescription, true)
             .AddToDB();
 

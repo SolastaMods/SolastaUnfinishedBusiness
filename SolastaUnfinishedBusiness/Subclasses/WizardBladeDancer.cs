@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -17,15 +18,13 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         var proficiencyBladeDancerLightArmor = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerLightArmor")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
+            .SetProficiencies(ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
             .AddToDB();
 
         var proficiencyBladeDancerMartialWeapon = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerMartialWeapon")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
+            .SetProficiencies(ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
         var replaceAttackWithCantripBladeDancer = FeatureDefinitionReplaceAttackWithCantripBuilder
@@ -35,8 +34,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
             .Create("ConditionBladeDancerBladeDance")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
             .SetDuration(DurationType.Minute, 1)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
@@ -84,7 +82,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetGuiPresentation(
                 "Feature/&FeatureBladeDanceTitle",
                 "Condition/&ConditionBladeDancerBladeDanceDescription",
-                FeatureDefinitionPowers.PowerClericDivineInterventionWizard.GuiPresentation.SpriteReference)
+                FeatureDefinitionPowers.PowerClericDivineInterventionWizard)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(effectBladeDance)
             .SetUniqueInstance()
@@ -93,8 +91,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
             .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense")
-            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
-                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
                     .Create("ReduceDamageBladeDancerDanceOfDefense")
@@ -122,8 +119,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
             .Create(ConditionBladeDancerDanceOfDefense, "ConditionBladeDancerDanceOfVictory")
-            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition,
-                ConditionDefinitions.ConditionHeroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierBladeDancerDanceOfVictory")

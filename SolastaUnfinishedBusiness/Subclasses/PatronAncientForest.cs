@@ -197,7 +197,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
                 .SetEffectDescription(spell.effectDescription, true)
                 .SetSharedPool(powerPoolAncientForestWallOfThorns)
-
                 .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
@@ -278,14 +277,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create()
             .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Self,
-                1,
-                TargetType.Self,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.Equiped)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
@@ -371,14 +363,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create()
             .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Self,
-                1,
-                TargetType.Self,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.Equiped)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder

@@ -51,32 +51,23 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinitySpellMasterSpellResistance")
             .SetGuiPresentation(Category.Feature)
-            .SetAffinities(
-                CharacterSavingThrowAffinity.Advantage, true,
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
                 AttributeDefinitions.Wisdom,
                 AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma
-            )
+                AttributeDefinitions.Charisma)
             .AddToDB();
 
         var magicAffinitySpellMasterRecovery = FeatureDefinitionPowerBuilder
             .Create(PowerSpellMasterBonusRecoveryName)
-            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
-                PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(
-                        Side.All,
-                        RangeType.Self,
-                        0,
-                        0,
-                        0,
-                        0)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, 0, 0, 0)
                     .SetCreatedByCharacter()
                     .SetEffectForms(
                         EffectFormBuilder
@@ -96,14 +87,12 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
                 magicAffinitySpellMasterRecovery.Name)
-            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
-                PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardSpellMaster")
-            .SetGuiPresentation(Category.Subclass,
-                DomainInsight.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainInsight)
             .AddFeaturesAtLevel(2,
                 magicAffinitySpellMasterPrepared,
                 magicAffinitySpellMasterKnowledge,

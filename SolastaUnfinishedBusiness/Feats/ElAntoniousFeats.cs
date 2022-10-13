@@ -105,14 +105,7 @@ internal static class ElAntoniousFeats
                         .SetCreatedByCharacter()
                         .SetDurationData(DurationType.Round, 3)
                         .SetSpeed(SpeedType.Instant, 11f)
-                        .SetTargetingData(
-                            Side.Enemy,
-                            RangeType.Touch,
-                            30,
-                            TargetType.Individuals,
-                            1,
-                            2,
-                            ActionDefinitions.ItemSelectionType.Equiped)
+                        .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()

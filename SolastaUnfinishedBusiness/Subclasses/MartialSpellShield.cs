@@ -21,8 +21,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
-            .SetCastingModifiers(0, SpellParamsModifierType.None, 0,
-                SpellParamsModifierType.FlatValue, true)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder

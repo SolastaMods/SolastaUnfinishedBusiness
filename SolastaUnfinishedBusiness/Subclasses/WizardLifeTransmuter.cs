@@ -5,6 +5,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -35,10 +37,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var conditionLifeTransmuterDarkvision = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterDarkvision")
-            .SetGuiPresentation(
-                "PowerSharedPoolLifeTransmuterDarkvision",
-                Category.Feature,
-                ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PowerSharedPoolLifeTransmuterDarkvision", Category.Feature, ConditionDarkvision)
             .SetFeatures(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -46,19 +45,14 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterDarkvision = BuildActionTransmuteConditionPower(
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterDarkvision,
-                "PowerSharedPoolLifeTransmuterDarkvision")
-            .SetGuiPresentation(
-                Category.Feature,
-                FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
+                "PowerSharedPoolLifeTransmuterDarkvision", powerSharedPoolLifeTransmuterHealingPool,
+                conditionLifeTransmuterDarkvision)
+            .SetGuiPresentation(Category.Feature, PowerDomainBattleDivineWrath)
             .AddToDB();
 
         var conditionLifeTransmuterPoison = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterPoison")
-            .SetGuiPresentation(
-                Category.Condition,
-                ConditionDefinitions.ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
             .SetFeatures(
                 DamageAffinityPoisonResistance,
                 DamageAffinityAcidResistance,
@@ -73,19 +67,15 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterPoison,
-                "PowerSharedPoolLifeTransmuterPoison")
-            .SetGuiPresentation(
-                "PowerLifeTransmuterElementalResistance",
-                Category.Feature,
-                FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
+                "PowerSharedPoolLifeTransmuterPoison", powerSharedPoolLifeTransmuterHealingPool,
+                conditionLifeTransmuterPoison)
+            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Feature,
+                PowerDomainElementalFireBurst)
             .AddToDB();
 
         var conditionLifeTransmuterConstitution = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterConstitution")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionBearsEndurance.GuiPresentation.SpriteReference)
             .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -93,12 +83,9 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterConstitution = BuildActionTransmuteConditionPower(
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterConstitution,
-                "PowerSharedPoolLifeTransmuterConstitution")
-            .SetGuiPresentation(
-                Category.Feature,
-                FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
+                "PowerSharedPoolLifeTransmuterConstitution", powerSharedPoolLifeTransmuterHealingPool,
+                conditionLifeTransmuterConstitution)
+            .SetGuiPresentation(Category.Feature, PowerPaladinAuraOfCourage)
             .AddToDB();
 
         var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerPoolModifierBuilder
@@ -108,18 +95,14 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetPoolModifier(powerSharedPoolLifeTransmuterHealingPool, 2)
             .AddToDB();
 
-        var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower(
-                powerSharedPoolLifeTransmuterHealingPool,
-                ConditionDefinitions.ConditionFlying12,
-                "PowerSharedPoolLifeTransmuterFly")
-            .SetGuiPresentation(
-                Category.Feature,
-                Fly.GuiPresentation.SpriteReference)
+        var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower("PowerSharedPoolLifeTransmuterFly",
+                powerSharedPoolLifeTransmuterHealingPool, ConditionFlying12)
+            .SetGuiPresentation(Category.Feature, Fly)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterHeal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHeal")
-            .SetGuiPresentation(Category.Feature, MassHealingWord.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, MassHealingWord)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(MassHealingWord.EffectDescription, true)
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
@@ -127,7 +110,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterRevive = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterRevive")
-            .SetGuiPresentation(Category.Feature, Revivify.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Revivify)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(Revivify.EffectDescription, true)
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
@@ -168,9 +151,9 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
     private static FeatureDefinitionPowerSharedPoolBuilder BuildActionTransmuteConditionPower(
+        string name,
         FeatureDefinitionPower poolPower,
-        ConditionDefinition condition,
-        string name)
+        ConditionDefinition condition)
     {
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)

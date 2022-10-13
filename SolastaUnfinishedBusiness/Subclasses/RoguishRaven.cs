@@ -116,8 +116,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AttackModifierRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature)
                     .Configure(AttackModifierMethod.FlatValue, -4)
-                    .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
-                        ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                    .SetCustomSubFeatures(
+                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
@@ -126,8 +126,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetFrequencyLimit(FeatureLimitedUsage.None)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.CriticalHit)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-                    .SetCustomSubFeatures(new RestrictedContextValidator(OperationType.Set,
-                        ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                    .SetCustomSubFeatures(
+                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
                     .SetDamageDice(DieType.D6, 1)
@@ -163,8 +163,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                        TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
                         EffectFormBuilder

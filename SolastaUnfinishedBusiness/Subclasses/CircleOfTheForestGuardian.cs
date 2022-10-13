@@ -41,7 +41,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var magicAffinityForestGuardianSylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "MagicAffinityForestGuardianSylvanWarMagic")
+            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
+                "MagicAffinityForestGuardianSylvanWarMagic")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -88,7 +89,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
-            .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -118,7 +119,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
-            .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -160,7 +161,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
-            .SetGuiPresentation(Category.Feature, PowerDruidWildShape.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -202,7 +203,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheForestGuardianName)
-            .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, MartialMountaineer)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,
                 attributeModifierForestGuardianSylvanDurability,

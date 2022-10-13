@@ -22,7 +22,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
-            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -52,7 +52,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -60,14 +60,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetCanBePlacedOnCharacter()
                     .SetDurationData(DurationType.Day, 1)
                     .SetTargetProximityData(false, 12)
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Distance,
-                        30,
-                        TargetType.Individuals,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 30, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -82,7 +75,7 @@ internal sealed class MartialTactician : AbstractSubclass
         // (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability)
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
-            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -106,7 +99,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 powerPoolTacticianGambit,
                 powerSharedPoolTacticianKnockDown,
