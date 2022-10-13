@@ -208,19 +208,12 @@ internal sealed class PatronElementalist : AbstractSubclass
         var additionalDamageElementalist = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageElementalist" + text)
             .SetGuiPresentation(GuiPresentation("ElementalDamage", text, elementalFormConfig))
-            .Configure(
-                "ElementalDamage",
-                FeatureLimitedUsage.OncePerTurn,
-                AdditionalDamageValueDetermination.ProficiencyBonus,
-                AdditionalDamageTriggerCondition.SpellDamagesTarget,
-                RestrictedContextRequiredProperty.None,
-                false,
-                DieType.D4,
-                1,
-                AdditionalDamageType.Specific,
-                elementalFormConfig.DamageType.Name,
-                AdditionalDamageAdvancement.None,
-                new List<DiceByRank>())
+            .SetNotificationTag("ElementalDamage")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
+            .SetAdvancement(AdditionalDamageAdvancement.None)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetSpecificDamageType(elementalFormConfig.DamageType.Name)
             .AddToDB();
 
         var conditionElementalistNormal = ConditionDefinitionBuilder

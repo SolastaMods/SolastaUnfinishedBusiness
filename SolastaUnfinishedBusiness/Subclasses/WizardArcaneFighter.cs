@@ -45,20 +45,13 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageArcaneFighterBonusWeapon")
-            .Configure(
-                "ArcaneFighter",
-                FeatureLimitedUsage.OncePerTurn,
-                AdditionalDamageValueDetermination.Die,
-                AdditionalDamageTriggerCondition.AlwaysActive,
-                RestrictedContextRequiredProperty.None,
-                true /* attack only */,
-                DieType.D8,
-                1 /* dice number */,
-                AdditionalDamageType.SameAsBaseDamage,
-                string.Empty,
-                AdditionalDamageAdvancement.None,
-                new List<DiceByRank>())
             .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("ArcaneFighter")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetAdvancement(AdditionalDamageAdvancement.None)
             .AddToDB();
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder

@@ -132,7 +132,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature, IdentifyCreatures.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, IdentifyCreatures)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
@@ -334,7 +334,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
-            .SetGuiPresentation(Category.Feature, Bane.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Bane)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -434,7 +434,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
-            .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Bless)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(
                 EffectDescriptionBuilder

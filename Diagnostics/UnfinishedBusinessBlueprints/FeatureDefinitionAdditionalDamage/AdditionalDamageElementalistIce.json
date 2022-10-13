@@ -17,7 +17,7 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "ProficiencyBonus",
   "flatBonus": 0,
-  "damageDieType": "D4",
+  "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageCold",

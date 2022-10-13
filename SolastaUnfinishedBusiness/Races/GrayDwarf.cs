@@ -131,7 +131,6 @@ internal static class GrayDwarfSubraceBuilder
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeStrengthWeapon)
             .SetDamageDice(DieType.D4, 1)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddToDB();
