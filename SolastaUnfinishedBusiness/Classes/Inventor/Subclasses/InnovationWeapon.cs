@@ -299,15 +299,12 @@ public static class InnovationWeapon
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        //TODO: Double check duration equals 1 won't break things
-                        // .SetDuration(DurationType.Round, 0, false)
-                        .SetDuration(DurationType.Round, 1)
+                        .SetDuration(DurationType.Round, 0)
                         .SetSpecialDuration(true)
                         .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
