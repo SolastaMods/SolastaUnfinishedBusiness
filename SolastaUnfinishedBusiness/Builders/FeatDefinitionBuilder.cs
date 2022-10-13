@@ -4,6 +4,23 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
+internal class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
+{
+    #region Constructors
+
+    protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
+    {
+    }
+
+    #endregion
+}
+
 internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : FeatDefinition
     where TBuilder : FeatDefinitionBuilder<TDefinition, TBuilder>
@@ -65,25 +82,8 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
     {
     }
 
-    protected FeatDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
-{
-    #region Constructors
-
-    protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
+    protected FeatDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

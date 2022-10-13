@@ -9,7 +9,7 @@
     "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -33,8 +33,8 @@
     "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
-    "disableSavingThrowOnAllies": true,
+    "hasSavingThrow": true,
+    "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
@@ -335,9 +335,9 @@
     "description": "Feature/&PowerInnovationAlchemyBombPreciseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5ab3d83f54acd7145925c5d96cd393c8",
-      "m_SubObjectName": "ProduceFlame",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "140c2366-18ad-5f95-8706-f1e4985f8452",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

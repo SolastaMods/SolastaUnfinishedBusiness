@@ -19,7 +19,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cylinder",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 2,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,

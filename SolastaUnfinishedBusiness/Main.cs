@@ -13,9 +13,8 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Main
 {
-    private static ModManager<Core, Settings> Mod { get; set; }
-
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
+    private static ModManager<Core, Settings> Mod { get; set; }
 
     internal static string ModFolder { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 

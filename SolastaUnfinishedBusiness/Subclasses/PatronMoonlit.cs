@@ -82,41 +82,33 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Darkness.EffectDescription)
                     .SetDurationData(DurationType.Minute, 1)
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.ProficiencyBonus,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Daylight.EffectDescription)
                     .SetDurationData(DurationType.Minute, 1)
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerMoonlitDanceOfTheNightSky = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.Fixed,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
-                EffectDescriptionBuilder
-                    .Create(Fly.EffectDescription)
-                    .Build(),
-                true)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(Fly.EffectDescription, true)
+            .SetUniqueInstance()
             .AddToDB();
 
         powerMoonlitDanceOfTheNightSky.EffectDescription.targetParameter = 4;
@@ -124,15 +116,11 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.Fixed,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(
-                        DurationType.Minute,
-                        1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(
                         Side.All,
                         RangeType.Distance,
@@ -141,7 +129,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         10,
                         10)
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Dexterity,
                         true,
@@ -167,14 +154,12 @@ internal sealed class PatronMoonlit : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(
-                                MotionForm.MotionType.Levitate,
-                                10)
+                            .SetMotionForm(MotionForm.MotionType.Levitate, 10)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         var bonusCantripsMoonlit = FeatureDefinitionBonusCantripsBuilder

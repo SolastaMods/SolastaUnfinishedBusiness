@@ -43,8 +43,7 @@ internal static class EwFeats
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained
-            )
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -84,8 +83,7 @@ internal static class EwFeats
                 })
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
-                    AttacksOfOpportunity.SentinelFeatMarker
-                )
+                    AttacksOfOpportunity.SentinelFeatMarker)
                 .AddToDB())
             .AddToDB();
     }
@@ -100,8 +98,7 @@ internal static class EwFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanMakeAoOOnReachEntered(ValidatorsCharacter.HasPolearm),
-                    new AddPolearmFollowupAttack()
-                )
+                    new AddPolearmFollowupAttack())
                 .AddToDB())
             .AddToDB();
     }
@@ -117,8 +114,7 @@ internal static class EwFeats
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
                     new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked)
-                )
+                        ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }
@@ -141,7 +137,7 @@ internal static class EwFeats
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
-            "Tooltip/&PowerAttackConcentration", CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
+            "Tooltip/&PowerAttackConcentration", CustomIcons.GetSprite("PowerAttackConcentrationIcon",
                 Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionPowerAttackTrigger = ConditionDefinitionBuilder
@@ -158,8 +154,7 @@ internal static class EwFeats
 
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create("ConditionPowerAttack")
-            .SetGuiPresentation("PowerAttack", Category.Feature,
-                ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PowerAttack", Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
             .SetFeatures(
@@ -174,15 +169,11 @@ internal static class EwFeats
         var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RechargeRate.AtWill)
+                CustomIcons.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                    TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -201,14 +192,10 @@ internal static class EwFeats
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffPowerAttack")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                    TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -218,8 +205,7 @@ internal static class EwFeats
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
-                        .Build()
-                )
+                        .Build())
                 .Build())
             .AddToDB();
 
@@ -240,6 +226,7 @@ internal static class EwFeats
     {
         var warcaster = FeatDefinitionBuilder
             .Create(WarcasterFeat)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create(MagicAffinityWarcaster)
@@ -249,7 +236,6 @@ internal static class EwFeats
                     .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
-            .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
 

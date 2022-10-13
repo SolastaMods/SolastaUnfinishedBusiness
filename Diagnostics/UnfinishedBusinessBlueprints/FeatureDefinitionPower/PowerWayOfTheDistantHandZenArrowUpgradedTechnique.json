@@ -150,7 +150,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "KiPoints",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

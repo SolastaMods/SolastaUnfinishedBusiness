@@ -110,19 +110,6 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-    #region Constructors
-
-    protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    #endregion
-
     #region Tool preference
 
     internal CharacterClassDefinitionBuilder AddToolPreferences(params ToolTypeDefinition[] toolTypes)
@@ -209,6 +196,19 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 #endif
+
+    #endregion
+
+    #region Constructors
+
+    protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
+    {
+    }
 
     #endregion
 }

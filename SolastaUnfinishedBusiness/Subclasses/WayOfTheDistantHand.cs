@@ -25,7 +25,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     internal WayOfTheDistantHand()
     {
         var zenArrow =
-            CustomIcons.CreateAssetReferenceSprite("ZenArrow", Resources.ZenArrow, 128, 64);
+            CustomIcons.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
         //
         // LEVEL 03
@@ -35,7 +35,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("ProficiencyWayOfTheDistantHandCombat")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon,
-                WeaponTypeDefinitions.LongbowType.Name, WeaponTypeDefinitions.ShortbowType.Name)
+                WeaponTypeDefinitions.LongbowType.Name,
+                WeaponTypeDefinitions.ShortbowType.Name)
             .SetCustomSubFeatures(
                 new ZenArcherMarker(),
                 new RangedAttackInMeleeDisadvantageRemover(
@@ -49,27 +50,22 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowTechnique = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
-            .SetActivationTime(ActivationTime.OnAttackHit)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
-            .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
-            ))
+            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
+            .SetCustomSubFeatures(
+                new ReactionAttackModeRestriction((mode, _, _, _) =>
+                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowProne")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
-                    true,
                     true,
                     AttributeDefinitions.Dexterity,
                     true,
@@ -87,9 +83,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowPush")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -97,11 +91,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Strength,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -114,9 +106,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -124,14 +114,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Wisdom,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetConditionForm(
@@ -168,8 +155,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var additionalActionWayOfTheDistantHandExtraAttack1 = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionWayOfTheDistantHandExtraAttack1")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, true,
-                ValidatorsCharacter.NoArmor, ValidatorsCharacter.NoShield, WieldsZenArcherWeapon))
+            .SetCustomSubFeatures(
+                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, true,
+                    ValidatorsCharacter.NoArmor, ValidatorsCharacter.NoShield, WieldsZenArcherWeapon))
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .AddToDB();
@@ -186,15 +174,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         var flurryOfArrowsSprite =
-            CustomIcons.CreateAssetReferenceSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
+            CustomIcons.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
 
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetCostPerUse(2)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetShowCasting(false)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
             .SetCustomSubFeatures(new ValidatorPowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(
                     ConditionDefinitionBuilder
@@ -217,7 +202,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetDuration(DurationType.Round, 0, false)
+                            //TODO: Double check duration equals 1 won't break things
+                            .SetDuration(DurationType.Round, 1)
                             .SetSpecialDuration(true)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
@@ -229,13 +215,15 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         ConditionForm.ConditionOperation.Add, true, true)
                     .Build())
                 .Build())
+            .SetShowCasting(false)
             .AddToDB();
 
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create("WayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical,
-                (mode, _, character) => IsZenArcherWeapon(character, mode.SourceDefinition as ItemDefinition)))
+            .SetCustomSubFeatures(
+                new AddTagToWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
+                    IsZenArcherWeapon(character, mode.SourceDefinition as ItemDefinition)))
             .AddToDB();
 
         //
@@ -253,21 +241,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArrowUpgradedTechnique = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
-            .SetActivationTime(ActivationTime.OnAttackHit)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
-            .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
-            ))
+            .SetCustomSubFeatures(
+                new ReactionAttackModeRestriction((mode, _, _, _) =>
+                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -275,11 +259,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Dexterity,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -309,9 +291,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedPush")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -319,11 +299,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Strength,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -336,10 +314,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedDistract")
             .SetGuiPresentation(Category.Feature)
-            .SetRechargeRate(RechargeRate.KiPoints)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -347,15 +322,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetSavingThrowData(
                     true,
-                    true,
                     AttributeDefinitions.Wisdom,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
@@ -431,17 +403,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);
     }
 
-    private static bool IsMonkWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
+    private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
     {
         return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
     }
 
-    private static bool IsMonkWeapon(RulesetCharacter character, RulesetItem weapon)
+    private static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)
     {
-        return weapon == null || IsMonkWeapon(character, weapon.ItemDefinition);
+        return weapon == null || IsMonkWeapon(actor, weapon.ItemDefinition);
     }
 
-    private static bool IsMonkWeapon(RulesetActor character, ItemDefinition weapon)
+    private static bool IsMonkWeapon(RulesetActor actor, ItemDefinition weapon)
     {
         if (weapon == null)
         {
@@ -455,12 +427,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             return false;
         }
 
-        return ZenArcherWeapons.Contains(typeDefinition) || IsZenArcherWeapon(character, weapon);
+        return ZenArcherWeapons.Contains(typeDefinition) || IsZenArcherWeapon(actor, weapon);
     }
 
-    private static bool IsZenArcherWeapon(RulesetActor character, ItemDefinition item)
+    private static bool IsZenArcherWeapon(RulesetActor actor, ItemDefinition item)
     {
-        if (character == null || item == null)
+        if (actor == null || item == null)
         {
             return false;
         }
@@ -472,7 +444,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             return false;
         }
 
-        return character.HasSubFeatureOfType<ZenArcherMarker>() && ZenArcherWeapons.Contains(typeDefinition);
+        return actor.HasSubFeatureOfType<ZenArcherMarker>() && ZenArcherWeapons.Contains(typeDefinition);
     }
 
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)

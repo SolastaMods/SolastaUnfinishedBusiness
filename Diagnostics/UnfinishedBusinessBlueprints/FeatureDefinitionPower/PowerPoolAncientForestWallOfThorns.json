@@ -165,7 +165,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerPoolAncientForestWallOfThorns:2466c405-6f71-5a6b-916d-20925a0d5263",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

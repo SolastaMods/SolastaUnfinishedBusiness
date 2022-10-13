@@ -30,13 +30,6 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<
         return this;
     }
 
-    internal FeatureDefinitionAbilityCheckAffinityBuilder SetAffinityGroups(
-        params AbilityCheckAffinityGroup[] affinityGroups)
-    {
-        Definition.AffinityGroups.SetRange(affinityGroups);
-        return this;
-    }
-
     internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks(bool value = true)
     {
         Definition.useControllerAbilityChecks = value;
@@ -45,13 +38,13 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<
 
     #region Constructors
 
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,
-        namespaceGuid)
+    protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid)
+        : base(name, namespaceGuid)
     {
     }
 
-    protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original,
-        string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+    protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name,
+        Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 

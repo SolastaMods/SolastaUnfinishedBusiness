@@ -25,7 +25,7 @@ internal static class InventorClass
     public const string ClassName = "Inventor";
 
     private static readonly AssetReferenceSprite Sprite =
-        CustomIcons.CreateAssetReferenceSprite("Inventor", Resources.Inventor, 1024, 576);
+        CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
         Wizard.ClassPictogramReference;
@@ -205,8 +205,8 @@ internal static class InventorClass
                 .Create("ProficiencyInventorTools")
                 .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
                 .SetProficiencies(ProficiencyType.Tool,
-                    ToolTypeDefinitions.ThievesToolsType,
-                    ToolTypeDefinitions.ArtisanToolSmithToolsType)
+                    ToolTypeDefinitions.ThievesToolsType.Name,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
                 .AddToDB())
 
             // Tool Selection
@@ -238,7 +238,8 @@ internal static class InventorClass
                     SkillDefinitions.Nature,
                     SkillDefinitions.Perception,
                     SkillDefinitions.SleightOfHand
-                ).AddToDB())
+                )
+                .AddToDB())
 
             #endregion
 
@@ -397,11 +398,11 @@ internal static class InventorClass
             .Create("ProficiencyInventorToolExpertise")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType,
-                ToolTypeDefinitions.EnchantingToolType,
-                ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.PoisonersKitType,
-                ToolTypeDefinitions.ScrollKitType
+                ToolTypeDefinitions.ArtisanToolSmithToolsType.Name,
+                ToolTypeDefinitions.EnchantingToolType.Name,
+                ToolTypeDefinitions.HerbalismKitType.Name,
+                ToolTypeDefinitions.PoisonersKitType.Name,
+                ToolTypeDefinitions.ScrollKitType.Name
             )
             .AddToDB();
     }
@@ -414,11 +415,11 @@ internal static class InventorClass
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
             .OnlyUniqueChoices()
             .RestrictChoices(
-                ToolTypeDefinitions.DisguiseKitType,
-                ToolTypeDefinitions.EnchantingToolType,
-                ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.PoisonersKitType,
-                ToolTypeDefinitions.ScrollKitType
+                ToolTypeDefinitions.DisguiseKitType.Name,
+                ToolTypeDefinitions.EnchantingToolType.Name,
+                ToolTypeDefinitions.HerbalismKitType.Name,
+                ToolTypeDefinitions.PoisonersKitType.Name,
+                ToolTypeDefinitions.ScrollKitType.Name
             )
             .AddToDB();
     }
@@ -455,8 +456,8 @@ internal static class InventorClass
         return FeatureDefinitionPowerPoolModifierBuilder
             .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
-            .SetActivationTime(ActivationTime.Permanent)
-            .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetPoolModifier(InfusionPool, 1)
             .AddToDB();
     }
 
@@ -569,8 +570,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(2)
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }
 
@@ -607,10 +607,9 @@ internal static class InventorClass
         var master = FeatureDefinitionPowerBuilder
             .Create("PowerInventorSpellStoringItem")
             .SetGuiPresentation(Category.Feature, ItemDefinitions.WandMagicMissile)
-            .SetActivationTime(ActivationTime.Action)
-            .SetUsesFixed(1)
-            .SetCostPerUse(1)
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.LongRest)
             .AddToDB();
 
         var powers = new List<FeatureDefinitionPower>();
@@ -635,10 +634,10 @@ internal static class InventorClass
         var description = Gui.Format("Item/&CreateSpellStoringWandFormatDescription", spell.FormatTitle(),
             Gui.ToRoman(spell.spellLevel));
 
-        var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"PowerCreate{item.name}")
             .SetGuiPresentation(spell.FormatTitle(), description, spell)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action)
             .SetSharedPool(pool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
@@ -690,28 +689,27 @@ internal static class InventorClass
     private static FeatureDefinition BuildFlashOfGenius()
     {
         var text = "PowerInventorFlashOfGenius";
-        var sprite = CustomIcons.CreateAssetReferenceSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
+        var sprite = CustomIcons.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence, 1,
+                0)
             .SetCustomSubFeatures(PowerVisibilityModifier.Default)
-            .SetActivationTime(ActivationTime.Reaction)
             .SetReactionContext(ReactionTriggerContext.None)
-            .SetUsesAbility(0, AttributeDefinitions.Intelligence)
-            .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
         //should be hidden from user
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
             .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6, 2)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
@@ -791,7 +789,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         var rolled = saveDC + saveOutcomeDelta;
         var success = saveOutcomeDelta >= 0;
 
-        var text = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
+        const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
         string result;
         ConsoleStyleDuplet.ParameterType resultType;
 
@@ -808,7 +806,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
@@ -831,15 +829,9 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        string text;
-        if (defender.RulesetCharacter == helper)
-        {
-            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat";
-        }
-        else
-        {
-            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
-        }
+        var text = defender.RulesetCharacter == helper
+            ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
+            : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
     }

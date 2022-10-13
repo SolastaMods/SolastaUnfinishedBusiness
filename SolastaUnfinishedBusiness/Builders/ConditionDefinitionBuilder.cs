@@ -16,6 +16,24 @@ internal enum Silent
     WhenAddedOrRemoved = WhenAdded | WhenRemoved
 }
 
+[UsedImplicitly]
+internal class ConditionDefinitionBuilder :
+    ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
+{
+    #region Constructors
+
+    protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
+    {
+    }
+
+    #endregion
+}
+
 internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
@@ -36,7 +54,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    // Setters delegating to Definition
     internal TBuilder SetAllowMultipleInstances(bool value)
     {
         Definition.allowMultipleInstances = value;
@@ -171,12 +188,9 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
-    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0)
     {
-        if (validate)
-        {
-            Preconditions.IsValidDuration(type, duration);
-        }
+        Preconditions.IsValidDuration(type, duration);
 
         Definition.durationParameter = duration;
         Definition.durationType = type;
@@ -191,24 +205,6 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     }
 
     protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
-    {
-    }
-
-    #endregion
-}
-
-[UsedImplicitly]
-internal class ConditionDefinitionBuilder :
-    ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
-{
-    #region Constructors
-
-    protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }

@@ -25,7 +25,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     internal WizardDeadMaster()
     {
         var spriteReference =
-            CustomIcons.CreateAssetReferenceSprite("CreateDead", Resources.CreateDead, 128, 128);
+            CustomIcons.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
@@ -63,12 +63,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
-                DominateBeast.EffectDescription)
-            .SetAbilityScoreDetermination(AbilityScoreDetermination.Explicit)
+            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(DominateBeast.EffectDescription, true)
             .AddToDB();
 
         var commandUndeadEffect = powerDeadMasterCommandUndead.EffectDescription;
@@ -82,7 +78,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
-            .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
                 onCharacterKillDeadMasterStarkHarvest)

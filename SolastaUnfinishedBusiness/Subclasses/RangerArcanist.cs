@@ -21,7 +21,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetAllowMultipleInstances(false)
-            .SetDuration(DurationType.Permanent, 1, false)
+            .SetDuration(DurationType.Permanent)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSpecialDuration(true)
@@ -119,21 +119,13 @@ internal sealed class RangerArcanist : AbstractSubclass
         var arcanistMarkedEffect =
             EffectFormBuilder
                 .Create()
-                .SetConditionForm(
-                    conditionMarkedByArcanist,
-                    ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(conditionMarkedByArcanist, ConditionForm.ConditionOperation.Add)
                 .Build();
 
         var arcanistDamageEffect =
             EffectFormBuilder
                 .Create()
-                .SetDamageForm(
-                    false,
-                    DieType.D1,
-                    DamageTypeForce,
-                    0,
-                    DieType.D8,
-                    4)
+                .SetDamageForm(DamageTypeForce, 4, DieType.D8)
                 .Build();
 
         var powerArcanistArcanePulse = CreatePowerArcanistArcanePulse(
@@ -158,13 +150,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var arcanistDamageUpgradeEffect =
             EffectFormBuilder
                 .Create()
-                .SetDamageForm(
-                    false,
-                    DieType.D1,
-                    DamageTypeForce,
-                    0,
-                    DieType.D8,
-                    8)
+                .SetDamageForm(DamageTypeForce, 8, DieType.D8)
                 .Build();
 
         var powerArcanistArcanePulseUpgrade = CreatePowerArcanistArcanePulse(
@@ -204,26 +190,15 @@ internal sealed class RangerArcanist : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
-                PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
-            .SetUsesAbility(0, AttributeDefinitions.Wisdom)
-            .SetShowCasting(true)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
-            .SetActivationTime(ActivationTime.Action)
+                PowerDomainElementalHeraldOfTheElementsThunder)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom, 1, 0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
                 .SetCreatedByCharacter()
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Distance,
-                    30,
-                    TargetType.Sphere,
-                    3,
-                    2,
-                    ActionDefinitions.ItemSelectionType.Equiped)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 30, TargetType.Sphere)
                 .SetEffectForms(effectForms)
                 .Build())
-            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
+            .SetShowCasting(true)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
     }

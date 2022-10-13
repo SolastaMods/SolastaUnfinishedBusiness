@@ -30,7 +30,7 @@ internal static class Infusions
         #region 02 Enhance Focus
 
         var name = "InfusionEnhanceArcaneFocus";
-        var sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
+        var sprite = CustomIcons.GetSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
         var power = BuildInfuseItemPowerInvocation(2, name, sprite, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
@@ -51,7 +51,7 @@ internal static class Infusions
         #region 02 Enhance Armor
 
         name = "InfusionEnhanceDefense";
-        sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
+        sprite = CustomIcons.GetSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
         power = BuildInfuseItemPowerInvocation(2, name, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
@@ -69,7 +69,7 @@ internal static class Infusions
         #region 02 Enhance Weapon
 
         name = "InfusionEnhanceWeapon";
-        sprite = CustomIcons.CreateAssetReferenceSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
+        sprite = CustomIcons.GetSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
         power = BuildInfuseItemPowerInvocation(2, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -92,7 +92,7 @@ internal static class Infusions
         #region 02 Mind Sharpener
 
         name = "InfusionMindSharpener";
-        sprite = CustomIcons.CreateAssetReferenceSprite("MindSharpener", Resources.MindSharpener, 128);
+        sprite = CustomIcons.GetSprite("MindSharpener", Resources.MindSharpener, 128);
         BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
@@ -104,7 +104,7 @@ internal static class Infusions
 
         #region 02 Returning Weapon
 
-        sprite = CustomIcons.CreateAssetReferenceSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
+        sprite = CustomIcons.GetSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeaponWithBonus";
         var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
@@ -135,9 +135,8 @@ internal static class Infusions
         var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -148,7 +147,7 @@ internal static class Infusions
 
         #region 06 Resistant Armor
 
-        sprite = CustomIcons.CreateAssetReferenceSprite("ResistantArmor", Resources.ResistantArmor, 256, 128);
+        sprite = CustomIcons.GetSprite("ResistantArmor", Resources.ResistantArmor, 128);
         name = "InfusionResistantArmor";
         //TODO: RAW needs to require attunement
 
@@ -178,12 +177,11 @@ internal static class Infusions
             powers.Add(power);
         }
 
-        masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+        masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -292,8 +290,7 @@ internal static class Infusions
 
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
             .SetGuiPresentation(guiName, Category.Feature, icon)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
@@ -328,11 +325,13 @@ internal static class Infusions
     {
         var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
             .SetGuiPresentation(Category.Feature, item)
-            .SetActivationTime(ActivationTime.Action)
-            .SetCostPerUse(1)
+            .SetUsesFixed(ActivationTime.Action)
             .SetSharedPool(InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always,
-                InventorClass.InfusionLimiter, ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always,
+                InventorClass.InfusionLimiter,
+                ValidatorPowerUse.NotInCombat)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)

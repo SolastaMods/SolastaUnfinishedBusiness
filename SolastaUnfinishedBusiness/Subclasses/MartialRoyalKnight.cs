@@ -11,13 +11,12 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
     internal MartialRoyalKnight()
     {
         var abilityCheckAffinityRoyalKnightRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityChampionRemarkableAthlete,
-                "AbilityCheckAffinityRoyalKnightRoyalEnvoy")
-            .SetAffinityGroups(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
-            {
-                abilityScoreName = AttributeDefinitions.Charisma,
-                affinity = CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient
-            })
+            .Create("AbilityCheckAffinityRoyalKnightRoyalEnvoy")
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
+                DieType.D1,
+                0,
+                (AttributeDefinitions.Charisma, null))
             .AddToDB();
 
         var featureSetRoyalKnightRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
@@ -29,17 +28,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
-            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightRallyingCry")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.AbilityBonusPlusFixed,
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
-                PowerDomainLifePreserveLife.EffectDescription,
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma)
+            .Create("PowerRoyalKnightRallyingCry")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
+            .SetEffectDescription(PowerDomainLifePreserveLife.EffectDescription, true)
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
@@ -52,20 +44,12 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
                     .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Distance,
-                        20,
-                        TargetType.Individuals,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
                     .SetTargetFiltering(
                         TargetFilteringMethod.CharacterOnly,
                         TargetFilteringTag.No,

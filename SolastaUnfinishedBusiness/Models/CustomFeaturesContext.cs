@@ -436,7 +436,7 @@ internal static class CustomFeaturesContext
 
     internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {
-        if (power.CostPerUse == 0)
+        if (power.CostPerUse == 0 || power.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
         {
             return int.MaxValue;
         }

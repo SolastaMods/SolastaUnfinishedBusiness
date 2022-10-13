@@ -9,7 +9,7 @@
     "targetType": "Sphere",
     "itemSelectionType": "None",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -34,8 +34,8 @@
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": true,
-    "savingThrowAbility": "Dexterity",
+    "disableSavingThrowOnAllies": false,
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -104,8 +104,8 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -364,9 +364,9 @@
     "description": "Feature/&PowerInnovationAlchemyBombSplashDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "66dd1a2d80918de49a347b6e0e1da99c",
-      "m_SubObjectName": "ProtectionFromEnergy",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "88c19a85-1e97-5f3a-bcec-84a5be787927",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -50,7 +50,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     }
 
     [NotNull]
-    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spells)
+    internal SpellListDefinitionBuilder SetSpellsAtLevel(int level, [NotNull] params SpellDefinition[] spells)
     {
         if (level is > 9 or < 0)
         {
@@ -60,7 +60,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
         // Ensure all levels set up
         EnsureSpellListsConfigured();
 
-        var spellDefinitions = spells ?? spells.ToArray();
+        var spellDefinitions = spells.ToArray();
 
 #if DEBUG
         if (spellDefinitions.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
@@ -72,7 +72,10 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
 
         // Set the spells - remove duplicates - sort to add to list in deterministic order
         Definition.SpellsByLevel[level].Spells
-            .SetRange(spellDefinitions.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
+            .SetRange(spellDefinitions
+                .Where(s => s.Implemented)
+                .OrderBy(s => s.Name)
+                .Distinct());
 
         return this;
     }
@@ -99,8 +102,8 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
     {
     }
 
-    protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
+    protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

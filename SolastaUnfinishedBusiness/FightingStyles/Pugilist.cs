@@ -86,7 +86,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 
             var additionalDice = EffectFormBuilder
                 .Create()
-                .SetDamageForm(diceNumber: 1, dieType: DieType.D4, damageType: damage.damageType)
+                .SetDamageForm(damage.damageType, 1, DieType.D4)
                 .Build();
 
             effectDescription.EffectForms.Insert(k + 1, additionalDice);

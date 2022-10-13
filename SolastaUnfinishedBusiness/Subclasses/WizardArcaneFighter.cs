@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -15,8 +14,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Weapon,
+            .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -46,44 +44,33 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageArcaneFighterBonusWeapon")
-            .Configure(
-                "ArcaneFighter",
-                FeatureLimitedUsage.OncePerTurn,
-                AdditionalDamageValueDetermination.Die,
-                AdditionalDamageTriggerCondition.AlwaysActive,
-                RestrictedContextRequiredProperty.None,
-                true /* attack only */,
-                DieType.D8,
-                1 /* dice number */,
-                AdditionalDamageType.SameAsBaseDamage,
-                string.Empty,
-                AdditionalDamageAdvancement.None,
-                new List<DiceByRank>())
             .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("ArcaneFighter")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetAdvancement(AdditionalDamageAdvancement.None)
             .AddToDB();
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
-                FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
+                FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
                         Side.Ally,
                         RangeType.Touch,
-                        1 /* range */,
+                        1,
                         TargetType.Item,
                         1,
                         2,
                         ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
-                    .SetDurationData(
-                        DurationType.Minute,
-                        10 /* duration */)
+                    .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -94,14 +81,12 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                     FeatureDefinitionAttackModifierBuilder
                                         .Create("AttackModifierArcaneFighterIntBonus")
                                         .SetGuiPresentation(Category.Feature,
-                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation
-                                                .SpriteReference)
+                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .SetAdditionalAttackTag(TagsDefinitions.Magical)
                                         .AddToDB(),
                                     0))
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();

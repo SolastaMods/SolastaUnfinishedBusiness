@@ -27,7 +27,7 @@ internal static class DarkelfSubraceBuilder
     private static CharacterRaceDefinition BuildDarkelf()
     {
         var darkelfSpriteReference =
-            CustomIcons.CreateAssetReferenceSprite("Darkelf", Resources.Darkelf, 1024, 512);
+            CustomIcons.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease")
@@ -99,40 +99,32 @@ internal static class DarkelfSubraceBuilder
         PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.FaerieFire.EffectDescription)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Charisma,
+                        8)
                     .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
-
-        PowerDarkelfFaerieFire.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        PowerDarkelfFaerieFire.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        PowerDarkelfFaerieFire.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.Darkness.EffectDescription)
-                    .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
+            .SetUsesFixed(
+                ActivationTime.Action,
+                RechargeRate.LongRest)
+            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription, true)
             .SetShowCasting(true)
             .AddToDB();
-
-        PowerDarkelfDarkness.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        PowerDarkelfDarkness.EffectDescription.fixedSavingThrowDifficultyClass = 8;
-        PowerDarkelfDarkness.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var proficiencyDarkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyDarkelfWeaponTraining")
@@ -169,8 +161,10 @@ internal static class DarkelfSubraceBuilder
                 proficiencyDarkelfWeaponTraining,
                 CastSpellDarkelfMagic,
                 lightAffinityDarkelfLightSensitivity)
-            .AddFeaturesAtLevel(3, PowerDarkelfFaerieFire)
-            .AddFeaturesAtLevel(5, PowerDarkelfDarkness)
+            .AddFeaturesAtLevel(3,
+                PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5,
+                PowerDarkelfDarkness)
             .AddToDB();
 
         raceDarkelf.GuiPresentation.sortOrder = ElfSylvan.GuiPresentation.sortOrder + 1;

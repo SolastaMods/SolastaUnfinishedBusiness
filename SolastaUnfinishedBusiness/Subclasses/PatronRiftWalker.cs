@@ -34,28 +34,22 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest,
-                MistyStep.EffectDescription,
-                true)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(MistyStep.EffectDescription, true)
+            .SetUniqueInstance()
             .AddToDB();
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest,
-                Banishment.EffectDescription,
-                true)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(Banishment.EffectDescription, true)
+            .SetUniqueInstance()
             .AddToDB();
 
         powerRiftWalkerBlink.EffectDescription.DurationType = DurationType.Round;
-        powerRiftWalkerBlink.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerBlink.EffectDescription.HasSavingThrow = false;
+        powerRiftWalkerBlink.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerBlink.EffectDescription.TargetType = TargetType.Self;
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
@@ -66,28 +60,23 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.ProficiencyBonus,
-                ActivationTime.Reaction,
-                RechargeRate.LongRest,
-                Banishment.EffectDescription,
-                true)
+            .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.LongRest)
+            .SetEffectDescription(Banishment.EffectDescription, true)
+            .SetUniqueInstance()
             .AddToDB();
 
         powerRiftWalkerRiftStrike.EffectDescription.DurationType = DurationType.Round;
-        powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerRiftStrike.EffectDescription.HasSavingThrow = false;
+        powerRiftWalkerRiftStrike.EffectDescription.EndOfEffect = TurnOccurenceType.StartOfTurn;
         powerRiftWalkerRiftStrike.reactionContext = ReactionTriggerContext.HitByMelee;
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftControl")
             .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
-            .Configure(
-                UsesDetermination.ProficiencyBonus,
-                ActivationTime.BonusAction,
-                RechargeRate.LongRest,
-                DimensionDoor.EffectDescription,
-                true)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(DimensionDoor.EffectDescription, true)
+            .SetUniqueInstance()
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder

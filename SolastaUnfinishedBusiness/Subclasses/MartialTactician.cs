@@ -13,41 +13,25 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
-        var powerPoolTacticianGambit = FeatureDefinitionPowerPoolBuilder
+        var powerPoolTacticianGambit = FeatureDefinitionPowerBuilder
             .Create("PowerPoolTacticianGambit")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.Permanent)
-            .Configure(
-                4,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
-                RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.ShortRest, 1, 4)
+            .SetIsPowerPool()
             .AddToDB();
 
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
-            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge.GuiPresentation.SpriteReference)
-            .Configure(
-                powerPoolTacticianGambit,
-                RechargeRate.ShortRest,
-                ActivationTime.OnAttackHit,
-                1,
-                true,
-                true,
-                AttributeDefinitions.Strength,
+            .SetGuiPresentation(Category.Feature, PowerFighterActionSurge)
+            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerFighterActionSurge.EffectDescription)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(
-                                false,
-                                DieType.D1,
-                                DamageTypeBludgeoning,
-                                2,
-                                DieType.D6,
-                                1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6, 2)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -55,94 +39,67 @@ internal sealed class MartialTactician : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Strength,
                         false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Strength,
                         15)
-                    .Build(),
-                false)
+                    .Build())
+            .SetSharedPool(powerPoolTacticianGambit)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
-            .Configure(
-                powerPoolTacticianGambit,
-                RechargeRate.ShortRest,
-                ActivationTime.BonusAction,
-                1,
-                true,
-                true,
-                AttributeDefinitions.Strength,
+            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
                     .SetCanBePlacedOnCharacter()
                     .SetDurationData(DurationType.Day, 1)
                     .SetTargetProximityData(false, 12)
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Distance,
-                        30,
-                        TargetType.Individuals,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 30, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(2, DieType.D6, 1)
                             .Build())
-                    .Build(),
-                false)
+                    .Build())
+            .SetSharedPool(powerPoolTacticianGambit)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
         // TODO: make it do the same damage as the wielded weapon
         // (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability)
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
-            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference)
-            .Configure(
-                powerPoolTacticianGambit,
-                RechargeRate.ShortRest,
-                ActivationTime.Reaction,
-                1,
-                true,
-                true,
-                AttributeDefinitions.Strength,
+            .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLawHolyRetribution.EffectDescription)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(
-                                false,
-                                DieType.D1,
-                                DamageTypeBludgeoning,
-                                2,
-                                DieType.D6,
-                                1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6, 2)
                             .Build())
-                    .Build(),
-                false)
+                    .Build())
+            .SetSharedPool(powerPoolTacticianGambit)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
         var powerPoolTacticianGambitAdd = FeatureDefinitionPowerPoolModifierBuilder
             .Create("PowerPoolTacticianGambitAdd")
             .SetGuiPresentation(Category.Feature)
-            .SetActivationTime(ActivationTime.Permanent)
-            .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Dexterity,
-                powerPoolTacticianGambit)
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetPoolModifier(powerPoolTacticianGambit, 1)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 powerPoolTacticianGambit,
                 powerSharedPoolTacticianKnockDown,

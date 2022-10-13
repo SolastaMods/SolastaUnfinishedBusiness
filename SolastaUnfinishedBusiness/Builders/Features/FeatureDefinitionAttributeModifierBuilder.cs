@@ -20,18 +20,14 @@ internal class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<Fea
     }
 
     internal FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(
+        string attribute,
         string abilityScore,
-        bool minimum1 = false)
+        bool minimum1 = true)
     {
-        Definition.modifierAbilityScore = abilityScore;
         Definition.modifierOperation = AttributeModifierOperation.AddAbilityScoreBonus;
-        Definition.minimum1 = minimum1;
-        return this;
-    }
-
-    internal FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
-    {
         Definition.modifiedAttribute = attribute;
+        Definition.modifierAbilityScore = abilityScore;
+        Definition.minimum1 = minimum1;
         return this;
     }
 

@@ -43,9 +43,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .Configure(UsesDetermination.Fixed,
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
@@ -70,38 +69,28 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
                                     0))
-                            .Build()
-                    )
-                    .Build(),
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma,
-                true,
-                true,
-                AttributeDefinitions.Charisma)
+                            .Build())
+                    .Build())
+            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpiritualWeapon.EffectDescription)
                     .Build())
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
 
         powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
-            .Create(PowerFighterSecondWind, "PowerSoulBladeSoulShield")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.Fixed,
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
+            .Create("PowerSoulBladeSoulShield")
+            .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerFighterSecondWind.EffectDescription)
                     .SetDurationData(DurationType.UntilLongRest)

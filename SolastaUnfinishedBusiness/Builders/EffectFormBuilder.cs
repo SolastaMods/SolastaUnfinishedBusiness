@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using TA.AI;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -151,29 +151,29 @@ internal class EffectFormBuilder
 #endif
 
     internal EffectFormBuilder SetDamageForm(
-        bool versatile = false,
-        DieType versatileDieType = DieType.D1,
-        string damageType = DamageTypeBludgeoning,
-        int bonusDamage = 0,
-        DieType dieType = DieType.D1,
-        int diceNumber = 0,
-        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
-        params TrendInfo[] damageBonusTrends)
+            string damageType = DamageTypeBludgeoning,
+            int diceNumber = 0,
+            DieType dieType = DieType.D1,
+            int bonusDamage = 0,
+            HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never)
+        // bool versatile = false,
+        // DieType versatileDieType = DieType.D1,
+        // params TrendInfo[] damageBonusTrends)
     {
         var damageForm = new DamageForm
         {
-            versatile = versatile,
-            VersatileDieType = versatileDieType,
+            versatile = false,
+            VersatileDieType = DieType.D1,
             BonusDamage = bonusDamage,
             DamageType = damageType,
             DiceNumber = diceNumber,
             DieType = dieType,
             healFromInflictedDamage = healFromInflictedDamage,
-            damageBonusTrends = damageBonusTrends.ToList()
+            damageBonusTrends = new List<TrendInfo>()
         };
 
+        effectForm.damageForm = damageForm;
         effectForm.FormType = EffectForm.EffectFormType.Damage;
-        effectForm.DamageForm = damageForm;
         return this;
     }
 
@@ -310,10 +310,7 @@ internal class EffectFormBuilder
 
     internal EffectFormBuilder SetSummonCreatureForm(
         int number,
-        string monsterDefinitionName,
-        bool persistOnConcentrationLoss = false,
-        ConditionDefinition condition = null,
-        DecisionPackageDefinition decisionPackage = null)
+        string monsterDefinitionName)
     {
         var summonForm = new SummonForm
         {
@@ -321,9 +318,9 @@ internal class EffectFormBuilder
             itemDefinition = null,
             number = number,
             monsterDefinitionName = monsterDefinitionName,
-            conditionDefinition = condition,
-            persistOnConcentrationLoss = persistOnConcentrationLoss,
-            decisionPackage = decisionPackage,
+            conditionDefinition = null,
+            persistOnConcentrationLoss = false,
+            decisionPackage = null,
             effectProxyDefinitionName = null
         };
 

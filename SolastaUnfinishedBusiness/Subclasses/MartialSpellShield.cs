@@ -21,8 +21,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
-            .SetCastingModifiers(0, SpellParamsModifierType.None, 0,
-                SpellParamsModifierType.FlatValue, true)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
@@ -43,7 +42,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetRechargeRate(RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnSpellCast)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -67,7 +66,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                             .Build()
                     )
                     .Build())
-            .SetActivationTime(ActivationTime.OnSpellCast)
             .AddToDB();
 
         var replaceAttackWithCantripSpellShield = FeatureDefinitionReplaceAttackWithCantripBuilder
@@ -105,10 +103,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.AbilityBonusPlusFixed,
-                ActivationTime.Reaction,
-                RechargeRate.AtWill,
+            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
@@ -127,11 +123,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                             true,
                             true)
                         .Build())
-                    .Build(),
-                false,
-                1,
-                1,
-                AttributeDefinitions.Intelligence)
+                    .Build())
             .AddToDB();
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder

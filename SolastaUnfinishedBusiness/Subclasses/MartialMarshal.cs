@@ -35,10 +35,10 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private const string EternalComradeName = "MarshalEternalComrade";
 
-    private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
-
     internal MartialMarshal()
     {
+        BuildEternalComradeMonster();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
             .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
@@ -132,25 +132,16 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature, IdentifyCreatures.GuiPresentation.SpriteReference)
-            .SetFixedUsesPerRecharge(2)
-            .SetCostPerUse(1)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(IdentifyCreatures.EffectDescription)
-                .SetDurationData(DurationType.Instantaneous)
-                .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(new StudyEnemyEffectDescription())
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Distance,
-                    12,
-                    TargetType.Individuals,
-                    1,
-                    2,
-                    ActionDefinitions.ItemSelectionType.Equiped)
-                .Build())
+            .SetGuiPresentation(Category.Feature, IdentifyCreatures)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(IdentifyCreatures.EffectDescription)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .ClearRestrictedCreatureFamilies()
+                    .SetEffectForms(new StudyEnemyEffectDescription())
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                    .Build())
             .AddToDB();
     }
 
@@ -276,7 +267,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    private static MonsterDefinition BuildEternalComradeMonster()
+    private static void BuildEternalComradeMonster()
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -284,13 +275,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(
-                        false,
-                        DieType.D1,
-                        DamageTypeSlashing,
-                        2,
-                        DieType.D6,
-                        2)
+                    .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
                     .Build())
             .Build();
 
@@ -302,7 +287,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         //TODO: create a builder for this
         attackMarshalEternalComrade.magical = true;
 
-        return MonsterDefinitionBuilder
+        _ = MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, EternalComradeName)
             .SetOrUpdateGuiPresentation(Category.Monster)
             .SetFeatures(
@@ -332,11 +317,10 @@ internal sealed class MartialMarshal : AbstractSubclass
                 DamageAffinityThunderResistance,
                 ConditionAffinityHinderedByFrostImmunity
             )
-            .SetAttackIterations(
-                new MonsterAttackIteration(attackMarshalEternalComrade, 1))
+            .SetAttackIterations(new MonsterAttackIteration(attackMarshalEternalComrade, 1))
             .SetArmorClass(16)
             .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
+            .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)
@@ -351,12 +335,8 @@ internal sealed class MartialMarshal : AbstractSubclass
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
-            .SetGuiPresentation(Category.Feature, Bane.GuiPresentation.SpriteReference)
-            .SetCostPerUse(1)
-            .SetUsesFixed(1)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.ShortRest)
-            .SetActivationTime(ActivationTime.BonusAction)
+            .SetGuiPresentation(Category.Feature, Bane)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ConjureAnimalsOneBeast.EffectDescription)
@@ -367,8 +347,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                             .SetSummonCreatureForm(1, EternalComradeName)
                             .CreatedByCharacter()
                             .Build())
-                    .Build()
-            )
+                    .Build())
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
@@ -441,8 +420,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         var conditionMarshalEncouraged = ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
-            .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature,
-                ConditionBlessed.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature, ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
@@ -457,22 +435,14 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
-            .SetGuiPresentation(Category.Feature, Bless.GuiPresentation.SpriteReference)
-            .Configure(
-                UsesDetermination.Fixed,
-                ActivationTime.PermanentUnlessIncapacitated,
-                RechargeRate.AtWill,
+            .SetGuiPresentation(Category.Feature, Bless)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetCreatedByCharacter()
                     .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Self,
-                        0,
-                        TargetType.Cube,
-                        5,
-                        2)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)

@@ -62,7 +62,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBranded.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(true)
             .SetConditionType(ConditionType.Detrimental)
-            .SetDuration(DurationType.Irrelevant, 1, false)
+            .SetDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
             .SetSpecialDuration(true)
             .AddFeatures(
@@ -80,7 +80,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingStrike")
                     .SetGuiPresentationNoContent(true)
-                    .SetActivationTime(ActivationTime.OnRageStartAutomatic)
+                    .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -111,7 +111,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
-                    .SetRechargeRate(RechargeRate.AtWill)
                     .AddToDB())
             .AddToDB();
 
@@ -146,16 +145,11 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var powerPathOfTheLightEyesOfTruth = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
-            .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(
-                    Side.Ally,
-                    RangeType.Self,
-                    1,
-                    TargetType.Self,
-                    1,
-                    0)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -166,15 +160,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                     ConditionSeeInvisibility.GuiPresentation.SpriteReference)
                                 .SetAllowMultipleInstances(false)
                                 .SetConditionType(ConditionType.Beneficial)
-                                .SetDuration(DurationType.Permanent, 1, false)
+                                .SetDuration(DurationType.Permanent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetActivationTime(ActivationTime.Permanent)
+            .SetShowCasting(false)
             .AddToDB();
 
         //
@@ -186,20 +179,19 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
             .SetConditionType(ConditionType.Neutral)
-            .SetDuration(DurationType.Permanent, 1, false) // don't validate inconsistent data
+            .SetDuration(DurationType.Permanent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var powerPathOfTheLightIlluminatingBurstSuppressor = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightIlluminatingBurstSuppressor")
             .SetGuiPresentationNoContent(true)
-            .SetActivationTime(ActivationTime.Permanent)
-            .SetRechargeRate(RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -221,11 +213,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
-                    .Configure(
-                        UsesDetermination.Fixed,
-                        ActivationTime.OnRageStartAutomatic,
-                        RechargeRate.AtWill,
-                        EffectDescriptionBuilder.Create()
+                    .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
                             .SetDurationData(DurationType.Round, 1)
                             .SetEffectForms(
                                 EffectFormBuilder
@@ -499,7 +490,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             return EffectDescriptionBuilder
                 .Create()
                 .SetSavingThrowData(
-                    true,
                     false,
                     AttributeDefinitions.Constitution,
                     false,
@@ -522,13 +512,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(
-                            false,
-                            DieType.D1,
-                            DamageTypeRadiant,
-                            0,
-                            DieType.D6,
-                            4)
+                        .SetDamageForm(DamageTypeRadiant, 4, DieType.D6)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder

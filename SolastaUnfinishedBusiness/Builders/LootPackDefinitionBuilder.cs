@@ -19,8 +19,8 @@ internal class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition,
     {
     }
 
-    protected LootPackDefinitionBuilder(LootPackDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
+    protected LootPackDefinitionBuilder(LootPackDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

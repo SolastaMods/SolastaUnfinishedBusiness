@@ -14,7 +14,7 @@ internal static class CeContentPackContext
 
     internal static void Load()
     {
-        var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
+        var sprite = CustomIcons.GetSprite("ContentPack", Resources.ContentPack, 128);
 
         _ = ContentPackDefinitionBuilder
             .Create(CeContentPack.ToString())

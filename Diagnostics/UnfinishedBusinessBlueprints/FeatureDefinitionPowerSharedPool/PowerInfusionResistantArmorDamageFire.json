@@ -9,7 +9,7 @@
     "targetType": "Item",
     "itemSelectionType": "Carried",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -330,7 +330,7 @@
     "description": "Rules/&DamageFireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "92d58162-4508-5548-b2ba-0198419a64d8",
+      "m_AssetGUID": "44a875b0-1f4c-5e2a-aff6-884025b17264",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

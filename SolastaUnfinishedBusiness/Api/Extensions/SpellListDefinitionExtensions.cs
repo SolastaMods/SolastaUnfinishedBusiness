@@ -13,7 +13,7 @@ internal static class SpellListDefinitionExtensions
         }
 
         var index = list.spellsByLevel.FindIndex(d => d.level == spell.spellLevel);
-        
+
         if (index < 0)
         {
             list.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet

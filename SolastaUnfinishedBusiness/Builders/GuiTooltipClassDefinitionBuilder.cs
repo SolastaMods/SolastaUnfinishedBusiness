@@ -33,8 +33,8 @@ internal class
     {
     }
 
-    internal GuiTooltipClassDefinitionBuilder(GuiTooltipClassDefinition original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
+    internal GuiTooltipClassDefinitionBuilder(GuiTooltipClassDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

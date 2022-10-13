@@ -18,7 +18,9 @@ internal static class ElAntoniousFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
+            //TODO: Double check duration equals 1 won't break things
+            // .SetDuration(DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -28,7 +30,9 @@ internal static class ElAntoniousFeats
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
+            //TODO: Double check duration equals 1 won't break things
+            // .SetDuration(DurationType.Round, 0, false)
+            .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -93,21 +97,14 @@ internal static class ElAntoniousFeats
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
-                .SetActivationTime(ActivationTime.BonusAction)
+                .SetUsesFixed(ActivationTime.BonusAction)
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
                     .SetCanBePlacedOnCharacter(false)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Round, 3)
                     .SetSpeed(SpeedType.Instant, 11f)
-                    .SetTargetingData(
-                        Side.Enemy,
-                        RangeType.Touch,
-                        30,
-                        TargetType.Individuals,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -116,7 +113,6 @@ internal static class ElAntoniousFeats
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Dexterity,
                         false,
@@ -124,8 +120,6 @@ internal static class ElAntoniousFeats
                         AttributeDefinitions.Dexterity,
                         15)
                     .Build())
-                .SetUsesFixed(1)
-                .SetRechargeRate(RechargeRate.AtWill)
                 .SetShowCasting(false)
                 .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
                 .AddToDB())

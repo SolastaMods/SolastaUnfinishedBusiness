@@ -55,15 +55,11 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
-            .Configure(
-                UsesDetermination.AbilityBonusPlusFixed,
-                ActivationTime.BonusAction,
-                RechargeRate.AtWill,
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.AtWill, AttributeDefinitions.Charisma)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(
-                        DurationType.Round,
-                        1)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(
                         Side.Enemy,
                         RangeType.Distance,
@@ -72,7 +68,6 @@ internal sealed class RoguishConArtist : AbstractSubclass
                         1,
                         0)
                     .SetSavingThrowData(
-                        true,
                         false,
                         AttributeDefinitions.Wisdom,
                         true,
@@ -86,11 +81,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                             .SetConditionForm(
                                 conditionConArtistFeint, ConditionForm.ConditionOperation.Add, false, false)
                             .Build())
-                    .Build(),
-                false,
-                1,
-                1,
-                AttributeDefinitions.Charisma)
+                    .Build())
             .AddToDB();
 
         var magicAffinityConArtistDc = FeatureDefinitionMagicAffinityBuilder
@@ -102,8 +93,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var proficiencyConArtistMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyConArtistMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.SavingThrow,
+            .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Wisdom)
             .AddToDB();

@@ -3,6 +3,24 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
+internal class InvocationDefinitionBuilder :
+    InvocationDefinitionBuilder<InvocationDefinition, InvocationDefinitionBuilder>
+{
+    #region Constructors
+
+    protected InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
+    {
+    }
+
+    #endregion
+}
+
 internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : InvocationDefinition
     where TBuilder : InvocationDefinitionBuilder<TDefinition, TBuilder>
@@ -47,22 +65,4 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         Definition.overrideMaterialComponent = overrideMaterial;
         return (TBuilder)this;
     }
-}
-
-[UsedImplicitly]
-internal class InvocationDefinitionBuilder :
-    InvocationDefinitionBuilder<InvocationDefinition, InvocationDefinitionBuilder>
-{
-    #region Constructors
-
-    protected InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
-    {
-    }
-
-    #endregion
 }

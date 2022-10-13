@@ -9,7 +9,7 @@
     "targetType": "Cone",
     "itemSelectionType": "None",
     "targetParameter": 4,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -34,7 +34,7 @@
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": true,
+    "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
@@ -335,9 +335,9 @@
     "description": "Feature/&PowerInnovationAlchemyBombBreathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
-      "m_SubObjectName": "BurningHands",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "738da41b-dcae-5fb7-956f-d51451a97274",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

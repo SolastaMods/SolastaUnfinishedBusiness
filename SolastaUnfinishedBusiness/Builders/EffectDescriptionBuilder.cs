@@ -14,7 +14,7 @@ internal class EffectDescriptionBuilder
     {
         effect = new EffectDescription
         {
-            effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
+            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
             effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
@@ -111,7 +111,7 @@ internal class EffectDescriptionBuilder
         int rangeParameter,
         TargetType targetType,
         int targetParameter = 1,
-        int targetParameter2 = 1,
+        int targetParameter2 = 2,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
     {
         effect.targetSide = targetSide;
@@ -179,8 +179,13 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetIgnoreCover(bool value = true)
+    {
+        effect.ignoreCover = value;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetSavingThrowData(
-        bool hasSavingThrow,
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,
         bool ignoreCover,
@@ -190,7 +195,7 @@ internal class EffectDescriptionBuilder
         bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {
-        effect.hasSavingThrow = hasSavingThrow;
+        effect.hasSavingThrow = true;
         effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
         effect.savingThrowAbility = savingThrowAbility;
         effect.ignoreCover = ignoreCover;

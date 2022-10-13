@@ -5,15 +5,15 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-/**
-     * Note this is based on FeatureDefinitionPower so that you can take advantage of power usage calculations
-     * like proficiency or ability score usage. However in order to do that the game needs to add a power to
-     * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
-     * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
-     */
+/*
+Note this is based on FeatureDefinitionPower so that you can take advantage of power usage calculations
+like proficiency or ability score usage. However in order to do that the game needs to add a power to
+the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
+at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
+*/
 [UsedImplicitly]
-internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<
-    FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
+internal class FeatureDefinitionPowerPoolModifierBuilder
+    : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
 {
     internal override void Validate()
     {
@@ -25,17 +25,13 @@ internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowe
             $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
     }
 
-    internal FeatureDefinitionPowerPoolModifierBuilder Configure(
-        int powerPoolModifier,
-        RuleDefinitions.UsesDetermination usesDetermination,
-        string usesAbilityScoreName,
-        FeatureDefinitionPower poolPower)
+    internal FeatureDefinitionPowerPoolModifierBuilder SetPoolModifier(
+        FeatureDefinitionPower poolPower,
+        int powerPoolModifier)
     {
         Preconditions.ArgumentIsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 
         Definition.fixedUsesPerRecharge = powerPoolModifier;
-        Definition.usesDetermination = usesDetermination;
-        Definition.usesAbilityScoreName = usesAbilityScoreName;
         Definition.overriddenPower = Definition;
         Definition.PoolPower = poolPower;
         return this;

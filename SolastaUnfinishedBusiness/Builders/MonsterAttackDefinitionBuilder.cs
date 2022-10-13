@@ -25,8 +25,8 @@ internal class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackD
     {
     }
 
-    protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(
-        original, name, namespaceGuid)
+    protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

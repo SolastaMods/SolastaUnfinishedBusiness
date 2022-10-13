@@ -19,7 +19,7 @@ internal static class RaceBolgrifBuilder
     private static CharacterRaceDefinition BuildBolgrif()
     {
         var bolgrifSpriteReference =
-            CustomIcons.CreateAssetReferenceSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
+            CustomIcons.GetSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
         var attributeModifierBolgrifWisdomAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease")
@@ -41,23 +41,21 @@ internal static class RaceBolgrifBuilder
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var bolgrifInvisibilityEffect = EffectDescriptionBuilder
-            .Create(SpellDefinitions.Invisibility.EffectDescription)
-            .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
-            .ClearEffectAdvancements()
-            .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Self, 1,
-                RuleDefinitions.TargetType.Self)
-            .Build();
-
         var powerBolgrifInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerBolgrifInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
-            .SetEffectDescription(bolgrifInvisibilityEffect)
-            .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-            .SetUsesFixed(1)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Invisibility.EffectDescription)
+                    .SetDurationData(RuleDefinitions.DurationType.Round, 1,
+                        RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                    .ClearEffectAdvancements()
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Ally,
+                        RuleDefinitions.RangeType.Self, 1,
+                        RuleDefinitions.TargetType.Self)
+                    .Build())
             .SetShowCasting(true)
             .AddToDB();
 
@@ -79,8 +77,8 @@ internal static class RaceBolgrifBuilder
         var proficiencyBolgrifLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBolgrifLanguages")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant",
-                "Language_Elvish")
+            .SetProficiencies(RuleDefinitions.ProficiencyType.Language,
+                "Language_Common", "Language_Giant", "Language_Elvish")
             .AddToDB();
 
         var bolgrifRacePresentation = Dwarf.RacePresentation.DeepCopy();

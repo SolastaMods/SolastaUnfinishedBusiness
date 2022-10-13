@@ -9,7 +9,7 @@
     "targetType": "Sphere",
     "itemSelectionType": "None",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -34,7 +34,7 @@
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": true,
+    "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
@@ -335,9 +335,9 @@
     "description": "Feature/&PowerInnovationAlchemyBombSplashDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c462c6ae1b665c74f995647ad5adaf79",
-      "m_SubObjectName": "Fireball",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "fab35b68-b64d-5e84-9b17-b09054649661",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -90,7 +90,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
 
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
-            .SetGuiPresentation(Category.Feature, HealingWord.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, HealingWord)
             .AddToDB();
 
         powerDivineHeartEmpoweredHealing.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
@@ -98,38 +98,27 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
 
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
-            .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(DimensionDoor.EffectDescription)
-                    .Build())
-            .SetActivationTime(ActivationTime.Action)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetCostPerUse(1)
+            .SetGuiPresentation(Category.Feature, DimensionDoor)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(DimensionDoor.EffectDescription, true)
             .SetShowCasting(true)
             .AddToDB();
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartDivineRecovery")
-            .SetGuiPresentation(Category.Feature, Heal.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Heal)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Heal.EffectDescription)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Self)
                     .Build())
-            .SetActivationTime(ActivationTime.BonusAction)
-            .SetFixedUsesPerRecharge(1)
-            .SetRechargeRate(RechargeRate.LongRest)
-            .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
 
-        powerDivineHeartDivineRecovery.EffectDescription.rangeType = RangeType.Self;
-        powerDivineHeartDivineRecovery.EffectDescription.targetType = TargetType.Self;
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("SorcerousDivineHeart")
-            .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainLife)
             .AddFeaturesAtLevel(1,
                 featureSetDivineHeartDeityChoice,
                 attributeModifierDivineHeartDivineFortitude,

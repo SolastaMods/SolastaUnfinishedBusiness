@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
+using static RuleDefinitions;
 using static RuleDefinitions.ItemRarity;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -92,7 +93,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
-        RuleDefinitions.ItemRarity rarity,
+        ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
         AssetReferenceSprite icon = null,
@@ -169,40 +170,36 @@ internal static class CustomWeaponsContext
             WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
-                damageType: RuleDefinitions.DamageTypeForce)
+            .SetDamageForm(DamageTypeForce, 1, DieType.D4)
             .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.IsUsableDevice = true;
         HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
-            .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+            .SetRecharge(RechargeRate.AtWill)
             .SetSaveDc(EffectHelpers.BasedOnUser)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")
                     .SetGuiPresentation(Category.Feature)
-                    .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
-                    .SetUsesFixed(1)
-                    .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                    .SetEffectDescription(EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
-                            RuleDefinitions.TargetType.Individuals)
-                        .ExcludeCaster()
-                        .SetSavingThrowData(
-                            true,
-                            true,
-                            AttributeDefinitions.Strength,
-                            false,
-                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                        .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
-                        .SetEffectForms(EffectFormBuilder
+                    .SetUsesFixed(ActivationTime.BonusAction)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.Individuals)
+                            .ExcludeCaster()
+                            .SetSavingThrowData(
+                                true,
+                                AttributeDefinitions.Strength,
+                                false,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
+                            .SetDurationData(DurationType.Instantaneous)
+                            .SetEffectForms(EffectFormBuilder
+                                .Create()
+                                .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                .Build())
                             .Build())
-                        .Build())
                     .AddToDB())
                 .Build())
             .Build();
@@ -222,7 +219,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
-        RuleDefinitions.ItemRarity rarity,
+        ItemRarity rarity,
         params ItemPropertyDescription[] properties)
     {
         return BuildWeapon(
@@ -260,7 +257,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         Halberd = BuildWeapon("CEHalberd", baseItem,
@@ -305,8 +302,7 @@ internal static class CustomWeaponsContext
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeLightning)
+            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16,
                 HalberdPrimed,
@@ -340,7 +336,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         Pike = BuildWeapon("CEPike", baseItem,
@@ -387,8 +383,7 @@ internal static class CustomWeaponsContext
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypePsychic)
+            .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16,
                 PikePrimed,
@@ -422,7 +417,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         LongMace = BuildWeapon("CELongMace", baseItem,
@@ -467,8 +462,7 @@ internal static class CustomWeaponsContext
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeThunder)
+            .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16,
                 LongMacePrimed,
@@ -505,7 +499,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.dieType = DieType.D6;
         damageForm.diceNumber = 1;
 
         //add hand xbow proficiency to rogues
@@ -557,8 +551,7 @@ internal static class CustomWeaponsContext
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
-                damageType: RuleDefinitions.DamageTypeAcid)
+            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HandXbowAcid, 48, 16,
                 HandXbowPrimed,
@@ -579,15 +572,14 @@ internal static class CustomWeaponsContext
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
-        damageForm.damageType = RuleDefinitions.DamageTypeFire;
-        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.damageType = DamageTypeFire;
+        damageForm.dieType = DieType.D8;
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
         weapon.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(dieType: RuleDefinitions.DieType.D8, diceNumber: 1,
-                damageType: RuleDefinitions.DamageTypeFire)
+            .SetDamageForm(DamageTypeFire, 1, DieType.D8)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
             .Create("ProducedFlameThrower")
@@ -778,23 +770,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite HalberdIcon =>
-        _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
+        _halberdIcon ??= CustomIcons.GetSprite("Halberd", Resources.Halberd, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
+        CustomIcons.GetSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
+        CustomIcons.GetSprite("Halberd_1", Resources.Halberd_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
+        CustomIcons.GetSprite("Halberd_2", Resources.Halberd_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
+        CustomIcons.GetSprite("HalberdLightning", Resources.HalberdLightning, 128);
 
     #endregion
 
@@ -808,23 +800,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite PikeIcon =>
-        _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
+        _pikeIcon ??= CustomIcons.GetSprite("Pike", Resources.Pike, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
+        CustomIcons.GetSprite("PikePrimed", Resources.PikePrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
+        CustomIcons.GetSprite("Pike_1", Resources.Pike_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
+        CustomIcons.GetSprite("Pike_2", Resources.Pike_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
+        CustomIcons.GetSprite("PikePsychic", Resources.PikePsychic, 128);
 
     #endregion
 
@@ -838,23 +830,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite LongMaceIcon =>
-        _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
+        _longMaceIcon ??= CustomIcons.GetSprite("LongMace", Resources.LongMace, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
+        CustomIcons.GetSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
+        CustomIcons.GetSprite("LongMace_1", Resources.LongMace_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
+        CustomIcons.GetSprite("LongMace_2", Resources.LongMace_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
+        CustomIcons.GetSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
 
     #endregion
 
@@ -868,23 +860,23 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite HandXbowIcon =>
-        _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
+        _handXbowIcon ??= CustomIcons.GetSprite("HandXbow", Resources.HandXbow, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
+        CustomIcons.GetSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
+        CustomIcons.GetSprite("HandXbow_1", Resources.HandXbow_1, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
+        CustomIcons.GetSprite("HandXbow_2", Resources.HandXbow_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
+        CustomIcons.GetSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
 
     #endregion
 
@@ -894,7 +886,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static AssetReferenceSprite ProducedFlameThrow => _producedFlameThrow ??=
-        CustomIcons.CreateAssetReferenceSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
+        CustomIcons.GetSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
     #endregion
 }
@@ -959,13 +951,13 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
         RulesetItem weapon)
     {
         DamageForm damage = null;
-        
+
         foreach (var effectForm in attackMode.EffectDescription.effectForms
                      .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
         {
             damage = effectForm.DamageForm;
         }
-        
+
         if (damage == null)
         {
             return;
@@ -973,7 +965,7 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 
         var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-        damage.diceNumber = 1 + RuleDefinitions.SpellAdvancementByCasterLevel[casterLevel - 1];
+        damage.diceNumber = 1 + SpellAdvancementByCasterLevel[casterLevel - 1];
     }
 }
 

@@ -19,56 +19,43 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
             .AddToDB();
 
-        var debilitatingStrikeEffect = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(
-                DurationType.Round,
-                1)
-            .SetTargetingData(
-                Side.Enemy,
-                RangeType.MeleeHit,
-                0,
-                TargetType.Individuals,
-                0,
-                0)
-            .SetSavingThrowData(
-                true,
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Dexterity,
-                20)
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(ConditionDummy, "ConditionOpportunistDebilitated")
-                        .SetOrUpdateGuiPresentation(Category.Condition)
-                        .AddToDB(),
-                    ConditionForm.ConditionOperation.AddRandom,
-                    false,
-                    false,
-                    ConditionBaned,
-                    ConditionBleeding,
-                    ConditionDefinitions.ConditionBlinded,
-                    ConditionDefinitions.ConditionStunned
-                )
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                .Build())
-            .Build();
-
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
         var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerOpportunistDebilitatingStrike")
-            .Configure(
-                UsesDetermination.Fixed,
-                ActivationTime.OnSneakAttackHitAuto,
-                RechargeRate.AtWill,
-                debilitatingStrikeEffect)
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals, 0, 0)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        20)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDummy, "ConditionOpportunistDebilitated")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.AddRandom,
+                            false,
+                            false,
+                            ConditionBaned,
+                            ConditionBleeding,
+                            ConditionDefinitions.ConditionBlinded,
+                            ConditionDefinitions.ConditionStunned
+                        )
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                        .Build())
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

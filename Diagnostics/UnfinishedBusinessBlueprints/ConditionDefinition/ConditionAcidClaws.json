@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:AttributeModifierAcidClawsACDebuff:228fc58d-9d34-5d37-aecf-75cf20e57e2c"
   ],

@@ -77,16 +77,16 @@ internal static class CustomIcons
     }
 
     [NotNull]
-    internal static AssetReferenceSprite CreateAssetReferenceSprite(
+    internal static AssetReferenceSprite GetSprite(
         string name,
         Byte[] bitmap,
         int size)
     {
-        return CreateAssetReferenceSprite(name, bitmap, size, size);
+        return GetSprite(name, bitmap, size, size);
     }
 
     [NotNull]
-    internal static AssetReferenceSprite CreateAssetReferenceSprite(
+    internal static AssetReferenceSprite GetSprite(
         string name,
         Byte[] bitmap,
         int sizeX,
