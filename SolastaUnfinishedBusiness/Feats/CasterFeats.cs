@@ -29,25 +29,11 @@ internal static class CasterFeats
 
         // telekinetic int
 
-        var powerFeatTelekineticIntPush = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-            AttributeDefinitions.Intelligence,
-            MotionForm.MotionType.PushFromOrigin, 1, 10,
-            "PowerFeatTelekineticIntPush", pushPresentation);
+        var powerFeatTelekineticIntPush = BuildMotionFormPower("PowerFeatTelekineticIntPush",
+                AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
-        var powerFeatTelekineticIntPull = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-            AttributeDefinitions.Intelligence,
-            MotionForm.MotionType.DragToOrigin, 1, 10,
-            "PowerFeatTelekineticIntPull", pullPresentation);
+        var powerFeatTelekineticIntPull = BuildMotionFormPower("PowerFeatTelekineticIntPull", 
+                AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticInt = FeatDefinitionBuilder
             .Create("FeatTelekineticInt")
@@ -61,23 +47,11 @@ internal static class CasterFeats
 
         // telekinetic cha
 
-        var powerFeatTelekineticChaPush = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma,
-            MotionForm.MotionType.PushFromOrigin, 1, 10,
-            "PowerFeatTelekineticChaPush", pushPresentation);
+        var powerFeatTelekineticChaPush = BuildMotionFormPower("PowerFeatTelekineticChaPush",
+                AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
-        var powerFeatTelekineticChaPull = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma,
-            MotionForm.MotionType.DragToOrigin, 1, 10,
-            "PowerFeatTelekineticChaPull", pullPresentation);
+        var powerFeatTelekineticChaPull = BuildMotionFormPower("PowerFeatTelekineticChaPull", 
+                AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticCha = FeatDefinitionBuilder
             .Create("FeatTelekineticCha")
@@ -91,23 +65,11 @@ internal static class CasterFeats
 
         // telekinetic wis
 
-        var powerFeatTelekineticWisPush = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom,
-            MotionForm.MotionType.PushFromOrigin, 1, 10,
-            "PowerFeatTelekineticWisPush", pushPresentation);
+        var powerFeatTelekineticWisPush = BuildMotionFormPower("PowerFeatTelekineticWisPush",
+                AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
-        var powerFeatTelekineticWisPull = BuildMotionFormPower(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-            RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
-            RuleDefinitions.Side.All, true, AttributeDefinitions.Strength,
-            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom,
-            MotionForm.MotionType.DragToOrigin, 1, 10,
-            "PowerFeatTelekineticWisPull", pullPresentation);
+        var powerFeatTelekineticWisPull = BuildMotionFormPower("PowerFeatTelekineticWisPull",
+                AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticWis = FeatDefinitionBuilder
             .Create("FeatTelekineticWis")
@@ -434,49 +396,34 @@ internal static class CasterFeats
 
     [NotNull]
     private static FeatureDefinitionPower BuildMotionFormPower(
-        int usesPerRecharge,
-        RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
-        RuleDefinitions.RechargeRate recharge,
-        RuleDefinitions.RangeType rangeType,
-        int rangeParameter,
-        RuleDefinitions.TargetType targetType,
-        RuleDefinitions.Side target,
-        bool disableSavingThrowOnAllies,
-        string savingThrowAbility,
-        RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
+        string name,
         string savingThrowDifficultyAbility,
         MotionForm.MotionType motionType,
-        int motionDistance,
-        int fixedSavingThrowDifficultyClass,
-        string name,
         GuiPresentation guiPresentation)
     {
-        return BuildPowerFromEffectDescription(usesPerRecharge, activationTime, costPerUse,
-            recharge,
-            false,
-            false,
-            savingThrowDifficultyAbility,
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0)
-                .SetCreatedByCharacter()
-                .SetSavingThrowData(
-                    disableSavingThrowOnAllies,
-                    savingThrowAbility,
-                    true,
-                    difficultyClassComputation,
-                    savingThrowDifficultyAbility,
-                    fixedSavingThrowDifficultyClass)
-                .SetEffectForms(EffectFormBuilder
+        return FeatureDefinitionPowerBuilder
+            .Create(name)
+            .SetGuiPresentation(guiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetMotionForm(motionType, motionDistance)
+                    .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals, 1, 0)
+                    .SetCreatedByCharacter()
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        savingThrowDifficultyAbility)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(motionType, 1)
+                        .Build())
+                    .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                     .Build())
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
-                .Build(),
-            name,
-            guiPresentation);
+            .AddToDB();
     }
 
     [NotNull]
