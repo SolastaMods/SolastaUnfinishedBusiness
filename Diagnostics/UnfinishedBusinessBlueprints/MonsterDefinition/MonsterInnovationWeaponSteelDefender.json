@@ -89,7 +89,7 @@
   "dualSex": true,
   "minimalAge": 20,
   "maximalAge": 100,
-  "height": 0,
+  "height": 6,
   "weight": 0,
   "isHusk": false,
   "isPet": false,
