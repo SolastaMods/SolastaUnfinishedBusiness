@@ -1,10 +1,11 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionPowerBuilder
+internal class FeatureDefinitionPowerBuilder 
     : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
 {
     #region Constructors
@@ -33,107 +34,62 @@ internal abstract class
     }
 
     internal TBuilder SetUsesFixed(
-        RuleDefinitions.ActivationTime activationTime,
-        RuleDefinitions.RechargeRate recharge,
-        EffectDescription effectDescription = null,
+        ActivationTime activationTime,
+        RechargeRate recharge = RechargeRate.AtWill,
         int costPerUse = 1,
         int usesPerRecharge = 1)
     {
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        Definition.usesDetermination = UsesDetermination.Fixed;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
         Definition.costPerUse = costPerUse;
         Definition.fixedUsesPerRecharge = usesPerRecharge;
-
-        if (effectDescription != null)
-        {
-            Definition.effectDescription.Copy(effectDescription);
-        }
-
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetUsesAbilityBonus(
-        RuleDefinitions.ActivationTime activationTime,
-        RuleDefinitions.RechargeRate recharge,
-        string usesAbilityScoreName,
-        EffectDescription effectDescription = null,
-        int costPerUse = 1,
-        int usesPerRecharge = 1)
-    {
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
-        Definition.activationTime = activationTime;
-        Definition.rechargeRate = recharge;
-        Definition.costPerUse = costPerUse;
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
-        Definition.usesAbilityScoreName = usesAbilityScoreName;
-
-        if (effectDescription != null)
-        {
-            Definition.effectDescription.Copy(effectDescription);
-        }
-
         return (TBuilder)this;
     }
 
     internal TBuilder SetUsesProficiencyBonus(
-        RuleDefinitions.ActivationTime activationTime,
-        RuleDefinitions.RechargeRate recharge,
-        EffectDescription effectDescription = null,
+        ActivationTime activationTime,
+        RechargeRate recharge = RechargeRate.AtWill,
         int costPerUse = 1,
         int usesPerRecharge = 1)
     {
-        Definition.usesDetermination = RuleDefinitions.UsesDetermination.ProficiencyBonus;
+        Definition.usesDetermination = UsesDetermination.ProficiencyBonus;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
         Definition.costPerUse = costPerUse;
         Definition.fixedUsesPerRecharge = usesPerRecharge;
+        return (TBuilder)this;
+    }
 
-        if (effectDescription != null)
+    internal TBuilder SetUsesAbilityBonus(
+        ActivationTime activationTime,
+        RechargeRate recharge = RechargeRate.AtWill,
+        string usesAbilityScoreName = "",
+        int costPerUse = 1,
+        int usesPerRecharge = 1)
+    {
+        Definition.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+        Definition.activationTime = activationTime;
+        Definition.rechargeRate = recharge;
+        Definition.costPerUse = costPerUse;
+        Definition.fixedUsesPerRecharge = usesPerRecharge;
+        Definition.usesAbilityScoreName = usesAbilityScoreName == string.Empty
+            ? AttributeDefinitions.Charisma // game default
+            : usesAbilityScoreName;
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetEffectDescription(EffectDescription effect, bool makeCopy = false)
+    {
+        if (makeCopy)
         {
-            Definition.effectDescription.Copy(effectDescription);
+            Definition.effectDescription.Copy(effect);
+        }
+        else
+        {
+            Definition.effectDescription = effect;
         }
 
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetBonusToAttack(
-        bool proficiencyBonusToAttack = false,
-        bool abilityScoreBonusToAttack = false,
-        string abilityScore = AttributeDefinitions.Intelligence) // this is game default
-    {
-        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
-        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
-        Definition.abilityScore = abilityScore;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetEffectDescription(EffectDescription effect)
-    {
-        Definition.effectDescription = effect;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetExplicitAbilityScore(string ability)
-    {
-        Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.Explicit;
-        Definition.abilityScore = ability;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetAttackAbilityToHit(
-        bool abilityScoreBonusToAttack = true,
-        bool proficiencyBonusToAttack = false)
-    {
-        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
-        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
-        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetReactionContext(RuleDefinitions.ReactionTriggerContext context)
-    {
-        Definition.reactionContext = context;
         return (TBuilder)this;
     }
 
@@ -152,6 +108,29 @@ internal abstract class
     internal TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
         Definition.overriddenPower = overridenPower;
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetIsPowerPool()
+    {
+        Definition.overriddenPower = Definition;
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetBonusToAttack(
+        bool proficiencyBonusToAttack = false,
+        bool abilityScoreBonusToAttack = false,
+        string abilityScore = AttributeDefinitions.Intelligence) // this is game default
+    {
+        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
+        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
+        Definition.abilityScore = abilityScore;
+        return (TBuilder)this;
+    }
+
+    internal TBuilder SetReactionContext(ReactionTriggerContext context)
+    {
+        Definition.reactionContext = context;
         return (TBuilder)this;
     }
 

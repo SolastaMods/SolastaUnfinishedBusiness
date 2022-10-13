@@ -158,11 +158,9 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         var powerRavenHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenHeartSeekingShot")
-            .SetGuiPresentation(Category.Feature,
-                CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetGuiPresentation(Category.Feature, CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1,
@@ -187,9 +185,8 @@ internal sealed class RoguishRaven : AbstractSubclass
         var powerRavenTurnOffHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenTurnOffHeartSeekingShot")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)

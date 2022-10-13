@@ -193,13 +193,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
                 PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
-            .SetUsesAbilityBonus(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
-                AttributeDefinitions.Wisdom,
-                null,
-                1,
-                0)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom, 1, 0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
                 .SetCreatedByCharacter()

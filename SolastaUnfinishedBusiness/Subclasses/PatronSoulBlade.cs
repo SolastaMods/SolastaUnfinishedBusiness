@@ -43,9 +43,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
@@ -70,8 +69,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
                                     0))
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
@@ -93,9 +91,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeSoulShield")
             .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
-            .SetUsesFixed(
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerFighterSecondWind.EffectDescription)
                     .SetDurationData(DurationType.UntilLongRest)

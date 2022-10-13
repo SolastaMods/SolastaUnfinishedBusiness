@@ -80,9 +80,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingStrike")
                     .SetGuiPresentationNoContent(true)
-                    .SetUsesFixed(
-                        ActivationTime.OnRageStartAutomatic,
-                        RechargeRate.AtWill)
+                    .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -147,7 +145,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var powerPathOfTheLightEyesOfTruth = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
-            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(
@@ -193,7 +191,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var powerPathOfTheLightIlluminatingBurstSuppressor = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightIlluminatingBurstSuppressor")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -220,10 +218,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
-                    .SetUsesFixed(
-                        ActivationTime.OnRageStartAutomatic,
-                        RechargeRate.AtWill,
-                        EffectDescriptionBuilder.Create()
+                    .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
                             .SetDurationData(DurationType.Round, 1)
                             .SetEffectForms(
                                 EffectFormBuilder

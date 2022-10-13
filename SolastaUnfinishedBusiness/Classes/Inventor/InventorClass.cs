@@ -455,8 +455,8 @@ internal static class InventorClass
         return FeatureDefinitionPowerPoolModifierBuilder
             .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.AtWill)
-            .Configure(1, UsesDetermination.Fixed, "", InfusionPool)
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetPoolModifier(InfusionPool, 1)
             .AddToDB();
     }
 
@@ -569,12 +569,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
-                null,
-                1,
-                2)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }
 
@@ -641,7 +636,7 @@ internal static class InventorClass
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerCreate{item.name}")
             .SetGuiPresentation(spell.FormatTitle(), description, spell)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetSharedPool(pool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
@@ -699,12 +694,7 @@ internal static class InventorClass
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation(text, Category.Feature, sprite)
-            .SetUsesAbilityBonus(
-                ActivationTime.Reaction,
-                RechargeRate.LongRest,
-                AttributeDefinitions.Intelligence,
-                null,
-                1,
+            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence, 1,
                 0)
             .SetCustomSubFeatures(PowerVisibilityModifier.Default)
             .SetReactionContext(ReactionTriggerContext.None)
@@ -714,9 +704,7 @@ internal static class InventorClass
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
             .SetGuiPresentation(text, Category.Feature, sprite)
-            .SetUsesFixed(
-                ActivationTime.PermanentUnlessIncapacitated,
-                RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6, 2)
@@ -839,15 +827,9 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        string text;
-        if (defender.RulesetCharacter == helper)
-        {
-            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat";
-        }
-        else
-        {
-            text = "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
-        }
+        var text = defender.RulesetCharacter == helper
+            ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
+            : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
     }

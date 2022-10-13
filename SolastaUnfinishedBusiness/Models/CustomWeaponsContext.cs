@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
+using static RuleDefinitions;
 using static RuleDefinitions.ItemRarity;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -92,7 +93,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
-        RuleDefinitions.ItemRarity rarity,
+        ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
         AssetReferenceSprite icon = null,
@@ -169,33 +170,32 @@ internal static class CustomWeaponsContext
             WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypeForce, 1, RuleDefinitions.DieType.D4)
+            .SetDamageForm(DamageTypeForce, 1, DieType.D4)
             .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.IsUsableDevice = true;
         HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
-            .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+            .SetRecharge(RechargeRate.AtWill)
             .SetSaveDc(EffectHelpers.BasedOnUser)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")
                     .SetGuiPresentation(Category.Feature)
-                    .SetUsesFixed(
-                        RuleDefinitions.ActivationTime.BonusAction,
-                        RuleDefinitions.RechargeRate.AtWill,
+                    .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+                    .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
-                                RuleDefinitions.TargetType.Individuals)
+                            .SetTargetingData(Side.All, RangeType.Distance, 3,
+                                TargetType.Individuals)
                             .ExcludeCaster()
                             .SetSavingThrowData(
                                 true,
                                 AttributeDefinitions.Strength,
                                 false,
-                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                             .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                            .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
+                            .SetDurationData(DurationType.Instantaneous)
                             .SetEffectForms(EffectFormBuilder
                                 .Create()
                                 .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
@@ -220,7 +220,7 @@ internal static class CustomWeaponsContext
 
     [NotNull]
     private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
-        RuleDefinitions.ItemRarity rarity,
+        ItemRarity rarity,
         params ItemPropertyDescription[] properties)
     {
         return BuildWeapon(
@@ -258,7 +258,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         Halberd = BuildWeapon("CEHalberd", baseItem,
@@ -303,7 +303,7 @@ internal static class CustomWeaponsContext
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypeLightning, 1, RuleDefinitions.DieType.D8)
+            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16,
                 HalberdPrimed,
@@ -337,7 +337,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         Pike = BuildWeapon("CEPike", baseItem,
@@ -384,7 +384,7 @@ internal static class CustomWeaponsContext
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypePsychic, 1, RuleDefinitions.DieType.D8)
+            .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16,
                 PikePrimed,
@@ -418,7 +418,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D10;
+        damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
         LongMace = BuildWeapon("CELongMace", baseItem,
@@ -463,7 +463,7 @@ internal static class CustomWeaponsContext
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypeThunder, 1, RuleDefinitions.DieType.D8)
+            .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16,
                 LongMacePrimed,
@@ -500,7 +500,7 @@ internal static class CustomWeaponsContext
         var damageForm = baseDescription.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
 
-        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.dieType = DieType.D6;
         damageForm.diceNumber = 1;
 
         //add hand xbow proficiency to rogues
@@ -552,7 +552,7 @@ internal static class CustomWeaponsContext
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypeAcid, 1, RuleDefinitions.DieType.D8)
+            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
             .Build());
         ShopItems.Add((BuildRecipeManual(HandXbowAcid, 48, 16,
                 HandXbowPrimed,
@@ -573,14 +573,14 @@ internal static class CustomWeaponsContext
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
-        damageForm.damageType = RuleDefinitions.DamageTypeFire;
-        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.damageType = DamageTypeFire;
+        damageForm.dieType = DieType.D8;
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
         weapon.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
-            .SetDamageForm(RuleDefinitions.DamageTypeFire, 1, RuleDefinitions.DieType.D8)
+            .SetDamageForm(DamageTypeFire, 1, DieType.D8)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
             .Create("ProducedFlameThrower")
@@ -966,7 +966,7 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 
         var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-        damage.diceNumber = 1 + RuleDefinitions.SpellAdvancementByCasterLevel[casterLevel - 1];
+        damage.diceNumber = 1 + SpellAdvancementByCasterLevel[casterLevel - 1];
     }
 }
 

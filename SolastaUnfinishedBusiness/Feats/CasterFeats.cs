@@ -498,9 +498,9 @@ internal static class CasterFeats
             .SetUsesFixed(
                 activationTime,
                 recharge,
-                effectDescription,
                 costPerUse,
                 usesPerRecharge)
+            .SetEffectDescription(effectDescription, true)
             .SetBonusToAttack(proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore)
             .AddToDB();
     }

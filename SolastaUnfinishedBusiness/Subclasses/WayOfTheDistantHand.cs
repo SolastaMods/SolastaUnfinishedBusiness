@@ -183,7 +183,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, null, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
             .SetCustomSubFeatures(new ValidatorPowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(
                     ConditionDefinitionBuilder

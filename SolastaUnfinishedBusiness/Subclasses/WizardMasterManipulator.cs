@@ -54,8 +54,8 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .SetUsesAbilityBonus(
                 ActivationTime.BonusAction,
                 RechargeRate.LongRest,
-                AttributeDefinitions.Intelligence,
-                DominatePerson.EffectDescription)
+                AttributeDefinitions.Intelligence)
+            .SetEffectDescription(DominatePerson.EffectDescription, true)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

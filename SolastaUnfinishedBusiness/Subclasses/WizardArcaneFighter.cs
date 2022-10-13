@@ -66,23 +66,20 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
                 FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-            .SetUsesProficiencyBonus(
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(
                         Side.Ally,
                         RangeType.Touch,
-                        1 /* range */,
+                        1,
                         TargetType.Item,
                         1,
                         2,
                         ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
-                    .SetDurationData(
-                        DurationType.Minute,
-                        10 /* duration */)
+                    .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -99,8 +96,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                         .SetAdditionalAttackTag(TagsDefinitions.Magical)
                                         .AddToDB(),
                                     0))
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();

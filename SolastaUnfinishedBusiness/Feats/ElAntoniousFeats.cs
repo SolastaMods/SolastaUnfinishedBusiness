@@ -97,9 +97,8 @@ internal static class ElAntoniousFeats
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
-                .SetUsesFixed(
-                    ActivationTime.BonusAction,
-                    RechargeRate.AtWill,
+                .SetUsesFixed(ActivationTime.BonusAction)
+                .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
                         .SetCanBePlacedOnCharacter(false)

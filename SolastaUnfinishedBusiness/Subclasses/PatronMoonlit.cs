@@ -82,9 +82,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness.GuiPresentation.SpriteReference)
-            .SetUsesProficiencyBonus(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Darkness.EffectDescription)
                     .SetDurationData(DurationType.Minute, 1)
@@ -95,9 +94,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight.GuiPresentation.SpriteReference)
-            .SetUsesProficiencyBonus(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Daylight.EffectDescription)
                     .SetDurationData(DurationType.Minute, 1)
@@ -108,12 +106,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitDanceOfTheNightSky = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
-                EffectDescriptionBuilder
-                    .Create(Fly.EffectDescription)
-                    .Build())
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(Fly.EffectDescription, true)
             .SetUniqueInstance()
             .AddToDB();
 
@@ -122,9 +116,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(

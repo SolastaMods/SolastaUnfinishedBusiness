@@ -175,9 +175,8 @@ internal static class EwFeats
             .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
@@ -199,9 +198,8 @@ internal static class EwFeats
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerTurnOffPowerAttack")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)

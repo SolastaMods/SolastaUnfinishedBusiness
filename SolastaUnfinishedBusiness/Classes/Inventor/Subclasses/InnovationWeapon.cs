@@ -19,7 +19,7 @@ public static class InnovationWeapon
 {
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
-    private const string SummonSteeldefenderPower = "PowerInnovationWeaponSummonSteelDefender";
+    private const string SummonSteelDefenderPower = "PowerInnovationWeaponSummonSteelDefender";
 
     public static CharacterSubclassDefinition Build()
     {
@@ -86,12 +86,11 @@ public static class InnovationWeapon
         var defender = BuildSteelDefenderMonster();
 
         return FeatureDefinitionPowerBuilder
-            .Create(SummonSteeldefenderPower)
+            .Create(SummonSteelDefenderPower)
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
@@ -232,12 +231,11 @@ public static class InnovationWeapon
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
-                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
+                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 
                             256, 128))
-                    .SetUsesFixed(
-                        ActivationTime.Action,
-                        RechargeRate.LongRest,
-                        // RAW this can heal any other Inventor construct, this version only heals self
+                    .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
+                    // RAW this can heal any other Inventor construct, this version only heals self
+                    .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
                             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
@@ -246,9 +244,7 @@ public static class InnovationWeapon
                                 .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
                                     HealingCap.MaximumHitPoints)
                                 .Build())
-                            .Build(),
-                        1,
-                        3)
+                            .Build())
                     .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("FeatureInnovationWeaponSteelDefenderInitiative")
@@ -300,10 +296,8 @@ public static class InnovationWeapon
         return FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
-            .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
-            .SetUsesFixed(
-                ActivationTime.BonusAction,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
@@ -321,6 +315,7 @@ public static class InnovationWeapon
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .Build())
                     .Build())
+            .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
     }
 
@@ -332,13 +327,8 @@ public static class InnovationWeapon
             .Create("PowerInnovationWeaponArcaneJolt")
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
-            .SetUsesAbilityBonus(
-                ActivationTime.OnAttackHit,
-                RechargeRate.LongRest,
-                AttributeDefinitions.Intelligence,
-                null,
-                1,
-                0)
+            .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence,
+                1, 0)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                 .SetEffectForms(EffectFormBuilder
@@ -382,7 +372,7 @@ public static class InnovationWeapon
         {
             if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
 
-            return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteeldefenderPower);
+            return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
         }
     }
 }

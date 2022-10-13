@@ -43,9 +43,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldWarMagic = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldWarMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(
-                ActivationTime.OnSpellCast,
-                RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnSpellCast)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -106,10 +104,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
-            .SetUsesAbilityBonus(
-                ActivationTime.Reaction,
-                RechargeRate.AtWill,
-                AttributeDefinitions.Intelligence,
+            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(

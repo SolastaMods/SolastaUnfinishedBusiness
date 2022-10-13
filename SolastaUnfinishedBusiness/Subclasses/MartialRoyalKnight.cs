@@ -30,11 +30,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightRallyingCry")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord)
-            .SetUsesAbilityBonus(
-                ActivationTime.BonusAction,
-                RechargeRate.ShortRest,
-                AttributeDefinitions.Charisma,
-                PowerDomainLifePreserveLife.EffectDescription)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
+            .SetEffectDescription(PowerDomainLifePreserveLife.EffectDescription, true)
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 

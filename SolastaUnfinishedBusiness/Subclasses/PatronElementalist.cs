@@ -100,14 +100,15 @@ internal sealed class PatronElementalist : AbstractSubclass
         var formEnhanced = CustomIcons.GetSprite(
             "ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
 
-        var powerElementalistElementalFormPool = FeatureDefinitionPowerPoolBuilder
+        var powerElementalistElementalFormPool = FeatureDefinitionPowerBuilder
             .Create("PowerElementalistElementalFormPool")
             .SetGuiPresentation(Category.Feature, formRegular)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 
-        var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerPoolBuilder
+        var powerElementalistElementalEnhancedFormPool = FeatureDefinitionPowerBuilder
             .Create("PowerElementalistElementalEnhancedFormPool")
             .SetGuiPresentation(Category.Feature, formEnhanced)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
@@ -234,14 +235,8 @@ internal sealed class PatronElementalist : AbstractSubclass
         var powerSharedPoolElementalistNormal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalForm", text, elementalFormConfig))
-            .Configure(
-                elementalFormPool,
-                RechargeRate.LongRest,
-                ActivationTime.NoCost,
-                1,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
@@ -255,8 +250,9 @@ internal sealed class PatronElementalist : AbstractSubclass
                                 true,
                                 true)
                             .Build())
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
+            .SetSharedPool(elementalFormPool)
             .AddToDB();
 
         var conditionElementalistEnhanced = ConditionDefinitionBuilder
@@ -273,14 +269,8 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create("PowerSharedPoolElementalistEnhanced" + text)
             .SetGuiPresentation(GuiPresentation("ElementalFormEnhanced", text, elementalFormConfig))
             .SetOverriddenPower(powerSharedPoolElementalistNormal)
-            .Configure(
-                enhancedElementalFormPool,
-                RechargeRate.LongRest,
-                ActivationTime.NoCost,
-                1,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
@@ -291,8 +281,9 @@ internal sealed class PatronElementalist : AbstractSubclass
                             .SetConditionForm(conditionElementalistEnhanced,
                                 ConditionForm.ConditionOperation.Add, true, true)
                             .Build())
-                    .Build(),
-                true)
+                    .Build())
+            .SetUniqueInstance()
+            .SetSharedPool(enhancedElementalFormPool)
             .AddToDB();
 
         return (powerSharedPoolElementalistNormal, powerSharedPoolElementalistEnhanced);

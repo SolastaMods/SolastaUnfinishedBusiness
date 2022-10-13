@@ -55,10 +55,8 @@ internal sealed class RoguishConArtist : AbstractSubclass
         var powerConArtistFeint = FeatureDefinitionPowerBuilder
             .Create("PowerConArtistFeint")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(
-                ActivationTime.BonusAction,
-                RechargeRate.AtWill,
-                AttributeDefinitions.Charisma,
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.AtWill, AttributeDefinitions.Charisma)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)

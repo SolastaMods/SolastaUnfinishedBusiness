@@ -72,14 +72,13 @@ public static class InnovationAlchemy
             .Create("PowerInnovationAlchemyBombsElemental")
             .SetGuiPresentation(Category.Feature,
                 GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
-            .SetUniqueInstance()
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .Build())
+            .SetUniqueInstance()
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(ElementalBombs, true,
@@ -280,9 +279,8 @@ public static class InnovationAlchemy
                 .SetGuiPresentation(Category.Feature)
                 .SetShowCasting(false)
                 .SetUniqueInstance()
-                .SetUsesFixed(
-                    ActivationTime.NoCost,
-                    RechargeRate.AtWill,
+                .SetUsesFixed(ActivationTime.NoCost)
+                .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
                         .SetDurationData(DurationType.Permanent)
@@ -302,9 +300,8 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature)
             .SetShowCasting(false)
             .SetUniqueInstance()
-            .SetUsesFixed(
-                ActivationTime.NoCost,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
@@ -346,14 +343,13 @@ public static class InnovationAlchemy
         IPowerUseValidity validator,
         params EffectForm[] effects)
     {
-        const string name = "PowerInnovationAlchemyBombPrecise";
-        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
-            .SetAttackAbilityToHit(true, true)
-            .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+        const string NAME = "PowerInnovationAlchemyBombPrecise";
+        
+        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+            .SetGuiPresentation(NAME, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
@@ -372,6 +368,8 @@ public static class InnovationAlchemy
                     .Build())
                 .AddEffectForms(effects)
                 .Build())
+            .SetBonusToAttack(true, true, AttributeDefinitions.Dexterity)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .AddToDB();
     }
 
@@ -384,12 +382,14 @@ public static class InnovationAlchemy
         params EffectForm[] effects
     )
     {
-        const string name = "PowerInnovationAlchemyBombBreath";
-        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+        const string NAME = "PowerInnovationAlchemyBombBreath";
+        
+        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+            .SetGuiPresentation(NAME, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
@@ -418,11 +418,11 @@ public static class InnovationAlchemy
         IPowerUseValidity validator,
         params EffectForm[] effects)
     {
-        const string name = "PowerInnovationAlchemyBombSplash";
+        const string NAME = "PowerInnovationAlchemyBombSplash";
 
-        return FeatureDefinitionPowerBuilder.Create($"{name}{damageType}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+            .SetGuiPresentation(NAME, Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
@@ -451,12 +451,7 @@ public static class InnovationAlchemy
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.ShortRest,
-                null,
-                1,
-                6)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 6)
             .AddToDB();
     }
 }

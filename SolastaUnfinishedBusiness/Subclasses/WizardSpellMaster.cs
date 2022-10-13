@@ -66,9 +66,8 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .Create(PowerSpellMasterBonusRecoveryName)
             .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature,
                 PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
-            .SetUsesFixed(
-                ActivationTime.Rest,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(

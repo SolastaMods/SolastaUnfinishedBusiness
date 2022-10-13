@@ -84,10 +84,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetBonusCantrips(Shillelagh, ChillTouch)
             .AddToDB();
 
-        var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerPoolBuilder
+        var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 
@@ -130,10 +131,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestEntangleAtWill = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.AtWill,
-                Entangle.EffectDescription)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(Entangle.EffectDescription, true)
             .SetUniqueInstance()
             .AddToDB();
 
@@ -150,9 +149,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestRooted = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestRooted")
             .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.LongRest,
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetEffectForms(
@@ -174,10 +172,11 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
-        var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerPoolBuilder
+        var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
             .SetUsesAbilityBonus(ActivationTime.Permanent, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 
@@ -195,16 +194,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
             FeatureDefinitionPower wallOfThorns = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerSharedPoolAncientForest" + spell.name)
                 .SetGuiPresentation(spell.GuiPresentation)
-                .Configure(
-                    powerPoolAncientForestWallOfThorns,
-                    RechargeRate.LongRest,
-                    ActivationTime.Rest,
-                    1,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    spell.EffectDescription,
-                    false)
+                .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+                .SetEffectDescription(spell.effectDescription, true)
+                .SetSharedPool(powerPoolAncientForestWallOfThorns)
+
                 .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
@@ -298,16 +291,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .Configure(
-                pool,
-                RechargeRate.ShortRest,
-                ActivationTime.NoCost,
-                1,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                brewEffect,
-                false)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetEffectDescription(brewEffect)
+            .SetSharedPool(pool)
             .AddToDB();
     }
 
@@ -339,9 +325,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation)
                 .SetTitle("Equipment/&FunctionPotionDrinkTitle")
                 .Build())
-            .SetUsesFixed(
-                ActivationTime.Action,
-                RechargeRate.AtWill,
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetEffectForms(
@@ -399,16 +384,9 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .Configure(
-                pool,
-                RechargeRate.ShortRest,
-                ActivationTime.NoCost,
-                1,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                brewEffect,
-                false)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetEffectDescription(brewEffect)
+            .SetSharedPool(pool)
             .AddToDB();
     }
 }
