@@ -135,7 +135,7 @@ internal static class Infusions
         var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
@@ -181,7 +181,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -290,7 +290,7 @@ internal static class Infusions
 
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
             .SetGuiPresentation(guiName, Category.Feature, icon)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
@@ -325,7 +325,7 @@ internal static class Infusions
     {
         var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
             .SetGuiPresentation(Category.Feature, item)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(
                 ExtraCarefulTrackedItem.Marker,

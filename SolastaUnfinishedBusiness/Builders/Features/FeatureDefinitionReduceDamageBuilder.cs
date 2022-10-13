@@ -5,8 +5,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionReduceDamageBuilder : DefinitionBuilder<FeatureDefinitionReduceDamage,
-    FeatureDefinitionReduceDamageBuilder>
+internal class FeatureDefinitionReduceDamageBuilder
+    : DefinitionBuilder<FeatureDefinitionReduceDamage, FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)

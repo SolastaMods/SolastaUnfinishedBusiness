@@ -341,7 +341,7 @@ public static class InnovationAlchemy
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombPrecise";
-        
+
         return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
@@ -380,7 +380,7 @@ public static class InnovationAlchemy
     )
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
-        
+
         return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)

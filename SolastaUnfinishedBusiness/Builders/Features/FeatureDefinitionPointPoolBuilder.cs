@@ -1,27 +1,12 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefinitionPointPool,
-    FeatureDefinitionPointPoolBuilder>
+internal class FeatureDefinitionPointPoolBuilder
+    : DefinitionBuilder<FeatureDefinitionPointPool, FeatureDefinitionPointPoolBuilder>
 {
-#if false
-    internal FeatureDefinitionPointPoolBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
-        bool uniqueChoices, params string[] choices)
-    {
-        Definition.poolType = poolType;
-        Definition.poolAmount = poolAmount;
-        Definition.RestrictedChoices.AddRange(choices);
-        Definition.uniqueChoices = uniqueChoices;
-        Definition.RestrictedChoices.Sort();
-
-        return this;
-    }
-#endif
-
     internal FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
     {
         Definition.poolType = poolType;

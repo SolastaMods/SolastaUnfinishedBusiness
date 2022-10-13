@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.CustomBehaviors.ValidatorsFeat;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -182,7 +181,8 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */, TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */, TargetType.Item, 1, 2,
+                        ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1 /* duration */)
                     .SetEffectForms(
@@ -251,7 +251,8 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item, 1, 2,
+                        ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
@@ -595,7 +596,8 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item, 1, 2,
+                        ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1 /* duration */)
                     .SetEffectForms(

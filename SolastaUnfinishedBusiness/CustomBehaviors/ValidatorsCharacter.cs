@@ -163,7 +163,7 @@ internal static class ValidatorsCharacter
     {
         foreach (var keyValuePair in character.conditionsByCategory)
         {
-            foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+            foreach (var rulesetCondition in keyValuePair.Value)
             {
                 if (rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>())
                 {

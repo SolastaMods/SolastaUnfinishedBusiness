@@ -442,13 +442,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                     .Create()
                     .SetCreatedByCharacter()
                     .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Self,
-                        0,
-                        TargetType.Cube,
-                        5,
-                        2)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)

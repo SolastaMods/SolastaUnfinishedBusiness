@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
 {
-    internal List<CustomInvocationDefinition> Invocations { get; } = new List<CustomInvocationDefinition>();
+    internal List<CustomInvocationDefinition> Invocations { get; } = new();
 
 
     internal static void GrantInvocations(
@@ -54,7 +54,8 @@ internal class FeatureDefinitionGrantCustomInvocationsBuilder : DefinitionBuilde
     FeatureDefinitionGrantCustomInvocations,
     FeatureDefinitionGrantCustomInvocationsBuilder>
 {
-    internal FeatureDefinitionGrantCustomInvocationsBuilder SetInvocations(params CustomInvocationDefinition[] invocations)
+    internal FeatureDefinitionGrantCustomInvocationsBuilder SetInvocations(
+        params CustomInvocationDefinition[] invocations)
     {
         Definition.Invocations.SetRange(invocations);
         return this;

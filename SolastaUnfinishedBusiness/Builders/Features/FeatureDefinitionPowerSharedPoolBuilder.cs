@@ -6,8 +6,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
-    FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
+internal class FeatureDefinitionPowerSharedPoolBuilder
+    : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
 {
     internal override void Validate()
     {

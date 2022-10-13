@@ -184,7 +184,7 @@ internal class EffectDescriptionBuilder
         effect.ignoreCover = value;
         return this;
     }
-    
+
     internal EffectDescriptionBuilder SetSavingThrowData(
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,

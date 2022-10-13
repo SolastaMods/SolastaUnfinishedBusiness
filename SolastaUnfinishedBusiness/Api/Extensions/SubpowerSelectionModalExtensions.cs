@@ -42,7 +42,7 @@ internal static class SubpowerSelectionModalExtensions
 
                 var power = instance.powerDefinitions[i];
                 var valid = caster.CanUsePower(power);
-                
+
                 component.Bind(caster, power, i, index =>
                 {
                     if (instance.subpowerEngaged != null)

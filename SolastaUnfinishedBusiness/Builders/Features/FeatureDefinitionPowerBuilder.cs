@@ -5,7 +5,7 @@ using static RuleDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionPowerBuilder 
+internal class FeatureDefinitionPowerBuilder
     : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
 {
     #region Constructors

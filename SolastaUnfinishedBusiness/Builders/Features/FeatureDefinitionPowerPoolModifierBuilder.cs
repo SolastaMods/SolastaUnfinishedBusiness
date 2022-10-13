@@ -12,8 +12,8 @@ the hero and only one power for a given name+guid is added. Which means if you w
 at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
 */
 [UsedImplicitly]
-internal class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<
-    FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
+internal class FeatureDefinitionPowerPoolModifierBuilder
+    : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
 {
     internal override void Validate()
     {

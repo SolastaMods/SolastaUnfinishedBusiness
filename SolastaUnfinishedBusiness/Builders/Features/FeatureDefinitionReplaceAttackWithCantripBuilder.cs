@@ -6,8 +6,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionReplaceAttackWithCantripBuilder
-    : DefinitionBuilder<FeatureDefinitionReplaceAttackWithCantrip,
-        FeatureDefinitionReplaceAttackWithCantripBuilder>
+    : DefinitionBuilder<FeatureDefinitionReplaceAttackWithCantrip, FeatureDefinitionReplaceAttackWithCantripBuilder>
 {
     #region Constructors
 
@@ -17,8 +16,7 @@ internal class FeatureDefinitionReplaceAttackWithCantripBuilder
     }
 
     protected FeatureDefinitionReplaceAttackWithCantripBuilder(FeatureDefinitionReplaceAttackWithCantrip original,
-        string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
+        string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 

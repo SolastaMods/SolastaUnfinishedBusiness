@@ -230,7 +230,7 @@ public static class InnovationWeapon
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
-                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 
+                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
                             256, 128))
                     .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
                     // RAW this can heal any other Inventor construct, this version only heals self

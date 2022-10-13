@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDefinitionProficiency,
-    FeatureDefinitionProficiencyBuilder>
+internal class FeatureDefinitionProficiencyBuilder
+    : DefinitionBuilder<FeatureDefinitionProficiency, FeatureDefinitionProficiencyBuilder>
 {
     internal FeatureDefinitionProficiencyBuilder SetProficiencies(
         RuleDefinitions.ProficiencyType type,
@@ -16,17 +15,6 @@ internal class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDe
         Definition.proficiencyType = type;
         Definition.Proficiencies.SetRange(proficiencies);
         Definition.Proficiencies.Sort();
-
-        return this;
-    }
-
-    internal FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
-        params ToolTypeDefinition[] proficiencies)
-    {
-        Definition.proficiencyType = type;
-        Definition.Proficiencies.SetRange(proficiencies.Select(p => p.Name));
-        Definition.Proficiencies.Sort();
-
         return this;
     }
 

@@ -30,10 +30,10 @@ internal static class CasterFeats
         // telekinetic int
 
         var powerFeatTelekineticIntPush = BuildMotionFormPower("PowerFeatTelekineticIntPush",
-                AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, pushPresentation);
+            AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
-        var powerFeatTelekineticIntPull = BuildMotionFormPower("PowerFeatTelekineticIntPull", 
-                AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, pullPresentation);
+        var powerFeatTelekineticIntPull = BuildMotionFormPower("PowerFeatTelekineticIntPull",
+            AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticInt = FeatDefinitionBuilder
             .Create("FeatTelekineticInt")
@@ -48,10 +48,10 @@ internal static class CasterFeats
         // telekinetic cha
 
         var powerFeatTelekineticChaPush = BuildMotionFormPower("PowerFeatTelekineticChaPush",
-                AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, pushPresentation);
+            AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
-        var powerFeatTelekineticChaPull = BuildMotionFormPower("PowerFeatTelekineticChaPull", 
-                AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, pullPresentation);
+        var powerFeatTelekineticChaPull = BuildMotionFormPower("PowerFeatTelekineticChaPull",
+            AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticCha = FeatDefinitionBuilder
             .Create("FeatTelekineticCha")
@@ -66,10 +66,10 @@ internal static class CasterFeats
         // telekinetic wis
 
         var powerFeatTelekineticWisPush = BuildMotionFormPower("PowerFeatTelekineticWisPush",
-                AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, pushPresentation);
+            AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, pushPresentation);
 
         var powerFeatTelekineticWisPull = BuildMotionFormPower("PowerFeatTelekineticWisPull",
-                AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, pullPresentation);
+            AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticWis = FeatDefinitionBuilder
             .Create("FeatTelekineticWis")
@@ -407,7 +407,8 @@ internal static class CasterFeats
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals, 1, 0)
+                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
+                    RuleDefinitions.TargetType.Individuals, 1, 0)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,

@@ -8,16 +8,13 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSavingThrowAffinityBuilder
-    : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity,
-        FeatureDefinitionSavingThrowAffinityBuilder>
+    : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity, FeatureDefinitionSavingThrowAffinityBuilder>
 {
     internal FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
         RuleDefinitions.CharacterSavingThrowAffinity affinityType,
         bool againstMagic,
         params string[] abilityScores)
     {
-        // TODO: this isn't a set, it's an Add
-
         foreach (var ability in abilityScores)
         {
             var group = new SavingThrowAffinityGroup { abilityScoreName = ability, affinity = affinityType };
@@ -55,9 +52,8 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
     {
     }
 
-    protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
-        string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
+    protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name,
+        Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
