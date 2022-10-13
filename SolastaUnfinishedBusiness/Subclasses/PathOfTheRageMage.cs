@@ -64,10 +64,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create(SpellDefinitions.Darkvision.EffectDescription)
-                        .Build())
+                .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription, true)
                 .SetShowCasting(true)
                 .AddToDB();
 
@@ -76,10 +73,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall.GuiPresentation.SpriteReference)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create(SpellDefinitions.FeatherFall.EffectDescription)
-                        .Build())
+                .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription, true)
                 .SetShowCasting(true)
                 .AddToDB();
 
@@ -87,10 +81,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.Jump.EffectDescription)
-                    .Build())
+            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription, true)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -99,10 +90,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create(SpellDefinitions.SeeInvisibility.EffectDescription)
-                        .Build())
+                .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription, true)
                 .SetShowCasting(true)
                 .AddToDB();
 

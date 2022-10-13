@@ -98,29 +98,28 @@ internal static class ElAntoniousFeats
                 .Create("PowerTorchbearer")
                 .SetGuiPresentation(Category.Feature)
                 .SetUsesFixed(ActivationTime.BonusAction)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
-                        .SetCanBePlacedOnCharacter(false)
-                        .SetCreatedByCharacter()
-                        .SetDurationData(DurationType.Round, 3)
-                        .SetSpeed(SpeedType.Instant, 11f)
-                        .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .SetSavingThrowData(
-                            false,
-                            AttributeDefinitions.Dexterity,
-                            false,
-                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            AttributeDefinitions.Dexterity,
-                            15)
-                        .Build())
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription)
+                    .SetCanBePlacedOnCharacter(false)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.Round, 3)
+                    .SetSpeed(SpeedType.Instant, 11f)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        15)
+                    .Build())
                 .SetShowCasting(false)
                 .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
                 .AddToDB())

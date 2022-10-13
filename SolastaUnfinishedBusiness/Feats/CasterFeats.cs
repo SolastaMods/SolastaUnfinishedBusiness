@@ -405,24 +405,23 @@ internal static class CasterFeats
             .Create(name)
             .SetGuiPresentation(guiPresentation)
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals, 1, 0)
+                .SetCreatedByCharacter()
+                .SetSavingThrowData(
+                    true,
+                    AttributeDefinitions.Strength,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    savingThrowDifficultyAbility)
+                .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals, 1, 0)
-                    .SetCreatedByCharacter()
-                    .SetSavingThrowData(
-                        true,
-                        AttributeDefinitions.Strength,
-                        true,
-                        RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        savingThrowDifficultyAbility)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(motionType, 1)
-                        .Build())
-                    .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                    .SetMotionForm(motionType, 1)
                     .Build())
+                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                .Build())
             .AddToDB();
     }
 

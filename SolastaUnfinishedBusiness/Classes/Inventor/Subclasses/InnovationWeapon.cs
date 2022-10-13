@@ -90,17 +90,16 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetSummonCreatureForm(1, defender.Name)
-                        .Build())
-                    .SetParticleEffectParameters(ConjureElementalAir)
+                    .SetSummonCreatureForm(1, defender.Name)
                     .Build())
+                .SetParticleEffectParameters(ConjureElementalAir)
+                .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
             .AddToDB();
@@ -235,16 +234,15 @@ public static class InnovationWeapon
                             256, 128))
                     .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
                     // RAW this can heal any other Inventor construct, this version only heals self
-                    .SetEffectDescription(
-                        EffectDescriptionBuilder
+                    .SetEffectDescription(EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder
                             .Create()
-                            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                            .SetEffectForms(EffectFormBuilder
-                                .Create()
-                                .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
-                                    HealingCap.MaximumHitPoints)
-                                .Build())
+                            .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
+                                HealingCap.MaximumHitPoints)
                             .Build())
+                        .Build())
                     .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("FeatureInnovationWeaponSteelDefenderInitiative")
@@ -297,24 +295,23 @@ public static class InnovationWeapon
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create(CommandSteelDefenderCondition)
-                            .SetGuiPresentationNoContent()
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            //TODO: Double check duration equals 1 won't break things
-                            // .SetDuration(DurationType.Round, 0, false)
-                            .SetDuration(DurationType.Round, 1)
-                            .SetSpecialDuration(true)
-                            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create(CommandSteelDefenderCondition)
+                        .SetGuiPresentationNoContent()
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        //TODO: Double check duration equals 1 won't break things
+                        // .SetDuration(DurationType.Round, 0, false)
+                        .SetDuration(DurationType.Round, 1)
+                        .SetSpecialDuration(true)
+                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
+                .Build())
             .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
     }
@@ -329,7 +326,8 @@ public static class InnovationWeapon
                 CustomIcons.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence,
                 1, 0)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                 .SetEffectForms(EffectFormBuilder
                     .Create()

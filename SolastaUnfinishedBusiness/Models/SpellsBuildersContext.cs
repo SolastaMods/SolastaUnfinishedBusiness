@@ -526,7 +526,8 @@ internal static class SpellsBuildersContext
                 FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+                CharacterContext.FeatureDefinitionPowerHelpAction)
             .ClearAttackIterations()
             .SetSkillScores(
                 (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
@@ -547,7 +548,6 @@ internal static class SpellsBuildersContext
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .SetFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")

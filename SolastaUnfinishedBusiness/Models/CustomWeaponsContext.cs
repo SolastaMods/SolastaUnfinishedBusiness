@@ -182,12 +182,11 @@ internal static class CustomWeaponsContext
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerHandwrapsOfPulling")
                     .SetGuiPresentation(Category.Feature)
-                    .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+                    .SetUsesFixed(ActivationTime.BonusAction)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetTargetingData(Side.All, RangeType.Distance, 3,
-                                TargetType.Individuals)
+                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.Individuals)
                             .ExcludeCaster()
                             .SetSavingThrowData(
                                 true,

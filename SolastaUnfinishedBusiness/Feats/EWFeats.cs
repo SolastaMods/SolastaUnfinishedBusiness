@@ -171,21 +171,20 @@ internal static class EwFeats
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
                 CustomIcons.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
@@ -194,21 +193,20 @@ internal static class EwFeats
             .Create("PowerTurnOffPowerAttack")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
+                        .Build())
+                .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);

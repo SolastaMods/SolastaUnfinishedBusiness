@@ -134,13 +134,14 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature, IdentifyCreatures)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(IdentifyCreatures.EffectDescription)
-                .SetDurationData(DurationType.Instantaneous)
-                .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(new StudyEnemyEffectDescription())
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(IdentifyCreatures.EffectDescription)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .ClearRestrictedCreatureFamilies()
+                    .SetEffectForms(new StudyEnemyEffectDescription())
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                    .Build())
             .AddToDB();
     }
 

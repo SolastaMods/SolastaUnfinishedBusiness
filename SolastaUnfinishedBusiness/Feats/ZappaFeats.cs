@@ -111,8 +111,7 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1,
-                        TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -183,8 +182,7 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
-                        TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */, TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1 /* duration */)
                     .SetEffectForms(
@@ -597,8 +595,7 @@ internal static class ZappaFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */,
-                        TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1 /* duration */)
                     .SetEffectForms(

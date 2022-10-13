@@ -73,11 +73,10 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature,
                 GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Permanent)
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -280,14 +279,13 @@ public static class InnovationAlchemy
                 .SetShowCasting(false)
                 .SetUniqueInstance()
                 .SetUsesFixed(ActivationTime.NoCost)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Permanent)
-                        .SetEffectForms(EffectFormBuilder.Create()
-                            .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
                         .Build())
+                    .Build())
                 .AddToDB(),
             new ValidatorPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker))
         );
@@ -301,18 +299,17 @@ public static class InnovationAlchemy
             .SetShowCasting(false)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
+                .Build())
             .AddToDB();
     }
 
@@ -424,7 +421,8 @@ public static class InnovationAlchemy
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)

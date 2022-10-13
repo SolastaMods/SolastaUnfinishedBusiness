@@ -205,8 +205,8 @@ internal static class InventorClass
                 .Create("ProficiencyInventorTools")
                 .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
                 .SetProficiencies(ProficiencyType.Tool,
-                    ToolTypeDefinitions.ThievesToolsType,
-                    ToolTypeDefinitions.ArtisanToolSmithToolsType)
+                    ToolTypeDefinitions.ThievesToolsType.Name,
+                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
                 .AddToDB())
 
             // Tool Selection
@@ -238,7 +238,8 @@ internal static class InventorClass
                     SkillDefinitions.Nature,
                     SkillDefinitions.Perception,
                     SkillDefinitions.SleightOfHand
-                ).AddToDB())
+                )
+                .AddToDB())
 
             #endregion
 
@@ -397,11 +398,11 @@ internal static class InventorClass
             .Create("ProficiencyInventorToolExpertise")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType,
-                ToolTypeDefinitions.EnchantingToolType,
-                ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.PoisonersKitType,
-                ToolTypeDefinitions.ScrollKitType
+                ToolTypeDefinitions.ArtisanToolSmithToolsType.Name,
+                ToolTypeDefinitions.EnchantingToolType.Name,
+                ToolTypeDefinitions.HerbalismKitType.Name,
+                ToolTypeDefinitions.PoisonersKitType.Name,
+                ToolTypeDefinitions.ScrollKitType.Name
             )
             .AddToDB();
     }
@@ -706,8 +707,9 @@ internal static class InventorClass
             .SetGuiPresentation(text, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6, 2)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
@@ -787,7 +789,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         var rolled = saveDC + saveOutcomeDelta;
         var success = saveOutcomeDelta >= 0;
 
-        var text = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
+        const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
         string result;
         ConsoleStyleDuplet.ParameterType resultType;
 
@@ -804,7 +806,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");

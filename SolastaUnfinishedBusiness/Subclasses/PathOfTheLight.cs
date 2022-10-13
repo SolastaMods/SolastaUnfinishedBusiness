@@ -146,15 +146,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Permanent)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(
-                    Side.Ally,
-                    RangeType.Self,
-                    1,
-                    TargetType.Self,
-                    1,
-                    0)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -196,7 +191,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 0)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder

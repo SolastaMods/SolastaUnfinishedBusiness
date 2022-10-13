@@ -167,22 +167,17 @@ internal static class GrayDwarfSubraceBuilder
             .SetShowCasting(true)
             .AddToDB();
 
-        var grayDwarfInvisibilityEffect = EffectDescriptionBuilder
-            .Create(SpellDefinitions.Invisibility.EffectDescription)
-            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Self, 1,
-                TargetType.Self)
-            .Build();
-
         var powerGrayDwarfInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
             .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.ShortRest)
-            .SetEffectDescription(grayDwarfInvisibilityEffect)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(SpellDefinitions.Invisibility.EffectDescription)
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .Build())
             .SetShowCasting(true)
             .AddToDB();
 
