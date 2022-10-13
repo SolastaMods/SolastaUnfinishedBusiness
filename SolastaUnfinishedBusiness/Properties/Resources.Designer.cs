@@ -112,6 +112,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] AlchemyBombAdvanced {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombAdvanced", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] AlchemyBombColdBreath {
             get {
                 object obj = ResourceManager.GetObject("AlchemyBombColdBreath", resourceCulture);
@@ -175,6 +185,36 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] AlchemyBombFireSplash {
             get {
                 object obj = ResourceManager.GetObject("AlchemyBombFireSplash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombForceBreath {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombForceBreath", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombForcePrecise {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombForcePrecise", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AlchemyBombForceSplash {
+            get {
+                object obj = ResourceManager.GetObject("AlchemyBombForceSplash", resourceCulture);
                 return ((byte[])(obj));
             }
         }
