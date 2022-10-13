@@ -202,11 +202,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            //TODO: Double check duration equals 1 won't break things
-                            .SetDuration(DurationType.Round, 1)
+                            .SetDuration(DurationType.Round, 0, false)
                             .SetSpecialDuration(true)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
+                            .SetSpecialInterruptions(
+                                ConditionInterruption.BattleEnd,
                                 ConditionInterruption.AnyBattleTurnEnd)
                             .SetFeatures(
                                 additionalActionWayOfTheDistantHandExtraAttack1,
