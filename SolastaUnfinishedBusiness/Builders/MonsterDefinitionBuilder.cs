@@ -17,11 +17,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetAlignment(AlignmentDefinition alignment)
-    {
-        return SetAlignment(alignment.Name);
-    }
-
     internal MonsterDefinitionBuilder SetArmorClass(int armorClass, string type = "")
     {
         Definition.armorClass = armorClass;
@@ -41,24 +36,11 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetCharacterFamily(string family)
-    {
-        Definition.characterFamily = family;
-        return this;
-    }
-
     internal MonsterDefinitionBuilder SetCharacterFamily(CharacterFamilyDefinition family)
     {
-        return SetCharacterFamily(family.Name);
-    }
-
-#if false
-    public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
-    {
-        Definition.forceNoFlyAnimation = value;
+        Definition.characterFamily = family.name;
         return this;
     }
-#endif
 
     public MonsterDefinitionBuilder SetMonsterPresentation(MonsterPresentation presentation)
     {
@@ -72,14 +54,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
             new MonsterSavingThrowProficiency { abilityScoreName = x.Item1, bonus = x.Item2 }));
         return this;
     }
-
-#if false
-    public MonsterDefinitionBuilder SetSavingThrowScores(params MonsterSavingThrowProficiency[] saves)
-    {
-        Definition.savingThrowScores.SetRange(saves);
-        return this;
-    }
-#endif
 
     public MonsterDefinitionBuilder HideFromDungeonEditor()
     {
@@ -169,12 +143,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.AbilityScores.SetValue(INT, 3); // INT
         Definition.AbilityScores.SetValue(WIS, 4); // WIS
         Definition.AbilityScores.SetValue(CHA, 5); // CHA
-        return this;
-    }
-
-    internal MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
-    {
-        Definition.Features.AddRange(features);
         return this;
     }
 

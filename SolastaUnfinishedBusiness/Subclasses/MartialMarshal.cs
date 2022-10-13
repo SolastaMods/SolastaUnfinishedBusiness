@@ -319,7 +319,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetAttackIterations(new MonsterAttackIteration(attackMarshalEternalComrade, 1))
             .SetArmorClass(16)
             .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Undead.name)
+            .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)

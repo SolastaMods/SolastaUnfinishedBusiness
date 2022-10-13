@@ -540,14 +540,14 @@ internal static class SpellsBuildersContext
             .SetStandardHitPoints(1)
             .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
             .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetCharacterFamily(CharacterFamilyDefinitions.Fey)
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction("Party")
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .SetFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")

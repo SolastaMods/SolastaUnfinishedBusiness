@@ -272,7 +272,7 @@ public static class InnovationWeapon
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetCharacterFamily(CharacterFamilyDefinitions.Construct)
-            .SetAlignment(AlignmentDefinitions.Neutral)
+            .SetAlignment("Neutral")
             // .SetLegendaryCreature(false)
             .NoExperienceGain()
             .SetChallengeRating(0)
