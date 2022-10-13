@@ -20,7 +20,7 @@
     "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 2,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": true,

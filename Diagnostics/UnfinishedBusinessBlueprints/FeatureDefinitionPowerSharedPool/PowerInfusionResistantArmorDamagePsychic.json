@@ -9,7 +9,7 @@
     "targetType": "Item",
     "itemSelectionType": "Carried",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
