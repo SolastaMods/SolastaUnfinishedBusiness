@@ -62,7 +62,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var powerPathOfTheRageMageSupernaturalExploitsDarkvision =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
                 .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription, true)
                 .SetShowCasting(true)
@@ -71,7 +71,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var powerPathOfTheRageMageSupernaturalExploitsFeatherfall =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
                 .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription, true)
                 .SetShowCasting(true)
@@ -79,7 +79,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         var powerPathOfTheRageMageSupernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(SpellDefinitions.Jump.EffectDescription, true)
             .SetShowCasting(true)
@@ -88,7 +88,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         var powerPathOfTheRageMageSupernaturalExploitsSeeInvisibility =
             FeatureDefinitionPowerBuilder
                 .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility)
                 .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
                 .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription, true)
                 .SetShowCasting(true)
@@ -146,7 +146,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
         Subclass =
             CharacterSubclassDefinitionBuilder
                 .Create(Name)
-                .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DomainBattle)
                 .AddFeaturesAtLevel(3,
                     castSpellPathOfTheRageMage,
                     magicAffinityPathOfTheRageMage,

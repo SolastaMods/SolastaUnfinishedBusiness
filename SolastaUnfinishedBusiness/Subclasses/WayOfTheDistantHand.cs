@@ -124,8 +124,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .SetConditionForm(
                         ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandDistract")
-                            .SetGuiPresentation(Category.Condition,
-                                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                             .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
@@ -273,8 +272,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
-                            .SetGuiPresentation(Category.Condition,
-                                ConditionDefinitions.ConditionEncumbered.GuiPresentation.SpriteReference)
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
                             .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
@@ -332,8 +330,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandUpgradedDistract")
-                            .SetGuiPresentation(Category.Condition,
-                                ConditionDefinitions.ConditionDazzled.GuiPresentation.SpriteReference)
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                             .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)

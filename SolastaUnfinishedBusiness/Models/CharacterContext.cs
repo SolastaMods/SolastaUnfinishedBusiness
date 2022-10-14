@@ -77,7 +77,7 @@ internal static class CharacterContext
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
-            .SetGuiPresentation(Category.Feature, Aid.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Aid)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()

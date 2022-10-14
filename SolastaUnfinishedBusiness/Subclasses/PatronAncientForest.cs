@@ -75,7 +75,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinLayOnHands, "PowerAncientForestRegrowth")
-            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing)
             .AddToDB();
 
         var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
@@ -86,7 +86,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
-            .SetGuiPresentation(Category.Feature, PotionRemedy.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PotionRemedy)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
             .SetIsPowerPool()
             .SetBonusToAttack(true)
@@ -148,7 +148,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         var powerAncientForestRooted = FeatureDefinitionPowerBuilder
             .Create("PowerAncientForestRooted")
-            .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerRangerHideInPlainSight)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -216,7 +216,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronAncientForest")
-            .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, TraditionGreenmage)
             .AddFeaturesAtLevel(1,
                 magicAffinityAncientForestExpandedSpells,
                 attributeModifierAncientForestRegrowth,

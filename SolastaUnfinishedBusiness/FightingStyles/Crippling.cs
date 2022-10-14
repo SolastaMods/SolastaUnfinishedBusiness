@@ -14,7 +14,7 @@ internal sealed class Crippling : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Crippling")
-        .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer)
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")

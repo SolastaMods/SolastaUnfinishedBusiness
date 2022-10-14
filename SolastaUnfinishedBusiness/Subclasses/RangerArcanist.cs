@@ -162,7 +162,7 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerArcanist")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsArcanist,
                 magicAffinityRangerArcanist,

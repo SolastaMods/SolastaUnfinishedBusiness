@@ -35,7 +35,7 @@ internal static class SpellsBuildersContext
     {
         return ConditionDefinitionBuilder
             .Create("ConditionAcidClaws")
-            .SetGuiPresentation(Category.Condition, ConditionAcidSpit.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Round, 1)
             .SetSpecialDuration(true)
@@ -181,7 +181,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(Sparkle, NAME)
-            .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Shine)
             .AddToDB();
 
         spell.EffectDescription.rangeType = RangeType.Distance;
@@ -469,7 +469,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "ThunderStrike";
 
-        var spriteReference = Shield.GuiPresentation.SpriteReference;
+        var spriteReference = Shield;
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -552,7 +552,7 @@ internal static class SpellsBuildersContext
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
-            .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSomaticComponent(true)
@@ -611,7 +611,7 @@ internal static class SpellsBuildersContext
                     .SetConditionForm(
                         ConditionDefinitionBuilder
                             .Create("ConditionMule")
-                            .SetGuiPresentation(Category.Condition, Longstrider.GuiPresentation.SpriteReference)
+                            .SetGuiPresentation(Category.Condition, Longstrider)
                             .SetConditionType(ConditionType.Beneficial)
                             .SetFeatures(movementAffinity, equipmentAffinity)
                             .AddToDB(),
@@ -624,7 +624,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Longstrider.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Longstrider)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -645,7 +645,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(MagicMissile, NAME)
-            .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Sparkle)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -673,7 +673,7 @@ internal static class SpellsBuildersContext
 
         _ = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyInsectPlague, ProxyPetalStormName)
-            .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
+            .SetGuiPresentation("PetalStorm", Category.Spell, WindWall)
             .SetCanMove()
             .SetIsEmptyPresentation(false)
             .SetCanMoveOnCharacters()

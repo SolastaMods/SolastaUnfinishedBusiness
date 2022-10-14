@@ -36,7 +36,7 @@ internal static class ElAntoniousFeats
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
-                    .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                     .AddToDB())

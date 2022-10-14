@@ -52,7 +52,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var conditionLifeTransmuterPoison = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterPoison")
-            .SetGuiPresentation(Category.Condition, ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionProtectedFromPoison)
             .SetFeatures(
                 DamageAffinityPoisonResistance,
                 DamageAffinityAcidResistance,
@@ -75,7 +75,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var conditionLifeTransmuterConstitution = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterConstitution")
-            .SetGuiPresentation(Category.Condition, ConditionBearsEndurance.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionBearsEndurance)
             .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -126,7 +126,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardLifeTransmuter")
             .SetGuiPresentation(Category.Subclass,
-                RoguishDarkweaver.GuiPresentation.SpriteReference)
+                RoguishDarkweaver)
             .AddFeaturesAtLevel(2,
                 magicAffinityLifeTransmuterHeightened)
             .AddFeaturesAtLevel(6,

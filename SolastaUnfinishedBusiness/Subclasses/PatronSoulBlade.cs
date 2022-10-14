@@ -42,7 +42,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
-            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -65,7 +65,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                     FeatureDefinitionAttackModifierBuilder
                                         .Create("AttackModifierSoulBladeEmpowerWeapon")
                                         .SetGuiPresentation(Category.Feature,
-                                            PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                                            PowerOathOfDevotionSacredWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
                                     0))

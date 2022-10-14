@@ -92,8 +92,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass,
                     3)
-                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition,
-                    ConditionShielded.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition, ConditionShielded)
                 .AddToDB())
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -102,7 +101,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
-            .SetGuiPresentation(Category.Feature, ConditionShielded.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, ConditionShielded)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -134,7 +133,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainBattle)
             .AddFeaturesAtLevel(3,
                 magicAffinitySpellShieldConcentrationAdvantage,
                 castSpellSpellShield)

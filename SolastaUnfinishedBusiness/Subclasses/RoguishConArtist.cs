@@ -100,7 +100,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainInsight)
             .AddFeaturesAtLevel(3,
                 abilityCheckAffinityConArtist,
                 castSpellConArtist)

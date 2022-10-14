@@ -43,7 +43,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -64,7 +64,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialRoyalKnight")
             .SetGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.OathOfDevotion.GuiPresentation.SpriteReference)
+                CharacterSubclassDefinitions.OathOfDevotion)
             .AddFeaturesAtLevel(3,
                 powerRoyalKnightRallyingCry)
             .AddFeaturesAtLevel(7,

@@ -41,7 +41,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
-            .SetGuiPresentation(Category.Subclass, OathOfJugement.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, OathOfJugement)
             .AddFeaturesAtLevel(3,
                 BuildMarshalCoordinatedAttack(),
                 BuildFeatureSetMarshalKnowYourEnemyFeatureSet(),

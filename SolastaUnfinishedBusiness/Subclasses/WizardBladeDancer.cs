@@ -172,7 +172,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer")
-            .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 proficiencyBladeDancerLightArmor,
                 proficiencyBladeDancerMartialWeapon,

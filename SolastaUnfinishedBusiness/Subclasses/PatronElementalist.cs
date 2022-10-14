@@ -30,7 +30,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityFireImmunity,
                 Particles = Fire_Jester.MonsterPresentation.attachedParticlesReference,
                 Shaders = Fire_Elemental.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire.GuiPresentation.SpriteReference,
+                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire,
             }
         },
         {
@@ -43,7 +43,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Particles = Earth_Elemental.MonsterPresentation.attachedParticlesReference,
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                 Shaders = FeyBear.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
+                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
             }
         },
         {
@@ -54,7 +54,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityColdImmunity,
                 Particles = WindSnake.MonsterPresentation.attachedParticlesReference,
                 Shaders = SkarnGhoul.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,
+                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold,
             }
         },
         {
@@ -65,7 +65,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityThunderImmunity,
                 Particles = Air_Elemental.MonsterPresentation.attachedParticlesReference,
                 Shaders = Air_Elemental.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
+                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder,
             }
         }
     };
@@ -159,8 +159,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster)
             .AddFeaturesAtLevel(1,
                 magicAffinityElementalistExpandedSpells,
                 powerElementalistElementalFormPool)

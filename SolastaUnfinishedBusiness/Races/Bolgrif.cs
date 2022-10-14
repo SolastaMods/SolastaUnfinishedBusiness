@@ -43,7 +43,7 @@ internal static class RaceBolgrifBuilder
 
         var powerBolgrifInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerBolgrifInvisibility")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder

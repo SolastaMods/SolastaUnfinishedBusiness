@@ -57,7 +57,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var conditionPathOfTheLightIlluminated = ConditionDefinitionIlluminatedBuilder
             .Create(ConditionPathOfTheLightIlluminatedName)
-            .SetGuiPresentation(Category.Condition, ConditionBranded.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionBranded)
             .SetAllowMultipleInstances(true)
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Irrelevant)
@@ -99,9 +99,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                                     .Create(
                                                         AdditionalDamagePathOfTheLightIlluminatingStrikeName,
                                                         conditionPathOfTheLightIlluminated)
-                                                    .SetGuiPresentationNoContent(
-                                                        AdditionalDamageDomainLifeDivineStrike.GuiPresentation
-                                                            .SpriteReference)
+                                                    .SetGuiPresentationNoContent(AdditionalDamageDomainLifeDivineStrike)
                                                     .AddToDB())
                                             .AddToDB(),
                                         ConditionForm.ConditionOperation.Add)
@@ -136,7 +134,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var powerPathOfTheLightEyesOfTruth = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheLightEyesOfTruth")
-            .SetGuiPresentation(Category.Feature, SeeInvisibility.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SeeInvisibility)
             .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -149,7 +147,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create("ConditionPathOfTheLightEyesOfTruth")
                                 .SetGuiPresentation(Category.Condition,
-                                    ConditionSeeInvisibility.GuiPresentation.SpriteReference)
+                                    ConditionSeeInvisibility)
                                 .SetAllowMultipleInstances(false)
                                 .SetConditionType(ConditionType.Beneficial)
                                 .SetDuration(DurationType.Permanent)
@@ -221,14 +219,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerIlluminatingBurstBuilder
                     .Create(PowerPathOfTheLightIlluminatingBurstName,
                         conditionPathOfTheLightIlluminated, conditionPathOfTheLightSuppressedIlluminatingBurst)
-                    .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun)
                     .AddToDB(),
                 powerPathOfTheLightIlluminatingBurstSuppressor)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
-            .SetGuiPresentation(Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainSun)
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheLightIlluminatingStrike,
                 featureSetPathOfTheLightPierceTheDarkness)
@@ -511,7 +509,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             ConditionDefinitionIlluminatedByBurstBuilder
                                 .Create("ConditionPathOfTheLightIlluminatedByBurst")
                                 .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
-                                    ConditionBranded.GuiPresentation.SpriteReference)
+                                    ConditionBranded)
                                 .SetAllowMultipleInstances(true)
                                 .SetConditionType(ConditionType.Detrimental)
                                 .SetDuration(DurationType.Minute, 1)
