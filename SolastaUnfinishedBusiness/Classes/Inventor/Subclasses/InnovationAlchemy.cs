@@ -488,12 +488,18 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildAlchemyPool()
     {
-        return FeatureDefinitionPowerBuilder
+        var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 6)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, HasModifiedUses.Marker)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
+
+        power.AddCustomSubFeatures(new PowerUseModifier()
+        {
+            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
+        });
+        return power;
     }
 }
 
