@@ -124,7 +124,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 AdditionalDamageRangerFavoredEnemyUndead,
                 additionalDamageMarshalFavoredEnemyHumanoid
             )
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
 
@@ -402,7 +401,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetMarshalEternalComrade")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(summoningAffinityMarshalEternalComrade, powerMarshalSummonEternalComrade)
+            .AddFeatureSet(summoningAffinityMarshalEternalComrade, powerMarshalSummonEternalComrade)
             .AddToDB();
     }
 
@@ -411,8 +410,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetMarshalFearlessCommander")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(ConditionAffinityFrightenedImmunity)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddFeatureSet(ConditionAffinityFrightenedImmunity)
             .AddToDB();
     }
 

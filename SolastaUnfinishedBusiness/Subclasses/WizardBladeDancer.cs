@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -156,19 +155,19 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerBladeDance")
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
-            .SetFeatureSet(powerBladeDancerBladeDance)
+            .AddFeatureSet(powerBladeDancerBladeDance)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfDefense = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerDanceOfDefense")
             .SetGuiPresentation("ReduceDamageBladeDancerDanceOfDefense", Category.Feature)
-            .SetFeatureSet(powerBladeDancerDanceOfDefense)
+            .AddFeatureSet(powerBladeDancerDanceOfDefense)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfVictory = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerDanceOfVictory")
             .SetGuiPresentation("AttackModifierBladeDancerDanceOfVictory", Category.Feature)
-            .SetFeatureSet(powerBladeDancerDanceOfVictory)
+            .AddFeatureSet(powerBladeDancerDanceOfVictory)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

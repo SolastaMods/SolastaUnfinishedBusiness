@@ -42,8 +42,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddFeatureSet(
                 InvisibleConditions
                     .Select(x => FeatureDefinitionConditionAffinityBuilder
@@ -74,8 +72,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightIlluminatingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddFeatureSet(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingStrike")
@@ -118,8 +114,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightPierceTheDarkness")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddFeatureSet(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .AddToDB();
 
@@ -127,8 +121,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightLightsProtection")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddFeatureSet(
                 FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
@@ -207,9 +199,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightIlluminatingBurst")
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
-            .SetFeatureSet(
+            .AddFeatureSet(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)

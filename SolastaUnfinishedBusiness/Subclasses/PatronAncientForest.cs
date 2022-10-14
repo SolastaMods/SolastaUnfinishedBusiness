@@ -183,8 +183,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWallOfThorns")
             .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddToDB();
 
         var wallOfThornsSpells = new[] { WallOfThornsWallLine, WallOfThornsWallRing };

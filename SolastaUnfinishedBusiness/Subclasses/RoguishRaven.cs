@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -22,7 +21,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var featureSetRavenSharpShooter = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRavenSharpShooter")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
+            .AddFeatureSet(
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyRavenRangeWeapon")
                     .SetGuiPresentationNoContent(true)
@@ -37,7 +36,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB()
             )
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
 
         // killing spree 
@@ -209,7 +207,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("FeatureSetRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerRavenHeartSeekingShot, powerRavenTurnOffHeartSeekingShot)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,13 +7,6 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet,
     FeatureDefinitionFeatureSetBuilder>
 {
-    internal FeatureDefinitionFeatureSetBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
-    {
-        Definition.FeatureSet.SetRange(featureDefinitions);
-        Definition.FeatureSet.Sort(Sorting.CompareTitle);
-        return this;
-    }
-
     internal FeatureDefinitionFeatureSetBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
     {
         Definition.FeatureSet.AddRange(featureDefinitions);
@@ -22,21 +14,15 @@ internal class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDef
         return this;
     }
 
+    internal FeatureDefinitionFeatureSetBuilder ClearFeatureSet()
+    {
+        Definition.FeatureSet.Clear();
+        return this;
+    }
+
     internal FeatureDefinitionFeatureSetBuilder SetEnumerateInDescription(bool value)
     {
         Definition.enumerateInDescription = value;
-        return this;
-    }
-
-    internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
-    {
-        Definition.mode = mode;
-        return this;
-    }
-
-    internal FeatureDefinitionFeatureSetBuilder SetUniqueChoices(bool uniqueChoice)
-    {
-        Definition.uniqueChoices = uniqueChoice;
         return this;
     }
 

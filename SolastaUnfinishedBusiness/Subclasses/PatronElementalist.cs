@@ -146,8 +146,6 @@ internal sealed class PatronElementalist : AbstractSubclass
                 DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil,
                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed,
                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
             .AddToDB();
 
         var bonusCantripElementalistMinorElemental = FeatureDefinitionBonusCantripsBuilder

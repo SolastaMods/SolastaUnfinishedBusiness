@@ -447,7 +447,7 @@ internal static class InventorClass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(InfusionPool, _learn4)
+            .AddFeatureSet(InfusionPool, _learn4)
             .AddToDB();
     }
 
@@ -728,7 +728,7 @@ internal static class InventorClass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorFlashOfGenius")
             .SetGuiPresentation(text, Category.Feature)
-            .SetFeatureSet(auraPower, bonusPower)
+            .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
     }
 }

@@ -22,7 +22,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var featureSetRoyalKnightRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRoyalKnightRoyalEnvoy")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
+            .AddFeatureSet(
                 abilityCheckAffinityRoyalKnightRoyalEnvoy,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
             .AddToDB();
