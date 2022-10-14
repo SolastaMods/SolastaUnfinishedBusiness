@@ -123,17 +123,9 @@ internal class CharacterClassDefinitionBuilder
 
     #region Skill preference
 
-#if false
     internal CharacterClassDefinitionBuilder AddSkillPreferences(params SkillDefinition[] skillTypes)
     {
         Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
-        return this;
-    }
-#endif
-
-    internal CharacterClassDefinitionBuilder AddSkillPreferences(params string[] skillTypes)
-    {
-        Definition.SkillAutolearnPreference.AddRange(skillTypes);
         return this;
     }
 

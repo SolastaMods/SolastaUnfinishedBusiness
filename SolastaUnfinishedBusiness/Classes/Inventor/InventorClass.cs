@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -82,13 +83,13 @@ internal static class InventorClass
                 AttributeDefinitions.Charisma
             )
             .AddSkillPreferences(
-                SkillDefinitions.Athletics,
-                SkillDefinitions.History,
-                SkillDefinitions.Insight,
-                SkillDefinitions.Stealth,
-                SkillDefinitions.Religion,
-                SkillDefinitions.Perception,
-                SkillDefinitions.Survival
+                DatabaseHelper.SkillDefinitions.Athletics,
+                DatabaseHelper.SkillDefinitions.History,
+                DatabaseHelper.SkillDefinitions.Insight,
+                DatabaseHelper.SkillDefinitions.Stealth,
+                DatabaseHelper.SkillDefinitions.Religion,
+                DatabaseHelper.SkillDefinitions.Perception,
+                DatabaseHelper.SkillDefinitions.Survival
             )
             .AddToolPreferences(
                 ToolTypeDefinitions.EnchantingToolType,
