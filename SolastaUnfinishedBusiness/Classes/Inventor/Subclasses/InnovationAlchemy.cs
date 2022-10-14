@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -143,7 +142,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombFirePrecise", Resources.AlchemyBombFirePrecise, 128);
         particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
     }
@@ -169,7 +168,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombColdPrecise", Resources.AlchemyBombColdPrecise, 128);
         particle = RayOfFrost.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
 
@@ -203,7 +202,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
         particle = CallLightning.EffectDescription.effectParticleParameters;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
 
@@ -245,7 +244,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
         particle = spray;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
 
@@ -275,7 +274,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombAcidPrecise", Resources.AlchemyBombAcidPrecise, 128);
         particle = splash;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
 
@@ -306,7 +305,7 @@ public static class InnovationAlchemy
 
         sprite = GetSprite("AlchemyBombForcePrecise", Resources.AlchemyBombForcePrecise, 128);
         particle = splash;
-        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
         AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
 
@@ -385,7 +384,6 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower MakePreciseBombPower(string damageType,
         DieType dieType,
-        string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
         IPowerUseValidity validator,
@@ -401,12 +399,6 @@ public static class InnovationAlchemy
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    savingThrowAbility,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder
