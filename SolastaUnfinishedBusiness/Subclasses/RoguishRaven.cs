@@ -110,7 +110,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(
-                        new ValidatorDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                        new ValidatorsDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
@@ -175,7 +175,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);

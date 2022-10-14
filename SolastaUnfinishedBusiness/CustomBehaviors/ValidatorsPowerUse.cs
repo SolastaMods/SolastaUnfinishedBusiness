@@ -1,28 +1,27 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, FeatureDefinitionPower power);
 
-internal sealed class ValidatorPowerUse : IPowerUseValidity
+internal sealed class ValidatorsPowerUse : IPowerUseValidity
 {
-    public static readonly IPowerUseValidity NotInCombat = new ValidatorPowerUse(_ =>
+    public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ =>
         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
-    public static readonly IPowerUseValidity InCombat = new ValidatorPowerUse(_ =>
+    public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
     private readonly IsPowerUseValidHandler[] validators;
 
-    internal ValidatorPowerUse(params IsCharacterValidHandler[] validators)
+    internal ValidatorsPowerUse(params IsCharacterValidHandler[] validators)
     {
         this.validators = validators.Select(v => new IsPowerUseValidHandler((character, _) => v(character))).ToArray();
     }
 
-    internal ValidatorPowerUse(params IsPowerUseValidHandler[] validators)
+    internal ValidatorsPowerUse(params IsPowerUseValidHandler[] validators)
     {
         this.validators = validators;
     }
@@ -34,7 +33,7 @@ internal sealed class ValidatorPowerUse : IPowerUseValidity
 
     internal static IPowerUseValidity UsedLessTimesThan(int limit)
     {
-        return new ValidatorPowerUse((character, power) =>
+        return new ValidatorsPowerUse((character, power) =>
         {
             var user = GameLocationCharacter.GetFromActor(character);
             if (user == null) { return false; }

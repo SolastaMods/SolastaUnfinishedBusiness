@@ -180,7 +180,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
-            .SetCustomSubFeatures(new ValidatorPowerUse(
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(
                     ConditionDefinitionBuilder
                         .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")

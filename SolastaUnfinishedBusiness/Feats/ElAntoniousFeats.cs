@@ -117,7 +117,7 @@ internal static class ElAntoniousFeats
                         15)
                     .Build())
                 .SetShowCasting(false)
-                .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.OffHandHasLightSource))
+                .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.OffHandHasLightSource))
                 .AddToDB())
             .AddToDB();
 

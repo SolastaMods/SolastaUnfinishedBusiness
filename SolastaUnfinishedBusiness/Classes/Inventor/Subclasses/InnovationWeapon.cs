@@ -101,7 +101,7 @@ public static class InnovationWeapon
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -334,7 +334,7 @@ public static class InnovationWeapon
                 .Build())
             .SetCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
-                ValidatorPowerUse.UsedLessTimesThan(1),
+                ValidatorsPowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)
             .SetShowCasting(false)
             .AddToDB();

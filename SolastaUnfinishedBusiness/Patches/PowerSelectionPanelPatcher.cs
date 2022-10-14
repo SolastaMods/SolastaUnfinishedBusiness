@@ -61,7 +61,7 @@ public static class PowerSelectionPanelPatcher
             for (var i = relevantPowers.Count - 1; i >= 0; i--)
             {
                 var power = relevantPowers[i];
-                if (ValidatorPowerUse.IsPowerNotValid(character, power)
+                if (ValidatorsPowerUse.IsPowerNotValid(character, power)
                     || PowerVisibilityModifier.IsPowerHidden(character, power, actionType))
                 {
                     relevantPowers.RemoveAt(i);

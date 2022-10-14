@@ -136,7 +136,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(ValidatorsPowerUse.NotInCombat)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .AddToDB());
@@ -180,7 +180,7 @@ internal static class Infusions
         masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(ValidatorsPowerUse.NotInCombat)
             .SetUsesFixed(ActivationTime.Action)
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
@@ -294,7 +294,7 @@ internal static class Infusions
             .SetUniqueInstance()
             .SetSharedPool(InventorClass.InfusionPool)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
-                SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat, itemFilter)
+                SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat, itemFilter)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
@@ -317,7 +317,7 @@ internal static class Infusions
         var upgrade = BuildInfuseItemPower($"{name}Upgraded", name,
             sprite, itemFilter, features);
         upgrade.overriddenPower = power;
-        upgrade.AddCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
+        upgrade.AddCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
         ImprovedInfusions.FeatureSet.Add(upgrade);
     }
 
@@ -331,7 +331,7 @@ internal static class Infusions
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
-                ValidatorPowerUse.NotInCombat)
+                ValidatorsPowerUse.NotInCombat)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
