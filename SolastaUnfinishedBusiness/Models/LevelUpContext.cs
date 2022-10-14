@@ -562,6 +562,8 @@ internal static class LevelUpContext
             return;
         }
 
+        CacheSpells(hero);
+        
         if (Main.Settings.EnableRelearnSpells)
         {
             var otherClassesKnownSpells = GetOtherClassesKnownSpells(hero);
