@@ -76,8 +76,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterPoison",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterPoison:7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
+          "conditionDefinitionName": "ConditionLifeTransmuterElementalResistance",
+          "conditionDefinition": "Definition:ConditionLifeTransmuterElementalResistance:3af2d724-7069-59e0-a32c-899d9c8726dc",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -323,8 +323,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterElementalResistanceTitle",
-    "description": "Feature/&PowerLifeTransmuterElementalResistanceDescription",
+    "title": "Feature/&PowerSharedPoolLifeTransmuterElementalResistanceTitle",
+    "description": "Feature/&PowerSharedPoolLifeTransmuterElementalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
@@ -344,7 +344,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b8aeffb-c8af-5d22-9a53-2b56a680eecd",
+  "guid": "637acbab-fceb-5716-8ccb-fd0d0d413a35",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterPoison"
+  "name": "PowerSharedPoolLifeTransmuterElementalResistance"
 }

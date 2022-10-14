@@ -38,7 +38,8 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         var proficiencyMasterManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyMasterManipulatorMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SavingThrow,
+            .SetProficiencies(
+                ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();

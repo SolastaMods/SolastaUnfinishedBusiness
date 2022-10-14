@@ -51,6 +51,12 @@ internal class EffectDescriptionBuilder
         effect.RestrictedCreatureFamilies.Clear();
         return this;
     }
+    
+    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params CharacterFamilyDefinition[] values)
+    {
+        effect.RestrictedCreatureFamilies.SetRange(values.Select(x => x.Name));
+        return this;
+    }
 
     internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
     {

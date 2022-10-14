@@ -133,8 +133,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionLifeTransmuterPoisonTitle",
-    "description": "Condition/&ConditionLifeTransmuterPoisonDescription",
+    "title": "Condition/&ConditionLifeTransmuterElementalResistanceTitle",
+    "description": "Condition/&ConditionLifeTransmuterElementalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a723156c787808644b470992b3f992df",
@@ -154,7 +154,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
+  "guid": "3af2d724-7069-59e0-a32c-899d9c8726dc",
   "contentPack": 9999,
-  "name": "ConditionLifeTransmuterPoison"
+  "name": "ConditionLifeTransmuterElementalResistance"
 }

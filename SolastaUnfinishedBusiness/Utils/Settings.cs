@@ -49,7 +49,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
     public bool DontConsumeSlots { get; set; }
-
+    
+#if DEBUG
+    public bool EnableCommandAllUndead {get; set;}
+#else
+    public bool EnableCommandAllUndead { get; set; } = true;
+#endif
+    
     //
     // Character - General
     //

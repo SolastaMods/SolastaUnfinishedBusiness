@@ -14,6 +14,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 {
     internal WizardLifeTransmuter()
     {
+        // LEVEL 02
         var magicAffinityLifeTransmuterHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityLifeTransmuterHeightened")
             .SetGuiPresentation(Category.Feature)
@@ -28,6 +29,8 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 CloudKill) // conjuration)
             .AddToDB();
 
+        // LEVEL 06
+        
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
             .SetGuiPresentation(Category.Feature)
@@ -45,13 +48,14 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterDarkvision = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterDarkvision", powerSharedPoolLifeTransmuterHealingPool,
+                "PowerSharedPoolLifeTransmuterDarkvision",
+                powerSharedPoolLifeTransmuterHealingPool,
                 conditionLifeTransmuterDarkvision)
             .SetGuiPresentation(Category.Feature, PowerDomainBattleDivineWrath)
             .AddToDB();
 
         var conditionLifeTransmuterPoison = ConditionDefinitionBuilder
-            .Create("ConditionLifeTransmuterPoison")
+            .Create("ConditionLifeTransmuterElementalResistance")
             .SetGuiPresentation(Category.Condition, ConditionProtectedFromPoison)
             .SetFeatures(
                 DamageAffinityPoisonResistance,
@@ -67,10 +71,10 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterPoison", powerSharedPoolLifeTransmuterHealingPool,
+                "PowerSharedPoolLifeTransmuterElementalResistance", 
+                powerSharedPoolLifeTransmuterHealingPool,
                 conditionLifeTransmuterPoison)
-            .SetGuiPresentation("PowerLifeTransmuterElementalResistance", Category.Feature,
-                PowerDomainElementalFireBurst)
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
             .AddToDB();
 
         var conditionLifeTransmuterConstitution = ConditionDefinitionBuilder
@@ -83,19 +87,18 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterConstitution = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterConstitution", powerSharedPoolLifeTransmuterHealingPool,
+                "PowerSharedPoolLifeTransmuterConstitution",
+                powerSharedPoolLifeTransmuterHealingPool,
                 conditionLifeTransmuterConstitution)
             .SetGuiPresentation(Category.Feature, PowerPaladinAuraOfCourage)
             .AddToDB();
 
-        var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerUseModifierBuilder
-            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
-            .SetGuiPresentation(Category.Feature)
-            .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 2)
-            .AddToDB();
-
-        var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower("PowerSharedPoolLifeTransmuterFly",
-                powerSharedPoolLifeTransmuterHealingPool, ConditionFlying12)
+        // LEVEL 10
+        
+        var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower(
+                "PowerSharedPoolLifeTransmuterFly",
+                powerSharedPoolLifeTransmuterHealingPool, 
+                ConditionFlying12)
             .SetGuiPresentation(Category.Feature, Fly)
             .AddToDB();
 
@@ -115,6 +118,14 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
+        var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerUseModifierBuilder
+            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
+            .SetGuiPresentation(Category.Feature)
+            .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 2)
+            .AddToDB();
+        
+        // LEVEL 14
+        
         var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
             .SetGuiPresentation(Category.Feature)

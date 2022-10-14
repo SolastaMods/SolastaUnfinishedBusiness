@@ -51,7 +51,8 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinitySpellMasterSpellResistance")
             .SetGuiPresentation(Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
+            .SetAffinities(
+                CharacterSavingThrowAffinity.Advantage, true,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
@@ -67,7 +68,7 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 0, 0, 0, 0)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetCreatedByCharacter()
                     .SetEffectForms(
                         EffectFormBuilder
