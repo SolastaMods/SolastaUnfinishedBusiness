@@ -12,14 +12,19 @@ public static class CharacterStageProficiencySelectionPanelPatcher
     {
         var table = __instance.learnStepsTable;
         LearnStepItem item = null;
+
         for (var i = 0; i < table.childCount; i++)
         {
             var child = table.GetChild(i);
-            if (child.gameObject.activeSelf && i == __instance.currentLearnStep)
+
+            if (!child.gameObject.activeSelf || i != __instance.currentLearnStep)
             {
-                item = child.GetComponent<LearnStepItem>();
-                break;
+                continue;
             }
+
+            item = child.GetComponent<LearnStepItem>();
+
+            break;
         }
 
         return item;
@@ -45,37 +50,45 @@ public static class CharacterStageProficiencySelectionPanelPatcher
             var needSkip = false;
             var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.PoolType, item.Tag);
 
-            if (item.PoolType == Skill)
+            switch (item.PoolType)
             {
-                //get all skils - unlike tools if you run out ofn restricted skills to pick, game allows picking any skill
-                if (DatabaseRepository.GetDatabase<SkillDefinition>()
-                        //remove skills already knows or trained this level
-                        .Where(s => !service.IsSkillKnownOrTrained(buildingData, s))
-                        .Count() == 0)
+                case Skill:
                 {
-                    needSkip = true;
+                    //get all skills
+                    //unlike tools if you run out of restricted skills to pick, game allows picking any skill
+                    if (DatabaseRepository.GetDatabase<SkillDefinition>()
+                        //remove skills already knows or trained this level
+                        .Any(s => !service.IsSkillKnownOrTrained(buildingData, s)))
+                    {
+                        needSkip = true;
+                    }
+
+                    break;
                 }
-            }
-            else if (item.PoolType == Tool)
-            {
-                if (DatabaseRepository.GetDatabase<ToolTypeDefinition>()
+                case Tool:
+                {
+                    if (DatabaseRepository.GetDatabase<ToolTypeDefinition>()
                         //get all restricted tools
                         .Where(s => pool.RestrictedChoices == null
                                     || pool.RestrictedChoices.Empty()
                                     || pool.RestrictedChoices.Contains(s.Name))
-                        //remove ones already known or trained this level
-                        .Where(s => !service.IsToolTypeKnownOrTrained(buildingData, s))
-                        .Count() == 0)
-                {
-                    needSkip = true;
+                        //remove tools already knows or trained this level
+                        .Any(s => !service.IsToolTypeKnownOrTrained(buildingData, s)))
+                    {
+                        needSkip = true;
+                    }
+
+                    break;
                 }
             }
 
-            if (needSkip)
+            if (!needSkip)
             {
-                item.ignoreAvailable = true;
-                item.Refresh(LearnStepItem.Status.InProgress);
+                return;
             }
+
+            item.ignoreAvailable = true;
+            item.Refresh(LearnStepItem.Status.InProgress);
         }
     }
 
@@ -113,7 +126,6 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                 __instance.MoveToNextLearnStep();
                 __instance.ResetWasClickedFlag();
             });
-
 
             return false;
         }
