@@ -12,19 +12,14 @@ public static class CharacterStageProficiencySelectionPanelPatcher
     {
         var table = __instance.learnStepsTable;
         LearnStepItem item = null;
-
         for (var i = 0; i < table.childCount; i++)
         {
             var child = table.GetChild(i);
-
-            if (!child.gameObject.activeSelf || i != __instance.currentLearnStep)
+            if (child.gameObject.activeSelf && i == __instance.currentLearnStep)
             {
-                continue;
+                item = child.GetComponent<LearnStepItem>();
+                break;
             }
-
-            item = child.GetComponent<LearnStepItem>();
-
-            break;
         }
 
         return item;
@@ -50,45 +45,37 @@ public static class CharacterStageProficiencySelectionPanelPatcher
             var needSkip = false;
             var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.PoolType, item.Tag);
 
-            switch (item.PoolType)
+            if (item.PoolType == Skill)
             {
-                case Skill:
-                {
-                    //get all skills
-                    //unlike tools if you run out of restricted skills to pick, game allows picking any skill
-                    if (DatabaseRepository.GetDatabase<SkillDefinition>()
+                //get all skils - unlike tools if you run out ofn restricted skills to pick, game allows picking any skill
+                if (DatabaseRepository.GetDatabase<SkillDefinition>()
                         //remove skills already knows or trained this level
-                        .Any(s => !service.IsSkillKnownOrTrained(buildingData, s)))
-                    {
-                        needSkip = true;
-                    }
-
-                    break;
-                }
-                case Tool:
+                        .Where(s => !service.IsSkillKnownOrTrained(buildingData, s))
+                        .Count() == 0)
                 {
-                    if (DatabaseRepository.GetDatabase<ToolTypeDefinition>()
+                    needSkip = true;
+                }
+            }
+            else if (item.PoolType == Tool)
+            {
+                if (DatabaseRepository.GetDatabase<ToolTypeDefinition>()
                         //get all restricted tools
                         .Where(s => pool.RestrictedChoices == null
                                     || pool.RestrictedChoices.Empty()
                                     || pool.RestrictedChoices.Contains(s.Name))
-                        //remove tools already knows or trained this level
-                        .Any(s => !service.IsToolTypeKnownOrTrained(buildingData, s)))
-                    {
-                        needSkip = true;
-                    }
-
-                    break;
+                        //remove ones already known or trained this level
+                        .Where(s => !service.IsToolTypeKnownOrTrained(buildingData, s))
+                        .Count() == 0)
+                {
+                    needSkip = true;
                 }
             }
 
-            if (!needSkip)
+            if (needSkip)
             {
-                return;
+                item.ignoreAvailable = true;
+                item.Refresh(LearnStepItem.Status.InProgress);
             }
-
-            item.ignoreAvailable = true;
-            item.Refresh(LearnStepItem.Status.InProgress);
         }
     }
 
@@ -126,6 +113,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                 __instance.MoveToNextLearnStep();
                 __instance.ResetWasClickedFlag();
             });
+
 
             return false;
         }
