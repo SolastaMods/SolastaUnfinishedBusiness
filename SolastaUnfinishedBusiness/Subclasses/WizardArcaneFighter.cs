@@ -66,9 +66,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                         RangeType.Touch,
                         1,
                         TargetType.Item,
-                        1,
-                        2,
-                        ActionDefinitions.ItemSelectionType.Weapon)
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(

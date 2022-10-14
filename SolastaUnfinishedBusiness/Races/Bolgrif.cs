@@ -52,9 +52,7 @@ internal static class RaceBolgrifBuilder
                         RuleDefinitions.TurnOccurenceType.StartOfTurn)
                     .ClearEffectAdvancements()
                     .SetTargetingData(
-                        RuleDefinitions.Side.Ally,
-                        RuleDefinitions.RangeType.Self, 1,
-                        RuleDefinitions.TargetType.Self)
+                        RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();

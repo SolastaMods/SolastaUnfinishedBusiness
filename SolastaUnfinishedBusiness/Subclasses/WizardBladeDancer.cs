@@ -64,10 +64,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         var effectBladeDance = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Self, 1,
-                TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .SetCreatedByCharacter()
             .SetDurationData(DurationType.Minute, 1)
             .SetEffectForms(

@@ -161,13 +161,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Touch,
-                        2,
-                        TargetType.IndividualsUnique,
-                        1,
-                        0)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
