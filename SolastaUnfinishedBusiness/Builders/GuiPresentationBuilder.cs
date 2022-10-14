@@ -211,7 +211,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     /// </summary>
     /// <typeparam name="TBuilder"></typeparam>
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
-        AssetReferenceSprite sprite, int sortOrder = 0, bool? hidden = null)
+        AssetReferenceSprite sprite = null, int sortOrder = 0, bool? hidden = null)
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;
@@ -221,7 +221,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     }
 
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
-        BaseDefinition definition = null, int sortOrder = 0, bool? hidden = null)
+        BaseDefinition definition, int sortOrder = 0, bool? hidden = null)
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;

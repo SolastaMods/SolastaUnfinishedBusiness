@@ -17,6 +17,7 @@ internal sealed class LightFooted : AbstractFightingStyle
         .SetFeatures(
             FeatureDefinitionMovementAffinityBuilder
                 .Create("MovementAffinityLightFootedAdd1")
+                .SetGuiPresentationNoContent()
                 .SetAdditiveModifierAdvancement(MovementAffinityAdvancement.None)
                 .SetBaseSpeedAdditiveModifier(1)
                 .SetSituationalContext(ExtraSituationalContext.MainWeaponIsFinesseOrRange)
