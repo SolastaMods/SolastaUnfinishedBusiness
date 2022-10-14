@@ -51,8 +51,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -135,8 +134,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "BurstOfRadiance";
 
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -685,7 +683,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(InsectPlague, "PetalStorm")
-            .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, WindWall)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -732,7 +730,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(SpikeGrowth, "ProtectThreshold")
-            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Bane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -976,7 +974,7 @@ internal static class SpellsBuildersContext
 
         return SpellDefinitionBuilder
             .Create("MindBlank")
-            .SetGuiPresentation(Category.Spell, MindTwist.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, MindTwist)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)

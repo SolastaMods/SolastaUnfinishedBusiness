@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -24,8 +23,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     internal WayOfTheDistantHand()
     {
-        var zenArrow =
-            CustomIcons.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
+        var zenArrow = CustomIcons.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
         //
         // LEVEL 03
@@ -34,7 +32,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var proficiencyWayOfTheDistantHandCombat = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyWayOfTheDistantHandCombat")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Weapon,
+            .SetProficiencies(
+                ProficiencyType.Weapon,
                 WeaponTypeDefinitions.LongbowType.Name,
                 WeaponTypeDefinitions.ShortbowType.Name)
             .SetCustomSubFeatures(
@@ -69,8 +68,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     AttributeDefinitions.Dexterity,
                     true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency
-                )
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -172,8 +170,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        var flurryOfArrowsSprite =
-            CustomIcons.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
+        var flurryOfArrowsSprite = CustomIcons.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
 
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
@@ -357,8 +354,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfTheDistantHand")
-            .SetOrUpdateGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.RangerMarksman.GuiPresentation.SpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerMarksman)
             .AddFeaturesAtLevel(3,
                 proficiencyWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
