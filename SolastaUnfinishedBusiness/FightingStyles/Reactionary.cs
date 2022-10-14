@@ -11,8 +11,7 @@ internal sealed class Reactionary : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Reactionary")
-        .SetGuiPresentation(Category.FightingStyle,
-            PathBerserker.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, PathBerserker)
         .SetFeatures(
             FeatureDefinitionOnComputeAttackModifierBuilder
                 .Create("OnComputeAttackModifierFightingStyleReactionary")

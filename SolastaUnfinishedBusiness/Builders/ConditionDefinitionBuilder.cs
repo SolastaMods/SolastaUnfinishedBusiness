@@ -188,9 +188,12 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
-    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0)
+    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
     {
-        Preconditions.IsValidDuration(type, duration);
+        if (validate)
+        {
+            Preconditions.IsValidDuration(type, duration);
+        }
 
         Definition.durationParameter = duration;
         Definition.durationType = type;

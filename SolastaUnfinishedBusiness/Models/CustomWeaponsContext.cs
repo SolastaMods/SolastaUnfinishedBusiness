@@ -700,7 +700,7 @@ internal static class CustomWeaponsContext
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder
             .Create($"CraftingManual{recipe.Name}")
-            .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Item, reference)
             .SetItemPresentation(reference.ItemPresentation)
             .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
             .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)

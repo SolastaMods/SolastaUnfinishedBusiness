@@ -12,7 +12,7 @@ internal sealed class Executioner : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Executioner")
-        .SetGuiPresentation(Category.FightingStyle, PathMagebane.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, PathMagebane)
         .SetFeatures(
             FeatureDefinitionOnComputeAttackModifierBuilder
                 .Create("OnComputeAttackModifierFightingStyleExecutioner")

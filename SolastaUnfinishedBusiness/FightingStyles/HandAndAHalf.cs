@@ -15,7 +15,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("HandAndAHalf")
-        .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer)
         .SetFeatures(
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")

@@ -21,6 +21,7 @@ public static class InnovationAlchemy
     private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
     private static FeatureDefinitionPower AlchemyPool { get; set; }
     private static FeatureDefinitionPower ElementalBombs { get; set; }
+    private static FeatureDefinitionPower AdvancedBombs { get; set; }
 
     public static CharacterSubclassDefinition Build()
     {
@@ -31,6 +32,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs)
+            .AddFeaturesAtLevel(9, AdvancedBombs)
             .AddToDB();
     }
 
@@ -73,8 +75,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature,
                 GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .Build())
             .SetUniqueInstance()
@@ -86,6 +87,24 @@ public static class InnovationAlchemy
             BuildLightningBombs(deviceDescription),
             BuildAcidBombs(deviceDescription),
             BuildPoisonBombs(deviceDescription)
+        );
+
+        //TODO: maybe make elementa and advanced bombs not exclusive?
+        //Like show bomb forms for 1 element and 1 advanced element at same time?
+        //Or maybe make global limit of 2 elements at once, regardless of whether they are simple or advanced?
+        AdvancedBombs = FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationAlchemyBombsAdvanced")
+            .SetGuiPresentation(Category.Feature,
+                GetSprite("AlchemyBombAdvanced", Resources.AlchemyBombAdvanced, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Permanent)
+                .Build())
+            .SetUniqueInstance()
+            .AddToDB();
+
+        PowersBundleContext.RegisterPowerBundle(AdvancedBombs, true,
+            BuildForceBombs(deviceDescription)
         );
 
         var bombItem = ItemDefinitionBuilder
@@ -112,7 +131,7 @@ public static class InnovationAlchemy
         var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D8;
         var validator =
-            new ValidatorPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
+            new ValidatorsPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -263,6 +282,37 @@ public static class InnovationAlchemy
         return toggle;
     }
 
+    private static FeatureDefinitionPower BuildForceBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var damage = DamageTypeForce;
+        var save = AttributeDefinitions.Strength;
+        var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .Build();
+
+        var splash = MagicMissile.EffectDescription.effectParticleParameters;
+
+        var sprite = GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
+        var particle = splash;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+
+        sprite = GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
+        particle = WallOfForce.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombForcePrecise", Resources.AlchemyBombForcePrecise, 128);
+        particle = splash;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
     private static (FeatureDefinitionPower, IPowerUseValidity) MakeElementToggleMarker(string damage)
     {
         var marker = ConditionDefinitionBuilder
@@ -272,23 +322,24 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(ModifiedBombElement.Marker)
             .AddToDB();
 
-        return (
-            FeatureDefinitionPowerBuilder
-                .Create($"PowerInnovationAlchemyMarker{damage}")
-                .SetGuiPresentation(Category.Feature)
-                .SetShowCasting(false)
-                .SetUniqueInstance()
-                .SetUsesFixed(ActivationTime.NoCost)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
-                        .Build())
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"PowerInnovationAlchemyMarker{damage}")
+            .SetGuiPresentation(Category.Feature)
+            .SetShowCasting(false)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
                     .Build())
-                .AddToDB(),
-            new ValidatorPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker))
-        );
+                .Build())
+            .AddToDB();
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
+
+        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker)));
     }
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()
@@ -466,8 +517,8 @@ internal sealed class ModifiedBombElement
 internal sealed class Overcharge : ICustomOverchargeProvider
 {
     private static readonly (int, int)[] None = { };
-    private static readonly (int, int)[] Once = { (1, 1) };
-    private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
+    private static readonly (int, int)[] Once = {(1, 1)};
+    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
 
     public (int, int)[] OverchargeSteps(RulesetCharacter character)
     {

@@ -60,7 +60,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
-            .SetGuiPresentation(Category.Subclass, MartialCommander.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, MartialCommander)
             .AddFeaturesAtLevel(3,
                 onComputeAttackModifierOpportunistQuickStrike)
             .AddFeaturesAtLevel(9,

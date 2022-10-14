@@ -71,7 +71,7 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyle = CustomizableFightingStyleBuilder
             .Create("Merciless")
             .SetGuiPresentation(Category.FightingStyle,
-                DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
+                DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
             .SetFeatures(
                 // FeatureDefinitionAdditionalActionBuilder
                 //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")

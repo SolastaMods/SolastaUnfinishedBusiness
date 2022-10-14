@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationAlchemyBombsElemental:9c6889e1-290c-5b52-bab3-4b4606489e5e",
       "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationAlchemyBombsAdvanced:d9893368-bd29-545f-8fd6-7721c1d94004",
+      "level": 9
     }
   ],
   "personalityFlagOccurences": [],

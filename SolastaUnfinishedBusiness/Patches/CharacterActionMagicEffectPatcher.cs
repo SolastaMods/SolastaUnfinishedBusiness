@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -46,7 +48,7 @@ public static class CharacterActionMagicEffectPatcher
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attacks is { Count: > 0 })
+            if (attacks is {Count: > 0})
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,
@@ -110,6 +112,61 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ApplyForms")]
+    [HarmonyPatch(new[]
+    {
+        typeof(GameLocationCharacter), // caster
+        typeof(RulesetEffect), // activeEffect
+        typeof(int), // addDice,
+        typeof(int), // addHP,
+        typeof(int), // addTempHP,
+        typeof(int), // effectLevel,
+        typeof(GameLocationCharacter), // target,
+        typeof(ActionModifier), // actionModifier,
+        typeof(RuleDefinitions.RollOutcome), // outcome,
+        typeof(bool), // criticalSuccess,
+        typeof(bool), // rolledSaveThrow,
+        typeof(RuleDefinitions.RollOutcome), // saveOutcome,
+        typeof(int), // saveOutcomeDelta,
+        typeof(int), // targetIndex,
+        typeof(int), // totalTargetsNumber,
+        typeof(RulesetItem), // targetITem,
+        typeof(RuleDefinitions.EffectSourceType), // sourceType,
+        typeof(int), // ref damageReceive
+    }, new[]
+    {
+        ArgumentType.Normal, // caster
+        ArgumentType.Normal, // activeEffect
+        ArgumentType.Normal, // addDice,
+        ArgumentType.Normal, // addHP,
+        ArgumentType.Normal, // addTempHP,
+        ArgumentType.Normal, // effectLevel,
+        ArgumentType.Normal, // target,
+        ArgumentType.Normal, // actionModifier,
+        ArgumentType.Normal, // outcome,
+        ArgumentType.Normal, // criticalSuccess,
+        ArgumentType.Normal, // rolledSaveThrow,
+        ArgumentType.Normal, // saveOutcome,
+        ArgumentType.Normal, // saveOutcomeDelta,
+        ArgumentType.Normal, // targetIndex,
+        ArgumentType.Normal, // totalTargetsNumber,
+        ArgumentType.Normal, // targetITem,
+        ArgumentType.Normal, // sourceType,
+        ArgumentType.Ref, //ref damageReceive
+    })]
+    public static class ApplyForms_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for `PushesFromEffectPoint`
+            // allows push/grab motion effects to work relative to casting point, instead of caster's position
+            // used for Grenadier's force grenades
+            // sets position of the formsParams to the first position from ActionParams, when applicable
+
+            return PushesFromEffectPoint.ModifyApplyFormsCall(instructions);
         }
     }
 }

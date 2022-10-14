@@ -33,7 +33,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftWalk")
-            .SetGuiPresentation(Category.Feature, MistyStep.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(MistyStep.EffectDescription, true)
             .SetUniqueInstance()
@@ -41,7 +41,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
-            .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(Banishment.EffectDescription, true)
             .SetUniqueInstance()
@@ -59,7 +59,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
-            .SetGuiPresentation(Category.Feature, Banishment.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Banishment)
             .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.LongRest)
             .SetEffectDescription(Banishment.EffectDescription, true)
             .SetUniqueInstance()
@@ -72,7 +72,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftControl")
-            .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(DimensionDoor.EffectDescription, true)
@@ -81,7 +81,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityRiftWalkerFadeIntoTheVoid")
-            .SetGuiPresentation(Category.Feature, Blur.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Blur)
             .AddToDB();
 
         var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder
@@ -97,7 +97,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronRiftWalker")
             .SetGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
+                CharacterSubclassDefinitions.PathMagebane)
             .AddFeaturesAtLevel(1,
                 magicAffinityRiftWalkerExpandedSpells,
                 powerRiftWalkerRiftWalk,

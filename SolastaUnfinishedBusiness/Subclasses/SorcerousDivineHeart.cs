@@ -50,7 +50,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var featureSetDivineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetDivineHeartDeityChoice")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
+            .ClearFeatureSet()
+            .AddFeatureSet(
                 autoPreparedSpellsDivineHeartArun,
                 autoPreparedSpellsDivineHeartEinar,
                 autoPreparedSpellsDivineHeartMariake,

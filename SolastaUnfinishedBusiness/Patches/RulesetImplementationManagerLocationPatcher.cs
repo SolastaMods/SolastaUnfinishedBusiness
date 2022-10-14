@@ -174,4 +174,19 @@ public static class RulesetImplementationManagerLocationPatcher
             }
         }
     }
+
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplyMotionForm")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ApplyMotionForm_Patch
+    {
+        public static bool Prefix(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            //PATCH: support for `PushesFromEffectPoint`
+            // allows push/grab motion effects to work relative to casting point, instead of caster's position
+            // used for Grenadier's force grenades
+            // if effect source definition has marker, and forms params have position, will try to push target from that point
+
+            return PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+        }
+    }
 }

@@ -211,17 +211,17 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     /// </summary>
     /// <typeparam name="TBuilder"></typeparam>
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
-        AssetReferenceSprite sprite = null, int sortOrder = 0, bool? hidden = null)
+        AssetReferenceSprite sprite, int sortOrder = 0, bool? hidden = null)
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;
-
+    
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
     }
 
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
-        BaseDefinition definition, int sortOrder = 0, bool? hidden = null)
+        BaseDefinition definition = null, int sortOrder = 0, bool? hidden = null)
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;
@@ -288,19 +288,6 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         builder.SetGuiPresentation(hidden
             ? GuiPresentationBuilder.NoContentHidden
             : GuiPresentationBuilder.NoContent);
-        return builder;
-    }
-
-    /// <summary>
-    ///     Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription and
-    ///     sprite.
-    /// </summary>
-    internal static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder, AssetReferenceSprite sprite)
-        where TBuilder : IDefinitionBuilder
-    {
-        builder.SetGuiPresentation(
-            GuiPresentationBuilder.Build(GuiPresentationBuilder.NoContentTitle,
-                GuiPresentationBuilder.NoContentTitle, sprite));
         return builder;
     }
 }

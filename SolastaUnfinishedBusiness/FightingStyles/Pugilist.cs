@@ -18,7 +18,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
         .Create("Pugilist")
-        .SetGuiPresentation(Category.FightingStyle, TraditionLight.GuiPresentation.SpriteReference)
+        .SetGuiPresentation(Category.FightingStyle, TraditionLight)
         .SetFeatures(
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityFightingStylePugilist")
@@ -28,7 +28,7 @@ internal sealed class Pugilist : AbstractFightingStyle
                 .SetCustomSubFeatures(
                     new AddExtraUnarmedAttack(ActionType.Bonus),
                     new AdditionalUnarmedDice(),
-                    new ValidatorDefinitionApplication(ValidatorsCharacter.HasUnarmedHand))
+                    new ValidatorsDefinitionApplication(ValidatorsCharacter.HasUnarmedHand))
                 .AddToDB())
         .AddToDB();
 

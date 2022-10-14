@@ -60,9 +60,9 @@
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
     "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
+    "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
     "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [],
   "sneakStance": "Stealth",

@@ -81,7 +81,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDarkMoon")
-            .SetGuiPresentation(Category.Feature, Darkness.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Darkness)
             .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -93,7 +93,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
-            .SetGuiPresentation(Category.Feature, Daylight.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, Daylight)
             .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -178,7 +178,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronMoonlit")
-            .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
             .AddFeaturesAtLevel(1,
                 magicAffinityMoonlitExpandedSpells,
                 conditionAffinityMoonlitDarknessImmunity,

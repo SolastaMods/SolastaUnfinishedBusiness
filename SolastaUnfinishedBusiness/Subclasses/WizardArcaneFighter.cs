@@ -93,8 +93,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardArcaneFighter")
-            .SetGuiPresentation(Category.Subclass,
-                MartialSpellblade.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, MartialSpellblade)
             .AddFeaturesAtLevel(2,
                 proficiencyArcaneFighterSimpleWeapons,
                 magicAffinityArcaneFighterConcentrationAdvantage,

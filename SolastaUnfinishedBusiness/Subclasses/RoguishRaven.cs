@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -22,7 +21,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var featureSetRavenSharpShooter = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRavenSharpShooter")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
+            .AddFeatureSet(
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyRavenRangeWeapon")
                     .SetGuiPresentationNoContent(true)
@@ -37,7 +36,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB()
             )
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
 
         // killing spree 
@@ -64,7 +62,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
-            .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
             .AddFeaturesAtLevel(3,
                 featureSetRavenSharpShooter,
                 BuildHeartSeekingShot())
@@ -110,7 +108,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(
-                        new ValidatorDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                        new ValidatorsDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
@@ -175,7 +173,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
@@ -209,7 +207,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("FeatureSetRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerRavenHeartSeekingShot, powerRavenTurnOffHeartSeekingShot)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
     }
 

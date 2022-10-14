@@ -60,8 +60,7 @@ internal static class DarkelfSubraceBuilder
             .Create("ConditionDarkelfLightSensitive")
             .SetGuiPresentation(
                 "LightAffinityDarkelfLightSensitivity",
-                Category.Feature,
-                ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
+                Category.Feature, ConditionDefinitions.ConditionLightSensitive)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
@@ -98,7 +97,7 @@ internal static class DarkelfSubraceBuilder
 
         PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire)
             .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.LongRest)
@@ -118,7 +117,7 @@ internal static class DarkelfSubraceBuilder
 
         PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness)
             .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.LongRest)

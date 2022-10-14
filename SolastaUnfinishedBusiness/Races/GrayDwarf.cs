@@ -53,7 +53,7 @@ internal static class GrayDwarfSubraceBuilder
             .Create("ConditionGrayDwarfLightSensitive")
             .SetGuiPresentation(
                 "LightAffinityGrayDwarfLightSensitivity", Category.Feature,
-                ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
+                ConditionDefinitions.ConditionLightSensitive)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
@@ -107,7 +107,8 @@ internal static class GrayDwarfSubraceBuilder
         var featureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(
+            .ClearFeatureSet()
+            .AddFeatureSet(
                 conditionAffinityGrayDwarfCharm,
                 conditionAffinityGrayDwarfCharmedByHypnoticPattern,
                 conditionAffinityGrayDwarfParalyzedAdvantage,
@@ -139,7 +140,7 @@ internal static class GrayDwarfSubraceBuilder
             .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionGrayDwarfStoneStrength")
             .SetGuiPresentation(
                 Category.Condition,
-                ConditionDefinitions.ConditionStoneResilience.GuiPresentation.SpriteReference)
+                ConditionDefinitions.ConditionStoneResilience)
             .SetFeatures(
                 abilityCheckAffinityGrayDwarfStoneStrength,
                 savingThrowAffinityGrayDwarfStoneStrength,
@@ -159,7 +160,7 @@ internal static class GrayDwarfSubraceBuilder
 
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin)
             .SetUsesFixed(
                 ActivationTime.BonusAction,
                 RechargeRate.ShortRest)
@@ -169,7 +170,7 @@ internal static class GrayDwarfSubraceBuilder
 
         var powerGrayDwarfInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfInvisibility")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
             .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.ShortRest)

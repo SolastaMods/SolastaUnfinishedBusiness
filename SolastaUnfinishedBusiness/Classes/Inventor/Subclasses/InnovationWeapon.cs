@@ -101,7 +101,7 @@ public static class InnovationWeapon
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorPowerUse.NotInCombat)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -268,9 +268,10 @@ public static class InnovationWeapon
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
+            .SetHeight(6)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetCharacterFamily(CharacterFamilyDefinitions.Construct)
-            .SetAlignment("Neutral")
+            .SetAlignment(AlignmentDefinitions.Neutral)
             // .SetLegendaryCreature(false)
             .NoExperienceGain()
             .SetChallengeRating(0)
@@ -298,15 +299,12 @@ public static class InnovationWeapon
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create(CommandSteelDefenderCondition)
                         .SetGuiPresentationNoContent()
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        //TODO: Double check duration equals 1 won't break things
-                        // .SetDuration(DurationType.Round, 0, false)
-                        .SetDuration(DurationType.Round, 1)
+                        .SetDuration(DurationType.Round, 0, false)
                         .SetSpecialDuration(true)
                         .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -336,7 +334,7 @@ public static class InnovationWeapon
                 .Build())
             .SetCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
-                ValidatorPowerUse.UsedLessTimesThan(1),
+                ValidatorsPowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)
             .SetShowCasting(false)
             .AddToDB();

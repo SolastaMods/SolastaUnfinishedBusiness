@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -86,7 +86,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(effectBladeDance)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(new ValidatorPowerUse(IsBladeDanceValid))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(IsBladeDanceValid))
             .AddToDB();
 
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
@@ -155,24 +155,24 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerBladeDance")
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
-            .SetFeatureSet(powerBladeDancerBladeDance)
+            .AddFeatureSet(powerBladeDancerBladeDance)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfDefense = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerDanceOfDefense")
             .SetGuiPresentation("ReduceDamageBladeDancerDanceOfDefense", Category.Feature)
-            .SetFeatureSet(powerBladeDancerDanceOfDefense)
+            .AddFeatureSet(powerBladeDancerDanceOfDefense)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfVictory = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerDanceOfVictory")
             .SetGuiPresentation("AttackModifierBladeDancerDanceOfVictory", Category.Feature)
-            .SetFeatureSet(powerBladeDancerDanceOfVictory)
+            .AddFeatureSet(powerBladeDancerDanceOfVictory)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer")
-            .SetGuiPresentation(Category.Subclass, DomainMischief.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 proficiencyBladeDancerLightArmor,
                 proficiencyBladeDancerMartialWeapon,
