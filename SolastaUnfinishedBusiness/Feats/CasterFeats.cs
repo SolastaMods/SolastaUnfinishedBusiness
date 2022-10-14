@@ -407,8 +407,9 @@ internal static class CasterFeats
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
-                    RuleDefinitions.TargetType.Individuals, 1, 0)
+                .SetTargetingData(
+                    RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
+                    RuleDefinitions.TargetType.Individuals)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,

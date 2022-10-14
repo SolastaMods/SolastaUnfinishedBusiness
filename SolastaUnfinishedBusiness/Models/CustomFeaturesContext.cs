@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
@@ -239,22 +240,28 @@ internal static class CustomFeaturesContext
 
         foreach (var usablePower in character.UsablePowers)
         {
-            if (usablePower.PowerDefinition is not IPowerSharedPool pool)
+            FeatureDefinitionPower rechargedPower;
+            if (usablePower.PowerDefinition is IPowerSharedPool pool)
+            {
+                rechargedPower = pool.GetUsagePoolPower();
+            }
+            else if (usablePower.PowerDefinition.HasSubFeatureOfType<HasModifiedUses>())
+            {
+                rechargedPower = usablePower.PowerDefinition;
+            }
+            else
             {
                 continue;
             }
 
-            var pointPoolPower = pool.GetUsagePoolPower();
-
             // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
             // it recharges on a long rest and this is a long rest
-            if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
-                && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
-                     restType is RuleDefinitions.RestType.ShortRest or RuleDefinitions.RestType.LongRest) ||
-                    (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest &&
-                     restType == RuleDefinitions.RestType.LongRest)))
+            if (!pointPoolPowerDefinitions.Contains(rechargedPower)
+                && (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest
+                    || (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest
+                        && restType == RuleDefinitions.RestType.LongRest)))
             {
-                pointPoolPowerDefinitions.Add(pointPoolPower);
+                pointPoolPowerDefinitions.Add(rechargedPower);
             }
         }
 
@@ -326,18 +333,9 @@ internal static class CustomFeaturesContext
 
     internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
     {
-        var totalPoolSize = poolPower.MaxUses;
-
-        foreach (var modifierPower in character.UsablePowers)
-        {
-            if (modifierPower.PowerDefinition is IPowerPoolModifier modifier &&
-                modifier.GetUsagePoolPower() == poolPower.PowerDefinition)
-            {
-                totalPoolSize += modifierPower.MaxUses;
-            }
-        }
-
-        return totalPoolSize;
+        return poolPower.MaxUses + character.GetSubFeaturesByType<IPowerUseModifier>()
+            .Where(m => m.PowerPool == poolPower.PowerDefinition)
+            .Sum(m => m.PoolChangeAmount(character));
     }
 
     internal static int GetMaxUsesForPool([NotNull] this RulesetCharacter character,

@@ -483,19 +483,9 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Constitution)
-                .SetDurationData(
-                    DurationType.Minute,
-                    1)
-                .SetTargetingData(
-                    Side.Enemy,
-                    RangeType.Distance,
-                    6,
-                    TargetType.IndividualsUnique,
-                    3,
-                    0)
-                .SetSpeed(
-                    SpeedType.CellsPerSeconds,
-                    9.5f)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                .SetSpeed(SpeedType.CellsPerSeconds, 9.5f)
                 .SetParticleEffectParameters(GuidingBolt)
                 .SetEffectForms(
                     EffectFormBuilder

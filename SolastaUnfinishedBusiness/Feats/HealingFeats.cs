@@ -18,7 +18,7 @@ internal static class HealingFeats
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 10, TargetType.Individuals, 6, 0)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 10, TargetType.Individuals, 6)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
@@ -40,7 +40,7 @@ internal static class HealingFeats
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals, 1, 0)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(

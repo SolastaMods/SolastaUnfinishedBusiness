@@ -150,10 +150,7 @@ internal static class GrayDwarfSubraceBuilder
         var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
             .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Self, 1,
-                TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
             .Build();
 
         grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = conditionGrayDwarfStoneStrength;

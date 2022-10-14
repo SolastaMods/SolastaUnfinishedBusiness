@@ -88,11 +88,10 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinAuraOfCourage)
             .AddToDB();
 
-        var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerPoolModifierBuilder
+        var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetPoolModifier(powerSharedPoolLifeTransmuterHealingPool, 2)
+            .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 2)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower("PowerSharedPoolLifeTransmuterFly",
@@ -116,11 +115,10 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
-        var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerPoolModifierBuilder
+        var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetPoolModifier(powerSharedPoolLifeTransmuterHealingPool, 4)
+            .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 4)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -161,13 +159,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Touch,
-                        2,
-                        TargetType.IndividualsUnique,
-                        1,
-                        0)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(

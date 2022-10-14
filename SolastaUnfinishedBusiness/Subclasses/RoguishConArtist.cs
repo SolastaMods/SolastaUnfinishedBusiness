@@ -60,13 +60,7 @@ internal sealed class RoguishConArtist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(
-                        Side.Enemy,
-                        RangeType.Distance,
-                        12,
-                        TargetType.Individuals,
-                        1,
-                        0)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,

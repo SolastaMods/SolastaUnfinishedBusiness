@@ -325,9 +325,6 @@ internal static class LevelUpContext
 
             switch (castingFeature.spellKnowledge)
             {
-                case RuleDefinitions.SpellKnowledge.WholeList:
-                    knownSpells.AddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells));
-                    break;
                 case RuleDefinitions.SpellKnowledge.Selection:
                     knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
                     knownSpells.AddRange(spellRepertoire.KnownCantrips);
@@ -339,45 +336,30 @@ internal static class LevelUpContext
                     knownSpells.AddRange(spellRepertoire.KnownSpells);
                     knownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
                     break;
+                case RuleDefinitions.SpellKnowledge.WholeList:
+                    knownSpells.AddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells));
+                    break;
             }
         }
 
         return knownSpells.ToHashSet();
     }
 
-    internal static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    private static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {
             return;
         }
 
-        var selectedClassName = levelUpData.SelectedClass.Name;
-        var thisClassCastingFeatures = rulesetCharacterHero.ActiveFeatures
-            .Where(x => x.Key.Contains(selectedClassName))
-            .SelectMany(x => x.Value);
-        var classCastingFeatures =
-            thisClassCastingFeatures as FeatureDefinition[] ?? thisClassCastingFeatures.ToArray();
+        var classCastingFeatures = rulesetCharacterHero.ActiveFeatures
+            .Where(x => x.Key.Contains(levelUpData.SelectedClass.Name))
+            .SelectMany(x => x.Value)
+            .ToArray(); // avoids multiple enumerations below
 
         levelUpData.AllowedSpells = CacheAllowedSpells(classCastingFeatures);
         levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(classCastingFeatures);
         levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);
-    }
-
-    // supports character creation during boot up
-    private static void RecacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
-        {
-            return;
-        }
-
-        var selectedClassName = levelUpData.SelectedClass.Name;
-        var thisClassCastingFeatures = rulesetCharacterHero.ActiveFeatures
-            .Where(x => x.Key.Contains(selectedClassName))
-            .SelectMany(x => x.Value);
-
-        levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
     }
 
     internal static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
@@ -501,13 +483,15 @@ internal static class LevelUpContext
         var castingLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
         var knownSpells = GetAllowedSpells(hero);
 
+        // this happens during boot up when game creates heroes from templates
         if (knownSpells == null)
         {
-            RecacheSpells(hero);
-
+            CacheSpells(hero);
+        
             knownSpells = GetAllowedSpells(hero);
         }
 
+        // don't use a AddRange here to avoid duplicates
         foreach (var spell in knownSpells
                      .Where(x => x.SpellLevel == castingLevel))
         {
@@ -562,6 +546,8 @@ internal static class LevelUpContext
             return;
         }
 
+        CacheSpells(hero);
+        
         if (Main.Settings.EnableRelearnSpells)
         {
             var otherClassesKnownSpells = GetOtherClassesKnownSpells(hero);

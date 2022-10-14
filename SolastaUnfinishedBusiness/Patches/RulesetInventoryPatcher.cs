@@ -35,10 +35,10 @@ public static class RulesetInventoryPatcher
             var equippedItem0 = itemsConfigurations[rank].OffHandSlot.EquipedItem;
             var equippedItem1 = itemsConfigurations[currentRank].OffHandSlot.EquipedItem;
 
-            itemsConfigurations[rank].OffHandSlot.UnequipItem();
-            itemsConfigurations[currentRank].OffHandSlot.UnequipItem();
-            itemsConfigurations[rank].OffHandSlot.EquipItem(equippedItem1);
-            itemsConfigurations[currentRank].OffHandSlot.EquipItem(equippedItem0);
+            itemsConfigurations[rank].OffHandSlot.UnequipItem(silent: true);
+            itemsConfigurations[currentRank].OffHandSlot.UnequipItem(silent: true);
+            itemsConfigurations[rank].OffHandSlot.EquipItem(equippedItem1, silent: true);
+            itemsConfigurations[currentRank].OffHandSlot.EquipItem(equippedItem0, silent: true);
         }
     }
 }

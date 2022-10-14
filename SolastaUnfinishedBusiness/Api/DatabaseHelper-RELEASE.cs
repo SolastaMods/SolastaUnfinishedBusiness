@@ -2457,6 +2457,15 @@ internal static partial class DatabaseHelper
         internal static SkillDefinition Arcana { get; } =
             GetDefinition<SkillDefinition>("Arcana");
 
+        internal static SkillDefinition Athletics { get; } =
+            GetDefinition<SkillDefinition>("Athletics");
+
+        internal static SkillDefinition History { get; } =
+            GetDefinition<SkillDefinition>("History");
+
+        internal static SkillDefinition Insight { get; } =
+            GetDefinition<SkillDefinition>("Insight");
+
         internal static SkillDefinition Medecine { get; } =
             GetDefinition<SkillDefinition>("Medecine");
 
@@ -2466,12 +2475,17 @@ internal static partial class DatabaseHelper
         internal static SkillDefinition Perception { get; } =
             GetDefinition<SkillDefinition>("Perception");
 
+        internal static SkillDefinition Religion { get; } =
+            GetDefinition<SkillDefinition>("Religion");
+
         internal static SkillDefinition SleightOfHand { get; } =
             GetDefinition<SkillDefinition>("SleightOfHand");
 
         internal static SkillDefinition Stealth { get; } =
             GetDefinition<SkillDefinition>("Stealth");
 
+        internal static SkillDefinition Survival { get; } =
+            GetDefinition<SkillDefinition>("Survival");
     }
 
     internal static class SlotTypeDefinitions

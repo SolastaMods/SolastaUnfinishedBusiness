@@ -47,11 +47,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(
-                        Side.Enemy,
-                        RangeType.Self,
-                        0,
-                        TargetType.Self)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -106,13 +102,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Self,
-                        1,
-                        TargetType.Self,
-                        1,
-                        0)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .CreatedByCharacter()

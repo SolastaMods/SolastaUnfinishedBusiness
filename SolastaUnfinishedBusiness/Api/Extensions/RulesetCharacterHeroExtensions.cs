@@ -102,6 +102,8 @@ internal static class RulesetCharacterHeroExtensions
 
     internal static int GetClassLevel(this RulesetCharacterHero hero, string className)
     {
+        if (string.IsNullOrEmpty(className)) { return 0; }
+
         return hero.GetClassLevel(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
             .FirstOrDefault(x => x.Name == className));
     }
