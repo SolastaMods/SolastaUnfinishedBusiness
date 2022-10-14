@@ -15,20 +15,31 @@ public enum OperationType
 /**
  * Can influence results of calls to `RulesetImplementationManager.IsValidContextForRestrictedContextProvider`
  * Note: RestrictedProperty on feature that needs modifying should not be `None` or context validation won't happen
- * Note: for now supports only single modification per feature - only first `IRestictedContextValidator` would apply
+ * Note: for now supports only single modification per feature - only first `IRestrictedContextValidator` would apply
  */
 public interface IRestrictedContextValidator
 {
-    public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
-        RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
+    public (OperationType, bool) ValidateContext(
+        BaseDefinition definition,
+        IRestrictedContextProvider provider,
+        RulesetCharacter character,
+        ItemDefinition itemDefinition,
+        bool rangedAttack,
+        RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect);
 }
 
 //TODO: try to find better place for this code
 public static class RestrictedContextValidatorPatch
 {
-    public static bool ModifyResult(bool def, IRestrictedContextProvider provider, RulesetCharacter character,
-        ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode, RulesetEffect rulesetEffect)
+    public static bool ModifyResult(
+        bool def,
+        IRestrictedContextProvider provider,
+        RulesetCharacter character,
+        ItemDefinition itemDefinition,
+        bool rangedAttack,
+        RulesetAttackMode attackMode,
+        RulesetEffect rulesetEffect)
     {
         if (provider is not BaseDefinition definition)
         {
@@ -36,13 +47,14 @@ public static class RestrictedContextValidatorPatch
         }
 
         var validator = definition.GetFirstSubFeatureOfType<IRestrictedContextValidator>();
+
         if (validator == null)
         {
             return def;
         }
 
-        var (operation, result) = validator.ValidateContext(definition, provider, character, itemDefinition,
-            rangedAttack, attackMode, rulesetEffect);
+        var (operation, result) = validator.ValidateContext(
+            definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
 
         switch (operation)
         {

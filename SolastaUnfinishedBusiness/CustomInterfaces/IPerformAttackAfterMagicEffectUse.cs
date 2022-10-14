@@ -6,8 +6,11 @@ public interface IPerformAttackAfterMagicEffectUse
 {
     public delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 
-    public delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
-        GameLocationCharacter target, out string failure);
+    public delegate bool CanUseHandler(
+        CursorLocationSelectTarget targeting,
+        GameLocationCharacter caster,
+        GameLocationCharacter target,
+        out string failure);
 
     public delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
