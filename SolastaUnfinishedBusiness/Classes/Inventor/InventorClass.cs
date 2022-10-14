@@ -451,13 +451,13 @@ internal static class InventorClass
             .AddToDB();
     }
 
+    //TODO: rework to be 1 feature
     private static FeatureDefinition BuildInfusionPoolIncrease()
     {
-        return FeatureDefinitionPowerPoolModifierBuilder
+        return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetPoolModifier(InfusionPool, 1)
+            .SetFixedValue(InfusionPool, 1)
             .AddToDB();
     }
 

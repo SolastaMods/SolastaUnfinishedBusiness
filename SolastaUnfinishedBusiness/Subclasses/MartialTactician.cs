@@ -90,11 +90,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
-        var powerPoolTacticianGambitAdd = FeatureDefinitionPowerPoolModifierBuilder
+        var powerPoolTacticianGambitAdd = FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerPoolTacticianGambitAdd")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetPoolModifier(powerPoolTacticianGambit, 1)
+            .SetFixedValue(powerPoolTacticianGambit, 1)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
