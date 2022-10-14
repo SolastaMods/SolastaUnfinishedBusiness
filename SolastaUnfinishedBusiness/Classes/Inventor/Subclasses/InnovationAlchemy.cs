@@ -131,7 +131,7 @@ public static class InnovationAlchemy
         var save = AttributeDefinitions.Dexterity;
         var dieType = DieType.D8;
         var validator =
-            new ValidatorPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
+            new ValidatorsPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -339,7 +339,7 @@ public static class InnovationAlchemy
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
-        return (power, new ValidatorPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker)));
+        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker)));
     }
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()
