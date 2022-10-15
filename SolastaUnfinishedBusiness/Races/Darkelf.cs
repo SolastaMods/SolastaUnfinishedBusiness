@@ -121,7 +121,7 @@ internal static class DarkelfSubraceBuilder
             .SetUsesFixed(
                 ActivationTime.Action,
                 RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 

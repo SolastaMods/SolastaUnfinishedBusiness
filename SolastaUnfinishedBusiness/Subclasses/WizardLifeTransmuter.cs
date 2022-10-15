@@ -30,7 +30,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         // LEVEL 06
-        
+
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
             .SetGuiPresentation(Category.Feature)
@@ -71,7 +71,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterElementalResistance", 
+                "PowerSharedPoolLifeTransmuterElementalResistance",
                 powerSharedPoolLifeTransmuterHealingPool,
                 conditionLifeTransmuterPoison)
             .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
@@ -94,10 +94,10 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         // LEVEL 10
-        
+
         var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower(
                 "PowerSharedPoolLifeTransmuterFly",
-                powerSharedPoolLifeTransmuterHealingPool, 
+                powerSharedPoolLifeTransmuterHealingPool,
                 ConditionFlying12)
             .SetGuiPresentation(Category.Feature, Fly)
             .AddToDB();
@@ -106,7 +106,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Create("PowerSharedPoolLifeTransmuterHeal")
             .SetGuiPresentation(Category.Feature, MassHealingWord)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(MassHealingWord.EffectDescription, true)
+            .SetEffectDescription(MassHealingWord.EffectDescription)
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
@@ -114,7 +114,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .Create("PowerSharedPoolLifeTransmuterRevive")
             .SetGuiPresentation(Category.Feature, Revivify)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(Revivify.EffectDescription, true)
+            .SetEffectDescription(Revivify.EffectDescription)
             .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
@@ -123,9 +123,9 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 2)
             .AddToDB();
-        
+
         // LEVEL 14
-        
+
         var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
             .SetGuiPresentation(Category.Feature)

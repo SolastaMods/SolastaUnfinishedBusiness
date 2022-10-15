@@ -91,7 +91,7 @@ internal static class HealingFeats
             .Create("PowerFeatHealerStabilize")
             .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription, true)
+            .SetEffectDescription(DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription)
             .AddToDB();
 
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder

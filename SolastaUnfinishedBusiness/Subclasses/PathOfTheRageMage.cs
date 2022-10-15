@@ -57,7 +57,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -65,7 +65,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -73,7 +73,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -81,7 +81,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 

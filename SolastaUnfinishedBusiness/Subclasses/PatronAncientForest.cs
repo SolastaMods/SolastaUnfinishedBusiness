@@ -132,7 +132,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(Entangle.EffectDescription, true)
+            .SetEffectDescription(Entangle.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
 
@@ -189,7 +189,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 .Create("PowerSharedPoolAncientForest" + spell.name)
                 .SetGuiPresentation(spell.GuiPresentation)
                 .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
-                .SetEffectDescription(spell.effectDescription, true)
+                .SetEffectDescription(spell.effectDescription)
                 .SetSharedPool(powerPoolAncientForestWallOfThorns)
                 .AddToDB();
 
@@ -319,7 +319,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
-conditionAncientForestHerbalBrew,
+                                conditionAncientForestHerbalBrew,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
                                 true)

@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -72,7 +72,7 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurnNoPerceptionOfSource",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",

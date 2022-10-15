@@ -19,13 +19,12 @@ internal sealed class Merciless : AbstractFightingStyle
             .Create("PowerFightingStyleMerciless")
             .SetGuiPresentation("Fear", Category.Spell)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetEffectDescription(DatabaseHelper.SpellDefinitions.Fear.EffectDescription, true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
+                .SetDurationData(DurationType.Round, 1)
+                .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.IndividualsUnique)
+                .Build())
             .AddToDB();
-
-        powerFightingStyleMerciless.effectDescription.targetParameter = 1;
-        powerFightingStyleMerciless.effectDescription.TargetType = TargetType.IndividualsUnique;
-        powerFightingStyleMerciless.effectDescription.durationType = DurationType.Round;
-        powerFightingStyleMerciless.effectDescription.effectForms[0].canSaveToCancel = false;
 
         void OnMercilessKill(GameLocationCharacter character)
         {

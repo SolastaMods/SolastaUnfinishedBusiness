@@ -35,7 +35,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(MistyStep.EffectDescription, true)
+            .SetEffectDescription(MistyStep.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
 
@@ -43,13 +43,12 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerBlink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Banishment.EffectDescription)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetNoSavingThrow()
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Banishment.EffectDescription)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetNoSavingThrow()
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -62,12 +61,11 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment)
             .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Banishment.EffectDescription)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetNoSavingThrow()
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Banishment.EffectDescription)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetNoSavingThrow()
+                .Build())
             .SetUniqueInstance()
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
@@ -77,7 +75,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(DimensionDoor.EffectDescription, true)
+            .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
 

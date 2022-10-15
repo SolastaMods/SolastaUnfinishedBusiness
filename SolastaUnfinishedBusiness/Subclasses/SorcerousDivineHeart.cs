@@ -101,7 +101,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(DimensionDoor.EffectDescription, true)
+            .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 

@@ -28,19 +28,24 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
             .AddToDB();
 
+        var effectDescription = EffectDescriptionBuilder
+            .Create(PowerDomainLifePreserveLife.EffectDescription)
+            .Build();
+
+        effectDescription.EffectForms[0].HealingForm.HealingCap = HealingCap.MaximumHitPoints;
+        effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
+        effectDescription.targetFilteringTag = TargetFilteringTag.No;
+
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightRallyingCry")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord)
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
-            .SetEffectDescription(PowerDomainLifePreserveLife.EffectDescription, true)
+            .SetEffectDescription(effectDescription)
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
         // TODO: use EffectDescriptionBuilder
-        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.HealingCap =
-            HealingCap.MaximumHitPoints;
-        powerRoyalKnightRallyingCry.EffectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-        powerRoyalKnightRallyingCry.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
+
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")

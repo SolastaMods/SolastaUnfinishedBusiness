@@ -79,17 +79,9 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetEffectDescription(EffectDescription effect, bool makeCopy = false)
+    internal TBuilder SetEffectDescription(EffectDescription effect)
     {
-        if (makeCopy)
-        {
-            Definition.effectDescription.Copy(effect);
-        }
-        else
-        {
-            Definition.effectDescription = effect;
-        }
-
+        Definition.effectDescription = effect;
         return (TBuilder)this;
     }
 
