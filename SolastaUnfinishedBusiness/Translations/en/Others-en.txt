@@ -73,3 +73,4 @@ UI/&ForcePreferredCantripTitle=Force Preferred Cantrip
 Tooltip/&FeatSameFamilyUnavailableWarningDescription=Warning: you can only learn one Feat of this type
 Feature/&FighterExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
 Screen/&SwitchConfigurationDescription=Switch your equipped items to this configuration: {0}.\nHold CTRL to keep off-hand if possible.
+Feedback/&ItemLostLine={0} lost {1}
