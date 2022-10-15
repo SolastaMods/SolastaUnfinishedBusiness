@@ -197,6 +197,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } =
             GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
 
+        internal static ConditionDefinition ConditionConfused { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConfused");
+
         internal static ConditionDefinition ConditionConjuredCreature { get; } =
             GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
 
