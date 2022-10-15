@@ -16,9 +16,9 @@ public static class CreateGameSubpanelPatcher
         public static void Prefix([NotNull] CreateGameSubpanel __instance)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            var value = Math.Max(DungeonMakerContext.GamePartySize, Main.Settings.OverridePartySize);
+            var maxValue = Math.Max(DungeonMakerContext.GamePartySize, Main.Settings.OverridePartySize);
 
-            __instance.maxPlayersSlider.maxValue = value;
+            __instance.maxPlayersSlider.maxValue = maxValue;
         }
     }
 }

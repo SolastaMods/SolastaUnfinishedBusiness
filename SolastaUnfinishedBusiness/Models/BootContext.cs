@@ -116,6 +116,12 @@ internal static class BootContext
             // Manages update or welcome messages
             Load();
             Main.Enable();
+
+            //TODO: move this over to a better location
+            var networkingManager = (NetworkingManager)ServiceRepository.GetService<INetworkingService>();
+
+            networkingManager.playerInfos = new List<NetworkingDefinitions.PlayerInfo>(6);
+            networkingManager.guidsByControllerIdCache = new Dictionary<int, List<ulong>>(6);
         };
     }
 
