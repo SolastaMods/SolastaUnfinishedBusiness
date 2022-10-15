@@ -105,17 +105,15 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         var powerSharedPoolLifeTransmuterHeal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterHeal")
             .SetGuiPresentation(Category.Feature, MassHealingWord)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
             .SetEffectDescription(MassHealingWord.EffectDescription)
-            .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterRevive = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolLifeTransmuterRevive")
             .SetGuiPresentation(Category.Feature, Revivify)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
             .SetEffectDescription(Revivify.EffectDescription)
-            .SetSharedPool(powerSharedPoolLifeTransmuterHealingPool)
             .AddToDB();
 
         var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerUseModifierBuilder
@@ -166,7 +164,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
     {
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, poolPower)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -179,7 +177,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                             .CreatedByCharacter()
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false)
                             .Build())
-                    .Build())
-            .SetSharedPool(poolPower);
+                    .Build());
     }
 }

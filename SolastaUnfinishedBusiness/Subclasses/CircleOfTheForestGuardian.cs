@@ -90,7 +90,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -114,13 +114,12 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .Build())
-            .SetSharedPool(PowerDruidWildShape)
             .AddToDB();
 
         var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -155,14 +154,13 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .Build())
-            .SetSharedPool(PowerDruidWildShape)
             .SetOverriddenPower(powerSharedPoolForestGuardianBarkWard)
             .AddToDB();
 
         var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -197,7 +195,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .Build())
-            .SetSharedPool(PowerDruidWildShape)
             .SetOverriddenPower(powerSharedPoolForestGuardianImprovedBarkWard)
             .AddToDB();
 

@@ -225,7 +225,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         var powerSharedPoolElementalistNormal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalForm", text, elementalFormConfig))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.NoCost, elementalFormPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -242,7 +242,6 @@ internal sealed class PatronElementalist : AbstractSubclass
                             .Build())
                     .Build())
             .SetUniqueInstance()
-            .SetSharedPool(elementalFormPool)
             .AddToDB();
 
         var conditionElementalistEnhanced = ConditionDefinitionBuilder
@@ -258,8 +257,8 @@ internal sealed class PatronElementalist : AbstractSubclass
         var powerSharedPoolElementalistEnhanced = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolElementalistEnhanced" + text)
             .SetGuiPresentation(GuiPresentation("ElementalFormEnhanced", text, elementalFormConfig))
+            .SetSharedPool(ActivationTime.NoCost, enhancedElementalFormPool)
             .SetOverriddenPower(powerSharedPoolElementalistNormal)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -273,7 +272,6 @@ internal sealed class PatronElementalist : AbstractSubclass
                             .Build())
                     .Build())
             .SetUniqueInstance()
-            .SetSharedPool(enhancedElementalFormPool)
             .AddToDB();
 
         return (powerSharedPoolElementalistNormal, powerSharedPoolElementalistEnhanced);

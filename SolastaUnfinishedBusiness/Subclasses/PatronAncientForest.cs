@@ -188,9 +188,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             FeatureDefinitionPower wallOfThorns = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerSharedPoolAncientForest" + spell.name)
                 .SetGuiPresentation(spell.GuiPresentation)
-                .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+                .SetSharedPool(ActivationTime.Rest, powerPoolAncientForestWallOfThorns)
                 .SetEffectDescription(spell.effectDescription)
-                .SetSharedPool(powerPoolAncientForestWallOfThorns)
                 .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
@@ -277,9 +276,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(brewEffect)
-            .SetSharedPool(pool)
             .AddToDB();
     }
 
@@ -359,9 +357,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(brewEffect)
-            .SetSharedPool(pool)
             .AddToDB();
     }
 }
