@@ -241,6 +241,14 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\I2.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PhotonUnityNetworking">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\PhotonUnityNetworking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PhotonRealtime">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\PhotonRealtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>    
   </ItemGroup>
   
   <Target Name="ZipTranslations" BeforeTargets="Compile"> <!-- Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'"> -->
