@@ -103,7 +103,9 @@ public static class InnovationAlchemy
             .AddToDB();
 
         PowersBundleContext.RegisterPowerBundle(AdvancedBombs, true,
-            BuildForceBombs(deviceDescription)
+            BuildForceBombs(deviceDescription),
+            BuildRadiantBombs(deviceDescription),
+            BuildNecroBombs(deviceDescription)
         );
 
         var bombItem = ItemDefinitionBuilder
@@ -304,6 +306,90 @@ public static class InnovationAlchemy
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombForcePrecise", Resources.AlchemyBombForcePrecise, 128);
+        particle = splash;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static FeatureDefinitionPower BuildRadiantBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var branded = ConditionDefinitions.ConditionBranded.GuiPresentation;
+        var damage = DamageTypeRadiant;
+        var save = AttributeDefinitions.Charisma;
+        var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create($"ConditionInnovationAlchemy{damage}")
+                .SetGuiPresentation(branded)
+                .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var splash = Sparkle.EffectDescription.effectParticleParameters;
+
+        var sprite = GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
+        var particle = splash;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+
+        sprite = GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
+        particle = BurningHands_B.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombRadiantPrecise", Resources.AlchemyBombRadiantPrecise, 128);
+        particle = splash;
+        var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
+
+        AddBombFunctions(deviceDescription, powerBombPrecise, powerBombSplash, powerBombBreath);
+
+        return toggle;
+    }
+
+    private static FeatureDefinitionPower BuildNecroBombs(UsableDeviceDescriptionBuilder deviceDescription)
+    {
+        var branded = ConditionDefinitions.ConditionDoomLaughter.GuiPresentation;
+        var damage = DamageTypeNecrotic;
+        var save = AttributeDefinitions.Constitution;
+        var dieType = DieType.D6;
+        var (toggle, validator) = MakeElementToggleMarker(damage);
+        var effect = EffectFormBuilder.Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create($"ConditionInnovationAlchemy{damage}")
+                .SetGuiPresentation(Category.Condition, branded.SpriteReference)
+                .SetFeatures(
+                    FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
+                )
+                .SetRecurrentEffectForms(EffectFormBuilder.Create()
+                    .SetDamageForm(damageType: damage, dieType: dieType, diceNumber: 2)
+                    .Build())
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                // .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                // .SetSpecialInterruptions(ExtraConditionInterruption.)
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .Build();
+
+        var splash = VampiricTouch.EffectDescription.effectParticleParameters;
+
+        var sprite = GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
+        var particle = splash;
+        var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
+        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+
+        sprite = GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
+        particle = VampiricTouch.EffectDescription.effectParticleParameters;
+        var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
+
+        sprite = GetSprite("AlchemyBombNecroticPrecise", Resources.AlchemyBombNecroticPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
