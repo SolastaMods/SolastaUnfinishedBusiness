@@ -13,78 +13,71 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Merciless : AbstractFightingStyle
 {
-    internal Merciless()
-    {
-        var powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
-            .Create("PowerFightingStyleMerciless")
-            .SetGuiPresentation("Fear", Category.Spell)
-            .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.IndividualsUnique)
-                .Build())
-            .AddToDB();
+    private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
+        .Create("PowerFightingStyleMerciless")
+        .SetGuiPresentation("Fear", Category.Spell)
+        .SetUsesProficiencyBonus(ActivationTime.NoCost)
+        .SetEffectDescription(EffectDescriptionBuilder
+            .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
+            .SetDurationData(DurationType.Round, 1)
+            .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.IndividualsUnique)
+            .Build())
+        .AddToDB();
 
-        void OnMercilessKill(GameLocationCharacter character)
-        {
-            if (Global.CurrentAction is not CharacterActionAttack actionAttack)
-            {
-                return;
-            }
+    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+        .Create("Merciless")
+        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
+        .SetFeatures(
+            // FeatureDefinitionAdditionalActionBuilder
+            //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+            //     .SetGuiPresentationNoContent()
+            //     .AddToDB(),
+            FeatureDefinitionOnCharacterKillBuilder
+                .Create("OnCharacterKillFightingStyleMerciless")
+                .SetGuiPresentationNoContent()
+                .SetOnCharacterKill(character =>
+                {
+                    if (Global.CurrentAction is not CharacterActionAttack actionAttack)
+                    {
+                        return;
+                    }
 
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
+                    var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
 
-            if (battle == null)
-            {
-                return;
-            }
+                    if (battle == null)
+                    {
+                        return;
+                    }
 
-            var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-                           ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
-                               RulesetCharacterHero;
+                    var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
+                                   ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
+                                       RulesetCharacterHero;
 
-            if (attacker == null || attacker.IsWieldingRangedWeapon())
-            {
-                return;
-            }
+                    if (attacker == null || attacker.IsWieldingRangedWeapon())
+                    {
+                        return;
+                    }
 
-            var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var usablePower = new RulesetUsablePower(
-                powerFightingStyleMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
-            var effectPower = new RulesetEffectPower(attacker, usablePower);
+                    var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                    var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+                    var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+                    var usablePower = new RulesetUsablePower(
+                        PowerFightingStyleMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
+                    var effectPower = new RulesetEffectPower(attacker, usablePower);
 
-            usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+                    usablePower.SaveDC = 8 + proficiencyBonus
+                                           + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
-            foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy =>
-                             enemy != character
-                             && int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
-            {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
-        }
-
-        FightingStyle = CustomizableFightingStyleBuilder
-            .Create("Merciless")
-            .SetGuiPresentation(Category.FightingStyle,
-                DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
-            .SetFeatures(
-                // FeatureDefinitionAdditionalActionBuilder
-                //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-                //     .SetGuiPresentationNoContent()
-                //     .AddToDB(),
-                FeatureDefinitionOnCharacterKillBuilder
-                    .Create("OnCharacterKillFightingStyleMerciless")
-                    .SetGuiPresentationNoContent()
-                    .SetOnCharacterKill(OnMercilessKill)
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    internal override FightingStyleDefinition FightingStyle { get; }
+                    foreach (var enemy in battle.EnemyContenders
+                                 .Where(enemy =>
+                                     enemy != character &&
+                                     int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
+                    {
+                        effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
+                    }
+                })
+                .AddToDB())
+        .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {

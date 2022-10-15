@@ -128,12 +128,6 @@ internal static class GameUiDisplay
             Main.Settings.EnableCharacterExport = toggle;
         }
 
-        toggle = Main.Settings.EnableHotkeyDebugOverlay;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeyDebugOverlay = toggle;
-        }
-
         toggle = Main.Settings.EnableTeleportParty;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportParty"), ref toggle))
         {

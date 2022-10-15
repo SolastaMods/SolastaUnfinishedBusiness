@@ -28,8 +28,18 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyOverchargeBombs:f68f7df0-086b-50e3-b3a7-17d199edf405",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationAlchemyBombsAdvanced:d9893368-bd29-545f-8fd6-7721c1d94004",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyExtraOverchargeBombs:0ebedc10-3e37-53de-ad5b-c2977253a4b8",
+      "level": 11
     }
   ],
   "personalityFlagOccurences": [],

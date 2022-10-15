@@ -31,7 +31,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             .AddFeaturesAtLevel(5, DarkelfSubraceBuilder.PowerDarkelfDarkness)
             .AddToDB();
 
-        var halfHighSpriteReference =
+        var halfHighSpriteReference = 
             CustomIcons.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var raceHalfElfHigh = CharacterRaceDefinitionBuilder

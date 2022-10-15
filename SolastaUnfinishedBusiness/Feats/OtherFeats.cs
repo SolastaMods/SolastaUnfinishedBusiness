@@ -22,10 +22,16 @@ internal static class OtherFeats
         var featSavageAttacker = FeatDefinitionBuilder
             .Create(FeatSavageAttackerName)
             .SetFeatures(
-                BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageAttacker",
-                    AttackDamageValueRoll, 1, 1),
-                BuildFeatSavageAttackerDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
-                    MagicDamageValueRoll, 1, 1))
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageAttacker")
+                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
+                    .AddToDB(),
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageMagicAttacker")
+                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
+                    .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
 
@@ -95,15 +101,5 @@ internal static class OtherFeats
             featSuperiorCritical);
 
         feats.AddRange(featSavageAttacker, featTough, featImprovedCritical, featSuperiorCritical, featShieldExpert);
-    }
-
-    private static FeatureDefinitionDieRollModifier BuildFeatSavageAttackerDieRollModifier(
-        string name, RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
-    {
-        return FeatureDefinitionDieRollModifierBuilder
-            .Create(name)
-            .SetModifiers(context, rerollCount, minRerollValue, minRerollValue, "Feat/&FeatSavageAttackerReroll")
-            .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
-            .AddToDB();
     }
 }
