@@ -214,8 +214,8 @@
         "beforeImpactParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
-          "m_SubObjectName": null,
-          "m_SubObjectType": null
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
         },
         "impactParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
