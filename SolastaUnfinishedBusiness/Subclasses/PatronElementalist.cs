@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
@@ -8,6 +7,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DamageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -30,7 +30,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityFireImmunity,
                 Particles = Fire_Jester.MonsterPresentation.attachedParticlesReference,
                 Shaders = Fire_Elemental.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire,
+                // Sprite = FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire,
             }
         },
         {
@@ -43,7 +43,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Particles = Earth_Elemental.MonsterPresentation.attachedParticlesReference,
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                 Shaders = FeyBear.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
+                // Sprite = FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
             }
         },
         {
@@ -54,7 +54,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityColdImmunity,
                 Particles = WindSnake.MonsterPresentation.attachedParticlesReference,
                 Shaders = SkarnGhoul.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold,
+                // Sprite = FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold,
             }
         },
         {
@@ -65,7 +65,7 @@ internal sealed class PatronElementalist : AbstractSubclass
                 Immunity = DamageAffinityThunderImmunity,
                 Particles = Air_Elemental.MonsterPresentation.attachedParticlesReference,
                 Shaders = Air_Elemental.MonsterPresentation.CustomShaderReference
-                // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder,
+                // Sprite = FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder,
             }
         }
     };
@@ -73,7 +73,7 @@ internal sealed class PatronElementalist : AbstractSubclass
     internal PatronElementalist()
     {
         var spellListElementalist = SpellListDefinitionBuilder
-            .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListElementalist")
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListElementalist")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
@@ -138,14 +138,14 @@ internal sealed class PatronElementalist : AbstractSubclass
         PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
 
         var featureSetElementalistKnowledge = FeatureDefinitionFeatureSetBuilder
-            .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+            .Create(FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
                 "FeatureSetElementalistKnowledge")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental,
-                DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil,
-                DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed,
-                DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
+                FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental,
+                FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
             .AddToDB();
 
         var bonusCantripElementalistMinorElemental = FeatureDefinitionBonusCantripsBuilder
@@ -159,7 +159,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
-            .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionLoremaster)
             .AddFeaturesAtLevel(1,
                 magicAffinityElementalistExpandedSpells,
                 powerElementalistElementalFormPool)
@@ -174,7 +174,7 @@ internal sealed class PatronElementalist : AbstractSubclass
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
-    internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 
     private static GuiPresentation GuiPresentation(

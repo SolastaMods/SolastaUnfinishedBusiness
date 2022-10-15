@@ -278,8 +278,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower
-            )
+                ConditionInterruption.UsePower)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
