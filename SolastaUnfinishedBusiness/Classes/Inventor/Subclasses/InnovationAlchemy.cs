@@ -30,8 +30,9 @@ public static class InnovationAlchemy
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
-            .AddFeaturesAtLevel(5, ElementalBombs)
+            .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
             .AddFeaturesAtLevel(9, AdvancedBombs)
+            .AddFeaturesAtLevel(11, BuildExtraOverchargeFeature())
             .AddToDB();
     }
 
@@ -479,7 +480,7 @@ public static class InnovationAlchemy
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
         sprite = GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
-        particle = splash;//PhantasmalKiller.EffectDescription.effectParticleParameters;
+        particle = splash; //PhantasmalKiller.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
         sprite = GetSprite("AlchemyBombPsychicPrecise", Resources.AlchemyBombPsychicPrecise, 128);
@@ -680,38 +681,66 @@ public static class InnovationAlchemy
         });
         return power;
     }
-}
 
-internal sealed class ModifiedBombElement
-{
-    private ModifiedBombElement()
+    private static FeatureDefinition BuildOverchargeFeature()
     {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
+    }
+    
+    
+    private static FeatureDefinition BuildExtraOverchargeFeature()
+    {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyExtraOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
     }
 
-    public static ModifiedBombElement Marker { get; } = new();
-}
-
-internal sealed class Overcharge : ICustomOverchargeProvider
-{
-    private static readonly (int, int)[] None = { };
-    private static readonly (int, int)[] Once = {(1, 1)};
-    private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
-
-    public (int, int)[] OverchargeSteps(RulesetCharacter character)
+    private sealed class OverchargeFeature
     {
-        //TODO: maybe rework to use features instead of levels?
-        var classLevel = character.GetClassLevel(InventorClass.Class);
-        if (classLevel >= 11)
+        private OverchargeFeature()
         {
-            return Twice;
         }
 
-        if (classLevel >= 5)
+        public static OverchargeFeature Marker { get; } = new();
+    }
+
+
+    private sealed class ModifiedBombElement
+    {
+        private ModifiedBombElement()
         {
-            return Once;
         }
 
-        return None;
+        public static ModifiedBombElement Marker { get; } = new();
+    }
+
+    private sealed class Overcharge : ICustomOverchargeProvider
+    {
+        private static readonly (int, int)[] None = { };
+        private static readonly (int, int)[] Once = {(1, 1)};
+        private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+
+        public (int, int)[] OverchargeSteps(RulesetCharacter character)
+        {
+            var overcharges = character.GetSubFeaturesByType<OverchargeFeature>().Count;
+            if (overcharges >= 2)
+            {
+                return Twice;
+            }
+
+            if (overcharges >= 1)
+            {
+                return Once;
+            }
+
+            return None;
+        }
     }
 }
 
