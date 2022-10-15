@@ -5,10 +5,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class PowerUseModifier : IPowerUseModifier
 {
-    public FeatureDefinitionPower PowerPool { get; set; }
     public int Value { get; set; } = 1;
     public PowerPoolBonusCalculationType Type { get; set; } = PowerPoolBonusCalculationType.Fixed;
     public string Attribute { get; set; }
+    public FeatureDefinitionPower PowerPool { get; set; }
 
     public int PoolChangeAmount(RulesetCharacter character)
     {

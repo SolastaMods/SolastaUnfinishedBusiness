@@ -48,7 +48,7 @@ public static class CharacterActionMagicEffectPatcher
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attacks is {Count: > 0})
+            if (attacks is { Count: > 0 })
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,
@@ -135,7 +135,7 @@ public static class CharacterActionMagicEffectPatcher
         typeof(int), // totalTargetsNumber,
         typeof(RulesetItem), // targetITem,
         typeof(RuleDefinitions.EffectSourceType), // sourceType,
-        typeof(int), // ref damageReceive
+        typeof(int) // ref damageReceive
     }, new[]
     {
         ArgumentType.Normal, // caster
@@ -155,7 +155,7 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // totalTargetsNumber,
         ArgumentType.Normal, // targetITem,
         ArgumentType.Normal, // sourceType,
-        ArgumentType.Ref, //ref damageReceive
+        ArgumentType.Ref //ref damageReceive
     })]
     public static class ApplyForms_Patch
     {

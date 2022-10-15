@@ -493,6 +493,7 @@ public static class GameLocationBattleManagerPatcher
                         hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
                     action.SaveOutcome = saveOutcome;
                 }
+
                 reactionParams.RulesetEffect.Terminate(true);
 
                 if (!IsFailed(saveOutcome)) { yield break; }

@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
 /**allows marking spells/powers to make push.drag effects from them work relative to target point, not caster position*/
 internal sealed class PushesFromEffectPoint
 {
@@ -73,10 +74,10 @@ internal sealed class PushesFromEffectPoint
         }
 
         if (formsParams.targetCharacter == null || !formsParams.targetCharacter.CanReceiveMotion ||
-            formsParams.rolledSaveThrow &&
-            effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
-            formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&
-            formsParams.saveOutcome != RuleDefinitions.RollOutcome.CriticalFailure)
+            (formsParams.rolledSaveThrow &&
+             effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
+             formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&
+             formsParams.saveOutcome != RuleDefinitions.RollOutcome.CriticalFailure))
         {
             return true;
         }

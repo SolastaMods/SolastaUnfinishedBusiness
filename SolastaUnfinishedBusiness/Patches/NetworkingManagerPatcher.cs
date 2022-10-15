@@ -22,7 +22,7 @@ public static class NetworkingManagerPatcher
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
             var maxValue = Math.Max(DungeonMakerContext.GamePartySize, Main.Settings.OverridePartySize);
-            
+
             roomOptions.MaxPlayers = (byte)maxValue;
 
             return PhotonNetwork.CreateRoom(name, roomOptions, typedLobby);
@@ -30,7 +30,8 @@ public static class NetworkingManagerPatcher
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var createRoomMethod = typeof(PhotonNetwork).GetMethod("CreateRoom", BindingFlags.Public | BindingFlags.Static);
+            var createRoomMethod =
+                typeof(PhotonNetwork).GetMethod("CreateRoom", BindingFlags.Public | BindingFlags.Static);
             var myCreateRoomMethod = new Func<string, RoomOptions, TypedLobby, bool>(CreateRoom).Method;
 
             foreach (var instruction in instructions)

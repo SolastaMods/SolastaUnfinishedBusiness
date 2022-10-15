@@ -578,9 +578,12 @@ internal static class LevelUpContext
         private IEnumerable<FeatureDefinition> SelectedClassFeatures => Hero.ActiveFeatures
             .Where(x => x.Key.Contains(SelectedClass.Name))
             .SelectMany(x => x.Value);
-        
+
         internal HashSet<SpellDefinition> AllowedSpells => CacheAllowedSpells(SelectedClassFeatures);
-        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells => CacheAllowedAutoPreparedSpells(SelectedClassFeatures);
+
+        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells =>
+            CacheAllowedAutoPreparedSpells(SelectedClassFeatures);
+
         internal HashSet<SpellDefinition> OtherClassesKnownSpells => CacheOtherClassesKnownSpells(Hero);
     }
 }

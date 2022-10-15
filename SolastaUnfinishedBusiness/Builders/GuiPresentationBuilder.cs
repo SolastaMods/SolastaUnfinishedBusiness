@@ -215,7 +215,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;
-    
+
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
     }
@@ -226,7 +226,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         var definitionName = builder.Name;
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
-        
+
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
     }
@@ -241,7 +241,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         var guip = builder.GetGuiPresentation();
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
-        
+
         return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
     }
 
@@ -278,7 +278,8 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         var definitionName = builder.Name;
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
 
-        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, definitionName, category, sprite, sortOrder));
+        return SetGuiPresentation(builder,
+            GuiPresentationBuilder.Build(guip, definitionName, category, sprite, sortOrder));
     }
 
     /// <summary>

@@ -70,7 +70,7 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 
-#if false    
+#if false
     internal UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,

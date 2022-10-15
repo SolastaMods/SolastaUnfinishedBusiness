@@ -107,7 +107,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         {
             return;
         }
-        
+
         var monsterDefinitions = DatabaseRepository.GetDatabase<MonsterDefinition>();
 
         foreach (var monsterDefinition in monsterDefinitions

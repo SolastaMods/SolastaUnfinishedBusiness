@@ -187,7 +187,9 @@ internal sealed class RoguishRaven : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Remove)
+                        .SetConditionForm(
+                            conditionRavenHeartSeekingShotTrigger,
+                            ConditionForm.ConditionOperation.Remove)
                         .Build(),
                     EffectFormBuilder
                         .Create()

@@ -22,7 +22,7 @@ public static class NetworkSessionFileSyncHandlerPatcher
             session.ClearAssignedCharacters();
 
             var maxValue = Math.Max(DungeonMakerContext.GamePartySize, Main.Settings.OverridePartySize);
-            
+
             for (var optionalIndex = 0; optionalIndex < maxValue; ++optionalIndex)
             {
                 NetworkingDefinitions.GetFileTypeInformation(NetworkingDefinitions.FileType.Character, optionalIndex,

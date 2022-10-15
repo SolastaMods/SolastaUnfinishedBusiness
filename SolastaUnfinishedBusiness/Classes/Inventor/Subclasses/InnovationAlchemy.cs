@@ -375,7 +375,7 @@ public static class InnovationAlchemy
                     FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
                 )
                 .SetRecurrentEffectForms(EffectFormBuilder.Create()
-                    .SetDamageForm(damageType: damage, dieType: dieType, diceNumber: 2)
+                    .SetDamageForm(damage, dieType: dieType, diceNumber: 2)
                     .Build())
                 .SetSpecialDuration(true)
                 .SetDuration(DurationType.Round, 1)
@@ -675,7 +675,7 @@ public static class InnovationAlchemy
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new PowerUseModifier()
+        power.AddCustomSubFeatures(new PowerUseModifier
         {
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });
@@ -690,8 +690,8 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
     }
-    
-    
+
+
     private static FeatureDefinition BuildExtraOverchargeFeature()
     {
         return FeatureDefinitionBuilder
@@ -723,8 +723,8 @@ public static class InnovationAlchemy
     private sealed class Overcharge : ICustomOverchargeProvider
     {
         private static readonly (int, int)[] None = { };
-        private static readonly (int, int)[] Once = {(1, 1)};
-        private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+        private static readonly (int, int)[] Once = { (1, 1) };
+        private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {

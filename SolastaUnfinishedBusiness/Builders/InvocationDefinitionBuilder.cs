@@ -46,7 +46,7 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         return (TBuilder)this;
     }
 
-#if false    
+#if false
     internal TBuilder SetRequiredSpell(SpellDefinition spell)
     {
         Definition.requiredKnownSpell = spell;
