@@ -17,7 +17,45 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
     {
         foreach (var ability in abilityScores)
         {
-            var group = new SavingThrowAffinityGroup { abilityScoreName = ability, affinity = affinityType };
+            var group = new SavingThrowAffinityGroup {abilityScoreName = ability, affinity = affinityType};
+
+            if (againstMagic)
+            {
+                group.restrictedSchools.SetRange(
+                    SchoolAbjuration.Name,
+                    SchoolConjuration.Name,
+                    SchoolDivination.Name,
+                    SchoolEnchantment.Name,
+                    SchoolEvocation.Name,
+                    SchoolIllusion.Name,
+                    SchoolNecromancy.Name,
+                    SchoolTransmutation.Name);
+            }
+
+            Definition.AffinityGroups.Add(group);
+        }
+
+        Definition.AffinityGroups.Sort(Sorting.Compare);
+        return this;
+    }
+
+    internal FeatureDefinitionSavingThrowAffinityBuilder SetModifiers(
+        ModifierType modifierType,
+        RuleDefinitions.DieType modifierDieType,
+        int modifierDieNumber,
+        bool againstMagic,
+        params string[] abilityScores)
+    {
+        foreach (var ability in abilityScores)
+        {
+            var group = new SavingThrowAffinityGroup
+            {
+                abilityScoreName = ability,
+                affinity = RuleDefinitions.CharacterSavingThrowAffinity.None,
+                savingThrowModifierType = modifierType,
+                savingThrowModifierDieType = modifierDieType,
+                savingThrowModifierDiceNumber = modifierDieNumber
+            };
 
             if (againstMagic)
             {
