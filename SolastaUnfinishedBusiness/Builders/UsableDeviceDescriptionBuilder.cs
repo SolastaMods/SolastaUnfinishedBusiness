@@ -64,6 +64,13 @@ internal class UsableDeviceDescriptionBuilder
 
     #region Charge
 
+    internal UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
+    {
+        description.chargesCapitalNumber = number;
+        return this;
+    }
+
+#if false    
     internal UsableDeviceDescriptionBuilder SetCharges(
         ItemChargesCapital capital = ItemChargesCapital.Fixed,
         int number = 1,
@@ -83,12 +90,6 @@ internal class UsableDeviceDescriptionBuilder
         return this;
     }
 
-    internal UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
-    {
-        description.chargesCapitalNumber = number;
-        return this;
-    }
-
     internal UsableDeviceDescriptionBuilder SetChargesCapitalDie(RuleDefinitions.DieType dieType)
     {
         description.chargesCapitalDie = dieType;
@@ -100,6 +101,7 @@ internal class UsableDeviceDescriptionBuilder
         description.chargesCapitalBonus = bonus;
         return this;
     }
+#endif
 
     #endregion
 
