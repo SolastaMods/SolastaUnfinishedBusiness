@@ -1,11 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageForce:3fed5643-f441-5df6-8f07-fdc1358705de",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageRadiant:6e12b55d-c876-5cd9-8421-1965829aa568",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageNecrotic:6a59a496-5d43-5a49-b46e-1962c2430b6a"
-  ],
+  "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -165,11 +161,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationAlchemyBombsAdvancedTitle",
-    "description": "Feature/&PowerInnovationAlchemyBombsAdvancedDescription",
+    "title": "Feature/&PowerInnovationAlchemyMarkerDamageNecroticTitle",
+    "description": "Feature/&PowerInnovationAlchemyMarkerDamageNecroticDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4f13d3b1-4baf-5e77-9807-2d2c402b9311",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -186,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e310bc08-538a-5001-b28b-234719c496f1",
+  "guid": "6a59a496-5d43-5a49-b46e-1962c2430b6a",
   "contentPack": 9999,
-  "name": "SpellPowerInnovationAlchemyBombsAdvanced"
+  "name": "SpellPowerInnovationAlchemyMarkerDamageNecrotic"
 }
