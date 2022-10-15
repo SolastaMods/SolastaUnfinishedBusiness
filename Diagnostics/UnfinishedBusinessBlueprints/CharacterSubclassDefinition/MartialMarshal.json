@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMarshalEncouragement:ab673a53-16f2-54af-9ed2-cb2b5bba27c8",
+      "featureDefinition": "Definition:FeatureSetMarshalFearlessCommander:8a9114a5-dd1d-53d5-ad0d-2c1b293c58da",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetMarshalFearlessCommander:8a9114a5-dd1d-53d5-ad0d-2c1b293c58da",
+      "featureDefinition": "Definition:PowerMarshalEncouragement:ab673a53-16f2-54af-9ed2-cb2b5bba27c8",
       "level": 10
     }
   ],

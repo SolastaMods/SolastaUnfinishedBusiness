@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsForestGuardian:dc9a52ce-f76b-5ac2-859f-d39aafcfd16d",
       "level": 2
     },
@@ -19,6 +14,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityForestGuardianSylvanWarMagic:aa00c456-ff64-52e6-9d9d-9c09598fbe73",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
       "level": 2
     },
     {
