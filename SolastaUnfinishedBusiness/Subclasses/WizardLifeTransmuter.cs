@@ -47,11 +47,24 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
-        var powerSharedPoolLifeTransmuterDarkvision = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterDarkvision",
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterDarkvision)
+        var powerSharedPoolLifeTransmuterDarkvision = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSharedPoolLifeTransmuterDarkvision")
             .SetGuiPresentation(Category.Feature, PowerDomainBattleDivineWrath)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionLifeTransmuterDarkvision, ConditionForm.ConditionOperation.Add,
+                                false, false)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var conditionLifeTransmuterPoison = ConditionDefinitionBuilder
@@ -70,11 +83,24 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
-        var powerSharedPoolLifeTransmuterPoison = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterElementalResistance",
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterPoison)
+        var powerSharedPoolLifeTransmuterPoison = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSharedPoolLifeTransmuterElementalResistance")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionLifeTransmuterPoison, ConditionForm.ConditionOperation.Add,
+                                false, false)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var conditionLifeTransmuterConstitution = ConditionDefinitionBuilder
@@ -86,20 +112,45 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
-        var powerSharedPoolLifeTransmuterConstitution = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterConstitution",
-                powerSharedPoolLifeTransmuterHealingPool,
-                conditionLifeTransmuterConstitution)
+        var powerSharedPoolLifeTransmuterConstitution = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSharedPoolLifeTransmuterConstitution")
             .SetGuiPresentation(Category.Feature, PowerPaladinAuraOfCourage)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionLifeTransmuterConstitution, ConditionForm.ConditionOperation.Add,
+                                false, false)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         // LEVEL 10
 
-        var powerSharedPoolLifeTransmuterFly = BuildActionTransmuteConditionPower(
-                "PowerSharedPoolLifeTransmuterFly",
-                powerSharedPoolLifeTransmuterHealingPool,
-                ConditionFlying12)
+        var powerSharedPoolLifeTransmuterFly = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSharedPoolLifeTransmuterFly")
             .SetGuiPresentation(Category.Feature, Fly)
+            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolLifeTransmuterHealingPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .CreatedByCharacter()
+                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add, false, false)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var powerSharedPoolLifeTransmuterHeal = FeatureDefinitionPowerSharedPoolBuilder
@@ -156,27 +207,4 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-
-    private static FeatureDefinitionPowerSharedPoolBuilder BuildActionTransmuteConditionPower(
-        string name,
-        FeatureDefinitionPower poolPower,
-        ConditionDefinition condition)
-    {
-        return FeatureDefinitionPowerSharedPoolBuilder
-            .Create(name)
-            .SetSharedPool(ActivationTime.BonusAction, poolPower)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .CreatedByCharacter()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false)
-                            .Build())
-                    .Build());
-    }
 }
