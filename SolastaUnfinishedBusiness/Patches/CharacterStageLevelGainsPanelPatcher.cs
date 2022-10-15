@@ -15,30 +15,25 @@ public static class CharacterStageLevelGainPanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class EnterStage_Patch
     {
-        //PATCH: gets my own class and level for level up (MULTICLASS)
         // ReSharper disable once UnusedMember.Global
         public static void GetLastAssignedClassAndLevel(
-            ICharacterBuildingService _,
-            [NotNull] RulesetCharacterHero hero,
-            [CanBeNull] out CharacterClassDefinition lastClassDefinition,
+            ICharacterBuildingService characterBuildingService,
+            RulesetCharacterHero hero,
+            out CharacterClassDefinition lastClassDefinition,
             out int level)
         {
             if (LevelUpContext.IsLevelingUp(hero))
             {
+                //PATCH: mark we are beyond selecting classes (MULTICLASS)
                 LevelUpContext.SetIsClassSelectionStage(hero, false);
 
+                //PATCH: gets my own class and level for level up (MULTICLASS)
                 lastClassDefinition = LevelUpContext.GetSelectedClass(hero);
                 level = hero.ClassesHistory.Count;
             }
-            else if (hero.ClassesHistory.Count > 0)
-            {
-                lastClassDefinition = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
-                level = hero.ClassesAndLevels[lastClassDefinition];
-            }
             else
             {
-                lastClassDefinition = null;
-                level = 0;
+                characterBuildingService.GetLastAssignedClassAndLevel(hero, out lastClassDefinition, out level);
             }
         }
 
