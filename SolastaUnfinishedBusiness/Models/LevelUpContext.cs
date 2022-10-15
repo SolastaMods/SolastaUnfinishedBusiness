@@ -345,7 +345,7 @@ internal static class LevelUpContext
         return knownSpells.ToHashSet();
     }
 
-    private static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
         {

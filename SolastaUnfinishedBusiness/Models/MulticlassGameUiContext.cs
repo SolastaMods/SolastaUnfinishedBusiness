@@ -609,6 +609,7 @@ internal static class MulticlassGameUiContext
     {
         var spellsOverriden = pointPool.spellListOverride != null;
         var spellLevel = __instance.SpellLevel;
+        LevelUpContext.CacheSpells(caster);
 
         // avoids auto prepared spells from other classes to bleed in
         var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(caster)
