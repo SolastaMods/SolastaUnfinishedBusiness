@@ -3,23 +3,15 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "UntilLongRest",
+  "durationType": "Hour",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -132,14 +124,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionLifeTransmuterPoisonTitle",
-    "description": "Condition/&ConditionLifeTransmuterPoisonDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a723156c787808644b470992b3f992df",
-      "m_SubObjectName": "ConditionProtectectedFromEvilGood",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -154,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
+  "guid": "15f15061-9822-5590-a2f5-b27b96a3bfd2",
   "contentPack": 9999,
-  "name": "ConditionLifeTransmuterPoison"
+  "name": "FeatureInnovationAlchemyMarkerDamagePsychic"
 }

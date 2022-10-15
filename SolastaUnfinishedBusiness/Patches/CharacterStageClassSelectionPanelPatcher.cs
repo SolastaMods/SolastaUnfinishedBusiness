@@ -38,17 +38,17 @@ public static class CharacterStageClassSelectionPanelPatcher
         public static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling classes on the Mod UI panel
+            var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                .Where(x => !x.GuiPresentation.Hidden);
+
+            __instance.compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+
             if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
             {
-                var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                    .Where(x => !x.GuiPresentation.Hidden);
-
-                __instance.compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
-
                 return;
             }
 
-            //PATCH: flags displaying the class panel (MULTICLASS)
+            //PATCH: mark we started selecting classes (MULTICLASS)
             LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
 
             //PATCH: apply in/out logic (MULTICLASS)

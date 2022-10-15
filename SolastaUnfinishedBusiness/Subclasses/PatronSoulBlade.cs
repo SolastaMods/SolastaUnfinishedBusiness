@@ -62,8 +62,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                                 1, new FeatureUnlockByLevel(
                                     FeatureDefinitionAttackModifierBuilder
                                         .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                        .SetGuiPresentation(Category.Feature,
-                                            PowerOathOfDevotionSacredWeapon)
+                                        .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .AddToDB(),
                                     0))
@@ -74,7 +73,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
-            .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -104,8 +103,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronSoulBlade")
-            .SetOrUpdateGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland)
             .AddFeaturesAtLevel(1,
                 magicAffinitySoulBladeExpandedSpells,
                 proficiencySoulBladeArmor,

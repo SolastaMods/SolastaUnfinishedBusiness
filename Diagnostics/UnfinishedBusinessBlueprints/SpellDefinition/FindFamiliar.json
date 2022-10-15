@@ -7,7 +7,7 @@
   "spellLevel": 1,
   "ritual": true,
   "uniqueInstance": true,
-  "castingTime": "Hours1",
+  "castingTime": "Minute10",
   "reactionContext": "None",
   "ritualCastingTime": "Minute10",
   "requiresConcentration": false,
@@ -18,7 +18,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Position",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -42,7 +42,7 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Permanent",
-    "durationParameter": 1,
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -167,7 +167,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",

@@ -37,10 +37,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetExtendedSpellList(spellListAncientForest)
             .AddToDB();
 
-        const string LIFE_SAP_NAME = "OnMagicalAttackDamageEffectAncientForestLifeSap";
+        const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
 
         var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
-            .Create(LIFE_SAP_NAME)
+            .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
             .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
             {
@@ -54,19 +54,19 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
                 var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
 
-                attacker.UsedSpecialFeatures.TryGetValue(LIFE_SAP_NAME, out var used);
+                attacker.UsedSpecialFeatures.TryGetValue(LifeSapName, out var used);
 
                 if (!belowHalfHealth && used != 0)
                 {
                     return;
                 }
 
-                attacker.UsedSpecialFeatures[LIFE_SAP_NAME] = used + 1;
+                attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
 
                 var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
                 var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
                 var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
-                var ability = GuiPresentationBuilder.CreateTitleKey(LIFE_SAP_NAME, Category.Feature);
+                var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 
                 GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
                 RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
@@ -132,7 +132,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerAncientForestEntangleAtWill")
             .SetGuiPresentation(Entangle.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(Entangle.EffectDescription, true)
+            .SetEffectDescription(Entangle.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
 
@@ -188,9 +188,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
             FeatureDefinitionPower wallOfThorns = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerSharedPoolAncientForest" + spell.name)
                 .SetGuiPresentation(spell.GuiPresentation)
-                .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
-                .SetEffectDescription(spell.effectDescription, true)
-                .SetSharedPool(powerPoolAncientForestWallOfThorns)
+                .SetSharedPool(ActivationTime.Rest, powerPoolAncientForestWallOfThorns)
+                .SetEffectDescription(spell.effectDescription)
                 .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
@@ -277,9 +276,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(brewEffect)
-            .SetSharedPool(pool)
             .AddToDB();
     }
 
@@ -359,9 +357,8 @@ internal sealed class PatronAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(brewEffect)
-            .SetSharedPool(pool)
             .AddToDB();
     }
 }

@@ -197,6 +197,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } =
             GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
 
+        internal static ConditionDefinition ConditionConfused { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConfused");
+
         internal static ConditionDefinition ConditionConjuredCreature { get; } =
             GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
 
@@ -211,6 +214,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionDead { get; } =
             GetDefinition<ConditionDefinition>("ConditionDead");
+
+        internal static ConditionDefinition ConditionDoomLaughter { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
 
         internal static ConditionDefinition ConditionDummy { get; } =
             GetDefinition<ConditionDefinition>("ConditionDummy");
@@ -884,15 +890,19 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSwiftBladeBladeDance");
     }
 
+    internal static class FeatureDefinitionHealingModifiers
+    {
+        internal static FeatureDefinitionHealingModifier HealingModifierChilledByTouch { get; } =
+            GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierChilledByTouch");
+    }
+
     // internal static class FeatureDefinitionAutoPreparedSpellss
     // {
     //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfDevotion { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfDevotion");
-
     //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfMotherland { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfMotherland");
-
     //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfTirmar { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfTirmar");
-
     // }
+
     internal static class FeatureDefinitionCastSpells
     {
         internal static FeatureDefinitionCastSpell CastSpellBard { get; } =
@@ -948,6 +958,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityFlyby { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFlyby");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityParalyzedAdvantage { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityParalyzedAdvantage");
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
@@ -2550,6 +2563,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition BurningHands { get; } =
             GetDefinition<SpellDefinition>("BurningHands");
+
+        internal static SpellDefinition BurningHands_B { get; } =
+            GetDefinition<SpellDefinition>("BurningHands_B");
 
         internal static SpellDefinition CallLightning { get; } =
             GetDefinition<SpellDefinition>("CallLightning");

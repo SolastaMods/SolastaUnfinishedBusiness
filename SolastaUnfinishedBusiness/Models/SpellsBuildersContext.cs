@@ -51,13 +51,13 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
@@ -135,8 +135,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "BurstOfRadiance";
 
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -205,7 +204,8 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(false)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
@@ -253,7 +253,8 @@ internal static class SpellsBuildersContext
                 new UpgradeEffectFromLevel(resonanceHighLevel, 5)
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetParticleEffectParameters(AcidSplash)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
@@ -281,52 +282,51 @@ internal static class SpellsBuildersContext
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetParticleEffectParameters(ScorchingRay)
+                .SetTargetProximityData(true, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
+                .SetIgnoreCover()
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1,
+                    incrementMultiplier: 1)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetParticleEffectParameters(ScorchingRay)
-                    .SetTargetProximityData(true, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
-                    .SetIgnoreCover()
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1,
-                        incrementMultiplier: 1)
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionResonatingStrike")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                                .SetDuration(DurationType.Round, 1)
-                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create("AdditionalDamageResonatingStrike")
-                                    .SetGuiPresentationNoContent(true)
-                                    .Configure(
-                                        "ResonatingStrike",
-                                        FeatureLimitedUsage.None,
-                                        AdditionalDamageValueDetermination.Die,
-                                        AdditionalDamageTriggerCondition.AlwaysActive,
-                                        RestrictedContextRequiredProperty.MeleeWeapon,
-                                        true,
-                                        DieType.D8,
-                                        1,
-                                        AdditionalDamageType.Specific,
-                                        DamageTypeThunder,
-                                        AdditionalDamageAdvancement.SlotLevel,
-                                        DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1),
-                                        true
-                                    )
-                                    .AddToDB()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetConditionForm(ConditionDefinitionBuilder
+                            .Create("ConditionResonatingStrike")
+                            .SetGuiPresentation(Category.Condition)
+                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                            .SetDuration(DurationType.Round, 1)
+                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                .Create("AdditionalDamageResonatingStrike")
+                                .SetGuiPresentationNoContent(true)
+                                .Configure(
+                                    "ResonatingStrike",
+                                    FeatureLimitedUsage.None,
+                                    AdditionalDamageValueDetermination.Die,
+                                    AdditionalDamageTriggerCondition.AlwaysActive,
+                                    RestrictedContextRequiredProperty.MeleeWeapon,
+                                    true,
+                                    DieType.D8,
+                                    1,
+                                    AdditionalDamageType.Specific,
+                                    DamageTypeThunder,
+                                    AdditionalDamageAdvancement.SlotLevel,
+                                    DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1),
+                                    true
                                 )
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
-                        .Build())
+                                .AddToDB()
+                            )
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add,
+                        true,
+                        false)
                     .Build())
+                .Build())
             .AddToDB();
     }
 
@@ -380,7 +380,8 @@ internal static class SpellsBuildersContext
                 new UpgradeRangeBasedOnWeaponReach(),
                 CustomSpellEffectLevel.ByCasterLevel)
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetParticleEffectParameters(ScorchingRay)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetIgnoreCover()
@@ -447,7 +448,8 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(true)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
@@ -559,22 +561,20 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(true)
             .SetSpellLevel(1)
             .SetUniqueInstance(true)
-            .SetCastingTime(ActivationTime.Hours1)
-            // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
+            .SetCastingTime(ActivationTime.Minute10)
             .SetRitualCasting(ActivationTime.Minute10)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(ConjureAnimalsOneBeast.EffectDescription)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 2, TargetType.Position)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetSummonCreatureForm(1, owlFamiliar.name)
+                        .CreatedByCharacter()
+                        .Build())
+                .Build())
             .AddToDB();
-
-        spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
-        spell.EffectDescription.rangeType = RangeType.Distance;
-        spell.EffectDescription.rangeParameter = 2;
-        spell.EffectDescription.durationType = DurationType.Permanent;
-        spell.EffectDescription.targetSide = Side.Ally;
-        spell.EffectDescription.EffectForms.SetRange(
-            EffectFormBuilder
-                .Create()
-                .SetSummonCreatureForm(1, owlFamiliar.name)
-                .CreatedByCharacter()
-                .Build());
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
 
@@ -588,17 +588,14 @@ internal static class SpellsBuildersContext
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create("MovementAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
+            .SetImmunities(true, true)
             .AddToDB();
-
-        movementAffinity.heavyArmorImmunity = true;
-        movementAffinity.encumbranceImmunity = true;
 
         var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
             .Create("EquipmentAffinityConditionMule")
             .SetGuiPresentationNoContent(true)
+            .SetAdditionalCarryingCapacity(20)
             .AddToDB();
-
-        equipmentAffinity.additionalCarryingCapacity = 20;
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -646,18 +643,17 @@ internal static class SpellsBuildersContext
         var spell = SpellDefinitionBuilder
             .Create(MagicMissile, NAME)
             .SetGuiPresentation(Category.Spell, Sparkle)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.Individuals)
-                    .SetEffectForms(
-                        Shine.EffectDescription.EffectForms[0],
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(diceNumber: 1, dieType: DieType.D1, damageType: DamageTypeRadiant)
-                            .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 2)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.Individuals)
+                .SetEffectForms(
+                    Shine.EffectDescription.EffectForms[0],
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(diceNumber: 1, dieType: DieType.D1, damageType: DamageTypeRadiant)
+                        .Build())
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 2)
+                .Build())
             .AddToDB();
 
         return spell;
@@ -685,7 +681,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(InsectPlague, "PetalStorm")
-            .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, WindWall)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -732,7 +728,7 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(SpikeGrowth, "ProtectThreshold")
-            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Bane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -781,10 +777,9 @@ internal static class SpellsBuildersContext
         var spriteReference =
             CustomIcons.GetSprite(NAME, Resources.EarthTremor, 128, 128);
 
-        //var rubbleProxy = EffectProxyDefinitionBuilder
-        //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
-        //    .SetGuiPresentation(Category.EffectProxy, spriteReference)
-        //    .AddToDB();
+        // var rubbleProxy = EffectProxyDefinitionBuilder
+        //     .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy")
+        //     .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -922,7 +917,8 @@ internal static class SpellsBuildersContext
                         10)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
-            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect);
+            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+            .Build();
 
         return SpellDefinitionBuilder
             .Create(ReverseGravityName)
@@ -932,7 +928,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -944,19 +940,18 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMindBlank()
     {
-        var effectDescription = EffectDescriptionBuilder.Create();
-        effectDescription.SetDurationData(
-            DurationType.Hour,
-            24
-        );
-        effectDescription.SetTargetingData(
-            Side.Ally,
-            RangeType.Touch,
-            1,
-            TargetType.Individuals
-        );
-        effectDescription.SetEffectForms(
-            EffectFormBuilder
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(
+                DurationType.Hour,
+                24)
+            .SetTargetingData(
+                Side.Ally,
+                RangeType.Touch,
+                1,
+                TargetType.Individuals
+            )
+            .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
@@ -971,18 +966,18 @@ internal static class SpellsBuildersContext
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false)
-                .Build()
-        );
+                .Build())
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("MindBlank")
-            .SetGuiPresentation(Category.Spell, MindTwist.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, MindTwist)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -993,7 +988,8 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildForesight()
     {
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(
                 DurationType.Hour,
                 8)
@@ -1022,7 +1018,8 @@ internal static class SpellsBuildersContext
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false)
-                .Build());
+                .Build())
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("Foresight")
@@ -1032,7 +1029,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Minute1)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -1098,7 +1095,8 @@ internal static class SpellsBuildersContext
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Dexterity,
                 20)
-            .SetParticleEffectParameters(FlameStrike);
+            .SetParticleEffectParameters(FlameStrike)
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("MeteorSwarmSingleTarget")
@@ -1108,7 +1106,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -1190,7 +1188,8 @@ internal static class SpellsBuildersContext
                         LevelApplianceType.No,
                         LevelSourceType.ClassLevel)
                     .CreatedByCharacter()
-                    .Build());
+                    .Build())
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("PowerWordKill")
@@ -1200,7 +1199,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -1249,7 +1248,8 @@ internal static class SpellsBuildersContext
                             new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
                         }
                     }
-                });
+                })
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("Shapechange")
@@ -1259,7 +1259,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -1294,7 +1294,8 @@ internal static class SpellsBuildersContext
                     false,
                     false)
                 .Build())
-            .ExcludeCaster();
+            .ExcludeCaster()
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("TimeStop")
@@ -1304,7 +1305,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
@@ -1341,7 +1342,8 @@ internal static class SpellsBuildersContext
                     false)
                 .HasSavingThrow(EffectSavingThrowType.Negates)
                 .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                .Build());
+                .Build())
+            .Build();
 
         return SpellDefinitionBuilder
             .Create("Weird")
@@ -1351,7 +1353,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
+            .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
             .AddToDB();

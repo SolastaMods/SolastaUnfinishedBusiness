@@ -94,12 +94,12 @@ internal static class CasterFeats
             MistyStep.GuiPresentation,
             "AutoPreparedSpellsFeyTeleportation", FEY_TELEPORT);
 
-        var powerFeatFeyTeleportationMistyStep = BuildPowerFromEffectDescription(
-            1,
-            RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.ShortRest,
-            false, false, AttributeDefinitions.Intelligence,
-            MistyStep.EffectDescription,
-            "PowerFeatFeyTeleportationMistyStep", MistyStep.GuiPresentation);
+        var powerFeatFeyTeleportationMistyStep = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFeyTeleportationMistyStep")
+            .SetGuiPresentation(MistyStep.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ShortRest)
+            .SetEffectDescription(MistyStep.EffectDescription)
+            .AddToDB();
 
         var proficiencyFeatFeyTeleportationTirmarian = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
@@ -157,21 +157,26 @@ internal static class CasterFeats
                 .Build("AutoPreparedSpellsFeatCelestialTouched", Category.Feature),
             "AutoPreparedSpellsFeatCelestialTouched", CELESTIAL_TOUCHED);
 
-        var powerFeatCelestialTouchedHealingWord = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Intelligence,
-            HealingWord.EffectDescription, "PowerFeatCelestialTouchedHealingWord", HealingWord.GuiPresentation);
+        var powerFeatCelestialTouchedHealingWord = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatCelestialTouchedHealingWord")
+            .SetGuiPresentation(HealingWord.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(HealingWord.EffectDescription)
+            .AddToDB();
 
-        var powerFeatCelestialTouchedCureWounds = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Intelligence,
-            CureWounds.EffectDescription, "PowerFeatCelestialTouchedCureWounds", CureWounds.GuiPresentation);
+        var powerFeatCelestialTouchedCureWounds = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatCelestialTouchedCureWounds")
+            .SetGuiPresentation(CureWounds.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(CureWounds.EffectDescription)
+            .AddToDB();
 
-        var powerFeatCelestialTouchedLesserRestoration = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Intelligence,
-            LesserRestoration.EffectDescription, "PowerFeatCelestialTouchedLesserRestoration",
-            LesserRestoration.GuiPresentation);
+        var powerFeatCelestialTouchedLesserRestoration = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatCelestialTouchedLesserRestoration")
+            .SetGuiPresentation(LesserRestoration.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(LesserRestoration.EffectDescription)
+            .AddToDB();
 
         groupFeats.SetRange(
             // celestial touched int
@@ -225,35 +230,53 @@ internal static class CasterFeats
                 .Build("AutoPreparedSpellsFeatFlameTouched", Category.Feature),
             "AutoPreparedSpellsFeatFlameTouched", FLAME_TOUCHED);
 
-        var powerFeatFlameTouchedBurningHandsInt = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Intelligence,
-            BurningHands.EffectDescription, "PowerFeatFlameTouchedBurningHandsInt", BurningHands.GuiPresentation);
+        var powerFeatFlameTouchedBurningHandsInt = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedBurningHandsInt")
+            .SetGuiPresentation(BurningHands.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(BurningHands.EffectDescription)
+            .SetBonusToAttack(true, true)
+            .AddToDB();
 
-        var powerFeatFlameTouchedBurningHandsWis = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Wisdom,
-            BurningHands.EffectDescription, "PowerFeatFlameTouchedBurningHandsWis", BurningHands.GuiPresentation);
+        var powerFeatFlameTouchedBurningHandsWis = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedBurningHandsWis")
+            .SetGuiPresentation(BurningHands.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(BurningHands.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
+            .AddToDB();
 
-        var powerFeatFlameTouchedBurningHandsCha = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Charisma,
-            BurningHands.EffectDescription, "PowerFeatFlameTouchedBurningHandsCha", BurningHands.GuiPresentation);
+        var powerFeatFlameTouchedBurningHandsCha = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedBurningHandsCha")
+            .SetGuiPresentation(BurningHands.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(BurningHands.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+            .AddToDB();
 
-        var powerFeatFlameTouchedScorchingRayInt = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Intelligence,
-            ScorchingRay.EffectDescription, "PowerFeatFlameTouchedScorchingRayInt", ScorchingRay.GuiPresentation);
+        var powerFeatFlameTouchedScorchingRayInt = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedScorchingRayInt")
+            .SetGuiPresentation(ScorchingRay.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(ScorchingRay.EffectDescription)
+            .SetBonusToAttack(true, true)
+            .AddToDB();
 
-        var powerFeatFlameTouchedScorchingRayWis = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Wisdom,
-            ScorchingRay.EffectDescription, "PowerFeatFlameTouchedScorchingRayWis", ScorchingRay.GuiPresentation);
+        var powerFeatFlameTouchedScorchingRayWis = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedScorchingRayWis")
+            .SetGuiPresentation(ScorchingRay.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(ScorchingRay.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
+            .AddToDB();
 
-        var powerFeatFlameTouchedScorchingRayCha = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Charisma,
-            ScorchingRay.EffectDescription, "PowerFeatFlameTouchedScorchingRayCha", ScorchingRay.GuiPresentation);
+        var powerFeatFlameTouchedScorchingRayCha = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatFlameTouchedScorchingRayCha")
+            .SetGuiPresentation(ScorchingRay.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(ScorchingRay.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+            .AddToDB();
 
         groupFeats.SetRange(
             // flame touched int
@@ -304,30 +327,43 @@ internal static class CasterFeats
                 .Build("AutoPreparedSpellsFeatShadowTouched", Category.Feature),
             "AutoPreparedSpellsFeatShadowTouched", SHADOW_TOUCHED);
 
-        var powerFeatShadowTouchedInvisibility = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Intelligence,
-            Invisibility.EffectDescription, "PowerFeatShadowTouchedInvisibility", Invisibility.GuiPresentation);
+        var powerFeatShadowTouchedInvisibility = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatShadowTouchedInvisibility")
+            .SetGuiPresentation(Invisibility.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(Invisibility.EffectDescription)
+            .AddToDB();
 
-        var powerFeatShadowTouchedFalseLife = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            false, false, AttributeDefinitions.Intelligence,
-            FalseLife.EffectDescription, "PowerFeatShadowTouchedFalseLife", FalseLife.GuiPresentation);
+        var powerFeatShadowTouchedFalseLife = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatShadowTouchedFalseLife")
+            .SetGuiPresentation(FalseLife.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(FalseLife.EffectDescription)
+            .AddToDB();
 
-        var powerFeatShadowTouchedInflictWoundsInt = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Intelligence,
-            InflictWounds.EffectDescription, "PowerFeatShadowTouchedInflictWoundsInt", InflictWounds.GuiPresentation);
+        var powerFeatShadowTouchedInflictWoundsInt = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatShadowTouchedInflictWoundsInt")
+            .SetGuiPresentation(InflictWounds.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(InflictWounds.EffectDescription)
+            .SetBonusToAttack(true, true)
+            .AddToDB();
 
-        var powerFeatShadowTouchedInflictWoundsWis = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Wisdom,
-            InflictWounds.EffectDescription, "PowerFeatShadowTouchedInflictWoundsWis", InflictWounds.GuiPresentation);
+        var powerFeatShadowTouchedInflictWoundsWis = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatShadowTouchedInflictWoundsWis")
+            .SetGuiPresentation(InflictWounds.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(InflictWounds.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
+            .AddToDB();
 
-        var powerFeatShadowTouchedInflictWoundsCha = BuildPowerFromEffectDescription(1,
-            RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
-            true, true, AttributeDefinitions.Charisma,
-            InflictWounds.EffectDescription, "PowerFeatShadowTouchedInflictWoundsCha", InflictWounds.GuiPresentation);
+        var powerFeatShadowTouchedInflictWoundsCha = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatShadowTouchedInflictWoundsCha")
+            .SetGuiPresentation(InflictWounds.GuiPresentation)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetEffectDescription(InflictWounds.EffectDescription)
+            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+            .AddToDB();
 
         groupFeats.SetRange(
             // shadow touched int
@@ -424,32 +460,6 @@ internal static class CasterFeats
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build())
-            .AddToDB();
-    }
-
-    [NotNull]
-    private static FeatureDefinitionPower BuildPowerFromEffectDescription(
-        int usesPerRecharge,
-        RuleDefinitions.ActivationTime activationTime,
-        int costPerUse,
-        RuleDefinitions.RechargeRate recharge,
-        bool proficiencyBonusToAttack,
-        bool abilityScoreBonusToAttack,
-        string abilityScore,
-        EffectDescription effectDescription,
-        string name,
-        GuiPresentation guiPresentation)
-    {
-        return FeatureDefinitionPowerBuilder
-            .Create(name)
-            .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(
-                activationTime,
-                recharge,
-                costPerUse,
-                usesPerRecharge)
-            .SetEffectDescription(effectDescription, true)
-            .SetBonusToAttack(proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore)
             .AddToDB();
     }
 }

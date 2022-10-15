@@ -123,7 +123,7 @@
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "SightImpaired",
-          "impactsFlyingCharacters": true
+          "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -225,7 +225,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",

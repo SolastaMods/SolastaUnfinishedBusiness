@@ -83,11 +83,10 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness)
             .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Darkness.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Darkness.EffectDescription)
+                .SetDurationData(DurationType.Minute, 1)
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -95,11 +94,10 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight)
             .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Daylight.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Daylight.EffectDescription)
+                .SetDurationData(DurationType.Minute, 1)
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -107,58 +105,58 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PowerMoonlitDanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(Fly.EffectDescription, true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Fly.EffectDescription)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 4)
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
-
-        powerMoonlitDanceOfTheNightSky.EffectDescription.targetParameter = 4;
 
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitMoonTouched")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(
-                        Side.All,
-                        RangeType.Distance,
-                        12,
-                        TargetType.Cylinder,
-                        10,
-                        10)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity,
-                        20)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                        "ConditionMoonlitMoonTouched")
-                                    .SetGuiPresentation(Category.Condition)
-                                    .SetConditionType(ConditionType.Neutral)
-                                    .SetFeatures(MoveModeFly2)
-                                    .SetFeatures(MovementAffinityConditionLevitate)
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.Levitate, 10)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(
+                    Side.All,
+                    RangeType.Distance,
+                    12,
+                    TargetType.Cylinder,
+                    10,
+                    10)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    true,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Dexterity,
+                    20)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                                    "ConditionMoonlitMoonTouched")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetConditionType(ConditionType.Neutral)
+                                .SetFeatures(MoveModeFly2)
+                                .SetFeatures(MovementAffinityConditionLevitate)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add,
+                            false,
+                            false)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.Levitate, 10)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -278,8 +276,7 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower
-            )
+                ConditionInterruption.UsePower)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 

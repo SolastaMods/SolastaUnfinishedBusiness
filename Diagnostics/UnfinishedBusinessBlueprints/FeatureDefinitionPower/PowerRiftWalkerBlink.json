@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -29,7 +29,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
@@ -153,7 +153,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",

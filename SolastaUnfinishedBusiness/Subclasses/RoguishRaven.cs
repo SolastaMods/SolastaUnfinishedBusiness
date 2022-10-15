@@ -25,7 +25,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyRavenRangeWeapon")
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.Weapon,
+                    .SetProficiencies(
+                        ProficiencyType.Weapon,
                         WeaponTypeDefinitions.HeavyCrossbowType.Name,
                         WeaponTypeDefinitions.LongbowType.Name)
                     .AddToDB(),
@@ -34,8 +35,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentationNoContent(true)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         // killing spree 
@@ -157,22 +157,20 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("PowerRavenHeartSeekingShot")
             .SetGuiPresentation(Category.Feature, CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionRavenHeartSeekingShotTrigger,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
             .AddToDB();
 
@@ -182,22 +180,22 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("PowerRavenTurnOffHeartSeekingShot")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionRavenHeartSeekingShotTrigger,
-                                ConditionForm.ConditionOperation.Remove)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionRavenHeartSeekingShotTrigger,
+                            ConditionForm.ConditionOperation.Remove)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
+                        .Build())
+                .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
@@ -217,14 +215,16 @@ internal sealed class RoguishRaven : AbstractSubclass
 
     private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHp
     {
-        public IEnumerator HandleCharacterReducedToZeroHp(GameLocationCharacter attacker,
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode, RulesetEffect activeEffect)
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
         {
             if (attacker.IsOppositeSide(downedCreature.Side))
             {
-                attacker.UsedSpecialFeatures.Remove(FeatureDefinitionAdditionalDamages
-                    .AdditionalDamageRogueSneakAttack.Name);
+                attacker.UsedSpecialFeatures.Remove(
+                    FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack.Name);
             }
 
             yield break;

@@ -104,7 +104,7 @@
       "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
-      "alteredDuration": "Minutes_1_10_480_1440_Infinite"
+      "alteredDuration": "None"
     },
     "speedType": "Instant",
     "speedParameter": 10.0,
@@ -155,7 +155,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",

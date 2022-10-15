@@ -494,6 +494,8 @@ public static class GameLocationBattleManagerPatcher
                     action.SaveOutcome = saveOutcome;
                 }
 
+                reactionParams.RulesetEffect.Terminate(true);
+
                 if (!IsFailed(saveOutcome)) { yield break; }
             }
         }

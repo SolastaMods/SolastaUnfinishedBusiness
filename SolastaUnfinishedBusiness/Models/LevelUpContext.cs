@@ -28,7 +28,13 @@ internal static class LevelUpContext
         }
 
         LevelUpTab.TryAdd(rulesetCharacterHero,
-            new LevelUpData { SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp });
+            new LevelUpData
+            {
+                Hero = rulesetCharacterHero,
+                SelectedClass = lastClass,
+                SelectedSubclass = lastSubclass,
+                IsLevelingUp = levelingUp
+            });
 
         // fixes max level and exp in case level 20 gets enabled after a campaign starts
         var characterLevelAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel);
@@ -345,23 +351,6 @@ internal static class LevelUpContext
         return knownSpells.ToHashSet();
     }
 
-    private static void CacheSpells([NotNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
-        {
-            return;
-        }
-
-        var classCastingFeatures = rulesetCharacterHero.ActiveFeatures
-            .Where(x => x.Key.Contains(levelUpData.SelectedClass.Name))
-            .SelectMany(x => x.Value)
-            .ToArray(); // avoids multiple enumerations below
-
-        levelUpData.AllowedSpells = CacheAllowedSpells(classCastingFeatures);
-        levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(classCastingFeatures);
-        levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);
-    }
-
     internal static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
@@ -483,14 +472,6 @@ internal static class LevelUpContext
         var castingLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
         var knownSpells = GetAllowedSpells(hero);
 
-        // this happens during boot up when game creates heroes from templates
-        if (knownSpells == null)
-        {
-            CacheSpells(hero);
-        
-            knownSpells = GetAllowedSpells(hero);
-        }
-
         // don't use a AddRange here to avoid duplicates
         foreach (var spell in knownSpells
                      .Where(x => x.SpellLevel == castingLevel))
@@ -546,8 +527,6 @@ internal static class LevelUpContext
             return;
         }
 
-        CacheSpells(hero);
-        
         if (Main.Settings.EnableRelearnSpells)
         {
             var otherClassesKnownSpells = GetOtherClassesKnownSpells(hero);
@@ -582,6 +561,7 @@ internal static class LevelUpContext
     // keeps the multiclass level up context
     private sealed class LevelUpData
     {
+        internal RulesetCharacterHero Hero;
         internal CharacterClassDefinition SelectedClass;
         internal CharacterSubclassDefinition SelectedSubclass;
 
@@ -594,8 +574,16 @@ internal static class LevelUpContext
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool RequiresDeity { get; set; }
         internal HashSet<ItemDefinition> GrantedItems { get; set; }
-        internal HashSet<SpellDefinition> AllowedSpells { get; set; }
-        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
-        internal HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
+
+        private IEnumerable<FeatureDefinition> SelectedClassFeatures => Hero.ActiveFeatures
+            .Where(x => x.Key.Contains(SelectedClass.Name))
+            .SelectMany(x => x.Value);
+
+        internal HashSet<SpellDefinition> AllowedSpells => CacheAllowedSpells(SelectedClassFeatures);
+
+        internal HashSet<SpellDefinition> AllowedAutoPreparedSpells =>
+            CacheAllowedAutoPreparedSpells(SelectedClassFeatures);
+
+        internal HashSet<SpellDefinition> OtherClassesKnownSpells => CacheOtherClassesKnownSpells(Hero);
     }
 }

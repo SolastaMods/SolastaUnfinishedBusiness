@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -205,8 +204,7 @@ public static class InnovationWeapon
         var monster = MonsterDefinitionBuilder
             .Create("MonsterInnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
-                CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160,
-                    240))
+                CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
             .HideFromDungeonEditor()
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores( //currently setup to use Inventor's skills
@@ -230,8 +228,7 @@ public static class InnovationWeapon
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
-                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair,
-                            256, 128))
+                        CustomIcons.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 256, 128))
                     .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
                     // RAW this can heal any other Inventor construct, this version only heals self
                     .SetEffectDescription(EffectDescriptionBuilder

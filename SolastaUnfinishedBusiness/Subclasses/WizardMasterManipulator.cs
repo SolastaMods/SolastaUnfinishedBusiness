@@ -38,7 +38,8 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
         var proficiencyMasterManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyMasterManipulatorMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SavingThrow,
+            .SetProficiencies(
+                ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma,
                 AttributeDefinitions.Constitution)
             .AddToDB();
@@ -47,7 +48,7 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
             .Create("PowerMasterManipulatorDominatePerson")
             .SetGuiPresentation(Category.Feature, DominatePerson)
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetEffectDescription(DominatePerson.EffectDescription, true)
+            .SetEffectDescription(DominatePerson.EffectDescription)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

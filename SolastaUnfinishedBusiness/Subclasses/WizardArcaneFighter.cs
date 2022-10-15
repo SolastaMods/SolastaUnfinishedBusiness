@@ -14,7 +14,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyArcaneFighterSimpleWeapons")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Weapon,
+            .SetProficiencies(
+                ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory,
                 EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();

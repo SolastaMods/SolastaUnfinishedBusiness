@@ -116,6 +116,12 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
+    internal TBuilder SetRecurrentEffectForms(params EffectForm[] forms)
+    {
+        Definition.RecurrentEffectForms.SetRange(forms);
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetAdditionalDamageWhenHit(
         ConditionDefinition.DamageQuantity damageQuantity = ConditionDefinition.DamageQuantity.Dice,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,

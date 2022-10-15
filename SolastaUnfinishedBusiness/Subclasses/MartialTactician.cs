@@ -23,7 +23,7 @@ internal sealed class MartialTactician : AbstractSubclass
         var powerSharedPoolTacticianKnockDown = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianKnockDown")
             .SetGuiPresentation(Category.Feature, PowerFighterActionSurge)
-            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.OnAttackHit, powerPoolTacticianGambit)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerFighterActionSurge.EffectDescription)
@@ -46,14 +46,13 @@ internal sealed class MartialTactician : AbstractSubclass
                         AttributeDefinitions.Strength,
                         15)
                     .Build())
-            .SetSharedPool(powerPoolTacticianGambit)
             .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
         var powerSharedPoolTacticianInspire = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianInspire")
             .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.BonusAction, powerPoolTacticianGambit)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLifePreserveLife.EffectDescription)
@@ -67,7 +66,6 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetTempHpForm(2, DieType.D6, 1)
                             .Build())
                     .Build())
-            .SetSharedPool(powerPoolTacticianGambit)
             .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 
@@ -76,7 +74,7 @@ internal sealed class MartialTactician : AbstractSubclass
         var powerSharedPoolTacticianCounterStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolTacticianCounterStrike")
             .SetGuiPresentation(Category.Feature, PowerDomainLawHolyRetribution)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetSharedPool(ActivationTime.Reaction, powerPoolTacticianGambit)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainLawHolyRetribution.EffectDescription)
@@ -86,7 +84,6 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6, 2)
                             .Build())
                     .Build())
-            .SetSharedPool(powerPoolTacticianGambit)
             .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
             .AddToDB();
 

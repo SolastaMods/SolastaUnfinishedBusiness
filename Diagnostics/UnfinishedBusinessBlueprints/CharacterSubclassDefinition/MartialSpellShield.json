@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
+      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
       "level": 7
     },
     {

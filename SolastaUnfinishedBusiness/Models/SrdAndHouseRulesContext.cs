@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -66,7 +65,7 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        var allowedClasses = new[] { Sorcerer, Warlock, Wizard };
+        var allowedClasses = new[] { Wizard, Sorcerer, Warlock };
 
         GreenmageArmor.RequiredAttunementClasses.AddRange(allowedClasses);
         WizardClothes_Alternate.RequiredAttunementClasses.AddRange(allowedClasses);
@@ -263,15 +262,13 @@ internal static class SrdAndHouseRulesContext
             (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
-        ClearAlteredDuration(ProtectionFromEnergy);
-        ClearAlteredDuration(ProtectionFromEnergyAcid);
-        ClearAlteredDuration(ProtectionFromEnergyCold);
-        ClearAlteredDuration(ProtectionFromEnergyFire);
-        ClearAlteredDuration(ProtectionFromEnergyLightning);
-        ClearAlteredDuration(ProtectionFromEnergyThunder);
-        ClearAlteredDuration(ProtectionFromPoison);
+        var spells = new IMagicEffect[]
+        {
+            ProtectionFromEnergy, ProtectionFromEnergyAcid, ProtectionFromEnergyCold, ProtectionFromEnergyFire,
+            ProtectionFromEnergyLightning, ProtectionFromEnergyThunder, ProtectionFromPoison
+        };
 
-        static void ClearAlteredDuration([NotNull] IMagicEffect spell)
+        foreach (var spell in spells)
         {
             spell.EffectDescription.EffectAdvancement.alteredDuration = AdvancementDuration.None;
         }

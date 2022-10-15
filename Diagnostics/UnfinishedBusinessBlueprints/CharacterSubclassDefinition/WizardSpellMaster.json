@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSpellMasterBonusRecovery:4481cd45-d08e-5964-8c38-e35bf60e168b",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinitySpellMasterPrepared:f1a7adea-c1c3-5bf0-8b20-c7682a25e443",
       "level": 2
     },
@@ -18,12 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolSpellMasterBonusCantrips:04019140-cb72-5190-b298-69924eb4ee44",
-      "level": 6
+      "featureDefinition": "Definition:PowerSpellMasterBonusRecovery:4481cd45-d08e-5964-8c38-e35bf60e168b",
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinitySpellMasterScriber:fffd1d15-c290-5983-8c66-6a2052d0d280",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolSpellMasterBonusCantrips:04019140-cb72-5190-b298-69924eb4ee44",
       "level": 6
     },
     {

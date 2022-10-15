@@ -1,13 +1,13 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 2,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
-    "itemSelectionType": "None",
+    "targetType": "Self",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -29,8 +29,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "UntilLongRest",
+    "targetSide": "Enemy",
+    "durationType": "Permanent",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -40,7 +40,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -67,7 +67,7 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
@@ -76,10 +76,12 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterPoison",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterPoison:7d602e6a-6bb7-5691-92e1-2c9309ed74cc",
+          "conditionDefinitionName": "FeatureInnovationAlchemyMarkerDamageThunder",
+          "conditionDefinition": "Definition:FeatureInnovationAlchemyMarkerDamageThunder:47ad31ed-b36f-5cb0-8d07-707f2338347c",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:FeatureInnovationAlchemyMarkerDamageThunder:47ad31ed-b36f-5cb0-8d07-707f2338347c"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -288,7 +290,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -303,7 +305,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -315,21 +317,21 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": true,
+  "uniqueInstance": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerLifeTransmuterElementalResistanceTitle",
-    "description": "Feature/&PowerLifeTransmuterElementalResistanceDescription",
+    "title": "Feature/&PowerInnovationAlchemyMarkerDamageThunderTitle",
+    "description": "Feature/&PowerInnovationAlchemyMarkerDamageThunderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
-      "m_SubObjectName": "FireBurst",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -344,7 +346,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b8aeffb-c8af-5d22-9a53-2b56a680eecd",
+  "guid": "542b4d2e-240d-528f-a37c-49cdef4208e7",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterPoison"
+  "name": "PowerInnovationAlchemyMarkerDamageThunder"
 }

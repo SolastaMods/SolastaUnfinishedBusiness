@@ -16,14 +16,14 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "multiclass, maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Dead Master, Blade Dancer"),
+            "maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass"),
         ("TPABOBAP", "game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
-        ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, Rift Walker"),
-        ("SilverGriffon", "gameplay, spells, Dark Elf, Grey Dwarf, Divine Heart"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Grey Dwarf, Divine Heart"),
         ("Nd", "subclasses improvements, Marshal, Opportunist, Raven"),
+        ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, Rift Walker"),
         ("AceHigh", "SoulBlade, Tactician"),
         ("ElAntonious", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif"),

@@ -52,6 +52,12 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params CharacterFamilyDefinition[] values)
+    {
+        effect.RestrictedCreatureFamilies.SetRange(values.Select(x => x.Name));
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
     {
         effect.createdByCharacter = value;
@@ -182,6 +188,12 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetIgnoreCover(bool value = true)
     {
         effect.ignoreCover = value;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetNoSavingThrow()
+    {
+        effect.hasSavingThrow = false;
         return this;
     }
 

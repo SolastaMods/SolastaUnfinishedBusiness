@@ -638,8 +638,7 @@ internal static class InventorClass
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerCreate{item.name}")
             .SetGuiPresentation(spell.FormatTitle(), description, spell)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetSharedPool(pool)
+            .SetSharedPool(ActivationTime.Action, pool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
             .SetEffectDescription(EffectDescriptionBuilder

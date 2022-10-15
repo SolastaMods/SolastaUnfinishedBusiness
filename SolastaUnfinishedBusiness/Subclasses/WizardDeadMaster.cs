@@ -24,8 +24,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     internal WizardDeadMaster()
     {
-        var spriteReference =
-            CustomIcons.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
+        var spriteReference = CustomIcons.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
@@ -64,17 +63,21 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(DominateBeast.EffectDescription, true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DominateBeast.EffectDescription)
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Charisma,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence,
+                        8,
+                        true)
+                    .Build())
             .AddToDB();
-
-        var commandUndeadEffect = powerDeadMasterCommandUndead.EffectDescription;
-
-        commandUndeadEffect.restrictedCreatureFamilies = new List<string> { CharacterFamilyDefinitions.Undead.Name };
-        commandUndeadEffect.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
-        commandUndeadEffect.savingThrowAbility = AttributeDefinitions.Charisma;
-        commandUndeadEffect.savingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-        commandUndeadEffect.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        commandUndeadEffect.fixedSavingThrowDifficultyClass = 8;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
@@ -100,6 +103,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     private static void EnableCommandAllUndead()
     {
+        if (!Main.Settings.EnableCommandAllUndead)
+        {
+            return;
+        }
+
         var monsterDefinitions = DatabaseRepository.GetDatabase<MonsterDefinition>();
 
         foreach (var monsterDefinition in monsterDefinitions

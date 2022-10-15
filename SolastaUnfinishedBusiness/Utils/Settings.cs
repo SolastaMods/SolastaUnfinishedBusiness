@@ -46,9 +46,19 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFeats { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
+#if DEBUG
+    public bool EnableSortingFutureFeatures { get; set; }
+#else
     public bool EnableSortingFutureFeatures { get; set; } = true;
+#endif
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
     public bool DontConsumeSlots { get; set; }
+
+#if DEBUG
+    public bool EnableCommandAllUndead { get; set; }
+#else
+    public bool EnableCommandAllUndead { get; set; } = true;
+#endif
 
     //
     // Character - General
@@ -233,7 +243,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
+    public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }

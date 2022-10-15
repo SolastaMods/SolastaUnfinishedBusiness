@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
+      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
       "level": 3
     },
     {

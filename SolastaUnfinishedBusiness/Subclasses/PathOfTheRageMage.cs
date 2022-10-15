@@ -23,12 +23,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .Create("MagicAffinityPathOfTheRageMage")
             .SetHandsFullCastingModifiers(true, true, true)
             .SetGuiPresentationNoContent(true)
-            .SetCastingModifiers(
-                0,
-                SpellParamsModifierType.None,
-                0,
-                SpellParamsModifierType.FlatValue,
-                true)
+            .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
         var castSpellPathOfTheRageMage = FeatureDefinitionCastSpellBuilder
@@ -53,46 +48,42 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .AddToDB();
 
         // a general definition of the Supernatural Exploits feature at level up
-        var pathOfTheRageMageSupernaturalExploits =
-            FeatureDefinitionBuilder
-                .Create("PathOfTheRageMageSupernaturalExploits")
-                .SetGuiPresentation(Category.Feature)
-                .AddToDB();
+        var pathOfTheRageMageSupernaturalExploits = FeatureDefinitionBuilder
+            .Create("PathOfTheRageMageSupernaturalExploits")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
-        var powerPathOfTheRageMageSupernaturalExploitsDarkvision =
-            FeatureDefinitionPowerBuilder
-                .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision)
-                .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription, true)
-                .SetShowCasting(true)
-                .AddToDB();
+        var powerPathOfTheRageMageSupernaturalExploitsDarkvision = FeatureDefinitionPowerBuilder
+            .Create("PowerPathOfTheRageMageSupernaturalExploitsDarkvision")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkvision)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription)
+            .SetShowCasting(true)
+            .AddToDB();
 
-        var powerPathOfTheRageMageSupernaturalExploitsFeatherfall =
-            FeatureDefinitionPowerBuilder
-                .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall)
-                .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription, true)
-                .SetShowCasting(true)
-                .AddToDB();
+        var powerPathOfTheRageMageSupernaturalExploitsFeatherfall = FeatureDefinitionPowerBuilder
+            .Create("PowerPathOfTheRageMageSupernaturalExploitsFeatherfall")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.FeatherFall)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(SpellDefinitions.FeatherFall.EffectDescription)
+            .SetShowCasting(true)
+            .AddToDB();
 
         var powerPathOfTheRageMageSupernaturalExploitsJump = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheRageMageSupernaturalExploitsJump")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Jump)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription, true)
+            .SetEffectDescription(SpellDefinitions.Jump.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
-        var powerPathOfTheRageMageSupernaturalExploitsSeeInvisibility =
-            FeatureDefinitionPowerBuilder
-                .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility)
-                .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-                .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription, true)
-                .SetShowCasting(true)
-                .AddToDB();
+        var powerPathOfTheRageMageSupernaturalExploitsSeeInvisibility = FeatureDefinitionPowerBuilder
+            .Create("PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.SeeInvisibility)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(SpellDefinitions.SeeInvisibility.EffectDescription)
+            .SetShowCasting(true)
+            .AddToDB();
 
         // TODO: add one of two bonus effects for this subclass
         // A.) You can cast spells while raging, this keeps your rage going same as hitting opponent or

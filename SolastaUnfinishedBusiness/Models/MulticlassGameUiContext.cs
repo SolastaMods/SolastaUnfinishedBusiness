@@ -612,7 +612,7 @@ internal static class MulticlassGameUiContext
 
         // avoids auto prepared spells from other classes to bleed in
         var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(caster)
-            .Where(x => x.SpellLevel == spellLevel).ToList();
+            .Where(x => x.SpellLevel == spellLevel);
 
         autoPreparedSpells.SetRange(allowedAutoPreparedSpells);
 

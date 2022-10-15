@@ -33,6 +33,15 @@ internal class FeatureDefinitionMovementAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionMovementAffinityBuilder SetImmunities(
+        bool encumbranceImmunity,
+        bool heavyArmorImmunity)
+    {
+        Definition.encumbranceImmunity = encumbranceImmunity;
+        Definition.heavyArmorImmunity = heavyArmorImmunity;
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

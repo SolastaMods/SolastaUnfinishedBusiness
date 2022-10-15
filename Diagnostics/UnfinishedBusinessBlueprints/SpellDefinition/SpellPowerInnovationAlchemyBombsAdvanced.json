@@ -2,7 +2,11 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageForce:3fed5643-f441-5df6-8f07-fdc1358705de"
+    "Definition:SpellPowerInnovationAlchemyMarkerDamageForce:3fed5643-f441-5df6-8f07-fdc1358705de",
+    "Definition:SpellPowerInnovationAlchemyMarkerDamageRadiant:6e12b55d-c876-5cd9-8421-1965829aa568",
+    "Definition:SpellPowerInnovationAlchemyMarkerDamageNecrotic:6a59a496-5d43-5a49-b46e-1962c2430b6a",
+    "Definition:SpellPowerInnovationAlchemyMarkerDamageThunder:0dc5b857-5ef5-5458-bd4c-82b37bf1af85",
+    "Definition:SpellPowerInnovationAlchemyMarkerDamagePsychic:00511e10-e27d-5379-b387-6739fe62e66c"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",

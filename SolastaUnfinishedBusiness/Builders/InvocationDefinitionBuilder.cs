@@ -40,6 +40,13 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         return (TBuilder)this;
     }
 
+    internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
+    {
+        Definition.grantedFeature = featureDefinition;
+        return (TBuilder)this;
+    }
+
+#if false
     internal TBuilder SetRequiredSpell(SpellDefinition spell)
     {
         Definition.requiredKnownSpell = spell;
@@ -52,12 +59,6 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         return (TBuilder)this;
     }
 
-    internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
-    {
-        Definition.grantedFeature = featureDefinition;
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
     {
         Definition.grantedSpell = spell;
@@ -65,4 +66,5 @@ internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : Def
         Definition.overrideMaterialComponent = overrideMaterial;
         return (TBuilder)this;
     }
+#endif
 }
