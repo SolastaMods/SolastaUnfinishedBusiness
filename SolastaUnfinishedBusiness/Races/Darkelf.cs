@@ -26,8 +26,7 @@ internal static class DarkelfSubraceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
-        var darkelfSpriteReference =
-            CustomIcons.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
+        var darkelfSpriteReference = CustomIcons.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease")
@@ -44,8 +43,7 @@ internal static class DarkelfSubraceBuilder
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
-        abilityCheckAffinityDarkelfLightSensitivity.AffinityGroups[0].lightingContext =
-            LightingContext.BrightLight;
+        abilityCheckAffinityDarkelfLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
 
         var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
