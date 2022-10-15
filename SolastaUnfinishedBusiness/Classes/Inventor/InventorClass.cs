@@ -35,7 +35,7 @@ internal static class InventorClass
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
 
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
-    private static int _infusionPoolIncreases;
+    private static FeatureDefinition _infusionPoolIncrease;
 
     internal static CharacterClassDefinition Class { get; private set; }
 
@@ -52,6 +52,7 @@ internal static class InventorClass
         }
 
         InfusionPool = BuildInfusionPool();
+        _infusionPoolIncrease = BuildInfusionPoolIncrease();
         SpellCasting = BuildSpellCasting();
 
         _learn2 = BuildLearn(2);
@@ -276,7 +277,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease(), BuildToolExpertise())
+            .AddFeaturesAtLevel(6, _learn2, _infusionPoolIncrease, BuildToolExpertise())
 
             #endregion
 
@@ -301,7 +302,7 @@ internal static class InventorClass
             #region Level 10
 
             .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions, BuildMagicAdept(),
-                BuildInfusionPoolIncrease())
+                _infusionPoolIncrease)
 
             #endregion
 
@@ -325,7 +326,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
+            .AddFeaturesAtLevel(14, _learn2, _infusionPoolIncrease, BuildMagicItemSavant())
 
             #endregion
 
@@ -347,7 +348,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(18, _learn2, _infusionPoolIncrease)
 
             #endregion
 
@@ -452,12 +453,11 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    //TODO: rework to be 1 feature
     private static FeatureDefinition BuildInfusionPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
-            .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
+            .Create($"PowerIncreaseInventorInfusionPool")
+            .SetGuiPresentation(Category.Feature)
             .SetFixedValue(InfusionPool, 1)
             .AddToDB();
     }
