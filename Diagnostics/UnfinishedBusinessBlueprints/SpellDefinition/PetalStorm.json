@@ -123,7 +123,7 @@
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "SightImpaired",
-          "impactsFlyingCharacters": true
+          "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
         "filterId": 0

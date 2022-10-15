@@ -153,7 +153,7 @@
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "DangerousZone",
-          "impactsFlyingCharacters": true
+          "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
         "filterId": 0
