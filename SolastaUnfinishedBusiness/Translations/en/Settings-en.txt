@@ -12,7 +12,7 @@ ModUi/&AllItemInDm=All items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Allow gadgets and props to be placed anywhere on the map <i><color=#F0DAA0>[press <color=#1E81B0>CTRL</color> during placement to bypass any check]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
@@ -20,7 +20,7 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&Basic=<color=#F0DAA0>Basic:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
@@ -164,3 +164,4 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</colo
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor

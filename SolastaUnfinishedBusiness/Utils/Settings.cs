@@ -235,7 +235,6 @@ public class Settings : UnityModManager.ModSettings
     public bool InvertAltBehaviorOnTooltips { get; set; }
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
     public bool EnableTeleportParty { get; set; }
 
     // Inventory and Items
@@ -253,6 +252,8 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Dungeon Maker
     //
 
+    public bool EnableSortingDungeonMakerAssets { get; set; }
+    public bool EnableHotkeyDebugOverlay { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }

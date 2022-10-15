@@ -13,7 +13,13 @@ internal static class DungeonMakerDisplay
         UI.Label(Gui.Localize("ModUi/&DungeonMakerBasicHelp"));
         UI.Label("");
 
-        var toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
+        var toggle = Main.Settings.EnableSortingDungeonMakerAssets;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSortingDungeonMakerAssets"), ref toggle))
+        {
+            Main.Settings.EnableSortingDungeonMakerAssets = toggle;
+        }
+
+        toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere"), ref toggle))
         {
             Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere = toggle;

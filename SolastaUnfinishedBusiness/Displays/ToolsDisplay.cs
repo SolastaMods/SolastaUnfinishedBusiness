@@ -106,6 +106,14 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
+
+        toggle = Main.Settings.EnableHotkeyDebugOverlay;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHotkeyDebugOverlay = toggle;
+        }
+
+        UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
 
