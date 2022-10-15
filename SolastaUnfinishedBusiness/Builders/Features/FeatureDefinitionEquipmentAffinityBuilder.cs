@@ -8,6 +8,12 @@ internal class FeatureDefinitionEquipmentAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionEquipmentAffinity,
         FeatureDefinitionEquipmentAffinityBuilder>
 {
+    internal FeatureDefinitionEquipmentAffinityBuilder SetAdditionalCarryingCapacity(int value)
+    {
+        Definition.additionalCarryingCapacity = value;
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionEquipmentAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
