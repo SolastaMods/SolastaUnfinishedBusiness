@@ -1,13 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageForce:3fed5643-f441-5df6-8f07-fdc1358705de",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageRadiant:6e12b55d-c876-5cd9-8421-1965829aa568",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageNecrotic:6a59a496-5d43-5a49-b46e-1962c2430b6a",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamageThunder:0dc5b857-5ef5-5458-bd4c-82b37bf1af85",
-    "Definition:SpellPowerInnovationAlchemyMarkerDamagePsychic:00511e10-e27d-5379-b387-6739fe62e66c"
-  ],
+  "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -167,11 +161,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationAlchemyBombsAdvancedTitle",
-    "description": "Feature/&PowerInnovationAlchemyBombsAdvancedDescription",
+    "title": "Feature/&PowerInnovationAlchemyMarkerDamagePsychicTitle",
+    "description": "Feature/&PowerInnovationAlchemyMarkerDamagePsychicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4f13d3b1-4baf-5e77-9807-2d2c402b9311",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -188,7 +182,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e310bc08-538a-5001-b28b-234719c496f1",
+  "guid": "00511e10-e27d-5379-b387-6739fe62e66c",
   "contentPack": 9999,
-  "name": "SpellPowerInnovationAlchemyBombsAdvanced"
+  "name": "SpellPowerInnovationAlchemyMarkerDamagePsychic"
 }

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityPoisoned:44c97012ec61a4f42b380b291c9f3fce"
+    "Definition:SavingThrowAffinityInnovationAlchemyDamageThunder:d39b7b59-8a83-5e76-a6cc-b32a39310850"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,9 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacks"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -129,12 +127,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionPoisonedTitle",
-    "description": "Condition/&ConditionInnovationAlchemyDamagePoisonDescription",
+    "title": "Condition/&ConditionInnovationAlchemyDamageThunderTitle",
+    "description": "Condition/&ConditionInnovationAlchemyDamageThunderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4231de4fdbf296c4b85f2afef769631b",
-      "m_SubObjectName": "Conditionpoisoned",
+      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
+      "m_SubObjectName": "ConditionDazzled",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -150,7 +148,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a2060437-057f-5de4-8b87-ab203595869a",
+  "guid": "74411586-db63-5884-84f1-b9c30fdddb94",
   "contentPack": 9999,
-  "name": "ConditionInnovationAlchemyDamagePoison"
+  "name": "ConditionInnovationAlchemyDamageThunder"
 }
