@@ -76,7 +76,7 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "healingForm": {
           "$type": "HealingForm, Assembly-CSharp",
           "healingComputation": "Dice",

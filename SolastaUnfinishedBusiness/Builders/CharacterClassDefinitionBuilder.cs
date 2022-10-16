@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
@@ -24,14 +25,13 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-#if false
-    internal CharacterClassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
+    internal CharacterClassDefinitionBuilder AddPersonality(string personalityFlag, int weight)
     {
         Definition.PersonalityFlagOccurences.Add(
             new PersonalityFlagOccurence(
                 DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
             {
-                weight = weight, personalityFlag = personalityType.Name
+                weight = weight, personalityFlag = personalityFlag
             });
 
         Definition.PersonalityFlagOccurences.Sort((x, y) =>
@@ -39,13 +39,12 @@ internal class CharacterClassDefinitionBuilder
 
         return this;
     }
-    
+
     internal CharacterClassDefinitionBuilder RequireDeity()
     {
         Definition.requiresDeity = true;
         return this;
     }
-#endif
 
     internal CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
     {

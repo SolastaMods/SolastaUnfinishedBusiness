@@ -100,9 +100,8 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetRequiredCharacterFamily(CharacterFamilyDefinitions.Humanoid)
             .AddToDB();
-
-        additionalDamageMarshalFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
             .Create(FeatureSetMarshalKnowYourEnemyName)
@@ -133,14 +132,13 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature, IdentifyCreatures)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(IdentifyCreatures.EffectDescription)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .ClearRestrictedCreatureFamilies()
-                    .SetEffectForms(new StudyEnemyEffectDescription())
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(IdentifyCreatures.EffectDescription)
+                .SetDurationData(DurationType.Instantaneous)
+                .ClearRestrictedCreatureFamilies()
+                .SetEffectForms(new StudyEnemyEffectDescription())
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .Build())
             .AddToDB();
     }
 
@@ -271,20 +269,17 @@ internal sealed class MartialMarshal : AbstractSubclass
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
-                    .Build())
+            .SetEffectForms(EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                .Build())
             .Build();
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
             .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
+            .SetMagical()
             .AddToDB();
-
-        //TODO: create a builder for this
-        attackMarshalEternalComrade.magical = true;
 
         _ = MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, EternalComradeName)
@@ -318,12 +313,12 @@ internal sealed class MartialMarshal : AbstractSubclass
             )
             .SetAttackIterations(new MonsterAttackIteration(attackMarshalEternalComrade, 1))
             .SetArmorClass(16)
-            .SetAlignment("Neutral")
+            .SetAlignment(AlignmentDefinitions.Neutral)
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction("Party")
+            .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .AddToDB();
     }
@@ -336,17 +331,16 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature, Bane)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(ConjureAnimalsOneBeast.EffectDescription)
-                    .SetDurationData(DurationType.Round, 10)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonCreatureForm(1, EternalComradeName)
-                            .CreatedByCharacter()
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(ConjureAnimalsOneBeast.EffectDescription)
+                .SetDurationData(DurationType.Round, 10)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetSummonCreatureForm(1, EternalComradeName)
+                        .CreatedByCharacter()
+                        .Build())
+                .Build())
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
@@ -380,10 +374,8 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetGuiPresentationNoContent()
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
+            .SetAdditionalDamageType(FighterClass)
             .AddToDB();
-
-        //TODO: create a builder for this
-        conditionMarshalEternalComradeHp.additionalDamageType = FighterClass;
 
         var summoningAffinityMarshalEternalComrade = FeatureDefinitionSummoningAffinityBuilder
             .Create(SummoningAffinityKindredSpiritBond, "SummoningAffinityMarshalEternalComrade")
@@ -424,9 +416,8 @@ internal sealed class MartialMarshal : AbstractSubclass
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddConditionTags("Buff")
             .AddToDB();
-
-        conditionMarshalEncouraged.ConditionTags.Add("Buff");
 
         // this allows the condition to still display as a label on character panel
         Global.CharacterLabelEnabledConditions.Add(conditionMarshalEncouraged);
@@ -435,23 +426,22 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetCreatedByCharacter()
-                    .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .CreatedByCharacter()
-                            .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
-                                false)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetCreatedByCharacter()
+                .SetCanBePlacedOnCharacter()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .CreatedByCharacter()
+                        .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
+                            false)
+                        .Build())
+                .Build())
             .SetShowCasting(false)
             .AddToDB();
     }

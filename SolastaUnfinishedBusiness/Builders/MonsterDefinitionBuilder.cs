@@ -78,15 +78,10 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetDefaultFaction(string faction)
-    {
-        Definition.defaultFaction = faction;
-        return this;
-    }
-
     internal MonsterDefinitionBuilder SetDefaultFaction(FactionDefinition faction)
     {
-        return SetDefaultFaction(faction.Name);
+        Definition.defaultFaction = faction.name;
+        return this;
     }
 
     internal MonsterDefinitionBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)

@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -51,28 +50,31 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
+
         var spriteReference = CustomIcons.GetSprite(NAME, Resources.AcidClaws, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeAcid)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .Build())
+            .Build();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeAcid)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build())
-                .Build())
+            .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
@@ -88,8 +90,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "AirBlast";
 
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.AirBlast, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.AirBlast, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -181,23 +182,23 @@ internal static class SpellsBuildersContext
         var spell = SpellDefinitionBuilder
             .Create(Sparkle, NAME)
             .SetGuiPresentation(Category.Spell, Shine)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Sparkle.EffectDescription)
+                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 5)
+                .SetParticleEffectParameters(SacredFlame_B.EffectDescription.EffectParticleParameters)
+                .Build())
             .AddToDB();
-
-        spell.EffectDescription.rangeType = RangeType.Distance;
-        spell.EffectDescription.rangeParameter = 18;
-        spell.EffectDescription.targetType = TargetType.Sphere;
-        spell.EffectDescription.targetParameter = 5;
-        spell.EffectDescription.effectParticleParameters = SacredFlame_B.EffectDescription.EffectParticleParameters;
 
         return spell;
     }
 
     internal static SpellDefinition BuildMinorLifesteal()
     {
+        var spriteReference = CustomIcons.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
+
         return SpellDefinitionBuilder
             .Create("MinorLifesteal")
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128))
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
@@ -438,10 +439,11 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildThornyVines()
     {
+        var spriteReference = CustomIcons.GetSprite("ThornyVines", Resources.ThornyVines, 128);
+
         return SpellDefinitionBuilder
             .Create("ThornyVines")
-            .SetGuiPresentation(Category.Spell,
-                CustomIcons.GetSprite("ThornyVines", Resources.ThornyVines, 128))
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSomaticComponent(true)
@@ -534,8 +536,7 @@ internal static class SpellsBuildersContext
             .ClearAttackIterations()
             .SetSkillScores(
                 (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
-                (DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
-            )
+                (DatabaseHelper.SkillDefinitions.Stealth.Name, 3))
             .SetArmorClass(11)
             .SetAbilityScores(3, 13, 8, 2, 12, 7)
             .SetHitDiceNumber(1)
@@ -549,7 +550,7 @@ internal static class SpellsBuildersContext
             .SetDroppedLootDefinition(null)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction("Party")
+            .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .AddToDB();
 
@@ -585,18 +586,6 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "Mule";
 
-        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
-            .Create("MovementAffinityConditionMule")
-            .SetGuiPresentationNoContent(true)
-            .SetImmunities(true, true)
-            .AddToDB();
-
-        var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
-            .Create("EquipmentAffinityConditionMule")
-            .SetGuiPresentationNoContent(true)
-            .SetAdditionalCarryingCapacity(20)
-            .AddToDB();
-
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
@@ -610,7 +599,17 @@ internal static class SpellsBuildersContext
                             .Create("ConditionMule")
                             .SetGuiPresentation(Category.Condition, Longstrider)
                             .SetConditionType(ConditionType.Beneficial)
-                            .SetFeatures(movementAffinity, equipmentAffinity)
+                            .SetFeatures(
+                                FeatureDefinitionMovementAffinityBuilder
+                                    .Create("MovementAffinityConditionMule")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetImmunities(true, true)
+                                    .AddToDB(),
+                                FeatureDefinitionEquipmentAffinityBuilder
+                                    .Create("EquipmentAffinityConditionMule")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetAdditionalCarryingCapacity(20)
+                                    .AddToDB())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add,
                         false,
@@ -690,28 +689,31 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(true)
             .AddToDB();
 
-        spell.EffectDescription.rangeType = RangeType.Distance;
-        spell.EffectDescription.rangeParameter = 12;
-        spell.EffectDescription.durationType = DurationType.Minute;
-        spell.EffectDescription.durationParameter = 1;
-        spell.EffectDescription.targetType = TargetType.Cube;
-        spell.EffectDescription.targetParameter = 3;
-        spell.EffectDescription.hasSavingThrow = true;
-        spell.EffectDescription.savingThrowAbility = AttributeDefinitions.Strength;
-        spell.EffectDescription.recurrentEffect = (RecurrentEffect)20;
+        //TODO: move this into a builder
+        var effectDescription = spell.EffectDescription;
 
-        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
-        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
-        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+        effectDescription.rangeType = RangeType.Distance;
+        effectDescription.rangeParameter = 12;
+        effectDescription.durationType = DurationType.Minute;
+        effectDescription.durationParameter = 1;
+        effectDescription.targetType = TargetType.Cube;
+        effectDescription.targetParameter = 3;
+        effectDescription.hasSavingThrow = true;
+        effectDescription.savingThrowAbility = AttributeDefinitions.Strength;
+        effectDescription.recurrentEffect = (RecurrentEffect)20;
 
-        spell.EffectDescription.EffectForms[0].hasSavingThrow = true;
-        spell.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.Negates;
-        spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
-        spell.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
-        spell.EffectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
-        spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
+        effectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
+        effectDescription.EffectAdvancement.incrementMultiplier = 1;
+        effectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
 
-        spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+        effectDescription.EffectForms[0].hasSavingThrow = true;
+        effectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.Negates;
+        effectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        effectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
+        effectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
+        effectDescription.EffectForms[0].levelMultiplier = 1;
+
+        effectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
 
         return spell;
     }
@@ -738,30 +740,32 @@ internal static class SpellsBuildersContext
             .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
 
-        spell.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-        spell.EffectDescription.durationParameter = 10;
-        spell.EffectDescription.durationType = DurationType.Minute;
-        spell.EffectDescription.hasSavingThrow = true;
-        spell.EffectDescription.rangeParameter = 1;
-        spell.EffectDescription.rangeType = RangeType.Distance;
-        spell.EffectDescription.recurrentEffect = RecurrentEffect.OnEnter;
-        spell.EffectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
-        spell.EffectDescription.targetParameter = 0;
-        spell.EffectDescription.targetType = TargetType.Sphere;
+        //TODO: move this into a builder
+        var effectDescription = spell.EffectDescription;
 
-        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
-        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
-        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        effectDescription.durationParameter = 10;
+        effectDescription.durationType = DurationType.Minute;
+        effectDescription.hasSavingThrow = true;
+        effectDescription.rangeParameter = 1;
+        effectDescription.rangeType = RangeType.Distance;
+        effectDescription.recurrentEffect = RecurrentEffect.OnEnter;
+        effectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
+        effectDescription.targetParameter = 0;
+        effectDescription.targetType = TargetType.Sphere;
 
-        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+        effectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        effectDescription.EffectAdvancement.incrementMultiplier = 1;
+        effectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
 
-        spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
-        spell.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
-        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
-        spell.EffectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
-        spell.EffectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
-        spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
+        effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
+
+        effectDescription.EffectForms[1].hasSavingThrow = true;
+        effectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+        effectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+        effectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
+        effectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
+        effectDescription.EffectForms[1].levelMultiplier = 1;
 
         return spell;
     }
@@ -774,8 +778,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "EarthTremor";
 
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.EarthTremor, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.EarthTremor, 128, 128);
 
         // var rubbleProxy = EffectProxyDefinitionBuilder
         //     .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy")
@@ -803,12 +806,9 @@ internal static class SpellsBuildersContext
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeBludgeoning, 3, DieType.D12)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build(),
+                Grease.EffectDescription.EffectForms.Find(e => e.formType == EffectFormType.Topology))
             .Build();
-
-        effectDescription.EffectForms.AddRange(
-            Grease.EffectDescription.EffectForms.Find(e =>
-                e.formType == EffectFormType.Topology));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -829,8 +829,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "WinterBreath";
 
-        var spriteReference =
-            CustomIcons.GetSprite(NAME, Resources.WinterBreath, 128, 128);
+        var spriteReference = CustomIcons.GetSprite(NAME, Resources.WinterBreath, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -1269,16 +1268,8 @@ internal static class SpellsBuildersContext
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(
-                DurationType.Round,
-                3)
-            .SetTargetingData(
-                Side.All,
-                RangeType.Self,
-                0,
-                TargetType.Cylinder,
-                20,
-                10)
+            .SetDurationData(DurationType.Round, 3)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cylinder, 20, 10)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
@@ -1313,16 +1304,8 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildWeird()
     {
         var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(
-                DurationType.Minute,
-                1)
-            .SetTargetingData(
-                Side.Enemy,
-                RangeType.Distance,
-                12,
-                TargetType.Sphere,
-                6,
-                6)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6, 6)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Wisdom,
@@ -1372,8 +1355,10 @@ internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
     }
 
     [CanBeNull]
-    public CharacterActionMagicEffect GetNextMagicEffect([CanBeNull] CharacterActionMagicEffect baseEffect,
-        CharacterActionAttack triggeredAttack, RollOutcome attackOutcome)
+    public CharacterActionMagicEffect GetNextMagicEffect(
+        [CanBeNull] CharacterActionMagicEffect baseEffect,
+        CharacterActionAttack triggeredAttack,
+        RollOutcome attackOutcome)
     {
         if (baseEffect == null)
         {

@@ -121,6 +121,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetRequiredCharacterFamily(CharacterFamilyDefinition value)
+    {
+        Definition.requiredCharacterFamily = value;
+        return this;
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder Configure(
         string notificationTag,
         RuleDefinitions.FeatureLimitedUsage limitedUsage,

@@ -72,6 +72,18 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
+    internal TBuilder SetAdditionalDamageType(string value)
+    {
+        Definition.additionalDamageType = value;
+        return (TBuilder)this;
+    }
+
+    internal TBuilder AddConditionTags(params string[] tags)
+    {
+        Definition.conditionTags.AddRange(tags);
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;

@@ -30,11 +30,21 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var effectDescription = EffectDescriptionBuilder
             .Create(PowerDomainLifePreserveLife.EffectDescription)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .CreatedByCharacter()
+                    .SetHealingForm(
+                        HealingComputation.Dice,
+                        0,
+                        DieType.D1,
+                        4,
+                        false,
+                        HealingCap.MaximumHitPoints,
+                        EffectForm.LevelApplianceType.MultiplyBonus)
+                    .Build())
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.No, 5, DieType.D8)
             .Build();
-
-        effectDescription.EffectForms[0].HealingForm.HealingCap = HealingCap.MaximumHitPoints;
-        effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-        effectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightRallyingCry")
@@ -44,33 +54,28 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
-        // TODO: use EffectDescriptionBuilder
-
-
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
             .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PowerDomainLifePreserveLife.EffectDescription)
-                    .SetCanBePlacedOnCharacter()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
-                    .SetTargetFiltering(
-                        TargetFilteringMethod.CharacterOnly,
-                        TargetFilteringTag.No,
-                        5,
-                        DieType.D8)
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetRequiresVisibilityForPosition(true)
-                    .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(PowerDomainLifePreserveLife.EffectDescription)
+                .SetCanBePlacedOnCharacter()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
+                .SetTargetFiltering(
+                    TargetFilteringMethod.CharacterOnly,
+                    TargetFilteringTag.No,
+                    5,
+                    DieType.D8)
+                .SetDurationData(DurationType.Round, 1)
+                .SetRequiresVisibilityForPosition(true)
+                .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
+                .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialRoyalKnight")
-            .SetGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.OathOfDevotion)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfDevotion)
             .AddFeaturesAtLevel(3,
                 powerRoyalKnightRallyingCry)
             .AddFeaturesAtLevel(7,
