@@ -231,13 +231,9 @@ internal static class SharedSpellsContext
     {
         PatchMaxSpellLevelOfSpellCastingLevel();
         EnumerateSlotsPerLevel(CasterProgression.Full, FullCastingSlots);
-
-        // RecoverySlots.Add("ArtisanSpellStoringItem", ArtisanClass);
-        // RecoverySlots.Add("ArtisanInfusionSpellRefuelingRing", ArtisanClass);
-        // RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", ArtisanClass);
     }
 
-    internal static void PatchMaxSpellLevelOfSpellCastingLevel()
+    private static void PatchMaxSpellLevelOfSpellCastingLevel()
     {
         const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
