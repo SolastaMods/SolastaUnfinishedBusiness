@@ -8,6 +8,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Races.DarkelfSubraceBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -22,17 +23,18 @@ internal static class RaceHalfElfVariantRaceBuilder
             CustomIcons.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var raceHalfElfDark = CharacterRaceDefinitionBuilder
-            .Create(DarkelfSubraceBuilder.SubraceDarkelf, "RaceHalfElfDark")
+            .Create(SubraceDarkelf, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
-                DarkelfSubraceBuilder.CastSpellDarkelfMagic,
+                CastSpellDarkelfMagic,
                 MoveModeMove6)
-            .AddFeaturesAtLevel(3, DarkelfSubraceBuilder.PowerDarkelfFaerieFire)
-            .AddFeaturesAtLevel(5, DarkelfSubraceBuilder.PowerDarkelfDarkness)
+            .AddFeaturesAtLevel(3,
+                PowerDarkelfFaerieFire)
+            .AddFeaturesAtLevel(5,
+                PowerDarkelfDarkness)
             .AddToDB();
 
-        var halfHighSpriteReference = 
-            CustomIcons.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
+        var halfHighSpriteReference = CustomIcons.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var raceHalfElfHigh = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")

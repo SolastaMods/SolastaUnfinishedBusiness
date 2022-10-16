@@ -6,9 +6,14 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using TA;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -24,23 +29,20 @@ internal static class GrayDwarfSubraceBuilder
         var attributeModifierGrayDwarfStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Strength, 1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
             .AddToDB();
 
         var abilityCheckAffinityGrayDwarfLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityGrayDwarfLightSensitivity")
             .SetGuiPresentation(Category.Feature)
-            .BuildAndSetAffinityGroups(
-                CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
         abilityCheckAffinityGrayDwarfLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
 
         var grayDwarfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
-            .Create(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight,
-                "CombatAffinityGrayDwarfLightSensitivity")
+            .Create(CombatAffinitySensitiveToLight, "CombatAffinityGrayDwarfLightSensitivity")
             .SetOrUpdateGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
@@ -71,36 +73,35 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var conditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharm,
+            .Create(ConditionAffinityElfFeyAncestryCharm,
                 "ConditionAffinityGrayDwarfCharm")
             .AddToDB();
 
         var conditionAffinityGrayDwarfCharmedByHypnoticPattern = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern,
+            .Create(ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern,
                 "ConditionAffinityGrayDwarfCharmedByHypnoticPattern")
             .AddToDB();
 
         var conditionAffinityGrayDwarfParalyzedAdvantage = FeatureDefinitionConditionAffinityBuilder
-            .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityHalflingBrave,
+            .Create(ConditionAffinityHalflingBrave,
                 "ConditionAffinityGrayDwarfParalyzedAdvantage")
             .SetConditionType(ConditionDefinitions.ConditionParalyzed)
             .AddToDB();
 
         var savingThrowAffinityGrayDwarfIllusion = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityGemIllusion,
+            .Create(SavingThrowAffinityGemIllusion,
                 "SavingThrowAffinityGrayDwarfIllusion")
             .AddToDB();
 
         for (var i = 0; i < 6; i++)
         {
-            savingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].affinity =
-                CharacterSavingThrowAffinity.Advantage;
+            savingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].affinity = CharacterSavingThrowAffinity.Advantage;
             savingThrowAffinityGrayDwarfIllusion.AffinityGroups[i].savingThrowModifierDiceNumber = 0;
         }
 
         var featureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")
-            .SetGuiPresentation(Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(
                 conditionAffinityGrayDwarfCharm,
@@ -110,13 +111,11 @@ internal static class GrayDwarfSubraceBuilder
             .AddToDB();
 
         var abilityCheckAffinityGrayDwarfStoneStrength = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
-                "AbilityCheckAffinityGrayDwarfStoneStrength")
+            .Create(AbilityCheckAffinityConditionBullsStrength, "AbilityCheckAffinityGrayDwarfStoneStrength")
             .AddToDB();
 
         var savingThrowAffinityGrayDwarfStoneStrength = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging,
-                "SavingThrowAffinityGrayDwarfStoneStrength")
+            .Create(SavingThrowAffinityConditionRaging, "SavingThrowAffinityGrayDwarfStoneStrength")
             .AddToDB();
 
         var additionalDamageGrayDwarfStoneStrength = FeatureDefinitionAdditionalDamageBuilder
