@@ -29,7 +29,7 @@ internal static class InventorClass
         CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        Wizard.ClassPictogramReference;
+        CustomIcons.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -812,7 +812,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) {Indent = true};
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
