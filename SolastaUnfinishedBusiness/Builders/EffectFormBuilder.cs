@@ -215,7 +215,8 @@ internal class EffectFormBuilder
         DieType dieType,
         int diceNumber,
         bool variablePool,
-        HealingCap healingCap)
+        HealingCap healingCap,
+        EffectForm.LevelApplianceType levelApplianceType = EffectForm.LevelApplianceType.No)
     {
         var healingForm = new HealingForm
         {
@@ -227,6 +228,7 @@ internal class EffectFormBuilder
             HealingCap = healingCap
         };
 
+        effectForm.applyLevel = levelApplianceType;
         effectForm.healingForm = healingForm;
         effectForm.FormType = EffectForm.EffectFormType.Healing;
         return this;

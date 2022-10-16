@@ -549,7 +549,7 @@ internal static class SpellsBuildersContext
             .SetDroppedLootDefinition(null)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction("Party")
+            .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .AddToDB();
 
