@@ -66,14 +66,17 @@ internal static class InventorClass
             #region Presentation
 
             .SetGuiPresentation(Category.Class, Sprite)
-            .SetPictogram(Pictogram)
-            //.AddPersonality() //TODO: Add personality flags
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
+            .SetPictogram(Pictogram);
 
-            #endregion
+        Wizard.personalityFlagOccurences
+            .ForEach(fo => builder.AddPersonality(fo.personalityFlag, fo.weight));
 
-            #region Priorities
+        #endregion
 
+        #region Priorities
+
+        builder
             .SetAbilityScorePriorities(
                 AttributeDefinitions.Intelligence,
                 AttributeDefinitions.Constitution,
@@ -98,7 +101,10 @@ internal static class InventorClass
                 ToolTypeDefinitions.ScrollKitType
             )
             //TODO: Add more preferred feats
-            .AddFeatPreferences(EwFeats.WarcasterFeat)
+            .AddFeatPreferences(
+                EwFeats.WarcasterFeat,
+                "PowerfulCantrip",
+                "FlawlessConcentration")
 
             #endregion
 
