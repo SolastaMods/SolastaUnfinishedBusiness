@@ -84,15 +84,14 @@ public static class CharacterReactionItemPatcher
         }
     }
 
-//TODO: check if still relevant - while this method wasn't touched, maybe sub-items are now disposed properly?
-#if false
+    //TODO: check if still relevant - while this method wasn't touched, maybe sub-items are now disposed properly?
     [HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class GetSelectedSubItem_Patch
     {
         public static bool Prefix([NotNull] CharacterReactionItem __instance, out int __result)
         {
-            //PATCH: BUGFIX: replaces `GetSelectedSubItem` to fix reaction selection crashes
+            //BUGFIX: replaces `GetSelectedSubItem` to fix reaction selection crashes
             // Default one selects last item that is Selected, regardless if it is active or not, leading to wrong spell slots for smites being selected
             // This implementation returns first item that is both Selected and active
             __result = 0;
@@ -115,5 +114,4 @@ public static class CharacterReactionItemPatcher
             return false;
         }
     }
-#endif
 }
