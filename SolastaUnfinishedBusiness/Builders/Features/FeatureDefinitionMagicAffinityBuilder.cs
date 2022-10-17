@@ -34,6 +34,12 @@ internal class FeatureDefinitionMagicAffinityBuilder : DefinitionBuilder<Feature
         return this;
     }
 
+    internal FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritual)
+    {
+        Definition.ritualCasting = ritual;
+        return this;
+    }
+
     internal FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(
         int attackModifier = 0,
         RuleDefinitions.SpellParamsModifierType attackModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,

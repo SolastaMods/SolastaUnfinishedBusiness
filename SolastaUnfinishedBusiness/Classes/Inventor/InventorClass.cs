@@ -253,7 +253,7 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips())
+            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips(), BuildRitualCasting())
 
             #endregion
 
@@ -557,6 +557,25 @@ internal static class InventorClass
             .AddToDB();
 
         return castSpellsInventor;
+    }
+
+    private static FeatureDefinition BuildRitualCasting()
+    {
+        return FeatureDefinitionFeatureSetBuilder.Create("FeatureSetInventorRituals")
+            .SetGuiPresentationNoContent(hidden: true)
+            .AddFeatureSet(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityInventorRituals")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetRitualCasting(RitualCasting.Prepared)
+                    .AddToDB(),
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityInventorRituals")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetDefaultAllowedActonTypes()
+                    .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
+                    .AddToDB())
+            .AddToDB();
     }
 
     private static FeatureDefinitionBonusCantrips BuildBonusCantrips()
