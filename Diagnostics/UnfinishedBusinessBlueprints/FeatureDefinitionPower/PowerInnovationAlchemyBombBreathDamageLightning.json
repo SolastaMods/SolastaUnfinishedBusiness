@@ -41,7 +41,7 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Intelligence",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],

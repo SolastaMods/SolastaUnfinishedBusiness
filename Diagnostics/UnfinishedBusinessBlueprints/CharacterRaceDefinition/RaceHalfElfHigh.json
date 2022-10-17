@@ -10,12 +10,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
       "level": 1
     }
   ],

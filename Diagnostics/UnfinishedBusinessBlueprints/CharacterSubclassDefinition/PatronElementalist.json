@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityElementalistExpandedSpells:b6847d24-cac4-5430-a56d-399fb47e69dd",
+      "featureDefinition": "Definition:PowerElementalistElementalFormPool:a99b7f87-df37-51d0-8d1b-b7d2989b3a10",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerElementalistElementalFormPool:a99b7f87-df37-51d0-8d1b-b7d2989b3a10",
+      "featureDefinition": "Definition:MagicAffinityElementalistExpandedSpells:b6847d24-cac4-5430-a56d-399fb47e69dd",
       "level": 1
     },
     {

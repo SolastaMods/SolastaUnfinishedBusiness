@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda",
-    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f"
+    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
+    "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetInventorInfusionsTitle",
-    "description": "Feature/&FeatureSetInventorInfusionsDescription",
+    "title": "Feature/&FeatureInventorInfusionPoolTitle",
+    "description": "Feature/&FeatureInventorInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

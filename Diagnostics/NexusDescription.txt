@@ -233,7 +233,7 @@ Requires the ability to cast spells.
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
 [*][b]Shadow Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
@@ -368,9 +368,10 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [*][b]AceHigh[/b]: SoulBlade, Tactician
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif
-[*][b]RedOrca[/b]: Path Of The Light
-[*][b]DreadMaker[/b]: Circle Of The Forest Guardian
-[*][b]DemonSlayer730[/b]: Path Of The Rage Mage
+[*][b]RedOrca[/b]: Path of The Light
+[*][b]DreadMaker[/b]: Circle of The Forest Guardian
+[*][b]DemonSlayer730[/b]: Path of The Rage Mage
+[*][b]Scarlex[/b]: Royal Knight
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Esker[/b]: ruleset support, qa
 [*][b]Lyraele[/b]: ruleset support, qa

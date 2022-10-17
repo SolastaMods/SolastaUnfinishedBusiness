@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellPathOfTheRageMage:bcb161a0-1b80-5893-bbb8-d901a1d65c8f",
+      "featureDefinition": "Definition:ProficiencyPathOfTheRageMageSkill:84b5e2fe-c805-5c20-9c17-6d67b13625f3",
       "level": 3
     },
     {
@@ -13,18 +13,13 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyPathOfTheRageMageSkill:84b5e2fe-c805-5c20-9c17-6d67b13625f3",
+      "featureDefinition": "Definition:CastSpellPathOfTheRageMage:bcb161a0-1b80-5893-bbb8-d901a1d65c8f",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamagePathOfTheRageMageArcaneExplosion:6d804fef-ab50-5530-be3c-6167d774f2a3",
       "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheRageMageSupernaturalExploits:23dd3df1-d67e-5c19-a6db-a258c17cc02d",
-      "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -44,6 +39,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility:459a7231-316f-5881-bd6d-4f5c6ca449e8",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheRageMageSupernaturalExploits:23dd3df1-d67e-5c19-a6db-a258c17cc02d",
       "level": 10
     },
     {

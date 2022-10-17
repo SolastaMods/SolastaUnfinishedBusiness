@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
+    "CEHandXbowType",
     "HeavyCrossbowType",
     "LightCrossbowType",
     "LongbowType",
