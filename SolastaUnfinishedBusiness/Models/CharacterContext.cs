@@ -181,6 +181,20 @@ internal static class CharacterContext
             {
                 morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
             }
+
+            var races = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+
+            foreach (var race in races)
+            {
+                var presentation = race.racePresentation;
+                if (!presentation.IsAvailable(MorphotypeElementDefinition.ElementCategory.Eye))
+                {
+                    var all = new List<MorphotypeElementDefinition.ElementCategory>(presentation
+                        .availableMorphotypeCategories);
+                    all.Add(MorphotypeElementDefinition.ElementCategory.Eye);
+                    presentation.availableMorphotypeCategories = all.ToArray();
+                }
+            }
         }
 
         if (Main.Settings.UnlockAllNpcFaces)
