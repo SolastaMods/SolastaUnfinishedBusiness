@@ -36,6 +36,7 @@ internal static class InventorClass
 
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
+    private const string InfusionsName = "FeatureInventorInfusionPool";
 
     internal static CharacterClassDefinition Class { get; private set; }
 
@@ -453,7 +454,7 @@ internal static class InventorClass
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(InfusionsName, Category.Feature)
             .AddFeatureSet(InfusionPool, _learn4)
             .AddToDB();
     }
@@ -576,7 +577,8 @@ internal static class InventorClass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(InfusionsName, Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }
