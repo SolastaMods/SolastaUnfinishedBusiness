@@ -574,21 +574,19 @@ public static class InnovationAlchemy
         return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetDamageForm(damageType, 3, dieType)
                     .Build())
                 .AddEffectForms(effects)
                 .Build())
-            .SetBonusToAttack(true, true, AttributeDefinitions.Dexterity)
+            .SetUseSpellAttack()
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .AddToDB();
     }
@@ -608,8 +606,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
@@ -617,7 +614,7 @@ public static class InnovationAlchemy
                     false,
                     savingThrowAbility,
                     false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
@@ -644,8 +641,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
@@ -653,7 +649,7 @@ public static class InnovationAlchemy
                     false,
                     savingThrowAbility,
                     false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
@@ -723,8 +719,8 @@ public static class InnovationAlchemy
     private sealed class Overcharge : ICustomOverchargeProvider
     {
         private static readonly (int, int)[] None = { };
-        private static readonly (int, int)[] Once = { (1, 1) };
-        private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
+        private static readonly (int, int)[] Once = {(1, 1)};
+        private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {
