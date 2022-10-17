@@ -664,7 +664,7 @@ public static class RulesetCharacterPatcher
                     }
 
                     featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
-                        RuleDefinitions.FeatureSourceType.Equipment, definition.Name,
+                        RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
                         null, definition.ParseSpecialFeatureTags()));
                 }
             }
