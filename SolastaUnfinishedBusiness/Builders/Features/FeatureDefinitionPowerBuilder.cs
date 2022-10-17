@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -112,12 +113,20 @@ internal abstract class
     internal TBuilder SetBonusToAttack(
         bool proficiencyBonusToAttack = false,
         bool abilityScoreBonusToAttack = false,
-        string abilityScore = AttributeDefinitions.Intelligence) // this is game default
+        string abilityScore = AttributeDefinitions.Intelligence,
+        PowerAttackHitComputation attackHitComputation = PowerAttackHitComputation.AbilityScore) // this is game default
     {
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.abilityScore = abilityScore;
+        Definition.attackHitComputation = attackHitComputation;
         return (TBuilder)this;
+    }
+
+    internal TBuilder SetUseSpellAttack()
+    {
+        return SetBonusToAttack(
+            attackHitComputation: (PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack);
     }
 
     internal TBuilder SetReactionContext(ReactionTriggerContext context)

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -53,6 +54,52 @@ public static class RulesetEffectPowerPatcher
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
             // allowing to pick and/or tweak power effect depending on some properties of the user
             __result = CustomFeaturesContext.ModifyPowerEffect(__result, __instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetEffectPower), "MagicAttackBonus", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class MagicAttackBonus_Getter_Patch
+    {
+        public static void Postfix(RulesetEffectPower __instance, ref int __result)
+        {
+            //PATCH: allow devices have magic attack bonus based on spell attack
+            var power = __instance.PowerDefinition;
+            if (power.AttackHitComputation !=
+                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+            {
+                return;
+            }
+
+            var user = __instance.User;
+            var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
+            if (repertoire != null)
+            {
+                __result = repertoire.SpellAttackBonus;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetEffectPower), "MagicAttackTrends", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class MagicAttackTrends_Getter_Patch
+    {
+        public static void Postfix(RulesetEffectPower __instance, ref List<RuleDefinitions.TrendInfo> __result)
+        {
+            //PATCH: allow devices have magic attack trends based on spell attack
+            var power = __instance.PowerDefinition;
+            if (power.AttackHitComputation !=
+                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+            {
+                return;
+            }
+
+            var user = __instance.User;
+            var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
+            if (repertoire != null)
+            {
+                __result = repertoire.MagicAttackTrends;
+            }
         }
     }
 }

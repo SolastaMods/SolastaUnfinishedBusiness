@@ -40,6 +40,13 @@ internal enum ExtraRitualCasting
     Known = 9000
 }
 
+internal enum ExtraPowerAttackHitComputation
+{
+    // Fixed = PowerAttackHitComputation.Fixed,
+    // AbilityScore = PowerAttackHitComputation.AbilityScore,
+    SpellAttack = 9000
+}
+
 internal enum ExtraOriginOfAmount
 {
     // None = ConditionDefinition.OriginOfAmount.None,
