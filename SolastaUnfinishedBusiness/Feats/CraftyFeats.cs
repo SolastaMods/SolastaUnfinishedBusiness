@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
@@ -76,6 +77,7 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.Weapon,
                 ShortbowType.Name,
                 LongbowType.Name,
+                CustomWeaponsContext.HandXbowWeaponType.Name,
                 LightCrossbowType.Name,
                 HeavyCrossbowType.Name)
             .AddToDB();
