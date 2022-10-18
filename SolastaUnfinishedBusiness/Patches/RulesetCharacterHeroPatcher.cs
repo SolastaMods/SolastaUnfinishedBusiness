@@ -561,4 +561,27 @@ public static class RulesetCharacterHeroPatcher
             PowerPoolDevice.Clear(__instance);
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class EnumerateAfterRestActions_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance,
+            RuleDefinitions.RestType restType,
+            List<RulesetItem> attunableItems,
+            RestDefinitions.RestStage restStage)
+        {
+            __instance.afterRestActions.RemoveAll(activity =>
+            {
+                if (activity.functor != PowersBundleContext.UseCustomRestPowerFunctorName) { return false; }
+            
+                var power = __instance.UsablePowers.FirstOrDefault(usablePower =>
+                    usablePower.PowerDefinition.Name == activity.StringParameter);
+            
+                if (power == null) { return false; }
+            
+                return !__instance.CanUsePower(power.PowerDefinition);
+            });
+        }
+    }
 }
