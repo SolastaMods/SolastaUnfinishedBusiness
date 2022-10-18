@@ -10,19 +10,10 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "AttackMain",
-    "AttackOff",
-    "AttackOpportunity",
-    "PowerBonus",
-    "PowerMain",
-    "PowerReaction",
-    "Shove",
-    "SpendPower",
-    "AttackReadied",
-    "Ready"
+  "forbiddenActions": [],
+  "authorizedActions": [
+    "CastRitual"
   ],
-  "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -31,7 +22,7 @@
   "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -53,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0a59ab1b-e92e-569b-9e77-3dd9e48890a0",
+  "guid": "ada76dcf-cfb9-5256-ad58-c515ca8f0e71",
   "contentPack": 9999,
-  "name": "ActionAffinitySteelDefenderBasic"
+  "name": "ActionAffinityInventorRituals"
 }

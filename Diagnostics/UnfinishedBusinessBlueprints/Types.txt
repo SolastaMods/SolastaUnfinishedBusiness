@@ -29,6 +29,7 @@ FeatureDefinitionPointPool
 FeatureDefinitionPower
 FeatureDefinitionProficiency
 FeatureDefinitionSavingThrowAffinity
+FeatureDefinitionSense
 FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
 ItemDefinition
