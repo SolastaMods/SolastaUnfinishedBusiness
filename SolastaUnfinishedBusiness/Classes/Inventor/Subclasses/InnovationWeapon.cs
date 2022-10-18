@@ -341,31 +341,34 @@ public static class InnovationWeapon
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
         {
-            //can act freely outside of battle
-            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
-
-            var summoner = character.GetMySummoner()?.RulesetCharacter;
-
-            //shouldn't happen, but do not apply in this case
-            if (summoner == null) { return false; }
-
-            //can act if summoner is KO
-            if (summoner.IsUnconscious) { return false; }
-
-            //can act if summoner commanded
-            if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
-
-            return true;
+            //Apply limits if not commanded
+            return !IsCommanded(character);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var limited = IsValid(null, locationCharacter.RulesetCharacter);
-            if (limited)
-            {
-                ServiceRepository.GetService<ICommandService>()
-                    ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
-            }
+            //If not commanded use Dodge at the turn start
+            if (IsCommanded(locationCharacter.RulesetCharacter)) { return; }
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+        }
+
+        private static bool IsCommanded(RulesetCharacter character)
+        {
+            //can act freely outside of battle
+            if (Gui.Battle == null) { return true; }
+
+            var summoner = character.GetMySummoner()?.RulesetCharacter;
+
+            //shouldn't happen, but consider being commanded in this case
+            if (summoner == null) { return true; }
+
+            //can act if summoner is KO
+            if (summoner.IsUnconscious) { return true; }
+
+            //can act if summoner commanded
+            return summoner.HasConditionOfType(CommandSteelDefenderCondition);
         }
     }
 
