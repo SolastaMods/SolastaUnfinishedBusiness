@@ -146,6 +146,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderGeneric")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(savingThrows, skills)
                     .AddToDB(),
@@ -153,6 +154,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
                     .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(toHit)
@@ -161,6 +163,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
                     .AddToDB(),
@@ -168,6 +171,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderLevel")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: InventorClass.ClassName, active: false)
@@ -177,6 +181,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderIntelligence")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceAbilityBonus` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: AttributeDefinitions.Intelligence, active: false)
