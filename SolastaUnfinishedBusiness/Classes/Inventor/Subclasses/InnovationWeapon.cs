@@ -128,13 +128,16 @@ public static class InnovationWeapon
         var savingThrows = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("AttributeInnovationWeaponSummonSteelDefenderSaves")
             .SetGuiPresentationNoContent()
-            .UseControllerSavingThrows()
+            .SetCustomSubFeatures(new AddPBToSummonCheck(1, AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution))
             .AddToDB();
 
         var skills = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AttributeInnovationWeaponSummonSteelDefenderSkills")
             .SetGuiPresentationNoContent()
-            .UseControllerAbilityChecks()
+            .SetCustomSubFeatures(
+                new AddPBToSummonCheck(1, SkillDefinitions.Athletics),
+                new AddPBToSummonCheck(2, SkillDefinitions.Perception))
             .AddToDB();
 
         return FeatureDefinitionSummoningAffinityBuilder
@@ -213,13 +216,13 @@ public static class InnovationWeapon
                 CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
             .HideFromDungeonEditor()
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
-            .SetSkillScores( //currently setup to use Inventor's skills
-                (SkillDefinitions.Athletics, 2), //TODO: add Inventor's PB to the skill
-                (SkillDefinitions.Perception, 0) //TODO: add Inventor's PB to the skill
+            .SetSkillScores(
+                (SkillDefinitions.Athletics, 2), //has feature that adds summoner's PB
+                (SkillDefinitions.Perception, 0) //has feature that adds summoner's PB x2
             )
-            .SetSavingThrowScores( //currently setup to use Inventor's saves
-                (AttributeDefinitions.Dexterity, 1), //TODO: add Inventor's PB to the save
-                (AttributeDefinitions.Constitution, 2) //TODO: add Inventor's PB to the save
+            .SetSavingThrowScores(
+                (AttributeDefinitions.Dexterity, 1), //has feature that adds summoner's PB
+                (AttributeDefinitions.Constitution, 2) //has feature that adds summoner's PB
             )
             .SetStandardHitPoints(2)
             .SetHitPointsBonus(2) //doesn't seem to be used anywhere

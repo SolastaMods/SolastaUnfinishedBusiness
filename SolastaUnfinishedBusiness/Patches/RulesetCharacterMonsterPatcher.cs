@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 
@@ -65,6 +66,35 @@ public static class RulesetCharacterMonsterPatcher
             // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
             // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
             return ArmorClassStacking.AddAcTrendsToMonsterAcRefreshTranspiler(instructions);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "ComputeBaseSavingThrowBonus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ComputeBaseSavingThrowBonus_Patch
+    {
+        public static void Postfix(RulesetCharacterMonster __instance, ref int __result,
+            string abilityScoreName,
+            List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+        {
+            //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the saving throws
+            AddPBToSummonCheck.ModifyCheckBonus<ISavingThrowPerformanceProvider>(__instance, ref __result,
+                abilityScoreName, savingThrowModifierTrends);
+        }
+    }
+
+
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "ComputeBaseAbilityCheckBonus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ComputeBaseAbilityCheckBonus_Patch
+    {
+        public static void Postfix(RulesetCharacterMonster __instance, ref int __result,
+            List<RuleDefinitions.TrendInfo> abilityCheckModifierTrends,
+            string proficiencyName)
+        {
+            //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the skill checks
+            AddPBToSummonCheck.ModifyCheckBonus<IAbilityCheckPerformanceProvider>(__instance, ref __result,
+                proficiencyName, abilityCheckModifierTrends);
         }
     }
 }

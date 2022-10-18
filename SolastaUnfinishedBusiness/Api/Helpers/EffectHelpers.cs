@@ -47,6 +47,29 @@ internal static class EffectHelpers
         return def;
     }
 
+    internal static RulesetCharacter GetSummoner(RulesetCharacter summon)
+    {
+        if (summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
+                RuleDefinitions.ConditionConjuredCreature, out var activeCondition))
+        {
+            return GetCharacterByGuid(activeCondition.SourceGuid);
+        }
+
+        return null;
+    }
+    
+    internal static RulesetCharacter GetCharacterByGuid(ulong guid)
+    {
+        if (guid == 0) { return null; }
+
+        if (!RulesetEntity.TryGetEntity<RulesetEntity>(guid, out var entity))
+        {
+            return null;
+        }
+        
+        return entity as RulesetCharacter;
+    }
+
     internal static RulesetCharacter GetCharacterByEffectGuid(ulong guid)
     {
         if (guid == 0) { return null; }
