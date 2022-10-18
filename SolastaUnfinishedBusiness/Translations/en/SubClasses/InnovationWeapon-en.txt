@@ -1,7 +1,7 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Spell attack bonus of its creator
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Learn and have always prepared:\n{0}
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Weaponsmith Spells
-Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments with weapons has borne you a faithful Defending Blade companion that obeys your commands. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction on its own, but it can take only Dodge and Dash actions, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
+Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments with weapons has borne you a faithful Defending Blade companion that obeys your commands. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction on its own, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
 Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Defending Blade
 Feature/&PowerInnovationWeaponArcaneJoltDescription=When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can uses this power number of times equal to your INT modifier per long rest, but no more than once per turn.
 Feature/&PowerInnovationWeaponArcaneJoltTitle=Force Jolt
@@ -9,7 +9,7 @@ Feature/&PowerInnovationWeaponSteelDefenderRepairDescription=The magical mechani
 Feature/&PowerInnovationWeaponSteelDefenderRepairTitle=Self Repair
 Feature/&PowerInnovationWeaponSummonSteelDefenderDescription=Summon Defending Blade to help you in battles. Its HP is equal to 2 + your INT modifier + 5x your Inventor level. It uses your spell attack bonus to hit and adds your Proficiency Bonus to the damage of its attack. 
 Feature/&PowerInnovationWeaponSummonSteelDefenderTitle=Defending Blade
-Feature/&PowerInventorWeaponSteelDefenderCommandDescription=Issue command for your Defending Blade - until the start of your next turn it is not limited in types of action it can take.
+Feature/&PowerInventorWeaponSteelDefenderCommandDescription=Issue command for your Defending Blade - until the start of your next turn it is not limited in types of action it can take. If you end your turn without spending bonus action - you will command your blade automatically.
 Feature/&PowerInventorWeaponSteelDefenderCommandTitle=Command Defending Blade
 Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After experimenting on weapons you learned that you can use your smarts to handle them:\n• You became proficient with all martial weapons\n• You can use Intelligence for attack and damage rolls with magic weapons
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Inventive Weapon Use
