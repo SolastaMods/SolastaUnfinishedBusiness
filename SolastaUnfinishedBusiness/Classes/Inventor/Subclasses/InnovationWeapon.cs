@@ -1,5 +1,6 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -289,26 +290,31 @@ public static class InnovationWeapon
 
     private static FeatureDefinition BuildCommandSteelDefender()
     {
-        return FeatureDefinitionPowerBuilder
+        var condition = ConditionDefinitionBuilder
+            .Create(CommandSteelDefenderCondition)
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(true)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create(CommandSteelDefenderCondition)
-                        .SetGuiPresentationNoContent()
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetDuration(DurationType.Round, 0, false)
-                        .SetSpecialDuration(true)
-                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
+
+        power.AddCustomSubFeatures(new ApplyOnTurnEnd(condition, power));
+
+        return power;
     }
 
     private static FeatureDefinition BuildArcaneJolt()
@@ -369,6 +375,30 @@ public static class InnovationWeapon
 
             //can act if summoner commanded
             return summoner.HasConditionOfType(CommandSteelDefenderCondition);
+        }
+    }
+
+    private class ApplyOnTurnEnd : ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower power;
+
+        public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
+        {
+            this.condition = condition;
+            this.power = power;
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
+            if (status != ActionStatus.Available) { return; }
+
+            var character = locationCharacter.RulesetCharacter;
+            var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,
+                TurnOccurenceType.StartOfTurn, locationCharacter.Guid, character.CurrentFaction.Name);
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+            GameConsoleHelper.LogCharacterUsedPower(character, power);
         }
     }
 
