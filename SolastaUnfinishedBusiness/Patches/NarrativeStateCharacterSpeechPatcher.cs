@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -17,7 +18,7 @@ public static class NarrativeStateCharacterSpeechPatcher
                 return;
             }
 
-            Gui.Game.GameConsole.LogSimpleLine($"<b><color=yellow>{speakerName}:</color></b> {textLine}");
+            GameConsoleHelper.LogCharacterConversationLine(speakerName, textLine, false);
         }
     }
 }
