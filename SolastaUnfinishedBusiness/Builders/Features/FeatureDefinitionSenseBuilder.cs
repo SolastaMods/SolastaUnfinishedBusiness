@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -8,32 +7,24 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class
     FeatureDefinitionSenseBuilder : DefinitionBuilder<FeatureDefinitionSense, FeatureDefinitionSenseBuilder>
 {
-    internal FeatureDefinitionSenseBuilder SetSenseRange(int senseRange)
+    internal FeatureDefinitionSenseBuilder SetSense(SenseMode.Type type, int senseRange, int stealthBreakerRange = 0)
     {
+        Definition.senseType = type;
         Definition.senseRange = senseRange;
+        Definition.stealthBreakerRange = stealthBreakerRange;
         return this;
     }
 
     #region Constructors
 
-    protected FeatureDefinitionSenseBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    internal FeatureDefinitionSenseBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    protected FeatureDefinitionSenseBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-    {
-    }
-
-    protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, Guid namespaceGuid) :
-        base(original, name, namespaceGuid)
-    {
-    }
-
-    protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, string definitionGuid) :
-        base(original, name, definitionGuid)
+    internal FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, Guid namespaceGuid) : base(
+        original, name, namespaceGuid)
     {
     }
 
     #endregion
 }
-#endif
