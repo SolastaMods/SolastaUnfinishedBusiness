@@ -337,7 +337,7 @@ public static class InnovationWeapon
             .AddToDB();
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator
+    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
         {
@@ -356,6 +356,16 @@ public static class InnovationWeapon
             if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
 
             return true;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var limited = IsValid(null, locationCharacter.RulesetCharacter);
+            if (limited)
+            {
+                ServiceRepository.GetService<ICommandService>()
+                    ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+            }
         }
     }
 
