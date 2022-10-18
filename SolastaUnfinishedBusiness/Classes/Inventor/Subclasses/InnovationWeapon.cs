@@ -252,8 +252,8 @@ public static class InnovationWeapon
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
                     .SetDefaultAllowedActonTypes()
-                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready, Id.Shove,
-                        Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
+                        Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                     .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
