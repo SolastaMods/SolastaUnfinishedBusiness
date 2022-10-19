@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -34,9 +36,17 @@ public static class AfterRestActionItemPatcher
 
             if (power == null) { return; }
 
+            //PATCH: use power tooltip for custom use power functors
             ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiPowerDefinition(power.PowerDefinition.Name)
                 .SetupTooltip(__instance.GuiTooltip, hero);
+
+            //PATCH: allow customized titles on use rest power
+            var getTitle = power.PowerDefinition.GetFirstSubFeatureOfType<ModifyRestPowerTitleHandler>();
+            if (getTitle != null)
+            {
+                __instance.titleLabel.Text = getTitle(hero);
+            }
         }
     }
 }
