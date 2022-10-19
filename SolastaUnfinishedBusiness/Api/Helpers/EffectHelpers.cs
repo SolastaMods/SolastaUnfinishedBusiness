@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -57,7 +58,7 @@ internal static class EffectHelpers
 
         return null;
     }
-    
+
     internal static RulesetCharacter GetCharacterByGuid(ulong guid)
     {
         if (guid == 0) { return null; }
@@ -66,8 +67,28 @@ internal static class EffectHelpers
         {
             return null;
         }
-        
+
         return entity as RulesetCharacter;
+    }
+
+    internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
+    {
+        var summons = new List<RulesetCharacter>();
+
+        foreach (var conditionGuid in effect.trackedConditionGuids)
+        {
+            if (RulesetEntity.TryGetEntity<RulesetCondition>(conditionGuid, out var condition)
+                && condition.Name == RuleDefinitions.ConditionConjuredCreature)
+            {
+                if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var creature)
+                    && creature != null)
+                {
+                    summons.TryAdd(creature);
+                }
+            }
+        }
+
+        return summons;
     }
 
     internal static RulesetCharacter GetCharacterByEffectGuid(ulong guid)
