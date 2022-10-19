@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
-  "useControllerSavingThrows": true,
+  "useControllerSavingThrows": false,
   "priorityAbilityScore": "",
   "affinityGroups": [],
   "indomitableSavingThrows": 0,
