@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddAbilityScoreBonus",
-  "modifierValue": 1,
+  "modifierOperation": "SetWithDexPlusOtherAbilityScoreBonusIfBetter",
+  "modifierValue": 10,
   "modifierAbilityScore": "Wisdom",
   "situationalContext": "NotWearingArmorOrMageArmorOrShield",
   "minimum1": false,

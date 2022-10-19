@@ -110,7 +110,7 @@
     },
     {
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
-      "mainHandItemDefinition": "Definition:Lute:bf3245124743f6340804f14ffb022fa1",
+      "mainHandItemDefinition": null,
       "offHandItemDefinition": null
     },
     {

@@ -1,10 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
-    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaSlashingReduction:fef64b892900c224883137662d72b966",
-    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaBludgeoningReduction:8a54dc4d7e7c28444abd65cebda66e87",
-    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaPiercingReduction:0655dc647f8c89543b2c59f3920a6d8f"
+    "Definition:AbilityCheckAffinityBardJackOfAllTrades:a61f9dae164b10b4d8c11ea83135fab3",
+    "Definition:AttributeModifier_JackOfAllTrades:4aba031ecc7331a4592d0460e427109d"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -16,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetOathOfMotherlandHeartOfLavaTitle",
-    "description": "Feature/&FeatureSetOathOfMotherlandHeartOfLavaDescription",
+    "title": "Feature/&BardJackOfAllTradesTitle",
+    "description": "Feature/&BardJackOfAllTradesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,8 +34,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "TacticalAdventuresContent",
-  "guid": "0991f4538cc2eaa478b9bb3885e8b4f2",
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "897b529caf664ca4593f4dfe2c0bb463",
   "contentPack": "BaseGame",
-  "name": "FeatureSetOathOfMotherlandHeartOfLava"
+  "name": "FeatureSetBardJackOfAllTrades"
 }

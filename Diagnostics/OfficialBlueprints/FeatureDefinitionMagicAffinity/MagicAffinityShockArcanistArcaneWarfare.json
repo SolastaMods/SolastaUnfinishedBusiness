@@ -44,8 +44,7 @@
     "MindTwist",
     "Disintegrate",
     "ChainLightning",
-    "FreezingSphere",
-    "IncendiaryCloud"
+    "FreezingSphere"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",

@@ -302,7 +302,7 @@
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "disableIfTargetConditionIsOwned": "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0",
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "KiPoints",
   "costPerUse": 1,
   "spellcastingFeature": null,
