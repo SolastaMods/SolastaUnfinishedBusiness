@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static ActionDefinitions;
@@ -76,9 +77,81 @@ public static class InnovationWeapon
                 //TODO: add short-rest camping activity to Inventor that would heal Blade by 1d8, Inventor level times per long rest, similar to Hit Die rolling by heroes 
                 BuildSteelDefenderPower(),
                 BuildCommandSteelDefender(),
+                BuildSteelDefenderShortRestRecovery(),
                 BuildSteelDefenderAffinity()
             )
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildSteelDefenderShortRestRecovery()
+    {
+        const string name = "PowerInnovationWeaponSteelDefenderRecuperate";
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityInnovationWeaponSteelDefenderRecuperate")
+            .SetGuiPresentation(name, Category.Feature)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                PowersBundleContext.UseCustomRestPowerFunctorName,
+                name)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create(name)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                HasModifiedUses.Marker,
+                new ValidatorsPowerUse(HasInjuredDefender),
+                new ModifyRestPowerTitleHandler(GetRestPowerTitle),
+                new TargetDefendingBlade()
+            )
+            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new PowerUseModifier
+        {
+            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
+        });
+
+        return power;
+    }
+
+    private static RulesetCharacter GetBladedefender(RulesetCharacter character)
+    {
+        var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+
+        var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
+
+        if (summons.Empty()) { return null; }
+
+        return summons[0];
+    }
+
+    private static bool HasInjuredDefender(RulesetCharacter character)
+    {
+        var blade = GetBladedefender(character);
+        if (blade == null) { return false; }
+
+        return blade.IsMissingHitPoints;
+    }
+
+    private static string GetRestPowerTitle(RulesetCharacter character)
+    {
+        var blade = GetBladedefender(character);
+        if (blade == null) { return string.Empty; }
+
+        return Gui.Format("Feature/&PowerInnovationWeaponSteelDefenderRecuperateFormat",
+            blade.CurrentHitPoints.ToString(),
+            blade.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
     private static FeatureDefinition BuildSteelDefenderPower()
@@ -417,6 +490,17 @@ public static class InnovationWeapon
             if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
 
             return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+        }
+    }
+
+    private class TargetDefendingBlade : IRetargetCustomRestPower
+    {
+        public GameLocationCharacter GetTarget(RulesetCharacter user)
+        {
+            var blade = GetBladedefender(user);
+            if (blade == null) { return null; }
+
+            return GameLocationCharacter.GetFromActor(blade);
         }
     }
 }

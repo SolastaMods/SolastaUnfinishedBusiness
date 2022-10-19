@@ -26,3 +26,6 @@ Screen/&InventorWeaponsmithSpellDescription=This Weaponsmith spell is always con
 Screen/&InventorWeaponsmithSpellTitle=Weaponsmith
 Subclass/&InnovationWeaponDescription=Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 Subclass/&InnovationWeaponTitle=Weaponsmith
+Feature/&PowerInnovationWeaponSteelDefenderRecuperateFormat=Blade HP:\n{0}/{1}
+Feature/&PowerInnovationWeaponSteelDefenderRecuperateDescription=Defending Blade has number of d8 hit dice equal to your Inventor level. During short rest you can roll them to restore Defending Blade's HP.
+Feature/&PowerInnovationWeaponSteelDefenderRecuperateTitle=Defending Blade Hit Die
