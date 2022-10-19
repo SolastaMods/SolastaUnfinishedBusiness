@@ -23,9 +23,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsBuildersContext
 {
-    //
-    // CANTRIPS
-    //
+    #region CANTRIPS
 
     private static ConditionDefinition _acidClawCondition;
     internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
@@ -512,9 +510,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 01
-    //
+    #endregion
+
+    #region LEVEL 01
 
     internal static SpellDefinition BuildFindFamiliar()
     {
@@ -658,9 +656,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 02
-    //
+    #endregion
+
+    #region LEVEL 02
 
     internal static SpellDefinition BuildPetalStorm()
     {
@@ -770,9 +768,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 03
-    //
+    #endregion
+
+    #region LEVEL 03
 
     internal static SpellDefinition BuildEarthTremor()
     {
@@ -873,9 +871,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 07
-    //
+    #endregion
+
+    #region LEVEL 07
 
     internal static SpellDefinition BuildReverseGravity()
     {
@@ -933,9 +931,9 @@ internal static class SpellsBuildersContext
             .AddToDB();
     }
 
-    //
-    // LEVEL 08
-    //
+    #endregion
+
+    #region LEVEL 08
 
     internal static SpellDefinition BuildMindBlank()
     {
@@ -981,9 +979,9 @@ internal static class SpellsBuildersContext
             .AddToDB();
     }
 
-    //
-    // LEVEL 09
-    //
+    #endregion
+
+    #region LEVEL 09
 
     internal static SpellDefinition BuildForesight()
     {
@@ -1232,19 +1230,16 @@ internal static class SpellsBuildersContext
                         specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                         shapeOptions = new List<ShapeOptionDescription>
                         {
-                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
-                            new()
-                            {
-                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                            },
-                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
+                            new() {requiredLevel = 1, substituteMonster = GoldDragon_AerElai},
+                            new() {requiredLevel = 1, substituteMonster = Divine_Avatar},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss},
+                            new() {requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration},
+                            new() {requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy},
+                            new() {requiredLevel = 1, substituteMonster = Remorhaz},
+                            new() {requiredLevel = 1, substituteMonster = Emperor_Laethar},
+                            new() {requiredLevel = 1, substituteMonster = Giant_Ape},
+                            new() {requiredLevel = 1, substituteMonster = Spider_Queen},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath}
                         }
                     }
                 })
@@ -1341,6 +1336,8 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(true)
             .AddToDB();
     }
+
+    #endregion
 }
 
 internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
