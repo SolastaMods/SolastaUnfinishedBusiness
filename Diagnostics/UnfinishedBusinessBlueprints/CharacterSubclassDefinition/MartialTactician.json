@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:99b1d67a-6c4b-5b47-b6b2-e03edc5a53be",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:09207873-7de6-5a65-a8f8-724f37675e6a",
+      "featureDefinition": "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
       "level": 3
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:99b1d67a-6c4b-5b47-b6b2-e03edc5a53be",
+      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:09207873-7de6-5a65-a8f8-724f37675e6a",
       "level": 3
     },
     {

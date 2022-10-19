@@ -237,7 +237,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": null,
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "52bedd1eaac1e24418ac53c5aacf29a2",

@@ -20,6 +20,21 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:ce45cf63-5b75-5ee3-9b1f-8e96ad329ecc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:EquipmentAffinityBolgrifPowerfulBuild:f3cd0c6a-fce6-5c7c-89de-c76eac1444be",
       "level": 1
     },
@@ -30,22 +45,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellBolgrifMagic:a0279437-8ed9-52b7-90a0-8a83973943a9",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:ce45cf63-5b75-5ee3-9b1f-8e96ad329ecc",
       "level": 1
     }
   ],

@@ -8,17 +8,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSoulBladeEmpowerWeapon:f0387894-e020-5e52-92d5-f5b88bb6997d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencySoulBladeArmor:4778a605-86e3-599a-b627-6077d32a5a55",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencySoulBladeWeapon:9f57a0aa-dfaf-5d9c-8890-ab3cd681560b",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSoulBladeEmpowerWeapon:f0387894-e020-5e52-92d5-f5b88bb6997d",
       "level": 1
     },
     {

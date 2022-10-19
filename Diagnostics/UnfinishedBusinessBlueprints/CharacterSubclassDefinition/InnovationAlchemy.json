@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
+      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
       "level": 3
     },
     {
@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInnovationAlchemyBombsElemental:9c6889e1-290c-5b52-bab3-4b4606489e5e",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyOverchargeBombs:f68f7df0-086b-50e3-b3a7-17d199edf405",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureInnovationAlchemyOverchargeBombs:f68f7df0-086b-50e3-b3a7-17d199edf405",
+      "featureDefinition": "Definition:PowerInnovationAlchemyBombsElemental:9c6889e1-290c-5b52-bab3-4b4606489e5e",
       "level": 5
     },
     {

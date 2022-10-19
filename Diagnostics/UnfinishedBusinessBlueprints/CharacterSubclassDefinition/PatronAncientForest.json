@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripAncientForest:3caea6e1-5db7-5273-b4ce-4cbb5e34794f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityAncientForestExpandedSpells:4aad1f84-f733-5a96-a23d-6949e84b1566",
       "level": 1
     },
@@ -19,11 +24,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerAncientForestRegrowth:c9471903-1408-52f6-9aa5-8dd80d38e3bd",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripAncientForest:3caea6e1-5db7-5273-b4ce-4cbb5e34794f",
       "level": 1
     },
     {
