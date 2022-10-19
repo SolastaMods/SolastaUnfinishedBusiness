@@ -408,20 +408,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), "RefreshArmorClassInFeatures")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class RefreshArmorClassInFeatures_Patch
-    {
-        [NotNull]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-        {
-            //PATCH: support for exclusivity tags in AC modifiers  
-            //used to prevent various extra defence feats (like arcane defense or wise defense) from stacking
-            //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
-            return ArmorClassStacking.AddCustomTagsToModifierBuilderInCharacter(instructions);
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshAttributeModifiersFromConditions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshAttributeModifiersFromConditions_Patch

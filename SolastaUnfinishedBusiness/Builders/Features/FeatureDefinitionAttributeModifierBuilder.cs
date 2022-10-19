@@ -30,6 +30,20 @@ internal class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<Fea
         Definition.minimum1 = minimum1;
         return this;
     }
+    
+    internal FeatureDefinitionAttributeModifierBuilder SetDexPlusAbilityScore(
+        string attribute,
+        string abilityScore,
+        int value = 10,
+        bool minimum1 = true)
+    {
+        Definition.modifierOperation = AttributeModifierOperation.SetWithDexPlusOtherAbilityScoreBonusIfBetter;
+        Definition.modifiedAttribute = attribute;
+        Definition.modifierAbilityScore = abilityScore;
+        Definition.modifierValue = value;
+        Definition.minimum1 = minimum1;
+        return this;
+    }
 
     internal FeatureDefinitionAttributeModifierBuilder SetSituationalContext(
         RuleDefinitions.SituationalContext situationalContext)

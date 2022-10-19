@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -29,7 +28,6 @@ internal static class SrdAndHouseRulesContext
     {
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
-        ApplyAcNonStackingRules();
         ApplySrdWeightToFoodRations();
         ConjurationsContext.BuildConjureElementalInvisibleStalker();
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
@@ -189,20 +187,6 @@ internal static class SrdAndHouseRulesContext
             spell.targetParameter = 3;
             spell.effectAdvancement.additionalTargetsPerIncrement = 0;
         }
-    }
-
-    private static void ApplyAcNonStackingRules()
-    {
-        FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense);
-        FeatureDefinitionAttributeModifiers.AttributeModifierMonkUnarmoredDefense
-            .SetCustomSubFeatures(ExclusiveAcBonus.MarkUnarmoredDefense);
-        FeatureDefinitionAttributeModifiers.AttributeModifierSorcererDraconicResilienceAC
-            .SetCustomSubFeatures(ExclusiveAcBonus.MarkLikeArmor);
-
-        //Mostly for wild-shaped AC stacking, since unarmored defenses would not be valid anyway under mage armor
-        FeatureDefinitionAttributeModifiers.AttributeModifierMageArmor
-            .SetCustomSubFeatures(ExclusiveAcBonus.MarkLikeArmor);
     }
 
     internal static void ApplySrdWeightToFoodRations()
@@ -499,188 +483,6 @@ internal static class ConjurationsContext
 
 internal static class ArmorClassStacking
 {
-    //replaces call to `RulesetAttributeModifier.BuildAttributeModifier` with custom method that calls base on e and adds extra tags when necessary
-    internal static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInCharacter(
-        IEnumerable<CodeInstruction> instructions)
-    {
-        var method =
-            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(
-                RulesetAttributeModifier.BuildAttributeModifier).Method;
-
-        var custom =
-            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier,
-                RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
-
-        foreach (var code in instructions)
-        {
-            if (code.Calls(method))
-            {
-                yield return new CodeInstruction(OpCodes.Ldloc_1);
-                yield return new CodeInstruction(OpCodes.Call, custom);
-            }
-            else
-            {
-                yield return code;
-            }
-        }
-    }
-
-    internal static IEnumerable<CodeInstruction> AddCustomTagsToModifierBuilderInFeature(
-        IEnumerable<CodeInstruction> instructions)
-    {
-        var method =
-            new Func<AttributeModifierOperation, float, string, string, RulesetAttributeModifier>(
-                RulesetAttributeModifier.BuildAttributeModifier).Method;
-
-        var custom =
-            new Func<AttributeModifierOperation, float, string, string, FeatureDefinitionAttributeModifier,
-                RulesetAttributeModifier>(CustomBuildAttributeModifier).Method;
-
-        foreach (var code in instructions)
-        {
-            if (code.Calls(method))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Call, custom);
-            }
-            else
-            {
-                yield return code;
-            }
-        }
-    }
-
-    private static RulesetAttributeModifier CustomBuildAttributeModifier(
-        AttributeModifierOperation operationType,
-        float modifierValue,
-        string tag,
-        string sourceAbility,
-        FeatureDefinitionAttributeModifier feature)
-    {
-        var modifier =
-            RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag, sourceAbility);
-
-        var exclusive = feature.GetFirstSubFeatureOfType<ExclusiveAcBonus>();
-        if (exclusive != null)
-        {
-            modifier.Tags.TryAdd(exclusive.Tag);
-        }
-
-        return modifier;
-    }
-
-    // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
-    // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-    internal static IEnumerable<CodeInstruction> UnstackAcTranspile(IEnumerable<CodeInstruction> instructions)
-    {
-        var sort = new Action<List<RulesetAttributeModifier>>(RulesetAttributeModifier.SortAttributeModifiersList)
-            .Method;
-
-        var unstack = new Action<List<RulesetAttributeModifier>, RulesetCharacter>(UnstackAc).Method;
-
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(sort))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Call, unstack);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
-    }
-
-    private static void UnstackAc(List<RulesetAttributeModifier> modifiers, RulesetCharacter character)
-    {
-        //AC formula is `Value + DEX`
-        var armor = new List<RulesetAttributeModifier>();
-        //AC formula is `Value`
-        var natural = new List<RulesetAttributeModifier>();
-        //AC Formula is `10 + DEX + Value`
-        var unarmored = new List<RulesetAttributeModifier>();
-
-        //Collect all different AC formulas into lists
-        foreach (var modifier in modifiers)
-        {
-            switch (modifier.operation)
-            {
-                case AttributeModifierOperation.Set
-                    when modifier.Tags.Contains(ExclusiveAcBonus.TagLikeArmor):
-                {
-                    armor.Add(modifier);
-                    break;
-                }
-                case AttributeModifierOperation.Set
-                    when modifier.Tags.Contains(ExclusiveAcBonus.TagNaturalArmor):
-                {
-                    natural.Add(modifier);
-                    break;
-                }
-                case AttributeModifierOperation.AddAbilityScoreBonus
-                    when modifier.Tags.Contains(ExclusiveAcBonus.TagUnarmoredDefense):
-                {
-                    unarmored.Add(modifier);
-                    break;
-                }
-            }
-        }
-
-        //setup for getting top formula of each type
-        var topFormulas = new List<(float, RulesetAttributeModifier, string)>();
-        var dexterity = AttributeDefinitions.ComputeAbilityScoreModifier(
-            character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
-
-        void TryAddFormula(List<RulesetAttributeModifier> mods, float baseStat, string tag)
-        {
-            if (mods.Count <= 0)
-            {
-                return;
-            }
-
-            mods.Sort((left, right) => -left.value.CompareTo(right.value));
-            topFormulas.Add((baseStat + mods[0].Value, mods[0], tag));
-        }
-
-        //get top formula of each type
-        TryAddFormula(armor, dexterity, ExclusiveAcBonus.TagLikeArmor);
-        TryAddFormula(natural, 0, ExclusiveAcBonus.TagNaturalArmor);
-        TryAddFormula(unarmored, 10 + dexterity, ExclusiveAcBonus.TagUnarmoredDefense);
-
-        //remove all modifiers corresponding to formulas
-        modifiers.RemoveAll(m => armor.Contains(m));
-        modifiers.RemoveAll(m => natural.Contains(m));
-        modifiers.RemoveAll(m => unarmored.Contains(m));
-
-        if (topFormulas.Count > 0)
-        {
-            //sort modifiers so that biggest is first
-            topFormulas.Sort((left, right) => -left.Item1.CompareTo(right.Item1));
-
-            var topFormula = topFormulas[0];
-
-            //return top AC formula back into modifiers
-            modifiers.Add(topFormula.Item2);
-
-            //if this is Natural armor, we need to dump dex so it won't apply
-            if (topFormula.Item3 == ExclusiveAcBonus.TagNaturalArmor)
-            {
-                var dexMod = modifiers.Find(m =>
-                    m.Operation == AttributeModifierOperation.AddAbilityScoreBonus
-                    && m.SourceAbility == AttributeDefinitions.Dexterity);
-
-                if (dexMod != null)
-                {
-                    dexMod.Value = 0;
-                }
-            }
-        }
-
-        //sort modifiers
-        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
-    }
-
     internal static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefreshTranspiler(
         IEnumerable<CodeInstruction> instructions)
     {
@@ -713,7 +515,9 @@ internal static class ArmorClassStacking
 
         MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
         MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
-        UnstackAc(modifiers, monster); // also sorts modifiers
+
+        //sort modifiers
+        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }
 

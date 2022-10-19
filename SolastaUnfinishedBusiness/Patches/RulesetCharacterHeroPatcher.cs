@@ -228,20 +228,6 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class RefreshArmorClass_Patch
-    {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            //PATCH: implements exclusivity for some AC modifiers
-            // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
-            // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
-            // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-            return ArmorClassStacking.UnstackAcTranspile(instructions);
-        }
-    }
-
     //PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
