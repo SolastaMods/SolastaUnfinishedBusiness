@@ -63,6 +63,30 @@ internal enum ExtraOriginOfAmount
     SourceAbilityBonus = 9003 //Attribute name should be in the `additionalDamageType` field of the condition
 }
 
+internal enum ExtraAdditionalDamageTriggerCondition
+{
+    // AdvantageOrNearbyAlly = AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly,
+    // SpendSpellSlot = AdditionalDamageTriggerCondition.SpendSpellSlot,
+    // SpecificCharacterFamily = AdditionalDamageTriggerCondition.SpecificCharacterFamily,
+    // TargetHasConditionCreatedByMe = AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe,
+    // AlwaysActive = AdditionalDamageTriggerCondition.AlwaysActive,
+    // TargetHasCondition = AdditionalDamageTriggerCondition.TargetHasCondition,
+    // TargetIsWounded = AdditionalDamageTriggerCondition.TargetIsWounded,
+    // TargetHasSenseType = AdditionalDamageTriggerCondition.TargetHasSenseType,
+    // TargetHasCreatureTag = AdditionalDamageTriggerCondition.TargetHasCreatureTag,
+    // RangeAttackFromHigherGround = AdditionalDamageTriggerCondition.RangeAttackFromHigherGround,
+    // EvocationSpellDamage = AdditionalDamageTriggerCondition.EvocationSpellDamage,
+    // TargetDoesNotHaveCondition = AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition,
+    // SpellDamageMatchesSourceAncestry = AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry,
+    // CriticalHit = AdditionalDamageTriggerCondition.CriticalHit,
+    // RagingAndTargetIsSpellcaster = AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster,
+    // Raging = AdditionalDamageTriggerCondition.Raging,
+    // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
+    // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
+    
+    TargetWithin10ft = 9000
+}
+
 public enum ExtraConditionInterruption
 {
     //Interrupts after attack was made against this target, unlike `ConditionInterruption.Attacked` that triggers at the very start
