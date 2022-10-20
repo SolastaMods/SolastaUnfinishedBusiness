@@ -912,6 +912,9 @@ internal static class SpellsBuildersContext
             .SetSomaticComponent(true)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .Build())
             .SetSubSpells(
                 BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeRadiant, hinder, noHeal, sprite),
                 BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeNecrotic, hinder, noHeal, sprite),
