@@ -32,6 +32,7 @@ FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSense
 FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
+InvocationDefinition
 ItemDefinition
 MonsterAttackDefinition
 MonsterDefinition
