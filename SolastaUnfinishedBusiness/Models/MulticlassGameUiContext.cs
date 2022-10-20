@@ -301,6 +301,7 @@ internal static class MulticlassGameUiContext
             maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
         }
 
+        var options = -1;
         for (var level = minSpellLevel; level <= maxSpellLevel; ++level)
         {
             spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
@@ -312,6 +313,7 @@ internal static class MulticlassGameUiContext
             }
 
             optionsAvailability.Add(level, remaining > 0);
+            options++;
 
             if (selected || remaining <= 0)
             {
@@ -319,7 +321,7 @@ internal static class MulticlassGameUiContext
             }
 
             selected = true;
-            selectedSlot = level - minSpellLevel;
+            selectedSlot = options;
         }
 
         return selectedSlot;
