@@ -13,22 +13,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArcherFlurryOfArrows:141c7117-a252-597f-b0fd-71611c08bd4a",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:WayOfTheDistantHandKiPoweredArrows:c9a2b764-8d91-5c0a-9db2-607e55cd82d1",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowUpgradedTechnique:75ccd86a-0b92-5944-8a4f-bcc7272b1aea",
-      "level": 11
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArcherFlurryOfArrows:141c7117-a252-597f-b0fd-71611c08bd4a",
+      "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:WayOfTheDistantHandZenArcherStunningArrows:757924fd-72c0-5d10-8213-10e9b928d5be",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowUpgradedTechnique:75ccd86a-0b92-5944-8a4f-bcc7272b1aea",
       "level": 11
     }
   ],

@@ -1,2 +1,0 @@
-AdditionalDamageInvocationEldritchSmite	Title='Feature/&AdditionalDamageInvocationEldritchSmiteTitle'.
-AdditionalDamageInvocationEldritchSmite	Description='Feature/&AdditionalDamageInvocationEldritchSmiteDescription'.
