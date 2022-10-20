@@ -1,0 +1,10 @@
+Feature/&InvocationEldritchSmiteDescription=Once per turn when you hit a creature with your weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+Feature/&InvocationEldritchSmiteTitle=Eldritch Smite
+Feedback/&AdditionalDamageEldritchSmiteFormat=Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine={0} smites {1} (+{2})
+Reaction/&SpendSpellSlotEldritchSmiteDescription={0} can spend spell slot to deal 1d8 force damage and an additional 1d8 damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription=Click to spend a spell slot and increase damage to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle=Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle=Eldritch Smite
+Reaction/&SubitemSelectEldritchSmiteDescription=Select a slot level to consume for your Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle=Slot Level

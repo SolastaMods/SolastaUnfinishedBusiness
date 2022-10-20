@@ -89,6 +89,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetAttackModeOnly()
+    {
+        Definition.attackModeOnly = true;
+        return this;
+    }
+    
     internal FeatureDefinitionAdditionalDamageBuilder SetAttackOnly()
     {
         Definition.attackOnly = true;
@@ -99,6 +105,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
     {
         Definition.impactParticleReference = asset;
         return this;
+    }
+    
+    
+    internal FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(IMagicEffect effect)
+    {
+        return SetImpactParticleReference(effect.EffectDescription.EffectParticleParameters.impactParticleReference);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(
