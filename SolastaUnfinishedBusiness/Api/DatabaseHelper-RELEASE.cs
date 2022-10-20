@@ -6,6 +6,12 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class InvocationDefinitions
+    {
+        internal static InvocationDefinition EldritchSpear { get; } =
+            GetDefinition<InvocationDefinition>("EldritchSpear");
+    }
+    
     internal static class AlignmentDefinitions
     {
         internal static AlignmentDefinition Neutral { get; } =
@@ -328,9 +334,18 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionShielded { get; } =
             GetDefinition<ConditionDefinition>("ConditionShielded");
+        
+        internal static ConditionDefinition ConditionChilledByTouch { get; } =
+            GetDefinition<ConditionDefinition>("ConditionChilledByTouch");
 
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } =
             GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
+        
+        internal static ConditionDefinition ConditionSpiritGuardians { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
+        
+        internal static ConditionDefinition ConditionSpiritGuardiansSelf { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpiritGuardiansSelf");
 
         internal static ConditionDefinition ConditionStoneResilience { get; } =
             GetDefinition<ConditionDefinition>("ConditionStoneResilience");
@@ -1125,6 +1140,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
+        
+        internal static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade");
 
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
@@ -2662,6 +2680,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition DominatePerson { get; } =
             GetDefinition<SpellDefinition>("DominatePerson");
+        
+        internal static SpellDefinition EldritchBlast { get; } =
+            GetDefinition<SpellDefinition>("EldritchBlast");
 
         internal static SpellDefinition EnhanceAbility { get; } =
             GetDefinition<SpellDefinition>("EnhanceAbility");
@@ -2914,6 +2935,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition SpikeGrowth { get; } =
             GetDefinition<SpellDefinition>("SpikeGrowth");
+        
+        internal static SpellDefinition SpiritGuardians { get; } =
+            GetDefinition<SpellDefinition>("SpiritGuardians");
 
         internal static SpellDefinition SpiritualWeapon { get; } =
             GetDefinition<SpellDefinition>("SpiritualWeapon");
