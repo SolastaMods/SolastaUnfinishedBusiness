@@ -25,7 +25,7 @@ internal static class WarlockInvocations
             .SetRequirements(level: 5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent()
                 .SetCustomSubFeatures(WarlockHolder.Instance)
                 .SetNotificationTag(EldritchSmiteTag)
                 .SetDamageDice(RuleDefinitions.DieType.D8, 0)
