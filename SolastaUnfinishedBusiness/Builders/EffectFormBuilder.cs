@@ -366,7 +366,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
         var topologyForm =
@@ -376,5 +375,4 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Topology;
         return this;
     }
-#endif
 }

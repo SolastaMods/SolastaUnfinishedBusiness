@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -870,6 +871,120 @@ internal static class SpellsBuildersContext
 
         return spell;
     }
+
+    #region Spirit Shroud
+
+    internal static SpellDefinition BuildSpiritShroud()
+    {
+        var hinder = ConditionDefinitionBuilder
+            .Create($"ConditionSpiritShroudHinder")
+            .SetGuiPresentation(ConditionHindered_By_Frost.GuiPresentation)
+            .SetSilent(Silent.None)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(ConditionHindered_By_Frost.features)
+            .SetSpecialDuration(true)
+            .SetDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .CopyParticleReferences(ConditionSpiritGuardians)
+            .AddToDB();
+
+        var noHeal = ConditionDefinitionBuilder
+            .Create($"ConditionSpiritShroudNoHeal")
+            .SetGuiPresentation(Category.Condition,
+                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch.GuiPresentation.Description,
+                ConditionChilledByTouch.GuiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
+            )
+            .SetSpecialDuration(true)
+            .SetDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        var sprite = CustomIcons.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
+
+        return SpellDefinitionBuilder
+            .Create($"SpiritShroud")
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSpellLevel(3)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetRequiresConcentration(true)
+            .SetSubSpells(
+                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeRadiant, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeNecrotic, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeCold, hinder, noHeal, sprite)
+            )
+            .AddToDB();
+    }
+
+    private static SpellDefinition BuildSpriritShroudSubSpell(string damage, ConditionDefinition hinder,
+        ConditionDefinition noHeal, AssetReferenceSprite sprite)
+    {
+        return SpellDefinitionBuilder
+            .Create($"SpiritShroud{damage}")
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSpellLevel(3)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
+                .SetDurationData(DurationType.Minute, 1)
+                //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
+                .SetRecurrentEffect(RecurrentEffect.OnActivation
+                                    | RecurrentEffect.OnTurnStart
+                                    | RecurrentEffect.OnEnter)
+                .SetParticleEffectParameters(SpellDefinitions.SpiritGuardians)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create($"ConditionSpiritShroud{damage}")
+                            // .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf)
+                            .SetGuiPresentationNoContent()
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                .Create($"AdditionalDamageSpiritShroud{damage}")
+                                .SetGuiPresentationNoContent(hidden: true)
+                                .SetNotificationTag($"SpiritShroud{damage}")
+                                .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10ft)
+                                .SetFrequencyLimit(FeatureLimitedUsage.None)
+                                .SetAttackOnly()
+                                .SetConditionOperations(new ConditionOperationDescription()
+                                {
+                                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                                    conditionDefinition = noHeal,
+                                    hasSavingThrow = false
+                                })
+                                .SetDamageDice(DieType.D8, 1)
+                                .SetSpecificDamageType(damage)
+                                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel,
+                                    (3, 1),
+                                    (4, 1),
+                                    (5, 2),
+                                    (6, 2),
+                                    (7, 3),
+                                    (8, 3),
+                                    (9, 4))
+                                .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
+                        .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    #endregion
 
     #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -71,6 +72,15 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.conditionParticleReference = value;
         return (TBuilder)this;
     }
+    
+    internal TBuilder CopyParticleReferences(ConditionDefinition from)
+    {
+        Definition.conditionParticleReference = from.conditionParticleReference;
+        Definition.conditionStartParticleReference = from.conditionStartParticleReference;
+        Definition.conditionEndParticleReference = from.conditionEndParticleReference;
+        Definition.recurrentEffectParticleReference = from.recurrentEffectParticleReference;
+        return (TBuilder)this;
+    }
 
     internal TBuilder SetAdditionalDamageType(string value)
     {
@@ -124,6 +134,13 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     internal TBuilder SetFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.SetRange(value);
+        Definition.Features.Sort(Sorting.Compare);
+        return (TBuilder)this;
+    }
+    
+    internal TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+    {
+        Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
         return (TBuilder)this;
     }
