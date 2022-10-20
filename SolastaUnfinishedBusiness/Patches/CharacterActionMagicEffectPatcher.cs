@@ -10,6 +10,52 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterActionMagicEffectPatcher
 {
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ForceApplyConditionOnSelf")]
+    public static class ForceApplyConditionOnSelf_Patch
+    {
+        public static bool Prefix([NotNull] CharacterActionMagicEffect __instance)
+        {
+            //PATCH: compute effect level of forced on self conditions
+            //used for Spirit Shroud to grant more damage with extra spell slots
+            var actionParams = __instance.ActionParams;
+            var effectDescription = actionParams.RulesetEffect.EffectDescription;
+            if (!effectDescription.HasForceSelfCondition) { return true; }
+
+            var service = ServiceRepository.GetService<IRulesetImplementationService>();
+            var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+
+            var effectLevel = 0;
+            var effectSourceType = RuleDefinitions.EffectSourceType.Power;
+            if (__instance is CharacterActionCastSpell spell)
+            {
+                effectSourceType = RuleDefinitions.EffectSourceType.Spell;
+                effectLevel = spell.ActiveSpell.SlotLevel;
+            }
+            else if (__instance is CharacterActionUsePower power)
+            {
+                effectLevel = power.activePower.EffectLevel;
+            }
+
+            var character = __instance.ActingCharacter.RulesetCharacter;
+            formsParams.FillSourceAndTarget(character, character);
+            formsParams.FillFromActiveEffect(actionParams.RulesetEffect);
+            formsParams.FillSpecialParameters(false, 0, 0, 0, effectLevel, null,
+                RuleDefinitions.RollOutcome.Success, 0, false, 0, 1, null);
+            formsParams.effectSourceType = effectSourceType;
+            
+            if (effectDescription.RangeType == RuleDefinitions.RangeType.MeleeHit
+                || effectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
+            {
+                formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
+            }
+
+            service.ApplyEffectForms(effectDescription.EffectForms, formsParams, null, forceSelfConditionOnly: true,
+                effectApplication: effectDescription.EffectApplication, filters: effectDescription.EffectFormFilters);
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
     public static class ExecuteImpl_Patch
     {
