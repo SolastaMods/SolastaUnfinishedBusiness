@@ -74,6 +74,7 @@ internal static class EffectHelpers
     internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
     {
         var summons = new List<RulesetCharacter>();
+        if (effect == null) { return summons; }
 
         foreach (var conditionGuid in effect.trackedConditionGuids)
         {
