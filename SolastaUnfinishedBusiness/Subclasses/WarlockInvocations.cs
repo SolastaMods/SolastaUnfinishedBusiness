@@ -35,15 +35,15 @@ internal static class WarlockInvocations
                 .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
                 .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
                 .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
-                    (1, 1),
-                    (2, 2),
-                    (3, 3),
-                    (4, 4),
-                    (5, 5),
-                    (6, 6),
-                    (7, 7),
-                    (8, 8),
-                    (9, 9)
+                    (1, 2),
+                    (2, 3),
+                    (3, 4),
+                    (4, 5),
+                    (5, 6),
+                    (6, 7),
+                    (7, 8),
+                    (8, 9),
+                    (9, 10)
                 )
                 .AddToDB())
             .AddToDB();
