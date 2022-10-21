@@ -11,7 +11,8 @@ public static class AttackEvaluationParamsPatcher
     public static class FillForMagicTouchAttack_Patch
     {
         public static void Postfix(
-            BattleDefinitions.AttackEvaluationParams __instance,
+            // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
+            ref BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
             MetamagicOptionDefinition metamagicOption
         )
@@ -31,7 +32,8 @@ public static class AttackEvaluationParamsPatcher
     public static class FillForMagicReachAttack_Patch
     {
         public static void Postfix(
-            BattleDefinitions.AttackEvaluationParams __instance,
+            // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
+            ref BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
             MetamagicOptionDefinition metamagicOption
         )
