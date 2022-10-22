@@ -1,49 +1,50 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi;
 
-// this patch tweaks the UI to allow less/more heroes to be selected on a campaign
-//
-// this shouldn't be protected
-//
-[HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class NewAdventurePanel_OnBeginShow
+public static class NewAdventurePanelPatcher
 {
-    internal static void Prefix([NotNull] NewAdventurePanel __instance)
+    //PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
+    [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnBeginShow_Patch
     {
-        NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
-
-        // overrides campaign party size
-        DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
-
-        // adds new character plates if required
-        for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
+        public static void Prefix([NotNull] NewAdventurePanel __instance)
         {
-            var firstChild = __instance.characterSessionPlatesTable.GetChild(0);
+            // overrides campaign party size
+            DatabaseRepository.GetDatabase<CampaignDefinition>()
+                .Do(x => x.partySize = Main.Settings.OverridePartySize);
 
-            Object.Instantiate(firstChild, firstChild.parent);
-        }
+            // adds new character plates if required
+            for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
+            {
+                var firstChild = __instance.characterSessionPlatesTable.GetChild(0);
 
-        // scales down the plates table if required
-        if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
-        {
-            var scale = (float)Math.Pow(DungeonMakerContext.AdventurePanelDefaultScale,
-                Main.Settings.OverridePartySize - DungeonMakerContext.GamePartySize);
+                Object.Instantiate(firstChild, firstChild.parent);
+            }
 
-            __instance.characterSessionPlatesTable.localScale = new Vector3(scale, scale, scale);
-        }
-        else
-        {
-            __instance.characterSessionPlatesTable.localScale = new Vector3(1, 1, 1);
+            // scales down the plates table if required
+            var parentRectTransform = __instance.characterSessionPlatesTable.parent.GetComponent<RectTransform>();
+
+            switch (Main.Settings.OverridePartySize)
+            {
+                case 6:
+                    parentRectTransform.anchoredPosition = new Vector2(45, -78);
+                    parentRectTransform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                    break;
+                case 5:
+                    parentRectTransform.anchoredPosition = new Vector2(125, -78);
+                    parentRectTransform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                    break;
+                default:
+                    parentRectTransform.anchoredPosition = new Vector2(210, -78);
+                    parentRectTransform.localScale = new Vector3(1, 1, 1);
+                    break;
+            }
         }
     }
 }
