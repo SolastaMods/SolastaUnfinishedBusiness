@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -11,6 +12,17 @@ internal static class NarrativeDirectionManager_StartDialogSequence_Patch
 {
     internal static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
     {
+        //PATCH: Only offer the first 4 players on dialogue sequences (PARTYSIZE)
+        if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
+        {
+            var party = Gui.GameCampaign.Party.CharactersList
+                .Select(x => x.RulesetCharacter)
+                .ToList();
+
+            involvedGameCharacters.RemoveAll(
+                x => party.IndexOf(x.RulesetCharacter) >= DungeonMakerContext.GamePartySize);
+        }
+     
         if (!Main.Settings.FullyControlConjurations)
         {
             return;
