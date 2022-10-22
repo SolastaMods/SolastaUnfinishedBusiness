@@ -110,6 +110,19 @@ internal static class RulesetCharacterExtensions
             r.SpellCastingClass != null && r.SpellCastingClass.Name == className);
     }
 
+    [CanBeNull]
+    internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance,
+        CharacterClassDefinition classDefinition)
+    {
+        var name = string.Empty;
+        if (classDefinition != null)
+        {
+            name = classDefinition.Name;
+        }
+
+        return instance.GetClassSpellRepertoire(name);
+    }
+
     /**@returns true if item holds an infusion created by this character*/
     internal static bool HoldsMyInfusion(this RulesetCharacter instance, RulesetItem item)
     {

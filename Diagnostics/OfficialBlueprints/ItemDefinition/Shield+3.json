@@ -38,7 +38,7 @@
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
+      "appliesOnItemOnly": true,
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
       "conditionDefinition": null,

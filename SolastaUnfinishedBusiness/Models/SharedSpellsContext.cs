@@ -167,7 +167,11 @@ internal static class SharedSpellsContext
             return 0;
         }
 
-        repertoire.usedSpellsSlots.TryGetValue(-1, out var warlockUsedSlots);
+        var slotLevel = IsMulticaster(rulesetCharacterHero)
+            ? -1
+            : GetWarlockSpellLevel(rulesetCharacterHero);
+
+        repertoire.usedSpellsSlots.TryGetValue(slotLevel, out var warlockUsedSlots);
 
         return warlockUsedSlots;
     }

@@ -24,6 +24,7 @@ internal static class FightingStyleContext
         LoadStyle(new Reactionary());
         LoadStyle(new Titan());
         LoadStyle(new Merciless());
+        LoadStyle(new BlindFighting());
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();

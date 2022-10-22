@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
 #if DEBUG
@@ -67,6 +68,9 @@ internal static class BootContext
 
         // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
         SubclassesContext.Load();
+
+        // Custom invocations
+        WarlockInvocations.Load();
 
         // Load SRD and House rules towards the load phase end in case they change previous blueprints
         SrdAndHouseRulesContext.Load();

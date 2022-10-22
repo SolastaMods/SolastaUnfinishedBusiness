@@ -58,11 +58,9 @@ internal static class AttacksOfOpportunity
         GameLocationCharacter defender,
         GameLocationBattleManager battleManager)
     {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side ||
-            !(unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false) ||
-            (defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false) || !CanMakeAoO(unit,
-                attacker, out var opportunityAttackMode, out var actionModifier,
-                battleManager))
+        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
+            || !(unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
+            || !CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier, battleManager))
         {
             yield break;
         }

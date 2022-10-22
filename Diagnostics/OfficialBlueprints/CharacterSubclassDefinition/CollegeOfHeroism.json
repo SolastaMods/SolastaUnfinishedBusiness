@@ -26,8 +26,8 @@
     "description": "Subclass/&CollegeOfHeroismDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a2392b8a6fa1bfc4fbbb740dda250f45",
-      "m_SubObjectName": "Bard_Lore",
+      "m_AssetGUID": "015e169878fa28e4aaa9c0a328dac5d7",
+      "m_SubObjectName": "Bard_Heroism",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

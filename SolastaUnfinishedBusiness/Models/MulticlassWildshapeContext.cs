@@ -98,7 +98,7 @@ internal static class MulticlassWildshapeContext
 
         //natural armor of the monster
         mod = RulesetAttributeModifier.BuildAttributeModifier(
-            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+            FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
             monster.MonsterDefinition.ArmorClass, TagNaturalAc
         );
 

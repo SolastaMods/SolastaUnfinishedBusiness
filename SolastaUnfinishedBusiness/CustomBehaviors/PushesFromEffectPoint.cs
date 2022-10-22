@@ -65,8 +65,11 @@ internal sealed class PushesFromEffectPoint
     public static bool TryPushFromEffectTargetPoint(EffectForm effectForm,
         RulesetImplementationDefinitions.ApplyFormsParams formsParams)
     {
+        var source = formsParams.activeEffect?.SourceDefinition;
+        if (source == null) { return true; }
+
         var position = formsParams.position;
-        var active = formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<PushesFromEffectPoint>();
+        var active = source.HasSubFeatureOfType<PushesFromEffectPoint>();
 
         if (!active || position == int3.zero)
         {

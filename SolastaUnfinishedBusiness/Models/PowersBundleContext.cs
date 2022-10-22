@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -345,9 +346,20 @@ internal sealed class FunctorUseCustomRestPower : Functor
 
         var ruleChar = functorParameters.RestingHero;
         var usablePower = UsablePowersProvider.Get(power, ruleChar);
-        if (usablePower.PowerDefinition.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
+        if (power.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
         {
-            var fromActor = GameLocationCharacter.GetFromActor(ruleChar);
+            GameLocationCharacter fromActor = null;
+            var retarget = power.GetFirstSubFeatureOfType<IRetargetCustomRestPower>();
+            if (retarget != null)
+            {
+                fromActor = retarget.GetTarget(ruleChar);
+            }
+
+            if (fromActor == null)
+            {
+                fromActor = GameLocationCharacter.GetFromActor(ruleChar);
+            }
+
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
 
             if (fromActor != null)

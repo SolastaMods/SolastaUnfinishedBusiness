@@ -1,9 +1,11 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static ActionDefinitions;
@@ -75,9 +77,81 @@ public static class InnovationWeapon
                 //TODO: add short-rest camping activity to Inventor that would heal Blade by 1d8, Inventor level times per long rest, similar to Hit Die rolling by heroes 
                 BuildSteelDefenderPower(),
                 BuildCommandSteelDefender(),
+                BuildSteelDefenderShortRestRecovery(),
                 BuildSteelDefenderAffinity()
             )
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildSteelDefenderShortRestRecovery()
+    {
+        const string name = "PowerInnovationWeaponSteelDefenderRecuperate";
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityInnovationWeaponSteelDefenderRecuperate")
+            .SetGuiPresentation(name, Category.Feature)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                PowersBundleContext.UseCustomRestPowerFunctorName,
+                name)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create(name)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                HasModifiedUses.Marker,
+                new ValidatorsPowerUse(HasInjuredDefender),
+                new ModifyRestPowerTitleHandler(GetRestPowerTitle),
+                new TargetDefendingBlade()
+            )
+            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new PowerUseModifier
+        {
+            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
+        });
+
+        return power;
+    }
+
+    private static RulesetCharacter GetBladedefender(RulesetCharacter character)
+    {
+        var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+
+        var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
+
+        if (summons.Empty()) { return null; }
+
+        return summons[0];
+    }
+
+    private static bool HasInjuredDefender(RulesetCharacter character)
+    {
+        var blade = GetBladedefender(character);
+        if (blade == null) { return false; }
+
+        return blade.IsMissingHitPoints;
+    }
+
+    private static string GetRestPowerTitle(RulesetCharacter character)
+    {
+        var blade = GetBladedefender(character);
+        if (blade == null) { return string.Empty; }
+
+        return Gui.Format("Feature/&PowerInnovationWeaponSteelDefenderRecuperateFormat",
+            blade.CurrentHitPoints.ToString(),
+            blade.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
     private static FeatureDefinition BuildSteelDefenderPower()
@@ -127,13 +201,16 @@ public static class InnovationWeapon
         var savingThrows = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("AttributeInnovationWeaponSummonSteelDefenderSaves")
             .SetGuiPresentationNoContent()
-            .UseControllerSavingThrows()
+            .SetCustomSubFeatures(new AddPBToSummonCheck(1, AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution))
             .AddToDB();
 
         var skills = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AttributeInnovationWeaponSummonSteelDefenderSkills")
             .SetGuiPresentationNoContent()
-            .UseControllerAbilityChecks()
+            .SetCustomSubFeatures(
+                new AddPBToSummonCheck(1, SkillDefinitions.Athletics),
+                new AddPBToSummonCheck(2, SkillDefinitions.Perception))
             .AddToDB();
 
         return FeatureDefinitionSummoningAffinityBuilder
@@ -145,6 +222,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderGeneric")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(savingThrows, skills)
                     .AddToDB(),
@@ -152,6 +230,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
                     .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(toHit)
@@ -160,6 +239,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
                     .AddToDB(),
@@ -167,6 +247,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderLevel")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: InventorClass.ClassName, active: false)
@@ -176,6 +257,7 @@ public static class InnovationWeapon
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderIntelligence")
                     .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceAbilityBonus` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: AttributeDefinitions.Intelligence, active: false)
@@ -207,13 +289,13 @@ public static class InnovationWeapon
                 CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
             .HideFromDungeonEditor()
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
-            .SetSkillScores( //currently setup to use Inventor's skills
-                (SkillDefinitions.Athletics, 2), //TODO: add Inventor's PB to the skill
-                (SkillDefinitions.Perception, 0) //TODO: add Inventor's PB to the skill
+            .SetSkillScores(
+                (SkillDefinitions.Athletics, 2), //has feature that adds summoner's PB
+                (SkillDefinitions.Perception, 0) //has feature that adds summoner's PB x2
             )
-            .SetSavingThrowScores( //currently setup to use Inventor's saves
-                (AttributeDefinitions.Dexterity, 1), //TODO: add Inventor's PB to the save
-                (AttributeDefinitions.Constitution, 2) //TODO: add Inventor's PB to the save
+            .SetSavingThrowScores(
+                (AttributeDefinitions.Dexterity, 1), //has feature that adds summoner's PB
+                (AttributeDefinitions.Constitution, 2) //has feature that adds summoner's PB
             )
             .SetStandardHitPoints(2)
             .SetHitPointsBonus(2) //doesn't seem to be used anywhere
@@ -252,8 +334,8 @@ public static class InnovationWeapon
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
                     .SetDefaultAllowedActonTypes()
-                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready, Id.Shove,
-                        Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
+                        Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                     .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
@@ -289,26 +371,31 @@ public static class InnovationWeapon
 
     private static FeatureDefinition BuildCommandSteelDefender()
     {
-        return FeatureDefinitionPowerBuilder
+        var condition = ConditionDefinitionBuilder
+            .Create(CommandSteelDefenderCondition)
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(true)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create(CommandSteelDefenderCondition)
-                        .SetGuiPresentationNoContent()
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetDuration(DurationType.Round, 0, false)
-                        .SetSpecialDuration(true)
-                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
+
+        power.AddCustomSubFeatures(new ApplyOnTurnEnd(condition, power));
+
+        return power;
     }
 
     private static FeatureDefinition BuildArcaneJolt()
@@ -337,25 +424,62 @@ public static class InnovationWeapon
             .AddToDB();
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator
+    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
     {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            //If not commanded use Dodge at the turn start
+            if (IsCommanded(locationCharacter.RulesetCharacter)) { return; }
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+        }
+
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
         {
+            //Apply limits if not commanded
+            return !IsCommanded(character);
+        }
+
+        private static bool IsCommanded(RulesetCharacter character)
+        {
             //can act freely outside of battle
-            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
+            if (Gui.Battle == null) { return true; }
 
             var summoner = character.GetMySummoner()?.RulesetCharacter;
 
-            //shouldn't happen, but do not apply in this case
-            if (summoner == null) { return false; }
+            //shouldn't happen, but consider being commanded in this case
+            if (summoner == null) { return true; }
 
             //can act if summoner is KO
-            if (summoner.IsUnconscious) { return false; }
+            if (summoner.IsUnconscious) { return true; }
 
             //can act if summoner commanded
-            if (summoner.HasConditionOfType(CommandSteelDefenderCondition)) { return false; }
+            return summoner.HasConditionOfType(CommandSteelDefenderCondition);
+        }
+    }
 
-            return true;
+    private class ApplyOnTurnEnd : ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower power;
+
+        public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
+        {
+            this.condition = condition;
+            this.power = power;
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
+            if (status != ActionStatus.Available) { return; }
+
+            var character = locationCharacter.RulesetCharacter;
+            var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,
+                TurnOccurenceType.StartOfTurn, locationCharacter.Guid, character.CurrentFaction.Name);
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+            GameConsoleHelper.LogCharacterUsedPower(character, power);
         }
     }
 
@@ -366,6 +490,17 @@ public static class InnovationWeapon
             if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
 
             return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+        }
+    }
+
+    private class TargetDefendingBlade : IRetargetCustomRestPower
+    {
+        public GameLocationCharacter GetTarget(RulesetCharacter user)
+        {
+            var blade = GetBladedefender(user);
+            if (blade == null) { return null; }
+
+            return GameLocationCharacter.GetFromActor(blade);
         }
     }
 }

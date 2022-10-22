@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
@@ -43,31 +44,30 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
+            .SetUniqueInstance()
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Self,
-                        1,
-                        TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetItemPropertyForm(
-                                ItemPropertyUsage.Unlimited,
-                                1, new FeatureUnlockByLevel(
-                                    FeatureDefinitionAttackModifierBuilder
-                                        .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                        .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
-                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                        .AddToDB(),
-                                    0))
-                            .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetTargetingData(
+                    Side.Ally,
+                    RangeType.Self,
+                    1,
+                    TargetType.Item,
+                    //TODO: with new Inventor code we can make it RAW: implement target limiter for the weapon to work on 1-hander or pact weapon
+                    itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetItemPropertyForm(
+                        ItemPropertyUsage.Unlimited,
+                        1, new FeatureUnlockByLevel(
+                            FeatureDefinitionAttackModifierBuilder
+                                .Create("AttackModifierSoulBladeEmpowerWeapon")
+                                .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
+                                .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                .AddToDB(),
+                            0))
                     .Build())
+                .Build())
             .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
 

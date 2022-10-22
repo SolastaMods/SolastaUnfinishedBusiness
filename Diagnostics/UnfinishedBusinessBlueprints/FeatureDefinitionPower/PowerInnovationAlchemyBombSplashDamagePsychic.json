@@ -41,7 +41,7 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Intelligence",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
@@ -202,7 +202,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": null,
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",

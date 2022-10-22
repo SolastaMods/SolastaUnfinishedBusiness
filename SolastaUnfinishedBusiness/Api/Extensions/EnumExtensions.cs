@@ -40,6 +40,13 @@ internal enum ExtraRitualCasting
     Known = 9000
 }
 
+internal enum ExtraPowerAttackHitComputation
+{
+    // Fixed = PowerAttackHitComputation.Fixed,
+    // AbilityScore = PowerAttackHitComputation.AbilityScore,
+    SpellAttack = 9000
+}
+
 internal enum ExtraOriginOfAmount
 {
     // None = ConditionDefinition.OriginOfAmount.None,
@@ -54,6 +61,30 @@ internal enum ExtraOriginOfAmount
     SourceCharacterLevel = 9001,
     SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
     SourceAbilityBonus = 9003 //Attribute name should be in the `additionalDamageType` field of the condition
+}
+
+internal enum ExtraAdditionalDamageTriggerCondition
+{
+    // AdvantageOrNearbyAlly = AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly,
+    // SpendSpellSlot = AdditionalDamageTriggerCondition.SpendSpellSlot,
+    // SpecificCharacterFamily = AdditionalDamageTriggerCondition.SpecificCharacterFamily,
+    // TargetHasConditionCreatedByMe = AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe,
+    // AlwaysActive = AdditionalDamageTriggerCondition.AlwaysActive,
+    // TargetHasCondition = AdditionalDamageTriggerCondition.TargetHasCondition,
+    // TargetIsWounded = AdditionalDamageTriggerCondition.TargetIsWounded,
+    // TargetHasSenseType = AdditionalDamageTriggerCondition.TargetHasSenseType,
+    // TargetHasCreatureTag = AdditionalDamageTriggerCondition.TargetHasCreatureTag,
+    // RangeAttackFromHigherGround = AdditionalDamageTriggerCondition.RangeAttackFromHigherGround,
+    // EvocationSpellDamage = AdditionalDamageTriggerCondition.EvocationSpellDamage,
+    // TargetDoesNotHaveCondition = AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition,
+    // SpellDamageMatchesSourceAncestry = AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry,
+    // CriticalHit = AdditionalDamageTriggerCondition.CriticalHit,
+    // RagingAndTargetIsSpellcaster = AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster,
+    // Raging = AdditionalDamageTriggerCondition.Raging,
+    // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
+    // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
+
+    TargetWithin10ft = 9000
 }
 
 public enum ExtraConditionInterruption

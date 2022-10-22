@@ -9,62 +9,60 @@ internal class InvocationDefinitionBuilder :
 {
     #region Constructors
 
-    protected InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    internal InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    protected InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
+    internal InvocationDefinitionBuilder(InvocationDefinition original, string name, Guid namespaceGuid) : base(
+        original, name, namespaceGuid)
     {
     }
 
     #endregion
 }
 
-internal abstract class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
     where TDefinition : InvocationDefinition
     where TBuilder : InvocationDefinitionBuilder<TDefinition, TBuilder>
 {
-    protected InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
-    {
-    }
-
-    internal TBuilder SetRequiredLevel(int level)
+    internal TBuilder SetRequirements(int level = -1,
+        SpellDefinition spell = null,
+        FeatureDefinition pact = null)
     {
         Definition.requiredLevel = level;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetGrantedFeature(FeatureDefinition featureDefinition)
-    {
-        Definition.grantedFeature = featureDefinition;
-        return (TBuilder)this;
-    }
-
-#if false
-    internal TBuilder SetRequiredSpell(SpellDefinition spell)
-    {
         Definition.requiredKnownSpell = spell;
-        return (TBuilder)this;
-    }
-
-    internal TBuilder SetRequiredPact(FeatureDefinition pact)
-    {
         Definition.requiredPact = pact;
         return (TBuilder)this;
     }
 
-    internal TBuilder SetGrantedSpell(SpellDefinition spell, bool consumeSlot = false, bool overrideMaterial = true)
+    internal TBuilder SetGrantedFeature(FeatureDefinition feature)
     {
-        Definition.grantedSpell = spell;
-        Definition.consumesSpellSlot = consumeSlot;
-        Definition.overrideMaterialComponent = overrideMaterial;
+        Definition.grantedFeature = feature;
         return (TBuilder)this;
     }
-#endif
+
+    internal TBuilder SetGrantedSpell(SpellDefinition spell,
+        bool consumesSpellSlot = false,
+        bool longRestRecharge = false,
+        bool overrideMaterialComponent = true)
+    {
+        Definition.grantedSpell = spell;
+        Definition.consumesSpellSlot = consumesSpellSlot;
+        Definition.longRestRecharge = longRestRecharge;
+        Definition.overrideMaterialComponent = overrideMaterialComponent;
+        return (TBuilder)this;
+    }
+
+    #region Constructors
+
+    internal InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    internal InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
+        namespaceGuid)
+    {
+    }
+
+    #endregion
 }

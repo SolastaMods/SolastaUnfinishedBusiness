@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -45,6 +46,50 @@ internal static class EffectHelpers
         }
 
         return def;
+    }
+
+    internal static RulesetCharacter GetSummoner(RulesetCharacter summon)
+    {
+        if (summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
+                RuleDefinitions.ConditionConjuredCreature, out var activeCondition))
+        {
+            return GetCharacterByGuid(activeCondition.SourceGuid);
+        }
+
+        return null;
+    }
+
+    internal static RulesetCharacter GetCharacterByGuid(ulong guid)
+    {
+        if (guid == 0) { return null; }
+
+        if (!RulesetEntity.TryGetEntity<RulesetEntity>(guid, out var entity))
+        {
+            return null;
+        }
+
+        return entity as RulesetCharacter;
+    }
+
+    internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
+    {
+        var summons = new List<RulesetCharacter>();
+        if (effect == null) { return summons; }
+
+        foreach (var conditionGuid in effect.trackedConditionGuids)
+        {
+            if (RulesetEntity.TryGetEntity<RulesetCondition>(conditionGuid, out var condition)
+                && condition.Name == RuleDefinitions.ConditionConjuredCreature)
+            {
+                if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var creature)
+                    && creature != null)
+                {
+                    summons.TryAdd(creature);
+                }
+            }
+        }
+
+        return summons;
     }
 
     internal static RulesetCharacter GetCharacterByEffectGuid(ulong guid)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -54,6 +55,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
+        ExtraAdditionalDamageTriggerCondition trigger)
+    {
+        return SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)trigger);
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetNoSave()
     {
         Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
@@ -82,10 +89,28 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetAttackModeOnly()
+    {
+        Definition.attackModeOnly = true;
+        return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetAttackOnly()
+    {
+        Definition.attackOnly = true;
+        return this;
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;
         return this;
+    }
+
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(IMagicEffect effect)
+    {
+        return SetImpactParticleReference(effect.EffectDescription.EffectParticleParameters.impactParticleReference);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(

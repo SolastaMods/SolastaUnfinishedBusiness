@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
-  "useControllerAbilityChecks": true,
+  "useControllerAbilityChecks": false,
   "affinityGroups": [],
   "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],

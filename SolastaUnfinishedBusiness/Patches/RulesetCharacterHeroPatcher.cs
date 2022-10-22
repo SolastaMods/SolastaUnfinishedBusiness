@@ -228,20 +228,6 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class RefreshArmorClass_Patch
-    {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            //PATCH: implements exclusivity for some AC modifiers
-            // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
-            // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
-            // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-            return ArmorClassStacking.UnstackAcTranspile(instructions);
-        }
-    }
-
     //PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -559,6 +545,29 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: clears cached devices for a hero
             PowerPoolDevice.Clear(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class EnumerateAfterRestActions_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance,
+            RuleDefinitions.RestType restType,
+            List<RulesetItem> attunableItems,
+            RestDefinitions.RestStage restStage)
+        {
+            __instance.afterRestActions.RemoveAll(activity =>
+            {
+                if (activity.functor != PowersBundleContext.UseCustomRestPowerFunctorName) { return false; }
+
+                var power = __instance.UsablePowers.FirstOrDefault(usablePower =>
+                    usablePower.PowerDefinition.Name == activity.StringParameter);
+
+                if (power == null) { return false; }
+
+                return !__instance.CanUsePower(power.PowerDefinition);
+            });
         }
     }
 }

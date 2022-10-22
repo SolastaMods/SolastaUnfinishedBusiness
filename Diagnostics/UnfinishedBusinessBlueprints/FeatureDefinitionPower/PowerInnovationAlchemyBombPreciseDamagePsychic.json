@@ -202,7 +202,12 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": null,
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -342,11 +347,11 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Dexterity",
-  "attackHitComputation": "AbilityScore",
+  "abilityScore": "Intelligence",
+  "attackHitComputation": 9000,
   "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": true,
-  "proficiencyBonusToAttack": true,
+  "abilityScoreBonusToAttack": false,
+  "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",

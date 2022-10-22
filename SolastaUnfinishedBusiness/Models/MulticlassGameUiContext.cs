@@ -11,13 +11,35 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassGameUiContext
 {
-    private static readonly Color LightGreenSlot = new(37f / 256, 150f / 256, 10f / 256, 1f);
-    private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
     private static readonly float[] FontSizes = { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
+
+    private static Sprite _regularSlotSprite;
+
+    private static Sprite _pactSlotSprite;
+
+    private static Sprite RegularSlotSprite => _regularSlotSprite ??= Resources
+        .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatus")
+        .GetComponent<SlotStatus>().Available
+        .GetComponent<Image>().sprite;
+
+    private static Sprite PactSlotSprite => _pactSlotSprite ??= Resources
+        .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatusWarlock")
+        .GetComponent<SlotStatus>().Available
+        .GetComponent<Image>().sprite;
 
     internal static float GetFontSize(int classesCount)
     {
         return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
+    }
+
+    private static void SetRegularSlotImage(Image img)
+    {
+        img.sprite = RegularSlotSprite;
+    }
+
+    private static void SetPactSlotImage(Image img)
+    {
+        img.sprite = PactSlotSprite;
     }
 
     internal static void SetupLevelUpClassSelectionStep(CharacterEditionScreen characterEditionScreen)
@@ -35,10 +57,8 @@ internal static class MulticlassGameUiContext
         var deitySelectionPanel = Gui
             .GetPrefabFromPool(stagePanelPrefabs[2], characterEditionScreen.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
-        var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
-        {
-            { "ClassSelection", classSelectionPanel }
-        };
+        var newLevelUpSequence =
+            new Dictionary<string, CharacterStagePanel> { { "ClassSelection", classSelectionPanel } };
 
         foreach (var stagePanel in characterEditionScreen.stagePanelsByName)
         {
@@ -175,11 +195,11 @@ internal static class MulticlassGameUiContext
             // paint spell slots white
             if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
             {
-                component.Available.GetComponent<Image>().color = WhiteSlot;
+                SetRegularSlotImage(component.Available.GetComponent<Image>());
             }
             else
             {
-                component.Available.GetComponent<Image>().color = LightGreenSlot;
+                SetPactSlotImage(component.Available.GetComponent<Image>());
             }
         }
 
@@ -263,11 +283,11 @@ internal static class MulticlassGameUiContext
 
             if (index >= spellSlotsCount && slotLevel <= warlockSpellLevel)
             {
-                component.Available.GetComponent<Image>().color = LightGreenSlot;
+                SetPactSlotImage(component.Available.GetComponent<Image>());
             }
             else
             {
-                component.Available.GetComponent<Image>().color = WhiteSlot;
+                SetRegularSlotImage(component.Available.GetComponent<Image>());
             }
         }
     }
@@ -279,7 +299,7 @@ internal static class MulticlassGameUiContext
             var child = rectTransform.GetChild(index);
             var component = child.GetComponent<SlotStatus>();
 
-            component.Available.GetComponent<Image>().color = WhiteSlot;
+            SetRegularSlotImage(component.Available.GetComponent<Image>());
         }
     }
 
@@ -301,6 +321,7 @@ internal static class MulticlassGameUiContext
             maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
         }
 
+        var options = -1;
         for (var level = minSpellLevel; level <= maxSpellLevel; ++level)
         {
             spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
@@ -312,6 +333,7 @@ internal static class MulticlassGameUiContext
             }
 
             optionsAvailability.Add(level, remaining > 0);
+            options++;
 
             if (selected || remaining <= 0)
             {
@@ -319,7 +341,7 @@ internal static class MulticlassGameUiContext
             }
 
             selected = true;
-            selectedSlot = level - minSpellLevel;
+            selectedSlot = options;
         }
 
         return selectedSlot;

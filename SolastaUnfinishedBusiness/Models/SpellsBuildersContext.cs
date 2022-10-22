@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -23,9 +24,115 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsBuildersContext
 {
-    //
-    // CANTRIPS
-    //
+    #region LEVEL 07
+
+    internal static SpellDefinition BuildReverseGravity()
+    {
+        const string ReverseGravityName = "ReverseGravity";
+
+        var effectDescription = EffectDescriptionBuilder.Create()
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                true,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Dexterity,
+                20)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
+                            .SetOrUpdateGuiPresentation(Category.Condition)
+                            .SetConditionType(ConditionType.Neutral)
+                            .SetFeatures(
+                                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
+                                FeatureDefinitionMoveModes.MoveModeFly2
+                            )
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(
+                        MotionForm.MotionType.Levitate,
+                        10)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+            .Build();
+
+        return SpellDefinitionBuilder
+            .Create(ReverseGravityName)
+            .SetGuiPresentation(Category.Spell, Thunderwave)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(7)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetEffectDescription(effectDescription)
+            .SetAiParameters(new SpellAIParameters())
+            .SetRequiresConcentration(true)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region LEVEL 08
+
+    internal static SpellDefinition BuildMindBlank()
+    {
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(
+                DurationType.Hour,
+                24)
+            .SetTargetingData(
+                Side.Ally,
+                RangeType.Touch,
+                1,
+                TargetType.Individuals
+            )
+            .SetEffectForms(EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create(ConditionBearsEndurance, "ConditionMindBlank")
+                        .SetOrUpdateGuiPresentation(Category.Condition)
+                        .SetFeatures(
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                            FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity)
+                        .AddToDB(),
+                    ConditionForm.ConditionOperation.Add,
+                    false,
+                    false)
+                .Build())
+            .Build();
+
+        return SpellDefinitionBuilder
+            .Create("MindBlank")
+            .SetGuiPresentation(Category.Spell, MindTwist)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(8)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetEffectDescription(effectDescription)
+            .SetAiParameters(new SpellAIParameters())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region CANTRIPS
 
     private static ConditionDefinition _acidClawCondition;
     internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
@@ -512,9 +619,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 01
-    //
+    #endregion
+
+    #region LEVEL 01
 
     internal static SpellDefinition BuildFindFamiliar()
     {
@@ -658,9 +765,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 02
-    //
+    #endregion
+
+    #region LEVEL 02
 
     internal static SpellDefinition BuildPetalStorm()
     {
@@ -770,9 +877,9 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 03
-    //
+    #endregion
+
+    #region LEVEL 03
 
     internal static SpellDefinition BuildEarthTremor()
     {
@@ -873,117 +980,126 @@ internal static class SpellsBuildersContext
         return spell;
     }
 
-    //
-    // LEVEL 07
-    //
+    #region Spirit Shroud
 
-    internal static SpellDefinition BuildReverseGravity()
+    internal static SpellDefinition BuildSpiritShroud()
     {
-        const string ReverseGravityName = "ReverseGravity";
+        var hinder = ConditionDefinitionBuilder
+            .Create("ConditionSpiritShroudHinder")
+            .SetGuiPresentation(ConditionHindered_By_Frost.GuiPresentation)
+            .SetSilent(Silent.None)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(ConditionHindered_By_Frost.features)
+            .SetSpecialDuration(true)
+            .SetDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .CopyParticleReferences(ConditionSpiritGuardians)
+            .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Dexterity,
-                20)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(
-                        ConditionDefinitionBuilder
-                            .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
-                            .SetOrUpdateGuiPresentation(Category.Condition)
-                            .SetConditionType(ConditionType.Neutral)
-                            .SetFeatures(
-                                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                                FeatureDefinitionMoveModes.MoveModeFly2
-                            )
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(
-                        MotionForm.MotionType.Levitate,
-                        10)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-            .Build();
+        var noHeal = ConditionDefinitionBuilder
+            .Create("ConditionSpiritShroudNoHeal")
+            .SetGuiPresentation(Category.Condition,
+                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch.GuiPresentation.Description,
+                ConditionChilledByTouch.GuiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
+            )
+            .SetSpecialDuration(true)
+            .SetDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        var sprite = CustomIcons.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
 
         return SpellDefinitionBuilder
-            .Create(ReverseGravityName)
-            .SetGuiPresentation(Category.Spell, Thunderwave)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(7)
-            .SetCastingTime(ActivationTime.Action)
+            .Create("SpiritShroud")
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSpellLevel(3)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
-            .SetEffectDescription(effectDescription)
-            .SetAiParameters(new SpellAIParameters())
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
-            .AddToDB();
-    }
-
-    //
-    // LEVEL 08
-    //
-
-    internal static SpellDefinition BuildMindBlank()
-    {
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(
-                DurationType.Hour,
-                24)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Touch,
-                1,
-                TargetType.Individuals
-            )
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(ConditionBearsEndurance, "ConditionMindBlank")
-                        .SetOrUpdateGuiPresentation(Category.Condition)
-                        .SetFeatures(
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
-                            FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity)
-                        .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
                 .Build())
-            .Build();
-
-        return SpellDefinitionBuilder
-            .Create("MindBlank")
-            .SetGuiPresentation(Category.Spell, MindTwist)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(8)
-            .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription)
-            .SetAiParameters(new SpellAIParameters())
+            .SetSubSpells(
+                BuildSpriritShroudSubSpell(DamageTypeRadiant, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(DamageTypeNecrotic, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(DamageTypeCold, hinder, noHeal, sprite)
+            )
             .AddToDB();
     }
 
-    //
-    // LEVEL 09
-    //
+    private static SpellDefinition BuildSpriritShroudSubSpell(string damage, ConditionDefinition hinder,
+        ConditionDefinition noHeal, AssetReferenceSprite sprite)
+    {
+        return SpellDefinitionBuilder
+            .Create($"SpiritShroud{damage}")
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSpellLevel(3)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
+                .SetDurationData(DurationType.Minute, 1)
+                //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
+                .SetRecurrentEffect(RecurrentEffect.OnActivation
+                                    | RecurrentEffect.OnTurnStart
+                                    | RecurrentEffect.OnEnter)
+                .SetParticleEffectParameters(SpiritGuardians)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create($"ConditionSpiritShroud{damage}")
+                            // .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf)
+                            .SetGuiPresentationNoContent()
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                .Create($"AdditionalDamageSpiritShroud{damage}")
+                                .SetGuiPresentationNoContent(true)
+                                .SetNotificationTag($"SpiritShroud{damage}")
+                                .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10ft)
+                                .SetFrequencyLimit(FeatureLimitedUsage.None)
+                                .SetAttackOnly()
+                                .SetConditionOperations(new ConditionOperationDescription
+                                {
+                                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                                    conditionDefinition = noHeal,
+                                    hasSavingThrow = false
+                                })
+                                .SetDamageDice(DieType.D8, 1)
+                                .SetSpecificDamageType(damage)
+                                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel,
+                                    (3, 1),
+                                    (4, 1),
+                                    (5, 2),
+                                    (6, 2),
+                                    (7, 3),
+                                    (8, 3),
+                                    (9, 4))
+                                .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
+                        .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #endregion
+
+    #region LEVEL 09
 
     internal static SpellDefinition BuildForesight()
     {
@@ -1341,6 +1457,8 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(true)
             .AddToDB();
     }
+
+    #endregion
 }
 
 internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect

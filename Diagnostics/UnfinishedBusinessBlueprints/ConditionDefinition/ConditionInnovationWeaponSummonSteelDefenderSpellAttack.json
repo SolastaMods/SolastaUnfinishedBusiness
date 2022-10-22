@@ -7,8 +7,8 @@
     "Definition:AttackModifierInnovationWeaponSummonSteelDefenderToHit:3b7a7415-7abc-59c5-8cef-26174848a042"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

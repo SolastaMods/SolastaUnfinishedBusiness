@@ -247,7 +247,7 @@ internal static class Infusions
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
-            .SetRequiredLevel(level)
+            .SetRequirements(level)
             .SetGrantedFeature(power)
             .AddToDB();
         return power;
@@ -262,7 +262,7 @@ internal static class Infusions
             .SetGuiPresentation(Category.Feature, replica)
             .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
-            .SetRequiredLevel(level)
+            .SetRequirements(level)
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
             .AddToDB();
 

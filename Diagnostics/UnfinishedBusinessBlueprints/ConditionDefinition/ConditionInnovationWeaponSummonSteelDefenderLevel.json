@@ -11,8 +11,8 @@
     "Definition:AttributeInnovationWeaponSummonSteelDefenderHP:aecdcc08-f109-5c6d-899b-fd34425470d6"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

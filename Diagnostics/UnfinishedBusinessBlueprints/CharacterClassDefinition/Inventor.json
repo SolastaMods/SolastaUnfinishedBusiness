@@ -226,6 +226,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInventorRituals:9d79af97-db2b-58a7-8b07-5232cb21f143",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInventorInfusions:db349abb-6477-5f34-b660-1755ee05f51f",
       "level": 2
     },
@@ -478,9 +483,9 @@
   "ingredientGatheringOdds": 2,
   "classPictogramReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "9bf940be035c7c64eb6ee577a4e9efef",
-    "m_SubObjectName": "Class_wizard",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "2ca5d4ae-aff5-517f-9b95-ce95cb191f87",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "defaultBattleDecisions": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
   "classAnimationId": "Fighter",

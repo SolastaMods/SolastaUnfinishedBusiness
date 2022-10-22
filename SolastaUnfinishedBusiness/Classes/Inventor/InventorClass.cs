@@ -24,12 +24,13 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 internal static class InventorClass
 {
     public const string ClassName = "Inventor";
+    private const string InfusionsName = "FeatureInventorInfusionPool";
 
     private static readonly AssetReferenceSprite Sprite =
         CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        Wizard.ClassPictogramReference;
+        CustomIcons.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -252,7 +253,7 @@ internal static class InventorClass
 
             #region Level 01
 
-            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips())
+            .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips(), BuildRitualCasting())
 
             #endregion
 
@@ -453,7 +454,7 @@ internal static class InventorClass
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(InfusionsName, Category.Feature)
             .AddFeatureSet(InfusionPool, _learn4)
             .AddToDB();
     }
@@ -558,6 +559,25 @@ internal static class InventorClass
         return castSpellsInventor;
     }
 
+    private static FeatureDefinition BuildRitualCasting()
+    {
+        return FeatureDefinitionFeatureSetBuilder.Create("FeatureSetInventorRituals")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityInventorRituals")
+                    .SetGuiPresentationNoContent(true)
+                    .SetRitualCasting(RitualCasting.Prepared)
+                    .AddToDB(),
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityInventorRituals")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDefaultAllowedActonTypes()
+                    .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
+                    .AddToDB())
+            .AddToDB();
+    }
+
     private static FeatureDefinitionBonusCantrips BuildBonusCantrips()
     {
         return FeatureDefinitionBonusCantripsBuilder
@@ -576,7 +596,8 @@ internal static class InventorClass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(InfusionsName, Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }

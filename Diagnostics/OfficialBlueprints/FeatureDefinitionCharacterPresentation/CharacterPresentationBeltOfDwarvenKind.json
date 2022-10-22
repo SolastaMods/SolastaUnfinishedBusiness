@@ -6,6 +6,13 @@
     "BeardShape_A",
     "BeardShape_B"
   ],
+  "originAllowed": [
+    "Origin_AF",
+    "Origin_AS",
+    "Origin_CA",
+    "Origin_HO",
+    "Origin_NonHuman"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
