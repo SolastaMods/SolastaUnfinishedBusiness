@@ -7,28 +7,28 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi;
 
-// this patch scales down the victory modal whenever the party size is bigger than 4
-//
-// this patch is protected by partyCount result
-//
-[HarmonyPatch(typeof(VictoryModal), "OnBeginShow")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class VictoryModal_OnBeginShow
+public static class VictoryModalPatcher
 {
-    internal static void Prefix([NotNull] VictoryModal __instance)
+    [HarmonyPatch(typeof(VictoryModal), "OnBeginShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnBeginShow_Patch
     {
-        var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
-
-        if (partyCount > DungeonMakerContext.GamePartySize)
+        public static void Prefix([NotNull] VictoryModal __instance)
         {
-            var scale = (float)Math.Pow(DungeonMakerContext.VictoryModalDefaultScale,
-                partyCount - DungeonMakerContext.GamePartySize);
+            //PATCH: scales down the victory modal whenever the party size is bigger than 4 (PARTYSIZE)
+            var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-            __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
-        }
-        else
-        {
-            __instance.heroStatsGroup.localScale = new Vector3(1, 1, 1);
+            if (partyCount > DungeonMakerContext.GamePartySize)
+            {
+                var scale = (float)Math.Pow(DungeonMakerContext.VictoryModalDefaultScale,
+                    partyCount - DungeonMakerContext.GamePartySize);
+
+                __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
+            }
+            else
+            {
+                __instance.heroStatsGroup.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
 }
