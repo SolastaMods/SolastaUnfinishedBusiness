@@ -1,7 +1,8 @@
-﻿You can contribute to this work with any financial amount
-The donation button is under Mod UI > Credits & Diagnostics
+﻿ATTENTION:
+
+- Last 3 weeks before this mod stops working on next DLC release
 
 CHANGES:
 
-- Add additional armor recipes
-- Fix a null exception on Raven subclass
+- Enable party of 6 on official campaigns
+- Enable up to 6 players in multiplayer (need testing)
