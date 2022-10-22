@@ -24,6 +24,7 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor;
 internal static class InventorClass
 {
     public const string ClassName = "Inventor";
+    private const string InfusionsName = "FeatureInventorInfusionPool";
 
     private static readonly AssetReferenceSprite Sprite =
         CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
@@ -36,7 +37,6 @@ internal static class InventorClass
 
     private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
-    private const string InfusionsName = "FeatureInventorInfusionPool";
 
     internal static CharacterClassDefinition Class { get; private set; }
 
@@ -562,16 +562,16 @@ internal static class InventorClass
     private static FeatureDefinition BuildRitualCasting()
     {
         return FeatureDefinitionFeatureSetBuilder.Create("FeatureSetInventorRituals")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .AddFeatureSet(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInventorRituals")
-                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetGuiPresentationNoContent(true)
                     .SetRitualCasting(RitualCasting.Prepared)
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityInventorRituals")
-                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActonTypes()
                     .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
                     .AddToDB())
@@ -833,7 +833,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) {Indent = true};
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");

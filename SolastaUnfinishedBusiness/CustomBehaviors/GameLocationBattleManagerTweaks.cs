@@ -755,14 +755,14 @@ internal static class GameLocationBattleManagerTweaks
 
                         break;
                     }
-                    
+
                     /*
                      * ######################################
                      * [CE] EDIT START
                      * Support for extra types of trigger conditions
                      */
-                    case ((RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
-                        .TargetWithin10ft):
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
+                        .TargetWithin10ft:
                     {
                         validTrigger = instance.IsWithinXCells(attacker, defender, 2);
                         break;

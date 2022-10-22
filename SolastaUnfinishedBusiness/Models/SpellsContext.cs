@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Classes.Inventor;
-using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Models.SpellsBuildersContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 

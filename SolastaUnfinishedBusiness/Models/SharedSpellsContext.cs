@@ -167,9 +167,9 @@ internal static class SharedSpellsContext
             return 0;
         }
 
-        var slotLevel = SharedSpellsContext.IsMulticaster(rulesetCharacterHero)
+        var slotLevel = IsMulticaster(rulesetCharacterHero)
             ? -1
-            : SharedSpellsContext.GetWarlockSpellLevel(rulesetCharacterHero);
+            : GetWarlockSpellLevel(rulesetCharacterHero);
 
         repertoire.usedSpellsSlots.TryGetValue(slotLevel, out var warlockUsedSlots);
 

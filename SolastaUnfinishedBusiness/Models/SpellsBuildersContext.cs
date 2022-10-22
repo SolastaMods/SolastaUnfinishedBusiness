@@ -24,6 +24,114 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsBuildersContext
 {
+    #region LEVEL 07
+
+    internal static SpellDefinition BuildReverseGravity()
+    {
+        const string ReverseGravityName = "ReverseGravity";
+
+        var effectDescription = EffectDescriptionBuilder.Create()
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                true,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Dexterity,
+                20)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
+                            .SetOrUpdateGuiPresentation(Category.Condition)
+                            .SetConditionType(ConditionType.Neutral)
+                            .SetFeatures(
+                                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
+                                FeatureDefinitionMoveModes.MoveModeFly2
+                            )
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(
+                        MotionForm.MotionType.Levitate,
+                        10)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+            .Build();
+
+        return SpellDefinitionBuilder
+            .Create(ReverseGravityName)
+            .SetGuiPresentation(Category.Spell, Thunderwave)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(7)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetEffectDescription(effectDescription)
+            .SetAiParameters(new SpellAIParameters())
+            .SetRequiresConcentration(true)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region LEVEL 08
+
+    internal static SpellDefinition BuildMindBlank()
+    {
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(
+                DurationType.Hour,
+                24)
+            .SetTargetingData(
+                Side.Ally,
+                RangeType.Touch,
+                1,
+                TargetType.Individuals
+            )
+            .SetEffectForms(EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create(ConditionBearsEndurance, "ConditionMindBlank")
+                        .SetOrUpdateGuiPresentation(Category.Condition)
+                        .SetFeatures(
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                            FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                            FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity)
+                        .AddToDB(),
+                    ConditionForm.ConditionOperation.Add,
+                    false,
+                    false)
+                .Build())
+            .Build();
+
+        return SpellDefinitionBuilder
+            .Create("MindBlank")
+            .SetGuiPresentation(Category.Spell, MindTwist)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(8)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetEffectDescription(effectDescription)
+            .SetAiParameters(new SpellAIParameters())
+            .AddToDB();
+    }
+
+    #endregion
+
     #region CANTRIPS
 
     private static ConditionDefinition _acidClawCondition;
@@ -877,7 +985,7 @@ internal static class SpellsBuildersContext
     internal static SpellDefinition BuildSpiritShroud()
     {
         var hinder = ConditionDefinitionBuilder
-            .Create($"ConditionSpiritShroudHinder")
+            .Create("ConditionSpiritShroudHinder")
             .SetGuiPresentation(ConditionHindered_By_Frost.GuiPresentation)
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
@@ -889,7 +997,7 @@ internal static class SpellsBuildersContext
             .AddToDB();
 
         var noHeal = ConditionDefinitionBuilder
-            .Create($"ConditionSpiritShroudNoHeal")
+            .Create("ConditionSpiritShroudNoHeal")
             .SetGuiPresentation(Category.Condition,
                 FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch.GuiPresentation.Description,
                 ConditionChilledByTouch.GuiPresentation.SpriteReference)
@@ -905,7 +1013,7 @@ internal static class SpellsBuildersContext
         var sprite = CustomIcons.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
 
         return SpellDefinitionBuilder
-            .Create($"SpiritShroud")
+            .Create("SpiritShroud")
             .SetGuiPresentation(Category.Spell, sprite)
             .SetSpellLevel(3)
             .SetVerboseComponent(true)
@@ -916,9 +1024,9 @@ internal static class SpellsBuildersContext
                 .SetDurationData(DurationType.Minute, 1)
                 .Build())
             .SetSubSpells(
-                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeRadiant, hinder, noHeal, sprite),
-                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeNecrotic, hinder, noHeal, sprite),
-                BuildSpriritShroudSubSpell(RuleDefinitions.DamageTypeCold, hinder, noHeal, sprite)
+                BuildSpriritShroudSubSpell(DamageTypeRadiant, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(DamageTypeNecrotic, hinder, noHeal, sprite),
+                BuildSpriritShroudSubSpell(DamageTypeCold, hinder, noHeal, sprite)
             )
             .AddToDB();
     }
@@ -942,7 +1050,7 @@ internal static class SpellsBuildersContext
                 .SetRecurrentEffect(RecurrentEffect.OnActivation
                                     | RecurrentEffect.OnTurnStart
                                     | RecurrentEffect.OnEnter)
-                .SetParticleEffectParameters(SpellDefinitions.SpiritGuardians)
+                .SetParticleEffectParameters(SpiritGuardians)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
@@ -956,12 +1064,12 @@ internal static class SpellsBuildersContext
                             .CopyParticleReferences(ConditionSpiritGuardiansSelf)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                 .Create($"AdditionalDamageSpiritShroud{damage}")
-                                .SetGuiPresentationNoContent(hidden: true)
+                                .SetGuiPresentationNoContent(true)
                                 .SetNotificationTag($"SpiritShroud{damage}")
                                 .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10ft)
                                 .SetFrequencyLimit(FeatureLimitedUsage.None)
                                 .SetAttackOnly()
-                                .SetConditionOperations(new ConditionOperationDescription()
+                                .SetConditionOperations(new ConditionOperationDescription
                                 {
                                     operation = ConditionOperationDescription.ConditionOperation.Add,
                                     conditionDefinition = noHeal,
@@ -988,114 +1096,6 @@ internal static class SpellsBuildersContext
     }
 
     #endregion
-
-    #endregion
-
-    #region LEVEL 07
-
-    internal static SpellDefinition BuildReverseGravity()
-    {
-        const string ReverseGravityName = "ReverseGravity";
-
-        var effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Dexterity,
-                20)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(
-                        ConditionDefinitionBuilder
-                            .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
-                            .SetOrUpdateGuiPresentation(Category.Condition)
-                            .SetConditionType(ConditionType.Neutral)
-                            .SetFeatures(
-                                FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                                FeatureDefinitionMoveModes.MoveModeFly2
-                            )
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(
-                        MotionForm.MotionType.Levitate,
-                        10)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-            .Build();
-
-        return SpellDefinitionBuilder
-            .Create(ReverseGravityName)
-            .SetGuiPresentation(Category.Spell, Thunderwave)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(7)
-            .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetEffectDescription(effectDescription)
-            .SetAiParameters(new SpellAIParameters())
-            .SetRequiresConcentration(true)
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region LEVEL 08
-
-    internal static SpellDefinition BuildMindBlank()
-    {
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(
-                DurationType.Hour,
-                24)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Touch,
-                1,
-                TargetType.Individuals
-            )
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(ConditionBearsEndurance, "ConditionMindBlank")
-                        .SetOrUpdateGuiPresentation(Category.Condition)
-                        .SetFeatures(
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
-                            FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity)
-                        .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
-                .Build())
-            .Build();
-
-        return SpellDefinitionBuilder
-            .Create("MindBlank")
-            .SetGuiPresentation(Category.Spell, MindTwist)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(8)
-            .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription)
-            .SetAiParameters(new SpellAIParameters())
-            .AddToDB();
-    }
 
     #endregion
 
@@ -1348,16 +1348,19 @@ internal static class SpellsBuildersContext
                         specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                         shapeOptions = new List<ShapeOptionDescription>
                         {
-                            new() {requiredLevel = 1, substituteMonster = GoldDragon_AerElai},
-                            new() {requiredLevel = 1, substituteMonster = Divine_Avatar},
-                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss},
-                            new() {requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration},
-                            new() {requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy},
-                            new() {requiredLevel = 1, substituteMonster = Remorhaz},
-                            new() {requiredLevel = 1, substituteMonster = Emperor_Laethar},
-                            new() {requiredLevel = 1, substituteMonster = Giant_Ape},
-                            new() {requiredLevel = 1, substituteMonster = Spider_Queen},
-                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath}
+                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
+                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
+                            new()
+                            {
+                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
+                            },
+                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
+                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
+                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
+                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
+                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
+                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
                         }
                     }
                 })

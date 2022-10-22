@@ -42,7 +42,7 @@ public static class CharacterActionMagicEffectPatcher
             formsParams.FillSpecialParameters(false, 0, 0, 0, effectLevel, null,
                 RuleDefinitions.RollOutcome.Success, 0, false, 0, 1, null);
             formsParams.effectSourceType = effectSourceType;
-            
+
             if (effectDescription.RangeType == RuleDefinitions.RangeType.MeleeHit
                 || effectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
             {

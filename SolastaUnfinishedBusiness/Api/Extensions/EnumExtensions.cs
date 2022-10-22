@@ -83,7 +83,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // Raging = AdditionalDamageTriggerCondition.Raging,
     // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
-    
+
     TargetWithin10ft = 9000
 }
 

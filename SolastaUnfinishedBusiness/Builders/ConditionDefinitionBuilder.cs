@@ -72,7 +72,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.conditionParticleReference = value;
         return (TBuilder)this;
     }
-    
+
     internal TBuilder CopyParticleReferences(ConditionDefinition from)
     {
         Definition.conditionParticleReference = from.conditionParticleReference;
@@ -137,7 +137,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.Features.Sort(Sorting.Compare);
         return (TBuilder)this;
     }
-    
+
     internal TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.Features.SetRange(features);

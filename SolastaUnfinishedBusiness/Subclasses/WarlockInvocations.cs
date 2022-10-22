@@ -22,7 +22,7 @@ internal static class WarlockInvocations
         InvocationDefinitionBuilder
             .Create("InvocationEldritchSmite")
             .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
-            .SetRequirements(level: 5, pact: FeatureSetPactBlade)
+            .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
                 .SetGuiPresentationNoContent()
@@ -51,11 +51,11 @@ internal static class WarlockInvocations
 
     private class WarlockHolder : IClassHoldingFeature
     {
-        public static IClassHoldingFeature Instance { get; } = new WarlockHolder();
-
         private WarlockHolder()
         {
         }
+
+        public static IClassHoldingFeature Instance { get; } = new WarlockHolder();
 
         public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
     }

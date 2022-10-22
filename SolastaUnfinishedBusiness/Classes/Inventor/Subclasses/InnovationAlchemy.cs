@@ -719,8 +719,8 @@ public static class InnovationAlchemy
     private sealed class Overcharge : ICustomOverchargeProvider
     {
         private static readonly (int, int)[] None = { };
-        private static readonly (int, int)[] Once = {(1, 1)};
-        private static readonly (int, int)[] Twice = {(1, 1), (2, 2)};
+        private static readonly (int, int)[] Once = { (1, 1) };
+        private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {

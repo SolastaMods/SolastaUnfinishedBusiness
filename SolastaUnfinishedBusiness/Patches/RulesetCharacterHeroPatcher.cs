@@ -560,12 +560,12 @@ public static class RulesetCharacterHeroPatcher
             __instance.afterRestActions.RemoveAll(activity =>
             {
                 if (activity.functor != PowersBundleContext.UseCustomRestPowerFunctorName) { return false; }
-            
+
                 var power = __instance.UsablePowers.FirstOrDefault(usablePower =>
                     usablePower.PowerDefinition.Name == activity.StringParameter);
-            
+
                 if (power == null) { return false; }
-            
+
                 return !__instance.CanUsePower(power.PowerDefinition);
             });
         }

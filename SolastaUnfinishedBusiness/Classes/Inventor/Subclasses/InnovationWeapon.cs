@@ -426,12 +426,6 @@ public static class InnovationWeapon
 
     private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
     {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character)
-        {
-            //Apply limits if not commanded
-            return !IsCommanded(character);
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             //If not commanded use Dodge at the turn start
@@ -439,6 +433,12 @@ public static class InnovationWeapon
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character)
+        {
+            //Apply limits if not commanded
+            return !IsCommanded(character);
         }
 
         private static bool IsCommanded(RulesetCharacter character)

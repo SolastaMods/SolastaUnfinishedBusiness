@@ -11,24 +11,26 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassGameUiContext
 {
-    private static readonly float[] FontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
+    private static readonly float[] FontSizes = { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
 
-    internal static float GetFontSize(int classesCount)
-    {
-        return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
-    }
-    
     private static Sprite _regularSlotSprite;
+
+    private static Sprite _pactSlotSprite;
+
     private static Sprite RegularSlotSprite => _regularSlotSprite ??= Resources
         .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatus")
         .GetComponent<SlotStatus>().Available
         .GetComponent<Image>().sprite;
 
-    private static Sprite _pactSlotSprite;
     private static Sprite PactSlotSprite => _pactSlotSprite ??= Resources
         .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatusWarlock")
         .GetComponent<SlotStatus>().Available
         .GetComponent<Image>().sprite;
+
+    internal static float GetFontSize(int classesCount)
+    {
+        return FontSizes[classesCount % (MulticlassContext.MaxClasses + 1)];
+    }
 
     private static void SetRegularSlotImage(Image img)
     {
@@ -55,7 +57,8 @@ internal static class MulticlassGameUiContext
         var deitySelectionPanel = Gui
             .GetPrefabFromPool(stagePanelPrefabs[2], characterEditionScreen.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
-        var newLevelUpSequence = new Dictionary<string, CharacterStagePanel> {{"ClassSelection", classSelectionPanel}};
+        var newLevelUpSequence =
+            new Dictionary<string, CharacterStagePanel> { { "ClassSelection", classSelectionPanel } };
 
         foreach (var stagePanel in characterEditionScreen.stagePanelsByName)
         {

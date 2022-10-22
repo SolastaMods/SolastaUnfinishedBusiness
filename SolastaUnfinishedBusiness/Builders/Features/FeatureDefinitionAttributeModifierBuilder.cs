@@ -30,7 +30,7 @@ internal class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<Fea
         Definition.minimum1 = minimum1;
         return this;
     }
-    
+
     internal FeatureDefinitionAttributeModifierBuilder SetDexPlusAbilityScore(
         string attribute,
         string abilityScore,

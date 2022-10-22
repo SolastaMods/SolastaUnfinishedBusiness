@@ -7,8 +7,8 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class AddPBToSummonCheck
 {
-    private readonly int multiplier;
     private readonly string[] abilities;
+    private readonly int multiplier;
 
     public AddPBToSummonCheck(int multiplier, params string[] abilities)
     {
@@ -31,7 +31,7 @@ public class AddPBToSummonCheck
         string proficiency, List<RuleDefinitions.TrendInfo> trends) where T : class
     {
         var features = monster.FeaturesToBrowse;
-        monster.EnumerateFeaturesToBrowse<T>(features, null);
+        monster.EnumerateFeaturesToBrowse<T>(features);
 
         var mods = features.SelectMany(f => f.GetAllSubFeaturesOfType<AddPBToSummonCheck>()).ToList();
         if (mods.Empty()) { return; }
@@ -43,7 +43,7 @@ public class AddPBToSummonCheck
         var summoner = EffectHelpers.GetSummoner(monster);
         if (summoner == null) { return; }
 
-        int pb = summoner.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        var pb = summoner.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         if (pb == 0) { return; }
 
         pb *= mult;

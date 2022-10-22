@@ -25,19 +25,6 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
     where TDefinition : InvocationDefinition
     where TBuilder : InvocationDefinitionBuilder<TDefinition, TBuilder>
 {
-    #region Constructors
-
-    internal InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    internal InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
-    {
-    }
-
-    #endregion
-
     internal TBuilder SetRequirements(int level = -1,
         SpellDefinition spell = null,
         FeatureDefinition pact = null)
@@ -65,4 +52,17 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
         Definition.overrideMaterialComponent = overrideMaterialComponent;
         return (TBuilder)this;
     }
+
+    #region Constructors
+
+    internal InvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    internal InvocationDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
+        namespaceGuid)
+    {
+    }
+
+    #endregion
 }
