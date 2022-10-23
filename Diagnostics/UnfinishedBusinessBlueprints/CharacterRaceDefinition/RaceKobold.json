@@ -5,8 +5,8 @@
   "dualSex": true,
   "minimalAge": 120,
   "maximalAge": 80,
-  "baseHeight": 66,
-  "baseWeight": 30,
+  "baseHeight": 3,
+  "baseWeight": 35,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -15,7 +15,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "level": 1
     },
     {
@@ -35,7 +40,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDragonbornLanguages:1bca31a64e676814ba7566001c132d1c",
+      "featureDefinition": "Definition:ProficiencyKoboldLanguages:ab62c9cf-b492-5530-98c8-2650dfa4b9c4",
       "level": 1
     }
   ],

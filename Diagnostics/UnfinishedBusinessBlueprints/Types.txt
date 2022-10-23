@@ -34,6 +34,7 @@ FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
 InvocationDefinition
 ItemDefinition
+LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition
