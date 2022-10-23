@@ -150,27 +150,27 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ElementalForm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\ElementalForm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ElementalFormEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\ElementalFormEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ElementalFormIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\ElementalFormIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormIconEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ElementalFormIconEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\ElementalFormIconEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="FlurryOfArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlurryOfArrows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\FlurryOfArrows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ZenArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZenArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\ZenArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Entry" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -202,18 +202,18 @@
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerAttackConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PowerAttackConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerAttackConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerAttackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PowerAttackIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\PowerAttackIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeadeyeConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeadeyeConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Powers\DeadeyeConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeadeyeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeadeyeIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\Powers\DeadeyeIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\Halberd.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
