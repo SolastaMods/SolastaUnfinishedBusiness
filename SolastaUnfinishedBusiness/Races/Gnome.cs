@@ -63,8 +63,8 @@ internal static class GnomeRaceBuilder
             .SetGuiPresentation(Category.Language)
             .AddToDB();
 
-        var proficiencyGnomishLanguages = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyGnomishLanguages")
+        var proficiencyGnomeLanguages = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyGnomeLanguages")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", languageGnomish.Name)
             .AddToDB();
@@ -90,7 +90,7 @@ internal static class GnomeRaceBuilder
                 SenseDarkvision,
                 savingThrowAffinityGnomeCunningFeature,
                 gnomeNaturalIllusionist,
-                proficiencyGnomishLanguages)
+                proficiencyGnomeLanguages)
             .AddToDB();
 
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(gnome.name);
