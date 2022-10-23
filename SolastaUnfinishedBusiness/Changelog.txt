@@ -4,9 +4,9 @@
 - Add Inventor class
 - Add Kobold race
 - Add Feat Groups
-- Add Feats and Fighting Styles
+- Add new Feats and Fighting Styles
 - Allow 6 players multiplayer
+- Allow 6 players on official campaigns
 - Remove class themed Feats
 - Remove Level Down feature
-- Remove all older classes
-- Remove Gnome race
+- Remove Magus, Tinkerer and Witch

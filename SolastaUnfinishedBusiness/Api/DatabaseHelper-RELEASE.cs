@@ -1197,20 +1197,23 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
 
-        internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } =
-            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
-
         internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
 
         internal static FeatureDefinitionMoveMode MoveModeMove2 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove2");
 
+        internal static FeatureDefinitionMoveMode MoveModeMove5 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove5");
+
         internal static FeatureDefinitionMoveMode MoveModeMove6 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove6");
 
         internal static FeatureDefinitionMoveMode MoveModeMove7 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove7");
+
+        internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
     }
 
     internal static class FeatureDefinitionPointPools
@@ -1536,6 +1539,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseDarkvision { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
+
         internal static FeatureDefinitionSense SenseDarkvision12 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseDarkvision12");
 
@@ -2543,6 +2549,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition AnimalFriendship { get; } =
             GetDefinition<SpellDefinition>("AnimalFriendship");
+
+        internal static SpellDefinition AnnoyingBee { get; } =
+            GetDefinition<SpellDefinition>("AnnoyingBee");
 
         internal static SpellDefinition Bane { get; } =
             GetDefinition<SpellDefinition>("Bane");
