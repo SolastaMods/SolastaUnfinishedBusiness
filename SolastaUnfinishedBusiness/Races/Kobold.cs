@@ -8,9 +8,9 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -90,6 +90,12 @@ internal static class KoboldRaceBuilder
             .SetUniqueInstance()
             .AddToDB();
 
+        var proficiencyKoboldLanguages = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyKoboldLanguages")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
+            .AddToDB();
+
         var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
         var raceKobold = CharacterRaceDefinitionBuilder
@@ -97,16 +103,18 @@ internal static class KoboldRaceBuilder
             .SetOrUpdateGuiPresentation(Category.Race)
             .SetRacePresentation(koboldRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetBaseWeight(30)
+            .SetBaseWeight(35)
+            .SetBaseHeight(3)
             .SetMinimalAge(6)
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 attributeModifierKoboldDexterityAbilityScoreIncrease,
-                SenseDarkvision12,
+                MoveModeMove6,
+                SenseDarkvision,
                 powerKoboldGrovelCowerAndBeg,
                 CombatAffinityPackTactics,
                 lightAffinityKoboldLightSensitivity,
-                ProficiencyDragonbornLanguages)
+                proficiencyKoboldLanguages)
             .AddToDB();
 
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;

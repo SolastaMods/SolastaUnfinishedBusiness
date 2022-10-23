@@ -17,6 +17,7 @@ internal enum Category
     Feature,
     FightingStyle,
     Item,
+    Language,
     Monster,
     Race,
     Reaction,
