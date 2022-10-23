@@ -2,9 +2,11 @@
 
 - Rebrand to Unfinished Business
 - Add Inventor class
+- Add Kobold race
+- Add Feat Groups
 - Add Feats and Fighting Styles
 - Allow 6 players multiplayer
 - Remove class themed Feats
 - Remove Level Down feature
 - Remove all older classes
-- Remove Gnome
+- Remove Gnome race

@@ -8,6 +8,8 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
@@ -19,7 +21,7 @@ internal static class KoboldRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildKobold()
     {
-        // var koboldSpriteReference = CustomIcons.GetSprite("Kobold", Resources.GrayDwarf, 1024, 512);
+        // var koboldSpriteReference = CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
 
         var attributeModifierKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierKoboldDexterityAbilityScoreIncrease")
@@ -100,10 +102,11 @@ internal static class KoboldRaceBuilder
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 attributeModifierKoboldDexterityAbilityScoreIncrease,
-                FeatureDefinitionSenses.SenseDarkvision12,
+                SenseDarkvision12,
                 powerKoboldGrovelCowerAndBeg,
+                CombatAffinityPackTactics,
                 lightAffinityKoboldLightSensitivity,
-                FeatureDefinitionProficiencys.ProficiencyDragonbornLanguages)
+                ProficiencyDragonbornLanguages)
             .AddToDB();
 
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;

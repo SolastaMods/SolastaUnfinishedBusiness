@@ -967,6 +967,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityFlyby { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFlyby");
 
+        internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityParalyzedAdvantage { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityParalyzedAdvantage");
 

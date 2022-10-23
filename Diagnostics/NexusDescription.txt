@@ -86,7 +86,7 @@ All settings start disabled by default.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
-[*][b]Kobold [beta][/b]: Kobolds are often dismissed as cowardly, foolish, and weak, but these little reptilian creatures actually have a strong social structure that stresses devotion to the tribe, are clever with their hands, and viciously work together in order to overcome their physical limitations.
+[*][b]Kobold[/b]: Kobolds are often dismissed as cowardly, foolish, and weak, but these little reptilian creatures actually have a strong social structure that stresses devotion to the tribe, are clever with their hands, and viciously work together in order to overcome their physical limitations.
 [/list]
 
 [size=3][b]Classes[/b][/size]
