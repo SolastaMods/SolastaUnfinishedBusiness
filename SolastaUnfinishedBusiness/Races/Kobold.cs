@@ -8,6 +8,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -66,11 +67,32 @@ internal static class KoboldRaceBuilder
                 })
             .AddToDB();
 
+        var effectDescription = EffectDescriptionBuilder
+            .Create(TrueStrike.EffectDescription)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 2)
+            .SetDurationData(DurationType.Round, 1)
+            .Build();
+
+        var conditionKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionKoboldGrovelCowerAndBeg")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionKoboldGrovelCowerAndBeg;
+
+        var powerKoboldGrovelCowerAndBeg = FeatureDefinitionPowerBuilder
+            .Create("PowerKoboldGrovelCowerAndBeg")
+            .SetGuiPresentation(Category.Feature, Aid)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetEffectDescription(effectDescription)
+            .SetUniqueInstance()
+            .AddToDB();
+
         var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
         var raceKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceKobold")
-            // .SetGuiPresentation(Category.Race, koboldSpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetRacePresentation(koboldRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetBaseWeight(30)
@@ -78,8 +100,10 @@ internal static class KoboldRaceBuilder
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 attributeModifierKoboldDexterityAbilityScoreIncrease,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                lightAffinityKoboldLightSensitivity)
+                FeatureDefinitionSenses.SenseDarkvision12,
+                powerKoboldGrovelCowerAndBeg,
+                lightAffinityKoboldLightSensitivity,
+                FeatureDefinitionProficiencys.ProficiencyDragonbornLanguages)
             .AddToDB();
 
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;

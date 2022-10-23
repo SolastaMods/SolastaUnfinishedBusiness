@@ -1407,6 +1407,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyClericWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyClericWeapon");
 
+        internal static FeatureDefinitionProficiency ProficiencyDragonbornLanguages { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyDragonbornLanguages");
+
         internal static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor");
 

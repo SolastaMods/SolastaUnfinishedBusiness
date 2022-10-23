@@ -15,12 +15,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+      "featureDefinition": "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerKoboldGrovelCowerAndBeg:68613322-a431-512d-be26-3683f7c33dc1",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:LightAffinityKoboldLightSensitivity:b5e8507a-f4fd-5e40-9153-e23e2f2e2407",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDragonbornLanguages:1bca31a64e676814ba7566001c132d1c",
       "level": 1
     }
   ],
@@ -194,8 +204,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&DragonbornTitle",
-    "description": "Race/&DragonbornDescription",
+    "title": "Race/&RaceKoboldTitle",
+    "description": "Race/&RaceKoboldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "62c3e9ea5c80d8449ac26d8548424d1b",
