@@ -10,7 +10,9 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
     private readonly string attribute;
     private readonly IsWeaponValidHandler isWeaponValid;
 
-    internal CanUseAttributeForWeapon(string attribute, IsWeaponValidHandler isWeaponValid,
+    internal CanUseAttributeForWeapon(
+        string attribute,
+        IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
         this.attribute = attribute;
@@ -18,7 +20,9 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
         _validators = validators;
     }
 
-    public void ModifyAttribute(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode,
+    public void ModifyAttribute(
+        RulesetCharacter character,
+        [CanBeNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         if (attackMode == null)

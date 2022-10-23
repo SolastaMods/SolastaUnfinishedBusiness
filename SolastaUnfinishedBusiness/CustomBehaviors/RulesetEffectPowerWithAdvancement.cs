@@ -17,9 +17,11 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         if (extraCharges > 0)
         {
             var provider = usablePower.PowerDefinition.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
+
             if (provider != null)
             {
                 var steps = provider.OverchargeSteps(Global.CurrentCharacter);
+
                 effectLevel = 1 + CustomOverchargeProvider.GetAdvancementFromOvercharge(extraCharges, steps);
             }
         }

@@ -153,12 +153,14 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         bool clearSameType,
         params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
     {
+        // Empty
     }
 
-    internal AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType,
-        params IsCharacterValidHandler[] validators) :
-        base(actionType, validators)
+    internal AddExtraUnarmedAttack(
+        ActionDefinitions.ActionType actionType,
+        params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
+        // Empty
     }
 
     [NotNull]
@@ -197,6 +199,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         bool clearSameType,
         params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
     {
+        // Empty
     }
 
     [NotNull]
@@ -288,6 +291,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
         ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasPolearm)
     {
+        // Empty
     }
 
     [NotNull]
@@ -353,6 +357,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
     internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)
     {
+        // Empty
     }
 
     [CanBeNull]

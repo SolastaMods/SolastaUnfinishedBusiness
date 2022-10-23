@@ -1,7 +1,4 @@
-﻿//TODO: this is a very old patch I don't believe required anymore...
-
-#if false
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -15,8 +12,8 @@ public static class GameLoreManagerPatcher
     {
         public static void Postfix([NotNull] GameLoreManager __instance)
         {
-            // PATCH: BUGFIX: avoid null recipes on game serialization
-            // If a recipe can't be found in the database but was previously known, the serialization
+            //BUGFIX: avoid null recipes on game serialization
+            // if a recipe can't be found in the database but was previously known, the serialization
             // puts a null in the list of known recipes. Since everything that uses the list assumes
             // every entry is a valid item that causes major issues. To prevent that remove null entries
             // from the list of known recipes.
@@ -24,4 +21,3 @@ public static class GameLoreManagerPatcher
         }
     }
 }
-#endif
