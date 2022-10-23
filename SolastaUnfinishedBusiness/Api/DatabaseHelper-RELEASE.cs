@@ -473,6 +473,9 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterRaceDefinitions
     {
+        internal static CharacterRaceDefinition Dragonborn { get; } =
+            GetDefinition<CharacterRaceDefinition>("Dragonborn");
+
         internal static CharacterRaceDefinition Dwarf { get; } =
             GetDefinition<CharacterRaceDefinition>("Dwarf");
 

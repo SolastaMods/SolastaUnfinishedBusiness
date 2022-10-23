@@ -21,6 +21,7 @@ internal static class RacesContext
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant); // depends on DarkElf sub race
+        LoadRace(KoboldRaceBuilder.RaceKobold);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
