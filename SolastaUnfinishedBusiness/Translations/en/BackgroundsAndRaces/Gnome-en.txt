@@ -10,5 +10,5 @@ Feature/&ProficiencyGnomeLanguagesDescription=Common, Gnomish.
 Feature/&ProficiencyGnomeLanguagesTitle=Languages
 Language/&LanguageGnomishDescription=An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
 Language/&LanguageGnomishTitle=Gnomish
-Race/&GnomeRaceDescription=A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
-Race/&GnomeRaceTitle=Gnome
+Race/&RaceGnomeDescription=A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+Race/&RaceGnomeTitle=Gnome

@@ -74,7 +74,7 @@ internal static class GnomeRaceBuilder
         gnomeRacePresentation.preferedHairColors = new RangedInt(26, 47);
 
         var gnome = CharacterRaceDefinitionBuilder
-            .Create(CharacterRaceDefinitions.Human, "GnomeRace")
+            .Create(CharacterRaceDefinitions.Human, "RaceGnome")
             .SetGuiPresentation(Category.Race, gnomeSpriteReference)
             .SetRacePresentation(gnomeRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)

@@ -259,8 +259,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&GnomeRaceTitle",
-    "description": "Race/&GnomeRaceDescription",
+    "title": "Race/&RaceGnomeTitle",
+    "description": "Race/&RaceGnomeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e7e3229e-8053-586a-b305-1c307493582a",
@@ -280,7 +280,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e588e342-f6a5-5d7b-959a-39450bc585a4",
+  "guid": "af08052a-5740-5f03-bcac-e2fbbf230f55",
   "contentPack": 9999,
-  "name": "GnomeRace"
+  "name": "RaceGnome"
 }

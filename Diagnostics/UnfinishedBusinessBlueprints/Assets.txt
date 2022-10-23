@@ -287,9 +287,9 @@ Traps~TownInterior~MOD	BlueprintCategory	BlueprintCategory	23d7d0b8-6c2a-5452-af
 Traps~ValleyPalace~MOD	BlueprintCategory	BlueprintCategory	e72353f4-bde6-5f2c-9dea-2ae1065782a6
 Traps~WoodLand~MOD	BlueprintCategory	BlueprintCategory	b0da8bad-0ce2-5db0-adb6-32a37b6258b7
 Inventor	CharacterClassDefinition	CharacterClassDefinition	fbc44110-e6c1-5830-86e0-eb6f8efe5ae7
-GnomeRace	CharacterRaceDefinition	CharacterRaceDefinition	e588e342-f6a5-5d7b-959a-39450bc585a4
 RaceBolgrif	CharacterRaceDefinition	CharacterRaceDefinition	30624939-6f75-5f31-83ba-bd0889cd49e4
 RaceDarkelf	CharacterRaceDefinition	CharacterRaceDefinition	263d391a-ecb7-56e4-8613-a9e0f2915eb9
+RaceGnome	CharacterRaceDefinition	CharacterRaceDefinition	af08052a-5740-5f03-bcac-e2fbbf230f55
 RaceGrayDwarf	CharacterRaceDefinition	CharacterRaceDefinition	c1b69f2c-e1ce-5142-81d0-19e950d68a7e
 RaceHalfElfDark	CharacterRaceDefinition	CharacterRaceDefinition	c1b0effd-683a-5a5b-a088-d7bcb4e5adfa
 RaceHalfElfHigh	CharacterRaceDefinition	CharacterRaceDefinition	3c9b6628-be66-5f1a-bb4d-fba8560e8fe3
