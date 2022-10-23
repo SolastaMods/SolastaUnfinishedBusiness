@@ -88,22 +88,22 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //PATCH: BUGFIX: as of (v1.4.15) game doesn't consider cantrips gained from BonusCantrips feature
+            //PATCH: BUGFIX: as of (v1.4.18) game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
-            //this patch tries to find requested cantrip in reprtoire's ExtraSpellsByTag0
+            //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
             {
                 return;
             }
 
-            foreach (var repertoire in __instance.SpellRepertoires)
+            foreach (var repertoire in __instance.SpellRepertoires
+                         .Where(repertoire => repertoire.ExtraSpellsByTag
+                             .Any(x => x.Value.Contains(spellDefinitionToCast))))
             {
-                if (repertoire.ExtraSpellsByTag.Any(x => x.Value.Contains(spellDefinitionToCast)))
-                {
-                    matchingRepertoire = repertoire;
-                    __result = 0;
-                    break;
-                }
+                matchingRepertoire = repertoire;
+                __result = 0;
+
+                break;
             }
         }
     }
@@ -145,11 +145,13 @@ public static class RulesetCharacterPatcher
             mainHand?.FillTags(tagsMap, caster, true);
             offHand?.FillTags(tagsMap, caster, true);
 
-            if (tagsMap.ContainsKey(materialTag))
+            if (!tagsMap.ContainsKey(materialTag))
             {
-                result = true;
-                failure = string.Empty;
+                return;
             }
+
+            result = true;
+            failure = string.Empty;
         }
 
         //TODO: move to separate file
@@ -164,11 +166,13 @@ public static class RulesetCharacterPatcher
             var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
             var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
 
-            if (caster.HoldsMyInfusion(mainHand) || caster.HoldsMyInfusion(offHand))
+            if (!caster.HoldsMyInfusion(mainHand) && !caster.HoldsMyInfusion(offHand))
             {
-                result = true;
-                failure = string.Empty;
+                return;
             }
+
+            result = true;
+            failure = string.Empty;
         }
     }
 
@@ -177,18 +181,27 @@ public static class RulesetCharacterPatcher
     public static class IsComponentMaterialValid_Patch
     {
         public static void Postfix(
-            RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
+            RulesetCharacter __instance,
+            ref bool __result,
+            SpellDefinition spellDefinition,
+            ref string failure)
         {
             //PATCH: Allow spells to satisfy material components by using stack of equal or greater value
             StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
 
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
 
             //PATCH: Allows spells to satisfy specific material components by actual active tags on an item that are not directly defined in ItemDefinition (like "Melee")
             //Used mostly for melee cantrips requiring melee weapon to cast
             ValidateSpecificComponentsByTags(__instance, spellDefinition, ref __result, ref failure);
 
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
 
             //PATCH: Allows spells to satisfy mundane material components if Inventor has infused item equipped
             //Used mostly for melee cantrips requiring melee weapon to cast
@@ -196,7 +209,9 @@ public static class RulesetCharacterPatcher
         }
 
         //TODO: move to separate file
-        private static void ValidateSpecificComponentsByTags(RulesetCharacter caster, SpellDefinition spell,
+        private static void ValidateSpecificComponentsByTags(
+            RulesetCharacter caster,
+            SpellDefinition spell,
             ref bool result,
             ref string failure)
         {
@@ -218,11 +233,13 @@ public static class RulesetCharacterPatcher
                 var itemItemDefinition = rulesetItem.ItemDefinition;
                 var costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
 
-                if (!tagsMap.ContainsKey(materialTag) || costInGold < requiredCost)
+                if (tagsMap.ContainsKey(materialTag) && costInGold >= requiredCost)
                 {
-                    result = true;
-                    failure = string.Empty;
+                    continue;
                 }
+
+                result = true;
+                failure = string.Empty;
             }
         }
 
@@ -236,15 +253,13 @@ public static class RulesetCharacterPatcher
             List<RulesetItem> items = new();
             caster.CharacterInventory.EnumerateAllItems(items);
 
-            foreach (var item in items)
+            if (!items.Any(caster.HoldsMyInfusion))
             {
-                if (caster.HoldsMyInfusion(item))
-                {
-                    result = true;
-                    failure = string.Empty;
-                    return;
-                }
+                return;
             }
+
+            result = true;
+            failure = string.Empty;
         }
     }
 
@@ -628,6 +643,7 @@ public static class RulesetCharacterPatcher
             foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
             {
                 var slot = keyValuePair.Value;
+
                 if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
                 {
                     continue;
@@ -638,12 +654,14 @@ public static class RulesetCharacterPatcher
                 foreach (var dynamicItemProperty in equipedItem.DynamicItemProperties)
                 {
                     var definition = dynamicItemProperty.FeatureDefinition;
+
                     if (definition == null || definition is not ISpellCastingAffinityProvider)
                     {
                         continue;
                     }
 
                     featuresToBrowse.Add(definition);
+
                     if (featuresOrigin.ContainsKey(definition))
                     {
                         continue;
@@ -786,7 +804,6 @@ public static class RulesetCharacterPatcher
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
 
             var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
-
             var bindIndex = codes.FindIndex(x => x.Calls(bind));
 
             if (bindIndex <= 0)
@@ -909,10 +926,17 @@ public static class RulesetCharacterPatcher
         public static void Prefix(RulesetCharacter __instance, ref int forcedInitiative)
         {
             //PATCH: allows summons to have forced initiative of a summoner
-            if (!__instance.HasSubFeatureOfType<ForceInitiativeToSummoner>()) { return; }
+            if (!__instance.HasSubFeatureOfType<ForceInitiativeToSummoner>())
+            {
+                return;
+            }
 
             var summoner = __instance.GetMySummoner();
-            if (summoner == null) { return; }
+
+            if (summoner == null)
+            {
+                return;
+            }
 
             forcedInitiative = summoner.lastInitiative;
         }
@@ -941,7 +965,7 @@ public static class RulesetCharacterPatcher
                 }
             }
         }
-
+        
         private static bool IsFunctionAvailable(RulesetItemDevice device,
             RulesetDeviceFunction function,
             RulesetCharacter character,
