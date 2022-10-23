@@ -1,6 +1,0 @@
-﻿Subclass/&ArtisanAlchemistDescription=You specialize in potions, buffs, healing, and spell casting.
-Subclass/&ArtisanAlchemistTitle=Potion Maker
-Feature/&AutoPreparedSpellsArtisanAlchemistDescription={0}.
-Feature/&AutoPreparedSpellsArtisanAlchemistTitle=Learn Alchemist Spells
-Feature/&ArtisanAlchemistResilienceElixirDescription=Increase target AC by +1 for 10 minutes.
-Feature/&ArtisanAlchemistResilienceElixirTitle=Resilience Elixir
