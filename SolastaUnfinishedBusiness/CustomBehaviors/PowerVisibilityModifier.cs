@@ -4,32 +4,36 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal delegate bool IsPowerVisibleHandler(RulesetCharacter character, FeatureDefinitionPower power,
+internal delegate bool IsPowerVisibleHandler(
+    RulesetCharacter character,
+    FeatureDefinitionPower power,
     ActionType actionType);
 
 internal class PowerVisibilityModifier
 {
-    internal static PowerVisibilityModifier Default = new((_, power, actionType) =>
+    internal static readonly PowerVisibilityModifier Default = new((_, power, actionType) =>
     {
-        if (Gui.Battle != null)
+        if (Gui.Battle == null)
         {
-            var powerActivationTime = power.activationTime;
-            CastingTimeToActionDefinition.TryGetValue(powerActivationTime, out var powerActionType);
-            return powerActionType == actionType
-                   || (actionType == ActionType.Main && (powerActivationTime == ActivationTime.Reaction
-                                                         || (powerActivationTime != ActivationTime.NoCost &&
-                                                             powerActionType == ActionType.NoCost)));
+            return true;
         }
 
-        return true;
+        var powerActivationTime = power.activationTime;
+
+        CastingTimeToActionDefinition.TryGetValue(powerActivationTime, out var powerActionType);
+
+        return powerActionType == actionType
+               || (actionType == ActionType.Main && (powerActivationTime == ActivationTime.Reaction
+                                                     || (powerActivationTime != ActivationTime.NoCost &&
+                                                         powerActionType == ActionType.NoCost)));
     });
 
-    internal static PowerVisibilityModifier Hidden = new((_, _, _) => false);
-    internal static PowerVisibilityModifier Visible = new((_, _, _) => true);
+    internal static readonly PowerVisibilityModifier Hidden = new((_, _, _) => false);
+    internal static readonly PowerVisibilityModifier Visible = new((_, _, _) => true);
 
     private readonly IsPowerVisibleHandler handler;
 
-    public PowerVisibilityModifier(IsPowerVisibleHandler handler)
+    private PowerVisibilityModifier(IsPowerVisibleHandler handler)
     {
         this.handler = handler;
     }

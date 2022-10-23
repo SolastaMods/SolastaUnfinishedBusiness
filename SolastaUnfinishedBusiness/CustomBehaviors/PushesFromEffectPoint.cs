@@ -12,6 +12,7 @@ internal sealed class PushesFromEffectPoint
 {
     private PushesFromEffectPoint()
     {
+        // Empty
     }
 
     public static PushesFromEffectPoint Marker { get; } = new();
@@ -52,6 +53,7 @@ internal sealed class PushesFromEffectPoint
     )
     {
         var positions = action.ActionParams.Positions;
+
         if (!positions.Empty()
             && formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<PushesFromEffectPoint>())
         {
@@ -66,7 +68,11 @@ internal sealed class PushesFromEffectPoint
         RulesetImplementationDefinitions.ApplyFormsParams formsParams)
     {
         var source = formsParams.activeEffect?.SourceDefinition;
-        if (source == null) { return true; }
+
+        if (source == null)
+        {
+            return true;
+        }
 
         var position = formsParams.position;
         var active = source.HasSubFeatureOfType<PushesFromEffectPoint>();
@@ -86,6 +92,7 @@ internal sealed class PushesFromEffectPoint
         }
 
         var motionForm = effectForm.MotionForm;
+
         if (motionForm.Type != MotionForm.MotionType.PushFromOrigin
             && motionForm.Type != MotionForm.MotionType.DragToOrigin)
         {
@@ -100,19 +107,23 @@ internal sealed class PushesFromEffectPoint
         if (position == target.LocationPosition) { return false; }
 
         var reverse = motionForm.Type == MotionForm.MotionType.DragToOrigin;
-        if (ServiceRepository.GetService<IGameLocationEnvironmentService>()
-            .ComputePushDestination(position, target, motionForm.Distance, reverse,
-                ServiceRepository.GetService<IGameLocationPositioningService>(),
-                out var destination, out var _))
+
+        if (!ServiceRepository.GetService<IGameLocationEnvironmentService>()
+                .ComputePushDestination(position, target, motionForm.Distance, reverse,
+                    ServiceRepository.GetService<IGameLocationPositioningService>(),
+                    out var destination, out var _))
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            actionService.StopCharacterActions(target, CharacterAction.InterruptionType.ForcedMovement);
-            actionService.ExecuteAction(
-                new CharacterActionParams(target, ActionDefinitions.Id.Pushed, destination)
-                {
-                    CanBeCancelled = false, CanBeAborted = false, BoolParameter4 = false
-                }, null, false);
+            return false;
         }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        actionService.StopCharacterActions(target, CharacterAction.InterruptionType.ForcedMovement);
+        actionService.ExecuteAction(
+            new CharacterActionParams(target, ActionDefinitions.Id.Pushed, destination)
+            {
+                CanBeCancelled = false, CanBeAborted = false, BoolParameter4 = false
+            }, null, false);
 
         return false;
     }

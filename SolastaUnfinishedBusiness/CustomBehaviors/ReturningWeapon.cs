@@ -11,6 +11,7 @@ internal class ReturningWeapon
 
     private ReturningWeapon()
     {
+        // Empty
     }
 
     internal static ReturningWeapon Instance { get; } = new();

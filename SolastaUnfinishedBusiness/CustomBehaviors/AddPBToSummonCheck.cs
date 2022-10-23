@@ -16,35 +16,48 @@ public class AddPBToSummonCheck
         this.abilities = abilities;
     }
 
-    public int Modifier(string ability)
+    private int Modifier(string ability)
     {
-        if (abilities.Contains(ability))
-        {
-            return multiplier;
-        }
-
-        return 0;
+        return abilities.Contains(ability) ? multiplier : 0;
     }
 
-
-    public static void ModifyCheckBonus<T>(RulesetCharacterMonster monster, ref int result,
-        string proficiency, List<RuleDefinitions.TrendInfo> trends) where T : class
+    public static void ModifyCheckBonus<T>(
+        RulesetCharacterMonster monster,
+        ref int result,
+        string proficiency,
+        List<RuleDefinitions.TrendInfo> trends) where T : class
     {
         var features = monster.FeaturesToBrowse;
+
         monster.EnumerateFeaturesToBrowse<T>(features);
 
         var mods = features.SelectMany(f => f.GetAllSubFeaturesOfType<AddPBToSummonCheck>()).ToList();
-        if (mods.Empty()) { return; }
+
+        if (mods.Empty())
+        {
+            return;
+        }
 
         var mult = mods.Max(m => m.Modifier(proficiency));
 
-        if (mult == 0) { return; }
+        if (mult == 0)
+        {
+            return;
+        }
 
         var summoner = EffectHelpers.GetSummoner(monster);
-        if (summoner == null) { return; }
+
+        if (summoner == null)
+        {
+            return;
+        }
 
         var pb = summoner.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-        if (pb == 0) { return; }
+
+        if (pb == 0)
+        {
+            return;
+        }
 
         pb *= mult;
 
@@ -52,11 +65,14 @@ public class AddPBToSummonCheck
         {
             trends.Clear();
 
-            var info = new RuleDefinitions.TrendInfo(result, RuleDefinitions.FeatureSourceType.Base, string.Empty,
-                null);
+            var info = new RuleDefinitions.TrendInfo(
+                result, RuleDefinitions.FeatureSourceType.Base, string.Empty, null);
+
             trends.Add(info);
 
-            info = new RuleDefinitions.TrendInfo(pb, RuleDefinitions.FeatureSourceType.Proficiency, string.Empty, null);
+            info = new RuleDefinitions.TrendInfo(
+                pb, RuleDefinitions.FeatureSourceType.Proficiency, string.Empty, null);
+
             trends.Add(info);
         }
 

@@ -23,6 +23,7 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
     internal RestrictedContextValidator(OperationType operation, IsCharacterValidHandler validator)
         : this((_, _, character, _, _, _, _) => (operation, validator(character)))
     {
+        // Empty
     }
 
     public (OperationType, bool) ValidateContext(
