@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class GnomeRaceBuilder
 {
-    internal static CharacterRaceDefinition GnomeRace { get; } = BuildGnome();
+    internal static CharacterRaceDefinition RaceGnome { get; } = BuildGnome();
 
     [NotNull]
     private static CharacterRaceDefinition BuildGnome()
