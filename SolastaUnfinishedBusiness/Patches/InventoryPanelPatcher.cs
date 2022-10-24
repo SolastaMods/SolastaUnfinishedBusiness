@@ -31,8 +31,7 @@ public static class InventoryPanelPatcher
         public static void Postfix(InventoryPanel __instance)
         {
             // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
-            if (Main.Settings.EnableInventoryFilteringAndSorting
-                && __instance.MainContainerPanel)
+            if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.MainContainerPanel)
             {
                 InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
             }

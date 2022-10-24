@@ -26,6 +26,7 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
                 foreach (var spell in group.SpellsList)
                 {
                     var spellLevel = spell.SpellLevel;
+
                     if (!spells.ContainsKey(spellLevel))
                     {
                         spells.Add(spellLevel, new List<SpellDefinition>());

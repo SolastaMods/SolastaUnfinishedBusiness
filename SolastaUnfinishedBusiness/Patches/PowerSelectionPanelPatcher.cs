@@ -36,6 +36,7 @@ public static class PowerSelectionPanelPatcher
                     new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
                 }
             );
+
             return codes.AsEnumerable();
         }
 
@@ -49,7 +50,11 @@ public static class PowerSelectionPanelPatcher
             foreach (var power in usablePowers)
             {
                 var feature = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>();
-                if (feature == null) { continue; }
+
+                if (feature == null)
+                {
+                    continue;
+                }
 
                 if (feature.IsVisible(character, power.PowerDefinition, actionType))
                 {
@@ -60,6 +65,7 @@ public static class PowerSelectionPanelPatcher
             for (var i = relevantPowers.Count - 1; i >= 0; i--)
             {
                 var power = relevantPowers[i];
+
                 if (ValidatorsPowerUse.IsPowerNotValid(character, power)
                     || PowerVisibilityModifier.IsPowerHidden(character, power, actionType))
                 {
@@ -78,6 +84,7 @@ public static class PowerSelectionPanelPatcher
 
             var powerBoxes = __instance.usablePowerBoxes;
             var powersTable = __instance.powersTable;
+
             if (powerBoxes.Count > 14)
             {
                 if (_thirdRow == null)
@@ -86,6 +93,7 @@ public static class PowerSelectionPanelPatcher
                 }
 
                 var toStayCount = powersTable.childCount * 2 / 3;
+
                 MovePowersToRow(powersTable, _thirdRow, toStayCount, 200);
             }
 
@@ -97,15 +105,18 @@ public static class PowerSelectionPanelPatcher
                 }
 
                 var toStayCount = powersTable.childCount / 2;
+
                 MovePowersToRow(powersTable, _secondRow, toStayCount, 80);
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(powersTable);
-            __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
-                powersTable.rect.width);
+            __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, powersTable.rect.width);
         }
 
-        private static void MovePowersToRow(RectTransform powersTable, RectTransform newRow, int toStayCount,
+        private static void MovePowersToRow(
+            RectTransform powersTable,
+            RectTransform newRow,
+            int toStayCount,
             int yOffset)
         {
             var position = powersTable.transform.position;

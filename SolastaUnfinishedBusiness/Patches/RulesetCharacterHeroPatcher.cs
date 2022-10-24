@@ -47,16 +47,17 @@ public static class RulesetCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanCastInvocation_Patch
     {
-        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, RulesetInvocation invocation)
+        public static bool Prefix(ref bool __result, RulesetInvocation invocation)
         {
             //PATCH: make sure we can't cast hidden invocations, so they will be hidden
-            if (invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            if (!invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
             {
-                __result = false;
-                return false;
+                return true;
             }
 
-            return true;
+            __result = false;
+
+            return false;
         }
     }
 
@@ -85,6 +86,7 @@ public static class RulesetCharacterHeroPatcher
             var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
 
             var mods = modifiers;
+
             if (attackMode.sourceObject is RulesetItem item)
             {
                 mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
@@ -329,6 +331,8 @@ public static class RulesetCharacterHeroPatcher
 
                             break;
                         }
+
+#if false
                         // special case for Witch
                         case (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known:
                         {
@@ -351,6 +355,7 @@ public static class RulesetCharacterHeroPatcher
                             allRitualSpells.AddRange(spells);
                             break;
                         }
+#endif
                     }
                 }
             }

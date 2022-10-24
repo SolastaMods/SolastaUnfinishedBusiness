@@ -43,6 +43,7 @@ public static class AfterRestActionItemPatcher
 
             //PATCH: allow customized titles on use rest power
             var getTitle = power.PowerDefinition.GetFirstSubFeatureOfType<ModifyRestPowerTitleHandler>();
+
             if (getTitle != null)
             {
                 __instance.titleLabel.Text = getTitle(hero);

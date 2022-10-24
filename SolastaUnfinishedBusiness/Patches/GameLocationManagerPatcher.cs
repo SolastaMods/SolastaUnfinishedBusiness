@@ -81,6 +81,7 @@ public static class GameLocationManagerPatcher
         {
             //PATCH: prevent some effects from being removed when entering new location
             var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
+
             foreach (var instruction in instructions)
             {
                 if (instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"))
@@ -109,6 +110,7 @@ public static class GameLocationManagerPatcher
                 }
 
                 var effectDescription = effect.EffectDescription;
+
                 if (willEnterChainedLocation
                     && RuleDefinitions.MatchesMagicType(effectDescription, RuleDefinitions.MagicType.SummonsCreature))
                 {
