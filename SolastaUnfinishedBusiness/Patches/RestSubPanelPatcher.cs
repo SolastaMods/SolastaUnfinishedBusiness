@@ -15,9 +15,10 @@ public static class RestSubPanelPatcher
         {
             //PATCH: scales down the rest sub panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
-
             var width = 128 * partyCount;
+
             __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+
             var modules = __instance.restModulesTable;
 
             for (var i = 0; i < modules.childCount; i++)

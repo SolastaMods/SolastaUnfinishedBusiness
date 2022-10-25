@@ -19,6 +19,7 @@ public static class RulesetInventoryPatcher
             }
 
             rank -= 100;
+
             var itemsConfigurations = __instance.WieldedItemsConfigurations;
             var currentRank = __instance.CurrentConfiguration;
 

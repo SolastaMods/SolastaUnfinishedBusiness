@@ -126,8 +126,11 @@ public static class GameLocationCharacterPatcher
     {
         // This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
         // But only not during a battle.
-        public static void Postfix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType,
-            ref bool __result, bool accountDelegatedPowers)
+        public static void Postfix(
+            GameLocationCharacter __instance,
+            ActionDefinitions.ActionType actionType,
+            ref bool __result,
+            bool accountDelegatedPowers)
         {
             var rulesetCharacter = __instance.RulesetCharacter;
 
@@ -142,7 +145,7 @@ public static class GameLocationCharacterPatcher
             {
                 //PATCH: hide use power button if character has no valid powers
                 if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                        IsActinoValid(rulesetCharacter, rulesetUsablePower, actionType)
+                        IsActionValid(rulesetCharacter, rulesetUsablePower, actionType)
                         && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)
                     ))
                 {
@@ -163,7 +166,9 @@ public static class GameLocationCharacterPatcher
             }
         }
 
-        private static bool IsActinoValid(RulesetCharacter character, RulesetUsablePower power,
+        private static bool IsActionValid(
+            RulesetCharacter character,
+            RulesetUsablePower power,
             ActionDefinitions.ActionType actionType)
         {
             if (Gui.Battle == null) { return true; }

@@ -27,12 +27,14 @@ public static class RulesetEffectPowerPatcher
 
             var user = __instance.User;
             CharacterClassDefinition classDefinition = null;
+
             if (originItem.UsableDeviceDescription.SaveDC == EffectHelpers.BasedOnItemSummoner)
             {
                 user = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? user;
             }
 
             var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+
             if (classHolder != null)
             {
                 classDefinition = classHolder.Class;
@@ -65,6 +67,7 @@ public static class RulesetEffectPowerPatcher
         {
             //PATCH: allow devices have magic attack bonus based on spell attack
             var power = __instance.PowerDefinition;
+
             if (power.AttackHitComputation !=
                 (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
             {
@@ -73,6 +76,7 @@ public static class RulesetEffectPowerPatcher
 
             var user = __instance.User;
             var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
+
             if (repertoire != null)
             {
                 __result = repertoire.SpellAttackBonus;
@@ -88,6 +92,7 @@ public static class RulesetEffectPowerPatcher
         {
             //PATCH: allow devices have magic attack trends based on spell attack
             var power = __instance.PowerDefinition;
+
             if (power.AttackHitComputation !=
                 (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
             {
@@ -96,6 +101,7 @@ public static class RulesetEffectPowerPatcher
 
             var user = __instance.User;
             var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
+
             if (repertoire != null)
             {
                 __result = repertoire.MagicAttackTrends;

@@ -14,6 +14,7 @@ public static class FeatureDefinitionPointPoolPatcher
         public static bool Prefix([NotNull] FeatureDefinitionPointPool __instance, ref string __result)
         {
             var choices = __instance.RestrictedChoices;
+
             if (__instance.poolType != HeroDefinitions.PointsPoolType.Tool || choices == null || choices.Empty())
             {
                 return true;
@@ -21,6 +22,7 @@ public static class FeatureDefinitionPointPoolPatcher
 
             var builder = new StringBuilder();
             var separator = Gui.ListSeparator();
+
             foreach (var restrictedChoice in choices)
             {
                 if (builder.Length > 0)
@@ -29,11 +31,13 @@ public static class FeatureDefinitionPointPoolPatcher
                 }
 
                 var tool = DatabaseRepository.GetDatabase<ToolTypeDefinition>().GetElement(restrictedChoice);
+
                 builder.Append(Gui.Localize(tool.GuiPresentation.Title));
             }
 
             __result = Gui.Format(__instance.GuiPresentation.Description, __instance.PoolAmount.ToString(),
                 builder.ToString());
+
             return false;
         }
     }

@@ -68,8 +68,10 @@ public static class AttunementModalPatcher
             }
 
             var label = __instance.attunementCountLabel;
-            label.TMP_Text.alignment = TextAlignmentOptions.Left;
             var rect = label.GetComponent<RectTransform>();
+
+            label.TMP_Text.alignment = TextAlignmentOptions.Left;
+
             rect.sizeDelta = new Vector2(300, rect.sizeDelta.y);
             rect.localPosition = new Vector2(10, 225);
         }

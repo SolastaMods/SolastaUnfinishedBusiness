@@ -32,6 +32,7 @@ internal enum ExtraEffectFormType
     Custom = 9000
 }
 
+#if false
 internal enum ExtraRitualCasting
 {
     // None = RitualCasting.None,
@@ -39,6 +40,7 @@ internal enum ExtraRitualCasting
     // Spellbook = RitualCasting.Spellbook,
     Known = 9000
 }
+#endif
 
 internal enum ExtraPowerAttackHitComputation
 {

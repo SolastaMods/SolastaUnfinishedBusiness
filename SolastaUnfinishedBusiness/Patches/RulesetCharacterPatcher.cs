@@ -952,7 +952,6 @@ public static class RulesetCharacterPatcher
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable",
                 BindingFlags.NonPublic | BindingFlags.Static);
 
-
             foreach (var instruction in instructions)
             {
                 if (instruction.Calls(isFunctionAvailable))
@@ -965,7 +964,7 @@ public static class RulesetCharacterPatcher
                 }
             }
         }
-        
+
         private static bool IsFunctionAvailable(RulesetItemDevice device,
             RulesetDeviceFunction function,
             RulesetCharacter character,
@@ -985,14 +984,16 @@ public static class RulesetCharacterPatcher
             }
 
             var power = function.DeviceFunctionDescription.FeatureDefinitionPower;
-            if (!PowerVisibilityModifier.IsPowerHidden(character, power, ActionDefinitions.ActionType.Main)
-                && character.CanUsePower(power, false))
+
+            if (PowerVisibilityModifier.IsPowerHidden(character, power, ActionDefinitions.ActionType.Main)
+                || !character.CanUsePower(power, false))
             {
-                result = true;
-                failureFlag = string.Empty;
+                return false;
             }
 
-            return result;
+            failureFlag = string.Empty;
+
+            return true;
         }
     }
 }

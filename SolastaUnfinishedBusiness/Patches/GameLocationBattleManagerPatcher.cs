@@ -20,17 +20,20 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanCharacterUsePower_Patch
     {
-        public static bool Prefix(GameLocationBattleManager __instance, ref bool __result,
-            RulesetCharacter caster, GameLocationCharacter defaultTarget, RulesetUsablePower usablePower)
+        public static bool Prefix(
+            ref bool __result,
+            RulesetCharacter caster,
+            RulesetUsablePower usablePower)
         {
             //PATCH: support for `IPowerUseValidity` when trying to react with power 
-            if (!caster.CanUsePower(usablePower.PowerDefinition))
+            if (caster.CanUsePower(usablePower.PowerDefinition))
             {
-                __result = false;
-                return false;
+                return true;
             }
 
-            return true;
+            __result = false;
+
+            return false;
         }
     }
 
@@ -54,10 +57,8 @@ public static class GameLocationBattleManagerPatcher
     public static class IsValidAttackForReadiedAction_Patch
     {
         public static void Postfix(
-            GameLocationBattleManager __instance,
             ref bool __result,
-            BattleDefinitions.AttackEvaluationParams attackParams,
-            bool forbidDisadvantage)
+            BattleDefinitions.AttackEvaluationParams attackParams)
         {
             //PATCH: Checks if attack cantrip is valid to be cast as readied action on a target
             // Used to properly check if melee cantrip can hit target when used for readied action
@@ -80,10 +81,9 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleCharacterMoveStart_Patch
     {
-        public static void Prefix(GameLocationBattleManager __instance,
+        public static void Prefix(
             GameLocationCharacter mover,
-            int3 destination
-        )
+            int3 destination)
         {
             //PATCH: support for Polearm Expert AoO
             //Stores character movements to be processed later
@@ -249,6 +249,7 @@ public static class GameLocationBattleManagerPatcher
 
             var attacker = attackParams.attacker.RulesetCharacter;
             var defender = attackParams.defender.RulesetCharacter;
+
             if (attacker == null)
             {
                 return;
@@ -259,6 +260,7 @@ public static class GameLocationBattleManagerPatcher
                 case BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.PhysicalReach:
                     // handle physical attack roll
                     var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
+
                     foreach (var feature in attackModifiers)
                     {
                         feature.ComputeAttackModifier(attacker, defender, attackParams.attackMode,
@@ -270,6 +272,7 @@ public static class GameLocationBattleManagerPatcher
                 case BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach:
                     // handle magic attack roll
                     var magicAttackModifiers = attacker.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
+
                     foreach (var feature in magicAttackModifiers)
                     {
                         var modifier = feature.GetSpellAttackRollModifier(attacker);
@@ -339,7 +342,6 @@ public static class GameLocationBattleManagerPatcher
     {
         public static IEnumerator Postfix(
             IEnumerator __result,
-            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode rulesetAttackMode,
@@ -373,7 +375,6 @@ public static class GameLocationBattleManagerPatcher
     {
         public static IEnumerator Postfix(
             IEnumerator values,
-            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -417,7 +418,8 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleFailedSavingThrow_Patch
     {
-        internal static IEnumerator Postfix(IEnumerator values,
+        internal static IEnumerator Postfix(
+            IEnumerator values,
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -429,19 +431,30 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: allow source character of a condition to use power to augment failed save roll
             //used mainly for Inventor's `Quick Wit`
-            while (values.MoveNext()) { yield return values.Current; }
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
 
             var saveOutcome = action.SaveOutcome;
 
-            if (!IsFailed(saveOutcome)) { yield break; }
+            if (!IsFailed(saveOutcome))
+            {
+                yield break;
+            }
 
             var rulesetDefender = defender.RulesetCharacter;
-            if (rulesetDefender == null) { yield break; }
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var allConditions = new List<RulesetCondition>();
+
             rulesetDefender.GetAllConditions(allConditions);
 
             foreach (var condition in allConditions)
@@ -449,7 +462,10 @@ public static class GameLocationBattleManagerPatcher
                 var feature = condition.ConditionDefinition
                     .GetFirstSubFeatureOfType<ConditionSourceCanUsePowerToImproveFailedSaveRoll>();
 
-                if (feature == null) { continue; }
+                if (feature == null)
+                {
+                    continue;
+                }
 
                 if (!RulesetEntity.TryGetEntity<RulesetCharacter>(condition.SourceGuid, out var helper))
                 {
@@ -458,7 +474,10 @@ public static class GameLocationBattleManagerPatcher
 
                 var locHelper = GameLocationCharacter.GetFromActor(helper);
 
-                if (locHelper == null) { continue; }
+                if (locHelper == null)
+                {
+                    continue;
+                }
 
                 if (!feature.ShouldTrigger(action, attacker, defender, helper, saveModifier, hasHitVisual,
                         hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta))
@@ -468,7 +487,10 @@ public static class GameLocationBattleManagerPatcher
 
                 var power = feature.Power;
 
-                if (!helper.CanUsePower(power)) { continue; }
+                if (!helper.CanUsePower(power))
+                {
+                    continue;
+                }
 
                 var usablePower = UsablePowersProvider.Get(power, helper);
 
@@ -481,6 +503,7 @@ public static class GameLocationBattleManagerPatcher
                 };
 
                 var count = actionService.PendingReactionRequestGroups.Count;
+
                 actionService.ReactToSpendPower(reactionParams);
 
                 yield return __instance.WaitForReactions(locHelper, actionService, count);
@@ -496,7 +519,10 @@ public static class GameLocationBattleManagerPatcher
 
                 reactionParams.RulesetEffect.Terminate(true);
 
-                if (!IsFailed(saveOutcome)) { yield break; }
+                if (!IsFailed(saveOutcome))
+                {
+                    yield break;
+                }
             }
         }
 

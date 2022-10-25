@@ -44,7 +44,10 @@ public static class GameLocationActionManagerPatcher
         public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `SpendPower` reaction for bundled powers or customized one for other powers
-            if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect) { return true; }
+            if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect)
+            {
+                return true;
+            }
 
             if (powerEffect.PowerDefinition.IsBundlePower())
             {

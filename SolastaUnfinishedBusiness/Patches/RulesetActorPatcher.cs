@@ -72,6 +72,7 @@ public static class RulesetActorPatcher
             foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
             {
                 var slot = keyValuePair.Value;
+
                 if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
                 {
                     continue;
@@ -140,6 +141,7 @@ public static class RulesetActorPatcher
         private static bool IsElvenPrecisionContextQualified(RulesetActor actor)
         {
             var character = GameLocationCharacter.GetFromActor(actor);
+
             return character.RulesetCharacter is RulesetCharacterHero hero && (from feat in hero.TrainedFeats
                 where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
                 select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
@@ -252,19 +254,6 @@ public static class RulesetActorPatcher
                 }
             }
         }
-
-        // private static CharacterClassDefinition GetClassByTags(IEnumerable<string> tags)
-        // {
-        //     return (from tag in tags
-        //         select ClassPattern.Matches(tag)
-        //         into matches
-        //         where matches.Count > 0
-        //         select matches[0]
-        //         into match
-        //         where match.Groups.Count >= 2
-        //         select DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-        //             .GetElement(match.Groups[1].Value, true)).FirstOrDefault();
-        // }
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {

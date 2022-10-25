@@ -47,6 +47,7 @@ public static class RulesetEffectSpellPatcher
             }
 
             var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+
             if (classHolder != null)
             {
                 className = classHolder.Class.Name;
@@ -79,13 +80,14 @@ public static class RulesetEffectSpellPatcher
             }
 
             var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+
             if (classHolder != null)
             {
                 className = classHolder.Class.Name;
             }
 
-
             var repertoire = caster.GetClassSpellRepertoire(className);
+
             if (repertoire != null)
             {
                 __result = repertoire.SpellAttackBonus;
@@ -116,13 +118,14 @@ public static class RulesetEffectSpellPatcher
             }
 
             var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+
             if (classHolder != null)
             {
                 className = classHolder.Class.Name;
             }
 
-
             var repertoire = caster.GetClassSpellRepertoire(className);
+
             if (repertoire != null)
             {
                 __result = repertoire.MagicAttackTrends;
