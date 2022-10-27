@@ -149,11 +149,6 @@ internal static class BlueprintDisplay
 
     internal static void DisplayBlueprints()
     {
-        if (!Main.Enabled)
-        {
-            return;
-        }
-
         try
         {
             // refresh blueprint types

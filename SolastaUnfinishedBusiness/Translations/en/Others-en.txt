@@ -55,7 +55,6 @@ Screen/&SwitchConfigurationDescription=Switch your equipped items to this config
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjure Elemental [Invisible Stalker]
 Stage/&IdentityMorphotypeEyeHeader=Eye Style
 Tooltip/&CEMonsterNaturalArmorTitle=Natural Armor
-Tooltip/&FeatSameFamilyUnavailableWarningDescription=Warning: you can only learn one Feat of this type
 Tooltip/&Tag9000Title=Custom Effect
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business
 UI/&CustomFeatureSelectionStageDescription=Select extra features from your class/subclass.
