@@ -19,6 +19,16 @@ public static class NewAdventurePanelPatcher
             DatabaseRepository.GetDatabase<CampaignDefinition>()
                 .Do(x => x.partySize = Main.Settings.OverridePartySize);
 
+            // adds new PlayerInfoGroups if required
+            var template = __instance.playersInRoomInfoGroups[3];
+
+            while (__instance.playersInRoomInfoGroups.Count < Main.Settings.OverridePartySize)
+            {
+                var playerInRoomInfoGroup = Object.Instantiate(template, template.transform.parent);
+
+                __instance.playersInRoomInfoGroups.Add(playerInRoomInfoGroup);
+            }
+
             // adds new character plates if required
             for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
             {

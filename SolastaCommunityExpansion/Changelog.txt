@@ -1,8 +1,7 @@
 ATTENTION:
 
-- Last 3 weeks before this mod stops working on next DLC release
+- Last 2.5 weeks before this mod stops working on next DLC release
 
 CHANGES:
 
-- Enable party of 6 on official campaigns
-- Enable up to 6 players in multiplayer (need testing)
+- Fix up to 6 players in multiplayer (need testing)
