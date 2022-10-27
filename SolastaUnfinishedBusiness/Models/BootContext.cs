@@ -156,6 +156,7 @@ internal static class BootContext
 
         var custom = GuiTooltipClassDefinitionBuilder
             .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
+            .SetGuiPresentationNoContent()
             .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
             //TODO: figure out why only background widens, but not content
             // .SetPanelWidth(400f) //items have 340f by default

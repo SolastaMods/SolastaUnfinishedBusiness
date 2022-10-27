@@ -16,6 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -77,7 +78,8 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "FallProne",
-          "distance": 0
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

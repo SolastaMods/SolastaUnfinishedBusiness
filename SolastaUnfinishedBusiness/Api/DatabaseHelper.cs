@@ -1,4 +1,4 @@
-// automatically generated on 10/19/2022 12:00:00 AM
+// automatically generated on 10/27/2022 12:00:00 AM
 
 namespace SolastaUnfinishedBusiness.Api;
 
@@ -653,6 +653,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionCanBeMurdered { get; } =
             GetDefinition<ConditionDefinition>("ConditionCanBeMurdered");
+
+        internal static ConditionDefinition ConditionCancellingBlackTentacles { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCancellingBlackTentacles");
 
         internal static ConditionDefinition ConditionCarriedByWind { get; } =
             GetDefinition<ConditionDefinition>("ConditionCarriedByWind");

@@ -11,14 +11,12 @@
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Hour",
+  "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacked"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -264,8 +262,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionKoboldGrovelCowerAndBegTitle",
-    "description": "Condition/&ConditionKoboldGrovelCowerAndBegDescription",
+    "title": "Condition/&ConditionDarkKoboldGrovelCowerAndBegTitle",
+    "description": "Condition/&ConditionDarkKoboldGrovelCowerAndBegDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
@@ -285,7 +283,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dbaae144-4ebc-5282-88a6-97ce420e5b60",
+  "guid": "9b735621-9eb0-5b33-b7a3-d006020feaf1",
   "contentPack": 9999,
-  "name": "ConditionKoboldGrovelCowerAndBeg"
+  "name": "ConditionDarkKoboldGrovelCowerAndBeg"
 }

@@ -27,6 +27,7 @@
     "targetProximityDistance": 8,
     "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,

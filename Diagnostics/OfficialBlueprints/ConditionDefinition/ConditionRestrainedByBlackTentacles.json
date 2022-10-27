@@ -60,7 +60,9 @@
       "filterId": 0
     }
   ],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionCancellingBlackTentacles:9c117437a23f09943ae1836b6a24952a"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "DamageAcid",

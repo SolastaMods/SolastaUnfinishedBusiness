@@ -16,6 +16,7 @@
     "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -43,7 +44,7 @@
     "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 19,
+    "fixedSavingThrowDifficultyClass": 100,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -143,7 +144,7 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
-          "forceOnSelf": true
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

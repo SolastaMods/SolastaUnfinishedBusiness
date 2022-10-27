@@ -214,8 +214,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Kickstarter_Item_Notebook_Title",
-    "description": "Equipment/&Kickstarter_Item_Notebook_Description",
+    "title": "Equipment/&kickstarter_item_Notebook_Title",
+    "description": "Equipment/&kickstarter_item_Notebook_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e1eca34357d720b439dd1f1398d4386f",

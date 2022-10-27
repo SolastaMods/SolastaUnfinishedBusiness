@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierKoboldDexterityAbilityScoreIncreaseTitle",
-    "description": "Feature/&AttributeModifierKoboldDexterityAbilityScoreIncreaseDescription",
+    "title": "Feature/&AttributeModifierDarkKoboldDexterityAbilityScoreIncreaseTitle",
+    "description": "Feature/&AttributeModifierDarkKoboldDexterityAbilityScoreIncreaseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "952ea580-e9f6-57f6-baa1-134769e592ea",
+  "guid": "36b87977-a771-5d26-9a1e-9a6afa13ba98",
   "contentPack": 9999,
-  "name": "AttributeModifierKoboldDexterityAbilityScoreIncrease"
+  "name": "AttributeModifierDarkKoboldDexterityAbilityScoreIncrease"
 }

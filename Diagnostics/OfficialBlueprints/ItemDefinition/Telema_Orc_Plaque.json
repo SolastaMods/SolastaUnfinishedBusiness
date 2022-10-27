@@ -57,7 +57,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Kickstarter_Item_Spider_Symbol_Content",
+        "text": "Equipment/&kickstarter_item_Spider_Symbol_Content",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "7a76e7d5e67569949a243b7019d6b9ff",
@@ -223,8 +223,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Kickstarter_Item_Spider_Symbol_Title",
-    "description": "Equipment/&Kickstarter_Item_Spider_Symbol_Description",
+    "title": "Equipment/&kickstarter_item_Spider_Symbol_Title",
+    "description": "Equipment/&kickstarter_item_Spider_Symbol_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ee8364436f2337744b62e45f40bfdb74",

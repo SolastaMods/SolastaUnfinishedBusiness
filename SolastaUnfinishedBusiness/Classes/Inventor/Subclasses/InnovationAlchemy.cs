@@ -418,6 +418,7 @@ public static class InnovationAlchemy
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
+                    .SetGuiPresentationNoContent()
                     .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
                         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma)
                     .AddToDB())
@@ -460,6 +461,7 @@ public static class InnovationAlchemy
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
+                    .SetGuiPresentationNoContent()
                     .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
                         AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution)

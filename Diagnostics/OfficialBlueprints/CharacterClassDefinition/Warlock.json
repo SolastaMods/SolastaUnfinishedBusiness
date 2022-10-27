@@ -275,7 +275,15 @@
     "Robust",
     "Lockbreaker"
   ],
-  "invocationAutolearnPreference": [],
+  "invocationAutolearnPreference": [
+    "AgonizingBlast",
+    "ArmorOfShadows",
+    "EldritchSpear",
+    "FiendishVigor",
+    "MireMind",
+    "DreadfulWord",
+    "AscendantStep"
+  ],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 2,
   "classPictogramReference": {

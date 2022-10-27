@@ -5,7 +5,6 @@
 - Add Kobold race
 - Add Feat Groups
 - Add new Feats and Fighting Styles
-- Allow 6 players multiplayer
 - Allow 6 players on official campaigns
 - Remove class themed Feats
 - Remove Level Down feature

@@ -323,8 +323,8 @@
   "classAnimationId": "Monk",
   "vocalSpellSemeClass": "None",
   "isUsingRandomUnarmedStrikes": true,
-  "randomUnarmedStrikesRangeMin": 0,
-  "randomUnarmedStrikesRangeMax": 0,
+  "randomUnarmedStrikesRangeMin": 1,
+  "randomUnarmedStrikesRangeMax": 2,
   "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

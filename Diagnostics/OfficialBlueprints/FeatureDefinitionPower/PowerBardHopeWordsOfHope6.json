@@ -16,6 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -62,7 +63,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Healing",
-        "addBonusMode": "None",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,

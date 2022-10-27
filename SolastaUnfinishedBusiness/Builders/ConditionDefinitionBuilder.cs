@@ -191,6 +191,12 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         return (TBuilder)this;
     }
 
+    internal TBuilder ClearSpecialInterruptions()
+    {
+        Definition.SpecialInterruptions.Clear();
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);

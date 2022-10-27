@@ -27,6 +27,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterGadgetEffectProxy",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -174,7 +175,8 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "PushFromWall",
-          "distance": 0
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
