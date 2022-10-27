@@ -1241,6 +1241,48 @@
       "reassortRateValue": 3,
       "requiredFaction": "",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed_Warhammer:e492559642e89ae43a31931a27ff2ce1",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 3,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_WandOfWarMage+1:e960fcffb655ff941b3a5a71cb83f93b",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 3,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Primed Gauntlet:51acb92856627d6409c7da52009bdb2d",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 3,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

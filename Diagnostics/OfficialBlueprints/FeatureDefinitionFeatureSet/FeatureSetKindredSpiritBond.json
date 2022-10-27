@@ -5,6 +5,8 @@
     "Definition:HealingModifierKindredSpiritBond:a99536e1627d9ec42a076a5603795c89"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

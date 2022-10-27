@@ -5,6 +5,8 @@
     "Definition:ActionAffinityClericRitualCasting:f8bde06e6cd906041a25d1f4b4f245a1"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AbilityCheckAffinityFeatLockbreaker:0123c6fd322235e41a1d7c09a1d88ad4",

@@ -6,7 +6,10 @@
     "factionName": "Antiquarians",
     "value": 15,
     "statusName": "",
-    "prominentMember": null
+    "prominentMember": null,
+    "investigationReputationLossOverride": false,
+    "investigation": "",
+    "investigationSuspect": ""
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -101,6 +101,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Beryl_Hammer:f97af0e9ba1b3b740980b4dc7c1830a1"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Beryl_Crossbow:64ff926972883564cadb4d5e59235d02"
     }
   ],
   "sneakStance": "Stealth",
@@ -133,8 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Beryl_Stonebeard_Lieutenant:b20e4bb5c7cfd85478a28a5b38256432",
       "Definition:NPC_Presentation_Beryl_Stonebeard:9a7be6b1a26816c4b9e3409f49dd23a4"
@@ -169,6 +173,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

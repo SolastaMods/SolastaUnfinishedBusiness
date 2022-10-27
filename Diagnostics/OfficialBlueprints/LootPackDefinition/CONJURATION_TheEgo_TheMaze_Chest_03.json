@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:CONJURATION_SecretSpellBook3:4c2f0380bedf4b041b15a670e03f777c",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",
@@ -39,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
-  "guid": "6fcc94c417ee1dd428c7794b68130495",
+  "guid": "fd02e7d61d695534e930cb8478a4dcad",
   "contentPack": "BaseGame",
   "name": "CONJURATION_TheEgo_TheMaze_Chest_03"
 }

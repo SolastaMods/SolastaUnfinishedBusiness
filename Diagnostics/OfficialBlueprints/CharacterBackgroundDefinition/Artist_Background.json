@@ -1,0 +1,125 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Formal",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:PointPoolBackgroundLanguageChoice_one:c6ab6f54fa4248243a511ad3151b117c",
+    "Definition:ProficiencyArtistSkills:36fe43f1ea8dcf94d99f66a7ce52c741"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Background_Artist_Contract:3d4b48ec19f40504ba581d072794e5fd",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WealthPile",
+              "itemReference": "Definition:StartingWealth_25GP:250e1e9f425252b47b6620c2f5a75a9c",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesNoble:45dc7b5b15f5bbe41ad1e84e9e9b83bc",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Art_Item_25_GP_BronzeStatuette:af02ae2a4b9317b459d2db55c1335c0f",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Bg_Artist"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Formal"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Greed"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Cynicism"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Greed",
+    "Selfishness"
+  ],
+  "forbiddenAlignments": [],
+  "hasBackgroundQuest": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&Artist_Title",
+    "description": "Background/&Artist_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "64bae9ba889a35e4f8978f35a0c73607",
+      "m_SubObjectName": "Artist",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "4bf1ce20257f6564da50630367f7b174",
+  "contentPack": "BaseGame",
+  "name": "Artist_Background"
+}

@@ -1,0 +1,34 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomFightingStyleDefinition, SolastaUnfinishedBusiness",
+  "features": [
+    "Definition:SenseBlindFighting:052275a0-0bf7-5a80-b676-4427f78454e9"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&BlindFightingTitle",
+    "description": "FightingStyle/&BlindFightingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "af54ed45-cee9-5baf-9985-43840a8e9b21",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "172ec08f-f7c8-54f0-81bb-917fd5375b6a",
+  "contentPack": 9999,
+  "name": "BlindFighting"
+}

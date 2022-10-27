@@ -254,28 +254,28 @@
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassClericFlag"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Normal"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 4,
+      "weight": 7,
       "personalityFlag": "GpSpellcaster"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
+      "weight": 6,
       "personalityFlag": "GpCombat"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 1,
       "personalityFlag": "GpExplorer"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "ClassClericFlag"
     }
   ],
   "skillAutolearnPreference": [
@@ -298,6 +298,7 @@
     "Robust",
     "Lockbreaker"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 3,
   "classPictogramReference": {
@@ -309,6 +310,10 @@
   "defaultBattleDecisions": "Definition:ClericCombatDecisions:d5ceea03da8e7be4c86e2c1e37dda354",
   "classAnimationId": "Cleric",
   "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

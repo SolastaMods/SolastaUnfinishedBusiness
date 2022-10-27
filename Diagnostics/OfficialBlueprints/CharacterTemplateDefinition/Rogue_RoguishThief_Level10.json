@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Thief10",
   "surName": "Rogue",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinCopperish",
   "musculatureMorphotypeValue": 28.9,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_A",
   "hairColorMorphotype": "HairColorBrown",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
   "subClass": "Definition:RoguishThief:256d5035bf3ac5740810a07115ec8e56",
   "deity": null,
@@ -73,6 +78,7 @@
   "featsOverride": [
     "TakeAim"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [
     "Stealth",
     "ThievesToolsType"
@@ -86,11 +92,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 97,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -129,7 +138,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 10,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

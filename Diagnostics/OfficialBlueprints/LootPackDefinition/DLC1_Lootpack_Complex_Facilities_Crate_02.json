@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_Diamond_Of_Elai:9257ab496a5d1394890a9b142eb89397",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

@@ -1,0 +1,67 @@
+{
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    false,
+    false,
+    true,
+    false,
+    false,
+    false
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D1",
+  "randomBehaviourOptions": [
+    {
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 1,
+      "behaviour": "ConditionDuringTurn",
+      "condition": "Definition:ConditionConfusedMove:be4c73f30e7c27b48baa9bf1f5ce2130"
+    },
+    {
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 2,
+      "behaviour": "ConditionDuringTurn",
+      "condition": "Definition:ConditionConfusedAttack:5abe994a151fff24f92ef7a490cb35b2"
+    },
+    {
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 2,
+      "behaviour": "None",
+      "condition": null
+    }
+  ],
+  "rechargeReactionsAtEveryTurn": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "44db0f5df146d2c49b50f482b45e315f",
+  "contentPack": "BaseGame",
+  "name": "ActionAffinityConditionInsane"
+}

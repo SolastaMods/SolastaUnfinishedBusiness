@@ -4,6 +4,8 @@
     "Definition:AdditionalDamageShadowTamerDarkSlayerDmgSuperiorDarkvision:f266b5bc60d02c64b842704bbec09caf"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -4,6 +4,8 @@
     "Definition:ProficiencyAllLanguages:49588ac1b01f26148ac73aea7dcfddab"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -26,7 +26,7 @@
       "level": 2,
       "spells": [
         "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
-        "Definition:ConjureGoblinoids:f8af597cea616aa478d76ba8e57b78af",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
         "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
       ]
     },
@@ -40,6 +40,8 @@
       ]
     }
   ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

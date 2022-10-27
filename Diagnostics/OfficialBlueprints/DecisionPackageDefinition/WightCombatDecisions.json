@@ -12,7 +12,7 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_DPS_SingleTarget_WightDrain:670f23afe57aa4a4288b64733308b6b1",
+        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
         "weight": 4.0,
         "cooldown": 3,
         "dynamicCooldown": false

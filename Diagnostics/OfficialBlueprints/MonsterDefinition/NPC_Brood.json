@@ -129,7 +129,8 @@
     "Definition:LightAffinityHypersensitivity:cad5a138934aad54885b54000570b74d",
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
     "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
-    "Definition:ConditionAffinityVeilImmunity:b4378ac746dd4ed46b2b0ec63f910629"
+    "Definition:ConditionAffinityVeilImmunity:b4378ac746dd4ed46b2b0ec63f910629",
+    "Definition:ConditionAffinityResistanceToShine:ccba3756c041c0e4692516926740e8f8"
   ],
   "attackIterations": [],
   "sneakStance": "Stealth",
@@ -162,8 +163,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Aksha:14dc8b5e61abddb40b0b2003f3ee7d5b"
     ],
@@ -197,6 +197,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

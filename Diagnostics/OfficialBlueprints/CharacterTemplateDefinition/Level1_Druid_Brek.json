@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Race/&HalfOrcMaleName20Title",
   "surName": "",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkin_38",
   "musculatureMorphotypeValue": 60.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_HO_B",
   "hairShapeMorphotype": "HairShape_E",
   "hairColorMorphotype": "HairColor_41",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Druid:df2da915a153d7a48a896041cf318953",
   "subClass": null,
   "deity": "Definition:Maraike:94543509579e75f4c943de3b12f861af",
@@ -57,6 +62,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -70,6 +76,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
     "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
@@ -81,6 +88,8 @@
   "sex": "Male",
   "pronoun": "Male",
   "age": 20,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

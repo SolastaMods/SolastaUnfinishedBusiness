@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Marches_Nest_Key:b80294321be7a9a48bcdb6d457612691",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Marches_Nest_Key:b80294321be7a9a48bcdb6d457612691",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Marches_Nest_Key:b80294321be7a9a48bcdb6d457612691",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Marches_Nest_Key:b80294321be7a9a48bcdb6d457612691",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

@@ -1,0 +1,10 @@
+{
+  "Id": "SolastaUnfinishedBusiness",
+  "DisplayName": "Unfinished Business [UB1]",
+  "Version": "1.4.20.0",
+  "GameVersion": "1.4.20",
+  "ManagerVersion": "0.24.0",
+  "AssemblyName": "SolastaUnfinishedBusiness.dll",
+  "EntryMethod": "SolastaUnfinishedBusiness.Main.Load",
+  "HomePage": "https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki"
+}

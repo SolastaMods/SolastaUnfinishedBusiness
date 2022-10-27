@@ -1,0 +1,143 @@
+{
+  "$type": "FeatureDefinitionRestHealingModifier, Assembly-CSharp",
+  "applyDuringShortRest": true,
+  "applyDuringLongRest": false,
+  "addBonusWhenSpendingHitDie": true,
+  "bonusDieTypeByRankTable": [
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 1,
+      "dieType": "D1"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 2,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 3,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 4,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 5,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 6,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 7,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 8,
+      "dieType": "D6"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 9,
+      "dieType": "D8"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 10,
+      "dieType": "D8"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 11,
+      "dieType": "D8"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 12,
+      "dieType": "D8"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 13,
+      "dieType": "D10"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 14,
+      "dieType": "D10"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 15,
+      "dieType": "D10"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 16,
+      "dieType": "D10"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 17,
+      "dieType": "D12"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 18,
+      "dieType": "D12"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 19,
+      "dieType": "D12"
+    },
+    {
+      "$type": "DieTypeByRank, Assembly-CSharp",
+      "rank": 20,
+      "dieType": "D12"
+    }
+  ],
+  "addModifierWhenSpendingHitDie": false,
+  "abilityModifierWhenSpendingHitDie": "Charisma",
+  "addTempHPBonusAtTheEnd": false,
+  "addBardicDieAtTheEnd": false,
+  "addModifierAtTheEnd": false,
+  "abilityModifierAtTheEnd": "Charisma",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BardSongOfRestTitle",
+    "description": "Feature/&BardSongOfRestDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e95ee9a28dfbfee48a06cb153bd32ef0",
+  "contentPack": "BaseGame",
+  "name": "RestHealingModifierBardSongOfRest"
+}

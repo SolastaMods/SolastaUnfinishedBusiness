@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376",
-      "treasureTableDefinition": "Definition:Random_Fire_Osprey_Table:288fcf0b9b756b84da3916c5ae2d5aee"
+      "treasureTableDefinition": "Definition:Random_Fire_Osprey_Table:288fcf0b9b756b84da3916c5ae2d5aee",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

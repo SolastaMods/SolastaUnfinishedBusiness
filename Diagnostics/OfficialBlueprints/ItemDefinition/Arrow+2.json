@@ -19,7 +19,7 @@
   "defaultStackCount": 10,
   "costs": [
     0,
-    25,
+    100,
     0,
     0,
     0
@@ -34,10 +34,11 @@
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
+      "appliesOnItemOnly": false,
       "type": "Feature",
       "featureDefinition": "Definition:AttackModifierWeapon+2:55d0f93f185d1cc49a5b01ab65f42c52",
       "conditionDefinition": null,
@@ -67,6 +68,7 @@
       "targetProximityDistance": 30,
       "targetExcludeCaster": false,
       "canBePlacedOnCharacter": true,
+      "affectOnlyGround": false,
       "targetFilteringMethod": "AllCharacterAndGadgets",
       "targetFilteringTag": "No",
       "requiresVisibilityForPosition": true,
@@ -89,6 +91,7 @@
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
       "difficultyClassComputation": "FixedValue",
@@ -229,6 +232,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -283,6 +287,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -299,13 +304,20 @@
         "aoeScoreMultiplier": 1.0,
         "cooldownForCaster": 0,
         "cooldownForBattle": 0,
+        "sortingScoreMultiplier": 1.0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     }
   },
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -442,6 +454,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

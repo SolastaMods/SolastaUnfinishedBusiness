@@ -1,0 +1,32 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [],
+  "quest": "Definition:DLC1_Secondary_Quest_ThePeople_05:b8e43774de724a646a5540e5213315b9",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "OngoingInvestigation2",
+    "description": "OngoingInvestigation2 Desc",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0cd701015391b2048a0ad63a62fb6a03",
+  "contentPack": "BaseGame",
+  "name": "OngoingInvestigation2"
+}

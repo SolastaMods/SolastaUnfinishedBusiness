@@ -3,8 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-/SolastaCommunityExpansion/Resources/Translations.zip
-/SolastaCommunityExpansion/SolastaCustomCode.cs
+/SolastaUnfinishedBusiness/Resources/Translations.zip
+/SolastaUnfinishedBusiness/SolastaCustomCode.cs
 
 # publicise files
 Assembly-CSharp_public.dll

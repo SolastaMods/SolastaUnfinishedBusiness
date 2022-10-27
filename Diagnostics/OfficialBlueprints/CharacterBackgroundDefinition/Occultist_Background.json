@@ -1,0 +1,123 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Cynical",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:PointPoolBackgroundLanguageChoice_one:c6ab6f54fa4248243a511ad3151b117c",
+    "Definition:ProficiencyOccultistSkills:316d9cf44dd985e4b9d0c9c1f08eb77a",
+    "Definition:ProficiencyOccultistToolsSkills:cd52d25bb161ec7438f3098e226e8059"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Background_Occultist_Notebook:1edd1c0c98b9c1e49a1ebe9a7f5235d8",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WealthPile",
+              "itemReference": "Definition:StartingWealth_25GP:250e1e9f425252b47b6620c2f5a75a9c",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:ScrollKit:64fe9d27d3e780844ba98ac656ec98a1",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Bg_Occultist"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Cynicism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Greed"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Cynicism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Violence"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Greed",
+    "Selfishness"
+  ],
+  "forbiddenAlignments": [
+    "ChaoticGood",
+    "LawfulGood",
+    "NeutralGood"
+  ],
+  "hasBackgroundQuest": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&Occultist_Title",
+    "description": "Background/&Occultist_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0625d3c60fac66f408511aaa7863296a",
+      "m_SubObjectName": "Occultist",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "840f77395893a3940931567b411433e1",
+  "contentPack": "BaseGame",
+  "name": "Occultist_Background"
+}

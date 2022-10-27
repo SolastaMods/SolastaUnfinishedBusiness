@@ -107,8 +107,6 @@
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
-    "Definition:PowerBarbarianRageStart:e7a28acc3db191643891258016ef8779",
-    "Definition:PowerBarbarianRageStop:aa7092dd0c21573439e4325a919c81f3",
     "Definition:PowerBerserkerFrenzy:28c7303e7742ef94fb6a3780c3033759"
   ],
   "attackIterations": [
@@ -119,7 +117,7 @@
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Auroc_Shortbow:8977554c47e2b184b9ad2a86bb26e6f6"
     }
   ],
@@ -153,8 +151,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Auroc:393006fb568beba4888e8fc32afd5c58"
     ],
@@ -188,6 +185,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

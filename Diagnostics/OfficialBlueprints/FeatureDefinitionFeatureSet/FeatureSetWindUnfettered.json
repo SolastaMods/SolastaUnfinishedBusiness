@@ -3,9 +3,13 @@
   "featureSet": [
     "Definition:ConditionAffinityFreedomOfMovementParalyzed:832cbcb29d024fd48a6356762a37bf68",
     "Definition:ConditionAffinityFreedomOfMovementRestrained:ded05463bca9c77408cbe1eba0401020",
-    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
+    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c",
+    "Definition:MovementAffinityDruidCircleWindsUnfettered:cdf27fcd5de38c04e8ac74ee6a897c67",
+    "Definition:AttributeModifierDruidCircleWindsUnfettered:43cc39b92eaf19148896c3e3f80638f2"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -5,6 +5,8 @@
     "Definition:AbilityCheckAffinityDomainLawUnyieldingEnforcerShove:98057eed22001f448b150bd0aaed29a9"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

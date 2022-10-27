@@ -5,6 +5,8 @@
     "Definition:PowerDomainInsightDivineLoreIdentification:06020255328a3354aa2d51d7f34da8a6"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

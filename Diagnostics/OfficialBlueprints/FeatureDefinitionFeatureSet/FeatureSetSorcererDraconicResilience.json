@@ -5,6 +5,8 @@
     "Definition:AttributeModifierSorcererDraconicResilienceAC:354b8c0cc0364dc41934ba2d7052c607"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

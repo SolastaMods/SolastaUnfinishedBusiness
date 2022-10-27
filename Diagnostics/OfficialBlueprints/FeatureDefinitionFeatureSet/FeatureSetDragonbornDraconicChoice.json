@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AncestryDragonbornDraconicBlack:61ee2b2f89217874e8eb235b7c8f152d",
+    "Definition:AncestryDragonbornDraconicBlue:6fb28284f3de3f442a6c5a6fecff1fa1",
+    "Definition:AncestryDragonbornDraconicGold:44e10b05bc6a49f4297207e6c1af3ddb",
+    "Definition:AncestryDragonbornDraconicGreen:e9da5ee9072b8a147925fdef59789905",
+    "Definition:AncestryDragonbornDraconicSilver:b2cf7162e98ebe54fbca0fb23f66be49"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetDragonbornDraconicChoiceTitle",
+    "description": "Feature/&FeatureSetDragonbornDraconicChoiceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "3e7d09f7510221a47b8cd7f74fb06d89",
+  "contentPack": "InnerStrength",
+  "name": "FeatureSetDragonbornDraconicChoice"
+}

@@ -205,7 +205,7 @@
   "challengeRating": 8,
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
-  "ignoredByScavengers": false,
+  "ignoredByScavengers": true,
   "useDirectionalLightInCutscene": false,
   "useNewSectorCullingAlgorithm": false,
   "keepSectorCullingResultsWhenInactive": false,
@@ -214,6 +214,7 @@
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

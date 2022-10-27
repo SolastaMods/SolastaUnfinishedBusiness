@@ -103,6 +103,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Robar_Sword:9afc9ff56df678849a2ef87f86e9f107"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Robar_Crossbow:df58e8509b117b34a9be17123f5e14be"
     }
   ],
   "sneakStance": "Stealth",
@@ -135,8 +140,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Robar_Sharp:f158adfa4f4581c4ab619c280d935871",
       "Definition:NPC_Presentation_Robar_Sharp_Captain:6594db1be4b47fc4c876913014a0220c"
@@ -171,6 +175,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

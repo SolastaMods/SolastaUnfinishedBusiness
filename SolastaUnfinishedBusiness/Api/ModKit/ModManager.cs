@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using HarmonyLib;
+using JetBrains.Annotations;
+using UnityModManagerNet;
+
+namespace SolastaUnfinishedBusiness.Api.ModKit;
+
+internal interface IModEventHandler
+{
+    int Priority { get; }
+
+    void HandleModEnable();
+}
+
+internal sealed class ModManager<TCore, TSettings>
+    where TCore : class, new()
+    where TSettings : UnityModManager.ModSettings, new()
+{
+    #region Toggle
+
+    internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
+    {
+        if (Enabled)
+        {
+            return;
+        }
+
+        try
+        {
+            modEntry.OnSaveGUI += HandleSaveGUI;
+            Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
+            Core = new TCore();
+
+            var types = assembly.GetTypes();
+
+            if (!Patched)
+            {
+                Harmony harmonyInstance = new(modEntry.Info.Id);
+                foreach (var type in types)
+                {
+                    var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
+                    if (harmonyMethods == null || !harmonyMethods.Any())
+                    {
+                        continue;
+                    }
+
+                    try
+                    {
+                        var patchProcessor = harmonyInstance.CreateClassProcessor(type);
+                        patchProcessor.Patch();
+                    }
+                    catch (Exception e)
+                    {
+                        Main.Error(e);
+                    }
+                }
+
+                Patched = true;
+            }
+
+            Enabled = true;
+
+            _eventHandlers = types.Where(type => type != typeof(TCore) &&
+                                                 !type.IsInterface && !type.IsAbstract &&
+                                                 typeof(IModEventHandler).IsAssignableFrom(type))
+                .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
+            if (Core is IModEventHandler core)
+            {
+                _eventHandlers.Add(core);
+            }
+
+            _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
+
+            foreach (var t in _eventHandlers)
+            {
+                t.HandleModEnable();
+            }
+        }
+        catch (Exception e)
+        {
+            Main.Error(e);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Settings
+
+    private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
+    {
+        UnityModManager.ModSettings.Save(Settings, modEntry);
+    }
+
+    #endregion
+
+    #region Fields & Properties
+
+    private List<IModEventHandler> _eventHandlers;
+
+    private TCore Core { get; set; }
+
+    internal TSettings Settings { get; private set; }
+
+    private bool Enabled { get; set; }
+
+    private bool Patched { get; set; }
+
+    #endregion
+}

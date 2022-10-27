@@ -22,7 +22,7 @@ namespace SolastaCeBootstrap
         internal static string ProjectFolder =
             Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
-        internal static string ApiFolder = (ProjectFolder ?? GAME_FOLDER) + "/SolastaCommunityExpansion/Api";
+        internal static string ApiFolder = (ProjectFolder ?? GAME_FOLDER) + "/SolastaUnfinishedBusiness/Api";
 
         internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
 
@@ -164,15 +164,20 @@ namespace SolastaCeBootstrap
                 "Action",
                 "ActionType",
                 "AdventureLog",
+                "AmmunitionType",
+                "ArmorType",
                 "BanterEvent",
                 "BestiaryStats",
                 "BestiaryTable",
                 "Biome",
                 "BlueprintCategory",
                 "Calendar",
+                "Campaign",
                 "CampaignNodeType",
                 "CharacterInteraction",
                 "CharacterTemplate",
+                "CharacterToLootPackMap",
+                "Clue",
                 "ConsoleTable",
                 "ContentPack",
                 "CreditsGroup",
@@ -181,6 +186,8 @@ namespace SolastaCeBootstrap
                 "DailyLog",
                 "DatabaseIndex",
                 "DateTime",
+                "DecisionDefinition",
+                "DecisionPackageDefinition",
                 "Deity",
                 "DieStyle",
                 "DieType",
@@ -190,36 +197,49 @@ namespace SolastaCeBootstrap
                 "EncounterTable",
                 "Environment",
                 "EnvironmentEffect",
-                "GadgetDefinition",
+                "Formation",
+                "Gadget",
                 "HumanoidMonsterPresentation",
                 "Inventory",
+                "Investigation",
+                "Language",
                 "Location",
                 "LocationType",
-                "NarrativeTree",
+                "LootableContainer",
+                "LootPack",
                 "MapWaypoint",
+                "MonsterAttack",
+                "MonsterPresentation",
+                "Morphotype",
                 "MoviePlayback",
+                "MusicalInstrumentType",
                 "MusicalState",
                 "NamedPlace",
                 "NarrativeEventTable",
+                "NarrativeTree",
                 "Notification",
+                "PersonalityFlag",
                 "PropBlueprint",
                 "QuestStatus",
                 "QuestTree",
+                "Reaction",
+                "RestActivity",
                 "RoomBlueprint",
+                "SmartAttribute",
                 "SoundBanks",
                 "SubtitleTable",
+                "TerrainType",
+                "ToolCategory",
                 "TravelActivity",
                 "TravelEvent",
                 "TravelJournal",
                 "TravelPace",
-                "TutorialSection",
-                "TutorialStep",
-                "TutorialSubsection",
-                "TutorialTable",
-                "TutorialToc",
+                "TreasureTable",
+                "Tutorial",
                 "VisualMood",
                 "Voice"
             };
+
             var definitions = new Dictionary<string, List<Asset>>();
 
             foreach (var db in (Dictionary<Type, object>) AccessTools.Field(typeof(DatabaseRepository), "databases")
@@ -227,7 +247,7 @@ namespace SolastaCeBootstrap
             {
                 var dbName = db.Key.Name;
 
-                if (ignore.Any(x => dbName.StartsWith(x))) continue;
+                if (ignore.Any(dbName.StartsWith)) continue;
 
                 foreach (var baseDefinition in ((IEnumerable) db.Value).Cast<BaseDefinition>())
                 {
@@ -272,21 +292,30 @@ namespace SolastaCeBootstrap
 
         internal static void WriteGetter(StringBuilder stringBuilder, Asset asset, int indentCount = 0)
         {
+            if (asset.AssetType != asset.DatabaseType)
+            {
+                return;
+            }
+
             var name = MemberName(asset.Name);
 
-            if (asset.AssetType == asset.DatabaseType)
-                WriteLine(stringBuilder,
-                    $"public static {asset.AssetType} {name} {{ get; }} = GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\", \"{asset.Guid}\");",
-                    indentCount);
+            WriteLine(stringBuilder, $"internal static {asset.AssetType} {name} {{ get; }} =", indentCount);
+            WriteLine(stringBuilder, $"GetDefinition<{asset.DatabaseType}>(\"{asset.Name}\");\r\n", indentCount + 1);
         }
 
-        internal static void WriteSubclass(StringBuilder stringBuilder, string subClass, List<Asset> assets,
+        internal static void WriteSubclass(
+            StringBuilder stringBuilder,
+            string subClass,
+            List<Asset> assets,
             int indentCount = 0)
         {
-            WriteLine(stringBuilder, $"public static class {subClass}", indentCount);
+            WriteLine(stringBuilder, $"internal static class {subClass}", indentCount);
             WriteLine(stringBuilder, "{", indentCount);
 
-            foreach (var asset in assets.OrderBy(a => a.Name)) WriteGetter(stringBuilder, asset, indentCount + 1);
+            foreach (var asset in assets.OrderBy(a => a.Name))
+            {
+                WriteGetter(stringBuilder, asset, indentCount + 1);
+            }
 
             WriteLine(stringBuilder, "}", indentCount);
         }
@@ -296,12 +325,16 @@ namespace SolastaCeBootstrap
             var assets = GetAssets();
             var sb = new StringBuilder();
 
-            if (!Directory.Exists(OutputPath)) Directory.CreateDirectory(OutputPath);
+            if (!Directory.Exists(OutputPath))
+            {
+                Directory.CreateDirectory(OutputPath);
+            }
 
-            WriteLine(sb, "// this file is automatically generated");
+            WriteLine(sb, $"// automatically generated on {DateTime.Today}");
             sb.AppendLine();
-            WriteLine(sb, "namespace SolastaCommunityExpansion.Api;");
-            WriteLine(sb, "public static partial class DatabaseHelper");
+            WriteLine(sb, "namespace SolastaUnfinishedBusiness.Api;");
+            sb.AppendLine();
+            WriteLine(sb, "internal static partial class DatabaseHelper");
             WriteLine(sb, "{");
 
             foreach (var kvp in assets)
@@ -309,7 +342,10 @@ namespace SolastaCeBootstrap
                 var arr = kvp.Key.Split('.');
                 var subClass = arr[arr.Length - 1] + 's';
 
-                WriteSubclass(sb, subClass, kvp.Value, 1);
+                if (kvp.Value.Count > 0)
+                {
+                    WriteSubclass(sb, subClass, kvp.Value, 1);
+                }
             }
 
             WriteLine(sb, "}");
@@ -506,7 +542,7 @@ namespace SolastaCeBootstrap
                                     new SeparatedSyntaxList<AttributeArgumentSyntax>()
                                         .Add(
                                             AttributeArgument(
-                                                ParseExpression("\"Community Expansion Extension Generator\""))
+                                                ParseExpression("\"Unfinished Business Extension Generator\""))
                                         )
                                         .Add(
                                             // probably best not to change the version often since that makes 

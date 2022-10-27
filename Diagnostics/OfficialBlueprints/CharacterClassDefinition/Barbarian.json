@@ -209,21 +209,6 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierBarbarianBrutalCriticalAdd:1a81966ef97dc75458eba0213d13bfaf",
-      "level": 13
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierBarbarianRageDamageAdd:9125b022f68e4fd47a784a3c77f7eb3e",
-      "level": 16
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierBarbarianRagePointsAdd:a972ffba165be34418cd0a6fa8b85f10",
-      "level": 17
     }
   ],
   "personalityFlagOccurences": [
@@ -249,12 +234,12 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 6,
+      "weight": 12,
       "personalityFlag": "GpCombat"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
+      "weight": 4,
       "personalityFlag": "GpStealth"
     },
     {
@@ -282,6 +267,7 @@
     "Robust",
     "RushToBattle"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 7,
   "classPictogramReference": {
@@ -293,6 +279,10 @@
   "defaultBattleDecisions": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
   "classAnimationId": "Fighter",
   "vocalSpellSemeClass": "None",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

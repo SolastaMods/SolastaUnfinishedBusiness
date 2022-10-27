@@ -64,6 +64,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Elf",
+    "armorAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
     "maleNameOptions": [
       "Race/&HalfElfMaleName1Title",
@@ -101,8 +103,23 @@
       "Race/&HalfElfSurName12Title",
       "Race/&HalfElfSurName13Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": true,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -187,6 +204,18 @@
       "HairShape_G",
       "HairShape_None"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_None",
       "BeardShape_H",
@@ -198,6 +227,10 @@
       "BeardShape_P",
       "BeardShape_C"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
@@ -216,7 +249,8 @@
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
-    }
+    },
+    "musicalInstrumentScale": 1.0
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

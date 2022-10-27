@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_TigerDrakeScales:49fd70fbcc08ffe4eb11cfbb9f082b2e",
-      "treasureTableDefinition": "Definition:Random_TigerDrake_Table:28bc99b829bd4444eb3079ad58f3af8d"
+      "treasureTableDefinition": "Definition:Random_TigerDrake_Table:28bc99b829bd4444eb3079ad58f3af8d",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

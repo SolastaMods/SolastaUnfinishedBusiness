@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": null,
-      "treasureTableDefinition": "Definition:Random_Skeleton_Table:f9041e262143ac747b13487889e773b8"
+      "treasureTableDefinition": "Definition:Random_Skeleton_Table:f9041e262143ac747b13487889e773b8",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

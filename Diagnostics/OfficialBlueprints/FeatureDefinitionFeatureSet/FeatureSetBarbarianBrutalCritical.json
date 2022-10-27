@@ -5,6 +5,8 @@
     "Definition:AdditionalDamageBarbarianBrutalCritical:cec43a27eb2890742aa67fbdcee0bf3b"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

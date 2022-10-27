@@ -1,0 +1,84 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellPathOfTheRageMage:bcb161a0-1b80-5893-bbb8-d901a1d65c8f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityPathOfTheRageMage:e6e7207e-b251-57fa-af36-cee08ad0df82",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyPathOfTheRageMageSkill:84b5e2fe-c805-5c20-9c17-6d67b13625f3",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamagePathOfTheRageMageArcaneExplosion:6d804fef-ab50-5530-be3c-6167d774f2a3",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheRageMageSupernaturalExploits:23dd3df1-d67e-5c19-a6db-a258c17cc02d",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheRageMageSupernaturalExploitsDarkvision:86400da2-e637-5c63-844f-ef0fc7c56a0a",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheRageMageSupernaturalExploitsFeatherfall:6e0cebba-8d6e-5562-a621-64b7ace22c10",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheRageMageSupernaturalExploitsJump:059ac32a-0ed7-5861-8f39-2217be4093ef",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheRageMageSupernaturalExploitsSeeInvisibility:459a7231-316f-5881-bd6d-4f5c6ca449e8",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheRageMageEnhancedArcaneExplosion:0a30a65f-edc0-523c-80ef-890572119682",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PathOfTheRageMageTitle",
+    "description": "Subclass/&PathOfTheRageMageDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
+      "m_SubObjectName": "Cleric_Battler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "818a46f6-8174-5c09-923c-5978c94f79c2",
+  "contentPack": 9999,
+  "name": "PathOfTheRageMage"
+}

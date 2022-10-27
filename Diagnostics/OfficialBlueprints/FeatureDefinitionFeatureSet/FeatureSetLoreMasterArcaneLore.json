@@ -5,6 +5,8 @@
     "Definition:PointPoolLoreMasterArcaneLore:fa0e139660e0a32489b0b335a2b8da2b"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

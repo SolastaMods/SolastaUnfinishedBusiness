@@ -27,12 +27,18 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": true,
   "starterPackDefinition": {
     "$type": "StarterPackDescription, Assembly-CSharp",
@@ -45,7 +51,8 @@
         "additiveModifier": 0,
         "itemMode": "Explicit",
         "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020",
-        "treasureTableDefinition": null
+        "treasureTableDefinition": null,
+        "autoIdentify": false
       },
       {
         "$type": "ItemOccurence, Assembly-CSharp",
@@ -54,7 +61,8 @@
         "additiveModifier": 0,
         "itemMode": "Explicit",
         "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376",
-        "treasureTableDefinition": null
+        "treasureTableDefinition": null,
+        "autoIdentify": false
       },
       {
         "$type": "ItemOccurence, Assembly-CSharp",
@@ -63,7 +71,8 @@
         "additiveModifier": 0,
         "itemMode": "Explicit",
         "itemDefinition": "Definition:Ingredient_RefinedOil:cd3fc4d6eb31a454d8e213653c4970d7",
-        "treasureTableDefinition": null
+        "treasureTableDefinition": null,
+        "autoIdentify": false
       }
     ]
   },
@@ -202,6 +211,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

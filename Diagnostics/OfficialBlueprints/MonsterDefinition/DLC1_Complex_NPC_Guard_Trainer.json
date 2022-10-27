@@ -138,8 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_City_Guard_Male_05_WolfTrainer:34c7621deb89f954781665a94eea91e3",
       "Definition:NPC_Presentation_DLC1_City_Guard_Male_06_WolfTrainer:3d5470816ffc0f84194efc99c77bf91e",
@@ -176,6 +175,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

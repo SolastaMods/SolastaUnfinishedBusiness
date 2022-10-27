@@ -723,6 +723,34 @@
       "reassortRateValue": 7,
       "requiredFaction": "CircleOfDanantar",
       "factionStatus": "LivingLegend"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:MonkGauntlet+1:ada62b8f68d16b446b76c4761f7e584f",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "CircleOfDanantar",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:MonkGauntlet+2:ec5fa30f98734654c86d61c85d193fb3",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "CircleOfDanantar",
+      "factionStatus": "Brotherhood"
     }
   ],
   "guiPresentation": {

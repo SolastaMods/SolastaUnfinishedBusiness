@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Lighting",
   "surName": "buzz",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlond",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainElementalLighting:f74d46c89c19c074ebc39f3da0e3cc26",
   "deity": "Definition:Arun:9fe6be99f689cc94683098b128c799d8",
@@ -67,6 +72,7 @@
     "GamingSetDiceType"
   ],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -81,6 +87,7 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
@@ -94,6 +101,8 @@
   "sex": "Female",
   "pronoun": "Female",
   "age": 47,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
@@ -132,7 +141,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 99,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

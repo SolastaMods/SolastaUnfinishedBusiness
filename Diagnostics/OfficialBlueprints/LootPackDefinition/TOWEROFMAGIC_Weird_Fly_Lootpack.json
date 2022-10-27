@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:AmuletOfHealth:9e078ea9c920ae345bb2f1651a8c63fb",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_Soul_Gem:21ac94fc3ec649b4ba9b6a8bc46b4c77",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

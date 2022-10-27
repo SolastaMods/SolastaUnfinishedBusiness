@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AbilityCheckAffinityRoyalKnightRoyalEnvoy:520ac8e7-0743-522e-bd20-151ef4ee0c80",
+    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle",
+    "description": "Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bad48f2a-730c-5cc9-a86c-45f1ab5f3348",
+  "contentPack": 9999,
+  "name": "FeatureSetRoyalKnightRoyalEnvoy"
+}

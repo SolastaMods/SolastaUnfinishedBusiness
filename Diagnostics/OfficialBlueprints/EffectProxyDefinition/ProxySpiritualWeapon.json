@@ -6,6 +6,7 @@
   "canAttack": true,
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
+  "incrementalDamageDice": 0,
   "actionId": "ProxySpiritualWeapon",
   "freeActionId": "ProxySpiritualWeaponFree",
   "attackMethod": "CasterSpellAbility",

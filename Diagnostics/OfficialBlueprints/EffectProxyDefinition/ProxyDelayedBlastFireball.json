@@ -6,6 +6,7 @@
   "canAttack": false,
   "canTriggerPower": true,
   "autoTerminateOnTriggerPower": true,
+  "incrementalDamageDice": 1,
   "actionId": "ProxyDelayedBlastFireball",
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",
@@ -30,22 +31,22 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "addLightSource": false,
+  "addLightSource": true,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
-    "brightRange": 4,
-    "dimAdditionalRange": 4,
+    "brightRange": 2,
+    "dimAdditionalRange": 2,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0,
+      "r": 0.945098042,
+      "g": 0.360784322,
+      "b": 0.243137255,
       "a": 1.0
     },
     "graphicsPrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "382beb45afcab144c934e4a1f34b619d",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -54,7 +55,7 @@
   "lightSourceOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
-    "y": 0.0,
+    "y": 0.5,
     "z": 0.0
   },
   "spellImmunityFromOutside": false,
@@ -78,7 +79,13 @@
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_Vfx_EVO_FireballDelayed_Proxy_Loop",
+      "id": 4005577529,
+      "guid": "075A5432-C3CB-49BE-870D-DB2A00C09054",
+      "name": "075A5432-C3CB-49BE-870D-DB2A00C09054"
+    },
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -87,7 +94,13 @@
   },
   "stopEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Stop_Vfx_EVO_FireballDelayed_Proxy_Loop",
+      "id": 4151266211,
+      "guid": "377673D1-2A18-476D-A54B-0FE5DF8C2A8A",
+      "name": "377673D1-2A18-476D-A54B-0FE5DF8C2A8A"
+    },
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",

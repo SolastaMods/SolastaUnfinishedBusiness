@@ -1,0 +1,166 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Race/&HumanSurName7Title",
+  "surName": "Race/&HumanSurName8Title",
+  "abilityScores": [
+    20,
+    16,
+    19,
+    16,
+    11,
+    14
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
+  "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
+  "subClass": "Definition:MartialSpellblade:09e74bece88a0c74a97f67f542ad3046",
+  "deity": null,
+  "background": "Definition:Lawkeeper:d2e9d45498eb56f4d91ea6c451c7b482",
+  "backgroundPersonalityFlag1": "Authority",
+  "backgroundPersonalityFlag2": "Lawfulness",
+  "alignment": "LawfulNeutral",
+  "alignmentPersonalityFlag1": "Lawfulness",
+  "alignmentPersonalityFlag2": "Authority",
+  "fightingStyle": "Definition:Protection:4635efbbee6b09047ad0d19c8366be64",
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Enchanted_Longsword_Frostburn:f14f1485239d51c4c85ca92deb950755",
+    "Definition:HeavyCrossbow+1:af56508cb78de574daf0671fb6c820d4",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:EverlastingTorch:9054bda7174a1944194f8569463cf2df",
+    "Definition:Enchanted_HalfPlateOfSturdiness:6838551b5e3128843a007b89f9f975b3",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:BracersOfSparkles:357f4d75b20973140a51856b8163d14c",
+    "Definition:CloakOfArachnida:02a83d86a8afc68489b9a04f2bd485b7",
+    "Definition:StoneOfGoodLuck:415887c8ed389cc4e85b86a56377b147",
+    "Definition:OneRing:58893a93f1a2cbd438038debb015fc75",
+    "Definition:RingOfTheLightbringers:c225782501eb8514e963a3149158d568",
+    "Definition:BootsOfStridingAndSpringing:bf4f59bf7c019e4418abc9ad152554bb"
+  ],
+  "startingMoney": [
+    0,
+    4000,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Perception",
+    "Survival",
+    "Athletics",
+    "Intimidation",
+    "Nature",
+    "History",
+    "Acrobatics"
+  ],
+  "toolsOverride": [
+    "ArtisanToolSmithToolsType"
+  ],
+  "featsOverride": [
+    "Robust"
+  ],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Common",
+    "Language_Orc"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 12,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+    "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+    "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:BurningHands_B:ba16d3435466af74abdaa2a3ecaf934b",
+    "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+    "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+    "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+    "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+    "Definition:Shatter:acb96b651384a47428da7c0c32ab359e"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Enchanted_Longsword_Frostburn:f14f1485239d51c4c85ca92deb950755",
+      "offHandItemDefinition": "Definition:Shield+2:6bf62399e308acf42a0191b635f61297"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:HeavyCrossbow+2:95230786dda0a654c97871ea4ae6f8df",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:EverlastingTorch:9054bda7174a1944194f8569463cf2df"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&HumanSurName7Title",
+    "description": "Race/&HumanSurName8Title",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8e0f5b65a37f65745a8cba46df9c7d9d",
+      "m_SubObjectName": "Fighter_MartialMountaineer_Level04",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0f68089d3042ca14aa14c75232873bff",
+  "contentPack": "BaseGame",
+  "name": "Level12_COTM_d"
+}

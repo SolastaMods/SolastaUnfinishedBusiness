@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": null,
-      "treasureTableDefinition": "Definition:RandomTreasureTableJ_Scrolls:f32c8bd80e21a834d84a9b08ced9f9cd"
+      "treasureTableDefinition": "Definition:RandomTreasureTableJ_Scrolls:f32c8bd80e21a834d84a9b08ced9f9cd",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

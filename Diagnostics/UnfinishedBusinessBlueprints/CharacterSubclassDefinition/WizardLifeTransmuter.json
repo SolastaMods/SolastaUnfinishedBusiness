@@ -1,0 +1,89 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityLifeTransmuterHeightened:f2f375b0-f592-5080-a406-5331ccabc1fb",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHealingPool:4235f0aa-76f9-5934-a082-e38b2d8f3675",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterDarkvision:75523ff0-07a9-5e52-b6a4-d4c7f5881959",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterElementalResistance:637acbab-fceb-5716-8ccb-fd0d0d413a35",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterConstitution:5916834c-698f-5d00-b567-01c35d92b78b",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolExtra:f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterFly:c1f82b4d-e301-587e-b1d5-95edb3c6cc9f",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHeal:0e016afd-9393-56f1-ad81-1c9f99fa14d6",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterRevive:fc5a773d-4ac0-50d3-b0dc-bc60943e05fe",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolBonus:b0825910-08bf-55cc-8803-8f73fa88ced7",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WizardLifeTransmuterTitle",
+    "description": "Subclass/&WizardLifeTransmuterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c291e4e1949a73241806e4d7d93d71bb",
+      "m_SubObjectName": "Rogue_Spider",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b6710a8a-5cf9-51e2-9fe0-cc7a77c0f174",
+  "contentPack": 9999,
+  "name": "WizardLifeTransmuter"
+}

@@ -5,6 +5,8 @@
     "Definition:PointPoolHumanLanguageChoice:4f7bfca6a657cbe4daa4fd797c47ebf6"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

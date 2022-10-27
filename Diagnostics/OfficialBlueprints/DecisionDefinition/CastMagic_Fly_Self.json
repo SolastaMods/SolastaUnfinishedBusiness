@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionFlying60",
+                "stringParameter": "ConditionFlying",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,

@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationDefinition, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 2,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaWandOfMagicDetection:1063c283-b5d1-5db7-b33e-efbe5ab55ac8",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Wand of Magic Detection",
+    "description": "Create replica <b>Wand of Magic Detection</b>:\nCasts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3b3e608ea3b926042ace08cedcf6dad5",
+      "m_SubObjectName": "StandardWand",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d6b80fb8-c2ba-5425-84cc-60d4fba8d6ae",
+  "contentPack": 9999,
+  "name": "InvocationCreateInfusedReplicaWandOfMagicDetection"
+}

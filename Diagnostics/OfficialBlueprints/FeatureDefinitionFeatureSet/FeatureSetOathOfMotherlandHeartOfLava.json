@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaSlashingReduction:fef64b892900c224883137662d72b966",
+    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaBludgeoningReduction:8a54dc4d7e7c28444abd65cebda66e87",
+    "Definition:DamageAffinityOathOfMotherlandHeartOfLavaPiercingReduction:0655dc647f8c89543b2c59f3920a6d8f"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetOathOfMotherlandHeartOfLavaTitle",
+    "description": "Feature/&FeatureSetOathOfMotherlandHeartOfLavaDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "0991f4538cc2eaa478b9bb3885e8b4f2",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetOathOfMotherlandHeartOfLava"
+}

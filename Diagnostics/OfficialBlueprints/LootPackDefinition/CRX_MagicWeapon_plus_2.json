@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:6D6_Copper_Coins:40e84944944a7ce43b5c907053cf580f",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD1_Weapons_02:17f5f9ba537d3fa4c95652c1616fc27f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD1_Weapons_02:17f5f9ba537d3fa4c95652c1616fc27f",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

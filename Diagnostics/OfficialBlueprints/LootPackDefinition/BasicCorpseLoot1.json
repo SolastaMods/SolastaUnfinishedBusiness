@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
-      "treasureTableDefinition": "Definition:Random_Skeleton_Table:f9041e262143ac747b13487889e773b8"
+      "treasureTableDefinition": "Definition:Random_Skeleton_Table:f9041e262143ac747b13487889e773b8",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:ABJURATION_TOWER_Poem:bfa0cd4ae6e55894898538614b16e9c6",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_RefinedOil:cd3fc4d6eb31a454d8e213653c4970d7",
-      "treasureTableDefinition": "Definition:RandomTreasureTableA_Gem:404fbb8642486c14e9477073f95471f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableA_Gem:404fbb8642486c14e9477073f95471f2",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,18 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff",
-      "treasureTableDefinition": "Definition:RandomTreasureTableH_50_GP_Art_Items:265092645d2ab8248836855fd9142b58"
+      "treasureTableDefinition": "Definition:RandomTreasureTableH_50_GP_Art_Items:265092645d2ab8248836855fd9142b58",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Primed_LightCrossbow:e5c25c691d4b13e479dc84f3833edc6f",
+      "treasureTableDefinition": "Definition:RandomTreasureTableH_50_GP_Art_Items:265092645d2ab8248836855fd9142b58",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

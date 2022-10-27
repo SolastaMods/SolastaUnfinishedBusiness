@@ -10,16 +10,16 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
   "alignment": "Unaligned",
-  "armorClass": 10,
+  "armorClass": 11,
   "armor": "",
   "hitDice": 2,
   "hitDiceType": "D8",
-  "hitPointsBonus": 2,
-  "standardHitPoints": 8,
+  "hitPointsBonus": 4,
+  "standardHitPoints": 10,
   "abilityScores": [
     12,
     15,
-    12,
+    18,
     8,
     12,
     6
@@ -116,8 +116,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -149,6 +148,8 @@
       "a": 1.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "48afe6d0fa3bbe44e8afeac916500cbc",

@@ -1,0 +1,229 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 120,
+  "maximalAge": 80,
+  "baseHeight": 3,
+  "baseWeight": 35,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyKoboldLanguages:ab62c9cf-b492-5530-98c8-2650dfa4b9c4",
+      "level": 1
+    }
+  ],
+  "subRaces": [
+    "Definition:RaceDarkKobold:930f5725-69e5-5b90-86b6-5bef750addaf",
+    "Definition:RaceDraconicKobold:71f9a79f-d8fa-5d32-9514-2edc39725cfb"
+  ],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 66.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Dragonborn",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Dragonborn",
+    "morphotypeAssetPrefix": "Dragonborn",
+    "maleNameOptions": [
+      "Race/&DragonbornMaleName1Title",
+      "Race/&DragonbornMaleName2Title",
+      "Race/&DragonbornMaleName3Title",
+      "Race/&DragonbornMaleName4Title",
+      "Race/&DragonbornMaleName5Title",
+      "Race/&DragonbornMaleName6Title",
+      "Race/&DragonbornMaleName7Title",
+      "Race/&DragonbornMaleName8Title",
+      "Race/&DragonbornMaleName9Title",
+      "Race/&DragonbornMaleName10Title",
+      "Race/&DragonbornMaleName11Title",
+      "Race/&DragonbornMaleName12Title",
+      "Race/&DragonbornMaleName13Title",
+      "Race/&DragonbornMaleName14Title",
+      "Race/&DragonbornMaleName15Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&DragonbornFemaleName1Title",
+      "Race/&DragonbornFemaleName2Title",
+      "Race/&DragonbornFemaleName3Title",
+      "Race/&DragonbornFemaleName4Title",
+      "Race/&DragonbornFemaleName5Title",
+      "Race/&DragonbornFemaleName6Title",
+      "Race/&DragonbornFemaleName7Title",
+      "Race/&DragonbornFemaleName8Title",
+      "Race/&DragonbornFemaleName9Title",
+      "Race/&DragonbornFemaleName10Title",
+      "Race/&DragonbornFemaleName11Title",
+      "Race/&DragonbornFemaleName12Title",
+      "Race/&DragonbornFemaleName13Title",
+      "Race/&DragonbornFemaleName14Title",
+      "Race/&DragonbornFemaleName15Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&DragonbornSurNameTitle",
+    "surNameOptions": [
+      "Race/&DragonbornSurName1Title",
+      "Race/&DragonbornSurName2Title",
+      "Race/&DragonbornSurName3Title",
+      "Race/&DragonbornSurName4Title",
+      "Race/&DragonbornSurName5Title",
+      "Race/&DragonbornSurName6Title",
+      "Race/&DragonbornSurName7Title",
+      "Race/&DragonbornSurName8Title",
+      "Race/&DragonbornSurName9Title",
+      "Race/&DragonbornSurName10Title",
+      "Race/&DragonbornSurName11Title",
+      "Race/&DragonbornSurName12Title",
+      "Race/&DragonbornSurName13Title",
+      "Race/&DragonbornSurName14Title"
+    ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "BodyDecoration",
+      "EyeColor",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "Scars",
+      "Horns",
+      "Tail",
+      "BodyDecorationColor",
+      "TailLength"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 100,
+    "originOptions": [
+      "Origin_Dragonborn"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None"
+    ],
+    "showHelmet": false,
+    "showGauntlets": false,
+    "showShoes": false,
+    "hasGenderRelatedBodyDecoration": true,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 29,
+      "maxValue": 29
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 0
+    },
+    "musicalInstrumentScale": 1.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceKoboldTitle",
+    "description": "Race/&RaceKoboldDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "62c3e9ea5c80d8449ac26d8548424d1b",
+      "m_SubObjectName": "Dragonborn",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "62bcd5b6-3ccb-5656-aac7-bbf7172f2200",
+  "contentPack": 9999,
+  "name": "RaceKobold"
+}

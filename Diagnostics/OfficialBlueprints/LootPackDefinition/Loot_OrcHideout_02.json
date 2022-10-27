@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:PickupQuest_Item_Aquila:389d9eecb5ac4e8439177f3e68663eec",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

@@ -96,6 +96,12 @@
       "odds": 3,
       "itemDefinition": "Definition:Maul+2:6524a590f9927a344b7ce0826e2f32f1",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:MonkGauntlet+2:ec5fa30f98734654c86d61c85d193fb3",
+      "amount": 1
     }
   ],
   "guiPresentation": {

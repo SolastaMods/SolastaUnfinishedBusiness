@@ -5,6 +5,8 @@
     "Definition:AttributeModifierHalfOrcAbilityScoreIncreaseCon:8c41b17c1681bf248a3c7ab7140dbb70"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

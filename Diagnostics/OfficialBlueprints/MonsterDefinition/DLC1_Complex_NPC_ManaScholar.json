@@ -127,8 +127,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Scholar:2b233bdcdf454bd448ebe655e787a6be",
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Scholar 1:d6cfc7b9bea5fc64cad11b0042f1ef2a",
@@ -165,6 +164,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,7 +1,0 @@
-ATTENTION:
-
-- Last 2.5 weeks before this mod stops working on next DLC release
-
-CHANGES:
-
-- Fix up to 6 players in multiplayer (need testing)

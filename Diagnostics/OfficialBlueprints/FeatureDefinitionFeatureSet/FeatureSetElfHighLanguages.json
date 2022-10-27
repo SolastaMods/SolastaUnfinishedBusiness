@@ -5,6 +5,8 @@
     "Definition:PointPoolElfHighLanguageChoice:6f8719847860faa4393f2cc3a1b11e72"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

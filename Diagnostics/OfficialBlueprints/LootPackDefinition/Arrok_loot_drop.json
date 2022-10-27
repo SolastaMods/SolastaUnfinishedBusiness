@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Quarterstaff+2:08badee677dcee24cab3aff4fccba39e",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:30D6_Gold_Coins:dc502b0c59643d2449a20561b8676db4",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:30D6_Gold_Coins:dc502b0c59643d2449a20561b8676db4",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_PrimordialLavaStones:7d79576058568e54296eca2ebd5b405a",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f"
+      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

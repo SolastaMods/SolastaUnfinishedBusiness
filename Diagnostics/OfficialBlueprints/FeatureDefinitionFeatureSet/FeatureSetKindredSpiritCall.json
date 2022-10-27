@@ -1,9 +1,12 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityKindredSpiritRally:1dbfb8454512e034081cd11da19a957e"
+    "Definition:ActionAffinityKindredSpiritRally:1dbfb8454512e034081cd11da19a957e",
+    "Definition:PowerKindredSpiritRally:cb3eb0f588d63834f90807f37b14855d"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Race/&HalfElfFemaleName1Title",
   "surName": "Race/&HalfElfSurName2Title",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 100.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_HalfElf_B",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlack",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
   "subClass": null,
   "deity": null,
@@ -58,6 +63,7 @@
   ],
   "toolsOverride": [],
   "featsOverride": [],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [],
   "metamagicOverride": [],
@@ -68,11 +74,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Female",
   "pronoun": "Female",
   "age": 25,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

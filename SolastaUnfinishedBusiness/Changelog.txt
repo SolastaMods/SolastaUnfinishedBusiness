@@ -1,0 +1,11 @@
+﻿CHANGES:
+
+- Rebrand to Unfinished Business
+- Add Inventor class
+- Add Kobold race
+- Add Feat Groups
+- Add new Feats and Fighting Styles
+- Allow 6 players on official campaigns
+- Remove class themed Feats
+- Remove Level Down feature
+- Remove Magus, Tinkerer and Witch

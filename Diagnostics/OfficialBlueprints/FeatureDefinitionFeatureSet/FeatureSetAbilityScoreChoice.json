@@ -5,6 +5,8 @@
     "Definition:PointPoolBonusFeat:c3eef96a911e20a40ab0e8a61c7463e1"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

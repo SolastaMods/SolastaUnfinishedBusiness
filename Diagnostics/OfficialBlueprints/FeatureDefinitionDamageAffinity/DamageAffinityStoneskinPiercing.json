@@ -1,13 +1,14 @@
 {
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": false,
+  "ancestryType": "Sorcerer",
   "damageType": "DamageBludgeoning",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
   "damageAffinityType": "Resistance",
-  "tagsIgnoringAffinity": [
-    "Magical"
-  ],
+  "flatDamageReduction": 0,
+  "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
+  "tagsIgnoringAffinity": [],
   "situationalContext": "None",
   "healsBack": false,
   "healBackCap": 10,
@@ -15,12 +16,14 @@
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
   "retaliatePower": null,
+  "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,
   "knockOutRequiredCondition": null,
   "knockOutDCAttribute": "RelentlessRageDC",
   "knockOutAddDC": 5,
   "instantDeathImmunity": false,
+  "activatePowerWhenDamaged": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

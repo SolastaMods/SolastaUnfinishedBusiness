@@ -5,6 +5,8 @@
     "Definition:DamageAffinityPathClawDragonScales:e135abb8cd5e83647943fdf8bfc0a4f4"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,
