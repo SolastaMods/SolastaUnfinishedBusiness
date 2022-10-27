@@ -20,8 +20,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AbilityCheckAffinityKoboldLightSensitivityTitle",
-    "description": "Feature/&AbilityCheckAffinityKoboldLightSensitivityDescription",
+    "title": "Feature/&AbilityCheckAffinityDarkKoboldLightSensitivityTitle",
+    "description": "Feature/&AbilityCheckAffinityDarkKoboldLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b225e73-1bc6-5dc2-9a39-371012e956e0",
+  "guid": "e390e731-776c-5f46-8201-59adaf04535a",
   "contentPack": 9999,
-  "name": "AbilityCheckAffinityKoboldLightSensitivity"
+  "name": "AbilityCheckAffinityDarkKoboldLightSensitivity"
 }

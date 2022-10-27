@@ -78,7 +78,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionTrueStrike",
-          "conditionDefinition": "Definition:ConditionKoboldGrovelCowerAndBeg:dbaae144-4ebc-5282-88a6-97ce420e5b60",
+          "conditionDefinition": "Definition:ConditionDarkKoboldGrovelCowerAndBeg:9b735621-9eb0-5b33-b7a3-d006020feaf1",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerKoboldGrovelCowerAndBegTitle",
-    "description": "Feature/&PowerKoboldGrovelCowerAndBegDescription",
+    "title": "Feature/&PowerDarkKoboldGrovelCowerAndBegTitle",
+    "description": "Feature/&PowerDarkKoboldGrovelCowerAndBegDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "68613322-a431-512d-be26-3683f7c33dc1",
+  "guid": "64232eff-49bf-5ab6-93ba-61e407210831",
   "contentPack": 9999,
-  "name": "PowerKoboldGrovelCowerAndBeg"
+  "name": "PowerDarkKoboldGrovelCowerAndBeg"
 }

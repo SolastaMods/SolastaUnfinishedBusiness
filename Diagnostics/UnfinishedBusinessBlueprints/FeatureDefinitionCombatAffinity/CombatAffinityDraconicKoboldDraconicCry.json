@@ -4,7 +4,7 @@
   "canRageToOvercomeSurprise": false,
   "attackOfOpportunityImmunity": false,
   "attackOfOpportunityOnMeAdvantageType": "None",
-  "attackOnMeAdvantage": "None",
+  "attackOnMeAdvantage": "Advantage",
   "attackOnMeCountLimit": -1,
   "autoCritical": false,
   "criticalHitImmunity": false,
@@ -13,8 +13,8 @@
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
-  "myAttackModifierValueDetermination": "Die",
-  "myAttackModifierSign": "Substract",
+  "myAttackModifierValueDetermination": "None",
+  "myAttackModifierSign": "Add",
   "myAttackModifierDiceNumber": 1,
   "myAttackModifierDieType": "D4",
   "myAttackDamageMultiplier": 1.0,
@@ -34,13 +34,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityKoboldLightSensitivityTitle",
-    "description": "Feature/&LightAffinityKoboldLightSensitivityDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cd10433f24101be46898ed600f8c537b",
-      "m_SubObjectName": "ConditionLightSensitiveSaboteur",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f603852e-fb9a-5d53-b132-e5c4d3a4fc83",
+  "guid": "e9b5e853-b3c6-5c33-a20d-e53af09b86ae",
   "contentPack": 9999,
-  "name": "CombatAffinityKoboldLightSensitivity"
+  "name": "CombatAffinityDraconicKoboldDraconicCry"
 }

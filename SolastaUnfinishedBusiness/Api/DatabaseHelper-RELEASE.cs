@@ -1137,6 +1137,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetHalfElfAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetHalfElfAbilityScoreIncrease");
+
         internal static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade");
 

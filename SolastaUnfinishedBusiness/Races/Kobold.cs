@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -21,51 +22,80 @@ internal static class KoboldRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildKobold()
     {
+        var proficiencyKoboldLanguages = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyKoboldLanguages")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
+            .AddToDB();
+
+        var raceKobold = CharacterRaceDefinitionBuilder
+            .Create(Dragonborn, "RaceKobold")
+            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetFeaturesAtLevel(1,
+                MoveModeMove6,
+                SenseNormalVision,
+                SenseDarkvision,
+                proficiencyKoboldLanguages)
+            .AddToDB();
+
+        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition>
+        {
+            BuildDarkKobold(), BuildDraconicKobold()
+        });
+        
+        raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
+
+        return raceKobold;
+    }
+    
+    [NotNull]
+    private static CharacterRaceDefinition BuildDarkKobold()
+    {
         // var koboldSpriteReference = CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
 
-        var attributeModifierKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierKoboldDexterityAbilityScoreIncrease")
+        var attributeModifierDarkKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierDarkKoboldDexterityAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 2)
             .AddToDB();
 
-        var abilityCheckAffinityKoboldLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityKoboldLightSensitivity")
+        var abilityCheckAffinityDarkKoboldLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("AbilityCheckAffinityDarkKoboldLightSensitivity")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
-        abilityCheckAffinityKoboldLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
+        abilityCheckAffinityDarkKoboldLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
 
-        var koboldCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
-            .Create(CombatAffinitySensitiveToLight, "CombatAffinityKoboldLightSensitivity")
-            .SetOrUpdateGuiPresentation("LightAffinityKoboldLightSensitivity", Category.Feature)
+        var darkKoboldCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
+            .Create(CombatAffinitySensitiveToLight, "CombatAffinityDarkKoboldLightSensitivity")
+            .SetOrUpdateGuiPresentation("LightAffinityDarkKoboldLightSensitivity", Category.Feature)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
             .AddToDB();
 
-        var conditionKoboldLightSensitive = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionKoboldLightSensitive")
-            .SetOrUpdateGuiPresentation("LightAffinityKoboldLightSensitivity", Category.Feature)
+        var conditionDarkKoboldLightSensitive = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionDarkKoboldLightSensitive")
+            .SetOrUpdateGuiPresentation("LightAffinityDarkKoboldLightSensitivity", Category.Feature)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(abilityCheckAffinityKoboldLightSensitivity, koboldCombatAffinityLightSensitivity)
+            .SetFeatures(abilityCheckAffinityDarkKoboldLightSensitivity, darkKoboldCombatAffinityLightSensitivity)
             .AddToDB();
 
         // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionKoboldLightSensitive);
+        Global.CharacterLabelEnabledConditions.Add(conditionDarkKoboldLightSensitive);
 
-        var lightAffinityKoboldLightSensitivity = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityKoboldLightSensitivity")
+        var lightAffinityDarkKoboldLightSensitivity = FeatureDefinitionLightAffinityBuilder
+            .Create("LightAffinityDarkKoboldLightSensitivity")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
                     lightingState = LocationDefinitions.LightingState.Bright,
-                    condition = conditionKoboldLightSensitive
+                    condition = conditionDarkKoboldLightSensitive
                 })
             .AddToDB();
 
@@ -75,91 +105,62 @@ internal static class KoboldRaceBuilder
             .SetDurationData(DurationType.Round, 1)
             .Build();
 
-        var conditionKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionKoboldGrovelCowerAndBeg")
+        var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionKoboldGrovelCowerAndBeg;
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDarkKoboldGrovelCowerAndBeg;
 
-        var powerKoboldGrovelCowerAndBeg = FeatureDefinitionPowerBuilder
-            .Create("PowerKoboldGrovelCowerAndBeg")
+        var powerDarkKoboldGrovelCowerAndBeg = FeatureDefinitionPowerBuilder
+            .Create("PowerDarkKoboldGrovelCowerAndBeg")
             .SetGuiPresentation(Category.Feature, Aid)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()
             .AddToDB();
 
-        var proficiencyKoboldLanguages = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyKoboldLanguages")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
-            .AddToDB();
+        var darkKoboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
-
-        var raceKobold = CharacterRaceDefinitionBuilder
-            .Create(Dragonborn, "RaceKobold")
+        var raceDarkKobold = CharacterRaceDefinitionBuilder
+            .Create(Dragonborn, "RaceDarkKobold")
             .SetOrUpdateGuiPresentation(Category.Race)
-            .SetRacePresentation(koboldRacePresentation)
+            .SetRacePresentation(darkKoboldRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetBaseWeight(35)
             .SetBaseHeight(3)
             .SetMinimalAge(6)
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
-                attributeModifierKoboldDexterityAbilityScoreIncrease,
-                MoveModeMove6,
-                SenseNormalVision,
-                SenseDarkvision,
-                powerKoboldGrovelCowerAndBeg,
+                attributeModifierDarkKoboldDexterityAbilityScoreIncrease,
+                powerDarkKoboldGrovelCowerAndBeg,
                 CombatAffinityPackTactics,
-                lightAffinityKoboldLightSensitivity,
-                proficiencyKoboldLanguages)
+                lightAffinityDarkKoboldLightSensitivity)
             .AddToDB();
 
-        raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
+        RacesContext.RaceScaleMap[raceDarkKobold] = -0.04f / -0.06f;;
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceDarkKobold.name);
 
-        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;;
-        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
-
-        return raceKobold;
+        return raceDarkKobold;
     }
-    
-    //TODO: make one Kobold race with 2 subraces
-    // @SilverGriffon WIP
-    /*
-    Condition/&ConditionKoboldDraconicCryDescription=
-    Condition/&ConditionKoboldDraconicCryTitle=
-    Feature/&CastSpellKoboldMagicDescription=You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
-    Feature/&CastSpellKoboldMagicTitle=Kobold Magic
-    Feature/&CombatAffinityKoboldDraconicCryDescription=
-    Feature/&CombatAffinityKoboldDraconicCryTitle=
-    Feature/&PowerKoboldDraconicCryDescription=
-    Feature/&PowerKoboldDraconicCryTitle=
-    Race/&RaceKoboldDescription=Kobolds are small reclusive draconic creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
-    Race/&RaceKoboldTitle=Kobold
-    */
+
     private static CharacterRaceDefinition BuildDraconicKobold()
     {
         var koboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
-        //CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
-
-        //var koboldSkills
 
         var combatAffinityKoboldDraconicCry = FeatureDefinitionCombatAffinityBuilder
-            .Create(CombatAffinityParalyzedAdvantage, "CombatAffinityKoboldDraconicCry")
+            .Create(CombatAffinityParalyzedAdvantage, "CombatAffinityDraconicKoboldDraconicCry")
             .AddToDB();
 
         var conditionKoboldDraconicCry = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBaned, "ConditionKoboldDraconicCry")
+            .Create(ConditionDefinitions.ConditionBaned, "ConditionDraconicKoboldDraconicCry")
             .SetFeatures(combatAffinityKoboldDraconicCry)
             .AddToDB();
 
         //var powerKoboldDraconicCry
 
         var spellListKoboldMagic = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListKoboldMagic")
+            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKoboldMagic")
             .SetGuiPresentationNoContent()
             .ClearSpells()
             .SetSpellsAtLevel(0, SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells.ToArray())
@@ -167,7 +168,7 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         var castSpellKoboldMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellKoboldMagic")
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDraconicKoboldMagic")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellList(spellListKoboldMagic)
@@ -178,24 +179,18 @@ internal static class KoboldRaceBuilder
         //koboldRacePresentation.defaultMusculature = 80;
 
         var raceKobold = CharacterRaceDefinitionBuilder
-            .Create(Dragonborn, "RaceKobold")
+            .Create(Dragonborn, "RaceDraconicKobold")
             .SetGuiPresentation(Category.Race, koboldSpriteReference)
-            .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetRacePresentation(koboldRacePresentation)
+            .SetSizeDefinition(CharacterSizeDefinitions.Small)
+            .SetBaseWeight(35)
+            .SetBaseHeight(3)
             .SetMinimalAge(6)
             .SetMaximalAge(120)
-            .SetBaseHeight(36)
-            .SetBaseWeight(35)
             .SetFeaturesAtLevel(1,
-                // FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision,
-                FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionProficiencys.ProficiencyDragonbornLanguages,
+                FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
                 castSpellKoboldMagic)
             .AddToDB();
-
-        raceKobold.GuiPresentation.sortOrder = Dragonborn.GuiPresentation.sortOrder - 1;
 
         RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);

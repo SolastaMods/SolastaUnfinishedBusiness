@@ -1,38 +1,35 @@
 {
   "$type": "CharacterRaceDefinition, Assembly-CSharp",
-  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
   "defaultAlignement": "Neutral",
   "dualSex": true,
-  "minimalAge": 15,
+  "minimalAge": 120,
   "maximalAge": 80,
-  "baseHeight": 66,
-  "baseWeight": 175,
+  "baseHeight": 3,
+  "baseWeight": 35,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:AttributeModifierDarkKoboldDexterityAbilityScoreIncrease:36b87977-a771-5d26-9a1e-9a6afa13ba98",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:PowerDarkKoboldGrovelCowerAndBeg:64232eff-49bf-5ab6-93ba-61e407210831",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyKoboldLanguages:ab62c9cf-b492-5530-98c8-2650dfa4b9c4",
+      "featureDefinition": "Definition:LightAffinityDarkKoboldLightSensitivity:ef7792be-cce3-5545-a497-66e316dd5254",
       "level": 1
     }
   ],
-  "subRaces": [
-    "Definition:RaceDarkKobold:930f5725-69e5-5b90-86b6-5bef750addaf",
-    "Definition:RaceDraconicKobold:71f9a79f-d8fa-5d32-9514-2edc39725cfb"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
@@ -202,8 +199,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceKoboldTitle",
-    "description": "Race/&RaceKoboldDescription",
+    "title": "Race/&RaceDarkKoboldTitle",
+    "description": "Race/&RaceDarkKoboldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "62c3e9ea5c80d8449ac26d8548424d1b",
@@ -218,12 +215,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 3,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62bcd5b6-3ccb-5656-aac7-bbf7172f2200",
+  "guid": "930f5725-69e5-5b90-86b6-5bef750addaf",
   "contentPack": 9999,
-  "name": "RaceKobold"
+  "name": "RaceDarkKobold"
 }

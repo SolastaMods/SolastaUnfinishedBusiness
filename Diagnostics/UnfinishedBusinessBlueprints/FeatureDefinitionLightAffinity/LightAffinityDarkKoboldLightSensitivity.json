@@ -4,7 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Bright",
-      "condition": "Definition:ConditionKoboldLightSensitive:80d4b2a8-3bf5-5490-a36b-61389179f454",
+      "condition": "Definition:ConditionDarkKoboldLightSensitive:68efb048-1867-55b9-8dfd-84d1122b8fdc",
       "effect": null
     }
   ],
@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityKoboldLightSensitivityTitle",
-    "description": "Feature/&LightAffinityKoboldLightSensitivityDescription",
+    "title": "Feature/&LightAffinityDarkKoboldLightSensitivityTitle",
+    "description": "Feature/&LightAffinityDarkKoboldLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b5e8507a-f4fd-5e40-9153-e23e2f2e2407",
+  "guid": "ef7792be-cce3-5545-a497-66e316dd5254",
   "contentPack": 9999,
-  "name": "LightAffinityKoboldLightSensitivity"
+  "name": "LightAffinityDarkKoboldLightSensitivity"
 }
