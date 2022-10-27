@@ -31,6 +31,11 @@ internal static class KoboldRaceBuilder
         var raceKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceKobold")
             .SetOrUpdateGuiPresentation(Category.Race)
+            .SetSizeDefinition(CharacterSizeDefinitions.Small)
+            .SetBaseWeight(35)
+            .SetBaseHeight(3)
+            .SetMinimalAge(6)
+            .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 MoveModeMove6,
                 SenseNormalVision,
@@ -44,6 +49,7 @@ internal static class KoboldRaceBuilder
         });
         
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
+        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
 
         return raceKobold;
     }
