@@ -110,6 +110,7 @@ internal static class KoboldRaceBuilder
             .SetFeaturesAtLevel(1,
                 attributeModifierKoboldDexterityAbilityScoreIncrease,
                 MoveModeMove6,
+                SenseNormalVision,
                 SenseDarkvision,
                 powerKoboldGrovelCowerAndBeg,
                 CombatAffinityPackTactics,
@@ -119,7 +120,73 @@ internal static class KoboldRaceBuilder
 
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
 
-        RacesContext.RaceScaleMap[raceKobold] = 3.0f / 6.4f;
+        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;;
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
+
+        return raceKobold;
+    }
+    
+    //TODO: make one Kobold race with 2 subraces
+    // @SilverGriffon WIP
+    private static CharacterRaceDefinition BuildDraconicKobold()
+    {
+        var koboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
+        //CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
+
+        //var koboldSkills
+
+        var combatAffinityKoboldDraconicCry = FeatureDefinitionCombatAffinityBuilder
+            .Create(CombatAffinityParalyzedAdvantage, "CombatAffinityKoboldDraconicCry")
+            .AddToDB();
+
+        var conditionKoboldDraconicCry = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBaned, "ConditionKoboldDraconicCry")
+            .SetFeatures(combatAffinityKoboldDraconicCry)
+            .AddToDB();
+
+        //var powerKoboldDraconicCry
+
+        var spellListKoboldMagic = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListKoboldMagic")
+            .SetGuiPresentationNoContent()
+            .ClearSpells()
+            .SetSpellsAtLevel(0, SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells.ToArray())
+            .FinalizeSpells()
+            .AddToDB();
+
+        var castSpellKoboldMagic = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellKoboldMagic")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellList(spellListKoboldMagic)
+            .AddToDB();
+
+        var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
+
+        //koboldRacePresentation.defaultMusculature = 80;
+
+        var raceKobold = CharacterRaceDefinitionBuilder
+            .Create(Dragonborn, "RaceKobold")
+            .SetGuiPresentation(Category.Race, koboldSpriteReference)
+            .SetSizeDefinition(CharacterSizeDefinitions.Small)
+            .SetRacePresentation(koboldRacePresentation)
+            .SetMinimalAge(6)
+            .SetMaximalAge(120)
+            .SetBaseHeight(36)
+            .SetBaseWeight(35)
+            .SetFeaturesAtLevel(1,
+                // FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
+                FeatureDefinitionSenses.SenseNormalVision,
+                FeatureDefinitionSenses.SenseDarkvision,
+                FeatureDefinitionMoveModes.MoveModeMove6,
+                FeatureDefinitionProficiencys.ProficiencyDragonbornLanguages,
+                castSpellKoboldMagic)
+            .AddToDB();
+
+        raceKobold.GuiPresentation.sortOrder = Dragonborn.GuiPresentation.sortOrder - 1;
+
+        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
         return raceKobold;
     }
