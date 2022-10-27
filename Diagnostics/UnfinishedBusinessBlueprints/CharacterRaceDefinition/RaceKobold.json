@@ -1,12 +1,12 @@
 {
   "$type": "CharacterRaceDefinition, Assembly-CSharp",
-  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
   "defaultAlignement": "Neutral",
   "dualSex": true,
-  "minimalAge": 15,
+  "minimalAge": 120,
   "maximalAge": 80,
-  "baseHeight": 66,
-  "baseWeight": 175,
+  "baseHeight": 3,
+  "baseWeight": 35,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

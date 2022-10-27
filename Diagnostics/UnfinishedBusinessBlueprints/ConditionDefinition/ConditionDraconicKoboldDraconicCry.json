@@ -1,17 +1,17 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityDraconicKoboldDraconicCry:e9b5e853-b3c6-5c33-a20d-e53af09b86ae"
+    "Definition:CombatAffinityTrueStrike:fbe1bf0aba1a9d54abeb4422b2480d90"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Hour",
+  "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
@@ -220,7 +220,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -262,12 +262,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBanedTitle",
-    "description": "Rules/&ConditionBanedDescription",
+    "title": "Condition/&ConditionDraconicKoboldDraconicCryTitle",
+    "description": "Condition/&ConditionDraconicKoboldDraconicCryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
+      "m_SubObjectName": "ConditionGuided",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -83,7 +83,7 @@ All settings start disabled by default.
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Dark Kobold[/b]: Dark Kobolds are often dismissed as cowardly, foolish, and weak, but these little reptilian creatures actually have a strong social structure that stresses devotion to the tribe, are clever with their hands, and viciously work together in order to overcome their physical limitations.
-[*][b]Draconic Kobold[/b]: Kobolds are small reclusive draconic creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+[*][b]Draconic Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of draconic kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
@@ -367,11 +367,11 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Kobold, Blade Dancer, Dead Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Dark Kobold, Blade Dancer, Dead Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
-[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Grey Dwarf, Divine Heart
+[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: subclasses improvements, Marshal, Opportunist, Raven
 [*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
 [*][b]AceHigh[/b]: SoulBlade, Tactician

@@ -43,21 +43,19 @@ internal static class KoboldRaceBuilder
                 proficiencyKoboldLanguages)
             .AddToDB();
 
-        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition>
-        {
-            BuildDarkKobold(), BuildDraconicKobold()
-        });
-        
+        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition> { BuildDarkKobold(), BuildDraconicKobold() });
+
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
         RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
 
         return raceKobold;
     }
-    
+
     [NotNull]
     private static CharacterRaceDefinition BuildDarkKobold()
     {
-        // var koboldSpriteReference = CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
+        var darkKoboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
+        // CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
 
         var attributeModifierDarkKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkKoboldDexterityAbilityScoreIncrease")
@@ -107,13 +105,15 @@ internal static class KoboldRaceBuilder
 
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 2)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetDurationData(DurationType.Round, 1)
             .Build();
 
         var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 1)
+            .ClearSpecialInterruptions()
             .AddToDB();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDarkKoboldGrovelCowerAndBeg;
@@ -130,7 +130,7 @@ internal static class KoboldRaceBuilder
 
         var raceDarkKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceDarkKobold")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, darkKoboldSpriteReference)
             .SetRacePresentation(darkKoboldRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetBaseWeight(35)
@@ -144,7 +144,8 @@ internal static class KoboldRaceBuilder
                 lightAffinityDarkKoboldLightSensitivity)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceDarkKobold] = -0.04f / -0.06f;;
+        RacesContext.RaceScaleMap[raceDarkKobold] = -0.04f / -0.06f;
+        ;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceDarkKobold.name);
 
         return raceDarkKobold;
@@ -152,18 +153,30 @@ internal static class KoboldRaceBuilder
 
     private static CharacterRaceDefinition BuildDraconicKobold()
     {
-        var koboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
+        var draconicKoboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
 
-        var combatAffinityKoboldDraconicCry = FeatureDefinitionCombatAffinityBuilder
-            .Create(CombatAffinityParalyzedAdvantage, "CombatAffinityDraconicKoboldDraconicCry")
+        var effectDescription = EffectDescriptionBuilder
+            .Create(TrueStrike.EffectDescription)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetDurationData(DurationType.Round, 1)
+            .Build();
+
+        var conditionDraconicKoboldDraconicCry = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDraconicKoboldDraconicCry")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 1)
+            .ClearSpecialInterruptions()
             .AddToDB();
 
-        var conditionKoboldDraconicCry = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBaned, "ConditionDraconicKoboldDraconicCry")
-            .SetFeatures(combatAffinityKoboldDraconicCry)
-            .AddToDB();
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDraconicKoboldDraconicCry;
 
-        //var powerKoboldDraconicCry
+        var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
+            .Create("PowerDraconicKoboldDraconicCry")
+            .SetGuiPresentation(Category.Feature, Aid)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(effectDescription)
+            .SetUniqueInstance()
+            .AddToDB();
 
         var spellListKoboldMagic = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKoboldMagic")
@@ -182,11 +195,9 @@ internal static class KoboldRaceBuilder
 
         var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        //koboldRacePresentation.defaultMusculature = 80;
-
         var raceKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceDraconicKobold")
-            .SetGuiPresentation(Category.Race, koboldSpriteReference)
+            .SetGuiPresentation(Category.Race, draconicKoboldSpriteReference)
             .SetRacePresentation(koboldRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetBaseWeight(35)
@@ -195,6 +206,7 @@ internal static class KoboldRaceBuilder
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
+                powerDraconicKoboldDraconicCry,
                 castSpellKoboldMagic)
             .AddToDB();
 

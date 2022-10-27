@@ -15,6 +15,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDraconicKoboldDraconicCry:05e3c44a-c55a-517d-83d0-bdb161307956",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellDraconicKoboldMagic:b86bcf0e-1164-5b62-b1d0-6fe08be1dc4f",
       "level": 1
     }

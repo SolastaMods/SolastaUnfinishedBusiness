@@ -11,14 +11,12 @@
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Hour",
+  "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacked"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
