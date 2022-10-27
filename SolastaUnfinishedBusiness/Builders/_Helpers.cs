@@ -7,8 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal enum Category
 {
-    None = 0,
-    Action,
+    Action = 1,
     Background,
     Class,
     Condition,

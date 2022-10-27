@@ -1,7 +1,9 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
 internal class LanguageDefinitionBuilder : DefinitionBuilder<LanguageDefinition, LanguageDefinitionBuilder>
 {
     #region Constructors

@@ -40,11 +40,13 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
+#if false    
     internal CharacterClassDefinitionBuilder RequireDeity()
     {
         Definition.requiresDeity = true;
         return this;
     }
+#endif
 
     internal CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
     {

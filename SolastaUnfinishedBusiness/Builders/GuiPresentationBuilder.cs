@@ -11,15 +11,17 @@ internal class GuiPresentationBuilder
     internal static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
     private readonly GuiPresentation guiPresentation;
 
-    internal GuiPresentationBuilder(string title = null, string description = null,
-        AssetReferenceSprite sprite = null)
+    internal GuiPresentationBuilder(
+        string title = null,
+        string description = null,
+        AssetReferenceSprite spriteReference = null)
     {
         guiPresentation = new GuiPresentation
         {
-            Description = description ?? string.Empty, Title = title ?? string.Empty
+            Description = description ?? string.Empty,
+            Title = title ?? string.Empty,
+            spriteReference = spriteReference ?? EmptySprite
         };
-
-        SetSpriteReference(sprite ?? EmptySprite);
     }
 
     internal GuiPresentationBuilder(GuiPresentation reference)
@@ -36,22 +38,12 @@ internal class GuiPresentationBuilder
     {
         Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
-        if (category == Category.None)
-        {
-            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
-        }
-
         return $"{category}/&{name}Title";
     }
 
     internal static string CreateDescriptionKey(string description, Category category)
     {
         Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
-
-        if (category == Category.None)
-        {
-            throw new ArgumentException(@"The parameter must not be Category.None.", nameof(category));
-        }
 
         return $"{category}/&{description}Description";
     }
@@ -82,48 +74,60 @@ internal class GuiPresentationBuilder
     }
 #endif
 
-    internal GuiPresentationBuilder SetSpriteReference(AssetReferenceSprite sprite)
-    {
-        guiPresentation.spriteReference = sprite;
-        return this;
-    }
-
     internal GuiPresentation Build()
     {
         return guiPresentation;
     }
 
-    internal static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null,
-        int? sortOrder = null, bool? hidden = null)
+    private static GuiPresentation Build(
+        string title,
+        string description,
+        AssetReferenceSprite sprite = null,
+        int? sortOrder = null,
+        bool? hidden = null)
     {
         return Build(null, title, description, sprite, sortOrder, hidden);
     }
 
-    internal static GuiPresentation Build(GuiPresentation reference, string title, string description,
-        AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
+    internal static GuiPresentation Build(
+        GuiPresentation reference,
+        string title,
+        string description,
+        AssetReferenceSprite sprite = null,
+        int? sortOrder = null,
+        bool? hidden = null)
     {
-        var guip = reference == null ? new GuiPresentation() : new GuiPresentation(reference);
+        var guiPresentation = reference == null ? new GuiPresentation() : new GuiPresentation(reference);
 
-        guip.Title = title;
-        guip.Description = description;
-        guip.spriteReference = sprite ?? reference?.SpriteReference ?? EmptySprite;
-        guip.sortOrder = sortOrder ?? reference?.SortOrder ?? 0;
-        guip.hidden = hidden ?? reference?.Hidden ?? false;
+        guiPresentation.Title = title;
+        guiPresentation.Description = description;
+        guiPresentation.spriteReference = sprite ?? reference?.SpriteReference ?? EmptySprite;
+        guiPresentation.sortOrder = sortOrder ?? reference?.SortOrder ?? 0;
+        guiPresentation.hidden = hidden ?? reference?.Hidden ?? false;
 
-        return guip;
+        return guiPresentation;
     }
 
-    internal static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null,
-        int? sortOrder = null, bool? hidden = null)
+    internal static GuiPresentation Build(
+        string name,
+        Category category,
+        AssetReferenceSprite sprite = null,
+        int? sortOrder = null,
+        bool? hidden = null)
     {
         return Build(null, name, category, sprite, sortOrder, hidden);
     }
 
-    internal static GuiPresentation Build(GuiPresentation reference, string name, Category category,
-        AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
+    internal static GuiPresentation Build(
+        GuiPresentation reference,
+        string name,
+        Category category,
+        AssetReferenceSprite sprite = null,
+        int? sortOrder = null,
+        bool? hidden = null)
     {
-        return Build(reference, CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite,
-            sortOrder, hidden);
+        return Build(
+            reference, CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite, sortOrder, hidden);
     }
 }
 
@@ -158,7 +162,10 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         AssetReferenceSprite sprite = null;
 
-        if (spriteDefinition != null) { sprite = spriteDefinition.GuiPresentation.spriteReference; }
+        if (spriteDefinition != null)
+        {
+            sprite = spriteDefinition.GuiPresentation.spriteReference;
+        }
 
         return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, title, description, sprite));
     }
