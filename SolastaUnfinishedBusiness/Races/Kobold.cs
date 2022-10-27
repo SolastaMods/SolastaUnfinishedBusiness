@@ -128,6 +128,18 @@ internal static class KoboldRaceBuilder
     
     //TODO: make one Kobold race with 2 subraces
     // @SilverGriffon WIP
+    /*
+    Condition/&ConditionKoboldDraconicCryDescription=
+    Condition/&ConditionKoboldDraconicCryTitle=
+    Feature/&CastSpellKoboldMagicDescription=You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
+    Feature/&CastSpellKoboldMagicTitle=Kobold Magic
+    Feature/&CombatAffinityKoboldDraconicCryDescription=
+    Feature/&CombatAffinityKoboldDraconicCryTitle=
+    Feature/&PowerKoboldDraconicCryDescription=
+    Feature/&PowerKoboldDraconicCryTitle=
+    Race/&RaceKoboldDescription=Kobolds are small reclusive draconic creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+    Race/&RaceKoboldTitle=Kobold
+    */
     private static CharacterRaceDefinition BuildDraconicKobold()
     {
         var koboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
