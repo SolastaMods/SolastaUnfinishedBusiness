@@ -43,19 +43,21 @@ internal static class KoboldRaceBuilder
                 proficiencyKoboldLanguages)
             .AddToDB();
 
-        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition> { BuildDarkKobold(), BuildDraconicKobold() });
-
+        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition>
+        {
+            BuildDarkKobold(raceKobold), BuildDraconicKobold(raceKobold)
+        });
         raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
         RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
         return raceKobold;
     }
 
     [NotNull]
-    private static CharacterRaceDefinition BuildDarkKobold()
+    private static CharacterRaceDefinition BuildDarkKobold(CharacterRaceDefinition characterRaceDefinition)
     {
         var darkKoboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
-        // CustomIcons.GetSprite("Kobold", Resources.Kobold, 1024, 512);
 
         var attributeModifierDarkKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkKoboldDexterityAbilityScoreIncrease")
@@ -129,14 +131,9 @@ internal static class KoboldRaceBuilder
         var darkKoboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
         var raceDarkKobold = CharacterRaceDefinitionBuilder
-            .Create(Dragonborn, "RaceDarkKobold")
+            .Create(characterRaceDefinition, "RaceDarkKobold")
             .SetGuiPresentation(Category.Race, darkKoboldSpriteReference)
             .SetRacePresentation(darkKoboldRacePresentation)
-            .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
-            .SetMinimalAge(6)
-            .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 attributeModifierDarkKoboldDexterityAbilityScoreIncrease,
                 powerDarkKoboldGrovelCowerAndBeg,
@@ -144,14 +141,10 @@ internal static class KoboldRaceBuilder
                 lightAffinityDarkKoboldLightSensitivity)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceDarkKobold] = -0.04f / -0.06f;
-        ;
-        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceDarkKobold.name);
-
         return raceDarkKobold;
     }
 
-    private static CharacterRaceDefinition BuildDraconicKobold()
+    private static CharacterRaceDefinition BuildDraconicKobold(CharacterRaceDefinition characterRaceDefinition)
     {
         var draconicKoboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
 
@@ -178,7 +171,7 @@ internal static class KoboldRaceBuilder
             .SetUniqueInstance()
             .AddToDB();
 
-        var spellListKoboldMagic = SpellListDefinitionBuilder
+        var spellListDraconicKoboldMagic = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKoboldMagic")
             .SetGuiPresentationNoContent()
             .ClearSpells()
@@ -186,33 +179,25 @@ internal static class KoboldRaceBuilder
             .FinalizeSpells()
             .AddToDB();
 
-        var castSpellKoboldMagic = FeatureDefinitionCastSpellBuilder
+        var castSpellDraconicKoboldMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDraconicKoboldMagic")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellList(spellListKoboldMagic)
+            .SetSpellList(spellListDraconicKoboldMagic)
             .AddToDB();
 
-        var koboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
+        var draconicKoboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        var raceKobold = CharacterRaceDefinitionBuilder
-            .Create(Dragonborn, "RaceDraconicKobold")
+        var raceDraconicKobold = CharacterRaceDefinitionBuilder
+            .Create(characterRaceDefinition, "RaceDraconicKobold")
             .SetGuiPresentation(Category.Race, draconicKoboldSpriteReference)
-            .SetRacePresentation(koboldRacePresentation)
-            .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
-            .SetMinimalAge(6)
-            .SetMaximalAge(120)
+            .SetRacePresentation(draconicKoboldRacePresentation)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
                 powerDraconicKoboldDraconicCry,
-                castSpellKoboldMagic)
+                castSpellDraconicKoboldMagic)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
-        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
-
-        return raceKobold;
+        return raceDraconicKobold;
     }
 }
