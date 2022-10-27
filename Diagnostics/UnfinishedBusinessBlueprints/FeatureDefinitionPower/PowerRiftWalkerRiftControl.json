@@ -16,6 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": false,
@@ -79,7 +80,8 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "TeleportToDestination",
-          "distance": 0
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
