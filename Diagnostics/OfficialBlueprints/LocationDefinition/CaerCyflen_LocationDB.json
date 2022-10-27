@@ -274,7 +274,7 @@
   "startsWithScavengerCamp": true,
   "ignoredByScavengers": true,
   "useDirectionalLightInCutscene": false,
-  "useNewSectorCullingAlgorithm": false,
+  "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
