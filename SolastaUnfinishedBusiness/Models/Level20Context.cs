@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -608,7 +609,7 @@ internal static class Level20Context
         }
 
         code
-            .FindAll(x => x.opcode.Name == "ldc.i4.s"
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S
                           && (Convert.ToInt32(x.operand) == GameFinalMaxLevel ||
                               Convert.ToInt32(x.operand) == GameMaxLevel))
             .ForEach(x => x.operand = ModMaxLevel);
