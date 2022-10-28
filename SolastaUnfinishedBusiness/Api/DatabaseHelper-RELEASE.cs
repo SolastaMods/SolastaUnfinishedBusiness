@@ -1098,6 +1098,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityPsychicImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPsychicImmunity");
 
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPsychicResistance { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPsychicResistance");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityRadiantResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityRadiantResistance");
 

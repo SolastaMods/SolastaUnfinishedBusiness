@@ -5,19 +5,24 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Utils;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
@@ -315,7 +320,7 @@ internal static class Level20Context
     {
         var powerFighterActionSurge2 = FeatureDefinitionPowerBuilder
             .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
-            .SetUsesFixed(RuleDefinitions.ActivationTime.NoCost, RuleDefinitions.RechargeRate.LongRest, 1, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 2)
             .SetOverriddenPower(PowerFighterActionSurge)
             .AddToDB();
 
@@ -333,6 +338,64 @@ internal static class Level20Context
 
     private static void MonkLoad()
     {
+        var emptyBodySprite = CustomIcons.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
+
+        var powerMonkEmptyBody = FeatureDefinitionPowerBuilder
+            .Create("PowerMonkEmptyBody")
+            .SetGuiPresentation(Category.Feature, emptyBodySprite)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionMonkEmptyBody")
+                                .SetGuiPresentation(
+                                    Category.Condition,
+                                    DatabaseHelper.ConditionDefinitions.ConditionShielded)
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinityThunderResistance,
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("DamageAffinityMonkEmptyBodyBludgeoningResistance")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetDamageType(DamageTypeBludgeoning)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB(),
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("DamageAffinityMonkEmptyBodyPiercingResistance")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetDamageType(DamageTypePiercing)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB(),
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("DamageAffinityMonkEmptyBodySlashingResistance")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetDamageType(DamageTypeSlashing)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB())
+                                .SetPossessive()
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetMonkTongueSunMoon, 13),
@@ -340,7 +403,7 @@ internal static class Level20Context
             new(FeatureSetMonkTimelessBody, 15),
             new(FeatureSetAbilityScoreChoice, 16),
             // TODO 17: Monastic Tradition Feature
-            // TODO 18: Empty Body
+            new(powerMonkEmptyBody, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Perfect Self
         });
@@ -469,7 +532,7 @@ internal static class Level20Context
             .Create("SorcererSorcerousRestoration")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
-                RuleDefinitions.RestType.ShortRest,
+                RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
                 PowerSorcerousRestorationName)
@@ -488,15 +551,15 @@ internal static class Level20Context
         var powerSorcerousRestoration = FeatureDefinitionPowerBuilder
             .Create(PowerSorcerousRestorationName)
             .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Rest)
+            .SetUsesFixed(ActivationTime.Rest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetEffectForms(effectFormRestoration)
                 .SetTargetingData(
-                    RuleDefinitions.Side.Ally,
-                    RuleDefinitions.RangeType.Self,
+                    Side.Ally,
+                    RangeType.Self,
                     1,
-                    RuleDefinitions.TargetType.Self)
+                    TargetType.Self)
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
                     .EffectParticleParameters)
                 .Build())
@@ -537,7 +600,7 @@ internal static class Level20Context
         var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Minute1, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
             .AddToDB();
 
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -638,8 +701,8 @@ internal static class Level20Context
             int rollModifier,
             string abilityScoreName,
             string proficiencyName,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
-            List<RuleDefinitions.TrendInfo> modifierTrends)
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends)
         {
             if (character == null || abilityScoreName != AttributeDefinitions.Strength)
             {

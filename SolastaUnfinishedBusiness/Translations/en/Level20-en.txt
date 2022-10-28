@@ -1,7 +1,11 @@
+Condition/&ConditionMonkEmptyBodyDescription=You have resistance to all damage but force.
+Condition/&ConditionMonkEmptyBodyTitle=Empty Body
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Indomitable Might
 Feature/&CustomCodeBarbarianPrimalChampionDescription=At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Primal Champion
+Feature/&PowerMonkEmptyBodyDescription=You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+Feature/&PowerMonkEmptyBodyTitle=Empty Body
 Feature/&PowerPaladinAuraOfCourage18Description=Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title=Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description=You and your allies within 30ft cannot be frightened.
