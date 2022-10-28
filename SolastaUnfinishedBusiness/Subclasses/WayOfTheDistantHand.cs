@@ -59,8 +59,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArrowProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -69,8 +68,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.FallProne, 0)
@@ -82,8 +80,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArrowPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -92,8 +89,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     AttributeDefinitions.Strength,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
@@ -105,8 +101,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -115,12 +110,10 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     AttributeDefinitions.Wisdom,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetConditionForm(
-                        ConditionDefinitionBuilder
+                    .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandDistract")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                             .SetDuration(DurationType.Round, 1)
@@ -177,23 +170,20 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
             .SetCustomSubFeatures(new ValidatorsPowerUse(
-                ValidatorsCharacter.HasAnyOfConditions(
-                    ConditionDefinitionBuilder
-                        .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetDuration(DurationType.Round, 1)
-                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                        .SetSpecialInterruptions(
-                            ConditionInterruption.BattleEnd,
-                            ConditionInterruption.AnyBattleTurnEnd)
-                        .AddToDB()),
+                ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitionBuilder
+                    .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetDuration(DurationType.Round, 1)
+                    .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                    .SetSpecialInterruptions(
+                        ConditionInterruption.BattleEnd,
+                        ConditionInterruption.AnyBattleTurnEnd)
+                    .AddToDB()),
                 ValidatorsCharacter.NoShield,
                 ValidatorsCharacter.NoArmor))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
                             .SetGuiPresentationNoContent(true)
@@ -239,17 +229,15 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
-            .SetCustomSubFeatures(
-                new ReactionAttackModeRestriction((mode, _, _) =>
-                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+            .SetCustomSubFeatures(new ReactionAttackModeRestriction((mode, _, _) =>
+                mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -258,14 +246,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder
-                        .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .SetMotionForm(MotionForm.MotionType.FallProne, 0)
                         .Build(),
-                    EffectFormBuilder
-                        .Create()
+                    EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
@@ -287,8 +273,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandUpgradedPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -297,8 +282,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     AttributeDefinitions.Strength,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
@@ -310,8 +294,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandUpgradedDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -321,8 +304,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
+                    EffectFormBuilder.Create()
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(ConditionDefinitionBuilder
@@ -398,7 +380,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
+        return attackMode is {SourceDefinition: ItemDefinition item} && IsMonkWeapon(character, item);
     }
 
     private static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)
