@@ -15,6 +15,11 @@ internal static class RulesetCharacterExtensions
     {
         return false;
     }
+
+    internal static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
+    {
+        return false;
+    }
 #endif
 
     internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
@@ -22,20 +27,15 @@ internal static class RulesetCharacterExtensions
         return false;
     }
 
-#if false
-    internal static bool IsWieldingTwoHandedWeapon([NotNull] this RulesetCharacter _)
-    {
-        return false;
-    }
-#endif
-
     internal static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
     {
         return validators.All(v => v(instance));
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    internal static bool CanUsePower(this RulesetCharacter instance, [CanBeNull] FeatureDefinitionPower power,
+    internal static bool CanUsePower(
+        this RulesetCharacter instance,
+        [CanBeNull] FeatureDefinitionPower power,
         bool considerUses = true)
     {
         if (power == null)
@@ -59,11 +59,11 @@ internal static class RulesetCharacterExtensions
     {
         spellRepertoire = null;
 
-        foreach (var repertoire in from repertoire in character.spellRepertoires
-                 from knownCantrip in repertoire.KnownCantrips
-                 where knownCantrip == cantrip
-                       || (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip))
-                 select repertoire)
+        foreach (var repertoire in character.spellRepertoires
+                     .Where(repertoire => repertoire.KnownCantrips
+                         .Any(knownCantrip =>
+                             knownCantrip == cantrip ||
+                             (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip)))))
         {
             spellRepertoire = repertoire;
 
@@ -111,10 +111,12 @@ internal static class RulesetCharacterExtensions
     }
 
     [CanBeNull]
-    internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance,
+    internal static RulesetSpellRepertoire GetClassSpellRepertoire(
+        this RulesetCharacter instance,
         CharacterClassDefinition classDefinition)
     {
         var name = string.Empty;
+
         if (classDefinition != null)
         {
             name = classDefinition.Name;
@@ -138,19 +140,24 @@ internal static class RulesetCharacterExtensions
     /**@returns true if effect with this guid is an infusion created by this character*/
     private static bool IsMyInfusion(this RulesetCharacter instance, ulong guid)
     {
-        if (instance == null || guid == 0) { return false; }
+        if (instance == null || guid == 0)
+        {
+            return false;
+        }
 
         var (caster, definition) = EffectHelpers.GetCharacterAndSourceDefinitionByEffectGuid(guid);
 
-        if (caster == null || definition == null) { return false; }
+        if (caster == null || definition == null)
+        {
+            return false;
+        }
 
         return caster == instance
                //detecting if this item is from infusion by checking if it has infusion limiter
-               && definition.GetAllSubFeaturesOfType<ILimitedEffectInstances>()
-                   .Contains(InventorClass.InfusionLimiter);
+               && definition.GetAllSubFeaturesOfType<ILimitedEffectInstances>().Contains(InventorClass.InfusionLimiter);
     }
 
-    /**@returns character who summoned thios creature, or null*/
+    /**@returns character who summoned this creature, or null*/
     internal static GameLocationCharacter GetMySummoner(this RulesetCharacter instance)
     {
         if (instance == null)
@@ -169,17 +176,15 @@ internal static class RulesetCharacterExtensions
             : null;
     }
 
+#if false
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        if (instance is not RulesetCharacterHero hero) { return 0; }
-
-        return hero.GetClassLevel(classDefinition);
+        return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(classDefinition);
     }
+#endif
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        if (instance is not RulesetCharacterHero hero) { return 0; }
-
-        return hero.GetClassLevel(className);
+        return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(className);
     }
 }
