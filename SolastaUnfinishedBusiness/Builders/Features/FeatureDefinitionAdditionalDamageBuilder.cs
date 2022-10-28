@@ -39,12 +39,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
-    {
-        Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
-        return this;
-    }
-
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
         [NotNull] IEnumerable<DiceByRank> diceByRankTable)
@@ -74,12 +68,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         ExtraAdditionalDamageTriggerCondition trigger)
     {
         return SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)trigger);
-    }
-
-    internal FeatureDefinitionAdditionalDamageBuilder SetNoSave()
-    {
-        Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
-        return this;
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(
@@ -164,43 +152,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredCharacterFamily(CharacterFamilyDefinition value)
     {
         Definition.requiredCharacterFamily = value;
-        return this;
-    }
-
-    internal FeatureDefinitionAdditionalDamageBuilder Configure(
-        string notificationTag,
-        RuleDefinitions.FeatureLimitedUsage limitedUsage,
-        RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
-        RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,
-        RuleDefinitions.RestrictedContextRequiredProperty requiredProperty,
-        bool attackModeOnly,
-        RuleDefinitions.DieType damageDieType,
-        int damageDiceNumber,
-        RuleDefinitions.AdditionalDamageType additionalDamageType,
-        string specificDamageType,
-        RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
-        [NotNull] IEnumerable<DiceByRank> diceByRankTable,
-        bool ignoreCriticalDoubleDice = false)
-    {
-        // this should be first to avoid issues with Damage Value determination
-        SetDamageDice(damageDieType, damageDiceNumber);
-
-        Definition.notificationTag = notificationTag;
-        Definition.limitedUsage = limitedUsage;
-        Definition.damageValueDetermination = damageValueDetermination;
-        Definition.triggerCondition = triggerCondition;
-        Definition.requiredProperty = requiredProperty;
-        Definition.attackModeOnly = attackModeOnly;
-
-        // Does this conflict with SetSpecificDamageType below?
-        Definition.additionalDamageType = additionalDamageType;
-        Definition.specificDamageType = specificDamageType;
-
-        Definition.damageAdvancement = damageAdvancement;
-        Definition.DiceByRankTable.SetRange(diceByRankTable);
-        Definition.damageDieType = damageDieType;
-
-        Definition.ignoreCriticalDoubleDice = ignoreCriticalDoubleDice;
         return this;
     }
 
