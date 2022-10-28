@@ -57,7 +57,6 @@ internal static class ItemPropertyDescriptionsContext
         return FeatureDefinitionAttackModifierBuilder
             .Create(name)
             .SetGuiPresentationNoContent(true)
-            .Configure()
             .SetImpactParticleReference(effect.EffectParticleParameters.impactParticleReference)
             .AddToDB();
     }

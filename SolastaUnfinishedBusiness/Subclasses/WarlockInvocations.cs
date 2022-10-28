@@ -34,7 +34,8 @@ internal static class WarlockInvocations
                 .SetAttackModeOnly()
                 .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
                 .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
-                .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
+                .SetAdvancement(
+                    RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                     (1, 2),
                     (2, 3),
                     (3, 4),

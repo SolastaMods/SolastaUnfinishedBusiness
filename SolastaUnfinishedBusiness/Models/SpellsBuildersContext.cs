@@ -412,21 +412,15 @@ internal static class SpellsBuildersContext
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                 .Create("AdditionalDamageResonatingStrike")
                                 .SetGuiPresentationNoContent(true)
-                                .Configure(
-                                    "ResonatingStrike",
-                                    FeatureLimitedUsage.None,
-                                    AdditionalDamageValueDetermination.Die,
-                                    AdditionalDamageTriggerCondition.AlwaysActive,
-                                    RestrictedContextRequiredProperty.MeleeWeapon,
-                                    true,
-                                    DieType.D8,
-                                    1,
-                                    AdditionalDamageType.Specific,
-                                    DamageTypeThunder,
-                                    AdditionalDamageAdvancement.SlotLevel,
-                                    DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1),
-                                    true
-                                )
+                                .SetNotificationTag("ResonatingStrike")
+                                .SetDamageDice(DieType.D8, 1)
+                                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                                .SetAttackModeOnly()
+                                .SetSpecificDamageType(DamageTypeThunder)
+                                .SetAdvancement(
+                                    AdditionalDamageAdvancement.ClassLevel,
+                                    DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1))
+                                .SetIgnoreCriticalDoubleDice(true)
                                 .AddToDB()
                             )
                             .AddToDB(),
@@ -511,18 +505,13 @@ internal static class SpellsBuildersContext
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                     .Create("AdditionalDamageSunlightBlade")
                                     .SetGuiPresentationNoContent(true)
-                                    .Configure(
-                                        "SunlightBlade",
-                                        FeatureLimitedUsage.None,
-                                        AdditionalDamageValueDetermination.Die,
-                                        AdditionalDamageTriggerCondition.AlwaysActive,
-                                        RestrictedContextRequiredProperty.MeleeWeapon,
-                                        true,
-                                        DieType.D8,
-                                        1,
-                                        AdditionalDamageType.Specific,
-                                        DamageTypeRadiant,
-                                        AdditionalDamageAdvancement.SlotLevel,
+                                    .SetNotificationTag("SunlightBlade")
+                                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                                    .SetAttackModeOnly()
+                                    .SetDamageDice(DieType.D8, 1)
+                                    .SetSpecificDamageType(DamageTypeRadiant)
+                                    .SetAdvancement(
+                                        AdditionalDamageAdvancement.ClassLevel,
                                         DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1))
                                     .SetTargetCondition(sunlitMark,
                                         AdditionalDamageTriggerCondition.TargetHasCondition)

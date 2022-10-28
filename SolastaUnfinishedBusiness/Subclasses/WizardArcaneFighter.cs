@@ -51,7 +51,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetDamageDice(DieType.D8, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetAdvancement(AdditionalDamageAdvancement.None)
             .AddToDB();
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder

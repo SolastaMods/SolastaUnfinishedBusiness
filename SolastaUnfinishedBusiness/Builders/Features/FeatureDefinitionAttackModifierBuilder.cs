@@ -9,27 +9,6 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAttackModifierBuilder
     : DefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
-    internal FeatureDefinitionAttackModifierBuilder Configure(
-        AttackModifierMethod attackRollModifierMethod = AttackModifierMethod.None,
-        int attackRollModifier = 0,
-        string attackRollAbilityScore = "",
-        AttackModifierMethod damageRollModifierMethod = AttackModifierMethod.None,
-        int damageRollModifier = 0,
-        string damageRollAbilityScore = "",
-        bool canAddAbilityBonusToSecondary = false,
-        string additionalAttackTag = "")
-    {
-        Definition.attackRollModifierMethod = attackRollModifierMethod;
-        Definition.attackRollModifier = attackRollModifier;
-        Definition.attackRollAbilityScore = attackRollAbilityScore;
-        Definition.damageRollModifierMethod = damageRollModifierMethod;
-        Definition.damageRollModifier = damageRollModifier;
-        Definition.damageRollAbilityScore = damageRollAbilityScore;
-        Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
-        Definition.additionalBonusUnarmedStrikeAttacksTag = additionalAttackTag;
-        return this;
-    }
-
     internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
         AbilityScoreReplacement replacement)
     {

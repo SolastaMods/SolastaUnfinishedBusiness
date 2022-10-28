@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -121,12 +120,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierBladeDancerDanceOfVictory")
                     .SetGuiPresentation(Category.Feature)
-                    .Configure(
-                        AttackModifierMethod.None,
-                        0,
-                        String.Empty,
-                        AttackModifierMethod.FlatValue,
-                        5)
+                    .SetDamageRollModifier(5)
                     .AddToDB())
             .AddToDB();
 

@@ -208,7 +208,6 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetNotificationTag("ElementalDamage")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-            .SetAdvancement(AdditionalDamageAdvancement.None)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetSpecificDamageType(elementalFormConfig.DamageType.Name)
             .AddToDB();

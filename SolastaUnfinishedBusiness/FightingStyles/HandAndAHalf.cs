@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -7,7 +6,6 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -20,13 +18,8 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")
                 .SetGuiPresentation("HandAndAHalf", Category.FightingStyle)
-                .Configure(
-                    AttackModifierMethod.FlatValue,
-                    1,
-                    string.Empty,
-                    AttackModifierMethod.FlatValue,
-                    1,
-                    String.Empty)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
                 .SetCustomSubFeatures(new RestrictedContextValidator(
                     OperationType.Set, ValidatorsCharacter.MainHandIsVersatileWeapon))
                 .AddToDB())

@@ -50,7 +50,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             _ = FeatureDefinitionAttackModifierBuilder
                 .Create($"{AttackModifierDeadMasterUndeadChainsPrefix}{i}")
                 .SetGuiPresentation("OnCharacterKillDeadMasterUndeadChains", Category.Feature)
-                .Configure(AttackModifierMethod.FlatValue, i)
+                .SetAttackRollModifier(i)
                 .AddToDB();
         }
 

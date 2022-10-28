@@ -107,7 +107,8 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("ArcaneExplosion")
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel,
+            .SetAdvancement(
+                AdditionalDamageAdvancement.ClassLevel,
                 (6, 1),
                 (7, 1),
                 (8, 1),

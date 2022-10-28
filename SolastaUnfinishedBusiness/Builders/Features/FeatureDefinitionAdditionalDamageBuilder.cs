@@ -32,10 +32,25 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         Definition.notificationTag = tag;
         return this;
     }
+    
+    internal FeatureDefinitionAdditionalDamageBuilder SetIgnoreCriticalDoubleDice(bool value)
+    {
+        Definition.ignoreCriticalDoubleDice = value;
+        return this;
+    }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
     {
         Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
+        return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        RuleDefinitions.AdditionalDamageAdvancement advancement,
+        [NotNull] IEnumerable<DiceByRank> diceByRankTable)
+    {
+        Definition.damageAdvancement = advancement;
+        Definition.DiceByRankTable.SetRange(diceByRankTable);
         return this;
     }
 
