@@ -15,7 +15,7 @@ internal static class DiceByRankBuilder
     {
         var result = new List<DiceByRank>();
 
-        for (var i = 0; i < 20; i++)
+        for (var i = 1; i <= 20; i++)
         {
             result.Add(new DiceByRank { rank = i, diceNumber = start + ((i + 1) / (step + 1) * increment) });
         }
