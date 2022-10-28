@@ -33,7 +33,9 @@ internal static class FlexibleRacesContext
         { "HalfOrc", AttributeChoiceThree },
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
-        { "RaceHalfElfVariant", AttributeChoiceFour }
+        { "RaceHalfElfVariant", AttributeChoiceFour },
+        { "RaceDarkKobold", AttributeChoiceThree },
+        { "RaceDraconicKobold", AttributeChoiceFour }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -61,7 +63,9 @@ internal static class FlexibleRacesContext
         },
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
         { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
-        { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } }
+        { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
+        { "RaceDarkKobold", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
+        { "RaceDraconicKobold", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

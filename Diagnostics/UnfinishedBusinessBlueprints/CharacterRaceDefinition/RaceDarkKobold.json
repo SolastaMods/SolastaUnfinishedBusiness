@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDarkKoboldDexterityAbilityScoreIncrease:36b87977-a771-5d26-9a1e-9a6afa13ba98",
+      "featureDefinition": "Definition:FeatureSetHalfOrcAbilityScoreIncrease:8c8136a6d48e5604c8ef003e500d1e0d",
       "level": 1
     },
     {

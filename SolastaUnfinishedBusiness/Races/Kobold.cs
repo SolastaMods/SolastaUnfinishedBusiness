@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -58,12 +57,6 @@ internal static class KoboldRaceBuilder
     private static CharacterRaceDefinition BuildDarkKobold(CharacterRaceDefinition characterRaceDefinition)
     {
         var darkKoboldSpriteReference = Dragonborn.GuiPresentation.SpriteReference;
-
-        var attributeModifierDarkKoboldDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierDarkKoboldDexterityAbilityScoreIncrease")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 2)
-            .AddToDB();
 
         var abilityCheckAffinityDarkKoboldLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityDarkKoboldLightSensitivity")
@@ -135,7 +128,7 @@ internal static class KoboldRaceBuilder
             .SetGuiPresentation(Category.Race, darkKoboldSpriteReference)
             .SetRacePresentation(darkKoboldRacePresentation)
             .SetFeaturesAtLevel(1,
-                attributeModifierDarkKoboldDexterityAbilityScoreIncrease,
+                FeatureDefinitionFeatureSets.FeatureSetHalfOrcAbilityScoreIncrease,
                 powerDarkKoboldGrovelCowerAndBeg,
                 CombatAffinityPackTactics,
                 lightAffinityDarkKoboldLightSensitivity)

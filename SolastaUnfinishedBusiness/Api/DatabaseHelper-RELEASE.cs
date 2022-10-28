@@ -822,9 +822,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAttackModifiers
     {
-        internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
-            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
-
         internal static FeatureDefinitionAttackModifier AttackModifierBerserkerFrenzy { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierBerserkerFrenzy");
 
@@ -861,9 +858,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD12 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD12");
 
-        internal static FeatureDefinitionAttributeModifier AttributeModifierBarbarianUnarmoredDefense { get; } =
-            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarbarianUnarmoredDefense");
-
         internal static FeatureDefinitionAttributeModifier AttributeModifierBarkskin { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarkskin");
 
@@ -891,9 +885,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
 
-        internal static FeatureDefinitionAttributeModifier AttributeModifierMageArmor { get; } =
-            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMageArmor");
-
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical");
 
@@ -908,9 +899,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
-
-        internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererDraconicResilienceAC { get; } =
-            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererDraconicResilienceAC");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsBase { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsBase");
@@ -960,9 +948,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCastSpell CastSpellSorcerer { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorcerer");
-
-        internal static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } =
-            GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight");
 
         internal static FeatureDefinitionCastSpell CastSpellWarlock { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellWarlock");
@@ -1140,6 +1125,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetHalfOrcAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetHalfOrcAbilityScoreIncrease");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
 
@@ -1481,9 +1469,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyClericWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyClericWeapon");
-
-        internal static FeatureDefinitionProficiency ProficiencyDragonbornLanguages { get; } =
-            GetDefinition<FeatureDefinitionProficiency>("ProficiencyDragonbornLanguages");
 
         internal static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor");
