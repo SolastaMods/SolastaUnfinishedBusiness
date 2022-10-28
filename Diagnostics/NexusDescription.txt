@@ -368,12 +368,12 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, rules, quality of life, Half-elf variants, Dark Kobold, Blade Dancer, Dead Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Inventor
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, spells, subclasses improvements, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: subclasses improvements, Marshal, Opportunist, Raven
-[*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, Rift Walker
+[*][b]DubhHerder[/b]: gameplay, spells, Ancient Forest, Elementalist, Moonlit, Rift Walker
 [*][b]AceHigh[/b]: SoulBlade, Tactician
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
