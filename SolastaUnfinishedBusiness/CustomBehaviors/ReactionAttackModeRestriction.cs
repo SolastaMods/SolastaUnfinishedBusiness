@@ -7,6 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
 {
+    internal static (GameLocationCharacter, GameLocationCharacter, RulesetAttackMode) ReactionContext =
+        (null, null, null);
+
     private readonly ValidReactionModeHandler[] validators;
 
     internal ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
@@ -32,9 +35,6 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
             return rulesetCharacter != null && !rulesetCharacter.HasConditionOfType(condition.Name);
         };
     }
-
-    internal static (GameLocationCharacter, GameLocationCharacter, RulesetAttackMode) ReactionContext =
-        (null, null, null);
 
     internal static bool CanCharacterReactWithPower(GameLocationBattleManager battle, RulesetUsablePower usablePower)
     {

@@ -40,7 +40,7 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
-#if false    
+#if false
     internal CharacterClassDefinitionBuilder RequireDeity()
     {
         Definition.requiresDeity = true;

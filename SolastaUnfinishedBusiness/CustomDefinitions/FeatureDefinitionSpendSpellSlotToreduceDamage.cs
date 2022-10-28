@@ -1,6 +1,4 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
-
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal sealed class FeatureDefinitionSpendSpellSlotToReduceDamage : FeatureDefinition
 {

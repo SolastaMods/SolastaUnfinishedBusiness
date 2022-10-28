@@ -32,7 +32,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
         Definition.notificationTag = tag;
         return this;
     }
-    
+
     internal FeatureDefinitionAdditionalDamageBuilder SetIgnoreCriticalDoubleDice(bool value)
     {
         Definition.ignoreCriticalDoubleDice = value;

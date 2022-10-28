@@ -33,7 +33,7 @@ public static class RulesetActorPatcher
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ProcessConditionsMatchingOccurenceType_Patch
