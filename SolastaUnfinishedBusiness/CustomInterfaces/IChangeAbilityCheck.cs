@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -16,3 +17,4 @@ public interface IChangeAbilityCheck
         List<RuleDefinitions.TrendInfo> advantageTrends,
         List<RuleDefinitions.TrendInfo> modifierTrends);
 }
+#endif

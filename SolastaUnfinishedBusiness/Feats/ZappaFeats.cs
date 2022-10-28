@@ -739,6 +739,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
         MetamagicTrained = true;
     }
 
+#if false
     public void RemoveFeature(RulesetCharacterHero hero, string tag)
     {
         if (!MetamagicTrained)
@@ -750,6 +751,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
 
         MetamagicTrained = false;
     }
+#endif
 }
 
 internal sealed class ElvenPrecisionContext

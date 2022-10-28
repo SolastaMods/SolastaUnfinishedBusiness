@@ -439,6 +439,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
+#if false
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -565,6 +566,7 @@ public static class RulesetCharacterPatcher
             }
         }
     }
+#endif
 
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
