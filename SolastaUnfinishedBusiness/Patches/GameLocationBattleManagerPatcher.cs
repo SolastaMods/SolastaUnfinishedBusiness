@@ -220,12 +220,52 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHitConfirmed")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class HandleCharacterAttackHitConfirmed_Patch
+    {
+        public static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            //PATCH: support for `IOnAttackDamageEffect`
+            var character = attacker.RulesetCharacter;
+            if (character != null)
+            {
+                foreach (var feature in character.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                {
+                    feature.BeforeOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
+                        advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                }
+            }
+
+            while (__result.MoveNext()) { yield return __result.Current; }
+
+            if (character != null)
+            {
+                foreach (var feature in character.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                {
+                    feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
+                        advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                }
+            }
+        }
+    }
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
     {
-        public static IEnumerator Postfix(IEnumerator __instance,
+        public static IEnumerator Postfix(
             IEnumerator __result,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
