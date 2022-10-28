@@ -1,5 +1,7 @@
 Condition/&ConditionMonkEmptyBodyDescription=You have resistance to all damage but force.
 Condition/&ConditionMonkEmptyBodyTitle=Empty Body
+Feature/&BattleStartedListenerMonkPerfectSelfDescription=When you start battle and have no ki points remaining, you regain 4 ki points.
+Feature/&BattleStartedListenerMonkPerfectSelfTitle=Perfect Self
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Indomitable Might
 Feature/&CustomCodeBarbarianPrimalChampionDescription=At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.

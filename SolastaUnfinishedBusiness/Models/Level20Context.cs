@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -396,6 +397,12 @@ internal static class Level20Context
                 .Build())
             .AddToDB();
 
+        var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
+            .Create("BattleStartedListenerMonkPerfectSelf")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
+            .AddToDB();
+
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetMonkTongueSunMoon, 13),
@@ -404,8 +411,8 @@ internal static class Level20Context
             new(FeatureSetAbilityScoreChoice, 16),
             // TODO 17: Monastic Tradition Feature
             new(powerMonkEmptyBody, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Perfect Self
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(battleStartedListenerMonkPerfectSelf, 20)
         });
     }
 
@@ -743,6 +750,27 @@ internal static class Level20Context
             attribute.Refresh();
 
             hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
+        }
+    }
+
+    private sealed class BattleStartedListenerMonkPerfectSelf : ICharacterBattleStartedListener
+    {
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var character = locationCharacter.RulesetCharacter;
+
+            if (character == null)
+            {
+                return;
+            }
+
+            if (character.RemainingKiPoints != 0)
+            {
+                return;
+            }
+
+            character.ForceKiPointConsumption(-4);
+            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
         }
     }
 }
