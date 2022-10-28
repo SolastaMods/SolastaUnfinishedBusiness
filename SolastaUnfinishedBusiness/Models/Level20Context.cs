@@ -1,22 +1,18 @@
-﻿// using SolastaUnfinishedBusiness.Builders;
-// using SolastaUnfinishedBusiness.Builders.Features;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpells;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
@@ -41,6 +37,7 @@ internal static class Level20Context
         ClericLoad();
         DruidLoad();
         FighterLoad();
+        MonkLoad();
         PaladinLoad();
         RangerLoad();
         RogueLoad();
@@ -162,28 +159,36 @@ internal static class Level20Context
 
     private static void BarbarianLoad()
     {
-        // Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
-        //     // TODO 18: Barbarian Indomitable Might
-        //     // new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Barbarian Primal Champion
-        //     // new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
-        // });
+        Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
+            new(PowerBarbarianPersistentRageStart, 15),
+            new(AttributeModifierBarbarianRageDamageAdd, 16),
+            new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
+            new(AttributeModifierBarbarianRagePointsAdd, 17),
+            // TODO 18: Barbarian Indomitable Might
+            // new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Barbarian Primal Champion
+            // new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
+        });
     }
 
     private static void BardLoad()
     {
-        // Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(FeatureDefinitionPointPoolBuilder
-        //             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
-        //             .AddToDB(),
-        //         18),
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Bard Superior Inspiration
-        // });
+        var pointPoolBardMagicalSecrets18 = FeatureDefinitionPointPoolBuilder
+            .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
+            .AddToDB();
+
+        Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(PointPoolBardMagicalSecrets14, 14),
+            new(AttributeModifierBardicInspirationDieD12, 15),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(pointPoolBardMagicalSecrets18, 18),
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Bard Superior Inspiration
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -202,22 +207,25 @@ internal static class Level20Context
 
     private static void ClericLoad()
     {
-        // var effectPowerClericTurnUndead17 = new EffectDescription();
-        //
-        // effectPowerClericTurnUndead17.Copy(PowerClericTurnUndead14.EffectDescription);
-        // effectPowerClericTurnUndead17.EffectForms[0].KillForm.challengeRating = 4;
-        //
-        // Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(FeatureDefinitionPowerBuilder
-        //             .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
-        //             .SetEffectDescription(effectPowerClericTurnUndead17)
-        //             .AddToDB(),
-        //         17),
-        //     new(AttributeModifierClericChannelDivinityAdd, 18),
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // Solasta handles divine intervention on subclasses below
-        // });
+        var effectPowerClericTurnUndead17 = new EffectDescription();
+
+        effectPowerClericTurnUndead17.Copy(PowerClericTurnUndead14.EffectDescription);
+        effectPowerClericTurnUndead17.EffectForms[0].KillForm.challengeRating = 4;
+
+        var powerClericTurnUndead17 = FeatureDefinitionPowerBuilder
+            .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
+            .SetEffectDescription(effectPowerClericTurnUndead17)
+            .AddToDB();
+
+        Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(PowerClericTurnUndead14, 14),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(powerClericTurnUndead17, 17),
+            new(AttributeModifierClericChannelDivinityAdd, 18),
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Divine Intervention
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -272,12 +280,13 @@ internal static class Level20Context
 
     private static void DruidLoad()
     {
-        // Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     // TODO 18: Druid Beast Spells
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Druid Arch Druid
-        // });
+        Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(FeatureSetAbilityScoreChoice, 16),
+            // TODO 18: Druid Beast Spells
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Druid Arch Druid
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -288,54 +297,76 @@ internal static class Level20Context
 
     private static void FighterLoad()
     {
-        // Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(FeatureDefinitionPowerBuilder
-        //             .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
-        //             .SetFixedUsesPerRecharge(2)
-        //             .SetOverriddenPower(PowerFighterActionSurge)
-        //             .AddToDB(),
-        //         17),
-        //     new(AttributeModifierFighterIndomitableAdd1, 17),
-        //     new(FeatureSetAbilityScoreChoice, 19),
-        //     new(AttributeModifierFighterExtraAttack, 20)
-        // });
+        var powerFighterActionSurge2 = FeatureDefinitionPowerBuilder
+            .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
+            .SetUsesFixed(RuleDefinitions.ActivationTime.NoCost, RuleDefinitions.RechargeRate.LongRest, 1, 2)
+            .SetOverriddenPower(PowerFighterActionSurge)
+            .AddToDB();
+
+        Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(AttributeModifierFighterIndomitableAdd1, 13),
+            new(FeatureSetAbilityScoreChoice, 14),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(powerFighterActionSurge2, 17),
+            new(AttributeModifierFighterIndomitableAdd1, 17),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(AttributeModifierFighterExtraAttack, 20)
+        });
+    }
+
+    private static void MonkLoad()
+    {
+        Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(FeatureSetMonkTongueSunMoon, 13),
+            new(FeatureSetMonkDiamondSoul, 14),
+            new(FeatureSetMonkTimelessBody, 15),
+            new(FeatureSetAbilityScoreChoice, 16),
+            // TODO 18: Empty Body
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Perfect Self
+        });
     }
 
     private static void PaladinLoad()
     {
-        // var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
-        //
-        // effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
-        // effectPowerPaladinAuraOfCourage18.targetParameter = 6;
-        // effectPowerPaladinAuraOfCourage18.rangeParameter = 0;
-        // effectPowerPaladinAuraOfCourage18.requiresTargetProximity = false;
-        //
-        // var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
-        //
-        // effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
-        // effectPowerPaladinAuraOfProtection18.targetParameter = 6;
-        // effectPowerPaladinAuraOfProtection18.rangeParameter = 0;
-        // effectPowerPaladinAuraOfProtection18.requiresTargetProximity = false;
-        //
-        // Paladin.FeatureUnlocks.AddRange(
-        //     new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-        //             .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
-        //             .SetGuiPresentation(Category.Feature)
-        //             .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
-        //             .SetOverriddenPower(PowerPaladinAuraOfCourage)
-        //             .AddToDB(),
-        //         18),
-        //     new FeatureUnlockByLevel(FeatureDefinitionPowerBuilder
-        //             .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
-        //             .SetGuiPresentation(Category.Feature)
-        //             .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
-        //             .SetOverriddenPower(PowerPaladinAuraOfCourage)
-        //             .AddToDB(),
-        //         18),
-        //     new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
-        // );
-        //
+        var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
+
+        effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
+        effectPowerPaladinAuraOfCourage18.targetParameter = 6;
+        effectPowerPaladinAuraOfCourage18.rangeParameter = 0;
+        effectPowerPaladinAuraOfCourage18.requiresTargetProximity = false;
+
+        var powerPaladinAuraOfCourage18 = FeatureDefinitionPowerBuilder
+            .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
+            .SetOverriddenPower(PowerPaladinAuraOfCourage)
+            .AddToDB();
+
+        var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
+
+        effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
+        effectPowerPaladinAuraOfProtection18.targetParameter = 6;
+        effectPowerPaladinAuraOfProtection18.rangeParameter = 0;
+        effectPowerPaladinAuraOfProtection18.requiresTargetProximity = false;
+
+        var powerPaladinAuraOfProtection18 = FeatureDefinitionPowerBuilder
+            .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
+            .SetOverriddenPower(PowerPaladinAuraOfCourage)
+            .AddToDB();
+
+        Paladin.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
+            new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
+            new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
+        );
+
         // AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
         //     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
         //     {
@@ -368,17 +399,22 @@ internal static class Level20Context
 
     private static void RangerLoad()
     {
-        // Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(FeatureDefinitionSenseBuilder
-        //             .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
-        //             .SetGuiPresentation(Category.Feature)
-        //             .SetSenseRange(6)
-        //             .AddToDB(),
-        //         18),
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Ranger Foe Slayer
-        // });
+        var senseRangerFeralSenses = FeatureDefinitionSenseBuilder
+            .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
+            .SetGuiPresentation(Category.Feature)
+            .SetSense(SenseMode.Type.DetectInvisibility, 6)
+            .AddToDB();
+
+        Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(AdditionalDamageRangerFavoredEnemyChoice, 14),
+            // TODO 14: Vanish
+            // new(ActionAffinityRangerVanish, 14),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(senseRangerFeralSenses, 18),
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Ranger Foe Slayer
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Half,
@@ -397,63 +433,66 @@ internal static class Level20Context
 
     private static void RogueLoad()
     {
-        // Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     // TODO 18: Rogue Elusive
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Rogue Stroke of Luck
-        // });
+        Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(SenseRogueBlindsense, 14),
+            // TODO 15: Slippery Mind
+            // new(ProficiencyRogueSlipperyMind, 15),
+            new(FeatureSetAbilityScoreChoice, 16),
+            // TODO 18: Rogue Elusive
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Rogue Stroke of Luck
+        });
     }
 
     private static void SorcererLoad()
     {
-        // const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
-        //
-        // var powerSorcerousRestoration = EffectFormBuilder
-        //     .Create()
-        //     .CreatedByCharacter()
-        //     .SetSpellForm(9)
-        //     .Build();
-        //
-        // powerSorcerousRestoration.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
-        // powerSorcerousRestoration.SpellSlotsForm.sorceryPointsGain = 4;
-        //
-        // _ = RestActivityDefinitionBuilder
-        //     .Create("SorcererSorcerousRestoration")
-        //     .SetRestData(
-        //         RestDefinitions.RestStage.AfterRest,
-        //         RuleDefinitions.RestType.ShortRest,
-        //         RestActivityDefinition.ActivityCondition.CanUsePower,
-        //         FunctorDefinitions.FunctorUsePower,
-        //         PowerSorcerousRestorationName)
-        //     .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
-        //     .AddToDB();
-        //
-        // Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(PointPoolSorcererAdditionalMetamagic, 17),
-        //     new(FeatureSetAbilityScoreChoice, 19),
-        //     new(FeatureDefinitionPowerBuilder
-        //             .Create(PowerSorcerousRestorationName)
-        //             .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
-        //             .SetFixedUsesPerRecharge(1)
-        //             .SetActivationTime(RuleDefinitions.ActivationTime.Rest)
-        //             .SetUsesAbilityScoreName(AttributeDefinitions.Charisma)
-        //             .SetCostPerUse(1)
-        //             .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-        //             .SetEffectDescription(EffectDescriptionBuilder.Create()
-        //                 .SetEffectForms(powerSorcerousRestoration)
-        //                 .SetTargetingData(
-        //                     RuleDefinitions.Side.Ally,
-        //                     RuleDefinitions.RangeType.Self,
-        //                     1,
-        //                     RuleDefinitions.TargetType.Self)
-        //                 .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
-        //                     .EffectParticleParameters)
-        //                 .Build())
-        //             .AddToDB(),
-        //         20)
-        // });
+        const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
+
+        _ = RestActivityDefinitionBuilder
+            .Create("SorcererSorcerousRestoration")
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                FunctorDefinitions.FunctorUsePower,
+                PowerSorcerousRestorationName)
+            .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
+            .AddToDB();
+
+        var effectFormRestoration = EffectFormBuilder
+            .Create()
+            .CreatedByCharacter()
+            .SetSpellForm(9)
+            .Build();
+
+        effectFormRestoration.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
+        effectFormRestoration.SpellSlotsForm.sorceryPointsGain = 4;
+
+        var powerSorcerousRestoration = FeatureDefinitionPowerBuilder
+            .Create(PowerSorcerousRestorationName)
+            .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Rest)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetEffectForms(effectFormRestoration)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Ally,
+                    RuleDefinitions.RangeType.Self,
+                    1,
+                    RuleDefinitions.TargetType.Self)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
+                    .EffectParticleParameters)
+                .Build())
+            .AddToDB();
+
+        Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(PointPoolSorcererAdditionalMetamagic, 17),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(powerSorcerousRestoration, 20)
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -472,23 +511,29 @@ internal static class Level20Context
 
     private static void WarlockLoad()
     {
-        // Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     new(FeatureDefinitionPointPoolBuilder
-        //             .Create(PointPoolWarlockMysticArcanum8, "PointPoolWarlockMysticArcanum9")
-        //             .SetGuiPresentation(
-        //                 "Feature/&PointPoolWarlockMysticArcanum9Title",
-        //                 "Feature/&PointPoolWarlockMysticArcanumDescription")
-        //             .AddToDB(),
-        //         18),
-        //     new(FeatureSetAbilityScoreChoice, 19),
-        //     new(FeatureDefinitionPowerBuilder
-        //             .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
-        //             .SetGuiPresentation(Category.Feature)
-        //             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
-        //             .AddToDB(),
-        //         20)
-        // });
+        var pointPoolWarlockMysticArcanum9 = FeatureDefinitionPointPoolBuilder
+            .Create(PointPoolWarlockMysticArcanum7, "PointPoolWarlockMysticArcanum9")
+            .SetGuiPresentation(
+                "Feature/&PointPoolWarlockMysticArcanum9Title",
+                "Feature/&PointPoolWarlockMysticArcanumDescription")
+            .AddToDB();
+
+        var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
+            .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Minute1, RuleDefinitions.RechargeRate.LongRest)
+            .AddToDB();
+
+        Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(PointPoolWarlockMysticArcanum7, 13),
+            new(PointPoolWarlockInvocation15, 15),
+            new(PointPoolWarlockMysticArcanum8, 15),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(pointPoolWarlockMysticArcanum9, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(powerWarlockEldritchMaster, 20)
+        });
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
 
@@ -500,12 +545,13 @@ internal static class Level20Context
 
     private static void WizardLoad()
     {
-        // Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        // {
-        //     // TODO 18: Spell Mastery
-        //     new(FeatureSetAbilityScoreChoice, 19)
-        //     // TODO 20: Signature Spells
-        // });
+        Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(FeatureSetAbilityScoreChoice, 16),
+            // TODO 18: Spell Mastery
+            new(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Signature Spells
+        });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
