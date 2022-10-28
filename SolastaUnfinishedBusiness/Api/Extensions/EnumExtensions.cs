@@ -86,7 +86,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
-    TargetWithin10ft = 9000
+    TargetWithin10Ft = 9000
 }
 
 public enum ExtraConditionInterruption
@@ -130,7 +130,9 @@ internal enum ExtraAdvancementDuration
 
 internal static class EnumImplementation
 {
-    internal static bool ComputeExtraAdvancementDuration([NotNull] EffectDescription effect, int slotLevel,
+    internal static bool ComputeExtraAdvancementDuration(
+        [NotNull] EffectDescription effect,
+        int slotLevel,
         ref int result)
     {
         //
