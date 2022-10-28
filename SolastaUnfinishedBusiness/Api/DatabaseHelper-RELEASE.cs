@@ -724,6 +724,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityBarbarianRecklessAttack { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBarbarianRecklessAttack");
 
@@ -1425,6 +1428,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionProficiencys
     {
+        internal static FeatureDefinitionProficiency ProficiencyRogueSlipperyMind { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyRogueSlipperyMind");
+
         internal static FeatureDefinitionProficiency ProficienctSpySkillsTool { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficienctSpySkillsTool");
 
