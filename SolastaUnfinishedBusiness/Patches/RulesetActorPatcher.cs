@@ -20,6 +20,20 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetActorPatcher
 {
+    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RemoveCondition_Patch
+    {
+        public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
+        {
+            //PATCH: INotifyConditionRemoval
+            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+            {
+                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
+            }
+        }
+    }
+    
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ProcessConditionsMatchingOccurenceType_Patch
