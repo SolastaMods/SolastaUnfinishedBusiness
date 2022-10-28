@@ -88,15 +88,14 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
             .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense")
             .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
-            .AddFeatures(
-                FeatureDefinitionReduceDamageBuilder
-                    .Create("ReduceDamageBladeDancerDanceOfDefense")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetNotificationTag("DanceOfDefense")
-                    .SetReducedDamage(-5)
-                    .SetSourceType(FeatureSourceType.CharacterFeature)
-                    .SetSourceName("ReduceDamageBladeDancerDanceOfDefense")
-                    .AddToDB())
+            .AddFeatures(FeatureDefinitionSpendSpellSlotToReduceDamageBuilder
+                .Create("ReduceDamageBladeDancerDanceOfDefense")
+                .SetGuiPresentation(Category.Feature)
+                .SetNotificationTag("DanceOfDefense")
+                .SetReducedDamage(5)
+                .SetSourceType(FeatureSourceType.CharacterFeature)
+                .SetSourceName("ReduceDamageBladeDancerDanceOfDefense")
+                .AddToDB())
             .AddToDB();
 
         var powerBladeDancerDanceOfDefense = FeatureDefinitionPowerBuilder
