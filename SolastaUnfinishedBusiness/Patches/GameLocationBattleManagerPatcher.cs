@@ -21,20 +21,22 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanCharacterUsePower_Patch
     {
-        public static bool Prefix(
+        public static void Postfix(GameLocationBattleManager __instance,
             ref bool __result,
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
         {
             //PATCH: support for `IPowerUseValidity` when trying to react with power 
-            if (caster.CanUsePower(usablePower.PowerDefinition))
+            if (!caster.CanUsePower(usablePower.PowerDefinition))
             {
-                return true;
+                __result = false;
             }
 
-            __result = false;
-
-            return false;
+            //PATCH: support for `IReactionAttackModeRestriction`
+            if (__result)
+            {
+                __result = ReactionAttackModeRestriction.CanCharacterReactWithPower(__instance, usablePower);
+            }
         }
     }
 
@@ -218,6 +220,25 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
+    {
+        public static IEnumerator Postfix(IEnumerator __instance,
+            IEnumerator __result,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode)
+        {
+            //PATCH: support for `IReactionAttackModeRestriction`
+            ReactionAttackModeRestriction.ReactionContext = (attacker, defender, attackMode);
+
+            while (__result.MoveNext()) { yield return __result.Current; }
+
+            ReactionAttackModeRestriction.ReactionContext = (null, null, null);
+        }
+    }
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleDefenderBeforeDamageReceived")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
