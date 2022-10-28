@@ -22,7 +22,7 @@
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": "None",
+  "damageAdvancement": "ClassLevel",
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,

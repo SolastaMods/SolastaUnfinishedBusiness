@@ -20,7 +20,7 @@
   "additionalBonusAttackFromMain": false,
   "additionalBonusUnarmedStrikeAttacksFromMain": false,
   "additionalBonusUnarmedStrikeAttacksCount": 0,
-  "additionalBonusUnarmedStrikeAttacksTag": "",
+  "additionalBonusUnarmedStrikeAttacksTag": null,
   "additionalReturnMissileReactionAttack": false,
   "additionalBonusSoraksBaneAttack": false,
   "additionalMonsterAttack": false,

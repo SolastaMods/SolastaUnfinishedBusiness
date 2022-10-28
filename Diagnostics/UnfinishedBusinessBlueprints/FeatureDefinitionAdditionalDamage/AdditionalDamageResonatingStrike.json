@@ -22,13 +22,8 @@
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": "SlotLevel",
+  "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 0,
-      "diceNumber": 0
-    },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
@@ -122,6 +117,11 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
       "diceNumber": 3
     }
   ],
