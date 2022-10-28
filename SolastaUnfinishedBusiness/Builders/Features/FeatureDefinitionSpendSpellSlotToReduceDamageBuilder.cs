@@ -6,7 +6,8 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionSpendSpellSlotToReduceDamageBuilder
-    : DefinitionBuilder<FeatureDefinitionSpendSpellSlotToReduceDamage, FeatureDefinitionSpendSpellSlotToReduceDamageBuilder>
+    : DefinitionBuilder<FeatureDefinitionSpendSpellSlotToReduceDamage,
+        FeatureDefinitionSpendSpellSlotToReduceDamageBuilder>
 {
     [NotNull]
     internal FeatureDefinitionSpendSpellSlotToReduceDamageBuilder SetNotificationTag(string notificationTag)
@@ -30,7 +31,8 @@ internal class FeatureDefinitionSpendSpellSlotToReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionSpendSpellSlotToReduceDamageBuilder SetSourceType(RuleDefinitions.FeatureSourceType sourceType)
+    internal FeatureDefinitionSpendSpellSlotToReduceDamageBuilder SetSourceType(
+        RuleDefinitions.FeatureSourceType sourceType)
     {
         Definition.SourceType = sourceType;
         return this;
@@ -38,11 +40,13 @@ internal class FeatureDefinitionSpendSpellSlotToReduceDamageBuilder
 
     #region Constructors
 
-    protected FeatureDefinitionSpendSpellSlotToReduceDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    protected FeatureDefinitionSpendSpellSlotToReduceDamageBuilder(string name, Guid namespaceGuid) : base(name,
+        namespaceGuid)
     {
     }
 
-    protected FeatureDefinitionSpendSpellSlotToReduceDamageBuilder(FeatureDefinitionSpendSpellSlotToReduceDamage original, string name,
+    protected FeatureDefinitionSpendSpellSlotToReduceDamageBuilder(
+        FeatureDefinitionSpendSpellSlotToReduceDamage original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
