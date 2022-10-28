@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
@@ -213,6 +214,131 @@ public static class GameLocationBattleManagerPatcher
             while (extraEvents.MoveNext())
             {
                 yield return extraEvents.Current;
+            }
+        }
+    }
+
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleDefenderBeforeDamageReceived")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class HandleDefenderBeforeDamageReceived_Patch
+    {
+        public static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            bool rolledSavingThrow,
+            bool saveOutcomeSuccess
+        )
+        {
+            //PATCH: support for features that trigger when defender gets hit, like `FeatureDefinitionSpendSpellSlotToReduceDamage` 
+            while (__result.MoveNext()) { yield return __result.Current; }
+
+            var defenderCharacter = defender.RulesetCharacter;
+
+            // Don't proceed if the damaged character cannot act
+            if (defenderCharacter == null || defenderCharacter.IsDeadOrDyingOrUnconscious) { yield break; }
+
+            // Can the defender reduce incoming damage using their reaction?
+            if (defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
+                ActionDefinitions.ActionStatus.Available)
+            {
+                yield break;
+            }
+
+            // Not actually used for react with spell slot feature, but may be useful for future features.
+            // var selfDamage = attacker.RulesetCharacter == defenderCharacter;
+
+            // Not actually used for react with spell slot feature, but may be useful for future features.
+            // var canPerceiveAttacker = selfDamage
+            //                           || defender.PerceivedFoes.Contains(attacker)
+            //                           || defender.PerceivedAllies.Contains(attacker);
+
+            var hasNonNegatedDamage = true;
+
+            // In case of a ruleset effect, check that it shall apply damage forms, otherwise don't proceed (e.g. CounterSpell)
+            if (rulesetEffect?.EffectDescription != null)
+            {
+                var canForceHalfDamage = false;
+                if (rulesetEffect is RulesetEffectSpell activeSpell)
+                {
+                    canForceHalfDamage = attacker.RulesetCharacter.CanForceHalfDamage(activeSpell.SpellDefinition);
+                }
+
+                var effectDescription = rulesetEffect.EffectDescription;
+                if (rolledSavingThrow)
+                {
+                    if (saveOutcomeSuccess)
+                    {
+                        hasNonNegatedDamage = effectDescription.HasNonNegatedDamageEffectForm(canForceHalfDamage);
+                    }
+                    else
+                    {
+                        hasNonNegatedDamage = effectDescription.FindFirstDamageForm() != null;
+                    }
+                }
+                else
+                {
+                    hasNonNegatedDamage = effectDescription.FindFirstDamageForm() != null;
+                }
+            }
+
+            if (!hasNonNegatedDamage) { yield break; }
+
+            // Can I reduce the damage consuming slots? (i.e: Blade Dancer)
+            //TODO: check if this properly works under MC
+            var repertoire = defenderCharacter.GetClassSpellRepertoire();
+            if (repertoire == null) { yield break; }
+
+            foreach (var feature in defenderCharacter
+                         .GetFeaturesByType<FeatureDefinitionSpendSpellSlotToReduceDamage>())
+            {
+                var atLeastOneSpellSlotAvailable = false;
+
+                for (var spellLevel = 1;
+                     spellLevel <= repertoire.MaxSpellLevelOfSpellCastingLevel;
+                     spellLevel++)
+                {
+                    repertoire.GetSlotsNumber(spellLevel, out var remaining, out _);
+
+                    if (remaining <= 0)
+                    {
+                        continue;
+                    }
+
+                    atLeastOneSpellSlotAvailable = true;
+                    break;
+                }
+
+                if (!atLeastOneSpellSlotAvailable)
+                {
+                    yield break;
+                }
+
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+                {
+                    IntParameter = 1, StringParameter = feature.NotificationTag, SpellRepertoire = repertoire
+                };
+
+                actionService.ReactToSpendSpellSlot(reactionParams);
+                yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+
+                if (!reactionParams.ReactionValidated)
+                {
+                    continue;
+                }
+
+                var slot = reactionParams.IntParameter;
+                var totalReducedDamage = feature.ReducedDamage * slot;
+
+                attackModifier.damageRollReduction += totalReducedDamage;
+                defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
             }
         }
     }
