@@ -138,8 +138,7 @@ internal static class Level20Context
         var methods = new[]
         {
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            // really don't need to patch below. leaving here as reference
-            // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16
+            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 16
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
@@ -172,10 +171,8 @@ internal static class Level20Context
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             new(AttributeModifierBarbarianRagePointsAdd, 17),
             // TODO 18: Barbarian Indomitable Might
-            // new(FeatureDefinitionIndomitableMightBuilder.FeatureDefinitionIndomitableMight, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Barbarian Primal Champion
-            // new(FeatureDefinitionPrimalChampionBuilder.FeatureDefinitionPrimalChampion, 20)
         });
     }
 
@@ -328,6 +325,7 @@ internal static class Level20Context
             new(FeatureSetMonkDiamondSoul, 14),
             new(FeatureSetMonkTimelessBody, 15),
             new(FeatureSetAbilityScoreChoice, 16),
+            // TODO 17: Monastic Tradition Feature
             // TODO 18: Empty Body
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Perfect Self
@@ -370,6 +368,7 @@ internal static class Level20Context
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
+            // TODO 20: Sacred Oath Feature
         );
 
         // AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
@@ -413,7 +412,6 @@ internal static class Level20Context
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-            // TODO 14: Vanish
             new(ActionAffinityRangerVanish, 14),
             new(FeatureSetAbilityScoreChoice, 16),
             new(senseRangerFeralSenses, 18),
