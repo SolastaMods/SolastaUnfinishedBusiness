@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -164,6 +165,18 @@ internal static class Level20Context
 
     private static void BarbarianLoad()
     {
+        var changeAbilityCheckBarbarianIndomitableMight = FeatureDefinitionBuilder
+            .Create("ChangeAbilityCheckBarbarianIndomitableMight")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new ChangeAbilityCheckBarbarianIndomitableMight())
+            .AddToDB();
+
+        var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
+            .Create("CustomCodeBarbarianPrimalChampion")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new CustomCodeBarbarianPrimalChampion())
+            .AddToDB();
+
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
@@ -171,9 +184,9 @@ internal static class Level20Context
             new(AttributeModifierBarbarianRageDamageAdd, 16),
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             new(AttributeModifierBarbarianRagePointsAdd, 17),
-            // TODO 18: Barbarian Indomitable Might
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Barbarian Primal Champion
+            new(changeAbilityCheckBarbarianIndomitableMight, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(customCodeBarbarianPrimalChampion, 20)
         });
     }
 
@@ -615,5 +628,58 @@ internal static class Level20Context
             .ForEach(x => x.operand = ModMaxLevel);
 
         return code;
+    }
+
+    private sealed class ChangeAbilityCheckBarbarianIndomitableMight : IChangeAbilityCheck
+    {
+        public int MinRoll(
+            [CanBeNull] RulesetCharacter character,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends)
+        {
+            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            {
+                return 1;
+            }
+
+            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+        }
+    }
+
+    private sealed class CustomCodeBarbarianPrimalChampion : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, 4);
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, 4);
+
+            hero.RefreshAll();
+        }
+
+#if false
+        public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);
+        
+            hero.RefreshAll();
+        }
+#endif
+
+        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+
+            attribute.BaseValue += amount;
+            attribute.MaxValue += amount;
+            attribute.MaxEditableValue += amount;
+            attribute.Refresh();
+
+            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
+        }
     }
 }
