@@ -4,7 +4,6 @@ ContentPack/&9999Title=Unfinished Business Pack
 Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this target with current weapon
 Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
 Feature/&AttributeModifier{0}Description={0}
-Feature/&EmptyString=
 Feature/&FighterExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
