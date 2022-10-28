@@ -8,10 +8,12 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -47,8 +49,11 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
 
+        //
         // required to avoid issues on how game calculates caster / spell levels and some trace error messages
         // that might affect multiplayer sessions and prevent level up from 19 to 20
+        //
+
         var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
             .SelectMany(a => a.FeatureUnlocks)
             .Select(b => b.FeatureDefinition);
@@ -409,7 +414,7 @@ internal static class Level20Context
         {
             new(AdditionalDamageRangerFavoredEnemyChoice, 14),
             // TODO 14: Vanish
-            // new(ActionAffinityRangerVanish, 14),
+            new(ActionAffinityRangerVanish, 14),
             new(FeatureSetAbilityScoreChoice, 16),
             new(senseRangerFeralSenses, 18),
             new(FeatureSetAbilityScoreChoice, 19)
@@ -436,8 +441,7 @@ internal static class Level20Context
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(SenseRogueBlindsense, 14),
-            // TODO 15: Slippery Mind
-            // new(ProficiencyRogueSlipperyMind, 15),
+            new(ProficiencyRogueSlipperyMind, 15),
             new(FeatureSetAbilityScoreChoice, 16),
             // TODO 18: Rogue Elusive
             new(FeatureSetAbilityScoreChoice, 19)
