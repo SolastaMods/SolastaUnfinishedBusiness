@@ -193,18 +193,11 @@ internal class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefi
         return this;
     }
 
-    internal FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
-    {
-        Definition.RestrictedSchools.Add(school.Name);
-        Definition.RestrictedSchools.Sort();
-        return this;
-    }
-
     internal FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
     {
         foreach (var school in schools)
         {
-            AddRestrictedSchool(school);
+            Definition.RestrictedSchools.Add(school.Name);
         }
 
         Definition.RestrictedSchools.Sort();

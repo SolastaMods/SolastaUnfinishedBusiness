@@ -77,11 +77,13 @@ internal class FeatureDefinitionSavingThrowAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionSavingThrowAffinityBuilder UseControllerSavingThrows(bool value = true)
     {
         Definition.useControllerSavingThrows = value;
         return this;
     }
+#endif
 
     #region Constructors
 
