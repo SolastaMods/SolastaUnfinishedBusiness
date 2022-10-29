@@ -77,17 +77,13 @@ internal static class MulticlassGameUiContext
     {
         var spellRepertoire = __instance.SpellRepertoire;
 
-        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
-            or FeatureDefinitionCastSpell.CastingOrigin.Monster)
-        {
-            return;
-        }
-
         var hero = __instance.GuiCharacter.RulesetCharacterHero;
         var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
-        var classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+        var classSpellLevel = spellRepertoire.spellCastingRace != null
+            ? 0
+            : SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
         SharedSpellsContext.FactorMysticArcanum(hero, spellRepertoire, ref classSpellLevel);
 
