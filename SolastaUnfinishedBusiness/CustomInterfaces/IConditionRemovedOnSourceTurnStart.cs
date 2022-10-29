@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
@@ -30,11 +31,14 @@ public static class ConditionRemovedOnSourceTurnStartPatch
         foreach (var contender in battleService.Battle.AllContenders
                      .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: { } }))
         {
-            var conditionsToRemove = (from keyValuePair in contender.RulesetActor.ConditionsByCategory
-                from rulesetCondition in keyValuePair.Value
-                where rulesetCondition.SourceGuid == __instance.Guid &&
-                      rulesetCondition.ConditionDefinition.HasSubFeatureOfType<IConditionRemovedOnSourceTurnStart>()
-                select rulesetCondition).ToList();
+            var conditionsToRemove = new List<RulesetCondition>();
+
+            conditionsToRemove.AddRange(
+                contender.RulesetActor.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Where(x => x.SourceGuid == __instance.Guid)
+                    .Where(x => x.ConditionDefinition
+                        .HasSubFeatureOfType<IConditionRemovedOnSourceTurnStart>()));
 
             foreach (var conditionToRemove in conditionsToRemove)
             {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -10,7 +8,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -21,8 +18,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 {
     private const string ConditionPathOfTheLightIlluminatedName = "ConditionPathOfTheLightIlluminated";
 
-    private const string AdditionalDamagePathOfTheLightIlluminatingStrikeName =
-        "AdditionalDamagePathOfTheLightIlluminatingStrike";
+    private const string AdditionalDamagePathOfTheLightIlluminatingStrikeName = "AdditionalDamagePathOfTheLightIlluminatingStrike";
 
     private const string PowerPathOfTheLightIlluminatingBurstName = "PowerPathOfTheLightIlluminatingBurst";
 
@@ -31,6 +27,9 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     internal PathOfTheLight()
     {
+        var faerieFireLightSource =
+            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
             FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
@@ -55,7 +54,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .ToArray())
             .AddToDB();
 
-        var conditionPathOfTheLightIlluminated = ConditionDefinitionIlluminatedBuilder
+        var conditionPathOfTheLightIlluminated = ConditionDefinitionBuilder
             .Create(ConditionPathOfTheLightIlluminatedName)
             .SetGuiPresentation(Category.Condition, ConditionBranded)
             .SetAllowMultipleInstances(true)
@@ -66,7 +65,43 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
+            .SetCustomSubFeatures(new ConditionIlluminated())
             .AddToDB();
+
+        var lightSourceForm = new LightSourceForm();
+
+        lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
+        lightSourceForm.brightRange = 4;
+        lightSourceForm.dimAdditionalRange = 4;
+
+        var additionalDamagePathOfTheLightIlluminatingStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create(AdditionalDamagePathOfTheLightIlluminatingStrikeName)
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("IlluminatingStrike")
+            .SetSpecificDamageType(DamageTypeRadiant)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAddLightSource(true)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                Operation = ConditionOperationDescription.ConditionOperation.Add,
+                ConditionDefinition = conditionPathOfTheLightIlluminated
+            })
+            .SetLightSourceForm(lightSourceForm)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, DiceByRankBuilder.BuildDiceByRankTable(1, 1, 10))
+            .SetCustomSubFeatures(new AdditionalDamageIlluminatingStrike())
+            .AddToDB();
+
+        foreach (var invisibleCondition in InvisibleConditions)
+        {
+            additionalDamagePathOfTheLightIlluminatingStrike.ConditionOperations.Add(new ConditionOperationDescription
+            {
+                Operation = ConditionOperationDescription.ConditionOperation.Remove,
+                ConditionDefinition = invisibleCondition
+            });
+        }
 
         var featureSetPathOfTheLightIlluminatingStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingStrike")
@@ -94,13 +129,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                             .SetTerminateWhenRemoved(true)
                                             .SetSilent(Silent.WhenAddedOrRemoved)
                                             .SetSpecialInterruptions(ConditionInterruption.RageStop)
-                                            .SetFeatures(
-                                                FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder
-                                                    .Create(
-                                                        AdditionalDamagePathOfTheLightIlluminatingStrikeName,
-                                                        conditionPathOfTheLightIlluminated)
-                                                    .SetGuiPresentationNoContent(AdditionalDamageDomainLifeDivineStrike)
-                                                    .AddToDB())
+                                            .SetFeatures(additionalDamagePathOfTheLightIlluminatingStrike)
                                             .AddToDB(),
                                         ConditionForm.ConditionOperation.Add)
                                     .Build())
@@ -193,6 +222,54 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Constitution)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+            .SetSpeed(SpeedType.CellsPerSeconds, 9.5f)
+            .SetParticleEffectParameters(GuidingBolt)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeRadiant, 4, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionPathOfTheLightIlluminatedByBurst")
+                            .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
+                                ConditionBranded)
+                            .SetAllowMultipleInstances(true)
+                            .SetConditionType(ConditionType.Detrimental)
+                            .SetDuration(DurationType.Minute, 1)
+                            .SetParentCondition(conditionPathOfTheLightIlluminated)
+                            .SetSilent(Silent.WhenAdded)
+                            .SetCustomSubFeatures(new ConditionIlluminatedByBurst())
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
+                    .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetLightSourceForm(
+                        LightSourceType.Basic,
+                        4,
+                        4,
+                        faerieFireLightSource.lightSourceForm.color,
+                        faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
         var featureSetPathOfTheLightIlluminatingBurst = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingBurst")
             .SetGuiPresentation(Category.Feature)
@@ -216,10 +293,14 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             .Build())
                     .SetShowCasting(false)
                     .AddToDB(),
-                FeatureDefinitionPowerIlluminatingBurstBuilder
-                    .Create(PowerPathOfTheLightIlluminatingBurstName,
-                        conditionPathOfTheLightIlluminated, conditionPathOfTheLightSuppressedIlluminatingBurst)
+                FeatureDefinitionPowerBuilder
+                    .Create(PowerPathOfTheLightIlluminatingBurstName)
                     .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun)
+                    .SetUsesFixed(ActivationTime.NoCost, RechargeRate.OneMinute)
+                    .SetEffectDescription(effectDescription)
+                    .SetDisableIfConditionIsOwned(conditionPathOfTheLightSuppressedIlluminatingBurst)
+                    .SetShowCasting(false)
+                    .SetCustomSubFeatures(new PowerIlluminatingBurst())
                     .AddToDB(),
                 powerPathOfTheLightIlluminatingBurstSuppressor)
             .AddToDB();
@@ -247,47 +328,19 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
     {
-        var lightsProtectionAmountHealedByClassLevel = new Dictionary<int, int>
-        {
-            { 6, 3 },
-            { 7, 3 },
-            { 8, 4 },
-            { 9, 4 },
-            { 10, 5 },
-            { 11, 5 },
-            { 12, 6 },
-            { 13, 6 },
-            { 14, 7 },
-            { 15, 7 },
-            { 16, 8 },
-            { 17, 8 },
-            { 18, 9 },
-            { 19, 9 },
-            { 20, 10 }
-        };
-
-        if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
-            conditionSource.IsDead)
+        if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource || conditionSource.IsDead)
         {
             return;
         }
 
         if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out var levelsInClass))
         {
-            // Character doesn't have levels in class
             return;
         }
 
-        if (!lightsProtectionAmountHealedByClassLevel.TryGetValue(levelsInClass, out var amountHealed))
-        {
-            // Character doesn't heal at the current level
-            return;
-        }
+        var amountHealed = (levelsInClass + 1) / 2;
 
-        if (amountHealed > 0)
-        {
-            conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
-        }
+        conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
     }
 
     private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
@@ -313,214 +366,43 @@ internal sealed class PathOfTheLight : AbstractSubclass
     }
 
     //
-    // Custom Builders
+    // behavior classes
     //
 
-    private sealed class ConditionDefinitionIlluminated : ConditionDefinition,
-        IConditionRemovedOnSourceTurnStart, INotifyConditionRemoval
-    {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            HandleAfterIlluminatedConditionRemoved(removedFrom);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
-        {
-            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
-        }
-    }
-
-
-    [UsedImplicitly]
-    private sealed class ConditionDefinitionIlluminatedBuilder
-        : ConditionDefinitionBuilder<ConditionDefinitionIlluminated, ConditionDefinitionIlluminatedBuilder>
-    {
-        internal ConditionDefinitionIlluminatedBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
-        {
-        }
-    }
-
-    private sealed class ConditionDefinitionIlluminatedByBurst : ConditionDefinition, INotifyConditionRemoval
-    {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            HandleAfterIlluminatedConditionRemoved(removedFrom);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
-        {
-            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
-        }
-    }
-
-
-    [UsedImplicitly]
-    private sealed class ConditionDefinitionIlluminatedByBurstBuilder
-        : ConditionDefinitionBuilder<ConditionDefinitionIlluminatedByBurst,
-            ConditionDefinitionIlluminatedByBurstBuilder>
-    {
-        internal ConditionDefinitionIlluminatedByBurstBuilder(string name, Guid guidNamespace)
-            : base(name, guidNamespace)
-        {
-        }
-    }
-
-    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrike : FeatureDefinitionAdditionalDamage,
-        IClassHoldingFeature
-    {
-        // allows Illuminating Strike damage to scale with barbarian level
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
-    }
-
-    private sealed class FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder : DefinitionBuilder<
-        FeatureDefinitionAdditionalDamageIlluminatingStrike, FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder>
-    {
-        private FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(
-            string name,
-            ConditionDefinition illuminatedCondition)
-            : base(name, CeNamespaceGuid)
-        {
-            var lightSourceForm = new LightSourceForm();
-            var faerieFireLightSource = FaerieFire.EffectDescription
-                .GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
-
-            lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
-            lightSourceForm.brightRange = 4;
-            lightSourceForm.dimAdditionalRange = 4;
-
-            Definition.additionalDamageType = AdditionalDamageType.Specific;
-            Definition.specificDamageType = DamageTypeRadiant;
-            Definition.triggerCondition = AdditionalDamageTriggerCondition.AlwaysActive;
-            Definition.damageValueDetermination = AdditionalDamageValueDetermination.Die;
-            Definition.damageDiceNumber = 1;
-            Definition.damageDieType = DieType.D6;
-            Definition.damageSaveAffinity = EffectSavingThrowType.None;
-            Definition.limitedUsage = FeatureLimitedUsage.OnceInMyTurn;
-            Definition.notificationTag = "IlluminatingStrike";
-            Definition.requiredProperty = RestrictedContextRequiredProperty.None;
-            Definition.addLightSource = true;
-            Definition.lightSourceForm = lightSourceForm;
-            Definition.damageAdvancement = AdditionalDamageAdvancement.ClassLevel;
-            Definition.DiceByRankTable.SetRange(new[]
-            {
-                (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2),
-                (15, 2), (16, 2), (17, 2), (18, 2), (19, 2), (20, 2)
-            }.Select(d => DiceByRankBuilder.BuildDiceByRank(d.Item1, d.Item2)));
-
-            Definition.ConditionOperations.Add(
-                new ConditionOperationDescription
-                {
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    ConditionDefinition = illuminatedCondition
-                });
-
-            foreach (var invisibleCondition in InvisibleConditions)
-            {
-                Definition.ConditionOperations.Add(
-                    new ConditionOperationDescription
-                    {
-                        Operation = ConditionOperationDescription.ConditionOperation.Remove,
-                        ConditionDefinition = invisibleCondition
-                    });
-            }
-        }
-
-        [NotNull]
-        internal static FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder Create(
-            string name,
-            ConditionDefinition illuminatedCondition)
-        {
-            return new FeatureDefinitionAdditionalDamageIlluminatingStrikeBuilder(name, illuminatedCondition);
-        }
-    }
-
-    private sealed class FeatureDefinitionPowerIlluminatingBurst : FeatureDefinitionPower, IStartOfTurnRecharge
+    private sealed class PowerIlluminatingBurst : IStartOfTurnRecharge
     {
         public bool IsRechargeSilent => true;
     }
 
-    private sealed class
-        FeatureDefinitionPowerIlluminatingBurstBuilder
-        : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerIlluminatingBurst,
-            FeatureDefinitionPowerIlluminatingBurstBuilder>
+    private sealed class ConditionIlluminated : IConditionRemovedOnSourceTurnStart, INotifyConditionRemoval
     {
-        private FeatureDefinitionPowerIlluminatingBurstBuilder(
-            string name,
-            ConditionDefinition illuminatedCondition,
-            ConditionDefinition illuminatingBurstSuppressedCondition)
-            : base(name, CeNamespaceGuid)
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            Definition.activationTime = ActivationTime.NoCost;
-            Definition.costPerUse = 1;
-            Definition.disableIfConditionIsOwned = illuminatingBurstSuppressedCondition;
-            Definition.effectDescription = CreateIlluminatingBurstPowerEffect(illuminatedCondition);
-            Definition.fixedUsesPerRecharge = 1;
-            Definition.rechargeRate = RechargeRate.OneMinute;
-            Definition.showCasting = false;
-            Definition.usesDetermination = UsesDetermination.Fixed;
+            HandleAfterIlluminatedConditionRemoved(removedFrom);
         }
 
-        [NotNull]
-        internal static FeatureDefinitionPowerIlluminatingBurstBuilder Create(
-            string name,
-            ConditionDefinition illuminatedCondition,
-            ConditionDefinition illuminatingBurstSuppressedCondition)
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
         {
-            return new FeatureDefinitionPowerIlluminatingBurstBuilder(
-                name, illuminatedCondition, illuminatingBurstSuppressedCondition);
+            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
+        }
+    }
+
+    private sealed class ConditionIlluminatedByBurst : INotifyConditionRemoval
+    {
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            HandleAfterIlluminatedConditionRemoved(removedFrom);
         }
 
-        private static EffectDescription CreateIlluminatingBurstPowerEffect(ConditionDefinition illuminatedCondition)
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
         {
-            var faerieFireLightSource = FaerieFire.EffectDescription
-                .GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
-
-            return EffectDescriptionBuilder
-                .Create()
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Constitution,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Constitution)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
-                .SetSpeed(SpeedType.CellsPerSeconds, 9.5f)
-                .SetParticleEffectParameters(GuidingBolt)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeRadiant, 4, DieType.D6)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionIlluminatedByBurstBuilder
-                                .Create("ConditionPathOfTheLightIlluminatedByBurst")
-                                .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
-                                    ConditionBranded)
-                                .SetAllowMultipleInstances(true)
-                                .SetConditionType(ConditionType.Detrimental)
-                                .SetDuration(DurationType.Minute, 1)
-                                .SetParentCondition(illuminatedCondition)
-                                .SetSilent(Silent.WhenAdded)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetLightSourceForm(
-                            LightSourceType.Basic,
-                            4,
-                            4,
-                            faerieFireLightSource.lightSourceForm.color,
-                            faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build();
+            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
         }
+    }
+
+    private sealed class AdditionalDamageIlluminatingStrike : IClassHoldingFeature
+    {
+        // allows Illuminating Strike damage to scale with barbarian level
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }

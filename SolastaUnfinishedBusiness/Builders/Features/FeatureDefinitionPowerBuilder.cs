@@ -98,6 +98,12 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetDisableIfConditionIsOwned(ConditionDefinition conditionDefinition)
+    {
+        Definition.disableIfConditionIsOwned = conditionDefinition;
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetHasCastingFailure(bool value)
     {
         Definition.hasCastingFailure = value;
