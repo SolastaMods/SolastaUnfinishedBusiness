@@ -335,7 +335,9 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance, ref bool __result)
         {
             // wildshape
-            if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+            if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance &&
+                hero.classesAndLevels.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Druid, out var level) &&
+                level < 18)
             {
                 __result = false;
             }

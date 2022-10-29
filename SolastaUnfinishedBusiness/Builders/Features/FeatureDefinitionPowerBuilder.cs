@@ -98,6 +98,12 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetHasCastingFailure(bool value)
+    {
+        Definition.hasCastingFailure = value;
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
         Definition.overriddenPower = overridenPower;

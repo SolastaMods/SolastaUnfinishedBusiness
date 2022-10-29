@@ -527,17 +527,20 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainBattle { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainBattle");
 
-        //internal static CharacterSubclassDefinition DomainElementalCold { get; } =GetDefinition<CharacterSubclassDefinition>("DomainElementalCold");
+        internal static CharacterSubclassDefinition DomainElementalCold { get; } =
+            GetDefinition<CharacterSubclassDefinition>("DomainElementalCold");
 
         internal static CharacterSubclassDefinition DomainElementalFire { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainElementalFire");
 
-        //internal static CharacterSubclassDefinition DomainElementalLighting { get; } =GetDefinition<CharacterSubclassDefinition>("DomainElementalLighting");
+        internal static CharacterSubclassDefinition DomainElementalLighting { get; } =
+            GetDefinition<CharacterSubclassDefinition>("DomainElementalLighting");
 
         internal static CharacterSubclassDefinition DomainInsight { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainInsight");
 
-        //internal static CharacterSubclassDefinition DomainLaw { get; } =GetDefinition<CharacterSubclassDefinition>("DomainLaw");
+        internal static CharacterSubclassDefinition DomainLaw { get; } =
+            GetDefinition<CharacterSubclassDefinition>("DomainLaw");
 
         internal static CharacterSubclassDefinition DomainLife { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainLife");
@@ -545,7 +548,8 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainMischief { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainMischief");
 
-        //internal static CharacterSubclassDefinition DomainOblivion { get; } =GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
+        internal static CharacterSubclassDefinition DomainOblivion { get; } =
+            GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
 
         internal static CharacterSubclassDefinition DomainSun { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainSun");
@@ -1323,14 +1327,20 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch");
 
+        internal static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric");
+
+        internal static FeatureDefinitionPower PowerClericDivineInterventionPaladin { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionPaladin");
+
+        internal static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard");
+
         internal static FeatureDefinitionPower PowerClericTurnUndead14 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14");
 
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");
-
-        internal static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard");
 
         internal static FeatureDefinitionPower PowerDomainBattleDivineWrath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDivineWrath");

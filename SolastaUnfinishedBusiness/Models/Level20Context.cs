@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
@@ -246,7 +247,6 @@ internal static class Level20Context
             new(powerClericTurnUndead17, 17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Divine Intervention
         });
 
         EnumerateSlotsPerLevel(
@@ -255,57 +255,61 @@ internal static class Level20Context
 
         SpellListCleric.maxSpellLevel = 9;
 
-        // var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
-        //     .Create(
-        //         PowerClericDivineInterventionCleric,
-        //         "PowerClericDivineInterventionImprovementCleric")
-        //     .SetHasCastingFailure(false)
-        //     .SetOverriddenPower(PowerClericDivineInterventionCleric)
-        //     .AddToDB();
-        //
-        // var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
-        //     .Create(
-        //         PowerClericDivineInterventionPaladin,
-        //         "PowerClericDivineInterventionImprovementPaladin")
-        //     .SetHasCastingFailure(false)
-        //     .SetOverriddenPower(PowerClericDivineInterventionPaladin)
-        //     .AddToDB();
-        //
-        // var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
-        //     .Create(
-        //         PowerClericDivineInterventionWizard,
-        //         "PowerClericDivineInterventionImprovementWizard")
-        //     .SetHasCastingFailure(false)
-        //     .SetOverriddenPower(PowerClericDivineInterventionWizard)
-        //     .AddToDB();
-        //
-        // DomainBattle.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(PowerClericDivineInterventionPaladin,
-        //         20));
-        // DomainElementalCold.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        // DomainElementalFire.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        // DomainElementalLighting.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        // DomainInsight.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        // DomainLaw.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
-        // DomainLife.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        // DomainOblivion.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        // DomainSun.FeatureUnlocks.Add(
-        //     new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+        // Divine Intervention
+
+        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionCleric)
+            .AddToDB();
+
+        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
+            .AddToDB();
+
+        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionWizard)
+            .AddToDB();
+
+        DomainBattle.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+        DomainElementalCold.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+        DomainElementalFire.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+        DomainElementalLighting.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+        DomainInsight.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+        DomainLaw.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+        DomainLife.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+        DomainMischief.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+        DomainOblivion.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+        DomainSun.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void DruidLoad()
     {
+        // only a placeholder to display the feature name
+        // this is solved on CanCastSpells patch
+        var druidBeastSpells = FeatureDefinitionBuilder
+            .Create("DruidBeastSpells")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetAbilityScoreChoice, 16),
-            // TODO 18: Druid Beast Spells
+            new(druidBeastSpells, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Druid Arch Druid
         });
@@ -454,29 +458,6 @@ internal static class Level20Context
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Sacred Oath Feature
         );
-
-        // AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-        //     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-        //     {
-        //         ClassLevel = 17,
-        //         SpellsList = new List<SpellDefinition>
-        //         {
-        //             // Commune,
-        //             FlameStrike
-        //         }
-        //     });
-        //
-        // AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-        //     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-        //     {
-        //         ClassLevel = 17, SpellsList = new List<SpellDefinition> { FlameStrike }
-        //     });
-        //
-        // AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-        //     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-        //     {
-        //         ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
-        //     });
 
         EnumerateSlotsPerLevel(
             CasterProgression.Half,
