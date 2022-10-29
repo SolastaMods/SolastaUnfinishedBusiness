@@ -15,11 +15,11 @@ internal static class InventoryManagementContext
 {
     private static readonly List<string> SortCategories = new()
     {
-        "Name",
-        "Category",
-        "Cost",
-        "Weight",
-        "Cost per Weight"
+        Gui.Localize("UI/&InventoryFilterName"),
+        Gui.Localize("UI/&InventoryFilterCategory"),
+        Gui.Localize("UI/&InventoryFilterCost"),
+        Gui.Localize("UI/&InventoryFilterWeight"),
+        Gui.Localize("UI/&InventoryFilterCostPerWeight")
     };
 
     private static readonly List<RulesetItem> FilteredItems = new();
