@@ -70,7 +70,7 @@ internal static class BootContext
         SubclassesContext.Load();
 
         // Custom invocations
-        WarlockInvocations.Load();
+        InvocationsContext.Load();
 
         // Load SRD and House rules towards the load phase end in case they change previous blueprints
         SrdAndHouseRulesContext.Load();

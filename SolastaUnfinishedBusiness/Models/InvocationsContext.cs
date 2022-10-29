@@ -4,11 +4,11 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
-namespace SolastaUnfinishedBusiness.Subclasses;
+namespace SolastaUnfinishedBusiness.Models;
 
-internal static class WarlockInvocations
+internal static class InvocationsContext
 {
-    internal const string EldritchSmiteTag = "EldritchSmite";
+    private const string EldritchSmiteTag = "EldritchSmite";
 
     internal static void Load()
     {
