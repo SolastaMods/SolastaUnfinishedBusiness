@@ -456,7 +456,7 @@ public static class RulesetCharacterPatcher
             int rollModifier,
             ref int minRoll)
         {
-            var features = __instance.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
+            var features = __instance.GetSubFeaturesByType<IChangeAbilityCheck>();
 
             if (features.Count <= 0)
             {
@@ -497,9 +497,9 @@ public static class RulesetCharacterPatcher
             List<RuleDefinitions.TrendInfo> advantageTrends,
             List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll,
-                out secondRoll, enumerateFeatures, canRerollDice, skill);
-            var features = rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
+            var features = rulesetCharacter.GetSubFeaturesByType<IChangeAbilityCheck>();
+            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType,
+                out firstRoll, out secondRoll, enumerateFeatures, canRerollDice, skill);
 
             if (features.Count <= 0)
             {
