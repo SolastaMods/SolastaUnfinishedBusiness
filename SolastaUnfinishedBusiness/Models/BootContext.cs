@@ -80,6 +80,8 @@ internal static class BootContext
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
+        
+        MerchantContext.Load();
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {

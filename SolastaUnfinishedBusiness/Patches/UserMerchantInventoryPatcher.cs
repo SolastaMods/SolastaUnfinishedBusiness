@@ -13,7 +13,7 @@ public static class UserMerchantInventoryPatcher
         public static void Postfix(ref MerchantDefinition __result)
         {
             //PATCH: supports adding custom items to dungeon maker traders
-            CustomWeaponsContext.TryAddItemsToUserMerchant(__result);
+            MerchantContext.TryAddItemsToUserMerchant(__result);
         }
     }
 }
