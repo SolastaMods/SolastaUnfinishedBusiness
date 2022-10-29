@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
 {
-    internal const string Ce2TranslationTag = "CE2 auto translation\n";
+    internal const string UbTranslationTag = "UB auto translation\n";
 
     private static UserCampaignsTranslatorContext _exporter;
 
@@ -97,7 +97,7 @@ internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
         }
 
         userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
-        userCampaign.TechnicalInfo = Ce2TranslationTag
+        userCampaign.TechnicalInfo = UbTranslationTag
                                      + Translations.Translate(userCampaign.TechnicalInfo, languageCode);
 
         // USER DIALOGS

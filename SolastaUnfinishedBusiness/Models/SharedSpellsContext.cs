@@ -199,8 +199,8 @@ internal static class SharedSpellsContext
             rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
                 out var currentCharacterSubclassDefinition);
 
-
             string subclassName = null;
+
             if (currentCharacterSubclassDefinition != null)
             {
                 subclassName = currentCharacterSubclassDefinition.Name;
