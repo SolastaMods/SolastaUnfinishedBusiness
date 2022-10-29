@@ -766,6 +766,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAdditionalDamages
     {
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishHoodlumNonFinesseSneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack");
+
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
 
@@ -2419,24 +2422,6 @@ internal static partial class DatabaseHelper
 
     internal static class MetamagicOptionDefinitions
     {
-        internal static MetamagicOptionDefinition MetamagicCarefullSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicCarefullSpell");
-
-        internal static MetamagicOptionDefinition MetamagicDistantSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicDistantSpell");
-
-        internal static MetamagicOptionDefinition MetamagicEmpoweredSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicEmpoweredSpell");
-
-        internal static MetamagicOptionDefinition MetamagicExtendedSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicExtendedSpell");
-
-        internal static MetamagicOptionDefinition MetamagicHeightenedSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicHeightenedSpell");
-
-        internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
-
         internal static MetamagicOptionDefinition MetamagicTwinnedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicTwinnedSpell");
     }

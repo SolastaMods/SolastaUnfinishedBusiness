@@ -1,27 +1,27 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Charisma",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
-  "knownFeatsPrerequisite": [],
+  "knownFeatsPrerequisite": [
+    "FeatShady"
+  ],
   "features": [
-    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:MetamagicLearnMetamagicExtendedSpell:30dbd4b3-bd4d-5044-8b86-a32dd638f640"
+    "Definition:AdditionalDamageFeatBrutalThugSneakAttack:27e928e1-fadf-533c-bf3a-9095ec1de571",
+    "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMetamagicAdeptExtendedTitle",
-    "description": "Feat/&FeatMetamagicAdeptExtendedDescription",
+    "title": "Feat/&FeatBrutalThugTitle",
+    "description": "Feat/&FeatBrutalThugDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bb1d4191-0b83-5c0a-adbd-2286bff15cbb",
+  "guid": "63a9893a-5b64-5a01-aaae-ad83244ea0ed",
   "contentPack": 9999,
-  "name": "FeatMetamagicAdeptExtended"
+  "name": "FeatBrutalThug"
 }

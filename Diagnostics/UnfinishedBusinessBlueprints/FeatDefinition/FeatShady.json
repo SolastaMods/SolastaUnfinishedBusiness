@@ -1,27 +1,25 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Charisma",
+  "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:MetamagicLearnMetamagicEmpoweredSpell:2382366b-363a-5387-b967-bed1da94be77"
+    "Definition:AdditionalDamageFeatShadySneakAttack:e0d77899-f1d4-519c-9ad8-285e2db11b5b",
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMetamagicAdeptEmpoweredTitle",
-    "description": "Feat/&FeatMetamagicAdeptEmpoweredDescription",
+    "title": "Feat/&FeatShadyTitle",
+    "description": "Feat/&FeatShadyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dbd68796-2e0d-57b1-986e-a33912f0f8c3",
+  "guid": "067ff284-6fc8-5ce9-b983-4c32781eb634",
   "contentPack": 9999,
-  "name": "FeatMetamagicAdeptEmpowered"
+  "name": "FeatShady"
 }

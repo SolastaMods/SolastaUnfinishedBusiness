@@ -15,11 +15,18 @@ internal static class CustomFeaturesContext
 {
     private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
 
-    internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag,
+    internal static void RecursiveGrantCustomFeatures(
+        RulesetCharacterHero hero,
+        string tag,
         [NotNull] List<FeatureDefinition> features)
     {
         foreach (var grantedFeature in features)
         {
+            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IFeatureDefinitionCustomCode>())
+            {
+                customCode.ApplyFeature(hero, tag);
+            }
+
             switch (grantedFeature)
             {
                 case FeatureDefinitionFeatureSet
@@ -27,10 +34,6 @@ internal static class CustomFeaturesContext
                     Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
                 } featureDefinitionFeatureSet:
                     RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
-                    break;
-
-                case IFeatureDefinitionCustomCode customFeature:
-                    customFeature.ApplyFeature(hero, tag);
                     break;
 
                 case FeatureDefinitionProficiency

@@ -145,6 +145,8 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
+[*][b]Brutal Thug[/b]: You gain simple and martial weapon proficiencies.
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Hoodlum's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
@@ -205,19 +207,20 @@ You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Careful metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Distant[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Distant metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Empowered[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Empowered metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Extended[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Extended metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Heightened[/b]: You learn the Heightened metamagic and gain 4 sorcery points.
-[*][b]Metamagic: Quickened[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Quickened metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Twinned[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Twinned metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Careful Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Careful Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Distant Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Distant Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Empowered Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Empowered Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Extended Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Extended Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Heightened Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Heightened Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Quickened Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Quickened Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Twinned Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
+You learn the Twinned Spell metamagic and gain 2 sorcery points.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
@@ -244,6 +247,8 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.
 You gain advantage on shove attempts while wielding a shield.
 [*][b]Superior Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.

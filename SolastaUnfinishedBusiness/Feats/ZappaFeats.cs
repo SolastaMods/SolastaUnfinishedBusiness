@@ -13,11 +13,12 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.CustomBehaviors.ValidatorsFeat;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -33,15 +34,19 @@ internal static class ZappaFeats
             return;
         }
 
-        foreach (var elvenPrecisionContext in from feat in hero.TrainedFeats
-                 where feat.Name.Contains(ElvenAccuracyTag)
-                 select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
-                 into context
-                 where context != null
-                 select context)
+        foreach (var feat in hero.TrainedFeats)
         {
-            elvenPrecisionContext.Qualified =
-                attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
+            if (!feat.Name.Contains(ElvenAccuracyTag))
+            {
+                continue;
+            }
+
+            var elvenPrecisionContext = feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>();
+
+            if (elvenPrecisionContext != null)
+            {
+                elvenPrecisionContext.Qualified = attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
+            }
         }
     }
 
@@ -159,8 +164,7 @@ internal static class ZappaFeats
                     .SetGuiPresentationNoContent()
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
-                    .AddToDB()
-            )
+                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(DefenseExpert)
             .AddToDB();
@@ -189,8 +193,7 @@ internal static class ZappaFeats
                             .Create()
                             .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                                 new FeatureUnlockByLevel(attackModifierArcanePrecision, 0))
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .AddToDB();
 
@@ -204,18 +207,21 @@ internal static class ZappaFeats
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
 
-        // // Brutal Thug
-        // var brutalThug =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatBrutalThug")
-        //         .SetFeatures(
-        //             AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
-        //             ProficiencyFighterWeapon
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateMinCharLevel(4), ValidateHasStealthAttack)
-        //         .AddToDB();
+        // Brutal Thug
+        var featBrutalThug = FeatDefinitionBuilder
+            .Create("FeatBrutalThug")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
+                        "AdditionalDamageFeatBrutalThugSneakAttack")
+                    .SetAdvancement(
+                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.BuildDiceByRankTable(1, 1, 4))
+                    .AddToDB(),
+                ProficiencyFighterWeapon)
+            .SetKnownFeatsPrerequisite("FeatShady")
+            .AddToDB();
 
         // Charismatic Defense
         var featCharismaticDefense = FeatDefinitionBuilder
@@ -228,8 +234,7 @@ internal static class ZappaFeats
                     .SetGuiPresentationNoContent()
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Charisma)
-                    .AddToDB()
-            )
+                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetFeatFamily(DefenseExpert)
             .AddToDB();
@@ -328,45 +333,6 @@ internal static class ZappaFeats
                 .SetCustomSubFeatures(new ElvenPrecisionContext())
                 .AddToDB();
 
-        // Fast Hands
-        // var fastHands =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatFastHands")
-        //         .SetFeatures(
-        //             ActionAffinityRogueCunningAction,
-        //             ActionAffinityThiefFastHands
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateMinCharLevel(4), ValidateNotClass(Rogue))
-        //         .AddToDB();
-
-        // Fighting Surge (Dexterity)
-        // var fightingSurgeDexterity =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatFightingSurgeDexterity")
-        //         .SetFeatures(
-        //             AttributeModifierCreed_Of_Misaye,
-        //             PowerFighterActionSurge
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateNotClass(Fighter))
-        //         .AddToDB();
-
-        // Fighting Surge (Strength)
-        // var fightingSurgeStrength =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatFightingSurgeStrength")
-        //         .SetFeatures(
-        //             AttributeModifierCreed_Of_Einar,
-        //             PowerFighterActionSurge
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateNotClass(Fighter))
-        //         .AddToDB();
-
         // Marksman
         var featMarksman =
             FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
@@ -376,7 +342,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .AddToDB();
 
-        // Metamagic Sorcery Points Feature
+        // Metamagic
         var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
             .SetGuiPresentationNoContent(true)
@@ -385,188 +351,42 @@ internal static class ZappaFeats
                 AttributeDefinitions.SorceryPoints, 2)
             .AddToDB();
 
-        // Metamagic Adept (Careful)
-        var featMetamagicAdeptCareful =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptCareful")
-                .SetGuiPresentation(Category.Feat)
+        var metaMagicFeats = new List<FeatDefinition>();
+        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
+
+        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
+            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
+                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
+                .SetGuiPresentation(
+                    Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
+                    Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Distant)
-        var featMetamagicAdeptDistant =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptDistant")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Empowered)
-        var featMetamagicAdeptEmpowered =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptEmpowered")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Extended)
-        var featMetamagicAdeptExtended =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptExtended")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Heightened)
-        var featMetamagicAdeptHeightened =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptHeightened")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
                     ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsBonus2,
-                    attributeModifierSorcererSorceryPointsBonus2) // not a dup. adding 4 points
+                    FeatureDefinitionBuilder
+                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
+                        .AddToDB())
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
-                .SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Quickened)
-        var featMetamagicAdeptQuickened =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptQuickened")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Metamagic Adept (Twinned)
-        var featMetamagicAdeptTwinned =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMetamagicAdeptTwinned")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                //.SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
-        // Primal (Constitution)
-        // var primalConstitution =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatPrimalConstitution")
-        //         .SetFeatures(
-        //             AttributeModifierCreed_Of_Arun,
-        //             ActionAffinityBarbarianRage,
-        //             AttributeModifierBarbarianRagePointsAdd,
-        //             AttributeModifierBarbarianRageDamageAdd,
-        //             AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
-        //             PowerBarbarianRageStart,
-        //             AttributeModifierBarbarianUnarmoredDefense
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateNotClass(Barbarian))
-        //         .AddToDB();
-
-        // Primal (Strength)
-        // var primalStrength =
-        //     FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //         .Create("FeatPrimalStrength")
-        //         .SetFeatures(
-        //             AttributeModifierCreed_Of_Einar,
-        //             ActionAffinityBarbarianRage,
-        //             AttributeModifierBarbarianRagePointsAdd,
-        //             AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
-        //             AttributeModifierBarbarianRageDamageAdd,
-        //             PowerBarbarianRageStart,
-        //             AttributeModifierBarbarianUnarmoredDefense
-        //         )
-        //         .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        //         .SetGuiPresentation(Category.Feat)
-        //         .SetValidators(ValidateNotClass(Barbarian))
-        //         .AddToDB();
+                .AddToDB()));
 
         // Shady
-        // var shady = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-        //     .Create("FeatShady")
-        //     .SetFeatures(
-        //         AttributeModifierCreed_Of_Misaye,
-        //         FeatureDefinitionAdditionalDamageBuilder
-        //             .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
-        //             .SetGuiPresentation(Category.Feature)
-        //             .SetDamageDice(DieType.D6, 1)
-        //             .SetAdvancement(
-        //                 (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
-        //                 (1, 0),
-        //                 (2, 0),
-        //                 (3, 0),
-        //                 (4, 1),
-        //                 (5, 1),
-        //                 (6, 1),
-        //                 (7, 1),
-        //                 (8, 1),
-        //                 (9, 1),
-        //                 (10, 1),
-        //                 (11, 1),
-        //                 (12, 2),
-        //                 (13, 2),
-        //                 (14, 2),
-        //                 (15, 2),
-        //                 (16, 2),
-        //                 (17, 2),
-        //                 (18, 2),
-        //                 (19, 2),
-        //                 (20, 4)
-        //             )
-        //             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-        //             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-        //             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-        //             .AddToDB()
-        //     )
-        //     .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        //     .SetGuiPresentation(Category.Feat)
-        //     .SetValidators(ValidateNotClass(Rogue))
-        //     .AddToDB();
+        var featShady = FeatDefinitionBuilder
+            .Create("FeatShady")
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
+                    .SetAdvancement(
+                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.BuildDiceByRankTable(1, 1, 4))
+                    .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
 
         // Wise Defense
         var featWiseDefense = FeatDefinitionBuilder
@@ -625,7 +445,7 @@ internal static class ZappaFeats
         feats.AddRange(
             featArcaneDefense,
             featArcanePrecision,
-            // brutalThug,
+            featBrutalThug,
             featCharismaticDefense,
             featCharismaticPrecision,
             featDualWeaponDefense,
@@ -634,22 +454,12 @@ internal static class ZappaFeats
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom,
             featElvenAccuracyCharisma,
-            // fastHands,
-            // fightingSurgeDexterity,
-            // fightingSurgeStrength,
             featMarksman,
-            featMetamagicAdeptCareful,
-            featMetamagicAdeptDistant,
-            featMetamagicAdeptEmpowered,
-            featMetamagicAdeptExtended,
-            featMetamagicAdeptHeightened,
-            featMetamagicAdeptQuickened,
-            featMetamagicAdeptTwinned,
-            // primalConstitution,
-            // primalStrength,
-            // shady,
+            featShady,
             featWiseDefense,
             featWisePrecision);
+
+        feats.AddRange(metaMagicFeats);
 
         GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             featArcaneDefense,
@@ -672,60 +482,20 @@ internal static class ZappaFeats
             featCharismaticPrecision,
             featWisePrecision);
 
-        GroupFeats.MakeGroup("FeatGroupMetamagic", null,
-            featMetamagicAdeptCareful,
-            featMetamagicAdeptDistant,
-            featMetamagicAdeptEmpowered,
-            featMetamagicAdeptExtended,
-            featMetamagicAdeptHeightened,
-            featMetamagicAdeptQuickened,
-            featMetamagicAdeptTwinned);
+        GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
     }
 }
 
-internal sealed class FeatureDefinitionMetamagicOptionBuilder : DefinitionBuilder<
-    FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
-{
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =
-        CreateAndAddToDB(MetamagicCarefullSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnDistant =
-        CreateAndAddToDB(MetamagicDistantSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnEmpowered =
-        CreateAndAddToDB(MetamagicEmpoweredSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnExtended =
-        CreateAndAddToDB(MetamagicExtendedSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnHeightened =
-        CreateAndAddToDB(MetamagicHeightenedSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnQuickened =
-        CreateAndAddToDB(MetamagicQuickenedSpell);
-
-    internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnTwinned =
-        CreateAndAddToDB(MetamagicTwinnedSpell);
-
-    private FeatureDefinitionMetamagicOptionBuilder(MetamagicOptionDefinition metamagicOption)
-        : base($"MetamagicLearn{metamagicOption.Name}", CeNamespaceGuid)
-    {
-        Definition.MetamagicOption = metamagicOption;
-    }
-
-    private static FeatureDefinitionMetamagicOption CreateAndAddToDB(MetamagicOptionDefinition metamagicOption)
-    {
-        return new FeatureDefinitionMetamagicOptionBuilder(metamagicOption)
-            .SetGuiPresentationNoContent()
-            .AddToDB();
-    }
-}
-
-internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFeatureDefinitionCustomCode
+internal sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
 {
     private bool MetamagicTrained { get; set; }
 
-    internal MetamagicOptionDefinition MetamagicOption { get; set; }
+    private MetamagicOptionDefinition MetamagicOption { get; }
+
+    public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
+    {
+        MetamagicOption = metamagicOption;
+    }
 
     public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
     {
