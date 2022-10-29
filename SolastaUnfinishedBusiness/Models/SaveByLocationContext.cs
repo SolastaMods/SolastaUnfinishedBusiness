@@ -12,8 +12,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SaveByLocationContext
 {
-    private const string CotmCampaign = "CrownOfTheMagister";
-    private const string VotpCampaign = "DLC1_ValleyOfThePast_Campaign";
+    private const string CrownOfTheMagister = "CrownOfTheMagister";
+    private const string ValleyOfThePast = "DLC1_ValleyOfThePast_Campaign";
     private const string UserCampaign = "UserCampaign";
     private const string LocationSaveFolder = @"CE\Location";
     private const string CampaignSaveFolder = @"CE\Campaign";
@@ -27,7 +27,47 @@ internal static class SaveByLocationContext
     private static readonly string CampaignSaveGameDirectory =
         Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
 
-    internal static GameObject Dropdown { get; set; }
+    private static List<UserLocation> _allLocations;
+
+    private static List<UserCampaign> _allCampaigns;
+
+    internal static GameObject Dropdown { get; private set; }
+
+    private static List<UserLocation> AllLocations
+    {
+        get
+        {
+            if (_allLocations != null)
+            {
+                return _allLocations;
+            }
+
+            var userLocationPoolService = ServiceRepository.GetService<IUserLocationPoolService>();
+
+            userLocationPoolService.EnumeratePool(out _, new List<string>());
+            _allLocations = userLocationPoolService.AllLocations;
+
+            return _allLocations;
+        }
+    }
+
+    private static List<UserCampaign> AllCampaigns
+    {
+        get
+        {
+            if (_allCampaigns != null)
+            {
+                return _allCampaigns;
+            }
+
+            var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
+
+            userCampaignPoolService.EnumeratePool(out _, new List<string>());
+            _allCampaigns = userCampaignPoolService.AllCampaigns;
+
+            return _allCampaigns;
+        }
+    }
 
     internal static void LateLoad()
     {
@@ -143,25 +183,15 @@ internal static class SaveByLocationContext
 
         var guiDropdown = CreateOrActivateDropdown();
 
-        // get all user locations
-        var userLocationPoolService = ServiceRepository.GetService<IUserLocationPoolService>();
-        userLocationPoolService.EnumeratePool(out _, new List<string>());
-        var allLocations = userLocationPoolService.AllLocations;
-
-        // get all user campaigns
-        var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
-        userCampaignPoolService.EnumeratePool(out _, new List<string>());
-        var allCampaigns = userCampaignPoolService.AllCampaigns;
-
         // populate the dropdown
         guiDropdown.ClearOptions();
 
         // add them together - each block sorted - can we have separators?
         var userContentList =
-            allCampaigns
+            AllCampaigns
                 .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                 .OrderBy(l => l.Title)
-                .Concat(allLocations
+                .Concat(AllLocations
                     .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
                     .OrderBy(l => l.Title)
                 )
@@ -358,7 +388,7 @@ internal static class SaveByLocationContext
                 CampaignOrLocationName = location;
             }
             // this check not really needed, could just be !string.IsNullOrWhiteSpace(camp)
-            else if (camp != CotmCampaign && camp != VotpCampaign && !string.IsNullOrWhiteSpace(camp))
+            else if (camp != CrownOfTheMagister && camp != ValleyOfThePast && !string.IsNullOrWhiteSpace(camp))
             {
                 // User campaign
                 SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
