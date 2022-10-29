@@ -210,13 +210,14 @@ internal static class Infusions
         BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, level);
         //RAW they are level 14, but at 10 you get much better Winged Boots
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, level);
+        //RAW they are level 10, but at 10 you get Winged Boots and Slippers Of Spider Climbing
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, level);
 
         #endregion
 
         #region Level 10
 
         level = 10;
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.BroochOfShielding, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfProtection, level);
