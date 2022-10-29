@@ -15,11 +15,11 @@ internal static class InventoryManagementContext
 {
     private static readonly List<string> SortCategories = new()
     {
-        Gui.Localize("UI/&InventoryFilterName"),
-        Gui.Localize("UI/&InventoryFilterCategory"),
-        Gui.Localize("UI/&InventoryFilterCost"),
-        Gui.Localize("UI/&InventoryFilterWeight"),
-        Gui.Localize("UI/&InventoryFilterCostPerWeight")
+        "UI/&InventoryFilterName",
+        "UI/&InventoryFilterCategory",
+        "UI/&InventoryFilterCost",
+        "UI/&InventoryFilterWeight",
+        "UI/&InventoryFilterCostPerWeight"
     };
 
     private static readonly List<RulesetItem> FilteredItems = new();
@@ -153,7 +153,7 @@ internal static class InventoryManagementContext
         SortGuiDropdown.ClearOptions();
         SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = x }));
+        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = Gui.Localize(x) }));
 
         SortGuiDropdown.AddOptions(sortOptions);
         SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
