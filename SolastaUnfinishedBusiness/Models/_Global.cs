@@ -65,11 +65,11 @@ internal static class Global
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
-        Main.Logger.Log(characterAction.ActionDefinition.Name);
-
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
         CastedSpell = null;
+
+        Main.Logger.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
 
         switch (characterAction)
         {
@@ -77,17 +77,17 @@ internal static class Global
                 CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
 
                 // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
-                characterAction.actionParams.BoolParameter5 =
-                    Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
+                characterAction.actionParams.BoolParameter5 = isShiftPressed;
                 break;
+
             case CharacterActionReady actionReady:
                 CustomReactionsContext.ReadReadyActionPreferredCantrip(actionReady.actionParams);
-
                 break;
+
             case CharacterActionSpendPower spendPower:
                 PowersBundleContext.SpendBundledPowerIfNeeded(spendPower);
-
                 break;
         }
     }

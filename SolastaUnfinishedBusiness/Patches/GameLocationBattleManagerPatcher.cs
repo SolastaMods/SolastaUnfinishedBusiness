@@ -570,8 +570,6 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
-            Main.Logger.Log("HandleCharacterMagicalAttackDamage");
-
             //PATCH: set critical strike global variable
             Global.CriticalHit = criticalHit;
 
