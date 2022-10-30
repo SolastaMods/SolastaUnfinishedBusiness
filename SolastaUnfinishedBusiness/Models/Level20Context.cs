@@ -308,9 +308,7 @@ internal static class Level20Context
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetAbilityScoreChoice, 16),
-            new(druidBeastSpells, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
+            new(FeatureSetAbilityScoreChoice, 16), new(druidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Druid Arch Druid
         });
 

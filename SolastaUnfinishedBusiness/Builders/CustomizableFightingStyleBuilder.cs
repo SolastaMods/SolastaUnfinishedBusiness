@@ -2,13 +2,12 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
 [UsedImplicitly]
-internal class CustomizableFightingStyleBuilder 
+internal class CustomizableFightingStyleBuilder
     : DefinitionBuilder<CustomFightingStyleDefinition, CustomizableFightingStyleBuilder>
 {
     protected CustomizableFightingStyleBuilder(string name, Guid guid) : base(name, guid)

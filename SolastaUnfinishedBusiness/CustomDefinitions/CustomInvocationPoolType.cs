@@ -25,7 +25,7 @@ internal class CustomInvocationPoolType
     internal string RequireClassLevels { get; private set; }
 
     internal AssetReferenceSprite Sprite { get; private set; }
-    
+
     internal List<int> AllLevels { get; } = new();
     internal List<CustomInvocationDefinition> AllFeatures { get; } = new();
 

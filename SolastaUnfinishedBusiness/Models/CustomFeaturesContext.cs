@@ -441,6 +441,7 @@ internal static class CustomFeaturesContext
         {
             return int.MaxValue;
         }
+
         if (power.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
         {
             return character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints;

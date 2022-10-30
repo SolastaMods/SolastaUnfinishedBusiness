@@ -380,7 +380,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
     {
-        return attackMode is {SourceDefinition: ItemDefinition item} && IsMonkWeapon(character, item);
+        return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
     }
 
     private static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)

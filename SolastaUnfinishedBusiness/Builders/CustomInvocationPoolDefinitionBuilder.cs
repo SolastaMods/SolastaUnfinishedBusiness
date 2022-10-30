@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class CustomInvocationPoolDefinitionBuilder 
+internal class CustomInvocationPoolDefinitionBuilder
     : DefinitionBuilder<CustomInvocationPoolDefinition, CustomInvocationPoolDefinitionBuilder>
 {
     protected CustomInvocationPoolDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

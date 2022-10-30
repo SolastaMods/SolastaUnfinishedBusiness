@@ -4,7 +4,8 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal static class DiceByRankBuilder
 {
-    internal static List<DiceByRank> BuildDiceByRankTable(int startDamage = 0, int incrementDamage = 1, int step = 1, int begin = 1)
+    internal static List<DiceByRank> BuildDiceByRankTable(
+        int startDamage = 0, int incrementDamage = 1, int step = 1, int begin = 1)
     {
         var result = new List<DiceByRank>();
 
