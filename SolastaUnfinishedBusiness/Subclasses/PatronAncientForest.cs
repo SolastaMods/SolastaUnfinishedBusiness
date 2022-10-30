@@ -348,7 +348,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            throw new NotImplementedException();
+            // empty
         }
 
         public void AfterOnMagicalAttackDamage(
