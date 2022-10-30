@@ -240,6 +240,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IOnAttackDamageEffect`
             var character = attacker.RulesetCharacter;
 
+#if false
             if (character != null)
             {
                 foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
@@ -248,6 +249,7 @@ public static class GameLocationBattleManagerPatcher
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
+#endif
 
             while (__result.MoveNext())
             {
@@ -581,11 +583,13 @@ public static class GameLocationBattleManagerPatcher
             var features = attacker.RulesetActor.GetSubFeaturesByType<IOnMagicalAttackDamageEffect>();
 
             //call all before handlers
+#if false
             foreach (var feature in features)
             {
                 feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
+#endif
 
             while (values.MoveNext())
             {

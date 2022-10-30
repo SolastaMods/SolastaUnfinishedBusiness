@@ -4,7 +4,8 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IOnAttackDamageEffect
 {
-    public void BeforeOnAttackDamage(
+#if false
+    public void BeforeOnAttackDamage1(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
@@ -15,6 +16,7 @@ public interface IOnAttackDamageEffect
         RulesetEffect rulesetEffect,
         bool criticalHit,
         bool firstTarget);
+#endif
 
     public void AfterOnAttackDamage(
         GameLocationCharacter attacker,

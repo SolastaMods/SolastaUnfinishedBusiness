@@ -104,21 +104,6 @@ internal static class ElAntoniousFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void BeforeOnAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            [CanBeNull] RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
-            // empty
-        }
-
         public void AfterOnAttackDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

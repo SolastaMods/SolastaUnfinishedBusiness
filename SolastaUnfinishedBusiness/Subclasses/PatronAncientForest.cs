@@ -338,18 +338,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
 
     private sealed class OnMagicalAttackDamageEffectAncientForestLifeSap : IOnMagicalAttackDamageEffect
     {
-        public void BeforeOnMagicalAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            // empty
-        }
-
         public void AfterOnMagicalAttackDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

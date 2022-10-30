@@ -222,17 +222,6 @@ internal static class EwFeats
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void BeforeOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            // empty
-        }
-
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
