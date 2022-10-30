@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -25,7 +25,7 @@ internal static class FightingStyleFeats
         // we need a brand new one to avoid issues with FS getting hidden
         var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
 
-        return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+        return FeatDefinitionWithPrerequisitesBuilder
             .Create($"Feat{fightingStyle.Name}")
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
@@ -34,16 +34,7 @@ internal static class FightingStyleFeats
                     .SetGuiPresentation(guiPresentation)
                     .AddToDB()
             )
-            .SetValidators((_, hero) =>
-            {
-                var hasFightingStyle = hero.TrainedFightingStyles
-                    .Any(x => x.Name == fightingStyle.Name);
-
-                var guiFormat = Gui.Format("Tooltip/&FeatPreReqDoesNotHaveFightingStyle",
-                    fightingStyle.FormatTitle());
-
-                return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
-            })
+            .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
             .SetGuiPresentation(guiPresentation)
             .AddToDB();
     }

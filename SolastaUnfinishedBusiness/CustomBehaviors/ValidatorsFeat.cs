@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -11,7 +12,8 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
-    internal static (bool, string) IsElfOrHalfElf(FeatDefinitionWithPrerequisites _,
+    internal static (bool, string) IsElfOrHalfElf(
+        FeatDefinitionWithPrerequisites _,
         [NotNull] RulesetCharacterHero hero)
     {
         var isElf = hero.RaceDefinition.Name.Contains(DatabaseHelper.CharacterRaceDefinitions.Elf.Name);
@@ -25,6 +27,37 @@ internal static class ValidatorsFeat
             : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
     }
 
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
+        [NotNull] BaseDefinition baseDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasFightingStyle = hero.TrainedFightingStyles.Any(x => x.Name == baseDefinition.Name);
+            var guiFormat = Gui.Format("Tooltip/&FeatPreReqDoesNotHaveFightingStyle", baseDefinition.FormatTitle());
+
+            return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
+        [NotNull] CharacterClassDefinition characterClassDefinition)
+    {
+        var className = characterClassDefinition.FormatTitle();
+
+        return (_, hero) =>
+        {
+            var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
+            var guiFormat = Gui.Format("Tooltip/&FeatPreReqIsNot", className);
+
+            return isNotClass
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        };
+    }
+
+#if false
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
@@ -54,21 +87,5 @@ internal static class ValidatorsFeat
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
-
-    [NotNull]
-    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
-        [NotNull] CharacterClassDefinition characterClassDefinition)
-    {
-        var className = characterClassDefinition.FormatTitle();
-
-        return (_, hero) =>
-        {
-            var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
-            var guiFormat = Gui.Format("Tooltip/&FeatPreReqIsNot", className);
-
-            return isNotClass
-                ? (true, guiFormat)
-                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
-        };
-    }
+#endif
 }

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinityMarksmanReactionShot:2cc507e7e520afa48980281b818828bc"
+    "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMarksmanTitle",
-    "description": "Feat/&FeatMarksmanDescription",
+    "title": "Feat/&FeatDualWeaponDefenseTitle",
+    "description": "Feat/&FeatDualWeaponDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a5a19fca-534d-57f8-a2c2-a27aa7f190bd",
+  "guid": "6bf7da81-c996-51e3-b723-6d9c4878a8ea",
   "contentPack": 9999,
-  "name": "FeatMarksman"
+  "name": "FeatDualWeaponDefense"
 }

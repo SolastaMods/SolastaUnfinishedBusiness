@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -282,66 +281,60 @@ internal static class ZappaFeats
         var deadEye = BuildDeadEye();
 
         // Dual Weapon Defense
-        var featDualWeaponDefense =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatDualWeaponDefense")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(AttributeModifierSwiftBladeBladeDance)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .AddToDB();
+        var featDualWeaponDefense = FeatDefinitionBuilder
+            .Create("FeatDualWeaponDefense")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierSwiftBladeBladeDance)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
 
         // Elven Accuracy (Dexterity)
-        var featElvenAccuracyDexterity =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatElvenAccuracyDexterity")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
-                .SetValidators(IsElfOrHalfElf)
-                .SetFeatFamily(ElvenPrecision)
-                .SetCustomSubFeatures(new ElvenPrecisionContext())
-                .AddToDB();
+        var featElvenAccuracyDexterity = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatElvenAccuracyDexterity")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
+            .SetValidators(IsElfOrHalfElf)
+            .SetFeatFamily(ElvenPrecision)
+            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .AddToDB();
 
         // Elven Accuracy (Intelligence)
-        var featElvenAccuracyIntelligence =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatElvenAccuracyIntelligence")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
-                .SetValidators(IsElfOrHalfElf)
-                .SetFeatFamily(ElvenPrecision)
-                .SetCustomSubFeatures(new ElvenPrecisionContext())
-                .AddToDB();
+        var featElvenAccuracyIntelligence = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatElvenAccuracyIntelligence")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
+            .SetValidators(IsElfOrHalfElf)
+            .SetFeatFamily(ElvenPrecision)
+            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .AddToDB();
 
         // Elven Accuracy (Wisdom)
-        var featElvenAccuracyWisdom =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatElvenAccuracyWisdom")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
-                .SetValidators(IsElfOrHalfElf)
-                .SetFeatFamily(ElvenPrecision)
-                .SetCustomSubFeatures(new ElvenPrecisionContext())
-                .AddToDB();
+        var featElvenAccuracyWisdom = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatElvenAccuracyWisdom")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
+            .SetValidators(IsElfOrHalfElf)
+            .SetFeatFamily(ElvenPrecision)
+            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .AddToDB();
 
         // Elven Accuracy (Charisma)
-        var featElvenAccuracyCharisma =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatElvenAccuracyCharisma")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
-                .SetValidators(IsElfOrHalfElf)
-                .SetFeatFamily(ElvenPrecision)
-                .SetCustomSubFeatures(new ElvenPrecisionContext())
-                .AddToDB();
+        var featElvenAccuracyCharisma = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatElvenAccuracyCharisma")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
+            .SetValidators(IsElfOrHalfElf)
+            .SetFeatFamily(ElvenPrecision)
+            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .AddToDB();
 
         // Marksman
-        var featMarksman =
-            FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatMarksman")
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(ActionAffinityMarksmanReactionShot)
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .AddToDB();
+        var featMarksman = FeatDefinitionBuilder
+            .Create("FeatMarksman")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(ActionAffinityMarksmanReactionShot)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
 
         // Metamagic
         var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
@@ -467,7 +460,8 @@ internal static class ZappaFeats
             featCharismaticDefense,
             featWiseDefense);
 
-        GroupFeats.MakeGroup(FeatDefinitionWithPrerequisitesBuilder
+        GroupFeats.MakeGroup(
+            FeatDefinitionWithPrerequisitesBuilder
                 .Create("FeatGroupElvenAccuracy")
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(IsElfOrHalfElf)
