@@ -20,7 +20,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    internal static readonly HashSet<string> SupportedLanguages = new(); // { "zh-CN" };
+    internal static readonly HashSet<string> SupportedLanguages = new() { "none" };
 
     internal static void Startup()
     {
@@ -80,7 +80,7 @@ internal static class BootContext
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
-        
+
         MerchantContext.Load();
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>

@@ -7,5 +7,6 @@ public interface ITargetReducedToZeroHp
     public IEnumerator HandleCharacterReducedToZeroHp(
         GameLocationCharacter attacker,
         GameLocationCharacter downedCreature,
-        RulesetAttackMode attackMode, RulesetEffect activeEffect);
+        RulesetAttackMode attackMode,
+        RulesetEffect activeEffect);
 }

@@ -29,5 +29,5 @@ public class GroupedFeat : IGroupedFeat
         return feats;
     }
 
-    public bool HideSubFeats { get; } = true;
+    public bool HideSubFeats => true;
 }

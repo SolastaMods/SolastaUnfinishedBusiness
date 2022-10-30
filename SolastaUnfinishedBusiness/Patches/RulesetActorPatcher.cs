@@ -27,9 +27,15 @@ public static class RulesetActorPatcher
         public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
             //PATCH: INotifyConditionRemoval
-            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+            if (rulesetCondition == null || rulesetCondition.ConditionDefinition == null)
             {
-                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
+                return;
+            }
+
+            foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
+                         .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
+            {
+                notifyConditionRemoval.AfterConditionRemoved(__instance, rulesetCondition);
             }
         }
     }

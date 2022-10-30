@@ -578,10 +578,16 @@ public static class RulesetCharacterPatcher
             foreach (var rulesetCondition in __instance.ConditionsByCategory
                          .SelectMany(keyValuePair => keyValuePair.Value))
             {
-                var notifyConditionRemoval = rulesetCondition?.ConditionDefinition
-                    .GetFirstSubFeatureOfType<INotifyConditionRemoval>();
+                if (rulesetCondition.ConditionDefinition == null)
+                {
+                    continue;
+                }
 
-                notifyConditionRemoval?.BeforeDyingWithCondition(__instance, rulesetCondition);
+                foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
+                             .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
+                {
+                    notifyConditionRemoval?.BeforeDyingWithCondition(__instance, rulesetCondition);
+                }
             }
 
             //PATCH: IOnCharacterKill

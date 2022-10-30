@@ -22,12 +22,3 @@ public interface IOnMagicalAttackDamageEffect
         bool firstTarget,
         bool criticalHit);
 }
-
-public delegate void OnMagicalAttackDamageDelegate(
-    GameLocationCharacter attacker,
-    GameLocationCharacter defender,
-    ActionModifier magicModifier,
-    RulesetEffect rulesetEffect,
-    List<EffectForm> actualEffectForms,
-    bool firstTarget,
-    bool criticalHit);

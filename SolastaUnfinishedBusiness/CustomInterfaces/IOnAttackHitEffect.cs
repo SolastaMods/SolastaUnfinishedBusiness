@@ -29,11 +29,3 @@ public interface IOnAttackHitEffect
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);
 }
-
-public delegate void OnAttackHitDelegate(
-    GameLocationCharacter attacker,
-    GameLocationCharacter defender,
-    RuleDefinitions.RollOutcome outcome,
-    CharacterActionParams actionParams,
-    RulesetAttackMode attackMode,
-    ActionModifier attackModifier);
