@@ -430,3 +430,5 @@ Item/&Warhammer_Punisher_Description=This enchanted weapon was created using the
 Item/&Warhammer_Punisher_Title=Punisher Warhammer
 Tooltip/&TagPolearmWeaponTitle=Polearm
 Tooltip/&TagReturningWeaponTitle=Returning
+Item/&HelmOfAwarenessDescription=A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.
+Item/&HelmOfAwarenessTitle=Helm of Awareness
