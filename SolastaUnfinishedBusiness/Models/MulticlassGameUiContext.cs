@@ -367,9 +367,9 @@ internal static class MulticlassGameUiContext
             var i = 0;
             var classesCount = hero.ClassesAndLevels.Count;
             var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
-            var sortedClasses = from entry in hero.ClassesAndLevels
-                orderby entry.Value descending, entry.Key.FormatTitle()
-                select entry;
+            var sortedClasses = hero.ClassesAndLevels
+                .OrderByDescending(entry => entry.Value)
+                .ThenBy(entry => entry.Key.FormatTitle());
 
             foreach (var kvp in sortedClasses)
             {
@@ -521,12 +521,15 @@ internal static class MulticlassGameUiContext
             {
                 autoPrepareTag = feature.AutoPreparedTag;
 
-                foreach (var spells in from preparedSpellsGroup in feature.AutoPreparedSpellsGroups
-                         from spells in preparedSpellsGroup.SpellsList
-                         where spells.SpellLevel == @group.SpellLevel
-                         select spells)
+                foreach (var preparedSpellsGroup in feature.AutoPreparedSpellsGroups)
                 {
-                    group.autoPreparedSpells.Add(spells);
+                    foreach (var spells in preparedSpellsGroup.SpellsList)
+                    {
+                        if (spells.SpellLevel == group.SpellLevel)
+                        {
+                            group.autoPreparedSpells.Add(spells);
+                        }
+                    }
                 }
 
                 foreach (var autoPreparedSpell in group.autoPreparedSpells

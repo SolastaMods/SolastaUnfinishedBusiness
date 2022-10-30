@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 
@@ -71,9 +70,28 @@ internal static class ShieldAttack
 
         shield.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
 
-        return (from modifier in features.OfType<FeatureDefinitionAttributeModifier>()
-            where modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass
-            where modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
-            select modifier.ModifierValue).Sum() > 0;
+        var sum = 0;
+
+        foreach (var feature in features)
+        {
+            var modifier = feature as FeatureDefinitionAttributeModifier;
+
+            if (modifier == null)
+            {
+                continue;
+            }
+
+            if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
+            {
+                continue;
+            }
+
+            if (modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            {
+                sum += modifier.ModifierValue;
+            }
+        }
+
+        return sum > 0;
     }
 }

@@ -162,12 +162,11 @@ public static class RulesetActorPatcher
         {
             var character = GameLocationCharacter.GetFromActor(actor);
 
-            return character.RulesetCharacter is RulesetCharacterHero hero && (from feat in hero.TrainedFeats
-                where feat.Name.Contains(ZappaFeats.ElvenAccuracyTag)
-                select feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>()
-                into context
-                where context != null
-                select context).Any(sub => sub.Qualified);
+            return character.RulesetCharacter is RulesetCharacterHero hero && hero.TrainedFeats
+                .Where(feat => feat.Name.Contains(ZappaFeats.ElvenAccuracyTag))
+                .Select(feat => feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>())
+                .Where(context => context != null)
+                .Any(sub => sub.Qualified);
         }
 
         private static int Roll3DicesAndKeepBest(

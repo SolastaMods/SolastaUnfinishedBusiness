@@ -389,10 +389,27 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
 
-        var bonus = (from modifier in features.OfType<FeatureDefinitionAttributeModifier>()
-            where modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass
-            where modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
-            select modifier.ModifierValue).Sum();
+        var bonus = 0;
+
+        foreach (var feature in features)
+        {
+            var modifier = feature as FeatureDefinitionAttributeModifier;
+
+            if (modifier == null)
+            {
+                continue;
+            }
+
+            if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
+            {
+                continue;
+            }
+
+            if (modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            {
+                bonus += modifier.ModifierValue;
+            }
+        }
 
         if (offHandItem.ItemDefinition.Magical || bonus > 0)
         {

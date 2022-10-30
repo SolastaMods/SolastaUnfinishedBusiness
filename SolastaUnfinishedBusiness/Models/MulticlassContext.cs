@@ -554,13 +554,14 @@ internal static class MulticlassContext
         }
 
         // replace features per mc rules
-        foreach (var featureNameToReplace in from featureNameToReplace in FeaturesToReplace
-                 let count = filteredFeatureUnlockByLevels.RemoveAll(
-                     x => x.FeatureDefinition == featureNameToReplace.Key)
-                 where count > 0
-                 select featureNameToReplace)
+        foreach (var featureNameToReplace in FeaturesToReplace)
         {
-            filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
+            var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition == featureNameToReplace.Key);
+
+            if (count > 0)
+            {
+                filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
+            }
         }
 
         // exclude features per mc rules

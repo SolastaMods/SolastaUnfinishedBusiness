@@ -485,9 +485,17 @@ internal static class CustomFeaturesContext
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        return (from poolPower in character.UsablePowers
-            where poolPower.PowerDefinition == pointPoolPower
-            select poolPower.RemainingUses).FirstOrDefault();
+        foreach (var poolPower in character.UsablePowers)
+        {
+            if (poolPower.PowerDefinition != pointPoolPower)
+            {
+                continue;
+            }
+
+            return poolPower.RemainingUses;
+        }
+
+        return 0;
     }
 
     internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)

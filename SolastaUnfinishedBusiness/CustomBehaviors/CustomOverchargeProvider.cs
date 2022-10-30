@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -32,6 +31,14 @@ internal class CustomOverchargeProvider : ICustomOverchargeProvider
             return 0;
         }
 
-        return (from step in steps where step.Item1 == overcharge select step.Item2).FirstOrDefault();
+        foreach (var (item, i) in steps)
+        {
+            if (item == overcharge)
+            {
+                return i;
+            }
+        }
+
+        return 0;
     }
 }
