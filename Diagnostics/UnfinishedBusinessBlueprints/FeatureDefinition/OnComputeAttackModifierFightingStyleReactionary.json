@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a5850f9c-329f-5d1c-85f3-3ddc4ba10db4",
+  "guid": "893dfd7a-5355-5128-8752-675e52a6698f",
   "contentPack": 9999,
-  "name": "OnComputeAttackModifierFightingStyleTitan"
+  "name": "OnComputeAttackModifierFightingStyleReactionary"
 }

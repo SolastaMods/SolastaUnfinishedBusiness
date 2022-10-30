@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnAttackHitEffect, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle",
+    "description": "Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1a2abf93-483e-5e6e-8408-bc553864469f",
+  "guid": "e2c95a18-2afb-5d56-9c53-06efd1070556",
   "contentPack": 9999,
-  "name": "OnAttackHitEffectFeatSentinel"
+  "name": "OnComputeAttackModifierOpportunistQuickStrike"
 }

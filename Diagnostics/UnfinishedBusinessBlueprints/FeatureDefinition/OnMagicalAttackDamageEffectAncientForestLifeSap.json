@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnComputeAttackModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle",
+    "description": "Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "893dfd7a-5355-5128-8752-675e52a6698f",
+  "guid": "4a62c455-7736-5127-8d8d-3312d7384908",
   "contentPack": 9999,
-  "name": "OnComputeAttackModifierFightingStyleReactionary"
+  "name": "OnMagicalAttackDamageEffectAncientForestLifeSap"
 }
