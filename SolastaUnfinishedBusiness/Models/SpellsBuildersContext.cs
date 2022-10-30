@@ -131,19 +131,6 @@ internal static class SpellsBuildersContext
 
     #endregion
 
-    private static class CustomSpellEffectLevel
-    {
-        internal static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
-    }
-
-    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
-    {
-        public int GetEffectLevel([NotNull] RulesetActor caster)
-        {
-            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-        }
-    }
-
     #region CANTRIPS
 
     private static ConditionDefinition _acidClawCondition;
@@ -1448,138 +1435,156 @@ internal static class SpellsBuildersContext
     }
 
     #endregion
-}
 
-internal sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
-{
-    private readonly string _notificationTag;
-    private readonly SpellDefinition _spell;
+    #region HELPERS
 
-    internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+    private static class CustomSpellEffectLevel
     {
-        _spell = spell;
-        _notificationTag = notificationTag;
+        internal static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
     }
 
-    [CanBeNull]
-    public CharacterActionMagicEffect GetNextMagicEffect(
-        [CanBeNull] CharacterActionMagicEffect baseEffect,
-        CharacterActionAttack triggeredAttack,
-        RollOutcome attackOutcome)
+    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
     {
-        if (baseEffect == null)
+        public int GetEffectLevel([NotNull] RulesetActor caster)
         {
-            return null;
+            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        }
+    }
+
+    private sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
+    {
+        private readonly string _notificationTag;
+        private readonly SpellDefinition _spell;
+
+        internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+        {
+            _spell = spell;
+            _notificationTag = notificationTag;
         }
 
-        var spellEffect = baseEffect as CharacterActionCastSpell;
-        var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
-        var actionParams = baseEffect.actionParams;
-
-        if (actionParams == null)
+        [CanBeNull]
+        public CharacterActionMagicEffect GetNextMagicEffect(
+            [CanBeNull] CharacterActionMagicEffect baseEffect,
+            CharacterActionAttack triggeredAttack,
+            RollOutcome attackOutcome)
         {
-            return null;
-        }
-
-        if (baseEffect.Countered || baseEffect.ExecutionFailed)
-        {
-            return null;
-        }
-
-        if (attackOutcome != RollOutcome.Success
-            && attackOutcome != RollOutcome.CriticalSuccess)
-        {
-            return null;
-        }
-
-        var caster = actionParams.ActingCharacter;
-        var targets = actionParams.TargetCharacters;
-
-        if (caster == null || targets.Count < 2)
-        {
-            return null;
-        }
-
-        var rulesetCaster = caster.RulesetCharacter;
-        var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-        var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
-        var slotLevel = _spell.SpellLevel;
-
-        if (bonusLevelProvider != null)
-        {
-            slotLevel += bonusLevelProvider.GetBonusSlotLevels(rulesetCaster);
-        }
-
-        var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
-
-        for (var i = 1; i < targets.Count; i++)
-        {
-            var rulesetTarget = targets[i].RulesetCharacter;
-
-            if (!string.IsNullOrEmpty(_notificationTag))
+            if (baseEffect == null)
             {
-                GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                return null;
             }
 
-            effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
+            var spellEffect = baseEffect as CharacterActionCastSpell;
+            var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
+            var actionParams = baseEffect.actionParams;
+
+            if (actionParams == null)
+            {
+                return null;
+            }
+
+            if (baseEffect.Countered || baseEffect.ExecutionFailed)
+            {
+                return null;
+            }
+
+            if (attackOutcome != RollOutcome.Success
+                && attackOutcome != RollOutcome.CriticalSuccess)
+            {
+                return null;
+            }
+
+            var caster = actionParams.ActingCharacter;
+            var targets = actionParams.TargetCharacters;
+
+            if (caster == null || targets.Count < 2)
+            {
+                return null;
+            }
+
+            var rulesetCaster = caster.RulesetCharacter;
+            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+            var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
+            var slotLevel = _spell.SpellLevel;
+
+            if (bonusLevelProvider != null)
+            {
+                slotLevel += bonusLevelProvider.GetBonusSlotLevels(rulesetCaster);
+            }
+
+            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
+
+            for (var i = 1; i < targets.Count; i++)
+            {
+                var rulesetTarget = targets[i].RulesetCharacter;
+
+                if (!string.IsNullOrEmpty(_notificationTag))
+                {
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                }
+
+                effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
+            }
+
+            effectSpell.Terminate(true);
+
+            return null;
+        }
+    }
+
+    private sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
+    {
+        public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
+        {
+            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        }
+    }
+
+    private sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
+    {
+        private readonly int _level;
+        private readonly EffectDescription _upgraded;
+
+        internal UpgradeEffectFromLevel(EffectDescription upgraded, int level)
+        {
+            _upgraded = upgraded;
+            _level = level;
         }
 
-        effectSpell.Terminate(true);
-
-        return null;
-    }
-}
-
-internal sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
-{
-    public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
-    {
-        return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-    }
-}
-
-internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
-{
-    private readonly int _level;
-    private readonly EffectDescription _upgraded;
-
-    internal UpgradeEffectFromLevel(EffectDescription upgraded, int level)
-    {
-        _upgraded = upgraded;
-        _level = level;
-    }
-
-    [CanBeNull]
-    public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
-    {
-        var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-        return casterLevel < _level ? null : _upgraded;
-    }
-}
-
-internal sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
-{
-    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
-    {
-        if (caster is not RulesetCharacterHero hero)
+        [CanBeNull]
+        public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
         {
+            var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            return casterLevel < _level ? null : _upgraded;
+        }
+    }
+
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
+            RulesetCharacter caster)
+        {
+            if (caster is not RulesetCharacterHero hero)
+            {
+                return effect;
+            }
+
+            var weapon = hero.GetMainWeapon();
+            if (weapon == null || !weapon.itemDefinition.IsWeapon)
+            {
+                return effect;
+            }
+
+            var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+
+            if (reach <= 1)
+            {
+                return effect;
+            }
+
+            effect.rangeParameter = reach;
             return effect;
         }
-
-        var weapon = hero.GetMainWeapon();
-        if (weapon == null || !weapon.itemDefinition.IsWeapon)
-        {
-            return effect;
-        }
-
-        var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
-
-        if (reach <= 1)
-        {
-            return effect;
-        }
-
-        effect.rangeParameter = reach;
-        return effect;
     }
+
+    #endregion
 }

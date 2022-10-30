@@ -551,14 +551,19 @@ internal static class StackedMaterialComponent
 
         character.CharacterInventory.EnumerateAllItems(items);
 
-        if ((from item in items
-                let approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs)
-                where item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
-                      approximateCostInGold * item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp
-                select item).Any())
+        foreach (var item in items)
         {
+            var approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
+
+            if (!item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) ||
+                approximateCostInGold * item.StackCount < spellDefinition.SpecificMaterialComponentCostGp)
+            {
+                continue;
+            }
+
             result = true;
             failure = string.Empty;
+            break;
         }
     }
 
@@ -571,6 +576,7 @@ internal static class StackedMaterialComponent
         }
 
         var spell = activeSpell.SpellDefinition;
+
         if (spell.MaterialComponentType != MaterialComponentType.Specific
             || !spell.SpecificMaterialComponentConsumed
             || string.IsNullOrEmpty(spell.SpecificMaterialComponentTag)
