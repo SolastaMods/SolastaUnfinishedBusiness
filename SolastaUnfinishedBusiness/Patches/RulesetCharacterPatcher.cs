@@ -734,8 +734,14 @@ public static class RulesetCharacterPatcher
             //PATCH: support for powers that recharge on turn start
             foreach (var usablePower in __instance.UsablePowers)
             {
-                if (usablePower?.PowerDefinition is not IStartOfTurnRecharge startOfTurnRecharge ||
-                    usablePower.RemainingUses >= usablePower.MaxUses)
+                if (usablePower.RemainingUses >= usablePower.MaxUses)
+                {
+                    continue;
+                }
+
+                var startOfTurnRecharge = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IStartOfTurnRecharge>();
+
+                if (startOfTurnRecharge == null)
                 {
                     continue;
                 }
