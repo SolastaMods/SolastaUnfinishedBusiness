@@ -68,9 +68,12 @@ InfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
 InfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
 InfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
 InfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
 InfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
 InfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
 InfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+InfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
 InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
@@ -120,15 +123,24 @@ Such gems are usually found as holy relics in the temples of Einar, as they can 
 InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
 InvocationCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
 Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+InvocationCreateInfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
+InvocationCreateInfusedReplicaGlovesOfThievery	Description='Create replica <b>Gloves of Thievery</b>:
+These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.'.
 InvocationCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
 InvocationCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
 Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+InvocationCreateInfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
+InvocationCreateInfusedReplicaHelmOfAwareness	Description='Create replica <b>Helm of Awareness</b>:
+A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.'.
 InvocationCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
 InvocationCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
 You can use an action to speak the horn's command word, and then blow the horn, which emits a thunderous blast in a 6-cell cone that is audible 120 cells away. Each creature in the cone must make a DC 15 constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
 InvocationCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
 InvocationCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
 These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
+InvocationCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
+InvocationCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
 InvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 InvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
 A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
@@ -186,15 +198,24 @@ Such gems are usually found as holy relics in the temples of Einar, as they can 
 PowerCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
 PowerCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
 Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+PowerCreateInfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
+PowerCreateInfusedReplicaGlovesOfThievery	Description='Create replica <b>Gloves of Thievery</b>:
+These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.'.
 PowerCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
 PowerCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
 Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+PowerCreateInfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
+PowerCreateInfusedReplicaHelmOfAwareness	Description='Create replica <b>Helm of Awareness</b>:
+A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.'.
 PowerCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
 PowerCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
 You can use an action to speak the horn's command word, and then blow the horn, which emits a thunderous blast in a 6-cell cone that is audible 120 cells away. Each creature in the cone must make a DC 15 constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
 PowerCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
 PowerCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
 These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
+PowerCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
+PowerCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
 PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
 A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.

@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 6,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsOfStridingAndSpringing:72fc9ef4-5ac2-5a14-8fc0-f0531ece3bbc",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaGlovesOfThievery:237d4bfd-1e9a-5e0b-a860-fd7ce6f976cf",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Boots of Striding and Springing",
-    "description": "Create replica <b>Boots of Striding and Springing</b>:\nDefineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. ",
+    "title": "Replica Gloves of Thievery",
+    "description": "Create replica <b>Gloves of Thievery</b>:\nThese gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "996298a6ee823934faf7eff18218a09b",
-      "m_SubObjectName": "BootsOfStridingAndSpringing",
+      "m_AssetGUID": "81430ed821bc06b4bb0a5dc15d2c6c0f",
+      "m_SubObjectName": "GlovesOfMissileSnaring",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e2c31d2f-8fd3-5ebb-9d8c-fed786cdc69c",
+  "guid": "f4266c08-8e4b-5d8d-96fc-a6b7f6ac8494",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBootsOfStridingAndSpringing"
+  "name": "InvocationCreateInfusedReplicaGlovesOfThievery"
 }
