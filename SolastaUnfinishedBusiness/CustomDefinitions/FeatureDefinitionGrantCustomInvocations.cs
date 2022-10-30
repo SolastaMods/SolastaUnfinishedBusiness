@@ -11,17 +11,19 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
 {
     internal List<CustomInvocationDefinition> Invocations { get; } = new();
 
-
     internal static void GrantInvocations(
         RulesetCharacterHero hero,
         string tag,
-        List<FeatureDefinition> grantedFeatures
-    )
+        List<FeatureDefinition> grantedFeatures)
     {
         var features = grantedFeatures
             .OfType<FeatureDefinitionGrantCustomInvocations>()
             .ToList();
-        if (features.Empty()) { return; }
+
+        if (features.Empty())
+        {
+            return;
+        }
 
         var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
@@ -31,14 +33,19 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
         }
     }
 
-    internal static void RemoveInvocations(RulesetCharacterHero hero,
+    internal static void RemoveInvocations(
+        RulesetCharacterHero hero,
         string tag,
         List<FeatureDefinition> removedFeatures)
     {
         var features = removedFeatures
             .OfType<FeatureDefinitionGrantCustomInvocations>()
             .ToList();
-        if (features.Empty()) { return; }
+
+        if (features.Empty())
+        {
+            return;
+        }
 
         var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
 

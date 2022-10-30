@@ -13,7 +13,7 @@ internal class CustomInvocationPoolType
 {
     private static readonly List<CustomInvocationPoolType> pools = new();
 
-    private readonly Dictionary<int, List<CustomInvocationDefinition>> featuresByLevel = new();
+    private static readonly Dictionary<int, List<CustomInvocationDefinition>> featuresByLevel = new();
 
     private CustomInvocationPoolType()
     {
@@ -25,8 +25,8 @@ internal class CustomInvocationPoolType
     internal string RequireClassLevels { get; private set; }
 
     internal AssetReferenceSprite Sprite { get; private set; }
-
-    [NotNull] internal List<int> AllLevels { get; } = new();
+    
+    internal List<int> AllLevels { get; } = new();
     internal List<CustomInvocationDefinition> AllFeatures { get; } = new();
 
     internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";

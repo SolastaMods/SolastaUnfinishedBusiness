@@ -10,8 +10,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 /// <summary>
 ///     Grants you immunity to opportunity attacks when the attacker has the specified condition (inflicted by you).
 /// </summary>
-internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition,
-    ICombatAffinityProvider
+internal sealed class FeatureDefinitionOpportunityAttackImmunity : FeatureDefinition, ICombatAffinityProvider
 {
     internal string ConditionName { get; set; }
 
@@ -56,7 +55,7 @@ internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCon
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
-    : DefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition,
+    : DefinitionBuilder<FeatureDefinitionOpportunityAttackImmunity,
         FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
 {
     protected FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name,

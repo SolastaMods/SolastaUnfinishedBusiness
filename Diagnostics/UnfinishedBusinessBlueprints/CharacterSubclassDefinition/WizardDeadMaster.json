@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillDeadMasterUndeadChains:71e76e05-c94c-5404-936c-f85fec89d6b1",
+      "featureDefinition": "Definition:DeadMasterUndeadChains:c40d34e4-d9da-5c1d-88ff-ad3971ec7ff5",
       "level": 6
     },
     {

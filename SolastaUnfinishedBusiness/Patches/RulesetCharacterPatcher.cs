@@ -578,10 +578,10 @@ public static class RulesetCharacterPatcher
             foreach (var rulesetCondition in __instance.ConditionsByCategory
                          .SelectMany(keyValuePair => keyValuePair.Value))
             {
-                if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-                {
-                    notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
-                }
+                var notifyConditionRemoval = rulesetCondition?.ConditionDefinition
+                    .GetFirstSubFeatureOfType<INotifyConditionRemoval>();
+
+                notifyConditionRemoval?.BeforeDyingWithCondition(__instance, rulesetCondition);
             }
 
             //PATCH: IOnCharacterKill
@@ -592,12 +592,7 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            var features = new List<FeatureDefinition>();
-
-            attacker.EnumerateFeaturesToBrowse<IOnCharacterKill>(features);
-
-            // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
-            foreach (IOnCharacterKill characterKill in features)
+            foreach (var characterKill in attacker.GetSubFeaturesByType<IOnCharacterKill>())
             {
                 characterKill.OnCharacterKill(GameLocationCharacter.GetFromActor(__instance));
             }

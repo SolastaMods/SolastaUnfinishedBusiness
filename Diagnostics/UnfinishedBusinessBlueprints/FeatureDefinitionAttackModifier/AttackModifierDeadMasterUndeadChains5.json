@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnCharacterKillDeadMasterUndeadChainsTitle",
-    "description": "Feature/&OnCharacterKillDeadMasterUndeadChainsDescription",
+    "title": "Feature/&DeadMasterUndeadChainsTitle",
+    "description": "Feature/&DeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

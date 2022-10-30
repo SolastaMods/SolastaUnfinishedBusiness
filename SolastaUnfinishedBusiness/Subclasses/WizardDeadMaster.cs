@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -33,14 +34,14 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
-        var onCharacterKillDeadMasterStarkHarvest = FeatureDefinitionOnCharacterKillBuilder
+        var onCharacterKillDeadMasterStarkHarvest = FeatureDefinitionBuilder
             .Create("OnCharacterKillDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
-            .SetOnCharacterKill(OnStarkHarvestKill)
+            .SetCustomSubFeatures(new OnCharacterKillDeadMasterStarkHarvest())
             .AddToDB();
 
-        var onCharacterKillDeadMasterUndeadChains = FeatureDefinitionOnCharacterKillBuilder
-            .Create("OnCharacterKillDeadMasterUndeadChains")
+        var onCharacterKillDeadMasterUndeadChains = FeatureDefinitionBuilder
+            .Create("DeadMasterUndeadChains")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -49,7 +50,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         {
             _ = FeatureDefinitionAttackModifierBuilder
                 .Create($"{AttackModifierDeadMasterUndeadChainsPrefix}{i}")
-                .SetGuiPresentation("OnCharacterKillDeadMasterUndeadChains", Category.Feature)
+                .SetGuiPresentation("DeadMasterUndeadChains", Category.Feature)
                 .SetAttackRollModifier(i)
                 .AddToDB();
         }
@@ -158,37 +159,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         gameLoreService.LearnMonsterKnowledge(monster.MonsterDefinition, KnowledgeLevelDefinitions.Mastered4);
     }
 
-    private static void OnStarkHarvestKill(GameLocationCharacter character)
-    {
-        if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
-        {
-            return;
-        }
-
-        var characterFamily = character.RulesetCharacter.CharacterFamily;
-
-        if (characterFamily == CharacterFamilyDefinitions.Construct.Name
-            || characterFamily == CharacterFamilyDefinitions.Undead.Name)
-        {
-            return;
-        }
-
-        var attacker =
-            actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-            ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-        if (attacker == null)
-        {
-            return;
-        }
-
-        var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
-        var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
-        var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
-
-        attacker.ReceiveHealing(healingReceived, true, attacker.Guid);
-    }
-
     [NotNull]
     private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[]
         GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
@@ -258,5 +228,39 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         return result;
+    }
+
+    private sealed class OnCharacterKillDeadMasterStarkHarvest : IOnCharacterKill
+    {
+        public void OnCharacterKill(GameLocationCharacter character)
+        {
+            if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+            {
+                return;
+            }
+
+            var characterFamily = character.RulesetCharacter.CharacterFamily;
+
+            if (characterFamily == CharacterFamilyDefinitions.Construct.Name
+                || characterFamily == CharacterFamilyDefinitions.Undead.Name)
+            {
+                return;
+            }
+
+            var attacker =
+                actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
+                ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+            if (attacker == null)
+            {
+                return;
+            }
+
+            var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
+            var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
+            var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
+
+            attacker.ReceiveHealing(healingReceived, true, attacker.Guid);
+        }
     }
 }

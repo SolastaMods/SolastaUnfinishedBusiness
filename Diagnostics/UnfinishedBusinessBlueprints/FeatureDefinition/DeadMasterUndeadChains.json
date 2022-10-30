@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&DeadMasterUndeadChainsTitle",
+    "description": "Feature/&DeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "159e653d-1b92-5e8b-9069-e9b0c9badd06",
+  "guid": "c40d34e4-d9da-5c1d-88ff-ad3971ec7ff5",
   "contentPack": 9999,
-  "name": "OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection"
+  "name": "DeadMasterUndeadChains"
 }

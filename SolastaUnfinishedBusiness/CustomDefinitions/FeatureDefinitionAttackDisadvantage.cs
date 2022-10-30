@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 /// <summary>
 ///     Imposes disadvantage when attacking anyone but the source of the specified condition.
 /// </summary>
-internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
+internal sealed class FeatureDefinitionAttackDisadvantage : FeatureDefinition, ICombatAffinityProvider
 {
     internal string ConditionName { get; set; }
 
@@ -59,7 +59,7 @@ internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSource : Feat
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-    : DefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
+    : DefinitionBuilder<FeatureDefinitionAttackDisadvantage,
         FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
 {
     protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(

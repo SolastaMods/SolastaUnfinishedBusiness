@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionOnCharacterKill, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionAttackDisadvantage, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnCharacterKillDeadMasterStarkHarvestTitle",
-    "description": "Feature/&OnCharacterKillDeadMasterStarkHarvestDescription",
+    "title": "Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedTitle",
+    "description": "Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e55e0567-88dd-5bfb-96c3-6fc3643bcf93",
+  "guid": "d957b79d-09b1-50ea-bc79-eafcf59e1577",
   "contentPack": 9999,
-  "name": "OnCharacterKillDeadMasterStarkHarvest"
+  "name": "AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated"
 }
