@@ -88,7 +88,7 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //PATCH: BUGFIX: as of (v1.4.18) game doesn't consider cantrips gained from BonusCantrips feature
+            //BUGFIX: as of (v1.4.20) game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
             //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
@@ -586,21 +586,8 @@ public static class RulesetCharacterPatcher
                 foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
                              .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
                 {
-                    notifyConditionRemoval?.BeforeDyingWithCondition(__instance, rulesetCondition);
+                    notifyConditionRemoval.BeforeDyingWithCondition(__instance, rulesetCondition);
                 }
-            }
-
-            //PATCH: IOnCharacterKill
-            var attacker = Global.ActionCharacter?.RulesetCharacter;
-
-            if (attacker == null)
-            {
-                return;
-            }
-
-            foreach (var characterKill in attacker.GetSubFeaturesByType<IOnCharacterKill>())
-            {
-                characterKill.OnCharacterKill(GameLocationCharacter.GetFromActor(__instance));
             }
         }
     }
@@ -958,8 +945,7 @@ public static class RulesetCharacterPatcher
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
-            var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable",
-                BindingFlags.NonPublic | BindingFlags.Static);
+            var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
             foreach (var instruction in instructions)
             {
@@ -974,7 +960,8 @@ public static class RulesetCharacterPatcher
             }
         }
 
-        private static bool IsFunctionAvailable(RulesetItemDevice device,
+        [UsedImplicitly]
+        public static bool IsFunctionAvailable(RulesetItemDevice device,
             RulesetDeviceFunction function,
             RulesetCharacter character,
             bool inCombat,
