@@ -514,17 +514,17 @@ internal static class Level20Context
 
     private static void SorcererLoad()
     {
-        const string PowerSorcerousRestorationName = "PowerSorcerousRestoration";
+        const string PowerSorcerousRestorationName = "PowerSorcererSorcerousRestoration";
 
         _ = RestActivityDefinitionBuilder
-            .Create("SorcererSorcerousRestoration")
+            .Create("RestActivitySorcererSorcerousRestoration")
+            .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
                 PowerSorcerousRestorationName)
-            .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
             .AddToDB();
 
         var effectFormRestoration = EffectFormBuilder
@@ -538,7 +538,7 @@ internal static class Level20Context
 
         var powerSorcerousRestoration = FeatureDefinitionPowerBuilder
             .Create(PowerSorcerousRestorationName)
-            .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
+            .SetGuiPresentation("PowerSorcererSorcerousRestoration", Category.Feature)
             .SetUsesFixed(ActivationTime.Rest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()

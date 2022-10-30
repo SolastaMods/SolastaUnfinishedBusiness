@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListGnomeNaturalIllusionist:1eb7bbe2-a768-55b0-ad50-52ed16fca38d",
+  "spellListDefinition": "Definition:SpellListGnome:e8e1158e-2db5-551a-ae22-edeb39507b4c",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",

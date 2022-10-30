@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListDraconicKoboldMagic:15bf0e0a-43ec-5fd6-b36e-96dcc19dc24f",
+  "spellListDefinition": "Definition:SpellListDraconicKobold:6d6fbcad-5330-5bb5-958e-a2b75ad198e1",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",

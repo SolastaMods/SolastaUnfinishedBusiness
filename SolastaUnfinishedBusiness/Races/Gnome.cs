@@ -44,17 +44,17 @@ internal static class GnomeRaceBuilder
                 AttributeDefinitions.Charisma)
             .AddToDB();
 
-        var gnomeNaturalIllusionistSpellList = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "SpellListGnomeNaturalIllusionist")
+        var spellListGnome = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListGnome")
             .SetGuiPresentationNoContent()
             .SetSpellsAtLevel(0, SpellDefinitions.AnnoyingBee)
             .FinalizeSpells()
             .AddToDB();
 
-        var gnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
+        var castSpellGnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellGnomeNaturalIllusionist")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellList(gnomeNaturalIllusionistSpellList)
+            .SetSpellList(spellListGnome)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .AddToDB();
 
@@ -89,7 +89,7 @@ internal static class GnomeRaceBuilder
                 SenseNormalVision,
                 SenseDarkvision,
                 savingThrowAffinityGnomeCunningFeature,
-                gnomeNaturalIllusionist,
+                castSpellGnomeNaturalIllusionist,
                 proficiencyGnomeLanguages)
             .AddToDB();
 

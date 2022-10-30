@@ -81,14 +81,14 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .AddToDB();
 
         _ = RestActivityDefinitionBuilder
-            .Create("SpellMasterArcaneDepth")
+            .Create("RestActivitySpellMasterArcaneDepth")
+            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
                 magicAffinitySpellMasterRecovery.Name)
-            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

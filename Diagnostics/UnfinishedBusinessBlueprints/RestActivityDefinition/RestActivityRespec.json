@@ -1,16 +1,16 @@
 {
   "$type": "RestActivityDefinition, Assembly-CSharp",
   "restStage": "AfterRest",
-  "restType": "ShortRest",
-  "condition": "CanUsePower",
-  "functor": "UsePower",
-  "stringParameter": "PowerSorcerousRestoration",
+  "restType": "LongRest",
+  "condition": -1001,
+  "functor": "RestActivityRespec",
+  "stringParameter": "",
   "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSorcerousRestorationTitle",
-    "description": "Feature/&PowerSorcerousRestorationDescription",
+    "title": "RestActivity/&RestActivityRespecTitle",
+    "description": "RestActivity/&RestActivityRespecDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d5afa1d1-64fe-545e-8368-24b10ac56229",
+  "guid": "9adcaf86-4f2d-516c-8690-e4e3995db82b",
   "contentPack": 9999,
-  "name": "SorcererSorcerousRestoration"
+  "name": "RestActivityRespec"
 }

@@ -206,8 +206,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&MonsterInnovationWeaponSteelDefenderTitle",
-    "description": "Monster/&MonsterInnovationWeaponSteelDefenderDescription",
+    "title": "Monster/&InnovationWeaponSteelDefenderTitle",
+    "description": "Monster/&InnovationWeaponSteelDefenderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "476439c7-46b8-5b70-aaa1-b38b8805ebe2",
@@ -227,7 +227,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78ab8f6d-4b14-5d05-8cf2-7bb440c430cc",
+  "guid": "19fbf91b-460d-58ef-89a7-399350fa15d2",
   "contentPack": 9999,
-  "name": "MonsterInnovationWeaponSteelDefender"
+  "name": "InnovationWeaponSteelDefender"
 }

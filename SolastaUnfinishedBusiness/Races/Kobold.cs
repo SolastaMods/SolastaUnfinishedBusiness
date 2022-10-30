@@ -164,8 +164,8 @@ internal static class KoboldRaceBuilder
             .SetUniqueInstance()
             .AddToDB();
 
-        var spellListDraconicKoboldMagic = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKoboldMagic")
+        var spellListDraconicKobold = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKobold")
             .SetGuiPresentationNoContent()
             .ClearSpells()
             .SetSpellsAtLevel(0, SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells.ToArray())
@@ -176,7 +176,7 @@ internal static class KoboldRaceBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDraconicKoboldMagic")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellList(spellListDraconicKoboldMagic)
+            .SetSpellList(spellListDraconicKobold)
             .AddToDB();
 
         var draconicKoboldRacePresentation = Dragonborn.RacePresentation.DeepCopy();

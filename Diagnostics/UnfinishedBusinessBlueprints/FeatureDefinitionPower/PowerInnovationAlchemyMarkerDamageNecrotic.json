@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "FeatureInnovationAlchemyMarkerDamageNecrotic",
-          "conditionDefinition": "Definition:FeatureInnovationAlchemyMarkerDamageNecrotic:dcac02d0-cfe3-5d74-97f7-02198994aa98",
+          "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageNecrotic",
+          "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageNecrotic:07f532b4-0556-57d8-9796-a99240eeaee0",
           "operation": "Add",
           "conditionsList": [
-            "Definition:FeatureInnovationAlchemyMarkerDamageNecrotic:dcac02d0-cfe3-5d74-97f7-02198994aa98"
+            "Definition:ConditionInnovationAlchemyMarkerDamageNecrotic:07f532b4-0556-57d8-9796-a99240eeaee0"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

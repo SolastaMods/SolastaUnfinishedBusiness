@@ -497,7 +497,7 @@ public static class InnovationAlchemy
     private static (FeatureDefinitionPower, IPowerUseValidity) MakeElementToggleMarker(string damage)
     {
         var marker = ConditionDefinitionBuilder
-            .Create($"FeatureInnovationAlchemyMarker{damage}")
+            .Create($"ConditionInnovationAlchemyMarker{damage}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetCustomSubFeatures(ModifiedBombElement.Marker)
@@ -536,7 +536,7 @@ public static class InnovationAlchemy
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"FeatureInnovationAlchemyMarker{DamageTypeFire}")
+                        .Create($"ConditionInnovationAlchemyMarker{DamageTypeFire}")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)

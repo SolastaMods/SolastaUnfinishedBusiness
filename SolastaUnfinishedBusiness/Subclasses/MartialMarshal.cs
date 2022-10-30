@@ -258,7 +258,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Build();
 
         var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
-            .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "AttackMarshalEternalComrade")
+            .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "MonsterAttackMarshalEternalComrade")
             .SetEffectDescription(effectDescription)
             .SetMagical()
             .AddToDB();

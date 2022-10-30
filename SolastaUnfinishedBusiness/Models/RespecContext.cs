@@ -13,7 +13,7 @@ internal static class RespecContext
         (RestActivityDefinition.ActivityCondition)(-1001);
 
     // private const string LevelDownName = "LevelDown";
-    private const string RespecName = "Respec";
+    private const string RespecName = "RestActivityRespec";
 
     // private static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
     //     .Create(LevelDownName)
@@ -64,7 +64,7 @@ internal static class RespecContext
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
-                    "RestActivity/&RespecTitle", "Message/&RespecMultiplayerAbortDescription",
+                    "RestActivity/&RestActivityRespecTitle", "Message/&RespecMultiplayerAbortDescription",
                     "Message/&MessageOkTitle", string.Empty,
                     null, null);
 

@@ -284,7 +284,7 @@ public static class InnovationWeapon
             .AddToDB();
 
         var monster = MonsterDefinitionBuilder
-            .Create("MonsterInnovationWeaponSteelDefender")
+            .Create("InnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
                 CustomIcons.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
             .HideFromDungeonEditor()

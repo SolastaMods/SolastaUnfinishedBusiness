@@ -77,8 +77,8 @@ internal static class DarkelfSubraceBuilder
                 })
             .AddToDB();
 
-        var spellListDarkelfMagic = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelfMagic")
+        var spellListDarkelf = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelf")
             .SetGuiPresentationNoContent()
             .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
             .FinalizeSpells()
@@ -87,7 +87,7 @@ internal static class DarkelfSubraceBuilder
         CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetSpellList(spellListDarkelfMagic)
+            .SetSpellList(spellListDarkelf)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .AddToDB();
 

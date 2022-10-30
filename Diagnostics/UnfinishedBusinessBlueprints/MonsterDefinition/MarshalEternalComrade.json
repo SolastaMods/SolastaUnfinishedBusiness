@@ -77,7 +77,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:AttackMarshalEternalComrade:2880ee9a-07b0-5f38-97da-dbaa1cb0e3c4"
+      "monsterAttackDefinition": "Definition:MonsterAttackMarshalEternalComrade:db6d05ea-8328-50b2-aede-f26570a546fb"
     }
   ],
   "sneakStance": "Stealth",

@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "FeatureInnovationAlchemyMarkerDamagePsychic",
-          "conditionDefinition": "Definition:FeatureInnovationAlchemyMarkerDamagePsychic:15f15061-9822-5590-a2f5-b27b96a3bfd2",
+          "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamagePsychic",
+          "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamagePsychic:7a8c8d9b-b21b-591d-bd52-a6a2ddba9892",
           "operation": "Add",
           "conditionsList": [
-            "Definition:FeatureInnovationAlchemyMarkerDamagePsychic:15f15061-9822-5590-a2f5-b27b96a3bfd2"
+            "Definition:ConditionInnovationAlchemyMarkerDamagePsychic:7a8c8d9b-b21b-591d-bd52-a6a2ddba9892"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
