@@ -85,10 +85,12 @@ internal static class MerchantTypeContext
                 && RangedWeaponTypes.Contains(x.ItemDefinition.WeaponDescription.WeaponType)
                 && x.ItemDefinition.Magical);
 
+        //Only merchants with at least 5 magic items qualify - some (like Hugo Requer or Priest of Pakri)
+        //sell only 1-2 specific items and should not be considered magic item vendors
         var isMagicalEquipment = merchant.StockUnitDescriptions
-            .Any(x =>
+            .Count(x =>
                 x.ItemDefinition.SlotTypes.Any(s => EquipmentSlots.Contains(s))
-                && x.ItemDefinition.Magical);
+                && x.ItemDefinition.Magical) >= 5;
 
         var isPrimedArmorMerchant = merchant.StockUnitDescriptions
             .Any(x =>
@@ -162,7 +164,7 @@ internal static class MerchantContext
     {
         ShopItems.Add((item, type));
     }
-    
+
     private static void AddToShops()
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
@@ -183,7 +185,7 @@ internal static class MerchantContext
             item.inDungeonEditor = true;
         }
     }
-    
+
     internal static void TryAddItemsToUserMerchant(MerchantDefinition merchant)
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
@@ -292,7 +294,7 @@ internal sealed class MerchantFilter
     internal bool? IsMagicalArmor = null;
     internal bool? IsMagicalMeleeWeapon;
     internal bool? IsMagicalRangeWeapon;
-    internal bool? IsMagicalEquipment = null;
+    internal bool? IsMagicalEquipment;
 
     internal bool? IsPrimedArmor = null;
     internal bool? IsPrimedMeleeWeapon;
@@ -321,6 +323,7 @@ internal sealed class MerchantFilter
     internal static readonly MerchantFilter GenericRanged = new() {IsRangeWeapon = true};
     internal static readonly MerchantFilter MagicRanged = new() {IsMagicalRangeWeapon = true};
     internal static readonly MerchantFilter PrimedRanged = new() {IsPrimedRangeWeapon = true};
+    internal static readonly MerchantFilter MagicEquipment = new() {IsMagicalEquipment = true};
     internal static readonly MerchantFilter CraftingManual = new() {IsDocument = true};
 }
 
@@ -361,4 +364,7 @@ internal sealed class ShopItemType
 
     internal static readonly ShopItemType ShopCrafting =
         new(FactionStatusDefinitions.Alliance, MerchantFilter.CraftingManual);
+
+    internal static readonly ShopItemType MagicItemMinor =
+        new(FactionStatusDefinitions.Sympathy, MerchantFilter.MagicEquipment);
 }
