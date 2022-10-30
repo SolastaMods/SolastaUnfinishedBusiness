@@ -35,7 +35,7 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
 
-    private static CustomInvocationPoolDefinition _learn2, _learn4, _unlearn;
+    private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
 
     internal static CharacterClassDefinition Class { get; private set; }
@@ -432,7 +432,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static CustomInvocationPoolDefinition BuildLearn(int points)
+    private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolInfusionLearn" + points)
@@ -441,7 +441,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static CustomInvocationPoolDefinition BuildUnlearn()
+    private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolInventorUnlearnInfusion")

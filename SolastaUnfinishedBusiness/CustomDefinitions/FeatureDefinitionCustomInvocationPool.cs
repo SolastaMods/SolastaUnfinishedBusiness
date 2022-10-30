@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal class CustomInvocationPoolDefinition : FeatureDefinition
+internal class FeatureDefinitionCustomInvocationPool : FeatureDefinition
 {
     internal CustomInvocationPoolType PoolType { get; set; }
 

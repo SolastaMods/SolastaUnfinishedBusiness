@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.CustomInvocationPoolDefinition, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&InvocationPoolInfusionLearn4Title",
-    "description": "Feature/&InvocationPoolInfusionLearn4Description",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3eb04c23-5397-5a01-b78e-579982b25bda",
+  "guid": "3c827867-5407-559c-963a-fb1336626294",
   "contentPack": 9999,
-  "name": "InvocationPoolInfusionLearn4"
+  "name": "InvocationPoolInventorUnlearnInfusion"
 }

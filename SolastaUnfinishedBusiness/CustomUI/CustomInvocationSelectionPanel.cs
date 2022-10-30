@@ -20,7 +20,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private const float SpellsByLevelMargin = 10.0f;
 
     private readonly List<FeaturePool> allPools = new();
-    private readonly List<(string, CustomInvocationPoolDefinition)> gainedCustomFeatures = new();
+    private readonly List<(string, FeatureDefinitionCustomInvocationPool)> gainedCustomFeatures = new();
 
     private readonly Dictionary<PoolId, List<CustomInvocationDefinition>> learnedInvocations = new();
 
@@ -502,7 +502,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
                 .Where(f => f.Level == gainedClassLevel)
                 .Select(f => f.FeatureDefinition))
-            .OfType<CustomInvocationPoolDefinition>()
+            .OfType<FeatureDefinitionCustomInvocationPool>()
             .Select(f => (poolTag, f))
         );
 
@@ -513,7 +513,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedSubclass.FeatureUnlocks
                     .Where(f => f.Level == gainedClassLevel)
                     .Select(f => f.FeatureDefinition))
-                .OfType<CustomInvocationPoolDefinition>()
+                .OfType<FeatureDefinitionCustomInvocationPool>()
                 .Select(f => (poolTag, f))
             );
         }

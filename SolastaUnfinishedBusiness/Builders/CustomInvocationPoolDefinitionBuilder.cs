@@ -6,13 +6,13 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 internal class CustomInvocationPoolDefinitionBuilder
-    : DefinitionBuilder<CustomInvocationPoolDefinition, CustomInvocationPoolDefinitionBuilder>
+    : DefinitionBuilder<FeatureDefinitionCustomInvocationPool, CustomInvocationPoolDefinitionBuilder>
 {
     protected CustomInvocationPoolDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    protected CustomInvocationPoolDefinitionBuilder(CustomInvocationPoolDefinition original, string name,
+    protected CustomInvocationPoolDefinitionBuilder(FeatureDefinitionCustomInvocationPool original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }

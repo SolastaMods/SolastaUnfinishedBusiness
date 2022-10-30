@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine;
@@ -131,6 +130,19 @@ internal static class SpellsBuildersContext
     }
 
     #endregion
+
+    private static class CustomSpellEffectLevel
+    {
+        internal static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
+    }
+
+    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
+    {
+        public int GetEffectLevel([NotNull] RulesetActor caster)
+        {
+            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        }
+    }
 
     #region CANTRIPS
 

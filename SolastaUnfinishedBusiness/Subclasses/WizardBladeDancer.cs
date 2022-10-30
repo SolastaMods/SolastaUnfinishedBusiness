@@ -89,7 +89,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense")
             .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
             .AddFeatures(
-                FeatureDefinitionSpendSpellSlotToReduceDamageBuilder
+                FeatureDefinitionReduceDamageBuilder
                     .Create("ReduceDamageBladeDancerDanceOfDefense")
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")

@@ -11,9 +11,9 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal class CustomInvocationPoolType
 {
-    private static readonly List<CustomInvocationPoolType> pools = new();
+    private static readonly List<CustomInvocationPoolType> PrivatePools = new();
 
-    private static readonly Dictionary<int, List<CustomInvocationDefinition>> featuresByLevel = new();
+    private static readonly Dictionary<int, List<CustomInvocationDefinition>> PrivateFeaturesByLevel = new();
 
     private CustomInvocationPoolType()
     {
@@ -44,7 +44,7 @@ internal class CustomInvocationPoolType
         {
             Name = name, Sprite = sprite, RequireClassLevels = requireClassLevel
         };
-        pools.Add(pool);
+        PrivatePools.Add(pool);
         return pool;
     }
 
@@ -54,7 +54,7 @@ internal class CustomInvocationPoolType
             .OfType<CustomInvocationDefinition>()
             .ToList();
 
-        foreach (var pool in pools)
+        foreach (var pool in PrivatePools)
         {
             pool.Refresh(invocations);
         }
@@ -79,7 +79,7 @@ internal class CustomInvocationPoolType
     internal List<CustomInvocationDefinition> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
-        return (featuresByLevel.TryGetValue(level, out var result) ? result : null)
+        return (PrivateFeaturesByLevel.TryGetValue(level, out var result) ? result : null)
                ?? new List<CustomInvocationDefinition>();
     }
 
@@ -87,23 +87,23 @@ internal class CustomInvocationPoolType
     {
         AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
 
-        featuresByLevel.Clear();
+        PrivateFeaturesByLevel.Clear();
         AllFeatures.ForEach(f => GetOrMakeLevelFeatures(f.requiredLevel).Add(f));
-        AllLevels.SetRange(featuresByLevel.Select(e => e.Key));
+        AllLevels.SetRange(PrivateFeaturesByLevel.Select(e => e.Key));
         AllLevels.Sort();
     }
 
     private List<CustomInvocationDefinition> GetOrMakeLevelFeatures(int level)
     {
         List<CustomInvocationDefinition> levelFeatures;
-        if (!featuresByLevel.ContainsKey(level))
+        if (!PrivateFeaturesByLevel.ContainsKey(level))
         {
             levelFeatures = new List<CustomInvocationDefinition>();
-            featuresByLevel.Add(level, levelFeatures);
+            PrivateFeaturesByLevel.Add(level, levelFeatures);
         }
         else
         {
-            levelFeatures = featuresByLevel[level];
+            levelFeatures = PrivateFeaturesByLevel[level];
         }
 
         return levelFeatures;
@@ -117,6 +117,6 @@ internal class CustomInvocationPoolType
         internal static readonly CustomInvocationPoolType Alchemy =
             Register("Alchemy", DatabaseHelper.ItemDefinitions.AlchemistFire, InventorClass.ClassName);
 
-        internal static List<CustomInvocationPoolType> All => pools;
+        internal static List<CustomInvocationPoolType> All => PrivatePools;
     }
 }

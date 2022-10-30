@@ -360,7 +360,7 @@ public static class GameLocationBattleManagerPatcher
             if (repertoire == null) { yield break; }
 
             foreach (var feature in defenderCharacter
-                         .GetFeaturesByType<FeatureDefinitionSpendSpellSlotToReduceDamage>())
+                         .GetFeaturesByType<FeatureDefinitionReduceDamage>())
             {
                 var atLeastOneSpellSlotAvailable = false;
 

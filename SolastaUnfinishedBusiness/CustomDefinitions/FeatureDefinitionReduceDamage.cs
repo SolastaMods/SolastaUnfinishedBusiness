@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal sealed class FeatureDefinitionSpendSpellSlotToReduceDamage : FeatureDefinition
+internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
 {
     public int ReducedDamage { get; set; }
     public string NotificationTag { get; set; }
