@@ -1,34 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
-
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites,
-    FeatDefinitionWithPrerequisitesBuilder>
-{
-    protected FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
-        Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    internal FeatDefinitionWithPrerequisitesBuilder SetValidators(
-        [NotNull] params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
-            validators)
-    {
-        Definition.Validators.AddRange(validators);
-
-        return this;
-    }
-}
 
 internal sealed class FeatDefinitionWithPrerequisites : FeatDefinition
 {

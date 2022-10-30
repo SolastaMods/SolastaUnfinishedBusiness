@@ -1,8 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -54,23 +51,5 @@ internal sealed class FeatureDefinitionAttackDisadvantage : FeatureDefinition, I
     public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker, float distance)
     {
         return false;
-    }
-}
-
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-    : DefinitionBuilder<FeatureDefinitionAttackDisadvantage,
-        FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
-{
-    protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(
-        name, namespaceGuid)
-    {
-    }
-
-    [NotNull]
-    internal FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
-    {
-        Definition.ConditionName = conditionName;
-        return this;
     }
 }

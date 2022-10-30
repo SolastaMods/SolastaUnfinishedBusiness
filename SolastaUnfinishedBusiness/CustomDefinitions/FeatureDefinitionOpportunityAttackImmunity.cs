@@ -1,8 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
@@ -50,24 +47,5 @@ internal sealed class FeatureDefinitionOpportunityAttackImmunity : FeatureDefini
         return attacker.ConditionsByCategory.SelectMany(keyValuePair => keyValuePair.Value).Any(rulesetCondition =>
             rulesetCondition.SourceGuid == myself.Guid &&
             rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName));
-    }
-}
-
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
-    : DefinitionBuilder<FeatureDefinitionOpportunityAttackImmunity,
-        FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
-{
-    protected FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name,
-        Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    [NotNull]
-    internal FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(
-        string conditionName)
-    {
-        Definition.ConditionName = conditionName;
-        return this;
     }
 }

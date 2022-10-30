@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 
@@ -139,25 +136,5 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
         requirement = Gui.Format(GuiInvocationDefinition.InvocationPrerequisitePactFormat, text);
 
         return valid;
-    }
-}
-
-[UsedImplicitly]
-internal class CustomInvocationDefinitionBuilder : InvocationDefinitionBuilder<CustomInvocationDefinition,
-    CustomInvocationDefinitionBuilder>
-{
-    internal CustomInvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
-    {
-    }
-
-    internal CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
-    {
-        Definition.PoolType = poolType;
-        return this;
     }
 }

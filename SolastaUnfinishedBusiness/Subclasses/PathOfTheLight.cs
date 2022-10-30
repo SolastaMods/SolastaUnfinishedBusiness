@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -32,7 +31,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
-            FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+            FeatureDefinitionAttackDisadvantageBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
                 .SetGuiPresentation(Category.Feature)
                 .SetConditionName(ConditionPathOfTheLightIlluminatedName)
@@ -150,7 +149,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetEnumerateInDescription(false)
             .AddFeatureSet(
-                FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
+                FeatureDefinitionOpportunityAttackImmunityBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
                     .SetGuiPresentationNoContent(true)
                     .SetConditionName(ConditionPathOfTheLightIlluminatedName)

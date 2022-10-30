@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -54,30 +50,4 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
             command.UntrainCharacterFeature(hero, tag, invocation.Name, HeroDefinitions.PointsPoolType.Invocation);
         }
     }
-}
-
-[UsedImplicitly]
-internal class FeatureDefinitionGrantCustomInvocationsBuilder : DefinitionBuilder<
-    FeatureDefinitionGrantCustomInvocations,
-    FeatureDefinitionGrantCustomInvocationsBuilder>
-{
-    internal FeatureDefinitionGrantCustomInvocationsBuilder SetInvocations(
-        params CustomInvocationDefinition[] invocations)
-    {
-        Definition.Invocations.SetRange(invocations);
-        return this;
-    }
-
-    #region Constructors
-
-    internal FeatureDefinitionGrantCustomInvocationsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    internal FeatureDefinitionGrantCustomInvocationsBuilder(FeatureDefinitionGrantCustomInvocations original,
-        string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    #endregion
 }
