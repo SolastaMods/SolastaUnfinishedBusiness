@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -43,10 +42,10 @@ internal static class OtherFeats
             .AddToDB();
 
         // Superior Critical
-        var featSuperiorCritical = FeatDefinitionWithPrerequisitesBuilder
+        var featSuperiorCritical = FeatDefinitionBuilder
             .Create("FeatSuperiorCritical")
             .SetGuiPresentation(Category.Feat)
-            .SetValidators(ValidatorsFeat.ValidateHasFeat(featImprovedCritical))
+            .SetKnownFeatsPrerequisite(featImprovedCritical.Name)
             .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .AddToDB();
 
@@ -68,7 +67,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("FeatShieldExpertBonusShieldAttack")
+                    .Create("AddExtraAttackFeatShieldExpert")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new AddBonusShieldAttack())
                     .AddToDB(),
