@@ -196,6 +196,8 @@ internal static class Infusions
 
         level = 2;
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding, level);
+        //RAW this should be spectacles that don't require attunement
+        BuildCreateItemPowerInvocation(ItemDefinitions.RingDarkvision, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify, level);
         //RAW they are level 6, but at that level you get Cloak Of Elvenkind which is better
@@ -207,6 +209,7 @@ internal static class Infusions
 
         level = 6;
         BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, level);
+        BuildCreateItemPowerInvocation(CustomItemsContext.GlovesOfThievery, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, level);
         //RAW they are level 14, but at 10 you get much better Winged Boots
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, level);
@@ -224,6 +227,7 @@ internal static class Infusions
         BuildCreateItemPowerInvocation(ItemDefinitions.GauntletsOfOgrePower, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.GlovesOfMissileSnaring, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, level);
+        BuildCreateItemPowerInvocation(CustomItemsContext.HelmOfAwareness, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, level);
         BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, level);
 
