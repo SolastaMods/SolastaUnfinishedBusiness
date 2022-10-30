@@ -1,7 +1,10 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿using System;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
@@ -17,6 +20,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronAncientForest : AbstractSubclass
 {
+    private const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
+
     internal PatronAncientForest()
     {
         var spellListAncientForest = SpellListDefinitionBuilder
@@ -37,40 +42,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetExtendedSpellList(spellListAncientForest)
             .AddToDB();
 
-        const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
-
-        var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
+        var lifeSapFeature = FeatureDefinitionBuilder
             .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
-            .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
-            {
-                var caster = attacker.RulesetCharacter;
-
-                if (caster.MissingHitPoints <= 0 ||
-                    !effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
-                {
-                    return;
-                }
-
-                var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
-
-                attacker.UsedSpecialFeatures.TryGetValue(LifeSapName, out var used);
-
-                if (!belowHalfHealth && used != 0)
-                {
-                    return;
-                }
-
-                attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
-
-                var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-                var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
-                var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
-                var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
-
-                GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
-                RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
-            })
+            .SetCustomSubFeatures(new OnMagicalAttackDamageEffectAncientForestLifeSap())
             .AddToDB();
 
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
@@ -360,5 +335,57 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(brewEffect)
             .AddToDB();
+    }
+
+    private sealed class OnMagicalAttackDamageEffectAncientForestLifeSap : IOnMagicalAttackDamageEffect
+    {
+        public void BeforeOnMagicalAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AfterOnMagicalAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var caster = attacker.RulesetCharacter;
+
+            if (caster.MissingHitPoints <= 0 ||
+                !rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            {
+                return;
+            }
+
+            var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
+
+            attacker.UsedSpecialFeatures.TryGetValue(LifeSapName, out var used);
+
+            if (!belowHalfHealth && used != 0)
+            {
+                return;
+            }
+
+            attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
+
+            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+            var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+            var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
+
+            GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+            RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+        }
     }
 }
