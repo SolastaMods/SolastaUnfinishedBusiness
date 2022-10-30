@@ -365,6 +365,18 @@ internal sealed class ShopItemType
     internal static readonly ShopItemType ShopCrafting =
         new(FactionStatusDefinitions.Alliance, MerchantFilter.CraftingManual);
 
-    internal static readonly ShopItemType MagicItemMinor =
+    internal static readonly ShopItemType MagicItemCommon =
+        new(FactionStatusDefinitions.Indifference, MerchantFilter.MagicEquipment);
+
+    internal static readonly ShopItemType MagicItemUncommon =
         new(FactionStatusDefinitions.Sympathy, MerchantFilter.MagicEquipment);
+
+    internal static readonly ShopItemType MagicItemRare =
+        new(FactionStatusDefinitions.Alliance, MerchantFilter.MagicEquipment);
+
+    internal static readonly ShopItemType MagicItemVeryRare =
+        new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicEquipment);
+    
+    internal static readonly ShopItemType MagicItemLegendary =
+        new(FactionStatusDefinitions.LivingLegend, MerchantFilter.MagicEquipment);
 }
