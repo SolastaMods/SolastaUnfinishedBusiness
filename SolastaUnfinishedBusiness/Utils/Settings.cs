@@ -205,6 +205,7 @@ public class Settings : UnityModManager.ModSettings
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = DungeonMakerContext.GamePartySize;
+    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = 1.5f;
 
     // Debug

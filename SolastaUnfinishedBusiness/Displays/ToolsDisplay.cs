@@ -139,13 +139,24 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
-
+        
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
                 DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,
                 DungeonMakerContext.GamePartySize, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
+        }
+
+        if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
+        {
+            UI.Label("");
+
+            toggle = Main.Settings.AllowAllPlayersOnNarrativeSequences;
+            if (UI.Toggle(Gui.Localize("ModUi/&AllowAllPlayersOnNarrativeSequences"), ref toggle))
+            {
+                Main.Settings.AllowAllPlayersOnNarrativeSequences = toggle;
+            }
         }
 
         UI.Label("");
