@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -66,31 +67,12 @@ internal sealed class MartialMarshal : AbstractSubclass
             : 0;
     }
 
-    private static void FeatureSetMarshalKnowYourEnemyComputeAttackModifier(
-        RulesetCharacter myself,
-        RulesetCharacter defender,
-        RulesetAttackMode attackMode,
-        ref ActionModifier attackModifier)
-    {
-        // no spell attack
-        if (attackMode == null || defender == null)
-        {
-            return;
-        }
-
-        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
-
-        attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
-        attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-            FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemyName, null));
-    }
-
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
-        var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionOnComputeAttackModifierBuilder
+        var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentation(FeatureSetMarshalKnowYourEnemyName, Category.Feature)
-            .SetOnComputeAttackModifierDelegate(FeatureSetMarshalKnowYourEnemyComputeAttackModifier)
+            .SetCustomSubFeatures(new OnComputeAttackModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         var additionalDamageMarshalFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
@@ -444,6 +426,28 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .Build())
             .SetShowCasting(false)
             .AddToDB();
+    }
+
+    private sealed class OnComputeAttackModifierMarshalKnowYourEnemy : IOnComputeAttackModifier
+    {
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            // no spell attack
+            if (attackMode == null || defender == null)
+            {
+                return;
+            }
+
+            var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender);
+
+            attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
+            attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
+                FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemyName, null));
+        }
     }
 
     private sealed class StudyEnemyEffectDescription : CustomEffectForm

@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSizeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -14,29 +15,10 @@ internal sealed class Titan : AbstractFightingStyle
         .Create("Titan")
         .SetGuiPresentation(Category.FightingStyle, DomainMischief)
         .SetFeatures(
-            FeatureDefinitionOnComputeAttackModifierBuilder
+            FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleTitan")
                 .SetGuiPresentationNoContent()
-                .SetOnComputeAttackModifierDelegate(
-                    (
-                        RulesetCharacter myself,
-                        RulesetCharacter defender,
-                        RulesetAttackMode attackMode,
-                        ref ActionModifier attackModifier) =>
-                    {
-                        // melee attack only
-                        if (attackMode == null || defender == null ||
-                            (defender.SizeDefinition != Large && defender.SizeDefinition != Huge &&
-                             defender.SizeDefinition != Gargantuan))
-                        {
-                            return;
-                        }
-
-                        // grant +2 hit if defender is large or bigger
-                        attackModifier.attackRollModifier += 2;
-                        attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                            2, RuleDefinitions.FeatureSourceType.FightingStyle, "Titan", myself));
-                    })
+                .SetCustomSubFeatures(new OnComputeAttackModifierFightingStyleTitan())
                 .AddToDB())
         .AddToDB();
 
@@ -44,4 +26,27 @@ internal sealed class Titan : AbstractFightingStyle
     {
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
     };
+
+    private sealed class OnComputeAttackModifierFightingStyleTitan : IOnComputeAttackModifier
+    {
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            // melee attack only
+            if (attackMode == null || defender == null ||
+                (defender.SizeDefinition != Large && defender.SizeDefinition != Huge &&
+                 defender.SizeDefinition != Gargantuan))
+            {
+                return;
+            }
+
+            // grant +2 hit if defender is large or bigger
+            attackModifier.attackRollModifier += 2;
+            attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
+                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Titan", myself));
+        }
+    }
 }

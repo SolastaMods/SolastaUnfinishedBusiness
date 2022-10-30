@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -14,39 +15,10 @@ internal sealed class Executioner : AbstractFightingStyle
         .Create("Executioner")
         .SetGuiPresentation(Category.FightingStyle, PathMagebane)
         .SetFeatures(
-            FeatureDefinitionOnComputeAttackModifierBuilder
+            FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleExecutioner")
                 .SetGuiPresentationNoContent()
-                .SetOnComputeAttackModifierDelegate(
-                    (
-                        RulesetCharacter myself,
-                        RulesetCharacter defender,
-                        RulesetAttackMode attackMode,
-                        ref ActionModifier attackModifier) =>
-                    {
-                        // melee attack only
-                        if (attackMode == null || defender == null)
-                        {
-                            return;
-                        }
-
-                        // grant +2 hit if defender has
-                        // blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned
-                        if (!defender.HasConditionOfType(ConditionBlinded)
-                            && !defender.HasConditionOfType(ConditionFrightened)
-                            && !defender.HasConditionOfType(ConditionRestrained)
-                            && !defender.HasConditionOfType(ConditionIncapacitated)
-                            && !defender.HasConditionOfType(ConditionParalyzed)
-                            && !defender.HasConditionOfType(ConditionProne)
-                            && !defender.HasConditionOfType(ConditionStunned))
-                        {
-                            return;
-                        }
-
-                        attackModifier.attackRollModifier += 2;
-                        attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                            2, RuleDefinitions.FeatureSourceType.FightingStyle, "Executioner", myself));
-                    })
+                .SetCustomSubFeatures(new OnComputeAttackModifierFightingStyleExecutioner())
                 .AddToDB())
         .AddToDB();
 
@@ -54,4 +26,37 @@ internal sealed class Executioner : AbstractFightingStyle
     {
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
+
+    private sealed class OnComputeAttackModifierFightingStyleExecutioner : IOnComputeAttackModifier
+    {
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            // melee attack only
+            if (attackMode == null || defender == null)
+            {
+                return;
+            }
+
+            // grant +2 hit if defender has
+            // blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned
+            if (!defender.HasConditionOfType(ConditionBlinded)
+                && !defender.HasConditionOfType(ConditionFrightened)
+                && !defender.HasConditionOfType(ConditionRestrained)
+                && !defender.HasConditionOfType(ConditionIncapacitated)
+                && !defender.HasConditionOfType(ConditionParalyzed)
+                && !defender.HasConditionOfType(ConditionProne)
+                && !defender.HasConditionOfType(ConditionStunned))
+            {
+                return;
+            }
+
+            attackModifier.attackRollModifier += 2;
+            attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
+                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Executioner", myself));
+        }
+    }
 }

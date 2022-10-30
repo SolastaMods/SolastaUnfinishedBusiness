@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -13,10 +14,10 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     {
         // Grant advantage when attack enemies whose initiative is lower than your
         // or when perform an attack of opportunity.
-        var onComputeAttackModifierOpportunistQuickStrike = FeatureDefinitionOnComputeAttackModifierBuilder
+        var onComputeAttackModifierOpportunistQuickStrike = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierOpportunistQuickStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetOnComputeAttackModifierDelegate(QuickStrikeOnComputeAttackModifier)
+            .SetCustomSubFeatures(new OnComputeAttackModifierOpportunistQuickStrike())
             .AddToDB();
 
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
@@ -74,28 +75,31 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
-    private static void QuickStrikeOnComputeAttackModifier(
-        RulesetCharacter myself,
-        RulesetCharacter defender,
-        RulesetAttackMode attackMode,
-        ref ActionModifier attackModifier)
+    private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
     {
-        if (attackMode == null || defender == null)
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
         {
-            return;
+            if (attackMode == null || defender == null)
+            {
+                return;
+            }
+
+            var hero = GameLocationCharacter.GetFromActor(myself);
+            var target = GameLocationCharacter.GetFromActor(defender);
+
+            // grant advantage if attacker is performing an opportunity attack or has higher initiative.
+            if (hero.LastInitiative <= target.LastInitiative &&
+                attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
+                FeatureSourceType.CharacterFeature, "QuickStrike", null));
         }
-
-        var hero = GameLocationCharacter.GetFromActor(myself);
-        var target = GameLocationCharacter.GetFromActor(defender);
-
-        // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-        if (hero.LastInitiative <= target.LastInitiative &&
-            attackMode.actionType != ActionDefinitions.ActionType.Reaction)
-        {
-            return;
-        }
-
-        attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
-            FeatureSourceType.CharacterFeature, "QuickStrike", null));
     }
 }
