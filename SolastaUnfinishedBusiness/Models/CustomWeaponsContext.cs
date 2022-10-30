@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.ItemCrafting;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
@@ -29,32 +28,10 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
     internal static ItemDefinition ProducedFlameDart;
 
-    internal static readonly MerchantFilter GenericMelee = new() { IsMeleeWeapon = true };
-    internal static readonly MerchantFilter MagicMelee = new() { IsMagicalMeleeWeapon = true };
-    internal static readonly MerchantFilter PrimedMelee = new() { IsPrimedMeleeWeapon = true };
-    internal static readonly MerchantFilter GenericRanged = new() { IsRangeWeapon = true };
-    internal static readonly MerchantFilter MagicRanged = new() { IsMagicalRangeWeapon = true };
-    internal static readonly MerchantFilter PrimedRanged = new() { IsPrimedRangeWeapon = true };
-    internal static readonly MerchantFilter CraftingManual = new() { IsDocument = true };
-
-    internal static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
-    internal static readonly ShopItemType ShopPrimedMelee = new(FactionStatusDefinitions.Sympathy, PrimedMelee);
-    internal static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
-    internal static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
-    internal static readonly ShopItemType ShopGenericRanged = new(FactionStatusDefinitions.Indifference, GenericRanged);
-    internal static readonly ShopItemType ShopPrimedRanged = new(FactionStatusDefinitions.Sympathy, PrimedRanged);
-    internal static readonly ShopItemType ShopRangedPlus1 = new(FactionStatusDefinitions.Alliance, MagicRanged);
-    internal static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
-    internal static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
-
     internal static readonly List<string> PolearmWeaponTypes = new()
     {
         WeaponTypeDefinitions.QuarterstaffType.Name, WeaponTypeDefinitions.SpearType.Name
     };
-
-    private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
-    private static StockUnitDescriptionBuilder _stockBuilder;
-    private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
     internal static void Load()
     {
@@ -64,10 +41,8 @@ internal static class CustomWeaponsContext
         BuildLongMaces();
         BuildHandXbow();
         WeaponizeProducedFlame();
-        AddToShops();
-        AddToEditor();
 
-        PolearmWeaponTypes.AddRange(new[] { HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name });
+        PolearmWeaponTypes.AddRange(new[] {HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name});
     }
 
     [NotNull]
@@ -163,8 +138,8 @@ internal static class CustomWeaponsContext
         HandwrapsPlus1 = BuildHandwrapsCommon("Handwraps+1", 400, true, true, Uncommon, WeaponPlus1);
         HandwrapsPlus2 = BuildHandwrapsCommon("Handwraps+2", 1500, true, true, Rare, WeaponPlus2);
 
-        ShopItems.Add((HandwrapsPlus1, ShopMeleePlus1));
-        ShopItems.Add((HandwrapsPlus2, ShopMeleePlus2));
+        MerchantContext.AddItem(HandwrapsPlus1, ShopItemType.ShopMeleePlus1);
+        MerchantContext.AddItem(HandwrapsPlus2, ShopItemType.ShopMeleePlus2);
 
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
@@ -204,17 +179,17 @@ internal static class CustomWeaponsContext
                 .Build())
             .Build();
 
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)), ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsPlus1, 24, 10,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)), ShopItemType.ShopCrafting);
 
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem)), ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsPlus2, 48, 16,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem)), ShopItemType.ShopCrafting);
 
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem)), ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfForce, 48, 16,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem)), ShopItemType.ShopCrafting);
 
-        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Slavestone)), ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfPulling, 48, 16,
+            ItemDefinitions.Ingredient_Enchant_Slavestone)), ShopItemType.ShopCrafting);
     }
 
     [NotNull]
@@ -263,51 +238,48 @@ internal static class CustomWeaponsContext
         Halberd = BuildWeapon("CEHalberd", baseItem,
             20, true, Common, basePresentation, baseDescription, HalberdIcon);
         Halberd.SetCustomSubFeatures(scale);
-        ShopItems.Add((Halberd, ShopGenericMelee));
+        MerchantContext.AddItem(Halberd, ShopItemType.ShopGenericMelee);
 
         HalberdPrimed = BuildWeapon("CEHalberdPrimed", baseItem,
             40, true, Uncommon, basePresentation, baseDescription, HalberdPrimedIcon);
         HalberdPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         HalberdPrimed.SetCustomSubFeatures(scale);
-        ShopItems.Add((HalberdPrimed, ShopPrimedMelee));
-        ShopItems.Add((BuildPrimingManual(Halberd, HalberdPrimed), ShopCrafting));
+        MerchantContext.AddItem(HalberdPrimed, ShopItemType.ShopPrimedMelee);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
+            950, true, Rare, icon: HalberdP1Icon, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
-        ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(HalberdPlus1, 24, 10,
-                HalberdPrimed,
-                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
-            ShopCrafting));
+        MerchantContext.AddItem(HalberdPlus1, ShopItemType.ShopMeleePlus1);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus1, 24, 10,
+            HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
 
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
-            properties: new[] { WeaponPlus2 });
+            properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
-        ShopItems.Add((HalberdPlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(HalberdPlus2, 48, 16,
-                HalberdPrimed,
-                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
-            ShopCrafting));
+        MerchantContext.AddItem(HalberdPlus2, ShopItemType.ShopMeleePlus2);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus2, 48, 16,
+            HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
-            properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
+            properties: new[] {LightningImpactVFX, WeaponPlus1AttackOnly});
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
             .Build());
-        ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16,
-                HalberdPrimed,
-                ItemDefinitions.Ingredient_Enchant_Stardust),
-            ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdLightning, 48, 16,
+            HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
 
     private static void BuildPikes()
@@ -342,24 +314,23 @@ internal static class CustomWeaponsContext
         Pike = BuildWeapon("CEPike", baseItem,
             20, true, Common, basePresentation, baseDescription, PikeIcon);
         Pike.SetCustomSubFeatures(scale);
-        ShopItems.Add((Pike, ShopGenericMelee));
+        MerchantContext.AddItem(Pike, ShopItemType.ShopGenericMelee);
 
         PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
             40, true, Uncommon, basePresentation, baseDescription, PikePrimedIcon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.SetCustomSubFeatures(scale);
-        ShopItems.Add((PikePrimed, ShopPrimedMelee));
-        ShopItems.Add((BuildPrimingManual(Pike, PikePrimed), ShopCrafting));
+        MerchantContext.AddItem(PikePrimed, ShopItemType.ShopPrimedMelee);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
+            950, true, Rare, icon: PikeP1Icon, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
-        ShopItems.Add((PikePlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10,
-                PikePrimed,
-                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
-            ShopCrafting));
+        MerchantContext.AddItem(PikePlus1, ShopItemType.ShopMeleePlus1);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus1, 24, 10,
+            PikePrimed,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
 
@@ -367,28 +338,26 @@ internal static class CustomWeaponsContext
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikeP2Icon,
-            properties: new[] { WeaponPlus2 });
+            properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
-        ShopItems.Add((PikePlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(PikePlus2, 48, 16,
-                PikePrimed,
-                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
-            ShopCrafting));
+        MerchantContext.AddItem(PikePlus2, ShopItemType.ShopMeleePlus2);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 48, 16,
+            PikePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikePsychicIcon, needId: false,
-            properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
+            properties: new[] {PsychicImpactVFX, WeaponPlus1AttackOnly});
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
             .Build());
-        ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16,
-                PikePrimed,
-                ItemDefinitions.Ingredient_Enchant_Stardust),
-            ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePsychic, 48, 16,
+            PikePrimed,
+            ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
 
     private static void BuildLongMaces()
@@ -423,51 +392,48 @@ internal static class CustomWeaponsContext
         LongMace = BuildWeapon("CELongMace", baseItem,
             20, true, Common, basePresentation, baseDescription, LongMaceIcon);
         LongMace.SetCustomSubFeatures(scale);
-        ShopItems.Add((LongMace, ShopGenericMelee));
+        MerchantContext.AddItem(LongMace, ShopItemType.ShopGenericMelee);
 
         LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
             40, true, Uncommon, basePresentation, baseDescription, LongMacePrimedIcon);
         LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         LongMacePrimed.SetCustomSubFeatures(scale);
-        ShopItems.Add((LongMacePrimed, ShopPrimedMelee));
-        ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
+        MerchantContext.AddItem(LongMacePrimed, ShopItemType.ShopPrimedMelee);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
+            950, true, Rare, icon: LongMaceP1Icon, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
-        ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10,
-                LongMacePrimed,
-                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
-            ShopCrafting));
+        MerchantContext.AddItem(LongMacePlus1, ShopItemType.ShopMeleePlus1);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus1, 24, 10,
+            LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.MacePlus2;
 
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
-            properties: new[] { WeaponPlus2 });
+            properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
-        ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(LongMacePlus2, 48, 16,
-                LongMacePrimed,
-                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
-            ShopCrafting));
+        MerchantContext.AddItem(LongMacePlus2, ShopItemType.ShopMeleePlus2);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 48, 16,
+            LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
-            properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
+            properties: new[] {ThunderImpactVFX, WeaponPlus1AttackOnly});
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
             .Build());
-        ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16,
-                LongMacePrimed,
-                ItemDefinitions.Ingredient_Enchant_Stardust),
-            ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMaceThunder, 48, 16,
+            LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
 
     private static void BuildHandXbow()
@@ -511,52 +477,49 @@ internal static class CustomWeaponsContext
             20, true, Common, basePresentation, baseDescription, HandXbowIcon,
             twoHanded: false);
         HandXbow.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbow, ShopGenericRanged));
+        MerchantContext.AddItem(HandXbow, ShopItemType.ShopGenericRanged);
 
         HandXbowPrimed = BuildWeapon("CEHandXbowPrimed", HandXbow,
             40, true, Uncommon, icon: HandXbowPrimedIcon, twoHanded: false);
         HandXbowPrimed.SetCustomSubFeatures(scale);
         HandXbowPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HandXbowPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
-        ShopItems.Add((HandXbowPrimed, ShopPrimedRanged));
-        ShopItems.Add((BuildPrimingManual(HandXbow, HandXbowPrimed), ShopCrafting));
+        MerchantContext.AddItem(HandXbowPrimed, ShopItemType.ShopPrimedRanged);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(HandXbow, HandXbowPrimed), ShopItemType.ShopCrafting);
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
             950, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
-            properties: new[] { WeaponPlus1 });
+            properties: new[] {WeaponPlus1});
         HandXbowPlus1.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbowPlus1, ShopRangedPlus1));
-        ShopItems.Add((BuildRecipeManual(HandXbowPlus1, 24, 10,
-                HandXbowPrimed,
-                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
-            ShopCrafting));
+        MerchantContext.AddItem(HandXbowPlus1, ShopItemType.ShopRangedPlus1);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus1, 24, 10,
+            HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
 
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
-            properties: new[] { WeaponPlus2 });
+            properties: new[] {WeaponPlus2});
         HandXbowPlus2.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbowPlus2, ShopRangedPlus2));
-        ShopItems.Add((BuildRecipeManual(HandXbowPlus2, 48, 16,
-                HandXbowPrimed,
-                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
-            ShopCrafting));
+        MerchantContext.AddItem(HandXbowPlus2, ShopItemType.ShopRangedPlus2);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus2, 48, 16,
+            HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
-            properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
+            properties: new[] {AcidImpactVFX, WeaponPlus1AttackOnly});
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
             .Build());
-        ShopItems.Add((BuildRecipeManual(HandXbowAcid, 48, 16,
-                HandXbowPrimed,
-                ItemDefinitions.Ingredient_Enchant_Stardust),
-            ShopCrafting));
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowAcid, 48, 16,
+            HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
 
     private static void WeaponizeProducedFlame()
@@ -592,133 +555,6 @@ internal static class CustomWeaponsContext
 
         flame.IsWeapon = true;
         flame.weaponDefinition = weapon;
-    }
-
-    private static void AddToShops()
-    {
-        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
-        {
-            GiveAssortment(ShopItems, MerchantTypeContext.MerchantTypes);
-        }
-    }
-
-    internal static void TryAddItemsToUserMerchant(MerchantDefinition merchant)
-    {
-        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
-        {
-            GiveAssortment(ShopItems, merchant, MerchantTypeContext.GetMerchantType(merchant));
-        }
-    }
-
-    private static void AddToEditor()
-    {
-        if (!Main.Settings.AddNewWeaponsAndRecipesToEditor)
-        {
-            return;
-        }
-
-        foreach (var (item, _) in ShopItems)
-        {
-            item.inDungeonEditor = true;
-        }
-    }
-
-    //TODO: move this to the separate shop context file
-    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
-        [NotNull] IEnumerable<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
-    {
-        foreach (var (merchant, type) in merchants)
-        {
-            GiveAssortment(items, merchant, type);
-        }
-    }
-
-    private static void GiveAssortment([NotNull] List<(ItemDefinition, ShopItemType)> items,
-        MerchantDefinition merchant,
-        MerchantTypeContext.MerchantType type)
-    {
-        foreach (var (item, itemType) in items)
-        {
-            if (itemType.Filter.Matches(type))
-            {
-                StockItem(merchant, item, itemType.Status);
-            }
-        }
-    }
-
-    private static void StockItem([NotNull] MerchantDefinition merchant, ItemDefinition item,
-        [NotNull] BaseDefinition status)
-    {
-        merchant.StockUnitDescriptions.Add(StockBuilder
-            .SetItem(item)
-            .SetFaction(merchant.FactionAffinity, status.Name)
-            .Build()
-        );
-    }
-
-    private static StockUnitDescriptionBuilder BuildStockBuilder()
-    {
-        return new StockUnitDescriptionBuilder()
-            .SetStock(initialAmount: 1)
-            .SetRestock(1);
-    }
-
-    // internal static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
-    //     params ItemDefinition[] ingredients)
-    // {
-    //     return BuildRecipe(item, hours, difficulty, ingredients);
-    // }
-
-    private static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
-        params ItemDefinition[] ingredients)
-    {
-        return RecipeDefinitionBuilder
-            .Create($"RecipeEnchant{item.Name}")
-            .SetGuiPresentation(item.GuiPresentation.Title, GuiPresentationBuilder.EmptyString)
-            .SetCraftedItem(item)
-            .SetCraftingCheckData(hours, difficulty, ToolTypeDefinitions.EnchantingToolType)
-            .AddIngredients(ingredients)
-            .AddToDB();
-    }
-
-    [NotNull]
-    private static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
-        params ItemDefinition[] ingredients)
-    {
-        return BuildManual(BuildRecipe(item, hours, difficulty, ingredients));
-    }
-
-    // [NotNull]
-    // internal static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
-    // {
-    //     return BuildManual(recipe);
-    // }
-
-    [NotNull]
-    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
-    {
-        var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
-        var manual = ItemDefinitionBuilder
-            .Create($"CraftingManual{recipe.Name}")
-            .SetGuiPresentation(Category.Item, reference)
-            .SetItemPresentation(reference.ItemPresentation)
-            .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
-            .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)
-            .SetItemTags(TagsDefinitions.ItemTagStandard, TagsDefinitions.ItemTagPaper)
-            .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
-            .SetGold(Main.Settings.RecipeCost)
-            .AddToDB();
-
-        //TODO: add only if option enabled in mod settings
-        manual.inDungeonEditor = true;
-
-        return manual;
-    }
-
-    [NotNull]
-    private static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
-    {
-        return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(item, primed));
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,
@@ -892,51 +728,6 @@ internal static class CustomWeaponsContext
 }
 
 //TODO: move this to the separate shop context file
-internal sealed class ShopItemType
-{
-    internal readonly MerchantFilter Filter;
-    internal readonly FactionStatusDefinition Status;
-
-    internal ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
-    {
-        Status = status;
-        Filter = filter;
-    }
-}
-
-internal sealed class MerchantFilter
-{
-    internal bool? IsAmmunition = null;
-    internal bool? IsArmor = null;
-    internal bool? IsDocument;
-
-    internal bool? IsMagicalAmmunition = null;
-    internal bool? IsMagicalArmor = null;
-    internal bool? IsMagicalMeleeWeapon;
-    internal bool? IsMagicalRangeWeapon;
-    internal bool? IsMeleeWeapon;
-
-    internal bool? IsPrimedArmor = null;
-    internal bool? IsPrimedMeleeWeapon;
-    internal bool? IsPrimedRangeWeapon;
-    internal bool? IsRangeWeapon;
-
-    internal bool Matches(MerchantTypeContext.MerchantType merchantType)
-    {
-        return (IsAmmunition == null || IsAmmunition == merchantType.IsAmmunition) &&
-               (IsArmor == null || IsArmor == merchantType.IsArmor) &&
-               (IsDocument == null || IsDocument == merchantType.IsDocument) &&
-               (IsMagicalAmmunition == null || IsMagicalAmmunition == merchantType.IsMagicalAmmunition) &&
-               (IsMagicalArmor == null || IsMagicalArmor == merchantType.IsMagicalArmor) &&
-               (IsMagicalMeleeWeapon == null || IsMagicalMeleeWeapon == merchantType.IsMagicalMeleeWeapon) &&
-               (IsMagicalRangeWeapon == null || IsMagicalRangeWeapon == merchantType.IsMagicalRangeWeapon) &&
-               (IsMeleeWeapon == null || IsMeleeWeapon == merchantType.IsMeleeWeapon) &&
-               (IsPrimedArmor == null || IsPrimedArmor == merchantType.IsPrimedArmor) &&
-               (IsPrimedMeleeWeapon == null || IsPrimedMeleeWeapon == merchantType.IsPrimedMeleeWeapon) &&
-               (IsPrimedRangeWeapon == null || IsPrimedRangeWeapon == merchantType.IsPrimedRangeWeapon) &&
-               (IsRangeWeapon == null || IsRangeWeapon == merchantType.IsRangeWeapon);
-    }
-}
 
 internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 {

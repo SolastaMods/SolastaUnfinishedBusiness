@@ -48,6 +48,7 @@ internal static class BootContext
 
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
+        CustomItemsContext.Load();
         PowersBundleContext.Load();
 
         DmProEditorContext.Load();
@@ -79,6 +80,8 @@ internal static class BootContext
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
+        
+        MerchantContext.Load();
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {

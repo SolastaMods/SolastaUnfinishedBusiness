@@ -430,3 +430,7 @@ Item/&Warhammer_Punisher_Description=This enchanted weapon was created using the
 Item/&Warhammer_Punisher_Title=Punisher Warhammer
 Tooltip/&TagPolearmWeaponTitle=Polearm
 Tooltip/&TagReturningWeaponTitle=Returning
+Item/&HelmOfAwarenessDescription=A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.
+Item/&HelmOfAwarenessTitle=Helm of Awareness
+Item/&GlovesOfThieveryDescription=These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.
+Item/&GlovesOfThieveryTitle=Gloves of Thievery

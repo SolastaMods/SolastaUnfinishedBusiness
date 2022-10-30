@@ -116,7 +116,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
     internal ItemDefinitionBuilder SetGold(int gold)
     {
-        Definition.costs = new[] { 0, gold, 0, 0, 0 };
+        Definition.costs = new[] {0, gold, 0, 0, 0};
         return this;
     }
 
@@ -175,6 +175,20 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+    internal ItemDefinitionBuilder RequireAttunement(params CharacterClassDefinition[] requiredClasses)
+    {
+        Definition.requiresAttunement = true;
+        Definition.requiredAttunementClasses.SetRange(requiredClasses);
+        return this;
+    }
+
+    internal ItemDefinitionBuilder NoAttunement()
+    {
+        Definition.requiresAttunement = false;
+        Definition.requiredAttunementClasses.Clear();
+        return this;
+    }
+
     internal ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
     {
         Definition.isWeapon = true;
@@ -185,6 +199,12 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
     internal ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
     {
         Definition.itemPresentation = presentation;
+        return this;
+    }
+
+    internal ItemDefinitionBuilder SetItemPresentation(ItemDefinition presentation)
+    {
+        Definition.itemPresentation = presentation.ItemPresentation;
         return this;
     }
 
@@ -229,6 +249,13 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
     {
         Definition.IsFood = true;
         Definition.foodDescription = foodDescription;
+        return this;
+    }
+
+    internal ItemDefinitionBuilder SetFocusDescription(FocusItemDescription focus)
+    {
+        Definition.isFocusItem = focus != null;
+        Definition.focusItemDefinition = focus;
         return this;
     }
 

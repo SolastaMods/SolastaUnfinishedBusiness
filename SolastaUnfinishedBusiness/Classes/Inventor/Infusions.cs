@@ -190,41 +190,63 @@ internal static class Infusions
 
         #region Replicate Magic Item
 
-        //Level 02
-        BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding);
-        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection);
-        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify);
+        int level;
+
+        #region Level 02
+
+        level = 2;
+        BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding, level);
+        //RAW this should be spectacles that don't require attunement
+        BuildCreateItemPowerInvocation(ItemDefinitions.RingDarkvision, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfMagicDetection, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.WandOfIdentify, level);
         //RAW they are level 6, but at that level you get Cloak Of Elvenkind which is better
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfElvenKind, level);
 
-        //Level 06
-        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, 6);
-        BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, 6);
+        #endregion
+
+        #region Level 06
+
+        level = 6;
+        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfElvenkind, level);
+        BuildCreateItemPowerInvocation(CustomItemsContext.GlovesOfThievery, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.PipesOfHaunting, level);
         //RAW they are level 14, but at 10 you get much better Winged Boots
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, 6);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsLevitation, level);
+        //RAW they are level 10, but at 10 you get Winged Boots and Slippers Of Spider Climbing
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, level);
 
+        #endregion
 
-        //Level 10
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsOfStridingAndSpringing, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.BroochOfShielding, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfProtection, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.GauntletsOfOgrePower, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.GlovesOfMissileSnaring, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, 10);
-        BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, 10);
+        #region Level 10
 
-        //Level 14
-        BuildCreateItemPowerInvocation(ItemDefinitions.AmuletOfHealth, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.BeltOfGiantHillStrength, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Defense, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.RingProtectionPlus1, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.GemOfSeeing, 14);
-        BuildCreateItemPowerInvocation(ItemDefinitions.HornOfBlasting, 14);
+        level = 10;
+        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Archery, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BroochOfShielding, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfProtection, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GauntletsOfOgrePower, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GlovesOfMissileSnaring, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.HeadbandOfIntellect, level);
+        BuildCreateItemPowerInvocation(CustomItemsContext.HelmOfAwareness, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.SlippersOfSpiderClimbing, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BootsWinged, level);
+
+        #endregion
+
+        #region Level 14
+
+        level = 14;
+        BuildCreateItemPowerInvocation(ItemDefinitions.AmuletOfHealth, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.BeltOfGiantHillStrength, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.Bracers_Of_Defense, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.RingProtectionPlus1, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.GemOfSeeing, level);
+        BuildCreateItemPowerInvocation(ItemDefinitions.HornOfBlasting, level);
 
         //Sadly this one is just a copy of Cloak of Protection as of v1.4.13
         // BuildCreateItemPowerInvocation(ItemDefinitions.CloakOfBat, 14);
+
+        #endregion
 
         #endregion
     }
