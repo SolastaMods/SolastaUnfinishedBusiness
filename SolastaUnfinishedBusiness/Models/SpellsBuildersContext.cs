@@ -1525,3 +1525,49 @@ internal sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
         return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
     }
 }
+
+internal sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
+{
+    private readonly int _level;
+    private readonly EffectDescription _upgraded;
+
+    internal UpgradeEffectFromLevel(EffectDescription upgraded, int level)
+    {
+        _upgraded = upgraded;
+        _level = level;
+    }
+
+    [CanBeNull]
+    public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
+    {
+        var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        return casterLevel < _level ? null : _upgraded;
+    }
+}
+
+internal sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+{
+    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
+    {
+        if (caster is not RulesetCharacterHero hero)
+        {
+            return effect;
+        }
+
+        var weapon = hero.GetMainWeapon();
+        if (weapon == null || !weapon.itemDefinition.IsWeapon)
+        {
+            return effect;
+        }
+
+        var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+
+        if (reach <= 1)
+        {
+            return effect;
+        }
+
+        effect.rangeParameter = reach;
+        return effect;
+    }
+}
