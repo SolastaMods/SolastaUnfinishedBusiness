@@ -637,12 +637,15 @@ internal static partial class DatabaseHelper
     {
         internal static FactionStatusDefinition Alliance { get; } =
             GetDefinition<FactionStatusDefinition>("Alliance");
-
+        
         internal static FactionStatusDefinition Brotherhood { get; } =
             GetDefinition<FactionStatusDefinition>("Brotherhood");
 
         internal static FactionStatusDefinition Indifference { get; } =
             GetDefinition<FactionStatusDefinition>("Indifference");
+
+        internal static FactionStatusDefinition LivingLegend { get; } =
+            GetDefinition<FactionStatusDefinition>("LivingLegend");
 
         internal static FactionStatusDefinition Sympathy { get; } =
             GetDefinition<FactionStatusDefinition>("Sympathy");
@@ -973,6 +976,9 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlessed { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlessed");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityEagerForBattle { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEagerForBattle");
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityDisengaging { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityDisengaging");
@@ -1672,6 +1678,9 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition RingDarkvision { get; } =
+            GetDefinition<ItemDefinition>("RingDarkvision");
+
         internal static ItemDefinition _100_GP_Emerald { get; } =
             GetDefinition<ItemDefinition>("100_GP_Emerald");
 
@@ -2056,6 +2065,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition HeavyCrossbow { get; } =
             GetDefinition<ItemDefinition>("HeavyCrossbow");
 
+        internal static ItemDefinition HelmOfComprehendingLanguages { get; } =
+            GetDefinition<ItemDefinition>("HelmOfComprehendingLanguages");
+
         internal static ItemDefinition HideArmor { get; } =
             GetDefinition<ItemDefinition>("HideArmor");
 
@@ -2395,6 +2407,9 @@ internal static partial class DatabaseHelper
         internal static MerchantCategoryDefinition Crafting { get; } =
             GetDefinition<MerchantCategoryDefinition>("Crafting");
 
+        internal static MerchantCategoryDefinition MagicDevice { get; } =
+            GetDefinition<MerchantCategoryDefinition>("MagicDevice");
+
         internal static MerchantCategoryDefinition Weapon { get; } =
             GetDefinition<MerchantCategoryDefinition>("Weapon");
     }
@@ -2587,6 +2602,12 @@ internal static partial class DatabaseHelper
         internal static SlotTypeDefinition ContainerSlot { get; } =
             GetDefinition<SlotTypeDefinition>("ContainerSlot");
 
+        internal static SlotTypeDefinition GlovesSlot { get; } =
+            GetDefinition<SlotTypeDefinition>("GlovesSlot");
+        
+        internal static SlotTypeDefinition HeadSlot { get; } =
+            GetDefinition<SlotTypeDefinition>("HeadSlot");
+        
         internal static SlotTypeDefinition MainHandSlot { get; } =
             GetDefinition<SlotTypeDefinition>("MainHandSlot");
 
