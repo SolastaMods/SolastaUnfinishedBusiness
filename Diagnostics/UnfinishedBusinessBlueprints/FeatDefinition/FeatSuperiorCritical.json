@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,7 +10,9 @@
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
-  "knownFeatsPrerequisite": [],
+  "knownFeatsPrerequisite": [
+    "FeatImprovedCritical"
+  ],
   "features": [
     "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b"
   ],

@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityFeatShieldExpertShove:46b40fc4-fa25-5781-b7a0-0d513d4d0773",
-    "Definition:FeatShieldExpertBonusShieldAttack:2beb624d-6e50-523d-a63d-ec10c9266181"
+    "Definition:AddExtraAttackFeatShieldExpert:53946096-cbf8-5286-bc15-ba26f5f1c3d0"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
