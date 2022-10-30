@@ -330,6 +330,11 @@ public static class InnovationWeapon
                     .SetConditionType(ConditionDefinitions.ConditionSurprised)
                     .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
                     .AddToDB(),
+                FeatureDefinitionPerceptionAffinityBuilder
+                    .Create("PerceptionAffinitySteelDefender")
+                    .SetGuiPresentationNoContent()
+                    .CannotBeSurprised()
+                    .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
