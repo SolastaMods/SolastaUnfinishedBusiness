@@ -109,6 +109,7 @@ public static class GameLocationCharacterPatcher
             }
 
             var features = character.GetSubFeaturesByType<IOnAttackHitEffect>();
+
             foreach (var effect in features)
             {
                 effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);

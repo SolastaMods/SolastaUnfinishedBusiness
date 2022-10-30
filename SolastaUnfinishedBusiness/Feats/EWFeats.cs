@@ -49,41 +49,13 @@ internal static class EwFeats
         return FeatDefinitionBuilder
             .Create(SentinelFeat)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
+            .SetFeatures(FeatureDefinitionBuilder
                 .Create("OnAttackHitEffectFeatSentinel")
                 .SetGuiPresentationNoContent(true)
-                .SetOnAttackHitDelegates(null, (attacker, defender, outcome, _, mode, _) =>
-                {
-                    if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
-                    {
-                        return;
-                    }
-
-                    if (mode is not { ActionType: ActionDefinitions.ActionType.Reaction })
-                    {
-                        return;
-                    }
-
-                    if (mode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
-                    {
-                        return;
-                    }
-
-                    var character = defender.RulesetCharacter;
-
-                    character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                        RulesetCondition.CreateActiveCondition(character.Guid,
-                            conditionSentinelStopMovement,
-                            DurationType.Round,
-                            1,
-                            TurnOccurenceType.StartOfTurn,
-                            attacker.Guid,
-                            string.Empty
-                        ));
-                })
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
-                    AttacksOfOpportunity.SentinelFeatMarker)
+                    AttacksOfOpportunity.SentinelFeatMarker,
+                    new OnAttackHitEffectFeatSentinel(conditionSentinelStopMovement))
                 .AddToDB())
             .AddToDB();
     }
@@ -240,6 +212,65 @@ internal static class EwFeats
             .AddToDB();
 
         return warcaster;
+    }
+
+    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
+    {
+        private readonly ConditionDefinition _conditionSentinelStopMovement;
+
+        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        {
+            _conditionSentinelStopMovement = conditionSentinelStopMovement;
+        }
+
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            // empty
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            {
+                if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+                {
+                    return;
+                }
+
+                if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
+                {
+                    return;
+                }
+
+                if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+                {
+                    return;
+                }
+
+                var character = defender.RulesetCharacter;
+
+                character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                    RulesetCondition.CreateActiveCondition(character.Guid,
+                        _conditionSentinelStopMovement,
+                        DurationType.Round,
+                        1,
+                        TurnOccurenceType.StartOfTurn,
+                        attacker.Guid,
+                        string.Empty
+                    ));
+            }
+        }
     }
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
