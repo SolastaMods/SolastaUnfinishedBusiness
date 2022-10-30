@@ -1,6 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -42,7 +40,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("ConditionMoonlitInvisibility")
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionMoonlitInvisibility.Build())
+            .SetFeatures(MoonlitInvisibility.Build())
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
@@ -200,8 +198,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
         .SubclassChoiceWarlockOtherworldlyPatrons;
 }
 
-internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
-    ICustomConditionFeature
+internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomConditionFeature
 {
     private const string CategoryRevealed = "MoonlitRevealed";
     private const string CategoryHidden = "MoonlitHidden";
@@ -251,9 +248,10 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
         RevealedCondition = BuildRevealedCondition();
         InvisibilityCondition = BuildInvisibilityCondition();
 
-        return FeatureDefinitionMoonlitInvisibilityBuilder
+        return FeatureDefinitionBuilder
             .Create("MoonlitInvisibility")
             .SetGuiPresentationNoContent()
+            .SetCustomSubFeatures(new MoonlitInvisibility())
             .AddToDB();
     }
 
@@ -354,27 +352,5 @@ internal sealed class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, 
                 hero.Guid,
                 hero.CurrentFaction.Name),
             false);
-    }
-
-    [UsedImplicitly]
-    private class FeatureDefinitionMoonlitInvisibilityBuilder :
-        DefinitionBuilder<FeatureDefinitionMoonlitInvisibility, FeatureDefinitionMoonlitInvisibilityBuilder>
-    {
-        #region Constructors
-
-        internal FeatureDefinitionMoonlitInvisibilityBuilder(
-            string name,
-            Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        internal FeatureDefinitionMoonlitInvisibilityBuilder(
-            FeatureDefinitionMoonlitInvisibility original,
-            string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        #endregion
     }
 }
