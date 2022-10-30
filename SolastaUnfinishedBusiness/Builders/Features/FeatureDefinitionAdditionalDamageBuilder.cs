@@ -41,19 +41,13 @@ internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
-        [NotNull] IEnumerable<DiceByRank> diceByRankTable)
+        int start = 0,
+        int increment = 1,
+        int step = 1,
+        int begin = 1)
     {
         Definition.damageAdvancement = advancement;
-        Definition.DiceByRankTable.SetRange(diceByRankTable);
-        return this;
-    }
-
-    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
-        RuleDefinitions.AdditionalDamageAdvancement advancement,
-        params (int rank, int dice)[] diceByRank)
-    {
-        Definition.damageAdvancement = advancement;
-        Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
+        Definition.DiceByRankTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
         return this;
     }
 

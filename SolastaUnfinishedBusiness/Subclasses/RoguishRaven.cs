@@ -128,26 +128,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                         new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageDice(DieType.D6, 1)
-                    .SetAdvancement(
-                        AdditionalDamageAdvancement.ClassLevel,
-                        (3, 2),
-                        (4, 2),
-                        (5, 2),
-                        (6, 2),
-                        (7, 3),
-                        (8, 3),
-                        (9, 3),
-                        (10, 3),
-                        (11, 4),
-                        (12, 4),
-                        (13, 4),
-                        (14, 4),
-                        (15, 5),
-                        (16, 5),
-                        (17, 5),
-                        (18, 5),
-                        (19, 6),
-                        (20, 6))
+                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4, 3)
                     .SetNotificationTag("HeartSeekingShot")
                     .AddToDB()
             )

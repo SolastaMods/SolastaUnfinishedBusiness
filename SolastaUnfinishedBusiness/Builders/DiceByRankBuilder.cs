@@ -4,20 +4,13 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal static class DiceByRankBuilder
 {
-    internal static DiceByRank BuildDiceByRank(int rank, int dice)
-    {
-        var diceByRank = new DiceByRank { rank = rank, diceNumber = dice };
-
-        return diceByRank;
-    }
-
-    internal static List<DiceByRank> BuildDiceByRankTable(int start = 0, int increment = 1, int step = 0)
+    internal static List<DiceByRank> BuildDiceByRankTable(int startDamage = 0, int incrementDamage = 1, int step = 1, int begin = 1)
     {
         var result = new List<DiceByRank>();
 
-        for (var i = 1; i <= 20; i++)
+        for (var i = begin; i <= 20; i++)
         {
-            result.Add(new DiceByRank { rank = i, diceNumber = start + ((i + 1) / (step + 1) * increment) });
+            result.Add(new DiceByRank { rank = i, diceNumber = startDamage + ((i - begin) / step * incrementDamage) });
         }
 
         return result;

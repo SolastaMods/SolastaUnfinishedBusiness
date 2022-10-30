@@ -215,9 +215,8 @@ internal static class ZappaFeats
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
                         "AdditionalDamageFeatBrutalThugSneakAttack")
-                    .SetAdvancement(
-                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.BuildDiceByRankTable(1, 1, 4))
+                    .SetGuiPresentationNoContent(true)
+                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 4)
                     .AddToDB(),
                 ProficiencyFighterWeapon)
             .SetKnownFeatsPrerequisite("FeatShady")
@@ -380,9 +379,8 @@ internal static class ZappaFeats
                 AttributeModifierCreed_Of_Misaye,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
-                    .SetAdvancement(
-                        (AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.BuildDiceByRankTable(1, 1, 4))
+                    .SetGuiPresentationNoContent(true)
+                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 4)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .SetGuiPresentation(Category.Feat)

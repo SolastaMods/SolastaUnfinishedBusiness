@@ -18,7 +18,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 {
     private const string ConditionPathOfTheLightIlluminatedName = "ConditionPathOfTheLightIlluminated";
 
-    private const string AdditionalDamagePathOfTheLightIlluminatingStrikeName = "AdditionalDamagePathOfTheLightIlluminatingStrike";
+    private const string AdditionalDamagePathOfTheLightIlluminatingStrikeName =
+        "AdditionalDamagePathOfTheLightIlluminatingStrike";
 
     private const string PowerPathOfTheLightIlluminatingBurstName = "PowerPathOfTheLightIlluminatingBurst";
 
@@ -76,7 +77,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var additionalDamagePathOfTheLightIlluminatingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamagePathOfTheLightIlluminatingStrikeName)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent()
             .SetNotificationTag("IlluminatingStrike")
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
@@ -90,8 +91,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             })
             .SetLightSourceForm(lightSourceForm)
             .SetRequiredProperty(RestrictedContextRequiredProperty.None)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, DiceByRankBuilder.BuildDiceByRankTable(1, 1, 10))
-            .SetCustomSubFeatures(new AdditionalDamageIlluminatingStrike())
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
+            .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
 
         foreach (var invisibleCondition in InvisibleConditions)
@@ -151,7 +152,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddFeatureSet(
                 FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetConditionName(ConditionPathOfTheLightIlluminatedName)
                     .AddToDB())
             .AddToDB();
@@ -328,7 +329,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
     {
-        if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource || conditionSource.IsDead)
+        if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
+            conditionSource.IsDead)
         {
             return;
         }
@@ -400,7 +402,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         }
     }
 
-    private sealed class AdditionalDamageIlluminatingStrike : IClassHoldingFeature
+    private sealed class BarbarianHolder : IClassHoldingFeature
     {
         // allows Illuminating Strike damage to scale with barbarian level
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;

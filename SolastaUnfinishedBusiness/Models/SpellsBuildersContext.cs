@@ -417,9 +417,7 @@ internal static class SpellsBuildersContext
                                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                 .SetAttackModeOnly()
                                 .SetSpecificDamageType(DamageTypeThunder)
-                                .SetAdvancement(
-                                    AdditionalDamageAdvancement.ClassLevel,
-                                    DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1))
+                                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 0, 1, 4)
                                 .SetIgnoreCriticalDoubleDice(true)
                                 .AddToDB()
                             )
@@ -510,11 +508,8 @@ internal static class SpellsBuildersContext
                                     .SetAttackModeOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(DamageTypeRadiant)
-                                    .SetAdvancement(
-                                        AdditionalDamageAdvancement.ClassLevel,
-                                        DiceByRankBuilder.BuildDiceByRankTable(0, step: 5, increment: 1))
-                                    .SetTargetCondition(sunlitMark,
-                                        AdditionalDamageTriggerCondition.TargetHasCondition)
+                                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 0, 1, 4)
+                                    .SetTargetCondition(sunlitMark, AdditionalDamageTriggerCondition.TargetHasCondition)
                                     .SetConditionOperations(highlight)
                                     .SetAddLightSource(true)
                                     .SetLightSourceForm(dimLight)
@@ -1066,14 +1061,7 @@ internal static class SpellsBuildersContext
                                 })
                                 .SetDamageDice(DieType.D8, 1)
                                 .SetSpecificDamageType(damage)
-                                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel,
-                                    (3, 1),
-                                    (4, 1),
-                                    (5, 2),
-                                    (6, 2),
-                                    (7, 3),
-                                    (8, 3),
-                                    (9, 4))
+                                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
                                 .AddToDB())
                             .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
                         .Build(),

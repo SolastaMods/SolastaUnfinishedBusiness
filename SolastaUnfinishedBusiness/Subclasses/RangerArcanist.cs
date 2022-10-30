@@ -83,9 +83,7 @@ internal sealed class RangerArcanist : AbstractSubclass
                     ConditionDefinition = conditionMarkedByArcanist,
                     Operation = ConditionOperationDescription.ConditionOperation.Remove
                 })
-            .SetAdvancement(
-                AdditionalDamageAdvancement.ClassLevel,
-                DiceByRankBuilder.BuildDiceByRankTable(1, step: 11, increment: 1))
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
