@@ -64,7 +64,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var replaceAttackWithCantripSpellShield = FeatureDefinitionBuilder
+        var replaceAttackWithCantripSpellShield = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripSpellShield")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();

@@ -26,7 +26,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetProficiencies(ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
             .AddToDB();
 
-        var replaceAttackWithCantripBladeDancer = FeatureDefinitionBuilder
+        var replaceAttackWithCantripBladeDancer = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripBladeDancer")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
