@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerIncreaseInventorInfusionPoolTitle",
-    "description": "Feature/&PowerIncreaseInventorInfusionPoolDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38765a3e-f938-54e8-94ef-70982aec1927",
+  "guid": "a77152a0-5587-512f-bbd0-7ee8d4c20ed8",
   "contentPack": 9999,
-  "name": "PowerIncreaseInventorInfusionPool02"
+  "name": "TriggerFeaturePowerAttack"
 }

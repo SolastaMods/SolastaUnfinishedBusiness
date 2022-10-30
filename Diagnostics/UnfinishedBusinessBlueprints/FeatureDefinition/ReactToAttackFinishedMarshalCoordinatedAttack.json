@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&ReactToAttackFinishedMarshalCoordinatedAttackTitle",
+    "description": "Feature/&ReactToAttackFinishedMarshalCoordinatedAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c335a551-46f9-5026-b560-5bf9fa3489ee",
+  "guid": "bd91e31a-b1aa-5821-8f24-52232759e8b6",
   "contentPack": 9999,
-  "name": "DeadeyeTriggerFeature"
+  "name": "ReactToAttackFinishedMarshalCoordinatedAttack"
 }

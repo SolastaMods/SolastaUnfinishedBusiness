@@ -1,10 +1,18 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolBonusTitle",
-    "description": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolBonusDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b0825910-08bf-55cc-8803-8f73fa88ced7",
+  "guid": "c68b000a-ea4f-5b16-8356-e59a77464220",
   "contentPack": 9999,
-  "name": "PowerPoolModifierLifeTransmuterHealingPoolBonus"
+  "name": "SavingThrowAffinityInnovationWeaponSummonSteelDefender"
 }

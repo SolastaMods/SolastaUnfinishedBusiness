@@ -251,7 +251,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerIncreaseInventorInfusionPool00:7b6296f3-a4df-5ba3-ab51-f06a67a09962",
+      "featureDefinition": "Definition:PowerUseModifierInventorInfusionPool00:75cc9b09-cb3d-575a-9e2d-e7e372ab7431",
       "level": 6
     },
     {
@@ -286,7 +286,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerIncreaseInventorInfusionPool01:dc4393a6-b9d7-57f3-99fd-f45e2bd360d0",
+      "featureDefinition": "Definition:PowerUseModifierInventorInfusionPool01:543a4df2-0d82-5599-a203-769354d77f03",
       "level": 10
     },
     {
@@ -306,7 +306,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerIncreaseInventorInfusionPool02:38765a3e-f938-54e8-94ef-70982aec1927",
+      "featureDefinition": "Definition:PowerUseModifierInventorInfusionPool02:189c1457-aef9-511e-9db6-5e27f99955fc",
       "level": 14
     },
     {
@@ -326,7 +326,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerIncreaseInventorInfusionPool03:ce2febf2-889f-59e0-9536-fd1f80341549",
+      "featureDefinition": "Definition:PowerUseModifierInventorInfusionPool03:1e461243-2789-5011-a4d4-7447a8fe348c",
       "level": 18
     },
     {

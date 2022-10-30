@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:MoonlitInvisibility:b7a836ea-c42f-547e-b8d4-1a21e13bceef"
+    "Definition:FeatureMoonlitInvisibility:ceb99cdf-89d5-5aef-b958-8b0f3e53bb9c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

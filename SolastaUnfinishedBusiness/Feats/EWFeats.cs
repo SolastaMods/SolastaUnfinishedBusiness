@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -66,7 +65,7 @@ internal static class EwFeats
             .Create(PolearmExpertFeat)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("PolearmFeatFeature")
+                .Create("FeatureFeatPolearm")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanMakeAoOOnReachEntered(ValidatorsCharacter.HasPolearm),
@@ -81,7 +80,7 @@ internal static class EwFeats
             .Create(RangedExpertFeat)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatRangedExpertFeature")
+                .Create("FeatureFeatRangedExpert")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
@@ -118,7 +117,7 @@ internal static class EwFeats
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(DurationType.Permanent)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("PowerAttackTriggerFeature")
+                .Create("TriggerFeaturePowerAttack")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(concentrationProvider)
                 .AddToDB())
@@ -131,7 +130,7 @@ internal static class EwFeats
             .SetAllowMultipleInstances(false)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("PowerAttackAttackModifier")
+                    .Create("ModifyAttackModeForWeaponFeatPowerAttack")
                     .SetGuiPresentation("PowerAttack", Category.Feature)
                     .SetCustomSubFeatures(new ModifyPowerAttackPower())
                     .AddToDB())

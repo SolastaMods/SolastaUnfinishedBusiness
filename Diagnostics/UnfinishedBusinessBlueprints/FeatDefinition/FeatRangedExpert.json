@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatRangedExpertFeature:8d278596-e2fc-5b4a-b8c1-b8487c56495d"
+    "Definition:FeatureFeatRangedExpert:bd17c938-af36-59bc-9a57-26f65e6a9297"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

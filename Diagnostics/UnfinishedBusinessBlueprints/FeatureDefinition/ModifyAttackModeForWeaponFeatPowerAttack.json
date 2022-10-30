@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MarshalCoordinatedAttackTitle",
-    "description": "Feature/&MarshalCoordinatedAttackDescription",
+    "title": "Feature/&PowerAttackTitle",
+    "description": "Feature/&PowerAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "47bb75af-aa75-51fa-8f95-e4e3d8cf42df",
+  "guid": "8be3e7c4-08ae-53d4-b1f4-a742b66fd837",
   "contentPack": 9999,
-  "name": "MarshalCoordinatedAttack"
+  "name": "ModifyAttackModeForWeaponFeatPowerAttack"
 }

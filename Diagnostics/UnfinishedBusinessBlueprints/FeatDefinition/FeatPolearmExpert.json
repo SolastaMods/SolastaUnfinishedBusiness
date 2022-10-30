@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PolearmFeatFeature:c1d1022d-6525-56c6-a8a6-ce5f8affab44"
+    "Definition:FeatureFeatPolearm:839b4ca4-f92a-5490-a7fe-3f4104e0fb82"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

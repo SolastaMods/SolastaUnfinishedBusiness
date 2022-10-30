@@ -91,7 +91,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("RavenHeartSeekingShotTriggerFeature")
+                    .Create("TriggerFeatureRavenHeartSeekingShot")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(concentrationProvider)
                     .AddToDB())

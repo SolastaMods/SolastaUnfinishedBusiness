@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:PowerAttackAttackModifier:87ac094a-a3a9-5ada-8948-0f2f7d0181d6"
+    "Definition:ModifyAttackModeForWeaponFeatPowerAttack:8be3e7c4-08ae-53d4-b1f4-a742b66fd837"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

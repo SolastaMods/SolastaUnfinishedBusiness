@@ -249,7 +249,7 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
         InvisibilityCondition = BuildInvisibilityCondition();
 
         return FeatureDefinitionBuilder
-            .Create("MoonlitInvisibility")
+            .Create("FeatureMoonlitInvisibility")
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(new MoonlitInvisibility())
             .AddToDB();

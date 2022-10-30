@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerUseModifierTacticianGambitAddTitle",
+    "description": "Feature/&PowerUseModifierTacticianGambitAddDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ace5f96-7fc8-55d1-bf30-9b5f7fa2d82a",
+  "guid": "785b8d03-a023-50ef-a39a-adc544276024",
   "contentPack": 9999,
-  "name": "RavenHeartSeekingShotTriggerFeature"
+  "name": "PowerUseModifierTacticianGambitAdd"
 }

@@ -45,7 +45,8 @@ internal static class ZappaFeats
 
             if (elvenPrecisionContext != null)
             {
-                elvenPrecisionContext.Qualified = attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
+                elvenPrecisionContext.Qualified =
+                    attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
             }
         }
     }
@@ -59,7 +60,7 @@ internal static class ZappaFeats
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("AttackModifierDeadeye")
+                    .Create("ModifyAttackModeForWeaponFeatDeadeye")
                     .SetGuiPresentation("FeatDeadeye", Category.Feat)
                     .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
                     .AddToDB())
@@ -78,7 +79,7 @@ internal static class ZappaFeats
             .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("DeadeyeTriggerFeature")
+                    .Create("TriggerFeatureDeadeye")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(concentrationProvider)
                     .AddToDB())
@@ -216,7 +217,8 @@ internal static class ZappaFeats
                     .Create(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
                         "AdditionalDamageFeatBrutalThugSneakAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 4)
+                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1,
+                        4)
                     .AddToDB(),
                 ProficiencyFighterWeapon)
             .SetKnownFeatsPrerequisite("FeatShady")
@@ -380,7 +382,8 @@ internal static class ZappaFeats
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 4)
+                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1,
+                        4)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .SetGuiPresentation(Category.Feat)

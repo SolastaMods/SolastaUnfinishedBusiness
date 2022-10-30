@@ -32,7 +32,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 {
     private const string FeatureSetMarshalKnowYourEnemyName = "FeatureSetMarshalKnowYourEnemy";
 
-    private const string MarshalCoordinatedAttackName = "MarshalCoordinatedAttack";
+    private const string MarshalCoordinatedAttackName = "ReactToAttackFinishedMarshalCoordinatedAttack";
 
     private const string EternalComradeName = "MarshalEternalComrade";
 

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DeadeyeTriggerFeature:c335a551-46f9-5026-b560-5bf9fa3489ee"
+    "Definition:TriggerFeatureDeadeye:fd32790a-bd67-5619-b497-deac030c1cd3"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

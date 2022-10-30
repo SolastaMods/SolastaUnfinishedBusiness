@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerIncreaseInventorInfusionPoolTitle",
-    "description": "Feature/&PowerIncreaseInventorInfusionPoolDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc4393a6-b9d7-57f3-99fd-f45e2bd360d0",
+  "guid": "ceb99cdf-89d5-5aef-b958-8b0f3e53bb9c",
   "contentPack": 9999,
-  "name": "PowerIncreaseInventorInfusionPool01"
+  "name": "FeatureMoonlitInvisibility"
 }

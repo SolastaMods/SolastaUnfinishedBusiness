@@ -463,8 +463,8 @@ internal static class InventorClass
     private static FeatureDefinition BuildInfusionPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerIncreaseInventorInfusionPool{_infusionPoolIncreases++:D2}")
-            .SetGuiPresentation("PowerIncreaseInventorInfusionPool", Category.Feature)
+            .Create($"PowerUseModifierInventorInfusionPool{_infusionPoolIncreases++:D2}")
+            .SetGuiPresentation("PowerUseModifierInventorInfusionPool", Category.Feature)
             .SetFixedValue(InfusionPool, 1)
             .AddToDB();
     }

@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDeadeyeTitle",
-    "description": "Feat/&FeatDeadeyeDescription",
+    "title": "Feature/&PowerUseModifierInventorInfusionPoolTitle",
+    "description": "Feature/&PowerUseModifierInventorInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc7006ad-d909-5eee-8152-c54c1a98b769",
+  "guid": "543a4df2-0d82-5599-a203-769354d77f03",
   "contentPack": 9999,
-  "name": "AttackModifierDeadeye"
+  "name": "PowerUseModifierInventorInfusionPool01"
 }

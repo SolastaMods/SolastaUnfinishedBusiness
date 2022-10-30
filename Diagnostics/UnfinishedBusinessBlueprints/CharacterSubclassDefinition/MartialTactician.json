@@ -28,17 +28,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolTacticianGambitAdd:f8ebd851-1c2d-5660-a2fe-921ebf4d9fa4",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
       "level": 18
     }
   ],

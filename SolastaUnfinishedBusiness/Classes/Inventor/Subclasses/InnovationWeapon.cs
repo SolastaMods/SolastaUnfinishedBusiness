@@ -199,7 +199,7 @@ public static class InnovationWeapon
             .AddToDB();
 
         var savingThrows = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("AttributeInnovationWeaponSummonSteelDefenderSaves")
+            .Create("SavingThrowAffinityInnovationWeaponSummonSteelDefender")
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(new AddPBToSummonCheck(1, AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution))

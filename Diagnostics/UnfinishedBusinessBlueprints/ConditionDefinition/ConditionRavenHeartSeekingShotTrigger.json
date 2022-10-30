@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:RavenHeartSeekingShotTriggerFeature:5ace5f96-7fc8-55d1-bf30-9b5f7fa2d82a"
+    "Definition:TriggerFeatureRavenHeartSeekingShot:dba8769e-a3f3-5802-810f-9af3cfb3d06a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

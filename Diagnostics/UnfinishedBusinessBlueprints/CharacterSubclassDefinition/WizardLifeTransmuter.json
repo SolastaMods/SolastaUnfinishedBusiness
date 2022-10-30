@@ -28,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolExtra:f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
+      "featureDefinition": "Definition:PowerUseModifierLifeTransmuterHealingPoolExtra:f17d2147-03c8-5680-8130-cd3679afc8e9",
       "level": 10
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPoolModifierLifeTransmuterHealingPoolBonus:b0825910-08bf-55cc-8803-8f73fa88ced7",
+      "featureDefinition": "Definition:PowerUseModifierLifeTransmuterHealingPoolBonus:ed8aa200-89ab-5bc2-97b9-9f2daba2bf72",
       "level": 14
     },
     {

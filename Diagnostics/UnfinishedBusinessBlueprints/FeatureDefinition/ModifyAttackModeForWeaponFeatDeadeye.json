@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolExtraTitle",
-    "description": "Feature/&PowerPoolModifierLifeTransmuterHealingPoolExtraDescription",
+    "title": "Feat/&FeatDeadeyeTitle",
+    "description": "Feat/&FeatDeadeyeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f1dea7e1-e5a5-55a9-bcd1-df4872c88f30",
+  "guid": "42805bb4-2752-500f-8da5-6ba0ea295296",
   "contentPack": 9999,
-  "name": "PowerPoolModifierLifeTransmuterHealingPoolExtra"
+  "name": "ModifyAttackModeForWeaponFeatDeadeye"
 }

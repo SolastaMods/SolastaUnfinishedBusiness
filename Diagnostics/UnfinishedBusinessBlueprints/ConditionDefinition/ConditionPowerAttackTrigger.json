@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:PowerAttackTriggerFeature:4ec28f0c-2690-5e82-92db-f1ee8de8bc07"
+    "Definition:TriggerFeaturePowerAttack:a77152a0-5587-512f-bbd0-7ee8d4c20ed8"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

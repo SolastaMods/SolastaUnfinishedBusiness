@@ -1,5 +1,5 @@
-Feature/&PowerPoolTacticianGambitAddDescription=Adds an additional gambit die.
-Feature/&PowerPoolTacticianGambitAddTitle=Additional Gambit die
+Feature/&PowerUseModifierTacticianGambitAddDescription=Adds an additional gambit die.
+Feature/&PowerUseModifierTacticianGambitAddTitle=Additional Gambit die
 Feature/&PowerPoolTacticianGambitDescription=Pool of gambit dice that can be spent on gambits. Starts with 4 that recharge on short rest.
 Feature/&PowerPoolTacticianGambitTitle=Gambit dice pool
 Feature/&PowerSharedPoolTacticianCounterStrikeDescription=Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.

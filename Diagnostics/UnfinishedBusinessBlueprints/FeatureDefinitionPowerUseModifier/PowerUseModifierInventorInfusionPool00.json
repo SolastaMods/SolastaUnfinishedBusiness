@@ -1,18 +1,10 @@
 {
-  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
-  "useControllerSavingThrows": false,
-  "priorityAbilityScore": "",
-  "affinityGroups": [],
-  "indomitableSavingThrows": 0,
-  "canBorrowLuck": false,
-  "canUseDiamondSoul": false,
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerUseModifierInventorInfusionPoolTitle",
+    "description": "Feature/&PowerUseModifierInventorInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1a54c7ae-60d7-555e-b7b7-a7caf6dc3920",
+  "guid": "75cc9b09-cb3d-575a-9e2d-e7e372ab7431",
   "contentPack": 9999,
-  "name": "AttributeInnovationWeaponSummonSteelDefenderSaves"
+  "name": "PowerUseModifierInventorInfusionPool00"
 }

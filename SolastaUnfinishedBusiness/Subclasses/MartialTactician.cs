@@ -88,7 +88,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         var powerPoolTacticianGambitAdd = FeatureDefinitionPowerUseModifierBuilder
-            .Create("PowerPoolTacticianGambitAdd")
+            .Create("PowerUseModifierTacticianGambitAdd")
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(powerPoolTacticianGambit, 1)
             .AddToDB();

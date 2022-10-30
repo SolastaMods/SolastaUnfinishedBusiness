@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerIncreaseInventorInfusionPoolTitle",
-    "description": "Feature/&PowerIncreaseInventorInfusionPoolDescription",
+    "title": "Feature/&PowerUseModifierInventorInfusionPoolTitle",
+    "description": "Feature/&PowerUseModifierInventorInfusionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce2febf2-889f-59e0-9536-fd1f80341549",
+  "guid": "189c1457-aef9-511e-9db6-5e27f99955fc",
   "contentPack": 9999,
-  "name": "PowerIncreaseInventorInfusionPool03"
+  "name": "PowerUseModifierInventorInfusionPool02"
 }

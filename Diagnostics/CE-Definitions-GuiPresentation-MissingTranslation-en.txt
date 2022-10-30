@@ -1,2 +1,0 @@
-PowerSorcererSorcerousRestoration	Title='Feature/&PowerSorcerousRestorationTitle'.
-PowerSorcererSorcerousRestoration	Description='Feature/&PowerSorcerousRestorationDescription'.

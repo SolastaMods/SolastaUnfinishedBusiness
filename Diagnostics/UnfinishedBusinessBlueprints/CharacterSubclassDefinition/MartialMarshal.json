@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MarshalCoordinatedAttack:47bb75af-aa75-51fa-8f95-e4e3d8cf42df",
+      "featureDefinition": "Definition:ReactToAttackFinishedMarshalCoordinatedAttack:bd91e31a-b1aa-5821-8f24-52232759e8b6",
       "level": 3
     },
     {

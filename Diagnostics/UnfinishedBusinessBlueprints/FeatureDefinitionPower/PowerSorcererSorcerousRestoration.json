@@ -322,8 +322,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSorcerousRestorationTitle",
-    "description": "Feature/&PowerSorcerousRestorationDescription",
+    "title": "Feature/&PowerSorcererSorcerousRestorationTitle",
+    "description": "Feature/&PowerSorcererSorcerousRestorationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

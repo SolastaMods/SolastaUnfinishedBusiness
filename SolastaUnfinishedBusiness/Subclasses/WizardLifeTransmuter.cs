@@ -168,7 +168,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
             .AddToDB();
 
         var powerPoolModifierLifeTransmuterHealingPoolExtra = FeatureDefinitionPowerUseModifierBuilder
-            .Create("PowerPoolModifierLifeTransmuterHealingPoolExtra")
+            .Create("PowerUseModifierLifeTransmuterHealingPoolExtra")
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 2)
             .AddToDB();
@@ -176,7 +176,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         // LEVEL 14
 
         var powerPoolModifierLifeTransmuterHealingPoolBonus = FeatureDefinitionPowerUseModifierBuilder
-            .Create("PowerPoolModifierLifeTransmuterHealingPoolBonus")
+            .Create("PowerUseModifierLifeTransmuterHealingPoolBonus")
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(powerSharedPoolLifeTransmuterHealingPool, 4)
             .AddToDB();
