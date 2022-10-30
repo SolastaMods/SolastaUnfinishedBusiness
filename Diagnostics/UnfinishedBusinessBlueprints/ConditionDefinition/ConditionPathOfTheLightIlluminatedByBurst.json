@@ -1,20 +1,17 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+ConditionDefinitionIlluminated, SolastaUnfinishedBusiness",
+  "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionPathOfTheLightIlluminated:d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated:d957b79d-09b1-50ea-bc79-eafcf59e1577",
-    "Definition:FeatureSetPathOfTheLightIlluminatedPreventInvisibility:bd3a042a-1ef7-5ac1-9f9e-2863e9b50d15"
-  ],
+  "features": [],
   "allowMultipleInstances": true,
   "silentWhenAdded": true,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Irrelevant",
+  "specialDuration": false,
+  "durationType": "Minute",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -149,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
+  "guid": "459ef6e1-95ce-57ef-893b-7d33d4db9262",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheLightIlluminated"
+  "name": "ConditionPathOfTheLightIlluminatedByBurst"
 }

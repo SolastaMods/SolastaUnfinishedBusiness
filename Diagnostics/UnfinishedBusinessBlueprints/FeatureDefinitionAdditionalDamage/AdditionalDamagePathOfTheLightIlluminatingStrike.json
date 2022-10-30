@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+FeatureDefinitionAdditionalDamageIlluminatingStrike, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "IlluminatingStrike",
   "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
@@ -24,6 +24,16 @@
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
@@ -62,7 +72,7 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -198,7 +208,7 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {

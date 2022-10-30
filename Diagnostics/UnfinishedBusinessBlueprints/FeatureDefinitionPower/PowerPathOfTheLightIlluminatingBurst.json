@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Subclasses.PathOfTheLight+FeatureDefinitionPowerIlluminatingBurst, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",

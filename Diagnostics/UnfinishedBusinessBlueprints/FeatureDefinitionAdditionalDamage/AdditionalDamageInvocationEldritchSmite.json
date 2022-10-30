@@ -68,6 +68,61 @@
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
       "diceNumber": 10
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 11
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 12
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 13
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 14
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 15
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 16
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 17
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 17,
+      "diceNumber": 18
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 18,
+      "diceNumber": 19
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 19,
+      "diceNumber": 20
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
+      "diceNumber": 21
     }
   ],
   "familiesWithAdditionalDice": [],
