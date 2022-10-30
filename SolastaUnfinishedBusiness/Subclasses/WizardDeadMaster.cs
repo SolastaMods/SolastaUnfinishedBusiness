@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
@@ -230,37 +231,41 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return result;
     }
 
-    private sealed class OnCharacterKillDeadMasterStarkHarvest : IOnCharacterKill
+    private sealed class OnCharacterKillDeadMasterStarkHarvest : ITargetReducedToZeroHp
     {
-        public void OnCharacterKill(GameLocationCharacter character)
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
         {
             if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
             {
-                return;
+                yield break;
             }
 
-            var characterFamily = character.RulesetCharacter.CharacterFamily;
+            var characterFamily = downedCreature.RulesetCharacter.CharacterFamily;
 
             if (characterFamily == CharacterFamilyDefinitions.Construct.Name
                 || characterFamily == CharacterFamilyDefinitions.Undead.Name)
             {
-                return;
+                yield break;
             }
 
-            var attacker =
+            var rulesetAttacker =
                 actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
                 ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-            if (attacker == null)
+            if (rulesetAttacker == null)
             {
-                return;
+                yield break;
             }
 
             var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
             var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
 
-            attacker.ReceiveHealing(healingReceived, true, attacker.Guid);
+            rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
         }
     }
 }

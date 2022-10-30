@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
@@ -44,45 +45,47 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnCharacterKillFightingStyleMerciless : IOnCharacterKill
+    private sealed class OnCharacterKillFightingStyleMerciless : ITargetReducedToZeroHp
     {
-        public void OnCharacterKill(GameLocationCharacter character)
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionAttack actionAttack)
+            if (Global.CurrentAction is not CharacterActionAttack)
             {
-                return;
+                yield break;
             }
 
             var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
 
             if (battle == null)
             {
-                return;
+                yield break;
             }
 
-            var attacker = actionAttack.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-                           ?? actionAttack.ActingCharacter.RulesetCharacter.OriginalFormCharacter as
-                               RulesetCharacterHero;
+            var rulesetAttacker = attacker.RulesetCharacter as RulesetCharacterHero ??
+                                  attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-            if (attacker == null || attacker.IsWieldingRangedWeapon())
+            if (rulesetAttacker == null || rulesetAttacker.IsWieldingRangedWeapon())
             {
-                return;
+                yield break;
             }
 
-            var proficiencyBonus = attacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = attacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var usablePower = new RulesetUsablePower(
-                PowerFightingStyleMerciless, attacker.RaceDefinition, attacker.ClassesHistory[0]);
-            var effectPower = new RulesetEffectPower(attacker, usablePower);
+            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, rulesetAttacker.RaceDefinition,
+                rulesetAttacker.ClassesHistory[0]);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
-            usablePower.SaveDC = 8 + proficiencyBonus
-                                   + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+            usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
             foreach (var enemy in battle.EnemyContenders
                          .Where(enemy =>
-                             enemy != character &&
-                             int3.Distance(character.LocationPosition, enemy.LocationPosition) <= distance))
+                             enemy != attacker && int3.Distance(attacker.LocationPosition, enemy.LocationPosition) <=
+                             distance))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
