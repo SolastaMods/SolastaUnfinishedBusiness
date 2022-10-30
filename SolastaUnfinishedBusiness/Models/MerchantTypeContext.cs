@@ -135,9 +135,9 @@ internal static class MerchantTypeContext
 
         internal bool IsMagicalAmmunition;
         internal bool IsMagicalArmor;
+        internal bool IsMagicalEquipment;
         internal bool IsMagicalMeleeWeapon;
         internal bool IsMagicalRangeWeapon;
-        internal bool IsMagicalEquipment;
         internal bool IsMeleeWeapon;
 
         internal bool IsPrimedArmor;
@@ -150,9 +150,9 @@ internal static class MerchantTypeContext
 internal static class MerchantContext
 {
     private static StockUnitDescriptionBuilder _stockBuilder;
-    private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
+    private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
     internal static void Load()
     {
@@ -169,7 +169,7 @@ internal static class MerchantContext
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
-            MerchantContext.GiveAssortment(ShopItems, MerchantTypeContext.MerchantTypes);
+            GiveAssortment(ShopItems, MerchantTypeContext.MerchantTypes);
         }
     }
 
@@ -190,11 +190,11 @@ internal static class MerchantContext
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
-            MerchantContext.GiveAssortment(ShopItems, merchant, MerchantTypeContext.GetMerchantType(merchant));
+            GiveAssortment(ShopItems, merchant, MerchantTypeContext.GetMerchantType(merchant));
         }
     }
 
-    public static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
+    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
         [NotNull] IEnumerable<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
     {
         foreach (var (merchant, type) in merchants)
@@ -203,7 +203,7 @@ internal static class MerchantContext
         }
     }
 
-    public static void GiveAssortment([NotNull] List<(ItemDefinition, ShopItemType)> items,
+    private static void GiveAssortment([NotNull] List<(ItemDefinition, ShopItemType)> items,
         MerchantDefinition merchant,
         MerchantTypeContext.MerchantType type)
     {
@@ -284,21 +284,29 @@ internal static class RecipeHelper
 
 internal sealed class MerchantFilter
 {
+    internal static readonly MerchantFilter GenericMelee = new() { IsMeleeWeapon = true };
+    internal static readonly MerchantFilter MagicMelee = new() { IsMagicalMeleeWeapon = true };
+    internal static readonly MerchantFilter PrimedMelee = new() { IsPrimedMeleeWeapon = true };
+    internal static readonly MerchantFilter GenericRanged = new() { IsRangeWeapon = true };
+    internal static readonly MerchantFilter MagicRanged = new() { IsMagicalRangeWeapon = true };
+    internal static readonly MerchantFilter PrimedRanged = new() { IsPrimedRangeWeapon = true };
+    internal static readonly MerchantFilter MagicEquipment = new() { IsMagicalEquipment = true };
+    internal static readonly MerchantFilter CraftingManual = new() { IsDocument = true };
     internal bool? IsAmmunition = null;
     internal bool? IsArmor = null;
-    internal bool? IsMeleeWeapon;
-    internal bool? IsRangeWeapon;
     internal bool? IsDocument;
 
     internal bool? IsMagicalAmmunition = null;
     internal bool? IsMagicalArmor = null;
+    internal bool? IsMagicalEquipment;
     internal bool? IsMagicalMeleeWeapon;
     internal bool? IsMagicalRangeWeapon;
-    internal bool? IsMagicalEquipment;
+    internal bool? IsMeleeWeapon;
 
     internal bool? IsPrimedArmor = null;
     internal bool? IsPrimedMeleeWeapon;
     internal bool? IsPrimedRangeWeapon;
+    internal bool? IsRangeWeapon;
 
     internal bool Matches(MerchantTypeContext.MerchantType merchantType)
     {
@@ -316,28 +324,10 @@ internal sealed class MerchantFilter
                (IsPrimedRangeWeapon == null || IsPrimedRangeWeapon == merchantType.IsPrimedRangeWeapon) &&
                (IsRangeWeapon == null || IsRangeWeapon == merchantType.IsRangeWeapon);
     }
-
-    internal static readonly MerchantFilter GenericMelee = new() {IsMeleeWeapon = true};
-    internal static readonly MerchantFilter MagicMelee = new() {IsMagicalMeleeWeapon = true};
-    internal static readonly MerchantFilter PrimedMelee = new() {IsPrimedMeleeWeapon = true};
-    internal static readonly MerchantFilter GenericRanged = new() {IsRangeWeapon = true};
-    internal static readonly MerchantFilter MagicRanged = new() {IsMagicalRangeWeapon = true};
-    internal static readonly MerchantFilter PrimedRanged = new() {IsPrimedRangeWeapon = true};
-    internal static readonly MerchantFilter MagicEquipment = new() {IsMagicalEquipment = true};
-    internal static readonly MerchantFilter CraftingManual = new() {IsDocument = true};
 }
 
 internal sealed class ShopItemType
 {
-    internal readonly MerchantFilter Filter;
-    internal readonly FactionStatusDefinition Status;
-
-    internal ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
-    {
-        Status = status;
-        Filter = filter;
-    }
-
     internal static readonly ShopItemType ShopGenericMelee =
         new(FactionStatusDefinitions.Indifference, MerchantFilter.GenericMelee);
 
@@ -376,7 +366,16 @@ internal sealed class ShopItemType
 
     internal static readonly ShopItemType MagicItemVeryRare =
         new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicEquipment);
-    
+
     internal static readonly ShopItemType MagicItemLegendary =
         new(FactionStatusDefinitions.LivingLegend, MerchantFilter.MagicEquipment);
+
+    internal readonly MerchantFilter Filter;
+    internal readonly FactionStatusDefinition Status;
+
+    private ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
+    {
+        Status = status;
+        Filter = filter;
+    }
 }

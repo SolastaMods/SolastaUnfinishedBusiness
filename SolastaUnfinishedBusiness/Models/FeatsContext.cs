@@ -141,31 +141,6 @@ internal static class FeatsContext
 
         UpdateFeatGroupsVisibility(featDefinition);
         GuiWrapperContext.RecacheFeats();
-
-        //
-        // Syncs Feat Groups status with children
-        //
-
-        // var feats = featDefinition.GetFirstSubFeatureOfType<IGroupedFeat>();
-        //
-        // feats?.GetSubFeats().ForEach(x =>
-        // {
-        //     var isFeatGroup = x.GetFirstSubFeatureOfType<IGroupedFeat>() != null;
-        //
-        //     if (x.ContentPack != CeContentPackContext.CeContentPack)
-        //     {
-        //         return;
-        //     }
-        //
-        //     if (isFeatGroup)
-        //     {
-        //         SwitchFeatGroup(x, active);
-        //     }
-        //     else
-        //     {
-        //         SwitchFeat(x, active);
-        //     }
-        // });
     }
 
     internal static void UpdatePanelChildren(FeatSubPanel panel)

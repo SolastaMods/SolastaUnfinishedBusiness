@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -34,6 +33,7 @@ internal static class CustomReactionsContext
             .AddToDB();
     }
 
+#if false
     //leaving this in case we need react with spell functionality
     private static IEnumerator ReactWithSpell(SpellDefinition spell, GameLocationCharacter caster,
         GameLocationCharacter target)
@@ -82,8 +82,10 @@ internal static class CustomReactionsContext
             yield return null;
         }
     }
+#endif
 
-    internal static void SaveReadyActionPreferredCantrip([CanBeNull] CharacterActionParams actionParams,
+    internal static void SaveReadyActionPreferredCantrip(
+        [CanBeNull] CharacterActionParams actionParams,
         ReadyActionType readyActionType)
     {
         if (actionParams != null && readyActionType == ReadyActionType.Cantrip)
@@ -195,8 +197,7 @@ internal static class CustomReactionsContext
         }
     }
 
-    private static bool CheckAndModifyCantrips(List<SpellDefinition> readied,
-        SpellDefinition preferred)
+    private static bool CheckAndModifyCantrips(List<SpellDefinition> readied, SpellDefinition preferred)
     {
         if (!_forcePreferredCantrip)
         {

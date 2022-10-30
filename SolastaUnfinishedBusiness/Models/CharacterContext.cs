@@ -187,13 +187,16 @@ internal static class CharacterContext
             foreach (var race in races)
             {
                 var presentation = race.racePresentation;
-                if (!presentation.IsAvailable(MorphotypeElementDefinition.ElementCategory.Eye))
+
+                if (presentation.IsAvailable(MorphotypeElementDefinition.ElementCategory.Eye))
                 {
-                    var all = new List<MorphotypeElementDefinition.ElementCategory>(presentation
-                        .availableMorphotypeCategories);
-                    all.Add(MorphotypeElementDefinition.ElementCategory.Eye);
-                    presentation.availableMorphotypeCategories = all.ToArray();
+                    continue;
                 }
+
+                var all = new List<MorphotypeElementDefinition.ElementCategory>(
+                    presentation.availableMorphotypeCategories) { MorphotypeElementDefinition.ElementCategory.Eye };
+
+                presentation.availableMorphotypeCategories = all.ToArray();
             }
         }
 
@@ -459,7 +462,8 @@ internal static class CharacterContext
     {
         var human = Human;
 
-        BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
+        BuildFeatureUnlocks(initialFeats, alternateHuman,
+            out var featureUnlockByLevelNonHuman,
             out var featureUnlockByLevelHuman);
 
         foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())

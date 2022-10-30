@@ -33,7 +33,7 @@ internal static class SaveByLocationContext
 
     internal static GameObject Dropdown { get; private set; }
 
-    private static List<UserLocation> AllLocations
+    private static IEnumerable<UserLocation> AllLocations
     {
         get
         {
@@ -51,7 +51,7 @@ internal static class SaveByLocationContext
         }
     }
 
-    private static List<UserCampaign> AllCampaigns
+    private static IEnumerable<UserCampaign> AllCampaigns
     {
         get
         {

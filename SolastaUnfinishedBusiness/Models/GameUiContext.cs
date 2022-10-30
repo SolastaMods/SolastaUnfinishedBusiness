@@ -18,10 +18,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class GameUiContext
 {
     private static readonly List<RectTransform> SpellLineTables = new();
-
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
-
-    // private static bool EnableDebugCamera { get; set; }
 
     // Converts continuous ratio into series of stepped values
     internal static float GetSteppedHealthRatio(float ratio)
@@ -620,14 +617,6 @@ internal static class GameUiContext
         inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
         // HUD
-        // inputService.RegisterCommand(Hotkeys.CtrlShiftC, (int)KeyCode.C, (int)KeyCode.LeftShift,
-        //     (int)KeyCode.LeftControl);
-        // inputService.RegisterCommand(Hotkeys.CtrlShiftL, (int)KeyCode.L, (int)KeyCode.LeftShift,
-        //     (int)KeyCode.LeftControl);
-        // inputService.RegisterCommand(Hotkeys.CtrlShiftM, (int)KeyCode.M, (int)KeyCode.LeftShift,
-        //     (int)KeyCode.LeftControl);
-        // inputService.RegisterCommand(Hotkeys.CtrlShiftP, (int)KeyCode.P, (int)KeyCode.LeftShift,
-        //     (int)KeyCode.LeftControl);
         inputService.RegisterCommand(Hotkeys.CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
@@ -646,36 +635,10 @@ internal static class GameUiContext
         // Teleport
         inputService.RegisterCommand(Hotkeys.CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-
-        // Zoom Camera
-        // inputService.RegisterCommand(Hotkeys.CtrlShiftZ, (int)KeyCode.Z, (int)KeyCode.LeftShift,
-        //     (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
     {
-        // if (Main.Settings.EnableHotkeyToggleIndividualHud)
-        // {
-        //     switch (command)
-        //     {
-        //         case Hotkeys.CtrlShiftC:
-        //             GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
-        //             return;
-        //
-        //         case Hotkeys.CtrlShiftL:
-        //             GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
-        //             return;
-        //
-        //         case Hotkeys.CtrlShiftM:
-        //             GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
-        //             return;
-        //
-        //         case Hotkeys.CtrlShiftP:
-        //             GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
-        //             return;
-        //     }
-        // }
-
         if (Main.Settings.EnableCharacterExport && command == Hotkeys.CtrlShiftE)
         {
             CharacterExportContext.ExportInspectedCharacter();
@@ -693,27 +656,10 @@ internal static class GameUiContext
         {
             Teleporter.ConfirmTeleportParty();
         }
-        // else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CtrlShiftZ)
-        // {
-        //     ToggleZoomCamera();
-        // }
         else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CtrlShiftS)
         {
             EncountersSpawnContext.ConfirmStageEncounter();
         }
-
-        // void ToggleZoomCamera()
-        // {
-        //     var cameraService = ServiceRepository.GetService<ICameraService>();
-        //
-        //     if (cameraService == null)
-        //     {
-        //         return;
-        //     }
-        //
-        //     EnableDebugCamera = !EnableDebugCamera;
-        //     cameraService.DebugCameraEnabled = EnableDebugCamera;
-        // }
 
         [CanBeNull]
         GuiPanel GetInitiativeOrPartyPanel()

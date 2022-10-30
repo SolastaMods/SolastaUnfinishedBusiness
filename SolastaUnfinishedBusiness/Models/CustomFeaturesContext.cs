@@ -244,6 +244,7 @@ internal static class CustomFeaturesContext
         foreach (var usablePower in character.UsablePowers)
         {
             FeatureDefinitionPower rechargedPower;
+
             if (usablePower.PowerDefinition is IPowerSharedPool pool)
             {
                 rechargedPower = pool.GetUsagePoolPower();
@@ -294,6 +295,7 @@ internal static class CustomFeaturesContext
         foreach (var usablePower in character.UsablePowers)
         {
             var power = usablePower.PowerDefinition;
+
             if (power is not IPowerSharedPool pool)
             {
                 continue;
@@ -341,7 +343,7 @@ internal static class CustomFeaturesContext
             .Sum(m => m.PoolChangeAmount(character));
     }
 
-    internal static int GetMaxUsesForPool([NotNull] this RulesetCharacter character,
+    internal static int GetMaxUsesForPool(this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
         if (power is IPowerSharedPool poolPower)
@@ -409,7 +411,9 @@ internal static class CustomFeaturesContext
         }
     }
 
-    private static void UpdateUsageForPowerPool(RulesetCharacter character, int poolUsage,
+    private static void UpdateUsageForPowerPool(
+        RulesetCharacter character,
+        int poolUsage,
         RulesetUsablePower usablePower)
     {
         var maxUses = GetMaxUsesForPool(usablePower, character);
@@ -476,7 +480,7 @@ internal static class CustomFeaturesContext
     }
 
     private static int GetRemainingPowerPoolUses(
-        [NotNull] this RulesetCharacter character,
+        this RulesetCharacter character,
         [NotNull] IPowerSharedPool sharedPoolPower)
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();

@@ -12,7 +12,6 @@ internal static class DungeonMakerContext
     internal const int MinPartySize = 1;
     internal const int MaxPartySize = 6;
 
-    internal const float AdventurePanelDefaultScale = 0.75f;
     internal const float VictoryModalDefaultScale = 0.85f;
     internal const float RevivePartyControlPanelDefaultScale = 0.85f;
 
@@ -26,24 +25,26 @@ internal static class DungeonMakerContext
         return (float)GamePartySize / Gui.GameCampaign.Party.CharactersList.Count;
     }
 
-    // [NotNull]
-    // internal static string ReplaceVariable(string line)
-    // {
-    //     var service = ServiceRepository.GetService<IGameVariableService>();
-    //     const string PATTERN = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
-    //
-    //     foreach (Match match in Regex.Matches(line, PATTERN))
-    //     {
-    //         var variableName = match.Value.Substring(1, match.Value.Length - 2);
-    //
-    //         if (service.TryFindVariable(variableName, out var gameVariable))
-    //         {
-    //             line = line.Replace(match.Value, gameVariable.StringValue);
-    //         }
-    //     }
-    //
-    //     return line;
-    // }
+#if false
+    [NotNull]
+    internal static string ReplaceVariable(string line)
+    {
+        var service = ServiceRepository.GetService<IGameVariableService>();
+        const string PATTERN = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
+    
+        foreach (Match match in Regex.Matches(line, PATTERN))
+        {
+            var variableName = match.Value.Substring(1, match.Value.Length - 2);
+    
+            if (service.TryFindVariable(variableName, out var gameVariable))
+            {
+                line = line.Replace(match.Value, gameVariable.StringValue);
+            }
+        }
+    
+        return line;
+    }
+#endif
 
     internal static void BackupAndDelete([NotNull] string path, [NotNull] UserContent userContent)
     {
