@@ -239,20 +239,24 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: support for `IOnAttackDamageEffect`
             var character = attacker.RulesetCharacter;
+
             if (character != null)
             {
-                foreach (var feature in character.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
                 {
                     feature.BeforeOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
 
-            while (__result.MoveNext()) { yield return __result.Current; }
+            while (__result.MoveNext())
+            {
+                yield return __result.Current;
+            }
 
             if (character != null)
             {
-                foreach (var feature in character.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
                 {
                     feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);

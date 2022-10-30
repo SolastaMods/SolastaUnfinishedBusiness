@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
@@ -41,48 +42,15 @@ internal static class ElAntoniousFeats
                     .AddToDB())
             .AddToDB();
 
-        void AfterOnAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            [CanBeNull] RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
-            if (rangedAttack || attackMode == null)
-            {
-                return;
-            }
-
-            var condition =
-                attacker.RulesetCharacter.HasConditionOfType(conditionDualFlurryApply.Name)
-                    ? conditionDualFlurryGrant
-                    : conditionDualFlurryApply;
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                condition,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-        }
-
         var featDualFlurry = FeatDefinitionBuilder
             .Create("FeatDualFlurry")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionOnAttackDamageEffectBuilder
+                FeatureDefinitionBuilder
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
-                    .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
+                    .SetCustomSubFeatures(
+                        new OnAttackDamageEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();
 
@@ -121,5 +89,68 @@ internal static class ElAntoniousFeats
             .AddToDB();
 
         feats.AddRange(featTorchbearer, featDualFlurry);
+    }
+
+    private sealed class OnAttackDamageEffectFeatDualFlurry : IOnAttackDamageEffect
+    {
+        private readonly ConditionDefinition _conditionDualFlurryApply;
+        private readonly ConditionDefinition _conditionDualFlurryGrant;
+
+        internal OnAttackDamageEffectFeatDualFlurry(
+            ConditionDefinition conditionDualFlurryGrant,
+            ConditionDefinition conditionDualFlurryApply)
+        {
+            _conditionDualFlurryGrant = conditionDualFlurryGrant;
+            _conditionDualFlurryApply = conditionDualFlurryApply;
+        }
+
+        public void BeforeOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            [CanBeNull] RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            // empty
+        }
+
+        public void AfterOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            [CanBeNull] RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            if (rangedAttack || attackMode == null)
+            {
+                return;
+            }
+
+            var condition =
+                attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
+                    ? _conditionDualFlurryGrant
+                    : _conditionDualFlurryApply;
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                condition,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
     }
 }
