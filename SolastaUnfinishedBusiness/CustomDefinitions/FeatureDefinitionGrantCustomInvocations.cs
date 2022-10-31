@@ -5,12 +5,12 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
 {
-    internal List<CustomInvocationDefinition> Invocations { get; } = new();
+    private List<InvocationDefinitionCustom> Invocations { get; } = new();
 
     internal static void GrantInvocations(
         RulesetCharacterHero hero,
         string tag,
-        List<FeatureDefinition> grantedFeatures)
+        IEnumerable<FeatureDefinition> grantedFeatures)
     {
         var features = grantedFeatures
             .OfType<FeatureDefinitionGrantCustomInvocations>()
@@ -32,7 +32,7 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
     internal static void RemoveInvocations(
         RulesetCharacterHero hero,
         string tag,
-        List<FeatureDefinition> removedFeatures)
+        IEnumerable<FeatureDefinition> removedFeatures)
     {
         var features = removedFeatures
             .OfType<FeatureDefinitionGrantCustomInvocations>()

@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 10,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaSlippersOfSpiderClimbing:6148e9c5-d17c-5ade-bb75-b94e5792cda0",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Slippers of Spider Climbing",
+    "description": "Create replica <b>Slippers of Spider Climbing</b>:\nThese magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "11cb1c822bd01944488a822b5bf5b718",
+      "m_SubObjectName": "Slippers_of_Spider_Climbing",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "15ccab92-e150-5017-aa28-7ce41ccc8c13",
+  "contentPack": 9999,
+  "name": "InvocationCreateInfusedReplicaSlippersOfSpiderClimbing"
+}

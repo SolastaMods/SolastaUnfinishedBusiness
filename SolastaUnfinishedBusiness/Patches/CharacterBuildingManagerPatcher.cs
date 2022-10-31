@@ -34,7 +34,7 @@ public static class CharacterBuildingManagerPatcher
             ref bool checkPool)
         {
             //PATCH: do not check or modify point pools when dealing with custom invocations
-            if (invocation is CustomInvocationDefinition)
+            if (invocation is InvocationDefinitionCustom)
             {
                 checkPool = false;
             }
@@ -51,7 +51,7 @@ public static class CharacterBuildingManagerPatcher
             ref bool checkPool)
         {
             //PATCH: do not check or modify point pools when dealing with custom invocations
-            if (invocation is CustomInvocationDefinition)
+            if (invocation is InvocationDefinitionCustom)
             {
                 checkPool = false;
             }
@@ -68,7 +68,7 @@ public static class CharacterBuildingManagerPatcher
             string tag)
         {
             //PATCH: do not check or modify point pools when dealing with custom invocations
-            if (invocation is not CustomInvocationDefinition)
+            if (invocation is not InvocationDefinitionCustom)
             {
                 return true;
             }
@@ -92,7 +92,7 @@ public static class CharacterBuildingManagerPatcher
             string tag)
         {
             //PATCH: do not check or modify point pools when dealing with custom invocations
-            if (invocation is not CustomInvocationDefinition)
+            if (invocation is not InvocationDefinitionCustom)
             {
                 return true;
             }

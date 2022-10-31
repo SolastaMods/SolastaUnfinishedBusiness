@@ -17,7 +17,7 @@ internal class CustomInvocationPoolDefinitionBuilder
     {
     }
 
-    internal CustomInvocationPoolDefinitionBuilder Setup(CustomInvocationPoolType poolType, int points = 1,
+    internal CustomInvocationPoolDefinitionBuilder Setup(InvocationPoolTypeCustom poolType, int points = 1,
         bool isUnlearn = false)
     {
         Definition.PoolType = poolType;

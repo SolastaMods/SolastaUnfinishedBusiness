@@ -437,7 +437,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolInfusionLearn" + points)
             .SetGuiPresentation(Category.Feature)
-            .Setup(CustomInvocationPoolType.Pools.Infusion, points)
+            .Setup(InvocationPoolTypeCustom.Pools.Infusion, points)
             .AddToDB();
     }
 
@@ -446,7 +446,7 @@ internal static class InventorClass
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolInventorUnlearnInfusion")
             .SetGuiPresentationNoContent(true)
-            .Setup(CustomInvocationPoolType.Pools.Infusion, 1, true)
+            .Setup(InvocationPoolTypeCustom.Pools.Infusion, 1, true)
             .AddToDB();
     }
 

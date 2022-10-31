@@ -268,7 +268,7 @@ internal static class Infusions
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetCustomSubFeatures(Hidden.Marker)
-            .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(power)
             .AddToDB();
@@ -283,7 +283,7 @@ internal static class Infusions
             .Create($"InvocationCreate{replica.name}")
             .SetGuiPresentation(Category.Feature, replica)
             .SetCustomSubFeatures(Hidden.Marker)
-            .SetPoolType(CustomInvocationPoolType.Pools.Infusion)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
             .AddToDB();

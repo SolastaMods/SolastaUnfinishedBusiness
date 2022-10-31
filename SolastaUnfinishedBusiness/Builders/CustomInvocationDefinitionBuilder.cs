@@ -6,18 +6,18 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 [UsedImplicitly]
 internal class CustomInvocationDefinitionBuilder
-    : InvocationDefinitionBuilder<CustomInvocationDefinition, CustomInvocationDefinitionBuilder>
+    : InvocationDefinitionBuilder<InvocationDefinitionCustom, CustomInvocationDefinitionBuilder>
 {
     internal CustomInvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    internal CustomInvocationDefinitionBuilder(CustomInvocationDefinition original, string name, Guid namespaceGuid)
+    internal CustomInvocationDefinitionBuilder(InvocationDefinitionCustom original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }
 
-    internal CustomInvocationDefinitionBuilder SetPoolType(CustomInvocationPoolType poolType)
+    internal CustomInvocationDefinitionBuilder SetPoolType(InvocationPoolTypeCustom poolType)
     {
         Definition.PoolType = poolType;
         return this;

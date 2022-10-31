@@ -44,7 +44,7 @@ internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvid
             FeatureDefinitionPower => "UI/&CustomFeatureSelectionTooltipTypePower",
             FeatureDefinitionBonusCantrips => "UI/&CustomFeatureSelectionTooltipTypeCantrip",
             FeatureDefinitionProficiency => "UI/&CustomFeatureSelectionTooltipTypeProficiency",
-            CustomInvocationDefinition f => $"UI/&CustomFeatureSelectionTooltipType{f.PoolType.Name}",
+            InvocationDefinitionCustom f => $"UI/&CustomFeatureSelectionTooltipType{f.PoolType.Name}",
             _ => "UI/&CustomFeatureSelectionTooltipTypeFeature"
         };
     }

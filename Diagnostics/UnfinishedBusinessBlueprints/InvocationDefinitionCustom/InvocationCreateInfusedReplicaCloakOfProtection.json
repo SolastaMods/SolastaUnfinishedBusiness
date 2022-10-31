@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 10,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaCloakOfProtection:a6bd7266-b35e-5477-ad45-8da5159113f2",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Cloak of Protection",
+    "description": "Create replica <b>Cloak of Protection</b>:\nAn exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. ",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d8bf9f8290ecfb34fa89c1da6584b36c",
+      "m_SubObjectName": "CloakOfProtection",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0d0380f2-ff1a-55d1-b164-bc4f02d799f3",
+  "contentPack": 9999,
+  "name": "InvocationCreateInfusedReplicaCloakOfProtection"
+}

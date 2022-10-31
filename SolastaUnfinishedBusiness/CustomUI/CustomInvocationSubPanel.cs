@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomInvocationSubPanel : MonoBehaviour
 {
-    private CustomInvocationPoolType Type { get; set; }
+    private InvocationPoolTypeCustom Type { get; set; }
 
-    private void Setup(CustomInvocationPoolType type)
+    private void Setup(InvocationPoolTypeCustom type)
     {
         Type = type;
         name = $"CustomSubPanel<{type.Name}>";
@@ -35,12 +35,12 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         if (custom != null)
         {
-            invocations = all.OfType<CustomInvocationDefinition>()
+            invocations = all.OfType<InvocationDefinitionCustom>()
                 .Where(x => x.PoolType == custom.Type);
         }
         else
         {
-            invocations = all.Where(x => x is not CustomInvocationDefinition);
+            invocations = all.Where(x => x is not InvocationDefinitionCustom);
         }
 
         var table = panel.Table;
@@ -75,7 +75,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         var siblingIndex = invocationTransform.GetSiblingIndex() + 1;
 
         var index = panel.subPanels.Length;
-        var poolTypes = CustomInvocationPoolType.Pools.All;
+        var poolTypes = InvocationPoolTypeCustom.Pools.All;
 
         Array.Resize(ref panel.subPanels, index + poolTypes.Count);
 

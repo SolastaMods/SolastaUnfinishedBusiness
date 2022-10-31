@@ -22,7 +22,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private readonly List<FeaturePool> allPools = new();
     private readonly List<(string, FeatureDefinitionCustomInvocationPool)> gainedCustomFeatures = new();
 
-    private readonly Dictionary<PoolId, List<CustomInvocationDefinition>> learnedInvocations = new();
+    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> learnedInvocations = new();
 
     private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
     {
@@ -286,7 +286,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             foreach (var invocation in invocations)
             {
-                if (invocation is not CustomInvocationDefinition custom)
+                if (invocation is not InvocationDefinitionCustom custom)
                 {
                     continue;
                 }
@@ -306,7 +306,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             foreach (var invocation in invocations)
             {
-                if (invocation is not CustomInvocationDefinition custom)
+                if (invocation is not InvocationDefinitionCustom custom)
                 {
                     continue;
                 }
@@ -383,7 +383,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         return allPools.FirstOrDefault(p => p.Id.Equals(id));
     }
 
-    private FeaturePool GetOrAddPoolById(PoolId id, CustomInvocationPoolType type)
+    private FeaturePool GetOrAddPoolById(PoolId id, InvocationPoolTypeCustom type)
     {
         var pool = GetPoolById(id);
 
@@ -406,20 +406,20 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         return allPools[step].IsUnlearn;
     }
 
-    private List<CustomInvocationDefinition> GetOrMakeLearnedList(PoolId id)
+    private List<InvocationDefinitionCustom> GetOrMakeLearnedList(PoolId id)
     {
         if (learnedInvocations.ContainsKey(id))
         {
             return learnedInvocations[id];
         }
 
-        var learned = new List<CustomInvocationDefinition>();
+        var learned = new List<InvocationDefinitionCustom>();
 
         learnedInvocations.Add(id, learned);
         return learned;
     }
 
-    private List<CustomInvocationDefinition> GetOrMakeUnlearnedList(PoolId id)
+    private List<InvocationDefinitionCustom> GetOrMakeUnlearnedList(PoolId id)
     {
         return GetOrMakeLearnedList(new PoolId(id.Name, id.Tag, true));
     }
@@ -518,7 +518,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             );
         }
 
-        CustomInvocationPoolType.RefreshAll();
+        InvocationPoolTypeCustom.RefreshAll();
     }
 
     internal class FeaturePool
@@ -529,7 +529,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         internal int Max { get; set; }
         internal int Used { get; set; }
         internal int Remaining => Skipped ? 0 : Max - Used;
-        internal CustomInvocationPoolType Type { get; set; }
+        internal InvocationPoolTypeCustom Type { get; set; }
         internal bool IsUnlearn => Id.Unlearn;
     }
 
@@ -1035,10 +1035,10 @@ internal static class SpellsByLevelGroupExtensions
 {
     internal static void CustomFeatureBind(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolType pool,
-        List<CustomInvocationDefinition> learned,
+        InvocationPoolTypeCustom pool,
+        List<InvocationDefinitionCustom> learned,
         int featureLevel,
-        List<CustomInvocationDefinition> unlearned,
+        List<InvocationDefinitionCustom> unlearned,
         bool canAcquireFeatures,
         bool unlearn,
         SpellBox.SpellBoxChangedHandler spellBoxChanged)
@@ -1099,9 +1099,9 @@ internal static class SpellsByLevelGroupExtensions
 
     private static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolType pool,
-        List<CustomInvocationDefinition> learned,
-        List<CustomInvocationDefinition> unlearnedFeatures,
+        InvocationPoolTypeCustom pool,
+        List<InvocationDefinitionCustom> learned,
+        List<InvocationDefinitionCustom> unlearnedFeatures,
         bool canAcquireFeatures)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1136,8 +1136,8 @@ internal static class SpellsByLevelGroupExtensions
 
     private static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
-        CustomInvocationPoolType pool,
-        List<CustomInvocationDefinition> unlearnedSpells,
+        InvocationPoolTypeCustom pool,
+        List<InvocationDefinitionCustom> unlearnedSpells,
         bool canUnlearnInvocations)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1185,16 +1185,16 @@ internal static class SpellsByLevelGroupExtensions
 
 internal static class SpellBoxExtensions
 {
-    private static readonly Dictionary<SpellBox, CustomInvocationDefinition> Features = new();
+    private static readonly Dictionary<SpellBox, InvocationDefinitionCustom> Features = new();
 
-    internal static CustomInvocationDefinition GetFeature(this SpellBox box)
+    internal static InvocationDefinitionCustom GetFeature(this SpellBox box)
     {
         return Features.TryGetValue(box, out var result) ? result : null;
     }
 
     internal static void CustomFeatureBind(
         this SpellBox instance,
-        CustomInvocationDefinition feature,
+        InvocationDefinitionCustom feature,
         bool unlearned,
         SpellBox.BindMode bindMode,
         SpellBox.SpellBoxChangedHandler spellBoxChanged)
