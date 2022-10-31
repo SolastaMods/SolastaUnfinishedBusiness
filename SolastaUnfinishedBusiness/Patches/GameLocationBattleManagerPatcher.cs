@@ -541,6 +541,24 @@ public static class GameLocationBattleManagerPatcher
             RulesetEffect activeEffect
         )
         {
+            //PATCH: INotifyConditionRemoval
+            var rulesetDownedCreature = downedCreature.RulesetCharacter;
+
+            foreach (var rulesetCondition in rulesetDownedCreature.ConditionsByCategory
+                         .SelectMany(keyValuePair => keyValuePair.Value))
+            {
+                if (rulesetCondition.ConditionDefinition == null)
+                {
+                    continue;
+                }
+
+                foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
+                             .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
+                {
+                    notifyConditionRemoval.BeforeDyingWithCondition(rulesetDownedCreature, rulesetCondition);
+                }
+            }
+
             //PATCH: Support for `ITargetReducedToZeroHP` feature
             while (__result.MoveNext())
             {

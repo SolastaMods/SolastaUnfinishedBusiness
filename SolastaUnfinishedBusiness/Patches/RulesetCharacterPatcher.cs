@@ -568,30 +568,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class Kill_Patch
-    {
-        public static void Prefix(RulesetCharacter __instance)
-        {
-            //PATCH: INotifyConditionRemoval
-            foreach (var rulesetCondition in __instance.ConditionsByCategory
-                         .SelectMany(keyValuePair => keyValuePair.Value))
-            {
-                if (rulesetCondition.ConditionDefinition == null)
-                {
-                    continue;
-                }
-
-                foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
-                             .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
-                {
-                    notifyConditionRemoval.BeforeDyingWithCondition(__instance, rulesetCondition);
-                }
-            }
-        }
-    }
-
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
