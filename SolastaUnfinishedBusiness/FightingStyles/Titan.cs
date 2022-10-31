@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Titan : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Titan")
         .SetGuiPresentation(Category.FightingStyle, DomainMischief)
         .SetFeatures(

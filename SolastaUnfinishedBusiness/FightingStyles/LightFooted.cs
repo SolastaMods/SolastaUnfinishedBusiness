@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class LightFooted : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("LightFooted")
         .SetGuiPresentation(Category.FightingStyle, RangerMarksman)
         .SetFeatures(

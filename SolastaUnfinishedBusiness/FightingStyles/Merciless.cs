@@ -26,7 +26,7 @@ internal sealed class Merciless : AbstractFightingStyle
             .Build())
         .AddToDB();
 
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
         .SetFeatures(

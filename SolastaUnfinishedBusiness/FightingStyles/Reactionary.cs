@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Reactionary : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Reactionary")
         .SetGuiPresentation(Category.FightingStyle, PathBerserker)
         .SetFeatures(

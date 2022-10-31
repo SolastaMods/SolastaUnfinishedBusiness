@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal class BlindFighting : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("BlindFighting")
         .SetGuiPresentation(Category.FightingStyle,
             CustomIcons.GetSprite("BlindFighting", Resources.BlindFighting, 256))

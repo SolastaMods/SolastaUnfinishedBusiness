@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Pugilist : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Pugilist")
         .SetGuiPresentation(Category.FightingStyle, TraditionLight)
         .SetFeatures(

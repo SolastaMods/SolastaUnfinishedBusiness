@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class HandAndAHalf : AbstractFightingStyle
 {
-    internal override FightingStyleDefinition FightingStyle { get; } = CustomizableFightingStyleBuilder
+    internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("HandAndAHalf")
         .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer)
         .SetFeatures(

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
@@ -94,7 +93,7 @@ internal static class FightingStyleContext
     {
         foreach (var trainedFightingStyle in hero.trainedFightingStyles)
         {
-            bool? isActive = null;
+            var isActive = false;
 
             switch (trainedFightingStyle.Condition)
             {
@@ -153,17 +152,8 @@ internal static class FightingStyleContext
                     break;
             }
 
-            if (trainedFightingStyle is ICustomFightingStyle customFightingStyle)
-            {
-                isActive = customFightingStyle.IsActive(hero);
-            }
-
-            if (isActive == null)
-            {
-                continue;
-            }
-
-            if (isActive.Value)
+            //TODO: double-check this is indeed necessary
+            if (isActive)
             {
                 hero.activeFightingStyles.TryAdd(trainedFightingStyle);
             }
