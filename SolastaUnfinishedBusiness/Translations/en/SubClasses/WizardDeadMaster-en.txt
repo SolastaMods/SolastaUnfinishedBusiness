@@ -2,8 +2,8 @@
 Feature/&AutoPreparedSpellsDeadMasterTitle=Dead Master Spells
 Feature/&DamageAffinityDeadMasterHardenToNecroticDescription=You have resistance to necrotic damage, and your hit point maximum can't be reduced.
 Feature/&DamageAffinityDeadMasterHardenToNecroticTitle=Harden to Necrotic
-Feature/&OnCharacterKillDeadMasterStarkHarvestDescription=Once per turn when you kill one or more creatures with a spell of 1st level or higher, you regain hit points equal to twice the spell's level, or three times its level if the spell belongs to the School of Necromancy. You don't gain this benefit for killing constructs or undead.
-Feature/&OnCharacterKillDeadMasterStarkHarvestTitle=Stark Harvest
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Once per turn when you kill one or more creatures with a spell of 1st level or higher, you regain hit points equal to twice the spell's level, or three times its level if the spell belongs to the School of Necromancy. You don't gain this benefit for killing constructs or undead.
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Stark Harvest
 Feature/&DeadMasterUndeadChainsDescription=Whenever you create an undead using a necromancy spell, the creature's hit point maximum is increased by an amount equal to your wizard level and the creature adds your proficiency bonus to its weapon damage rolls.
 Feature/&DeadMasterUndeadChainsTitle=Undead Chains
 Feature/&PowerDeadMasterCommandUndeadDescription=You can use your action PB times a day to bring undead under your control. The undead must make a Charisma save (DC equal to 8 + PB + your INT modifier) or be controlled for 1 minute.

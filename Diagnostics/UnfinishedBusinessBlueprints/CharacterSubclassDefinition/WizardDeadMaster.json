@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnCharacterKillDeadMasterStarkHarvest:e55e0567-88dd-5bfb-96c3-6fc3643bcf93",
+      "featureDefinition": "Definition:TargetReducedToZeroHpDeadMasterStarkHarvest:a36543ab-7740-5dc1-9761-48956c7e4173",
       "level": 2
     },
     {

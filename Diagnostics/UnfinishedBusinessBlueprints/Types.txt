@@ -36,6 +36,7 @@ FeatureDefinitionSummoningAffinity
 InvocationDefinition
 ItemDefinition
 LanguageDefinition
+LootPackDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition
@@ -54,4 +55,5 @@ SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage
 SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReplaceAttackWithCantrip
 SpellDefinition
 SpellListDefinition
+TreasureTableDefinition
 WeaponTypeDefinition
