@@ -35,14 +35,14 @@ internal class GuiPresentationBuilder
 
     internal static string CreateTitleKey(string name, Category category)
     {
-        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+        PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         return $"{category}/&{name}Title";
     }
 
     internal static string CreateDescriptionKey(string description, Category category)
     {
-        Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
+        PreConditions.IsNotNullOrWhiteSpace(description, nameof(description));
 
         return $"{category}/&{description}Description";
     }

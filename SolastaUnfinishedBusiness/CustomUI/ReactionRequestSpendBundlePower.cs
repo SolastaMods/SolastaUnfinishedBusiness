@@ -72,8 +72,6 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         {
             var canUsePower = CanUsePower(rulesetCharacter, p);
 
-            Main.Log($"Can use {p.Name} = {canUsePower}");
-
             if (!canUsePower)
             {
                 continue;
@@ -95,8 +93,6 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
     private static bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
         var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
-
-        Main.Log($"{character.Name} can use {power.Name}?", true);
 
         if (powerValidators.Any(v => !v.CanUsePower(character, power)))
         {

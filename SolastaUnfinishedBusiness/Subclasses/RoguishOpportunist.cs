@@ -51,8 +51,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                             ConditionBaned,
                             ConditionBleeding,
                             ConditionDefinitions.ConditionBlinded,
-                            ConditionDefinitions.ConditionStunned
-                        )
+                            ConditionDefinitions.ConditionStunned)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                         .Build())

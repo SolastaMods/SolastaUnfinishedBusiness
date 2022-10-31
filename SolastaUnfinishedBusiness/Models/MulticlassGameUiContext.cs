@@ -409,7 +409,7 @@ internal static class MulticlassGameUiContext
     [NotNull]
     internal static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
     {
-        Assert.IsNotNull(character, nameof(character));
+        // Assert.IsNotNull(character, nameof(character));
 
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;

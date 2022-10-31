@@ -483,7 +483,7 @@ internal static class ZappaFeats
 
 internal sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
 {
-    private bool MetamagicTrained { get; set; }
+    // private bool MetamagicTrained { get; set; }
 
     private MetamagicOptionDefinition MetamagicOption { get; }
 
@@ -501,7 +501,7 @@ internal sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCod
 
         hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
 
-        MetamagicTrained = true;
+        // MetamagicTrained = true;
     }
 
 #if false

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -36,6 +35,7 @@ internal static class StringExtensions
         return source;
     }
 
+#if false
     private static string Repeat(this string s, int n)
     {
         if (n < 0 || s == null || s.Length == 0)
@@ -50,4 +50,5 @@ internal static class StringExtensions
     {
         return "    ".Repeat(n) + s;
     }
+#endif
 }

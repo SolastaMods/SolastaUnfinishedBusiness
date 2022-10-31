@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -16,3 +17,4 @@ internal static class Assert
         }
     }
 }
+#endif

@@ -10,8 +10,8 @@ internal class SetResetDisposable : Disposable
 
     protected SetResetDisposable([NotNull] Action set, [NotNull] Action reset)
     {
-        Preconditions.ArgumentIsNotNull(set, nameof(set));
-        Preconditions.ArgumentIsNotNull(reset, nameof(reset));
+        PreConditions.ArgumentIsNotNull(set, nameof(set));
+        PreConditions.ArgumentIsNotNull(reset, nameof(reset));
 
         _reset = reset;
 

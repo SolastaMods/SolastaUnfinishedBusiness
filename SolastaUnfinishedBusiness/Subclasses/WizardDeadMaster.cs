@@ -35,13 +35,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
             .AddToDB();
 
-        var onCharacterKillDeadMasterStarkHarvest = FeatureDefinitionBuilder
-            .Create("OnCharacterKillDeadMasterStarkHarvest")
+        var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
+            .Create("TargetReducedToZeroHpDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new OnCharacterKillDeadMasterStarkHarvest())
+            .SetCustomSubFeatures(new TargetReducedToZeroHpDeadMasterStarkHarvest())
             .AddToDB();
 
-        var onCharacterKillDeadMasterUndeadChains = FeatureDefinitionBuilder
+        var deadMasterUndeadChains = FeatureDefinitionBuilder
             .Create("DeadMasterUndeadChains")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -86,9 +86,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
-                onCharacterKillDeadMasterStarkHarvest)
+                targetReducedToZeroHpDeadMasterStarkHarvest)
             .AddFeaturesAtLevel(6,
-                onCharacterKillDeadMasterUndeadChains)
+                deadMasterUndeadChains)
             .AddFeaturesAtLevel(10,
                 damageAffinityDeadMasterHardenToNecrotic)
             .AddFeaturesAtLevel(14,
@@ -231,7 +231,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return result;
     }
 
-    private sealed class OnCharacterKillDeadMasterStarkHarvest : ITargetReducedToZeroHp
+    private sealed class TargetReducedToZeroHpDeadMasterStarkHarvest : ITargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,

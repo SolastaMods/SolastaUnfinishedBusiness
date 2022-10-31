@@ -13,9 +13,9 @@ internal class FeatureDefinitionPowerSharedPoolBuilder
     {
         base.Validate();
 
-        Preconditions.ArgumentIsNotNull(Definition.SharedPool,
+        PreConditions.ArgumentIsNotNull(Definition.SharedPool,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
-        Preconditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
+        PreConditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }
 

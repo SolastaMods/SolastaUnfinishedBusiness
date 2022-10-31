@@ -385,9 +385,6 @@ public static class RulesetCharacterHeroPatcher
             experiencePoints =
                 (int)Math.Round(experiencePoints * Main.Settings.MultiplyTheExperienceGainedBy / 100.0f,
                     MidpointRounding.AwayFromZero);
-
-            Main.Log(
-                $"GrantExperience: Multiplying experience gained by {Main.Settings.MultiplyTheExperienceGainedBy}%. Original={original}, modified={experiencePoints}.");
         }
     }
 

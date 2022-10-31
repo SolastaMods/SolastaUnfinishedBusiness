@@ -230,34 +230,32 @@ internal static class EwFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
             {
-                if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
-                {
-                    return;
-                }
-
-                if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
-                {
-                    return;
-                }
-
-                if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
-                {
-                    return;
-                }
-
-                var character = defender.RulesetCharacter;
-
-                character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                    RulesetCondition.CreateActiveCondition(character.Guid,
-                        _conditionSentinelStopMovement,
-                        DurationType.Round,
-                        1,
-                        TurnOccurenceType.StartOfTurn,
-                        attacker.Guid,
-                        string.Empty
-                    ));
+                return;
             }
+
+            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
+            {
+                return;
+            }
+
+            if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+            {
+                return;
+            }
+
+            var character = defender.RulesetCharacter;
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                RulesetCondition.CreateActiveCondition(character.Guid,
+                    _conditionSentinelStopMovement,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    attacker.Guid,
+                    string.Empty
+                ));
         }
     }
 

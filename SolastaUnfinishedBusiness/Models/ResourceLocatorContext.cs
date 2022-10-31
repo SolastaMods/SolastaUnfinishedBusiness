@@ -73,8 +73,6 @@ internal sealed class SpriteResourceLocator : IResourceLocator
 
         if (sprite != null)
         {
-            Main.Log($"SpriteResourceLocator.Locate: key={key}, type={type}, sprite={sprite.name}");
-
             if (!LocationsCache.TryGetValue(id, out var location))
             {
                 location = new SpriteResourceLocation(sprite, sprite.name, id);

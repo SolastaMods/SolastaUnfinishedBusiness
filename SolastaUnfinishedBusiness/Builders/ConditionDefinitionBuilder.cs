@@ -233,7 +233,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
     {
         if (validate)
         {
-            Preconditions.IsValidDuration(type, duration);
+            PreConditions.IsValidDuration(type, duration);
         }
 
         Definition.durationParameter = duration;

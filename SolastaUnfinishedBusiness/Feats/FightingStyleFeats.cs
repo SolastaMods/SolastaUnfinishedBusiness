@@ -32,8 +32,7 @@ internal static class FightingStyleFeats
                     .Create($"ProficiencyFeat{fightingStyle.Name}")
                     .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(guiPresentation)
-                    .AddToDB()
-            )
+                    .AddToDB())
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
             .SetGuiPresentation(guiPresentation)
             .AddToDB();

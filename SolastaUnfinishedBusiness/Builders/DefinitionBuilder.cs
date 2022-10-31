@@ -30,11 +30,11 @@ internal abstract class DefinitionBuilder
     }
 
     [Conditional("DEBUG")]
-    protected static void LogDefinition(string msg)
+    protected static void LogDefinition(string message)
     {
         if (Main.Settings.DebugLogDefinitionCreation)
         {
-            Main.Log(msg);
+            Main.Log(message);
         }
     }
 
@@ -135,9 +135,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         BaseDefinition.Copyright copyright = BaseDefinition.Copyright.UserContent,
         GamingPlatformDefinitions.ContentPack contentPack = CeContentPackContext.CeContentPack)
     {
-        Preconditions.ArgumentIsNotNull(Definition, nameof(Definition));
-        Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
-        Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
+        PreConditions.ArgumentIsNotNull(Definition, nameof(Definition));
+        PreConditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
+        PreConditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
         if (!Guid.TryParse(Definition.GUID, out _))
         {
@@ -305,8 +305,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
     private void InitializeCollectionFields()
     {
+#if DEBUG
         Assert.IsNotNull(Definition);
-
+#endif
         LocalInitializeCollectionFields(Definition.GetType());
 
         void LocalInitializeCollectionFields(Type type)
@@ -362,7 +363,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
     private protected DefinitionBuilder(string name, Guid namespaceGuid)
     {
-        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+        PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         Definition = ScriptableObject.CreateInstance<TDefinition>();
         Definition.name = name;
@@ -391,8 +392,8 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
     private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
     {
-        Preconditions.ArgumentIsNotNull(original, nameof(original));
-        Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+        PreConditions.ArgumentIsNotNull(original, nameof(original));
+        PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         Definition = Object.Instantiate(original);
         Definition.name = name;

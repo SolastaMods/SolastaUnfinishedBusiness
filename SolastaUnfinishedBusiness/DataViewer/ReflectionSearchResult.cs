@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
@@ -100,6 +98,7 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
         Children.Clear();
     }
 
+#if false
     private StringBuilder BuildString(StringBuilder builder, int depth)
     {
         builder.Append($"{NodeTypePrefix} {Name}:{Type} - {ValueText}\n".Indent(depth));
@@ -111,6 +110,7 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
     {
         return BuildString(new StringBuilder().Append('\n'), 0).ToString();
     }
+#endif
 
     internal delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 }

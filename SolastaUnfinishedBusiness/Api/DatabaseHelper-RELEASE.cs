@@ -637,7 +637,7 @@ internal static partial class DatabaseHelper
     {
         internal static FactionStatusDefinition Alliance { get; } =
             GetDefinition<FactionStatusDefinition>("Alliance");
-        
+
         internal static FactionStatusDefinition Brotherhood { get; } =
             GetDefinition<FactionStatusDefinition>("Brotherhood");
 
@@ -761,7 +761,8 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAdditionalActions
     {
-        //internal static FeatureDefinitionAdditionalAction AdditionalActionHunterHordeBreaker { get; } =GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHunterHordeBreaker");
+        internal static FeatureDefinitionAdditionalAction AdditionalActionHunterHordeBreaker { get; } =
+            GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHunterHordeBreaker");
 
         internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } =
             GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
@@ -2604,10 +2605,10 @@ internal static partial class DatabaseHelper
 
         internal static SlotTypeDefinition GlovesSlot { get; } =
             GetDefinition<SlotTypeDefinition>("GlovesSlot");
-        
+
         internal static SlotTypeDefinition HeadSlot { get; } =
             GetDefinition<SlotTypeDefinition>("HeadSlot");
-        
+
         internal static SlotTypeDefinition MainHandSlot { get; } =
             GetDefinition<SlotTypeDefinition>("MainHandSlot");
 

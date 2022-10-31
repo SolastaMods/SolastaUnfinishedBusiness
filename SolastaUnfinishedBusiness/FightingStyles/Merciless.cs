@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
 
@@ -29,14 +30,14 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
         .SetFeatures(
-            // FeatureDefinitionAdditionalActionBuilder
-            //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-            //     .SetGuiPresentationNoContent()
-            //     .AddToDB(),
+            FeatureDefinitionAdditionalActionBuilder
+                .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+                .SetGuiPresentationNoContent()
+                .AddToDB(),
             FeatureDefinitionBuilder
-                .Create("OnCharacterKillFightingStyleMerciless")
+                .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnCharacterKillFightingStyleMerciless())
+                .SetCustomSubFeatures(new TargetReducedToZeroHpFightingStyleMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -45,7 +46,7 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnCharacterKillFightingStyleMerciless : ITargetReducedToZeroHp
+    private sealed class TargetReducedToZeroHpFightingStyleMerciless : ITargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,

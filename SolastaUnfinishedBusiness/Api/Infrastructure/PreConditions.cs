@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Diagnostics;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-internal static class Preconditions
+internal static class PreConditions
 {
     [Conditional("DEBUG")]
     [ContractAnnotation("halt <= paramValue : null")]

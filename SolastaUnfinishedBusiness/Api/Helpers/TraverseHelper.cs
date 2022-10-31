@@ -11,8 +11,8 @@ internal static class TraverseHelper
 
     private static TV GetField<T, TV>([NotNull] this T instance, [NotNull] string fieldName) where T : class
     {
-        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
-        Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
+        PreConditions.ArgumentIsNotNull(instance, nameof(instance));
+        PreConditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
 
         var t = Traverse.Create(instance);
 
@@ -33,8 +33,8 @@ internal static class TraverseHelper
     internal static void SetField<T, TV>([NotNull] this T instance, [NotNull] string fieldName, TV value)
         where T : class
     {
-        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
-        Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
+        PreConditions.ArgumentIsNotNull(instance, nameof(instance));
+        PreConditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
 
         var t = Traverse.Create(instance);
 
@@ -52,8 +52,8 @@ internal static class TraverseHelper
 
     internal static TV GetProperty<TV>([NotNull] this object instance, [NotNull] string propertyName)
     {
-        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
-        Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
+        PreConditions.ArgumentIsNotNull(instance, nameof(instance));
+        PreConditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
         var t = Traverse.Create(instance);
 
@@ -68,8 +68,8 @@ internal static class TraverseHelper
     internal static void SetProperty<T, TV>([NotNull] this T instance, [NotNull] string propertyName, TV value)
         where T : class
     {
-        Preconditions.ArgumentIsNotNull(instance, nameof(instance));
-        Preconditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
+        PreConditions.ArgumentIsNotNull(instance, nameof(instance));
+        PreConditions.IsNotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
         var t = Traverse.Create(instance);
 

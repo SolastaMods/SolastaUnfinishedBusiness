@@ -29,8 +29,6 @@ public static class CharactersPanelPatcher
 
             Global.LastLevelUpHeroName = null;
 
-            Main.Log($"setting position to {__state}");
-
             // Reset the scroll position because OnBeginShow sets it to 1.0f.
             // This keeps the selected character in view unless the panel is sorted by level
             // in which case the character will move.

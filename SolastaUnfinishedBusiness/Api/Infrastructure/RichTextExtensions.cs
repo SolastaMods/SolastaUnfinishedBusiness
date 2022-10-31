@@ -60,11 +60,13 @@ internal static class RichText
         return s.Color("#00ff00ff");
     }
 
+#if false
     [NotNull]
     internal static string Blue(this string s)
     {
         return s.Color("blue");
     }
+#endif
 
     [NotNull]
     internal static string Cyan(this string s)
@@ -78,11 +80,13 @@ internal static class RichText
         return s.Color("magenta");
     }
 
+#if false
     [NotNull]
     internal static string Yellow(this string s)
     {
         return s.Color("yellow");
     }
+#endif
 
     [NotNull]
     internal static string Orange(this string s)

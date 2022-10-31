@@ -47,9 +47,6 @@ public static class CameraControllerLocationPatcher
                                   || screenPoint.y < height * margin
                                   || screenPoint.y > height * (1 - margin);
 
-            Main.Log(
-                $"CameraControllerLocation_FollowCharacterForBattle {(followCharacter ? "(follow)" : "don't follow")}: {character.Name}");
-
             // return true to allow follow character code to run/false to disable
             return followCharacter;
         }
