@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -27,17 +26,17 @@ internal class CustomInvocationPoolType
     internal AssetReferenceSprite Sprite { get; private set; }
 
     internal List<int> AllLevels { get; } = new();
-    internal List<CustomInvocationDefinition> AllFeatures { get; } = new();
+    private List<CustomInvocationDefinition> AllFeatures { get; } = new();
 
     internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
-    internal static CustomInvocationPoolType Register(string name, BaseDefinition sprite,
+    private static CustomInvocationPoolType Register(string name, BaseDefinition sprite,
         string requireClassLevel = null)
     {
         return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
     }
 
-    internal static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
+    private static CustomInvocationPoolType Register(string name, AssetReferenceSprite sprite = null,
         string requireClassLevel = null)
     {
         var pool = new CustomInvocationPoolType
@@ -75,7 +74,6 @@ internal class CustomInvocationPoolType
         return Gui.Localize(GuiPresentationBuilder.CreateTitleKey(GuiName(unlearn), Category.Feature));
     }
 
-    [NotNull]
     internal List<CustomInvocationDefinition> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
@@ -83,17 +81,16 @@ internal class CustomInvocationPoolType
                ?? new List<CustomInvocationDefinition>();
     }
 
-    private void Refresh(List<CustomInvocationDefinition> invocations)
+    private void Refresh(IEnumerable<CustomInvocationDefinition> invocations)
     {
-        AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
-
         PrivateFeaturesByLevel.Clear();
+        AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
         AllFeatures.ForEach(f => GetOrMakeLevelFeatures(f.requiredLevel).Add(f));
         AllLevels.SetRange(PrivateFeaturesByLevel.Select(e => e.Key));
         AllLevels.Sort();
     }
 
-    private List<CustomInvocationDefinition> GetOrMakeLevelFeatures(int level)
+    private static List<CustomInvocationDefinition> GetOrMakeLevelFeatures(int level)
     {
         List<CustomInvocationDefinition> levelFeatures;
         if (!PrivateFeaturesByLevel.ContainsKey(level))

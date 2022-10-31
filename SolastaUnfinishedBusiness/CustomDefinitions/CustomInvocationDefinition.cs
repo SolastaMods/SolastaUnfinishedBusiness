@@ -14,8 +14,8 @@ internal class CustomInvocationDefinition : InvocationDefinition, IDefinitionWit
     internal ItemDefinition Item { get; set; }
 
     //TODO: add validator setter
-    public List<IDefinitionWithPrerequisites.Validate> Validators { get; } =
-        new() { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
+    public IEnumerable<IDefinitionWithPrerequisites.Validate> Validators { get; } =
+        new IDefinitionWithPrerequisites.Validate[] { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
     private static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition,
         out string requirement)

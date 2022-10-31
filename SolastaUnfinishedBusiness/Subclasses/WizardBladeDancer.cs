@@ -94,8 +94,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
                     .SetReducedDamage(5)
-                    .SetSourceType(FeatureSourceType.CharacterFeature)
-                    .SetSourceName("ReduceDamageBladeDancerDanceOfDefense")
                     .AddToDB())
             .AddToDB();
 

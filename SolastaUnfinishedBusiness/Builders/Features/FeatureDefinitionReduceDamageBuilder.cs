@@ -23,6 +23,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         return this;
     }
 
+#if false
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetSourceName(string sourceName)
     {
@@ -37,6 +38,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         Definition.SourceType = sourceType;
         return this;
     }
+#endif
 
     #region Constructors
 
