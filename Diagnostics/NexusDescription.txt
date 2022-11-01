@@ -247,8 +247,6 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.
 You gain advantage on shove attempts while wielding a shield.
 [*][b]Superior Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.

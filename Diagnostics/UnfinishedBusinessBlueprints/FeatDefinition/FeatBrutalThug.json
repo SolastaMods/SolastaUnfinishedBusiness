@@ -10,9 +10,7 @@
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
-  "knownFeatsPrerequisite": [
-    "FeatShady"
-  ],
+  "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AdditionalDamageFeatBrutalThugSneakAttack:27e928e1-fadf-533c-bf3a-9095ec1de571",
     "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f"
