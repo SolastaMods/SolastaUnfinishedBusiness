@@ -9,12 +9,13 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -69,7 +70,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(DominateBeast.EffectDescription)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                    .SetRestrictedCreatureFamilies(Undead)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Charisma,
@@ -113,7 +114,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var monsterDefinitions = DatabaseRepository.GetDatabase<MonsterDefinition>();
 
         foreach (var monsterDefinition in monsterDefinitions
-                     .Where(x => x.CharacterFamily == CharacterFamilyDefinitions.Undead.Name))
+                     .Where(x => x.CharacterFamily == Undead.Name))
         {
             monsterDefinition.fullyControlledWhenAllied = true;
         }
@@ -185,7 +186,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 var monster = monsters[i];
                 var subSpell = SpellDefinitionBuilder
                     .Create(ConjureFey, $"CreateDead{monster.name}")
-                    .SetGuiPresentation(monster.GuiPresentation.Title, monster.GuiPresentation.Description,
+                    .SetGuiPresentation(
+                        monster.GuiPresentation.Title,
+                        monster.GuiPresentation.Description,
                         spriteReference)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                     .SetSpellLevel(level)
@@ -246,21 +249,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
             var characterFamily = downedCreature.RulesetCharacter.CharacterFamily;
 
-            if (characterFamily == CharacterFamilyDefinitions.Construct.Name
-                || characterFamily == CharacterFamilyDefinitions.Undead.Name)
+            if (characterFamily == Construct.Name || characterFamily == Undead.Name)
             {
                 yield break;
             }
 
-            var rulesetAttacker =
-                actionCastSpell.ActingCharacter.RulesetCharacter as RulesetCharacterHero
-                ?? actionCastSpell.ActingCharacter.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-            if (rulesetAttacker == null)
-            {
-                yield break;
-            }
-
+            var rulesetAttacker = attacker.RulesetCharacter;
             var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
             var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;

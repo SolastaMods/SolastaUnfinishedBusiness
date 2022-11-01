@@ -18,11 +18,9 @@ internal sealed class Merciless : AbstractFightingStyle
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
         .SetGuiPresentation("Fear", Category.Spell)
-        .SetUsesProficiencyBonus(ActivationTime.NoCost)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
             .SetDurationData(DurationType.Round, 1)
-            .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.IndividualsUnique)
             .Build())
         .AddToDB();
 
@@ -66,22 +64,22 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter as RulesetCharacterHero ??
-                                  attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetAttacker.IsWieldingRangedWeapon())
+            if (rulesetAttacker.IsWieldingRangedWeapon())
             {
                 yield break;
             }
 
             var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
             var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, rulesetAttacker.RaceDefinition,
-                rulesetAttacker.ClassesHistory[0]);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
+            {
+                SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength)
+            };
 
-            usablePower.SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+            var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             foreach (var enemy in battle.EnemyContenders
                          .Where(enemy =>
