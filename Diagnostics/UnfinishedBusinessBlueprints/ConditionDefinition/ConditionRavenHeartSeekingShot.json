@@ -129,8 +129,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRavenHeartSeekingShotTitle",
-    "description": "Condition/&ConditionRavenHeartSeekingShotDescription",
+    "title": "Feature/&FeatureSetRavenHeartSeekingShotTitle",
+    "description": "Feature/&FeatureSetRavenHeartSeekingShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

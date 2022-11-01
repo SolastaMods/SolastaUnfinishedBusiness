@@ -100,7 +100,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation("FeatureSetRavenHeartSeekingShot", Category.Feature)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
@@ -120,7 +120,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageRavenHeartSeekingShot")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("HeartSeekingShot")
                     .SetFrequencyLimit(FeatureLimitedUsage.None)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.CriticalHit)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
@@ -129,14 +130,15 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4, 3)
-                    .SetNotificationTag("HeartSeekingShot")
                     .AddToDB()
             )
             .AddToDB();
 
+        var deadEyeSprite = CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
+
         var powerRavenHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenHeartSeekingShot")
-            .SetGuiPresentation(Category.Feature, CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
+            .SetGuiPresentation("FeatureSetRavenHeartSeekingShot", Category.Feature, deadEyeSprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
