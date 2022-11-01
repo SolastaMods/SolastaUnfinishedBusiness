@@ -12,7 +12,7 @@ internal class InvocationPoolTypeCustom
 {
     private static readonly List<InvocationPoolTypeCustom> PrivatePools = new();
 
-    private static readonly Dictionary<int, List<InvocationDefinitionCustom>> PrivateFeaturesByLevel = new();
+    private readonly Dictionary<int, List<InvocationDefinitionCustom>> PrivateFeaturesByLevel = new();
 
     private InvocationPoolTypeCustom()
     {
@@ -90,7 +90,7 @@ internal class InvocationPoolTypeCustom
         AllLevels.Sort();
     }
 
-    private static List<InvocationDefinitionCustom> GetOrMakeLevelFeatures(int level)
+    private List<InvocationDefinitionCustom> GetOrMakeLevelFeatures(int level)
     {
         List<InvocationDefinitionCustom> levelFeatures;
         if (!PrivateFeaturesByLevel.ContainsKey(level))
