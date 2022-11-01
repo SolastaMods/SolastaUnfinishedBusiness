@@ -218,11 +218,6 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
         hero.RemoveAllConditionsOfCategory(CategoryHidden, false);
     }
 
-    public void OnBeforeAction(CharacterAction characterAction)
-    {
-        // empty
-    }
-
     public void OnAfterAction(CharacterAction characterAction)
     {
         var hero = characterAction.ActingCharacter.RulesetCharacter;

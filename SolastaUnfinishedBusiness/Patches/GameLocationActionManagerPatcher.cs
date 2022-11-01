@@ -75,10 +75,12 @@ public static class GameLocationActionManagerPatcher
             //PATCH: calls handlers for `ICustomOnActionFeature`
             var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
 
+#if false
             foreach (var feature in features)
             {
                 feature.OnBeforeAction(action);
             }
+#endif
 
             while (values.MoveNext())
             {
