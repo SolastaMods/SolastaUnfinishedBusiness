@@ -33,13 +33,9 @@ internal static class ZappaFeats
             return;
         }
 
-        foreach (var feat in hero.TrainedFeats)
+        foreach (var feat in hero.TrainedFeats
+                     .Where(x => x.Name.Contains(ElvenAccuracyTag)))
         {
-            if (!feat.Name.Contains(ElvenAccuracyTag))
-            {
-                continue;
-            }
-
             var elvenPrecisionContext = feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>();
 
             if (elvenPrecisionContext != null)
@@ -220,7 +216,6 @@ internal static class ZappaFeats
                         4)
                     .AddToDB(),
                 ProficiencyFighterWeapon)
-            .SetKnownFeatsPrerequisite("FeatShady")
             .AddToDB();
 
         // Charismatic Defense
@@ -367,21 +362,6 @@ internal static class ZappaFeats
                 .SetMustCastSpellsPrerequisite()
                 .AddToDB()));
 
-        // Shady
-        var featShady = FeatDefinitionBuilder
-            .Create("FeatShady")
-            .SetFeatures(
-                AttributeModifierCreed_Of_Misaye,
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1,
-                        4)
-                    .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-
         // Wise Defense
         var featWiseDefense = FeatDefinitionBuilder
             .Create("FeatWiseDefense")
@@ -449,7 +429,6 @@ internal static class ZappaFeats
             featElvenAccuracyWisdom,
             featElvenAccuracyCharisma,
             featMarksman,
-            featShady,
             featWiseDefense,
             featWisePrecision);
 
