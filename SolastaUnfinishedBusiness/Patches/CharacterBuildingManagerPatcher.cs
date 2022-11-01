@@ -41,7 +41,6 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
-
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnlearnInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class UnlearnInvocation_Patch
@@ -193,12 +192,16 @@ public static class CharacterBuildingManagerPatcher
             return !(isLevelingUp && isClassSelectionStage);
         }
 
-        public static void Postfix(RulesetCharacterHero hero,
+        public static void Postfix(
+            RulesetCharacterHero hero,
             List<FeatureDefinition> grantedFeatures,
             string tag)
         {
             //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
-            if (string.IsNullOrEmpty(tag)) { return; }
+            if (string.IsNullOrEmpty(tag))
+            {
+                return;
+            }
 
             FeatureDefinitionGrantCustomInvocations.GrantInvocations(hero, tag, grantedFeatures);
         }
@@ -208,12 +211,13 @@ public static class CharacterBuildingManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RemoveActiveFeaturesFromHeroByTag_Patch
     {
-        public static void Prefix(CharacterHeroBuildingData heroBuildingData,
-            RulesetCharacterHero hero,
-            string tag)
+        public static void Prefix(RulesetCharacterHero hero, string tag)
         {
             //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
-            if (string.IsNullOrEmpty(tag)) { return; }
+            if (string.IsNullOrEmpty(tag))
+            {
+                return;
+            }
 
             if (hero.ActiveFeatures.TryGetValue(tag, out var features))
             {
@@ -229,7 +233,10 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix(RulesetCharacterHero hero, string tag)
         {
             //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
-            if (string.IsNullOrEmpty(tag)) { return; }
+            if (string.IsNullOrEmpty(tag))
+            {
+                return;
+            }
 
             if (hero.ActiveFeatures.TryGetValue(tag, out var features))
             {

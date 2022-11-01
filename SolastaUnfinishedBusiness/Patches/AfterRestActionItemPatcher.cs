@@ -34,7 +34,10 @@ public static class AfterRestActionItemPatcher
             var power = hero.UsablePowers.FirstOrDefault(usablePower =>
                 usablePower.PowerDefinition.Name == activity.StringParameter);
 
-            if (power == null) { return; }
+            if (power == null)
+            {
+                return;
+            }
 
             //PATCH: use power tooltip for custom use power functors
             ServiceRepository.GetService<IGuiWrapperService>()

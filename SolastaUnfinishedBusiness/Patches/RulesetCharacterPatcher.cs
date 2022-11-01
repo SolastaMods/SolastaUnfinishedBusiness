@@ -115,13 +115,19 @@ public static class RulesetCharacterPatcher
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
 
             //PATCH: Allows valid Somatic component if specific material component is held in main hand or off hand slots
             // allows casting somatic spells with full hands if one of the hands holds material component for the spell
             ValidateIfMaterialInHand(__instance, spellDefinition, ref __result, ref failure);
 
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
 
             //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off hand slots
             // allows casting somatic spells with full hands if one of the hands holds item infused by the caster
@@ -244,11 +250,16 @@ public static class RulesetCharacterPatcher
         }
 
         //TODO: move to separate file
-        private static void ValidateInfusedFocus(RulesetCharacter caster, SpellDefinition spell,
+        private static void ValidateInfusedFocus(
+            RulesetCharacter caster,
+            SpellDefinition spell,
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane) { return; }
+            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane)
+            {
+                return;
+            }
 
             List<RulesetItem> items = new();
             caster.CharacterInventory.EnumerateAllItems(items);
@@ -323,6 +334,7 @@ public static class RulesetCharacterPatcher
             //Adds extra modifiers to spell DC
 
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
+            
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }

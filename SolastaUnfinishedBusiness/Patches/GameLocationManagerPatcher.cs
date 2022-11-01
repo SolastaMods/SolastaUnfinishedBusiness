@@ -18,8 +18,10 @@ public static class GameLocationManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class LoadLocationAsync_Patch
     {
-        public static void Prefix(GameLocationManager __instance,
-            string locationDefinitionName, string userLocationName, string userCampaignName)
+        public static void Prefix(
+            GameLocationManager __instance,
+            string userLocationName,
+            string userCampaignName)
         {
             if (!Main.Settings.EnableSaveByLocation)
             {

@@ -21,7 +21,8 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanCharacterUsePower_Patch
     {
-        public static void Postfix(GameLocationBattleManager __instance,
+        public static void Postfix(
+            GameLocationBattleManager __instance,
             ref bool __result,
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
@@ -156,7 +157,7 @@ public static class GameLocationBattleManagerPatcher
 #endif
 
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationBattleManager __instance,
             GameLocationCharacter mover
         )
@@ -164,9 +165,9 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for Polearm Expert AoO
             //processes saved movement to trigger AoO when appropriate
 
-            while (__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
@@ -196,7 +197,7 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleCharacterAttackFinished_Patch
     {
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -204,9 +205,9 @@ public static class GameLocationBattleManagerPatcher
         )
         {
             //PATCH: support for Sentinel feat - allows reaction attack on enemy attacking ally 
-            while (__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             var extraEvents =
@@ -225,7 +226,7 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleCharacterAttackHitConfirmed_Patch
     {
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -251,9 +252,9 @@ public static class GameLocationBattleManagerPatcher
             }
 #endif
 
-            while (__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             if (character != null)
@@ -272,7 +273,7 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
     {
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode)
@@ -280,7 +281,10 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IReactionAttackModeRestriction`
             ReactionAttackModeRestriction.ReactionContext = (attacker, defender, attackMode);
 
-            while (__result.MoveNext()) { yield return __result.Current; }
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
 
             ReactionAttackModeRestriction.ReactionContext = (null, null, null);
         }
@@ -291,7 +295,7 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleDefenderBeforeDamageReceived_Patch
     {
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -303,7 +307,10 @@ public static class GameLocationBattleManagerPatcher
         )
         {
             //PATCH: support for features that trigger when defender gets hit, like `FeatureDefinitionSpendSpellSlotToReduceDamage` 
-            while (__result.MoveNext()) { yield return __result.Current; }
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
 
             var defenderCharacter = defender.RulesetCharacter;
 
@@ -534,7 +541,7 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleTargetReducedToZeroHP_Patch
     {
         public static IEnumerator Postfix(
-            IEnumerator __result,
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode rulesetAttackMode,
@@ -560,9 +567,9 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
-            while (__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>();

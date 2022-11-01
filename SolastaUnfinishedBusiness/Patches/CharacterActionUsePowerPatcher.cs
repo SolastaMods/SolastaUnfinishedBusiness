@@ -47,7 +47,7 @@ public static class CharacterActionUsePowerPatcher
     {
         public static void Postfix([NotNull] CharacterActionUsePower __instance)
         {
-            //PATCH: Support for limited power efefct instances
+            //PATCH: Support for limited power effect instances
             //terminates earliest power effect instances of same limit, if limit reached
             //used to limit Inventor's infusions
             GlobalUniqueEffects.EnforceLimitedInstancePower(__instance);

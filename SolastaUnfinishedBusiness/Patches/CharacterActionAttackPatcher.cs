@@ -13,7 +13,9 @@ public static class CharacterActionAttackPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ExecuteImpl_Patch
     {
-        public static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterActionAttack __instance)
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            [NotNull] CharacterActionAttack __instance)
         {
             //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
             var actingCharacter = __instance.ActingCharacter;

@@ -47,25 +47,25 @@ public static class CharacterStageProficiencySelectionPanelPatcher
 
             if (item.PoolType == Skill)
             {
-                //get all skils - unlike tools if you run out ofn restricted skills to pick, game allows picking any skill
-                if (DatabaseRepository.GetDatabase<SkillDefinition>()
+                //get all skills - unlike tools if you run out ofn restricted skills to pick, game allows picking any skill
+                if (DatabaseRepository
                         //remove skills already knows or trained this level
-                        .Where(s => !service.IsSkillKnownOrTrained(buildingData, s))
-                        .Count() == 0)
+                        .GetDatabase<SkillDefinition>()
+                        .Count(s => !service.IsSkillKnownOrTrained(buildingData, s)) == 0)
                 {
                     needSkip = true;
                 }
             }
             else if (item.PoolType == Tool)
             {
-                if (DatabaseRepository.GetDatabase<ToolTypeDefinition>()
+                if (DatabaseRepository
                         //get all restricted tools
+                        .GetDatabase<ToolTypeDefinition>()
+                        //remove ones already known or trained this level
                         .Where(s => pool.RestrictedChoices == null
                                     || pool.RestrictedChoices.Empty()
                                     || pool.RestrictedChoices.Contains(s.Name))
-                        //remove ones already known or trained this level
-                        .Where(s => !service.IsToolTypeKnownOrTrained(buildingData, s))
-                        .Count() == 0)
+                        .Count(s => !service.IsToolTypeKnownOrTrained(buildingData, s)) == 0)
                 {
                     needSkip = true;
                 }

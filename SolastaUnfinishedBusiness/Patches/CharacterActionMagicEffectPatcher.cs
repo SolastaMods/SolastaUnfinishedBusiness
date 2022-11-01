@@ -19,13 +19,18 @@ public static class CharacterActionMagicEffectPatcher
             //used for Spirit Shroud to grant more damage with extra spell slots
             var actionParams = __instance.ActionParams;
             var effectDescription = actionParams.RulesetEffect.EffectDescription;
-            if (!effectDescription.HasForceSelfCondition) { return true; }
+
+            if (!effectDescription.HasForceSelfCondition)
+            {
+                return true;
+            }
 
             var service = ServiceRepository.GetService<IRulesetImplementationService>();
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
             var effectLevel = 0;
             var effectSourceType = RuleDefinitions.EffectSourceType.Power;
+
             if (__instance is CharacterActionCastSpell spell)
             {
                 effectSourceType = RuleDefinitions.EffectSourceType.Spell;
@@ -37,14 +42,14 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var character = __instance.ActingCharacter.RulesetCharacter;
+
             formsParams.FillSourceAndTarget(character, character);
             formsParams.FillFromActiveEffect(actionParams.RulesetEffect);
             formsParams.FillSpecialParameters(false, 0, 0, 0, effectLevel, null,
                 RuleDefinitions.RollOutcome.Success, 0, false, 0, 1, null);
             formsParams.effectSourceType = effectSourceType;
 
-            if (effectDescription.RangeType == RuleDefinitions.RangeType.MeleeHit
-                || effectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
+            if (effectDescription.RangeType is RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit)
             {
                 formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
             }
@@ -70,16 +75,15 @@ public static class CharacterActionMagicEffectPatcher
             }
         }
 
-
         public static IEnumerator Postfix(
-            [NotNull] IEnumerator __result,
+            [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
-            while ( /*!Global.IsSpellStrike && */__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             var definition = __instance.GetBaseDefinition();
@@ -112,7 +116,9 @@ public static class CharacterActionMagicEffectPatcher
                 foreach (var attackParams in attacks)
                 {
                     attackAction = new CharacterActionAttack(attackParams);
+
                     var enums = attackAction.Execute();
+
                     while (enums.MoveNext())
                     {
                         yield return enums.Current;
@@ -124,23 +130,9 @@ public static class CharacterActionMagicEffectPatcher
 
             var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
 
-            /* Deprecating Magus-related flags
-            if (Global.IsSpellStrike)
+            while (values.MoveNext())
             {
-                if (attackOutcome is not (RuleDefinitions.RollOutcome.Success
-                    or RuleDefinitions.RollOutcome.CriticalSuccess))
-                {
-                    __instance.actionParams.activeEffect.EffectDescription.rangeType =
-                        RuleDefinitions.RangeType.MeleeHit;
-                }
-
-                Global.SpellStrikeRollOutcome = attackOutcome;
-            }
-            */
-
-            while (__result.MoveNext())
-            {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             //chained effects would be useful for EOrb
