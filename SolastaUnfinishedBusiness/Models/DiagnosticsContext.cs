@@ -36,17 +36,15 @@ internal static class DiagnosticsContext
     };
 
 #if DEBUG
+    internal static readonly string ProjectFolder =
+ Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
     private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
-#endif
     private static BaseDefinition[] _taBaseDefinitions;
+#endif
     private static Dictionary<Type, BaseDefinition[]> _taBaseDefinitionsMap;
     private static BaseDefinition[] _ceBaseDefinitions;
     private static HashSet<BaseDefinition> _ceBaseDefinitions2;
     private static Dictionary<Type, BaseDefinition[]> _ceBaseDefinitionsMap;
-
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static readonly string ProjectFolder =
-        Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
     internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
 
@@ -70,6 +68,7 @@ internal static class DiagnosticsContext
             .OrderBy(db => db.Key.FullName)
             .ToDictionary(v => v.Key, v => v.Value);
 
+#if DEBUG
         _taBaseDefinitions = _taBaseDefinitionsMap.Values
             .SelectMany(v => v)
             .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
@@ -78,7 +77,6 @@ internal static class DiagnosticsContext
             .ThenBy(x => x.GetType().Name)
             .ToArray();
 
-#if DEBUG
         // Get a copy of definitions so we can export the originals.
         // Note not copying the excluded definitions to save memory.
         _taBaseDefinitionAndCopy = _taBaseDefinitions
@@ -133,14 +131,13 @@ internal static class DiagnosticsContext
     {
         return _ceBaseDefinitions2.Contains(definition);
     }
+
 #if DEBUG
     private const string GameFolder = ".";
     internal const int Ta = 0;
     internal const int Ce = 1;
     internal const int Ta2 = 2;
-#endif
 
-#if DEBUG
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
     [NotNull]
@@ -160,9 +157,7 @@ internal static class DiagnosticsContext
             Directory.CreateDirectory(path);
         }
     }
-#endif
 
-#if DEBUG
     private const string OfficialBpFolder = "OfficialBlueprints";
     private const string UnfinishedBusinessBpFolder = "UnfinishedBusinessBlueprints";
 
@@ -252,7 +247,6 @@ internal static class DiagnosticsContext
             writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
         }
     }
-
 
     private static void CreateDefinitionDiagnostics([CanBeNull] BaseDefinition[] baseDefinitions, string baseFilename)
     {

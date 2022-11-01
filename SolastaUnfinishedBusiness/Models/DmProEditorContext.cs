@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using static SolastaUnfinishedBusiness.Builders.DefinitionBuilder;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DmProEditorContext
 {
-    // NEVER EVER CHANGE THIS GUID OR REFACTOR IT OUT!!! IT WILL BREAK ANY DUNGEON DEPENDING ON THIS MOD
-    private static readonly Guid Guid = new("bff53ba4bb694bf5a69b3ae280eec118");
-
+    private const string BackupFolder = "../UserContentBackup";
     internal static readonly List<string> OutdoorRooms = new();
 
     internal static void Load()
@@ -25,8 +25,32 @@ internal static class DmProEditorContext
         UnleashGadgetsOnAllEnvironments();
         UnleashPropsOnAllEnvironments();
         UnleashRoomsOnAllEnvironments();
-        // UnlockItems();
-        // UnlockTraps();
+    }
+
+    internal static void BackupAndDelete([NotNull] string path, [NotNull] UserContent userContent)
+    {
+        const int MaxBackupFilesPerLocationCampaign = 20;
+
+        var backupDirectory = Path.Combine(Main.ModFolder, BackupFolder);
+
+        Directory.CreateDirectory(backupDirectory);
+
+        var title = userContent.Title;
+        var compliantTitle = IOHelper.GetOsCompliantFilename(title);
+        var destinationPath =
+            Path.Combine(backupDirectory, compliantTitle) + "." + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+        var backupFiles = Directory
+            .EnumerateFiles(backupDirectory, compliantTitle + "*")
+            .OrderBy(f => f)
+            .ToList();
+
+        for (var i = 0; i <= backupFiles.Count - MaxBackupFilesPerLocationCampaign; i++)
+        {
+            File.Delete(backupFiles[i]);
+        }
+
+        File.Copy(path, destinationPath);
+        File.Delete(path);
     }
 
     internal static void AddCustomDungeonSizes(UserLocationSettingsModal __instance)
@@ -43,45 +67,6 @@ internal static class DmProEditorContext
             });
         }
     }
-
-#if false
-    private static void UnlockItems()
-    {
-        var itemDefinitions = DatabaseRepository.GetDatabase<ItemDefinition>();
-
-        foreach (var itemDefinition in itemDefinitions)
-        {
-            itemDefinition.inDungeonEditor = true;
-        }
-    }
-
-    private static void UnlockTraps()
-    {
-        var environmentEffectDefinitions = DatabaseRepository.GetDatabase<EnvironmentEffectDefinition>();
-
-        foreach (var environmentEffectDefinition in environmentEffectDefinitions)
-        {
-            var description = environmentEffectDefinition.FormatDescription();
-            var title = environmentEffectDefinition.FormatTitle();
-
-            if (title == "")
-            {
-                title = environmentEffectDefinition.name.Replace("_", " ");
-
-                environmentEffectDefinition.GuiPresentation.title = title;
-            }
-
-            if (description == "")
-            {
-                description = environmentEffectDefinition.name.Replace("_", " ");
-
-                environmentEffectDefinition.GuiPresentation.description = description;
-            }
-
-            environmentEffectDefinition.inDungeonEditor = true;
-        }
-    }
-#endif
 
     internal static int Compare([NotNull] BaseBlueprint left, [NotNull] BaseBlueprint right)
     {
@@ -130,7 +115,7 @@ internal static class DmProEditorContext
         var flatRoomsCategory = Object.Instantiate(emptyRoomsCategory);
 
         flatRoomsCategory.name = "FlatRooms";
-        flatRoomsCategory.guid = GuidHelper.Create(Guid, flatRoomsCategory.name).ToString();
+        flatRoomsCategory.guid = GuidHelper.Create(CeNamespaceGuid, flatRoomsCategory.name).ToString();
         flatRoomsCategory.GuiPresentation.Title =
             Gui.Localize($"BlueprintCategory/&{flatRoomsCategory.name}Title").Khaki();
         dbBlueprintCategory.Add(flatRoomsCategory);
@@ -144,8 +129,7 @@ internal static class DmProEditorContext
                 var categoryName = blueprintCategory.Name + "~" + environmentName + "~MOD";
 
                 newBlueprintCategory.name = categoryName;
-                newBlueprintCategory.guid = GuidHelper.Create(Guid, newBlueprintCategory.name)
-                    .ToString();
+                newBlueprintCategory.guid = GuidHelper.Create(CeNamespaceGuid, newBlueprintCategory.name).ToString();
                 newBlueprintCategory.GuiPresentation.Title = Gui.Localize(blueprintCategory.GuiPresentation.Title) +
                                                              " " + Gui.Localize(environmentDefinition.GuiPresentation
                                                                  .Title) + " [MODDED]".Khaki();
@@ -178,13 +162,13 @@ internal static class DmProEditorContext
             var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(TEMPLATE));
 
             flatRoom.name = $"Flat{multiplier:D2}Room";
-            flatRoom.guid = GuidHelper.Create(Guid, flatRoom.name).ToString();
+            flatRoom.guid = GuidHelper.Create(CeNamespaceGuid, flatRoom.name).ToString();
             flatRoom.GuiPresentation.title = "Flat".Khaki() + " Room";
             flatRoom.GuiPresentation.sortOrder = multiplier;
             flatRoom.GuiPresentation.hidden = true;
             flatRoom.category = "FlatRooms";
-            flatRoom.dimensions = new Vector2Int(flatRoom.Dimensions.x * multiplier,
-                flatRoom.Dimensions.y * multiplier);
+            flatRoom.dimensions = new Vector2Int(
+                flatRoom.Dimensions.x * multiplier, flatRoom.Dimensions.y * multiplier);
             flatRoom.cellInfos = new int[flatRoom.Dimensions.x * flatRoom.Dimensions.y];
             flatRoom.wallSpriteReference = new AssetReferenceSprite("");
             flatRoom.wallAndOpeningSpriteReference = new AssetReferenceSprite("");
@@ -204,7 +188,7 @@ internal static class DmProEditorContext
         var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
         flatRoom.name = "Flat" + template;
-        flatRoom.guid = GuidHelper.Create(Guid, flatRoom.name).ToString();
+        flatRoom.guid = GuidHelper.Create(CeNamespaceGuid, flatRoom.name).ToString();
         flatRoom.GuiPresentation.title = "Flat".Khaki() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
         flatRoom.GuiPresentation.sortOrder = sortOrder;
         flatRoom.GuiPresentation.hidden = true;
@@ -238,7 +222,7 @@ internal static class DmProEditorContext
                 var categoryName = gadgetBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newGadgetBlueprint.name = gadgetBlueprint.Name + "~" + environmentName + "~MOD";
-                newGadgetBlueprint.guid = GuidHelper.Create(Guid, newGadgetBlueprint.name).ToString();
+                newGadgetBlueprint.guid = GuidHelper.Create(CeNamespaceGuid, newGadgetBlueprint.name).ToString();
                 newGadgetBlueprint.GuiPresentation.Title = Gui.Localize(gadgetBlueprint.GuiPresentation.Title) + " " +
                                                            Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                                .Title).Khaki();
@@ -281,7 +265,7 @@ internal static class DmProEditorContext
                 var categoryName = propBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newPropBlueprint.name = propBlueprint.Name + "~" + environmentName + "~MOD";
-                newPropBlueprint.guid = GuidHelper.Create(Guid, newPropBlueprint.name).ToString();
+                newPropBlueprint.guid = GuidHelper.Create(CeNamespaceGuid, newPropBlueprint.name).ToString();
                 newPropBlueprint.GuiPresentation.Title = Gui.Localize(propBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).Khaki();
@@ -325,7 +309,7 @@ internal static class DmProEditorContext
                 var categoryName = roomBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
-                newRoomBlueprint.guid = GuidHelper.Create(Guid, newRoomBlueprint.name).ToString();
+                newRoomBlueprint.guid = GuidHelper.Create(CeNamespaceGuid, newRoomBlueprint.name).ToString();
                 newRoomBlueprint.GuiPresentation.Title = Gui.Localize(roomBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).Khaki();
@@ -396,7 +380,7 @@ internal static class DmProEditorContext
             .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
-    internal enum ExtendedDungeonSize
+    private enum ExtendedDungeonSize
     {
         Huge = UserLocationDefinitions.Size.Large + 1,
         Gargantuan

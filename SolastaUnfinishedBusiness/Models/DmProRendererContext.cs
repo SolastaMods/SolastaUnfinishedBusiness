@@ -29,7 +29,6 @@ internal static class DmProRendererContext
                int.TryParse(userRoom.RoomBlueprint.name.Substring(FlatRoomTag.Length, 2), out _);
     }
 
-    // ReSharper disable once UnusedMember.Global
     internal static void GetTemplateVegetationMaskArea([NotNull] WorldLocation worldLocation)
     {
         var prefabByReference =
@@ -46,7 +45,6 @@ internal static class DmProRendererContext
         }
     }
 
-    // ReSharper disable once UnusedMember.Global
     internal static void SetupLocationTerrain([NotNull] WorldLocation worldLocation, UserLocation userLocation)
     {
         var masterTerrain = worldLocation.gameObject.GetComponentInChildren<Terrain>();
@@ -122,7 +120,8 @@ internal static class DmProRendererContext
         biomeMaskArea.ClearNodes();
         biomeMaskArea.AddNode(
             biomeMaskArea.transform.InverseTransformDirection(new Vector3(-Margin, 0, locationSize + Margin)));
-        biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(-Margin, 0, -Margin)));
+        biomeMaskArea.AddNode(
+            biomeMaskArea.transform.InverseTransformDirection(new Vector3(-Margin, 0, -Margin)));
         biomeMaskArea.AddNode(
             biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + Margin, 0, -Margin)));
         biomeMaskArea.AddNode(
@@ -132,7 +131,6 @@ internal static class DmProRendererContext
         worldLocation.gameObject.GetComponentInChildren<VegetationSystemPro>()?.CalculateVegetationSystemBounds();
     }
 
-    // ReSharper disable once UnusedMember.Global
     internal static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
     {
         static void DisableWalls([NotNull] Transform transform)
@@ -205,7 +203,6 @@ internal static class DmProRendererContext
         roomTransform.name = FlatRoomTag + roomTransform.name;
     }
 
-    // ReSharper disable once UnusedMember.Global
     internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (TemplateVegetationMaskArea == null ||
@@ -241,7 +238,6 @@ internal static class DmProRendererContext
         vegetationMaskArea.UpdateVegetationMask();
     }
 
-    // ReSharper disable once UnusedMember.Global
     internal static void FixFlatRoomReflectionProbe([NotNull] WorldLocation worldLocation)
     {
         var reflectionProbes = worldLocation.GetComponentsInChildren<ReflectionProbe>();
