@@ -93,7 +93,7 @@ internal static class FightingStyleContext
     {
         foreach (var trainedFightingStyle in hero.trainedFightingStyles)
         {
-            var isActive = false;
+            var isActive = trainedFightingStyle.contentPack == CeContentPackContext.CeContentPack;
 
             switch (trainedFightingStyle.Condition)
             {
@@ -152,14 +152,9 @@ internal static class FightingStyleContext
                     break;
             }
 
-            //TODO: double-check this is indeed necessary
             if (isActive)
             {
                 hero.activeFightingStyles.TryAdd(trainedFightingStyle);
-            }
-            else
-            {
-                hero.activeFightingStyles.Remove(trainedFightingStyle);
             }
         }
     }
