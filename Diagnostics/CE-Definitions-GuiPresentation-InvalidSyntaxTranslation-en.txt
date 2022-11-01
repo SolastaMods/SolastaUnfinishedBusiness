@@ -1,11 +1,3 @@
-AdditionalDamageElementalistAir	Title='Elemental Damage: Air Plane'.
-AdditionalDamageElementalistAir	Description='When channeling Air Plane, deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-AdditionalDamageElementalistEarth	Title='Elemental Damage: Earth Plane'.
-AdditionalDamageElementalistEarth	Description='When channeling Earth Plane, deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-AdditionalDamageElementalistFire	Title='Elemental Damage: Fire Plane'.
-AdditionalDamageElementalistFire	Description='When channeling Fire Plane, deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-AdditionalDamageElementalistIce	Title='Elemental Damage: Ice Plane'.
-AdditionalDamageElementalistIce	Description='When channeling Ice Plane, deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistEnhancedAir	Title='Channeling Air Plane'.
 ConditionElementalistEnhancedAir	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistEnhancedEarth	Title='Channeling Earth Plane'.
