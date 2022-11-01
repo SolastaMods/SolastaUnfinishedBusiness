@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static EffectForm;
 using static RuleDefinitions;
+using MirrorImage = SolastaUnfinishedBusiness.CustomBehaviors.MirrorImage;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -748,6 +749,44 @@ internal static class SpellsBuildersContext
         effectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
         effectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
         effectDescription.EffectForms[1].levelMultiplier = 1;
+
+        return spell;
+    }
+
+    [NotNull]
+    internal static SpellDefinition BuildMirrorImage()
+    {
+        //Use Condition directly, instead of ConditionName to guarantee it gets built
+        var condition = ConditionDefinitionBuilder
+            .Create("ConditionMirrorImageMark")
+            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetAllowMultipleInstances(false)
+            .CopyParticleReferences(ConditionDefinitions.ConditionBlurred)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureMirrorImage")
+                .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
+                .SetCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
+                .AddToDB())
+            .AddToDB();
+
+        var spell = SpellDefinitions.MirrorImage;
+
+        spell.implemented = true;
+        spell.uniqueInstance = true;
+        spell.schoolOfMagic = SchoolIllusion;
+        spell.verboseComponent = true;
+        spell.somaticComponent = true;
+        spell.materialComponentType = MaterialComponentType.None;
+        spell.castingTime = ActivationTime.Action;
+        spell.effectDescription = EffectDescriptionBuilder.Create()
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetEffectForms(EffectFormBuilder.Create()
+                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+                .Build())
+            .SetParticleEffectParameters(Blur)
+            .Build();
 
         return spell;
     }
