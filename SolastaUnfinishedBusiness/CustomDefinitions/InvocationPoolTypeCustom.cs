@@ -111,9 +111,6 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
 
-        internal static readonly InvocationPoolTypeCustom Alchemy =
-            Register("Alchemy", DatabaseHelper.ItemDefinitions.AlchemistFire, InventorClass.ClassName);
-
         internal static List<InvocationPoolTypeCustom> All => PrivatePools;
     }
 }
