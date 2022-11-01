@@ -204,7 +204,7 @@ internal sealed class PatronElementalist : AbstractSubclass
     {
         var additionalDamageElementalist = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageElementalist" + text)
-            .SetGuiPresentation(GuiPresentation("ElementalDamage", text, elementalFormConfig))
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ElementalDamage")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
