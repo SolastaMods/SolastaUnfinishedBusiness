@@ -18,10 +18,10 @@ public static class VictoryModalPatcher
             //PATCH: scales down the victory modal whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-            if (partyCount > DungeonMakerContext.GamePartySize)
+            if (partyCount > ToolsContext.GamePartySize)
             {
-                var scale = (float)Math.Pow(DungeonMakerContext.VictoryModalDefaultScale,
-                    partyCount - DungeonMakerContext.GamePartySize);
+                var scale = (float)Math.Pow(ToolsContext.VictoryModalDefaultScale,
+                    partyCount - ToolsContext.GamePartySize);
 
                 __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
             }

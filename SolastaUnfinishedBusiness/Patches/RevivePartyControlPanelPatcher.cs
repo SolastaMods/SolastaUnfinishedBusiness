@@ -18,10 +18,10 @@ public static class RevivePartyControlPanelPatcher
             //PATCH: scales down the revive party control panel whenever the party size is bigger than 4 (PARTYSIZE)
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-            if (partyCount > DungeonMakerContext.GamePartySize)
+            if (partyCount > ToolsContext.GamePartySize)
             {
-                var scale = (float)Math.Pow(DungeonMakerContext.RevivePartyControlPanelDefaultScale,
-                    partyCount - DungeonMakerContext.GamePartySize);
+                var scale = (float)Math.Pow(ToolsContext.RevivePartyControlPanelDefaultScale,
+                    partyCount - ToolsContext.GamePartySize);
 
                 __instance.partyPlatesTable.localScale = new Vector3(scale, 1, scale);
             }

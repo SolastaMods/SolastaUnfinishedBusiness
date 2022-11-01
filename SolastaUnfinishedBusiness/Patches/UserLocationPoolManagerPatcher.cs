@@ -19,7 +19,7 @@ public static class UserLocationPoolManagerPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
-            var backupAndDeleteMethod = new Action<string, UserContent>(DungeonMakerContext.BackupAndDelete).Method;
+            var backupAndDeleteMethod = new Action<string, UserContent>(DmProEditorContext.BackupAndDelete).Method;
 
             foreach (var instruction in instructions)
             {

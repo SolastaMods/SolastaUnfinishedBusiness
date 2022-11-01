@@ -139,16 +139,16 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
-        
+
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
-                DungeonMakerContext.MinPartySize, DungeonMakerContext.MaxPartySize,
-                DungeonMakerContext.GamePartySize, string.Empty, UI.AutoWidth()))
+                ToolsContext.MinPartySize, ToolsContext.MaxPartySize,
+                ToolsContext.GamePartySize, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
         }
 
-        if (Main.Settings.OverridePartySize > DungeonMakerContext.GamePartySize)
+        if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
         {
             UI.Label("");
 

@@ -22,8 +22,8 @@ public static class CharacterSelectionModalPatcher
                 return;
             }
 
-            __instance.MinLevel = DungeonMakerContext.DungeonMinLevel;
-            __instance.MaxLevel = DungeonMakerContext.DungeonMaxLevel;
+            __instance.MinLevel = ToolsContext.DungeonMinLevel;
+            __instance.MaxLevel = ToolsContext.DungeonMaxLevel;
         }
     }
 

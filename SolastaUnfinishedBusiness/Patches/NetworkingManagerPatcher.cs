@@ -25,7 +25,7 @@ public static class NetworkingManagerPatcher
             string[] expectedUsers)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            var maxValue = Math.Max(DungeonMakerContext.GamePartySize, Main.Settings.OverridePartySize);
+            var maxValue = Math.Max(ToolsContext.GamePartySize, Main.Settings.OverridePartySize);
 
             roomOptions.MaxPlayers = (byte)maxValue;
 

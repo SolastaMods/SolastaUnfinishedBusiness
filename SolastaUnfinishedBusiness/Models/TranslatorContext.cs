@@ -9,16 +9,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
+internal sealed class TranslatorContext : MonoBehaviour
 {
     internal const string UbTranslationTag = "UB auto translation\n";
 
-    private static UserCampaignsTranslatorContext _exporter;
+    private static TranslatorContext _exporter;
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
     [NotNull]
-    private static UserCampaignsTranslatorContext Exporter
+    private static TranslatorContext Exporter
     {
         get
         {
@@ -27,7 +27,7 @@ internal sealed class UserCampaignsTranslatorContext : MonoBehaviour
                 return _exporter;
             }
 
-            _exporter = new GameObject().AddComponent<UserCampaignsTranslatorContext>();
+            _exporter = new GameObject().AddComponent<TranslatorContext>();
             DontDestroyOnLoad(_exporter.gameObject);
 
             return _exporter;

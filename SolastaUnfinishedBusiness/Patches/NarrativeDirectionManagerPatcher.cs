@@ -24,7 +24,7 @@ public static class NarrativeDirectionManagerPatcher
             }
 
             //PATCH: Only offer the first 4 players on dialogue sequences (PARTYSIZE)
-            if (Main.Settings.OverridePartySize <= DungeonMakerContext.GamePartySize
+            if (Main.Settings.OverridePartySize <= ToolsContext.GamePartySize
                 || Main.Settings.AllowAllPlayersOnNarrativeSequences)
             {
                 return;
@@ -36,7 +36,7 @@ public static class NarrativeDirectionManagerPatcher
                     .ToList();
 
                 involvedGameCharacters.RemoveAll(
-                    x => party.IndexOf(x.RulesetCharacter) >= DungeonMakerContext.GamePartySize);
+                    x => party.IndexOf(x.RulesetCharacter) >= ToolsContext.GamePartySize);
             }
         }
     }

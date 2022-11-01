@@ -36,7 +36,7 @@ internal static class TranslationsDisplay
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
-                     .Where(x => !x.TechnicalInfo.StartsWith(UserCampaignsTranslatorContext.UbTranslationTag))
+                     .Where(x => !x.TechnicalInfo.StartsWith(TranslatorContext.UbTranslationTag))
                      .OrderBy(x => x.Title))
         {
             var exportName = userCampaign.Title;
@@ -49,7 +49,7 @@ internal static class TranslationsDisplay
                     UI.Width(120));
                 UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300));
 
-                if (UserCampaignsTranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
+                if (TranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
                         $"{status.PercentageComplete:00.0%}").Bold().Khaki();
@@ -63,12 +63,12 @@ internal static class TranslationsDisplay
                     {
                         if (status == null)
                         {
-                            UserCampaignsTranslatorContext.TranslateUserCampaign(
+                            TranslatorContext.TranslateUserCampaign(
                                 Main.Settings.SelectedLanguageCode, userCampaign.Title, userCampaign);
                         }
                         else
                         {
-                            UserCampaignsTranslatorContext.Cancel(userCampaign.Title);
+                            TranslatorContext.Cancel(userCampaign.Title);
                         }
                     },
                     UI.Width(200));

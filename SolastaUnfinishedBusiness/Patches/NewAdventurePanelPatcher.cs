@@ -30,7 +30,7 @@ public static class NewAdventurePanelPatcher
             }
 
             // adds new character plates if required
-            for (var i = DungeonMakerContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
+            for (var i = ToolsContext.GamePartySize; i < Main.Settings.OverridePartySize; i++)
             {
                 var firstChild = __instance.characterSessionPlatesTable.GetChild(0);
 
