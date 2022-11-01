@@ -11,6 +11,8 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class SpellsContext
 {
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
+    
+    internal static readonly SpellDefinition FarStep = BuildFarStep();
 
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
@@ -145,6 +147,9 @@ internal static class SpellsContext
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
 
+        //5th level
+        RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 

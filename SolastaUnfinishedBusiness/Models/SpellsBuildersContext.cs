@@ -1074,7 +1074,65 @@ internal static class SpellsBuildersContext
     }
 
     #endregion
-    
+
+    #region LEVEL 05
+
+    internal static SpellDefinition BuildFarStep()
+    {
+        var power = FeatureDefinitionPowerBuilder
+            .Create("PowerFarStep")
+            .SetGuiPresentation(Category.Feature,
+                CustomIcons.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 0)
+                    .Build())
+                .SetParticleEffectParameters(MistyStep)
+                .Build())
+            .AddToDB();
+
+        const string ConditionName = "ConditionFarStep";
+        var condition = ConditionDefinitionBuilder
+            .Create(ConditionName)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionJump)
+            .SetSilent(Silent.None)
+            .SetPossessive()
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureFarStep")
+                .SetGuiPresentation(ConditionName, Category.Condition)
+                .SetCustomSubFeatures(new AddUsablePowerFromCondition(power))
+                .AddToDB())
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create("FarStep")
+            .SetGuiPresentation(Category.Spell, CustomIcons.GetSprite("SpellFarStep", Resources.SpellFarStep, 128))
+            .SetSpellLevel(5)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 0)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+                        .Build())
+                .SetParticleEffectParameters(MistyStep)
+                .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
     #region LEVEL 09
 
     internal static SpellDefinition BuildForesight()
@@ -1324,19 +1382,16 @@ internal static class SpellsBuildersContext
                         specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
                         shapeOptions = new List<ShapeOptionDescription>
                         {
-                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
-                            new()
-                            {
-                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                            },
-                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
+                            new() {requiredLevel = 1, substituteMonster = GoldDragon_AerElai},
+                            new() {requiredLevel = 1, substituteMonster = Divine_Avatar},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss},
+                            new() {requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration},
+                            new() {requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy},
+                            new() {requiredLevel = 1, substituteMonster = Remorhaz},
+                            new() {requiredLevel = 1, substituteMonster = Emperor_Laethar},
+                            new() {requiredLevel = 1, substituteMonster = Giant_Ape},
+                            new() {requiredLevel = 1, substituteMonster = Spider_Queen},
+                            new() {requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath}
                         }
                     }
                 })
