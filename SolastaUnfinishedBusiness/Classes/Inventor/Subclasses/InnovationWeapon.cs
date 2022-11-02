@@ -55,7 +55,8 @@ public static class InnovationWeapon
             .AddPreparedSpellGroup(5, BrandingSmite, SpiritualWeapon)
             .AddPreparedSpellGroup(9, RemoveCurse, BeaconOfHope)
             .AddPreparedSpellGroup(13, FireShield, DeathWard)
-            .AddPreparedSpellGroup(17, MassCureWounds, WallOfForce)
+            //TODO: find (or make) replacement for Cloud Kill - supposed to be Wall of Force
+            .AddPreparedSpellGroup(17, MassCureWounds, CloudKill)
             .AddToDB();
     }
 
