@@ -170,7 +170,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Executioner[/b]: You gain a +PB hit against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -190,14 +190,14 @@ You gain the ability to cast the burning hands and scorching ray spells once per
 You gain proficiency with smith's tools, or expertise if you are already proficient.
  You gain proficiency with all bows and crossbows.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
-[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and damage rolls when you use a versatile weapon in two hands.
+[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and +2 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Defense Mastery[/b]: You gain resistance to bludgeoning, slashing, and piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Armor[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with light armor.
-[*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
+[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged, or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Manacalon Crafter[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with manacalon rosary and Arcana, or expertise if already proficient.
 Requires the ability to cast spells.
@@ -231,7 +231,7 @@ You learn the Twinned Spell metamagic and gain 2 sorcery points.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
-[*][b]Reactionary[/b]: You gain a +2 hit with attacks of opportunity.
+[*][b]Reactionary[/b]: You gain a +PB hit with attacks of opportunity.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
 [*][b]Scribe[/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -279,12 +279,12 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
-[*][b]Executioner[/b]: You gain a +2 hit against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
-[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and damage rolls when you use a versatile weapon in two hands.
-[*][b]Light Footed[/b]: While wielding only weapons that are ranged, or use the finesse property, you gain a +5 to your movement speed.
+[*][b]Executioner[/b]: You gain a +PB hit against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and +2 to damage rolls when you use a versatile weapon in two hands.
+[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged, or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
-[*][b]Reactionary[/b]: You gain a +2 hit with attacks of opportunity.
+[*][b]Reactionary[/b]: You gain a +PB hit with attacks of opportunity.
 [*][b]Titan Hunter[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [/list]
 

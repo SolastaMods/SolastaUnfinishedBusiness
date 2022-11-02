@@ -1,7 +1,7 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:MovementAffinityLightFootedAdd1:bba0f8a3-e0b2-5dfa-a8d9-2e9776402a5b"
+    "Definition:MovementAffinityLightFootedAdd2:a965806c-0266-5ee7-867e-f3363ab70ff0"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
