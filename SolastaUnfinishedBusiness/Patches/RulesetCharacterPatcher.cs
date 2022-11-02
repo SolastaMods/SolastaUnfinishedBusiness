@@ -453,6 +453,75 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), "RollAttack")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollAttack_Patch
+    {
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
+            return MirrorImage.PatchAttackRoll(instructions);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollAttackMode_Patch
+    {
+        public static void Prefix(
+            [NotNull] RulesetCharacter __instance,
+            RulesetActor target,
+            List<RuleDefinitions.TrendInfo> toHitTrends,
+            bool testMode)
+        {
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
+            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+        }
+
+        public static void Postfix(
+            [NotNull] RulesetCharacter __instance,
+            RulesetAttackMode attackMode,
+            RulesetActor target,
+            List<RuleDefinitions.TrendInfo> toHitTrends,
+            ref RuleDefinitions.RollOutcome outcome,
+            ref int successDelta,
+            bool testMode)
+        {
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
+            MirrorImage.AttackRollPostfix(__instance, attackMode, target, toHitTrends, ref outcome, ref successDelta,
+                testMode);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollMagicAttack_Patch
+    {
+        public static void Prefix(
+            [NotNull] RulesetCharacter __instance,
+            RulesetActor target,
+            List<RuleDefinitions.TrendInfo> toHitTrends,
+            bool testMode)
+        {
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
+            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+        }
+
+        public static void Postfix(
+            [NotNull] RulesetCharacter __instance,
+            RulesetActor target,
+            List<RuleDefinitions.TrendInfo> toHitTrends,
+            ref RuleDefinitions.RollOutcome outcome,
+            ref int successDelta,
+            bool testMode)
+        {
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
+            MirrorImage.AttackRollPostfix(__instance, null, target, toHitTrends, ref outcome, ref successDelta,
+                testMode);
+        }
+    }
+
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

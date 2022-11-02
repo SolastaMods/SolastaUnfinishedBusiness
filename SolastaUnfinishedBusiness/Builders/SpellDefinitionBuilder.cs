@@ -62,6 +62,12 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         Definition.verboseComponent = verboseComponent;
         return this;
     }
+    
+    internal SpellDefinitionBuilder SetVocalSpellSemeType(RuleDefinitions.VocalSpellSemeType type)
+    {
+        Definition.vocalSpellSemeType = type;
+        return this;
+    }
 
     internal SpellDefinitionBuilder SetSomaticComponent(bool somaticComponent)
     {
