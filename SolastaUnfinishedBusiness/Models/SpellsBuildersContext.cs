@@ -623,18 +623,27 @@ internal static class SpellsBuildersContext
         const string NAME = "RadiantMotes";
 
         var spell = SpellDefinitionBuilder
-            .Create(MagicMissile, NAME)
-            .SetGuiPresentation(Category.Spell, Sparkle)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.Individuals)
-                .SetEffectForms(
-                    Shine.EffectDescription.EffectForms[0],
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(diceNumber: 1, dieType: DieType.D1, damageType: DamageTypeRadiant)
-                        .Build())
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell,
+                CustomIcons.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetFiltering(TargetFilteringMethod.AllCharacterAndGadgets)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.Individuals, 5)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetDamageForm(dieType: DieType.D4, diceNumber: 1, damageType: DamageTypeRadiant)
+                    .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 2)
+                .SetParticleEffectParameters(Sparkle)
+                .SetSpeed(SpeedType.CellsPerSeconds, 20)
+                .SetupImpactOffests(offsetImpactTimePerTarget: 0.1f)
                 .Build())
             .AddToDB();
 

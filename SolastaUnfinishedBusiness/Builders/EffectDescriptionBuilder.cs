@@ -255,4 +255,15 @@ internal class EffectDescriptionBuilder
         effect.EffectForms.AddRange(effectForms);
         return this;
     }
+
+    internal EffectDescriptionBuilder SetupImpactOffests(
+        bool offsetImpactTimeBasedOnDistance = false, 
+        float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
+        float offsetImpactTimePerTarget = 0.0f)
+    {
+        effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
+        effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
+        effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
+        return this;
+    }
 }

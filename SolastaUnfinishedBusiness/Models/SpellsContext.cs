@@ -136,7 +136,7 @@ internal static class SpellsContext
         // 1st level
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
-        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard);
+        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, InventorClass.SpellList);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
