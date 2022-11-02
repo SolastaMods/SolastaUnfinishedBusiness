@@ -71,13 +71,13 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
-            .SetGuiPresentation(FeatureSetMarshalKnowYourEnemyName, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new OnComputeAttackModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         var additionalDamageMarshalFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageMarshalFavoredEnemyHumanoid")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("FavoredEnemy")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
@@ -118,123 +118,10 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .Create(IdentifyCreatures.EffectDescription)
                 .SetDurationData(DurationType.Instantaneous)
                 .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(new StudyEnemyEffectDescription())
+                .SetEffectForms(new CustomEffectFormMarshalStudyYourEnemy())
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                 .Build())
             .AddToDB();
-    }
-
-    private static IEnumerator MarshalCoordinatedAttackOnAttackHitDelegate(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        RollOutcome outcome,
-        CharacterActionParams actionParams,
-        [NotNull] RulesetAttackMode attackMode,
-        ActionModifier attackModifier)
-    {
-        // melee only
-        if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
-            actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
-        {
-            yield break;
-        }
-
-        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        var battleManager = gameLocationBattleService as GameLocationBattleManager;
-        var allies = new List<GameLocationCharacter>();
-
-        foreach (var guestCharacter in characterService.GuestCharacters)
-        {
-            if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
-                || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))
-            {
-                continue;
-            }
-
-            if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-                    RuleDefinitions.ConditionConjuredCreature,
-                    out var activeCondition)
-                || activeCondition.SourceGuid != attacker.Guid)
-            {
-                continue;
-            }
-
-            var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
-
-            if (gameLocationMonster.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                ActionDefinitions.ActionStatus.Available
-                && !gameLocationMonster.Prone)
-            {
-                allies.Add(gameLocationMonster);
-            }
-        }
-
-        allies.AddRange(characterService.PartyCharacters
-            .Where(partyCharacter => partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 &&
-                                     !partyCharacter.Prone)
-            .Where(partyCharacter => partyCharacter != attacker));
-
-        var reactions = new List<CharacterActionParams>();
-
-        foreach (var partyCharacter in allies)
-        {
-            var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var attackParams = default(BattleDefinitions.AttackEvaluationParams);
-            var actionModifierBefore = new ActionModifier();
-            var canAttack = true;
-
-            if (allAttackMode == null)
-            {
-                continue;
-            }
-
-            if (allAttackMode.Ranged)
-            {
-                attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
-                    defender, defender.LocationPosition, actionModifierBefore);
-            }
-            else
-            {
-                attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
-                    defender, defender.LocationPosition, actionModifierBefore);
-            }
-
-            if (!gameLocationBattleService.CanAttack(attackParams))
-            {
-                canAttack = false;
-
-                var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
-
-                if (cantrips == null || cantrips.Empty())
-                {
-                    continue;
-                }
-            }
-
-            var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
-                allAttackMode, defender, actionModifierBefore)
-            {
-                StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = !canAttack
-            };
-
-            reactions.Add(reactionParams);
-        }
-
-        if (reactions.Empty() || battleManager == null)
-        {
-            yield break;
-        }
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-
-        foreach (var reaction in reactions)
-        {
-            actionService.ReactForOpportunityAttack(reaction);
-        }
-
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
     private static FeatureDefinition BuildMarshalCoordinatedAttack()
@@ -242,27 +129,12 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create(MarshalCoordinatedAttackName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackFinished(MarshalCoordinatedAttackOnAttackHitDelegate))
+            .SetCustomSubFeatures(new ReactToAttackFinishedMarshalCoordinatedAttack())
             .AddToDB();
     }
 
     private static void BuildEternalComradeMonster()
     {
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
-                .Build())
-            .Build();
-
-        var attackMarshalEternalComrade = MonsterAttackDefinitionBuilder
-            .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword, "MonsterAttackMarshalEternalComrade")
-            .SetEffectDescription(effectDescription)
-            .SetMagical()
-            .AddToDB();
-
         _ = MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, EternalComradeName)
             .SetOrUpdateGuiPresentation(Category.Monster)
@@ -293,7 +165,21 @@ internal sealed class MartialMarshal : AbstractSubclass
                 DamageAffinityThunderResistance,
                 ConditionAffinityHinderedByFrostImmunity
             )
-            .SetAttackIterations(new MonsterAttackIteration(attackMarshalEternalComrade, 1))
+            .SetAttackIterations(new MonsterAttackIteration(
+                MonsterAttackDefinitionBuilder
+                    .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword,
+                        "MonsterAttackMarshalEternalComrade")
+                    .SetEffectDescription(EffectDescriptionBuilder
+                        .Create()
+                        .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
+                        .SetEffectForms(EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                            .Build())
+                        .Build())
+                    .SetMagical()
+                    .AddToDB(),
+                1))
             .SetArmorClass(16)
             .SetAlignment(AlignmentDefinitions.Neutral)
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
@@ -329,31 +215,31 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         var conditionMarshalEternalComradeAc = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeSavingThrow = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeSavingThrow")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeDamage = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHit = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHp = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
             .SetAdditionalDamageType(FighterClass)
@@ -428,6 +314,125 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
+    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToAttackFinished
+    {
+        public IEnumerator HandleReactToAttackFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            [NotNull] RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            // melee only
+            if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
+                actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
+            {
+                yield break;
+            }
+
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleManager = gameLocationBattleService as GameLocationBattleManager;
+            var allies = new List<GameLocationCharacter>();
+
+            foreach (var guestCharacter in characterService.GuestCharacters)
+            {
+                if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
+                    || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))
+                {
+                    continue;
+                }
+
+                if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
+                        RuleDefinitions.ConditionConjuredCreature,
+                        out var activeCondition)
+                    || activeCondition.SourceGuid != attacker.Guid)
+                {
+                    continue;
+                }
+
+                var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
+
+                if (gameLocationMonster.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                    ActionDefinitions.ActionStatus.Available
+                    && !gameLocationMonster.Prone)
+                {
+                    allies.Add(gameLocationMonster);
+                }
+            }
+
+            allies.AddRange(characterService.PartyCharacters
+                .Where(partyCharacter =>
+                    partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 &&
+                    !partyCharacter.Prone)
+                .Where(partyCharacter => partyCharacter != attacker));
+
+            var reactions = new List<CharacterActionParams>();
+
+            foreach (var partyCharacter in allies)
+            {
+                var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+                var attackParams = default(BattleDefinitions.AttackEvaluationParams);
+                var actionModifierBefore = new ActionModifier();
+                var canAttack = true;
+
+                if (allAttackMode == null)
+                {
+                    continue;
+                }
+
+                if (allAttackMode.Ranged)
+                {
+                    attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition,
+                        allAttackMode,
+                        defender, defender.LocationPosition, actionModifierBefore);
+                }
+                else
+                {
+                    attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition,
+                        allAttackMode,
+                        defender, defender.LocationPosition, actionModifierBefore);
+                }
+
+                if (!gameLocationBattleService.CanAttack(attackParams))
+                {
+                    canAttack = false;
+
+                    var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
+
+                    if (cantrips == null || cantrips.Empty())
+                    {
+                        continue;
+                    }
+                }
+
+                var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
+                    allAttackMode, defender, actionModifierBefore)
+                {
+                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = !canAttack
+                };
+
+                reactions.Add(reactionParams);
+            }
+
+            if (reactions.Empty() || battleManager == null)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            foreach (var reaction in reactions)
+            {
+                actionService.ReactForOpportunityAttack(reaction);
+            }
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+        }
+    }
+
     private sealed class OnComputeAttackModifierMarshalKnowYourEnemy : IOnComputeAttackModifier
     {
         public void ComputeAttackModifier(
@@ -450,7 +455,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class StudyEnemyEffectDescription : CustomEffectForm
+    private sealed class CustomEffectFormMarshalStudyYourEnemy : CustomEffectForm
     {
         internal override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
