@@ -79,6 +79,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(false)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
@@ -124,6 +125,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
@@ -167,6 +169,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
@@ -181,6 +184,7 @@ internal static class SpellsBuildersContext
         var spell = SpellDefinitionBuilder
             .Create(Sparkle, NAME)
             .SetGuiPresentation(Category.Spell, Shine)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Detection)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Sparkle.EffectDescription)
                 .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 5)
@@ -202,6 +206,7 @@ internal static class SpellsBuildersContext
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetSpellLevel(0)
             .SetRequiresConcentration(false)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -431,6 +436,7 @@ internal static class SpellsBuildersContext
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -489,6 +495,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
@@ -543,6 +550,7 @@ internal static class SpellsBuildersContext
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Buff)
             .SetSpellLevel(1)
             .SetUniqueInstance(true)
             .SetCastingTime(ActivationTime.Minute10)
@@ -677,6 +685,7 @@ internal static class SpellsBuildersContext
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetSpellLevel(2)
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -727,6 +736,7 @@ internal static class SpellsBuildersContext
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
             .SetRequiresConcentration(false)
             .SetRitualCasting(ActivationTime.Minute10)
@@ -850,6 +860,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
@@ -897,6 +908,7 @@ internal static class SpellsBuildersContext
             .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .AddToDB();
@@ -942,6 +954,7 @@ internal static class SpellsBuildersContext
             .SetSpellLevel(3)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Defense)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -964,6 +977,7 @@ internal static class SpellsBuildersContext
             .SetSpellLevel(3)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Defense)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -1057,6 +1071,7 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetMaterialComponent(MaterialComponentType.None)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
@@ -1126,6 +1141,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
@@ -1175,6 +1191,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Buff)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1227,6 +1244,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Minute1)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Divination)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1257,6 +1275,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Healing)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1304,6 +1323,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1360,6 +1380,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Healing)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1397,6 +1418,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1454,6 +1476,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Buff)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
@@ -1492,6 +1515,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Divination)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -1532,6 +1556,7 @@ internal static class SpellsBuildersContext
             .SetCastingTime(ActivationTime.Action)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
+            .SetVocalSpellSemeType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
             .SetRequiresConcentration(true)
