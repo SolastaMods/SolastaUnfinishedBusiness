@@ -13,7 +13,7 @@ public static class CharacterStageIdentityDefinitionPanelPatcher
     {
         public static void Postfix(CharacterStageIdentityDefinitionPanel __instance, ref bool __result)
         {
-            if (Main.Settings.EnableRespec && RespecContext.FunctorRespec.IsRespecing &&
+            if (Main.Settings.EnableRespec && ToolsContext.FunctorRespec.IsRespecing &&
                 !string.IsNullOrEmpty(__instance.currentHero.Name))
             {
                 __result = true;

@@ -102,7 +102,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRespec = toggle;
-            RespecContext.Switch();
+            ToolsContext.SwitchRespec();
         }
 
         UI.Label("");
