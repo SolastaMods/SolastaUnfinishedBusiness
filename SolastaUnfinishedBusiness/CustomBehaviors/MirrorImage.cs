@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
@@ -31,6 +32,11 @@ public class MirrorImage
             .SetSilent(Silent.WhenAdded)
             .SetAllowMultipleInstances(true)
             .SetPossessive()
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureMirrorImageCounter")
+                .SetGuiPresentation(ConditionName, Category.Condition)
+                .SetCustomSubFeatures(DuplicateCounter.Mark)
+                .AddToDB())
             .AddToDB();
     }
 
@@ -180,7 +186,7 @@ public class MirrorImage
         entry.AddParameter(resultType, Gui.Format(result, roll.ToString()));
         entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
         console.AddEntry(entry);
-        
+
         //Add line about what attacker will target - defender or decoy
         entry = new GameConsoleEntry("Feedback/&MirrorImageRetargetResult", console.consoleTableDefinition)
         {
@@ -200,6 +206,26 @@ public class MirrorImage
         console.AddEntry(entry);
     }
 
+    private class DuplicateCounter : ICustomConditionFeature
+    {
+        private DuplicateCounter()
+        {
+        }
+
+        public static ICustomConditionFeature Mark { get; } = new DuplicateCounter();
+
+        public void ApplyFeature(RulesetCharacter hero)
+        {
+        }
+
+        public void RemoveFeature(RulesetCharacter hero)
+        {
+            if (!GetConditions(hero).Empty()) { return; }
+
+            hero.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
+        }
+    }
+
     internal class DuplicateProvider : ICustomConditionFeature
     {
         private DuplicateProvider()
@@ -208,7 +234,6 @@ public class MirrorImage
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateProvider();
 
-        //TODO: when all 3 duplictes are gone, stop spell effect
         public void ApplyFeature(RulesetCharacter hero)
         {
             for (var i = 0; i < 3; i++)
