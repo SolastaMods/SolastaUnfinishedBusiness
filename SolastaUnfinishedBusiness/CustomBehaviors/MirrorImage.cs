@@ -115,7 +115,32 @@ public class MirrorImage
 
         if (conditions.Empty()) { return; }
 
-        //TODO: make Blindsight, Tremorsense and True Sight ignore mirror image
+        if (attacker.HasConditionOfType(RuleDefinitions.ConditionBlinded))
+        {
+            ReportAttackerIsBlind(attacker);
+            return;
+        }
+
+        var distance = (int)attacker.DistanceTo(target);
+        foreach (var sense in attacker.SenseModes)
+        {
+            if (sense.senseType is not (SenseMode.Type.Blindsight or SenseMode.Type.Truesight
+                or SenseMode.Type.Tremorsense))
+            {
+                continue;
+            }
+
+            if (sense.senseType is SenseMode.Type.Tremorsense && !target.IsTouchingGround())
+            {
+                continue;
+            }
+
+            if (sense.senseRange >= distance)
+            {
+                ReportAttackerHasSense(attacker, sense.senseType);
+                return;
+            }
+        }
 
         //TODO: Bonus points if we can manage to change attack `GameConsole.AttackRolled` to show duplicate, instead of the target
 
@@ -160,6 +185,28 @@ public class MirrorImage
 
         outcome = RuleDefinitions.RollOutcome.Failure;
         successDelta = Int32.MaxValue;
+    }
+
+    private static void ReportAttackerIsBlind(RulesetActor attacker)
+    {
+        var console = Gui.Game.GameConsole;
+
+        var entry = new GameConsoleEntry("Feedback/&MirrorImageAttackerIsBlind", console.consoleTableDefinition);
+        console.AddCharacterEntry(attacker, entry);
+        entry.AddParameter(ParameterType.Negative, "Rules/&ConditionBlindedTitle");
+        entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
+        console.AddEntry(entry);
+    }
+
+    private static void ReportAttackerHasSense(RulesetActor attacker, SenseMode.Type sense)
+    {
+        var console = Gui.Game.GameConsole;
+
+        var entry = new GameConsoleEntry("Feedback/&MirrorImageAttackerHasSense", console.consoleTableDefinition);
+        console.AddCharacterEntry(attacker, entry);
+        entry.AddParameter(ParameterType.Positive, Gui.Format(Gui.SenseTypeTitleFormat, $"{sense}"));
+        entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
+        console.AddEntry(entry);
     }
 
     private static void ReportTargetingMirrorImage(RulesetActor attacker, RulesetActor target, int roll, bool success)

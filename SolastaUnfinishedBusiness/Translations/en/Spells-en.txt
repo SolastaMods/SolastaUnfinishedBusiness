@@ -105,3 +105,5 @@ Spell/&MirrorImageDescription=Three illusory duplicates of yourself appear in yo
 Spell/&MirrorImageTitle=Mirror Image
 Feedback/&MirrorImageRetargetRoll={0} rolls {2} decoy die: {1}
 Feedback/&MirrorImageRetargetResult={0} will target {1}
+Feedback/&MirrorImageAttackerIsBlind={0} is {1} and ignores {2}
+Feedback/&MirrorImageAttackerHasSense={0} has {1} and ignores {2}

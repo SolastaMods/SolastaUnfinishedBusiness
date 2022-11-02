@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -102,5 +103,24 @@ internal static class RulesetActorExtensions
         return FeaturesByType<FeatureDefinition>(actor)
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
+    }
+
+    internal static float DistanceTo(this RulesetActor actor, RulesetActor target)
+    {
+        var locA = GameLocationCharacter.GetFromActor(actor);
+        var locB = GameLocationCharacter.GetFromActor(target);
+
+        if (locA == null || locB == null) { return 0; }
+
+        var service = ServiceRepository.GetService<IGameLocationPositioningService>();
+        return Vector3.Distance(service.ComputeGravityCenterPosition(locA), service.ComputeGravityCenterPosition(locB));
+    }
+    
+    internal static bool IsTouchingGround(this RulesetActor actor)
+    {
+        return !actor.HasConditionOfType(RuleDefinitions.ConditionFlying)
+               && !actor.HasConditionOfType(RuleDefinitions.ConditionLevitate)
+               && !(actor is RulesetCharacter character &&
+                    character.MoveModes.ContainsKey((int) RuleDefinitions.MoveMode.Fly));
     }
 }
