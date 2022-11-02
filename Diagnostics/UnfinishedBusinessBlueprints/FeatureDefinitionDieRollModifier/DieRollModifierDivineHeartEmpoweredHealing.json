@@ -4,7 +4,7 @@
   "maxRollValue": 0,
   "minRerollValue": 2,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription",
+  "rerollLocalizationKey": "Feature/&PowerDivineHeartEmpoweredHealingReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "HealValueRoll",
   "validSkills": [],

@@ -1,18 +1,10 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Bonus",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackOff"
-  ],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionMirrorImageTitle",
+    "description": "Condition/&ConditionMirrorImageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ed3da4a2-6ed5-58fd-b278-8d84d0ddc6f5",
+  "guid": "4c74300c-5b04-57f4-b3bc-b34765ffda95",
   "contentPack": 9999,
-  "name": "AdditionalActionDualFlurry"
+  "name": "FeatureMirrorImage"
 }
