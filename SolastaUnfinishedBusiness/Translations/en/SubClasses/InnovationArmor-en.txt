@@ -6,3 +6,5 @@ Feature/&AutoPreparedSpellsInnovationArmorDescription=Learn and have always prep
 Feature/&AutoPreparedSpellsInnovationArmorTitle=Armorer Spells
 Feature/&ProficiencyInnovationWeaponArmoredUpDescription=You gain profoficiency with heavy armor.
 Feature/&ProficiencyInnovationWeaponArmoredUpTitle=Armored Up
+Feature/&ProficiencyInnovationArmorExtraAttackDescription=You can attack twice, rather than once, whenever you take the Attack action on your turn.
+Feature/&ProficiencyInnovationArmorExtraAttackTitle=Extra Attack

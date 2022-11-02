@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -15,6 +16,7 @@ public static class InnovationArmor
             .Create("InnovationArmor")
             .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Defense)
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells())
+            .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddToDB();
     }
 
@@ -40,6 +42,15 @@ public static class InnovationArmor
             .AddPreparedSpellGroup(13, FireShield, GreaterInvisibility)
             //TODO: find (or make) replacement for Cloud Kill - supposed to be Wall of Force
             .AddPreparedSpellGroup(17, SpellsContext.FarStep, CloudKill)
+            .AddToDB();
+    }
+    
+    private static FeatureDefinition BuildExtraAttack()
+    {
+        return FeatureDefinitionAttributeModifierBuilder
+            .Create("ProficiencyInnovationArmorExtraAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
     }
 }
