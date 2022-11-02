@@ -26,6 +26,16 @@
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
       "diceNumber": 2
     },

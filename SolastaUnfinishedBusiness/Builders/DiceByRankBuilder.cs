@@ -9,9 +9,15 @@ internal static class DiceByRankBuilder
     {
         var result = new List<DiceByRank>();
 
-        for (var i = begin; i <= 20; i++)
+        for (var i = 1; i <= 20; i++)
         {
-            result.Add(new DiceByRank { rank = i, diceNumber = startDamage + ((i - begin) / step * incrementDamage) });
+            var multiplier = i < begin ? 0 : 1;
+
+            result.Add(new DiceByRank
+            {
+                rank = i,
+                diceNumber = multiplier * (startDamage + ((i - begin) / step * incrementDamage))
+            });
         }
 
         return result;
