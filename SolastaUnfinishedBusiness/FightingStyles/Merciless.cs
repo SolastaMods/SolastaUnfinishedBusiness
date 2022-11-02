@@ -30,7 +30,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetFeatures(
             FeatureDefinitionAdditionalActionBuilder
                 .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentationNoContent(true)
                 .AddToDB(),
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")

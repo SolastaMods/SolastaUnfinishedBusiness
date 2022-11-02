@@ -16,7 +16,7 @@ internal sealed class Titan : AbstractFightingStyle
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleTitan")
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new OnComputeAttackModifierFightingStyleTitan())
                 .AddToDB())
         .AddToDB();

@@ -17,7 +17,7 @@ internal sealed class Crippling : AbstractFightingStyle
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .SetDamageDice(DieType.D1, 0)
                 .SetFrequencyLimit(FeatureLimitedUsage.None)
                 .SetNotificationTag("Crippling")
@@ -29,7 +29,6 @@ internal sealed class Crippling : AbstractFightingStyle
                         canSaveToCancel = false,
                         conditionDefinition = ConditionDefinitionBuilder
                             .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
-                            .SetGuiPresentationNoContent()
                             .SetAllowMultipleInstances(true)
                             .AddToDB(),
                         hasSavingThrow = false,
