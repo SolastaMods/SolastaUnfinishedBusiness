@@ -8,6 +8,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
+using static ConsoleStyleDuplet;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -156,32 +158,44 @@ public class MirrorImage
 
     private static void ReportTargetingMirrorImage(RulesetActor attacker, RulesetActor target, int roll, bool success)
     {
-        //TODO: add proper translation
-        var line = success
-            ? "{0} rolls {2}, {1} will target {3}"
-            : "{0} rolls {2}, {1} will not target {3}";
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(line, console.consoleTableDefinition);
+
+        //Add line about mirror image roll result
+        var entry = new GameConsoleEntry("Feedback/&MirrorImageRetargetRoll", console.consoleTableDefinition);
 
         string result;
-        ConsoleStyleDuplet.ParameterType resultType;
+        ParameterType resultType;
         if (success)
         {
             result = GameConsole.SaveSuccessOutcome;
-            resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
+            resultType = ParameterType.SuccessfulRoll;
         }
         else
         {
             result = GameConsole.SaveFailureOutcome;
-            resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
+            resultType = ParameterType.FailedRoll;
         }
 
         console.AddCharacterEntry(target, entry);
-        console.AddCharacterEntry(attacker, entry);
-
         entry.AddParameter(resultType, Gui.Format(result, roll.ToString()));
+        entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
+        console.AddEntry(entry);
+        
+        //Add line about what attacker will target - defender or decoy
+        entry = new GameConsoleEntry("Feedback/&MirrorImageRetargetResult", console.consoleTableDefinition)
+        {
+            Indent = true
+        };
 
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, ConditionTitle);
+        console.AddCharacterEntry(attacker, entry);
+        if (success)
+        {
+            entry.AddParameter(ParameterType.AttackSpellPower, ConditionTitle);
+        }
+        else
+        {
+            console.AddCharacterEntry(target, entry);
+        }
 
         console.AddEntry(entry);
     }
