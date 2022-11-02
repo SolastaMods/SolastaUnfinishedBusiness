@@ -405,7 +405,7 @@ internal static class SpellsBuildersContext
                                     .SetAttackModeOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(DamageTypeRadiant)
-                                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 0, 1, 4)
+                                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 5)
                                     .SetTargetCondition(sunlitMark, AdditionalDamageTriggerCondition.TargetHasCondition)
                                     .SetConditionOperations(highlight)
                                     .SetAddLightSource(true)
