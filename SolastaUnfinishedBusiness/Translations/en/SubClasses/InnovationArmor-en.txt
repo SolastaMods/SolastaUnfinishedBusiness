@@ -8,3 +8,5 @@ Feature/&ProficiencyInnovationWeaponArmoredUpDescription=You gain profoficiency 
 Feature/&ProficiencyInnovationWeaponArmoredUpTitle=Armored Up
 Feature/&ProficiencyInnovationArmorExtraAttackDescription=You can attack twice, rather than once, whenever you take the Attack action on your turn.
 Feature/&ProficiencyInnovationArmorExtraAttackTitle=Extra Attack
+Item/&CEThunderGauntletTitle=Thunder Gauntlet
+Item/&CELightningLauncherTitle=Lightning Launcher

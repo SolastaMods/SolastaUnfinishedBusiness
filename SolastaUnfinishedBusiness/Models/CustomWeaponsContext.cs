@@ -27,6 +27,8 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
     internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
     internal static ItemDefinition ProducedFlameDart;
+    internal static WeaponTypeDefinition ThunderGauntletType, LightningLauncherType;
+    internal static ItemDefinition ThunderGauntlet, LightningLauncher;
 
     internal static readonly List<string> PolearmWeaponTypes = new()
     {
@@ -41,6 +43,8 @@ internal static class CustomWeaponsContext
         BuildLongMaces();
         BuildHandXbow();
         WeaponizeProducedFlame();
+        BuildThunderGauntlet();
+        BuildLightningLauncher();
 
         PolearmWeaponTypes.AddRange(new[] { HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name });
     }
@@ -555,6 +559,62 @@ internal static class CustomWeaponsContext
 
         flame.IsWeapon = true;
         flame.weaponDefinition = weapon;
+    }
+
+    private static void BuildThunderGauntlet()
+    {
+        ThunderGauntletType = WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.UnarmedStrikeType, "CEThunderGauntletType")
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .AddToDB();
+
+        var baseItem = ItemDefinitions.UnarmedStrikeBase;
+        var basePresentation = baseItem.ItemPresentation;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
+        {
+            reachRange = 1, weaponType = ThunderGauntletType.Name, weaponTags = new List<string>()
+        };
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D8;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = RuleDefinitions.DamageTypeThunder;
+
+        ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
+            //TODO: add proper icon
+            ItemDefinitions.GauntletsOfOgrePower.GuiPresentation.SpriteReference, properties: new[] {ThunderImpactVFX});
+    }
+
+
+    private static void BuildLightningLauncher()
+    {
+        LightningLauncherType = WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.ShortbowType, "CELightningLauncherType")
+            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .SetAnimationTag("Rapier")
+            .AddToDB();
+
+        var baseItem = ItemDefinitions.Shortbow;
+        var basePresentation = baseItem.ItemPresentation;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
+        {
+            //TODO: add custom ammunition that looks like lightning
+            closeRange = 18, maxRange = 60, weaponType = LightningLauncherType.Name, weaponTags = new List<string>()
+        };
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = RuleDefinitions.DamageTypeLightning;
+
+        LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,
+            baseDescription,
+            //TODO: add proper icon
+            SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference, properties: new[] {LightningImpactVFX});
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,
