@@ -74,7 +74,7 @@ internal static class OtherFeats
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityFeatShieldExpertShove")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActonTypes()
+                    .SetDefaultAllowedActionTypes()
                     // Shove as bonus action seems too OP for this feat
                     // .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
                     .SetActionExecutionModifiers(

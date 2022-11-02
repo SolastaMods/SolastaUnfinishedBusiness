@@ -56,7 +56,7 @@ public static class InnovationAlchemy
         return FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityInnovationAlchemyFastHands")
             .SetGuiPresentation(Category.Feature)
-            .SetDefaultAllowedActonTypes()
+            .SetDefaultAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
             .AddToDB();
     }

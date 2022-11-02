@@ -15,14 +15,16 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Pugilist : AbstractFightingStyle
 {
+    private const string PugilistName = "Pugilist";
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("Pugilist")
+        .Create(PugilistName)
         .SetGuiPresentation(Category.FightingStyle, TraditionLight)
         .SetFeatures(
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityFightingStylePugilist")
-                .SetGuiPresentation("Pugilist", Category.FightingStyle)
-                .SetDefaultAllowedActonTypes()
+                .SetGuiPresentation(PugilistName, Category.FightingStyle)
+                .SetDefaultAllowedActionTypes()
                 .SetAuthorizedActions(Id.ShoveBonus)
                 .SetCustomSubFeatures(
                     new AddExtraUnarmedAttack(ActionType.Bonus),

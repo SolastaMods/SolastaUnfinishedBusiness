@@ -338,7 +338,7 @@ public static class InnovationWeapon
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
-                    .SetDefaultAllowedActonTypes()
+                    .SetDefaultAllowedActionTypes()
                     .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                         Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                     .SetCustomSubFeatures(new SummonerHasConditionOrKOd())

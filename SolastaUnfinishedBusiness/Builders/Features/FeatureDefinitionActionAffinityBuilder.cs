@@ -38,7 +38,7 @@ internal class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<Featur
         return this;
     }
 
-    internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
+    internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActionTypes()
     {
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
         return this;
