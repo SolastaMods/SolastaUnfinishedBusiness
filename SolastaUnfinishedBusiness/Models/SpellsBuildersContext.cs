@@ -786,6 +786,7 @@ internal static class SpellsBuildersContext
         spell.schoolOfMagic = SchoolIllusion;
         spell.verboseComponent = true;
         spell.somaticComponent = true;
+        spell.vocalSpellSemeType = VocalSpellSemeType.Defense;
         spell.materialComponentType = MaterialComponentType.None;
         spell.castingTime = ActivationTime.Action;
         spell.effectDescription = EffectDescriptionBuilder.Create()
