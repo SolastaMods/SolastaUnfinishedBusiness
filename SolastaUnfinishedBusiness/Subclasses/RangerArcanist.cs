@@ -64,10 +64,6 @@ internal sealed class RangerArcanist : AbstractSubclass
             )
             .AddToDB();
 
-        //
-        // LEVEL 07
-        //
-
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
             .SetGuiPresentation(Category.Feature)

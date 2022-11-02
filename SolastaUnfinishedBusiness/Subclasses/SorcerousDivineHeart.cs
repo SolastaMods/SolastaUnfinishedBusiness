@@ -85,7 +85,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                         1,
                         0,
                         2,
-                        "Feature/&PowerDivineHeartEmpoweredHealingRerollDescription")
+                        "Feature/&PowerDivineHeartEmpoweredHealingReroll")
                     .AddToDB())
             .AddToDB();
 

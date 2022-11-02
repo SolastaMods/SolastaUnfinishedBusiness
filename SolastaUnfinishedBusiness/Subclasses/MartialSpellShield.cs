@@ -72,7 +72,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var magicAffinitySpellShieldConcentrationAdvantageVigor = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldConcentrationAdvantageVigor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new VigorSpellDcModifier(),
+            .SetCustomSubFeatures(
+                new VigorSpellDcModifier(),
                 new VigorSpellAttackModifier
                 {
                     SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature
