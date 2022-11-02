@@ -334,7 +334,7 @@ public static class RulesetCharacterPatcher
             //Adds extra modifiers to spell DC
 
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
-            
+
             __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
         }
     }

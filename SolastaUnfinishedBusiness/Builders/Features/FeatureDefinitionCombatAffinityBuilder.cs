@@ -32,7 +32,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
         Definition.ignoreCover = true;
         return this;
     }
-    
+
     internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(RuleDefinitions.AdvantageType affinity)
     {
         Definition.initiativeAffinity = affinity;

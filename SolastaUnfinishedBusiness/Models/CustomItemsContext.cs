@@ -7,9 +7,9 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CustomItemsContext
 {
     private static ItemDefinition _helmOfAwareness;
-    internal static ItemDefinition HelmOfAwareness => _helmOfAwareness ??= BuildHelmOfAwareness();
-
     private static ItemDefinition _glovesOfThievery;
+
+    internal static ItemDefinition HelmOfAwareness => _helmOfAwareness ??= BuildHelmOfAwareness();
     internal static ItemDefinition GlovesOfThievery => _glovesOfThievery ??= BuildGlovesOfThievery();
 
     internal static void Load()

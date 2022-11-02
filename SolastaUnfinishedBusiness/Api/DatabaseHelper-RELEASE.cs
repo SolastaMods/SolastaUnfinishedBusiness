@@ -164,6 +164,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionBlurred { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlurred");
+
         internal static ConditionDefinition ConditionAcidSpit { get; } =
             GetDefinition<ConditionDefinition>("ConditionAcidSpit");
 
@@ -2621,6 +2624,9 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition MirrorImage { get; } =
+            GetDefinition<SpellDefinition>("MirrorImage");
+
         internal static SpellDefinition AcidSplash { get; } =
             GetDefinition<SpellDefinition>("AcidSplash");
 

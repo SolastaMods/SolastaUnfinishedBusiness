@@ -122,8 +122,8 @@ internal static class ElAntoniousFeats
             }
 
             var condition = attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
-                    ? _conditionDualFlurryGrant
-                    : _conditionDualFlurryApply;
+                ? _conditionDualFlurryGrant
+                : _conditionDualFlurryApply;
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,

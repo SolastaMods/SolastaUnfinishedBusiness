@@ -575,8 +575,9 @@ public static class GameLocationBattleManagerPatcher
             var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>();
 
             foreach (var extraEvents in features
-                         .Select(x => 
-                             x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode, activeEffect)))
+                         .Select(x =>
+                             x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
+                                 activeEffect)))
             {
                 while (extraEvents.MoveNext())
                 {

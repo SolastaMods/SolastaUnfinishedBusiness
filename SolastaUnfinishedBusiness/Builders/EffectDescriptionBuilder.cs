@@ -256,8 +256,8 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetupImpactOffests(
-        bool offsetImpactTimeBasedOnDistance = false, 
+    internal EffectDescriptionBuilder SetupImpactOffsets(
+        bool offsetImpactTimeBasedOnDistance = false,
         float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
         float offsetImpactTimePerTarget = 0.0f)
     {

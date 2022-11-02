@@ -51,9 +51,9 @@ public static class GuiCharacterPatcher
 
         public static void GetSlotsNumber(
             RulesetSpellRepertoire spellRepertoire,
-            int spellLevel, 
+            int spellLevel,
             out int remaining,
-            out int max, 
+            out int max,
             GuiCharacter guiCharacter)
         {
             //PATCH: calculates the Warlock slots number correctly under a MC scenario (MULTICLASS)

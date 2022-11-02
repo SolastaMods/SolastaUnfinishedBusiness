@@ -19,8 +19,8 @@ internal static class ToolsContext
 
     internal const int DungeonMinLevel = 1;
     internal const int DungeonMaxLevel = 20;
-    
-        private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled =
+
+    private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled =
         (RestActivityDefinition.ActivityCondition)(-1001);
 
     private const string RespecName = "RestActivityRespec";

@@ -19,7 +19,7 @@ public class ProficienciesPanelPatcher
     }
 
     //TODO: Don't know when this is called - was unable to trigger this method 
-    #if false
+#if false
     [HarmonyPatch(typeof(ProficienciesPanel), "Unload")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Unload_Patch

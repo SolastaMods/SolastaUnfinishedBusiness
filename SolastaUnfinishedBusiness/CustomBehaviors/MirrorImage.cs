@@ -18,17 +18,27 @@ public class MirrorImage
 {
     private const string ConditionName = "ConditionMirrorImage";
     private const string TargetMirrorImageTag = "TargetsMirrorImage";
-    private static string ConditionTitle = GuiPresentationBuilder.CreateTitleKey(ConditionName, Category.Condition);
+
+    private static readonly string ConditionTitle =
+        GuiPresentationBuilder.CreateTitleKey(ConditionName, Category.Condition);
+
     private static ConditionDefinition _condition;
+
+    private MirrorImage()
+    {
+    }
+
     internal static ConditionDefinition Condition => _condition ??= BuildCondition();
+
+    private static MirrorImage Marker { get; } = new();
 
     private static ConditionDefinition BuildCondition()
     {
         return ConditionDefinitionBuilder
-            .Create(MirrorImage.ConditionName)
+            .Create(ConditionName)
             .SetGuiPresentation(Category.Condition,
                 CustomIcons.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
-            .SetCustomSubFeatures(MirrorImage.Marker)
+            .SetCustomSubFeatures(Marker)
             .SetSilent(Silent.WhenAdded)
             .SetAllowMultipleInstances(true)
             .SetPossessive()
@@ -38,12 +48,6 @@ public class MirrorImage
                 .SetCustomSubFeatures(DuplicateCounter.Mark)
                 .AddToDB())
             .AddToDB();
-    }
-
-    public static MirrorImage Marker { get; } = new();
-
-    private MirrorImage()
-    {
     }
 
     private static List<RulesetCondition> GetConditions(RulesetCharacter character)
@@ -144,7 +148,7 @@ public class MirrorImage
 
         //TODO: Bonus points if we can manage to change attack `GameConsole.AttackRolled` to show duplicate, instead of the target
 
-        //TODO: adde custom context and modify Halfling's Lucky to include it
+        //TODO: add custom context and modify Halfling's Lucky to include it
         var result = target.RollDie(RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.None, false,
             RuleDefinitions.AdvantageType.None, out var _, out var _, skill: TargetMirrorImageTag);
 
@@ -158,7 +162,7 @@ public class MirrorImage
 
         if (hitImage)
         {
-            toHitTrends.Add(new RuleDefinitions.TrendInfo() {value = 0, sourceName = TargetMirrorImageTag});
+            toHitTrends.Add(new RuleDefinitions.TrendInfo { value = 0, sourceName = TargetMirrorImageTag });
         }
     }
 
@@ -286,7 +290,7 @@ public class MirrorImage
             for (var i = 0; i < 3; i++)
             {
                 var condition = RulesetCondition.CreateActiveCondition(
-                    hero.Guid, MirrorImage.Condition, RuleDefinitions.DurationType.Minute, 1,
+                    hero.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, hero.Guid, hero.CurrentFaction.Name);
 
                 hero.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);

@@ -42,7 +42,7 @@ internal static class CustomWeaponsContext
         BuildHandXbow();
         WeaponizeProducedFlame();
 
-        PolearmWeaponTypes.AddRange(new[] {HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name});
+        PolearmWeaponTypes.AddRange(new[] { HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name });
     }
 
     [NotNull]
@@ -249,7 +249,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, Rare, icon: HalberdP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
         HalberdPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus1, 24, 10,
@@ -261,7 +261,7 @@ internal static class CustomWeaponsContext
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
-            properties: new[] {WeaponPlus2});
+            properties: new[] { WeaponPlus2 });
         HalberdPlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus2, 48, 16,
@@ -271,7 +271,7 @@ internal static class CustomWeaponsContext
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
-            properties: new[] {LightningImpactVFX, WeaponPlus1AttackOnly});
+            properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
@@ -325,7 +325,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, Rare, icon: PikeP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
         PikePlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(PikePlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus1, 24, 10,
@@ -338,7 +338,7 @@ internal static class CustomWeaponsContext
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikeP2Icon,
-            properties: new[] {WeaponPlus2});
+            properties: new[] { WeaponPlus2 });
         PikePlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(PikePlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 48, 16,
@@ -349,7 +349,7 @@ internal static class CustomWeaponsContext
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikePsychicIcon, needId: false,
-            properties: new[] {PsychicImpactVFX, WeaponPlus1AttackOnly});
+            properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
@@ -403,7 +403,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, Rare, icon: LongMaceP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
         LongMacePlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus1, 24, 10,
@@ -415,7 +415,7 @@ internal static class CustomWeaponsContext
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
-            properties: new[] {WeaponPlus2});
+            properties: new[] { WeaponPlus2 });
         LongMacePlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 48, 16,
@@ -425,7 +425,7 @@ internal static class CustomWeaponsContext
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
-            properties: new[] {ThunderImpactVFX, WeaponPlus1AttackOnly});
+            properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
@@ -489,7 +489,7 @@ internal static class CustomWeaponsContext
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
             950, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
-            properties: new[] {WeaponPlus1});
+            properties: new[] { WeaponPlus1 });
         HandXbowPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus1, ShopItemType.ShopRangedPlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus1, 24, 10,
@@ -501,7 +501,7 @@ internal static class CustomWeaponsContext
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
-            properties: new[] {WeaponPlus2});
+            properties: new[] { WeaponPlus2 });
         HandXbowPlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus2, ShopItemType.ShopRangedPlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus2, 48, 16,
@@ -511,7 +511,7 @@ internal static class CustomWeaponsContext
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
-            properties: new[] {AcidImpactVFX, WeaponPlus1AttackOnly});
+            properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()

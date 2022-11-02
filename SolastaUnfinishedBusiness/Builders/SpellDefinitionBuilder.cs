@@ -62,8 +62,8 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         Definition.verboseComponent = verboseComponent;
         return this;
     }
-    
-    internal SpellDefinitionBuilder SetVocalSpellSemeType(RuleDefinitions.VocalSpellSemeType type)
+
+    internal SpellDefinitionBuilder SetVocalSpellSameType(RuleDefinitions.VocalSpellSemeType type)
     {
         Definition.vocalSpellSemeType = type;
         return this;
