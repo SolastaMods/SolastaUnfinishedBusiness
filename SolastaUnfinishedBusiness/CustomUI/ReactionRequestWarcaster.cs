@@ -28,6 +28,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         get
         {
             var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
+
             if (spell == null)
             {
                 return 0;
@@ -45,6 +46,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         get
         {
             var targetCharacter = ReactionParams.TargetCharacters[0];
+
             return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                 .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
         }
@@ -171,8 +173,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
                 .AllActionDefinitions[ActionDefinitions.Id.CastReaction];
 
             var spell = reactionParams.SpellRepertoire.KnownSpells[option - 1];
-            var rulesService =
-                ServiceRepository.GetService<IRulesetImplementationService>();
+            var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             rulesetCharacter.CanCastCantrip(spell, out var spellRepertoire);

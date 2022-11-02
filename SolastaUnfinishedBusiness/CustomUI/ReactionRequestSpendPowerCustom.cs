@@ -2,18 +2,15 @@
 
 public class ReactionRequestSpendPowerCustom : ReactionRequestSpendPower
 {
-    public ReactionRequestSpendPowerCustom(CharacterActionParams reactionParams, string name = "SpendPower") : base(
-        reactionParams, name)
+    public ReactionRequestSpendPowerCustom(CharacterActionParams reactionParams, string name = "SpendPower")
+        : base(reactionParams, name)
     {
     }
 
     public override string FormatDescription()
     {
-        if (string.IsNullOrEmpty(reactionParams.stringParameter2))
-        {
-            return base.FormatDescription();
-        }
-
-        return reactionParams.stringParameter2;
+        return string.IsNullOrEmpty(reactionParams.stringParameter2)
+            ? base.FormatDescription()
+            : reactionParams.stringParameter2;
     }
 }

@@ -13,11 +13,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
     private readonly GuiCharacter guiCharacter;
     private readonly FeatureDefinitionPower masterPower;
     private readonly ActionModifier modifier;
-
     private readonly GameLocationCharacter target;
 
-    internal ReactionRequestSpendBundlePower(
-        [NotNull] CharacterActionParams reactionParams)
+    internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
         target = reactionParams.TargetCharacters[0];
@@ -39,6 +37,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
             }
 
             var subPowers = masterPower.GetBundle()?.SubPowers;
+
             return subPowers?.FindIndex(p => p == power) ?? -1;
         }
     }
@@ -68,16 +67,10 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
         var i = 0;
 
-        foreach (var p in bundle.SubPowers)
+        foreach (var power in bundle.SubPowers
+                     .Where(x => CanUsePower(rulesetCharacter, x)))
         {
-            var canUsePower = CanUsePower(rulesetCharacter, p);
-
-            if (!canUsePower)
-            {
-                continue;
-            }
-
-            reactionParams.SpellRepertoire.KnownSpells.Add(PowersBundleContext.GetSpell(p));
+            reactionParams.SpellRepertoire.KnownSpells.Add(PowersBundleContext.GetSpell(power));
             SubOptionsAvailability.Add(i, true);
 
             if (!selected)

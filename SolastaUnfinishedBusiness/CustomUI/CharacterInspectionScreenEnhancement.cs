@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,14 +37,12 @@ internal static class CharacterInspectionScreenEnhancement
 
     private static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
-        var badgeDefinitions =
-            __instance.badgeDefinitions;
+        var badgeDefinitions = __instance.badgeDefinitions;
         var classBadgesTable = __instance.classBadgesTable;
         var classBadgePrefab = __instance.classBadgePrefab;
 
-        badgeDefinitions.Clear();
-
-        badgeDefinitions.AddRange(Global.InspectedHero!.ClassesAndSubclasses.Where(x => x.Key == SelectedClass)
+        badgeDefinitions.SetRange(Global.InspectedHero!.ClassesAndSubclasses
+            .Where(x => x.Key == SelectedClass)
             .Select(classesAndSubclass => classesAndSubclass.Value));
 
         if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
@@ -85,18 +84,12 @@ internal static class CharacterInspectionScreenEnhancement
         var classBadges = new HashSet<FightingStyleDefinition>();
         var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
 
-        foreach (var x in Global.InspectedHero!.ActiveFeatures)
+        foreach (var x in Global.InspectedHero!.ActiveFeatures
+                     .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
         {
-            if (!x.Key.Contains(AttributeDefinitions.TagClass))
+            foreach (var _ in x.Value.OfType<FeatureDefinitionFightingStyleChoice>())
             {
-                continue;
-            }
-
-            foreach (var featureDefinition in x.Value.OfType<FeatureDefinitionFightingStyleChoice>())
-            {
-                var pair = x;
-
-                classLevelFightingStyle.Add(pair.Key, Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+                classLevelFightingStyle.Add(x.Key, Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
             }
         }
 
@@ -136,10 +129,11 @@ internal static class CharacterInspectionScreenEnhancement
     }
 
     internal static bool EnhanceFeatureList(
-        CharacterInformationPanel panel
-        , RectTransform table,
+        CharacterInformationPanel panel,
+        RectTransform table,
         List<FeatureUnlockByLevel> features,
-        string insufficientLevelFormat, TooltipDefinitions.AnchorMode tooltipAnchorMode)
+        string insufficientLevelFormat,
+        TooltipDefinitions.AnchorMode tooltipAnchorMode)
     {
         while (table.childCount < features.Count)
         {
