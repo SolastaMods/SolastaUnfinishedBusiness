@@ -16,6 +16,7 @@ internal static class SpellsContext
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
+    internal static readonly SpellDefinition FarStep = BuildFarStep();
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -147,7 +148,7 @@ internal static class SpellsContext
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
 
         //5th level
-        RegisterSpell(BuildFarStep(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

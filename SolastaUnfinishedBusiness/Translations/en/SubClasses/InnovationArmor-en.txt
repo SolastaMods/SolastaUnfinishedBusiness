@@ -1,0 +1,8 @@
+﻿Screen/&InventorArmorerSpellDescription=This Armorer spell is always considered prepared. \nIt does not count towards your spell preparation limit.
+Screen/&InventorArmorerSpellTitle=Armorer
+Subclass/&InnovationArmorDescription=Armorers focus their studies on magical armors and how to use them effectively.
+Subclass/&InnovationArmorTitle=Armorer
+Feature/&AutoPreparedSpellsInnovationArmorDescription=Learn and have always prepared:\n{0}
+Feature/&AutoPreparedSpellsInnovationArmorTitle=Armorer Spells
+Feature/&ProficiencyInnovationWeaponArmoredUpDescription=You gain profoficiency with heavy armor.
+Feature/&ProficiencyInnovationWeaponArmoredUpTitle=Armored Up
