@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using static SolastaUnfinishedBusiness.Models.SpellsBuildersContext;
@@ -26,12 +27,37 @@ internal static class SpellsContext
                 return spellLists;
             }
 
+            // only this sub matters for spell selection. this might change if we add additional subs to mod
+            var characterSubclass = DatabaseHelper.CharacterSubclassDefinitions.TraditionLight;
+
+            var title = characterSubclass.FormatTitle();
+
+            var featureDefinitions = characterSubclass.FeatureUnlocks
+                .Select(x => x.FeatureDefinition)
+                .Where(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
+
+            foreach (var featureDefinition in featureDefinitions)
+            {
+                switch (featureDefinition)
+                {
+                    case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
+                        when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
+                             !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
+                        spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                        break;
+                    case FeatureDefinitionCastSpell featureDefinitionCastSpell
+                        when featureDefinitionCastSpell.SpellListDefinition != null &&
+                             !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
+                        spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                        break;
+                }
+            }
+
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
             foreach (var characterClass in dbCharacterClassDefinition)
             {
-                var title = characterClass.FormatTitle();
+                title = characterClass.FormatTitle();
 
                 var featureDefinitionCastSpell = characterClass.FeatureUnlocks
                     .Select(x => x.FeatureDefinition)
@@ -44,32 +70,6 @@ internal static class SpellsContext
                     && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                 {
                     spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-                }
-            }
-
-            foreach (var characterSubclass in dbCharacterSubclassDefinition)
-            {
-                var title = characterSubclass.FormatTitle();
-
-                var featureDefinitions = characterSubclass.FeatureUnlocks
-                    .Select(x => x.FeatureDefinition)
-                    .Where(x => x is FeatureDefinitionCastSpell or FeatureDefinitionMagicAffinity);
-
-                foreach (var featureDefinition in featureDefinitions)
-                {
-                    switch (featureDefinition)
-                    {
-                        case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
-                            when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
-                                 !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
-                            spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
-                            break;
-                        case FeatureDefinitionCastSpell featureDefinitionCastSpell
-                            when featureDefinitionCastSpell.SpellListDefinition != null &&
-                                 !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
-                            spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-                            break;
-                    }
                 }
             }
 
