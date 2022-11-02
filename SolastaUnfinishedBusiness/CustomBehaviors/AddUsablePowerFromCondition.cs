@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -13,8 +14,14 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
 
     public void ApplyFeature(RulesetCharacter hero)
     {
+        if (hero.UsablePowers.Any(u => u.PowerDefinition == power))
+        {
+            return;
+        }
+
         var usablePower = new RulesetUsablePower(power, null, null);
-        hero.UsablePowers.TryAdd(usablePower);
+        usablePower.Recharge();
+        hero.UsablePowers.Add(usablePower);
         hero.RefreshUsablePower(usablePower);
     }
 
