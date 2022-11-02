@@ -14,19 +14,19 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
         var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
         var spellRepertoire = ReactionParams.SpellRepertoire;
-        // var selected = 0;
+        int selected;
 
-        // if (actionParams.StringParameter == "EldritchSmite")
-        // {
-        //     var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-        //
-        //     selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
-        //         minLevel, minLevel);
-        // }
-        // else
-        // {
-        var selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
-        // }
+        if (actionParams.StringParameter == InvocationsContext.EldritchSmiteTag)
+        {
+            var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+                minLevel, minLevel);
+        }
+        else
+        {
+            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+        }
 
         if (selected >= 0)
         {

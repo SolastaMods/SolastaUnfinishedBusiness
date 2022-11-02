@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -661,7 +662,9 @@ internal static class GameLocationBattleManagerTweaks
                         }
 
                         var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+
                         RulesetSpellRepertoire selectedSpellRepertoire = null;
+
                         foreach (var spellRepertoire in hero.SpellRepertoires)
                         {
                             if (spellRepertoire.SpellCastingClass != classDefinition)
@@ -670,11 +673,25 @@ internal static class GameLocationBattleManagerTweaks
                             }
 
                             var atLeastOneSpellSlotAvailable = false;
+
                             for (var spellLevel = 1;
                                  spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                                  spellLevel++)
                             {
                                 spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var dummy);
+
+                                // handle EldritchSmite case that can only consume pact slots
+                                if (featureDefinition is FeatureDefinitionAdditionalDamage
+                                    {
+                                        NotificationTag: InvocationsContext.EldritchSmiteTag
+                                    })
+                                {
+                                    var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+                                    var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+                                    remaining = pactMagicMaxSlots - pactMagicUsedSlots;
+                                }
+
                                 if (remaining <= 0)
                                 {
                                     continue;
@@ -682,6 +699,7 @@ internal static class GameLocationBattleManagerTweaks
 
                                 selectedSpellRepertoire = spellRepertoire;
                                 atLeastOneSpellSlotAvailable = true;
+
                                 break;
                             }
 
@@ -693,8 +711,10 @@ internal static class GameLocationBattleManagerTweaks
                             reactionParams =
                                 new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
                             reactionParams.ActionModifiers.Add(new ActionModifier());
+
                             yield return instance.PrepareAndReactWithSpellUsingSpellSlot(attacker,
                                 selectedSpellRepertoire, provider.NotificationTag, reactionParams);
+
                             validTrigger = reactionParams.ReactionValidated;
                         }
 

@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InvocationsContext
 {
-    private const string EldritchSmiteTag = "EldritchSmite";
+    internal const string EldritchSmiteTag = "EldritchSmite";
 
     internal static void Load()
     {
