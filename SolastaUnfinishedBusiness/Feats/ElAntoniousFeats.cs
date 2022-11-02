@@ -36,7 +36,7 @@ internal static class ElAntoniousFeats
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
-                    .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain)
+                    .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                     .AddToDB())
@@ -121,8 +121,7 @@ internal static class ElAntoniousFeats
                 return;
             }
 
-            var condition =
-                attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
+            var condition = attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
                     ? _conditionDualFlurryGrant
                     : _conditionDualFlurryApply;
 
