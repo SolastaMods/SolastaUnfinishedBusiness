@@ -20,8 +20,7 @@ public static class VictoryModalPatcher
 
             if (partyCount > ToolsContext.GamePartySize)
             {
-                var scale = (float)Math.Pow(ToolsContext.VictoryModalDefaultScale,
-                    partyCount - ToolsContext.GamePartySize);
+                var scale = (float)Math.Pow(ToolsContext.CustomScale, partyCount - ToolsContext.GamePartySize);
 
                 __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
             }

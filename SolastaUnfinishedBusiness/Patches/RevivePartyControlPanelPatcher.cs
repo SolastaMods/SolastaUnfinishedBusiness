@@ -20,8 +20,7 @@ public static class RevivePartyControlPanelPatcher
 
             if (partyCount > ToolsContext.GamePartySize)
             {
-                var scale = (float)Math.Pow(ToolsContext.RevivePartyControlPanelDefaultScale,
-                    partyCount - ToolsContext.GamePartySize);
+                var scale = (float)Math.Pow(ToolsContext.CustomScale, partyCount - ToolsContext.GamePartySize);
 
                 __instance.partyPlatesTable.localScale = new Vector3(scale, 1, scale);
             }
