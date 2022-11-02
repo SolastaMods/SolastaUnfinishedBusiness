@@ -510,9 +510,5 @@ internal sealed class MartialMarshal : AbstractSubclass
             gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
         }
-
-        internal override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-        {
-        }
     }
 }
