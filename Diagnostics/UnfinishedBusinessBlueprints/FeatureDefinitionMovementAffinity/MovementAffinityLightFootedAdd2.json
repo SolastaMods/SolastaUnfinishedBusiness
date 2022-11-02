@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionMovementAffinity, Assembly-CSharp",
   "appliesToAllModes": true,
   "moveMode": "Walk",
-  "baseSpeedAdditiveModifier": 1,
+  "baseSpeedAdditiveModifier": 2,
   "additiveModifierAdvancement": "None",
   "additiveModifierByLevelTable": [],
   "forceMinimalBaseSpeed": false,
@@ -28,7 +28,7 @@
   "additionalDashTag": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -50,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bba0f8a3-e0b2-5dfa-a8d9-2e9776402a5b",
+  "guid": "a965806c-0266-5ee7-867e-f3363ab70ff0",
   "contentPack": 9999,
-  "name": "MovementAffinityLightFootedAdd1"
+  "name": "MovementAffinityLightFootedAdd2"
 }

@@ -7,7 +7,7 @@ internal enum ExtraSituationalContext
 {
     MainWeaponIsMelee = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
-    MainWeaponIsFinesseOrRange = 1002,
+    MainWeaponIsFinesseOrLightRange = 1002,
     MainWeaponIsVersatileWithoutShield = 1003
 }
 

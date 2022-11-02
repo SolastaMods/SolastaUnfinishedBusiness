@@ -10,8 +10,10 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Executioner : AbstractFightingStyle
 {
+    private const string ExecutionerName = "Executioner";
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("Executioner")
+        .Create(ExecutionerName)
         .SetGuiPresentation(Category.FightingStyle, PathMagebane)
         .SetFeatures(
             FeatureDefinitionBuilder
@@ -40,7 +42,7 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            // grant +2 hit if defender has
+            // grant +PB if defender has
             // blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned
             if (!defender.HasConditionOfType(ConditionBlinded)
                 && !defender.HasConditionOfType(ConditionFrightened)
@@ -53,9 +55,11 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            attackModifier.attackRollModifier += 2;
+            var proficiencyBonus = myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+
+            attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Executioner", myself));
+                2, RuleDefinitions.FeatureSourceType.FightingStyle, ExecutionerName, myself));
         }
     }
 }

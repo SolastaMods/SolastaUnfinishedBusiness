@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -27,6 +28,31 @@ internal static class ValidatorsCharacter
 
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+    };
+
+    internal static readonly IsCharacterValidHandler HasLightRangeWeapon = character =>
+    {
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
+
+        if (equipedItem == null)
+        {
+            return false;
+        }
+
+        var equipedItemDescription = equipedItem.EquipedItem?.ItemDefinition;
+
+        if (equipedItemDescription == null)
+        {
+            return false;
+        }
+
+        return equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.ShortbowType
+               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType
+               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
+               CustomWeaponsContext.HandXbowWeaponType;
     };
 
     internal static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
@@ -67,12 +93,38 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
-    // internal static readonly CharacterValidator FullyUnarmed = character =>
-    // {
-    //     var slotsByName = character.CharacterInventory.InventorySlotsByName;
-    //     return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-    //            && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
-    // };
+    #if false
+    internal static readonly CharacterValidator FullyUnarmed = character =>
+    {
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+               && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+    };
+
+    internal static readonly CharacterValidator UsedAllMainAttacks = character =>
+        character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
+
+    internal static readonly CharacterValidator InBattle = _ =>
+        ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
+    
+    
+    [NotNull]
+    internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
+    {
+        return character => conditions.Any(character.HasConditionOfType);
+    }
+
+    [NotNull]
+    internal static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
+    {
+        return character =>
+        {
+            Main.Log($"Checking for {feature.Name}", true);
+            return character is RulesetCharacterHero hero &&
+                   hero.activeFeatures.Any(item => item.Value.Contains(feature));
+        };
+    }
+#endif
 
     internal static readonly IsCharacterValidHandler HasUnarmedHand = character =>
     {
@@ -83,12 +135,6 @@ internal static class ValidatorsCharacter
         return ValidatorsWeapon.IsUnarmedWeapon(main)
                || (!ValidatorsWeapon.IsTwoHanded(main) && ValidatorsWeapon.IsUnarmedWeapon(off));
     };
-
-    // internal static readonly CharacterValidator UsedAllMainAttacks = character =>
-    //     character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
-
-    // internal static readonly CharacterValidator InBattle = _ =>
-    //     ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
@@ -161,18 +207,9 @@ internal static class ValidatorsCharacter
 
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class
     {
-        foreach (var keyValuePair in character.conditionsByCategory)
-        {
-            foreach (var rulesetCondition in keyValuePair.Value)
-            {
-                if (rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>())
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        return character.conditionsByCategory
+            .Any(keyValuePair => keyValuePair.Value
+                .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>()));
     }
 
     [NotNull]
@@ -180,21 +217,4 @@ internal static class ValidatorsCharacter
     {
         return character => character.HasAnyFeature(features);
     }
-
-    // [NotNull]
-    // internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
-    // {
-    //     return character => conditions.Any(character.HasConditionOfType);
-    // }
-
-    // [NotNull]
-    // internal static CharacterValidator HasBeenGrantedFeature(FeatureDefinition feature)
-    // {
-    //     return character =>
-    //     {
-    //         Main.Log($"Checking for {feature.Name}", true);
-    //         return character is RulesetCharacterHero hero &&
-    //                hero.activeFeatures.Any(item => item.Value.Contains(feature));
-    //     };
-    // }
 }

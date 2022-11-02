@@ -9,13 +9,15 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Reactionary : AbstractFightingStyle
 {
+    private const string ReactionaryName = "Reactionary";
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("Reactionary")
+        .Create(ReactionaryName)
         .SetGuiPresentation(Category.FightingStyle, PathBerserker)
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleReactionary")
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new OnComputeAttackModifierFightingStyleReactionary())
                 .AddToDB())
         .AddToDB();
@@ -33,16 +35,18 @@ internal sealed class Reactionary : AbstractFightingStyle
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
+            // grant +PB if attacker is performing an opportunity attack
             if (attackMode == null || defender == null ||
                 attackMode.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }
 
-            // grant +2 if attacker is performing an opportunity attack
-            attackModifier.attackRollModifier += 2;
+            var proficiencyBonus = myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+
+            attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Reactionary", myself));
+                2, RuleDefinitions.FeatureSourceType.FightingStyle, ReactionaryName, myself));
         }
     }
 }

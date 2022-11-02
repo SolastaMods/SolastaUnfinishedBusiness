@@ -15,11 +15,11 @@ internal sealed class LightFooted : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, RangerMarksman)
         .SetFeatures(
             FeatureDefinitionMovementAffinityBuilder
-                .Create("MovementAffinityLightFootedAdd1")
-                .SetGuiPresentationNoContent()
+                .Create("MovementAffinityLightFootedAdd2")
+                .SetGuiPresentationNoContent(true)
                 .SetAdditiveModifierAdvancement(MovementAffinityAdvancement.None)
-                .SetBaseSpeedAdditiveModifier(1)
-                .SetSituationalContext(ExtraSituationalContext.MainWeaponIsFinesseOrRange)
+                .SetBaseSpeedAdditiveModifier(2)
+                .SetSituationalContext(ExtraSituationalContext.MainWeaponIsFinesseOrLightRange)
                 .AddToDB())
         .AddToDB();
 

@@ -8,7 +8,7 @@
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "FlatValue",
   "damageRollUseCasterBonus": false,
-  "damageRollModifier": 1,
+  "damageRollModifier": 2,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
