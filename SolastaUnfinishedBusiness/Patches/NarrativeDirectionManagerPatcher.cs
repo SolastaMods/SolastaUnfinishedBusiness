@@ -19,7 +19,8 @@ public static class NarrativeDirectionManagerPatcher
             {
                 involvedGameCharacters.RemoveAll(
                     x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                         && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster.MonsterDefinition));
+                         && SrdAndHouseRulesContext.ConjuredMonsters.Contains(rulesetCharacterMonster
+                             .MonsterDefinition));
                 ;
             }
 

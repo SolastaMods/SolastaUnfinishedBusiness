@@ -24,12 +24,47 @@ internal static class SrdAndHouseRulesContext
     internal const int DefaultVisionRange = 16;
     internal const int MaxVisionRange = 120;
 
+    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
+
+    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
+    {
+        // Conjure animals (3)
+        ConjuredOneBeastTiger_Drake,
+        ConjuredTwoBeast_Direwolf,
+        ConjuredFourBeast_BadlandsSpider,
+        ConjuredEightBeast_Wolf,
+
+        // Conjure minor elemental (4)
+        SkarnGhoul, // CR 2
+        WindSnake, // CR 2
+        Fire_Jester, // CR 1
+
+        // Conjure woodland beings (4) - not implemented
+
+        // Conjure elemental (5)
+        Air_Elemental, // CR 5
+        Fire_Elemental, // CR 5
+        Earth_Elemental, // CR 5
+
+        InvisibleStalker, // CR 6
+
+        // Conjure fey (6)
+        FeyGiantApe, // CR 6
+        FeyGiant_Eagle, // CR 5
+        FeyBear, // CR 4
+        Green_Hag, // CR 3
+        FeyWolf, // CR 2
+        FeyDriad // CR 1
+    };
+
+    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
+
     internal static void Load()
     {
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();
-        ConjurationsContext.BuildConjureElementalInvisibleStalker();
+        BuildConjureElementalInvisibleStalker();
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
     }
 
@@ -48,10 +83,9 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchDruidAllowMetalArmor();
         SwitchMagicStaffFoci();
-        ConjurationsContext.SwitchEnableUpcastConjureElementalAndFey();
-        ConjurationsContext.SwitchFullyControlConjurations();
+        SwitchEnableUpcastConjureElementalAndFey();
+        SwitchFullyControlConjurations();
     }
-
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
     {
@@ -174,7 +208,7 @@ internal static class SrdAndHouseRulesContext
 
         if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
         {
-            // This is half bug-fix, half houses rules since it's not completely SRD but better than implemented.
+            // This is half fix, half houses rules since it's not completely SRD but better than implemented.
             // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
             // Fix by allowing 4 selectable targets.
             spell.targetType = TargetType.IndividualsUnique;
@@ -283,7 +317,6 @@ internal static class SrdAndHouseRulesContext
         // always applicable
         ClearTargetParameter2ForTargetTypeCube();
 
-        ///////////////////////////////////////////////////////////
         // Change SpikeGrowth to be height 1 round cylinder/sphere
         var spikeGrowthEffect = SpikeGrowth.EffectDescription;
         spikeGrowthEffect.targetParameter = 4;
@@ -312,8 +345,6 @@ internal static class SrdAndHouseRulesContext
         // Slow: (8, 2)
         // Thunderwave: (3, 2)
 
-
-        ///////////////////////////////////////////////////////////
         // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
         if (Main.Settings.UseHeightOneCylinderEffect)
         {
@@ -389,49 +420,11 @@ internal static class SrdAndHouseRulesContext
             Main.Error("Unable to find form of type Condition in GreaterRestoration");
         }
     }
-}
-
-internal static class ConjurationsContext
-{
-    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
-
-    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
-    {
-        // Conjure animals (3)
-        ConjuredOneBeastTiger_Drake,
-        ConjuredTwoBeast_Direwolf,
-        ConjuredFourBeast_BadlandsSpider,
-        ConjuredEightBeast_Wolf,
-
-        // Conjure minor elemental (4)
-        SkarnGhoul, // CR 2
-        WindSnake, // CR 2
-        Fire_Jester, // CR 1
-
-        // Conjure woodland beings (4) - not implemented
-
-        // Conjure elemental (5)
-        Air_Elemental, // CR 5
-        Fire_Elemental, // CR 5
-        Earth_Elemental, // CR 5
-
-        InvisibleStalker, // CR 6
-
-        // Conjure fey (6)
-        FeyGiantApe, // CR 6
-        FeyGiant_Eagle, // CR 5
-        FeyBear, // CR 4
-        Green_Hag, // CR 3
-        FeyWolf, // CR 2
-        FeyDriad // CR 1
-    };
-
-    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     /// <summary>
     ///     Allow conjurations to fully controlled party members instead of AI controlled.
     /// </summary>
-    internal static void BuildConjureElementalInvisibleStalker()
+    private static void BuildConjureElementalInvisibleStalker()
     {
         ConjureElementalInvisibleStalker = SpellDefinitionBuilder
             .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
