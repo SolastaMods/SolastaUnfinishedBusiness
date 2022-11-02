@@ -46,7 +46,7 @@ internal sealed class Reactionary : AbstractFightingStyle
 
             attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                2, RuleDefinitions.FeatureSourceType.FightingStyle, ReactionaryName, myself));
+                proficiencyBonus, RuleDefinitions.FeatureSourceType.FightingStyle, ReactionaryName, myself));
         }
     }
 }

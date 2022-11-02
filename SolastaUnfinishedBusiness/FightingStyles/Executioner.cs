@@ -59,7 +59,7 @@ internal sealed class Executioner : AbstractFightingStyle
 
             attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                2, RuleDefinitions.FeatureSourceType.FightingStyle, ExecutionerName, myself));
+                proficiencyBonus, RuleDefinitions.FeatureSourceType.FightingStyle, ExecutionerName, myself));
         }
     }
 }
