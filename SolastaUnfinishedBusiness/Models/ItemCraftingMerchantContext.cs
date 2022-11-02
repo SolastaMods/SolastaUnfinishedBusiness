@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MerchantDefinitions;
@@ -40,7 +41,7 @@ internal static class ItemCraftingMerchantContext
                 itemDefinition = item,
                 initialAmount = 2,
                 initialized = true,
-                factionStatus = "Indifference",
+                factionStatus = Indifference.Name,
                 maxAmount = 4,
                 minAmount = 2,
                 stackCount = 1,
@@ -284,7 +285,7 @@ internal static class ItemCraftingMerchantContext
                 itemDefinition = Definition,
                 initialAmount = 1,
                 initialized = true,
-                factionStatus = "Indifference",
+                factionStatus = Indifference.Name,
                 maxAmount = 2,
                 minAmount = 1,
                 stackCount = 1,

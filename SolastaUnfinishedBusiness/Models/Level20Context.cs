@@ -147,7 +147,7 @@ internal static class Level20Context
         var methods = new[]
         {
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16
+            // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16 - not required...
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 16
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12

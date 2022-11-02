@@ -16,11 +16,16 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DiagnosticsContext
 {
-    // ReSharper disable once MemberCanBePrivate.Global
+#if DEBUG
     internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
+    internal static readonly string ProjectFolder =
+ Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
+    private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
+    private static BaseDefinition[] _taBaseDefinitions;
+#endif
+
     // very large or not very useful definitions
-    // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
     private static readonly string[] ExcludeFromExport =
     {
         "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
@@ -35,12 +40,6 @@ internal static class DiagnosticsContext
         "BlueprintCategory", "GadgetBlueprint", "RoomBlueprint", "PropBlueprint"
     };
 
-#if DEBUG
-    internal static readonly string ProjectFolder =
- Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
-    private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
-    private static BaseDefinition[] _taBaseDefinitions;
-#endif
     private static Dictionary<Type, BaseDefinition[]> _taBaseDefinitionsMap;
     private static BaseDefinition[] _ceBaseDefinitions;
     private static HashSet<BaseDefinition> _ceBaseDefinitions2;

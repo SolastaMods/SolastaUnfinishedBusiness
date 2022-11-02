@@ -36,13 +36,15 @@ internal static class ItemPropertyDescriptionsContext
         return ItemPropertyDescriptionBuilder.From(feature, appliesOnItemOnly, knowledgeAffinity).Build();
     }
 
-    // internal static ItemPropertyDescription BuildFrom(
-    //     ConditionDefinition condition,
-    //     bool appliesOnItemOnly = true,
-    //     KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
-    // {
-    //     return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
-    // }
+#if false
+    internal static ItemPropertyDescription BuildFrom(
+        ConditionDefinition condition,
+        bool appliesOnItemOnly = true,
+        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
+    {
+        return ItemPropertyDescriptionBuilder.From(condition, appliesOnItemOnly, knowledgeAffinity).Build();
+    }
+#endif
 
     private static FeatureDefinition BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
     {

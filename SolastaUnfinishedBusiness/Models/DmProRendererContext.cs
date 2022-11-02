@@ -60,8 +60,9 @@ internal static class DmProRendererContext
 
         foreach (var userRoom in userLocation.UserRooms)
         {
-            var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
             const int BORDER = 2;
+
+            var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
             var px = userRoom.Position.x;
             var py = userRoom.Position.y;
             var oh = userRoom.OrientedHeight;
@@ -212,18 +213,18 @@ internal static class DmProRendererContext
         }
 
         var vegetationMaskArea = Object.Instantiate(TemplateVegetationMaskArea, roomTransform);
-        var sizex = userRoom.OrientedWidth;
-        var sizey = userRoom.OrientedHeight;
+        var sizeX = userRoom.OrientedWidth;
+        var sizeY = userRoom.OrientedHeight;
 
         // exceptional case here as the mask must be a constant size in this case as the vegetation mask object will get re-instantiated later
         if (IsDynamicFlatRoom(userRoom))
         {
-            sizex = FlatRoomSize;
-            sizey = FlatRoomSize;
+            sizeX = FlatRoomSize;
+            sizeY = FlatRoomSize;
         }
 
-        vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizex / 2f), 0,
-            userRoom.Position.y + (sizey / 2f));
+        vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizeX / 2f), 0,
+            userRoom.Position.y + (sizeY / 2f));
         vegetationMaskArea.AdditionalGrassPerimiter = 0;
         vegetationMaskArea.RemoveGrass = true;
         vegetationMaskArea.RemoveLargeObjects = true;
@@ -231,10 +232,10 @@ internal static class DmProRendererContext
         vegetationMaskArea.RemovePlants = true;
         vegetationMaskArea.RemoveTrees = true;
         vegetationMaskArea.ClearNodes();
-        vegetationMaskArea.AddNode(new Vector3(-sizex / 2f, 0, -sizey / 2f));
-        vegetationMaskArea.AddNode(new Vector3(-sizex / 2f, 0, +sizey / 2f));
-        vegetationMaskArea.AddNode(new Vector3(+sizex / 2f, 0, +sizey / 2f));
-        vegetationMaskArea.AddNode(new Vector3(+sizex / 2f, 0, -sizey / 2f));
+        vegetationMaskArea.AddNode(new Vector3(-sizeX / 2f, 0, -sizeY / 2f));
+        vegetationMaskArea.AddNode(new Vector3(-sizeX / 2f, 0, +sizeY / 2f));
+        vegetationMaskArea.AddNode(new Vector3(+sizeX / 2f, 0, +sizeY / 2f));
+        vegetationMaskArea.AddNode(new Vector3(+sizeX / 2f, 0, -sizeY / 2f));
         vegetationMaskArea.UpdateVegetationMask();
     }
 
