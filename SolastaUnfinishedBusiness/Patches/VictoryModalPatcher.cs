@@ -15,18 +15,16 @@ public static class VictoryModalPatcher
     {
         public static void Prefix([NotNull] VictoryModal __instance)
         {
-            //PATCH: scales down the victory modal whenever the party size is bigger than 4 (PARTYSIZE)
-            var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
-
-            if (partyCount > ToolsContext.GamePartySize)
+            //PATCH: scales down the rest sub panel whenever the party size is bigger than 4 (PARTYSIZE)
+            if (Gui.GameCampaign.Party.CharactersList.Count > 4)
             {
-                var scale = (float)Math.Pow(ToolsContext.CustomScale, partyCount - ToolsContext.GamePartySize);
-
-                __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
+                __instance.heroStatsGroup.anchoredPosition = new Vector2(-145f, -248f);
+                __instance.heroStatsGroup.localScale = new Vector3(0.7225f, 1f, 0.7225f);
             }
             else
             {
-                __instance.heroStatsGroup.localScale = new Vector3(1, 1, 1);
+                __instance.heroStatsGroup.anchoredPosition = new Vector2(-0, -248f);
+                __instance.heroStatsGroup.localScale = new Vector3(1f, 1f, 1f);
             }
         }
     }
