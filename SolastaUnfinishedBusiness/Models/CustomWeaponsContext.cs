@@ -21,7 +21,7 @@ internal static class CustomWeaponsContext
     internal const string CeHandXbowType = "CEHandXbowType";
     private const string PolearmWeaponTag = "PolearmWeapon";
 
-    internal const string AttackedWithlauncherConditionName = "ConditionLauncherAttackMarker";
+    internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
     internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
     internal static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
     internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
@@ -567,7 +567,7 @@ internal static class CustomWeaponsContext
     {
         ThunderGauntletType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.UnarmedStrikeType, "CEThunderGauntletType")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation("Item/&CEThunderGauntletTitle", Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 
@@ -584,17 +584,18 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypeThunder;
 
-        const string conditionName = "ConditionThunderGauntletDistract";
+        const string CONDITION_NAME = "ConditionThunderGauntletDistract";
+
         baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
             .SetConditionForm(ConditionDefinitionBuilder
-                .Create(conditionName)
+                .Create(CONDITION_NAME)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                 .SetAllowMultipleInstances(true)
                 .SetSpecialDuration(true)
                 .SetDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentation(conditionName, Category.Condition)
+                    .SetGuiPresentation(CONDITION_NAME, Category.Condition)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
@@ -610,7 +611,7 @@ internal static class CustomWeaponsContext
     {
         LightningLauncherType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.ShortbowType, "CELightningLauncherType")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation("Item/&CELightningLauncherTitle", Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
@@ -631,7 +632,7 @@ internal static class CustomWeaponsContext
 
         baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
             .SetConditionForm(ConditionDefinitionBuilder
-                .Create(AttackedWithlauncherConditionName)
+                .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
                 .SetSpecialDuration(true)
                 .SetDuration(DurationType.Round, 1)

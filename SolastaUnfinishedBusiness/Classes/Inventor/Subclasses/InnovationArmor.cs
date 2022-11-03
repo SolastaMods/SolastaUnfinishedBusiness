@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 public static class InnovationArmor
 {
     private const string GuardianMarkerName = "ConditionInnovationArmorGuardianMode";
-    private const string InfiltratorMarkerName = "ConditionInnovationArmorInfilratorMode";
+    private const string InfiltratorMarkerName = "ConditionInnovationArmorInfiltratorMode";
 
     public static CharacterSubclassDefinition Build()
     {
@@ -90,16 +90,16 @@ public static class InnovationArmor
             .SetSilent(Silent.WhenRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("FeatureInnovationArmorInfilratorMode")
+                    .Create("FeatureInnovationArmorInfiltratorMode")
                     .SetGuiPresentation(InfiltratorMarkerName, Category.Condition)
                     .AddToDB(),
                 FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityInnivationArmorInfiltratorMode")
+                    .Create("MovementAffinityInnovationArmorInfiltratorMode")
                     .SetGuiPresentationNoContent()
                     .SetBaseSpeedAdditiveModifier(1)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create("AbilityCheckAffinityInnivationArmorInfiltratorMode")
+                    .Create("AbilityCheckAffinityInnovationArmorInfiltratorMode")
                     .SetGuiPresentationNoContent()
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
@@ -324,7 +324,8 @@ public static class InnovationArmor
                 hero.FeaturesOrigin
             );
 
-            var attacked = hero.HasConditionOfType(CustomWeaponsContext.AttackedWithlauncherConditionName);
+            var attacked = hero.HasConditionOfType(CustomWeaponsContext.AttackedWithLauncherConditionName);
+
             if (!attacked)
             {
                 var damage = attackMode.EffectDescription.FindFirstDamageForm();
