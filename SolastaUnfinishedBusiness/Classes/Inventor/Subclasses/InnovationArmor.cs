@@ -22,10 +22,22 @@ public static class InnovationArmor
 
     private static FeatureDefinition BuildArmoredUp()
     {
-        return FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyInnovationWeaponArmoredUp")
-            .SetGuiPresentation(Category.Feature)
+        var proficiency = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyInnovationArmorArmoredUp")
+            .SetGuiPresentationNoContent()
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
+            .AddToDB();
+
+        var heavyImmunity = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinityInnovationArmorArmoredUp")
+            .SetGuiPresentationNoContent()
+            .SetImmunities(heavyArmorImmunity: true)
+            .AddToDB();
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInnovationArmorArmoredUp")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(proficiency, heavyImmunity)
             .AddToDB();
     }
 
