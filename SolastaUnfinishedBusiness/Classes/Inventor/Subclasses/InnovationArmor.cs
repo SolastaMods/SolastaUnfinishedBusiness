@@ -326,6 +326,16 @@ public static class InnovationArmor
                 null
             );
 
+            var attacked = hero.HasConditionOfType(CustomWeaponsContext.AttackedWithlauncherConditionName);
+            if (!attacked)
+            {
+                var damage = attackMode.EffectDescription.FindFirstDamageForm();
+                if (damage != null)
+                {
+                    damage.diceNumber = 2;
+                }
+            }
+
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
             return new List<RulesetAttackMode> {attackMode};

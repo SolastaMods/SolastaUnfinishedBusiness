@@ -605,6 +605,8 @@ internal static class CustomWeaponsContext
     }
 
 
+    internal const string AttackedWithlauncherConditionName = "ConditionLauncherAttackMarker";
+
     private static void BuildLightningLauncher()
     {
         LightningLauncherType = WeaponTypeDefinitionBuilder
@@ -627,6 +629,16 @@ internal static class CustomWeaponsContext
         damageForm.dieType = DieType.D6;
         damageForm.diceNumber = 1;
         damageForm.damageType = RuleDefinitions.DamageTypeLightning;
+
+        baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create(AttackedWithlauncherConditionName)
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
+            .Build());
 
         LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,
             baseDescription, CustomSprite.ItemGemLightning, properties: new[] {LightningImpactVFX});
