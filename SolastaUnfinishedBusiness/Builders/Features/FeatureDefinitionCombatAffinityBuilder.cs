@@ -40,17 +40,18 @@ internal class FeatureDefinitionCombatAffinityBuilder
         Definition.initiativeAffinity = affinity;
         return this;
     }
-#endif
 
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context)
     {
         Definition.situationalContext = context;
         return this;
     }
+#endif
 
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
-        return SetSituationalContext((RuleDefinitions.SituationalContext)context);
+        Definition.situationalContext = (RuleDefinitions.SituationalContext)context;
+        return this;
     }
 
     #region Constructors

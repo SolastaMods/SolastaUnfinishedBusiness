@@ -17,9 +17,6 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class DiagnosticsContext
 {
     // very large or not very useful definitions
-    internal static readonly string ProjectFolder =
-        Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
-
     private static readonly string[] ExcludeFromExport =
     {
         "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
@@ -134,6 +131,8 @@ internal static class DiagnosticsContext
     private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
     private static BaseDefinition[] _taBaseDefinitions;
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
+    internal static readonly string ProjectFolder =
+        Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
     [NotNull]
     private static string GetDiagnosticsFolder()

@@ -656,8 +656,8 @@ internal static partial class DatabaseHelper
         internal static FactionStatusDefinition Indifference { get; } =
             GetDefinition<FactionStatusDefinition>("Indifference");
 
-        internal static FactionStatusDefinition LivingLegend { get; } =
-            GetDefinition<FactionStatusDefinition>("LivingLegend");
+        // internal static FactionStatusDefinition LivingLegend { get; } =
+        //     GetDefinition<FactionStatusDefinition>("LivingLegend");
 
         internal static FactionStatusDefinition Sympathy { get; } =
             GetDefinition<FactionStatusDefinition>("Sympathy");
@@ -790,9 +790,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
-
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageDomainLifeDivineStrike { get; } =
-            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDomainLifeDivineStrike");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
@@ -935,13 +932,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionHealingModifier HealingModifierChilledByTouch { get; } =
             GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierChilledByTouch");
     }
-
-    // internal static class FeatureDefinitionAutoPreparedSpellss
-    // {
-    //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfDevotion { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfDevotion");
-    //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfMotherland { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfMotherland");
-    //     internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfTirmar { get; } =GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfTirmar");
-    // }
 
     internal static class FeatureDefinitionCastSpells
     {
@@ -2633,10 +2623,10 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
-        internal static SpellDefinition  HypnoticPattern { get; } =
+        internal static SpellDefinition HypnoticPattern { get; } =
             GetDefinition<SpellDefinition>("HypnoticPattern");
-        
-        internal static SpellDefinition  MirrorImage { get; } =
+
+        internal static SpellDefinition MirrorImage { get; } =
             GetDefinition<SpellDefinition>("MirrorImage");
 
         internal static SpellDefinition AcidSplash { get; } =
@@ -3148,7 +3138,7 @@ internal static partial class DatabaseHelper
     {
         internal static WeaponCategoryDefinition MartialWeaponCategory { get; } =
             GetDefinition<WeaponCategoryDefinition>("MartialWeaponCategory");
-        
+
         internal static WeaponCategoryDefinition SimpleWeaponCategory { get; } =
             GetDefinition<WeaponCategoryDefinition>("SimpleWeaponCategory");
     }
