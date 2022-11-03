@@ -16,16 +16,10 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DiagnosticsContext
 {
-#if DEBUG
-    internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
-
-    internal static readonly string ProjectFolder =
- Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
-    private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
-    private static BaseDefinition[] _taBaseDefinitions;
-#endif
-
     // very large or not very useful definitions
+    internal static readonly string ProjectFolder =
+        Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
+
     private static readonly string[] ExcludeFromExport =
     {
         "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
@@ -133,10 +127,12 @@ internal static class DiagnosticsContext
 
 #if DEBUG
     private const string GameFolder = ".";
+    internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
     internal const int Ta = 0;
     internal const int Ce = 1;
     internal const int Ta2 = 2;
-
+    private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
+    private static BaseDefinition[] _taBaseDefinitions;
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
     [NotNull]

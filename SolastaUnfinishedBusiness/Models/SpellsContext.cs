@@ -15,8 +15,8 @@ internal static class SpellsContext
 
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
-    internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists

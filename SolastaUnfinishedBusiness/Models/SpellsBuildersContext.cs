@@ -788,7 +788,7 @@ internal static class SpellsBuildersContext
                 .AddToDB())
             .AddToDB();
 
-        var spell = SpellDefinitions.MirrorImage;
+        var spell = MirrorImage;
 
         spell.implemented = true;
         spell.uniqueInstance = true;
@@ -1049,6 +1049,7 @@ internal static class SpellsBuildersContext
             .AddToDB();
 
         const string ConditionName = "ConditionFarStep";
+
         var condition = ConditionDefinitionBuilder
             .Create(ConditionName)
             .SetGuiPresentation(Category.Condition, ConditionJump)

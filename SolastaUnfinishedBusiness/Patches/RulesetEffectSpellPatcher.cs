@@ -141,13 +141,13 @@ public static class RulesetEffectSpellPatcher
         public static void Postfix(RulesetEffectSpell __instance, ref int __result, RulesetCharacter character)
         {
             if (character is not RulesetCharacterHero hero) { return; }
-            
+
             if (__instance.SpellDefinition.SpellLevel == 0)
             {
                 __result = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
                 return;
             }
-            
+
             //PATCH: support for `IClassHoldingFeature`
             var holder = __instance.SpellDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
             if (holder == null) { return; }

@@ -70,7 +70,7 @@ public static class InnovationArmor
             .Create("PowerInnovationArmorModeSelectorPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 1)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .AddToDB();
 
         var guardianMarker = ConditionDefinitionBuilder
@@ -186,7 +186,7 @@ public static class InnovationArmor
     private static FeatureDefinition BuildArmorModification()
     {
         return FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierInventorInfusionPoolArmorModification")
+            .Create("PowerUseModifierInventorInfusionPoolArmorModification")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(ArmorerInfusions.Marker)
             .SetFixedValue(InventorClass.InfusionPool, 2)
@@ -291,13 +291,12 @@ public static class InnovationArmor
                 true,
                 EquipmentDefinitions.SlotTypeMainHand,
                 attackModifiers,
-                hero.FeaturesOrigin,
-                null
+                hero.FeaturesOrigin
             );
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
     }
 
@@ -322,8 +321,7 @@ public static class InnovationArmor
                 true,
                 EquipmentDefinitions.SlotTypeMainHand,
                 attackModifiers,
-                hero.FeaturesOrigin,
-                null
+                hero.FeaturesOrigin
             );
 
             var attacked = hero.HasConditionOfType(CustomWeaponsContext.AttackedWithlauncherConditionName);
@@ -338,7 +336,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
     }
 

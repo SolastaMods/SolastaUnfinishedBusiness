@@ -489,7 +489,9 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImageLogic.AttackRollPostfix(__instance, attackMode, target, toHitTrends, ref outcome, ref successDelta,
+            MirrorImageLogic.AttackRollPostfix(__instance, attackMode, target, toHitTrends,
+                ref outcome,
+                ref successDelta,
                 testMode);
         }
     }
@@ -677,8 +679,11 @@ public static class RulesetCharacterPatcher
             }
         }
 
-        private static void CustomEnumerate(RulesetCharacter __instance, List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        private static void CustomEnumerate(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition,
+                RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
 

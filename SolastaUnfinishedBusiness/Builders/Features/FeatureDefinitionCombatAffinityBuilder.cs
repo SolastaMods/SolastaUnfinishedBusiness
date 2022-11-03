@@ -47,11 +47,10 @@ internal class FeatureDefinitionCombatAffinityBuilder
         Definition.situationalContext = context;
         return this;
     }
-    
-    
+
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
-        return SetSituationalContext((RuleDefinitions.SituationalContext) context);
+        return SetSituationalContext((RuleDefinitions.SituationalContext)context);
     }
 
     #region Constructors

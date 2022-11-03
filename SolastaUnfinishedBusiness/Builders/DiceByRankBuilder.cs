@@ -15,8 +15,7 @@ internal static class DiceByRankBuilder
 
             result.Add(new DiceByRank
             {
-                rank = i,
-                diceNumber = multiplier * (startDamage + ((i - begin) / step * incrementDamage))
+                rank = i, diceNumber = multiplier * (startDamage + ((i - begin) / step * incrementDamage))
             });
         }
 

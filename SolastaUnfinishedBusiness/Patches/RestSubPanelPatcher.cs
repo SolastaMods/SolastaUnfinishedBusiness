@@ -20,16 +20,16 @@ public static class RestSubPanelPatcher
                     __instance.characterPlatesTable.anchoredPosition = new Vector2(-5f, -25f);
                     __instance.restModulesTable.anchoredPosition = new Vector2(-5f, 0);
                     break;
-                
+
                 case 6:
                     __instance.characterPlatesTable.anchoredPosition = new Vector2(-125f, -25f);
                     __instance.restModulesTable.anchoredPosition = new Vector2(-125f, 0);
                     break;
-                
+
                 default:
                     __instance.characterPlatesTable.anchoredPosition = new Vector2(0, -25f);
                     __instance.restModulesTable.anchoredPosition = new Vector2(0, 0);
-                    break;    
+                    break;
             }
         }
     }

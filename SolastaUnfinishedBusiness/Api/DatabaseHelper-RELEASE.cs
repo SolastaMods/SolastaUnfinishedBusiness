@@ -6,6 +6,12 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class FightingStyleDefinitions
+    {
+        internal static FightingStyleDefinition Defense { get; } =
+            GetDefinition<FightingStyleDefinition>("Defense");
+    }
+
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition EldritchSpear { get; } =
@@ -220,6 +226,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionDead { get; } =
             GetDefinition<ConditionDefinition>("ConditionDead");
+
+        internal static ConditionDefinition ConditionDistracted { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDistracted");
 
         internal static ConditionDefinition ConditionDoomLaughter { get; } =
             GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
@@ -2624,7 +2633,10 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
-        internal static SpellDefinition MirrorImage { get; } =
+        internal static SpellDefinition  HypnoticPattern { get; } =
+            GetDefinition<SpellDefinition>("HypnoticPattern");
+        
+        internal static SpellDefinition  MirrorImage { get; } =
             GetDefinition<SpellDefinition>("MirrorImage");
 
         internal static SpellDefinition AcidSplash { get; } =
@@ -3136,6 +3148,9 @@ internal static partial class DatabaseHelper
     {
         internal static WeaponCategoryDefinition MartialWeaponCategory { get; } =
             GetDefinition<WeaponCategoryDefinition>("MartialWeaponCategory");
+        
+        internal static WeaponCategoryDefinition SimpleWeaponCategory { get; } =
+            GetDefinition<WeaponCategoryDefinition>("SimpleWeaponCategory");
     }
 
     internal static class WeaponTypeDefinitions
