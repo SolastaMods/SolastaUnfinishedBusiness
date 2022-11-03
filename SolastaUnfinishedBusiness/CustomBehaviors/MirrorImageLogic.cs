@@ -14,7 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class MirrorImage
+public class MirrorImageLogic
 {
     private const string ConditionName = "ConditionMirrorImage";
     private const string TargetMirrorImageTag = "TargetsMirrorImage";
@@ -24,13 +24,13 @@ public class MirrorImage
 
     private static ConditionDefinition _condition;
 
-    private MirrorImage()
+    private MirrorImageLogic()
     {
     }
 
     internal static ConditionDefinition Condition => _condition ??= BuildCondition();
 
-    private static MirrorImage Marker { get; } = new();
+    private static MirrorImageLogic Marker { get; } = new();
 
     private static ConditionDefinition BuildCondition()
     {
@@ -57,7 +57,7 @@ public class MirrorImage
 
         character.GetAllConditions(conditions);
         return conditions.FindAll(c =>
-                c.ConditionDefinition.HasSubFeatureOfType<MirrorImage>())
+                c.ConditionDefinition.HasSubFeatureOfType<MirrorImageLogic>())
             .ToList();
     }
 

@@ -17,7 +17,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static EffectForm;
 using static RuleDefinitions;
-using MirrorImage = SolastaUnfinishedBusiness.CustomBehaviors.MirrorImage;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -778,14 +777,14 @@ internal static class SpellsBuildersContext
         //Use Condition directly, instead of ConditionName to guarantee it gets built
         var condition = ConditionDefinitionBuilder
             .Create("ConditionMirrorImageMark")
-            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
+            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAllowMultipleInstances(false)
             .CopyParticleReferences(ConditionBlurred)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureMirrorImage")
-                .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
-                .SetCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
+                .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+                .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
                 .AddToDB())
             .AddToDB();
 
