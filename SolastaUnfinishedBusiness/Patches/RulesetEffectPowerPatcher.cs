@@ -46,6 +46,25 @@ public static class RulesetEffectPowerPatcher
             __result = usablePower.SaveDC;
         }
     }
+    
+    [HarmonyPatch(typeof(RulesetEffectPower), "GetClassLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetClassLevel_Patch
+    {
+        public static void Postfix(RulesetEffectPower __instance, ref int __result, RulesetCharacter character)
+        {
+            //PATCH: support for `IClassHoldingFeature`
+            if (character is not RulesetCharacterHero hero) { return; }
+
+            var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            if (holder == null) { return; }
+
+            if (hero.ClassesAndLevels.TryGetValue(holder.Class, out var level))
+            {
+                __result = level;
+            }
+        }
+    }
 
     [HarmonyPatch(typeof(RulesetEffectPower), "EffectDescription", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
