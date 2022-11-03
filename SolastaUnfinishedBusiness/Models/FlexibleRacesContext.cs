@@ -35,7 +35,8 @@ internal static class FlexibleRacesContext
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceDarkKobold", AttributeChoiceThree },
-        { "RaceDraconicKobold", AttributeChoiceFour }
+        { "RaceDraconicKobold", AttributeChoiceFour },
+        { "RaceGnome", AttributeChoiceThree }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -59,6 +60,14 @@ internal static class FlexibleRacesContext
             {
                 "AttributeModifierBolgrifStrengthAbilityScoreIncrease",
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
+            }
+        },
+        {
+            "RaceGnome",
+            new List<string>
+            {
+                "AttributeModifierGnomeAbilityScoreIncrease",
+                "AttributeModifierForestGnomeAbilityScoreIncrease"
             }
         },
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
