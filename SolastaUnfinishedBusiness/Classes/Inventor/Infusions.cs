@@ -53,13 +53,13 @@ internal static class Infusions
 
         name = "InfusionEnhanceDefense";
         sprite = CustomIcons.GetSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
-        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{name}")
-            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-            .AddToDB());
+        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsNonEnhancedArmor,
+            FeatureDefinitionAttributeModifierBuilder.Create($"AttributeModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+                .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, sprite, IsArmor, FeatureDefinitionAttributeModifierBuilder
+        BuildUpgradedInfuseItemPower(name, power, sprite, IsNonEnhancedArmor, FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
@@ -412,24 +412,27 @@ internal static class Infusions
 
         public override bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
         {
-            if (character.HasSubFeatureOfType<InnovationArmor.ArmorerInfusions>()
-                && IsBodyArmor(character, rulesetItem))
-            {
-                return true;
-            }
+            var armorer = IsArmorsmithItem(character, rulesetItem);
 
-            if (rulesetItem.ItemDefinition.magical)
+            if (!armorer && rulesetItem.ItemDefinition.magical)
             {
                 return false;
             }
 
-            if (rulesetItem.HasSubFeatureOfType<Infused>())
+            if (!armorer && rulesetItem.HasSubFeatureOfType<Infused>())
             {
                 return false;
             }
 
             return base.IsValid(character, rulesetItem);
         }
+    }
+
+    private static bool IsArmorsmithItem(RulesetCharacter character, RulesetItem item)
+    {
+        //Weapon, or armor if character is level 9 armorsmith
+        return character.HasSubFeatureOfType<InnovationArmor.ArmorerInfusions>()
+               && IsBodyArmor(character, item);
     }
 
     private static bool IsFocusOrStaff(RulesetCharacter _, RulesetItem item)
@@ -440,9 +443,10 @@ internal static class Infusions
                || (definition.IsWeapon && definition.WeaponDescription.WeaponType == staffType);
     }
 
-    private static bool IsWeapon(RulesetCharacter _, RulesetItem item)
+    private static bool IsWeapon(RulesetCharacter character, RulesetItem item)
     {
-        return item.ItemDefinition.IsWeapon;
+        //Weapon, or armor if character is level 9 armorsmith
+        return item.ItemDefinition.IsWeapon || IsArmorsmithItem(character, item);
     }
 
     private static bool IsThrownWeapon(RulesetCharacter _, RulesetItem item)
@@ -452,9 +456,29 @@ internal static class Infusions
                && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
 
-    private static bool IsArmor(RulesetCharacter _, RulesetItem item)
+    //Any armor that doesn't have +AC bonus - so that Enhanced Armor infusion won't stack for Armorer subclass, but will work on other types of magic armor
+    private static bool IsNonEnhancedArmor(RulesetCharacter _, RulesetItem item)
     {
-        return item.ItemDefinition.IsArmor;
+        if (!item.ItemDefinition.IsArmor) { return false; }
+
+        if (!item.ItemDefinition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name)) { return true; }
+
+        var features = new List<FeatureDefinition>();
+
+        item.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+        foreach (var feature in features)
+        {
+            var modifier = feature as FeatureDefinitionAttributeModifier;
+
+            if (modifier == null) { continue; }
+
+            if (modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static bool IsBodyArmor(RulesetCharacter _, RulesetItem item)
