@@ -1,17 +1,15 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationWeapon"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "HeavyArmorCategory"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "InventorInnovation",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&InventorInnovationTitle",
-    "description": "Subclass/&InventorInnovationDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00e82007-cb39-5d19-a903-551a8fa5e13e",
+  "guid": "a82f56e6-c18d-50a7-ae87-229ef796e3fe",
   "contentPack": 9999,
-  "name": "SubclassChoiceInventor"
+  "name": "ProficiencyInnovationArmorArmoredUp"
 }

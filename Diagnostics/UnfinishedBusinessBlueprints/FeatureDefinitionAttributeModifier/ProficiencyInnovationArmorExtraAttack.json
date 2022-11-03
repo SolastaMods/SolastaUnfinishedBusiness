@@ -1,17 +1,17 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationWeapon"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "InventorInnovation",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "AttacksNumber",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&InventorInnovationTitle",
-    "description": "Subclass/&InventorInnovationDescription",
+    "title": "Feature/&ProficiencyInnovationArmorExtraAttackTitle",
+    "description": "Feature/&ProficiencyInnovationArmorExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00e82007-cb39-5d19-a903-551a8fa5e13e",
+  "guid": "eb808714-e24b-5402-b547-3b36ab6eb4ac",
   "contentPack": 9999,
-  "name": "SubclassChoiceInventor"
+  "name": "ProficiencyInnovationArmorExtraAttack"
 }
