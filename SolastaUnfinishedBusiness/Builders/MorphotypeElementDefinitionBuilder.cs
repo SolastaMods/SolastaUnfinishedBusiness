@@ -5,8 +5,8 @@ using UnityEngine;
 namespace SolastaUnfinishedBusiness.Builders;
 
 [UsedImplicitly]
-internal class MorphotypeElementDefinitionBuilder : DefinitionBuilder<MorphotypeElementDefinition,
-    MorphotypeElementDefinitionBuilder>
+internal class MorphotypeElementDefinitionBuilder
+    : DefinitionBuilder<MorphotypeElementDefinition, MorphotypeElementDefinitionBuilder>
 {
     internal MorphotypeElementDefinitionBuilder SetCategory(MorphotypeElementDefinition.ElementCategory value)
     {

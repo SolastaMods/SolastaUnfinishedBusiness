@@ -6,14 +6,13 @@ using SolastaUnfinishedBusiness.Api.Diagnostics;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefinitionCastSpell,
-    FeatureDefinitionCastSpellBuilder>
+internal class FeatureDefinitionCastSpellBuilder
+    : DefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
 {
     internal static void EnumerateReplacedSpells(
         int startingLevel,
         int replaces,
-        List<int> replacedSpells
-    )
+        List<int> replacedSpells)
     {
         replacedSpells.Clear();
 
@@ -33,8 +32,7 @@ internal class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefi
     internal static void EnumerateKnownSpells(
         int startingAmount,
         CasterProgression progression,
-        List<int> knownSpells
-    )
+        List<int> knownSpells)
     {
         knownSpells.Clear();
 

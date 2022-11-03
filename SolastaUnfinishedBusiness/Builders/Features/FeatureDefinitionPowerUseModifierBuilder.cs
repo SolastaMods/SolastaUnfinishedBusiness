@@ -17,6 +17,7 @@ internal class FeatureDefinitionPowerUseModifierBuilder
         PreConditions.ArgumentIsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 
         var modifier = Definition.Modifier;
+
         modifier.PowerPool = poolPower;
         modifier.Type = PowerPoolBonusCalculationType.Fixed;
         modifier.Value = powerPoolModifier;

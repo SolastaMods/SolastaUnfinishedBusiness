@@ -57,13 +57,8 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
             throw new ArgumentException($"Spell level {level} is not supported.");
         }
 
-        // Ensure all levels set up
-        EnsureSpellListsConfigured();
-
-        var spellDefinitions = spells.ToArray();
-
 #if DEBUG
-        if (spellDefinitions.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
+        if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
         {
             throw new ArgumentException(
                 $"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
@@ -72,7 +67,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
 
         // Set the spells - remove duplicates - sort to add to list in deterministic order
         Definition.SpellsByLevel[level].Spells
-            .SetRange(spellDefinitions
+            .SetRange(spells
                 .Where(s => s.Implemented)
                 .OrderBy(s => s.Name)
                 .Distinct());

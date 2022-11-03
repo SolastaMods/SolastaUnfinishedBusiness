@@ -4,8 +4,8 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet,
-    FeatureDefinitionFeatureSetBuilder>
+internal class FeatureDefinitionFeatureSetBuilder
+    : DefinitionBuilder<FeatureDefinitionFeatureSet, FeatureDefinitionFeatureSetBuilder>
 {
     internal FeatureDefinitionFeatureSetBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
     {

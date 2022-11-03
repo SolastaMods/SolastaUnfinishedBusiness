@@ -18,26 +18,8 @@ internal enum Silent
 }
 
 [UsedImplicitly]
-internal class ConditionDefinitionBuilder :
-    ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
-{
-    #region Constructors
-
-    protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid)
-        : base(original, name, namespaceGuid)
-    {
-    }
-
-    #endregion
-}
-
-internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
-    where TDefinition : ConditionDefinition
-    where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
+internal class ConditionDefinitionBuilder
+    : DefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
 {
     private static void SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
     {
@@ -55,103 +37,103 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    internal TBuilder SetAllowMultipleInstances(bool value)
+    internal ConditionDefinitionBuilder SetAllowMultipleInstances(bool value)
     {
         Definition.allowMultipleInstances = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
+    internal ConditionDefinitionBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
         Definition.amountOrigin = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetConditionParticleReference(AssetReference value)
+    internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
     {
         Definition.conditionParticleReference = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder CopyParticleReferences(ConditionDefinition from)
+    internal ConditionDefinitionBuilder CopyParticleReferences(ConditionDefinition from)
     {
         Definition.conditionParticleReference = from.conditionParticleReference;
         Definition.conditionStartParticleReference = from.conditionStartParticleReference;
         Definition.conditionEndParticleReference = from.conditionEndParticleReference;
         Definition.recurrentEffectParticleReference = from.recurrentEffectParticleReference;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetAdditionalDamageType(string value)
+    internal ConditionDefinitionBuilder SetAdditionalDamageType(string value)
     {
         Definition.additionalDamageType = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder AddConditionTags(params string[] tags)
+    internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {
         Definition.conditionTags.AddRange(tags);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetCharacterShaderReference(AssetReference value)
+    internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetConditionType(RuleDefinitions.ConditionType value)
+    internal ConditionDefinitionBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {
         Definition.conditionType = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
+    internal ConditionDefinitionBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
         Definition.turnOccurence = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetParentCondition(ConditionDefinition value)
+    internal ConditionDefinitionBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder ClearFeatures()
+    internal ConditionDefinitionBuilder ClearFeatures()
     {
         Definition.Features.Clear();
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder AddFeatures(params FeatureDefinition[] value)
+    internal ConditionDefinitionBuilder AddFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetFeatures(params FeatureDefinition[] value)
+    internal ConditionDefinitionBuilder SetFeatures(params FeatureDefinition[] value)
     {
         Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+    internal ConditionDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
     {
         Definition.Features.SetRange(features);
         Definition.Features.Sort(Sorting.Compare);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetRecurrentEffectForms(params EffectForm[] forms)
+    internal ConditionDefinitionBuilder SetRecurrentEffectForms(params EffectForm[] forms)
     {
         Definition.RecurrentEffectForms.SetRange(forms);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetAdditionalDamageWhenHit(
+    internal ConditionDefinitionBuilder SetAdditionalDamageWhenHit(
         ConditionDefinition.DamageQuantity damageQuantity = ConditionDefinition.DamageQuantity.Dice,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
         int numberOfDie = 0,
@@ -163,73 +145,74 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         Definition.additionalDamageDieNumber = numberOfDie;
         Definition.additionalDamageQuantity = damageQuantity;
         Definition.additionalDamageType = damageType;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetTerminateWhenRemoved(bool value)
+    internal ConditionDefinitionBuilder SetTerminateWhenRemoved(bool value)
     {
         Definition.terminateWhenRemoved = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetSilent(Silent silent)
+    internal ConditionDefinitionBuilder SetSilent(Silent silent)
     {
         Definition.silentWhenAdded = silent.HasFlag(Silent.WhenAdded);
         Definition.silentWhenRemoved = silent.HasFlag(Silent.WhenRemoved);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetSpecialDuration(bool value)
+    internal ConditionDefinitionBuilder SetSpecialDuration(bool value)
     {
         Definition.specialDuration = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetPossessive(bool value = true)
+    internal ConditionDefinitionBuilder SetPossessive(bool value = true)
     {
         Definition.possessive = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder ClearSpecialInterruptions()
+    internal ConditionDefinitionBuilder ClearSpecialInterruptions()
     {
         Definition.SpecialInterruptions.Clear();
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal ConditionDefinitionBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
+    internal ConditionDefinitionBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal ConditionDefinitionBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value);
-        return (TBuilder)this;
+        return this;
     }
 
 #if false
-    internal TBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
+    internal ConditionDefinitionBuilder AddSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
-        return (TBuilder)this;
+        return this;
     }
 #endif
 
-    internal TBuilder SetInterruptionDamageThreshold(int value)
+    internal ConditionDefinitionBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
-        return (TBuilder)this;
+        return this;
     }
 
-    internal TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+    internal ConditionDefinitionBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0,
+        bool validate = true)
     {
         if (validate)
         {
@@ -238,7 +221,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
 
         Definition.durationParameter = duration;
         Definition.durationType = type;
-        return (TBuilder)this;
+        return this;
     }
 
     #region Constructors
@@ -248,7 +231,7 @@ internal abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defi
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
+    protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }

@@ -6,8 +6,8 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionCraftingAffinityBuilder : DefinitionBuilder<FeatureDefinitionCraftingAffinity,
-    FeatureDefinitionCraftingAffinityBuilder>
+internal class FeatureDefinitionCraftingAffinityBuilder
+    : DefinitionBuilder<FeatureDefinitionCraftingAffinity, FeatureDefinitionCraftingAffinityBuilder>
 {
     public FeatureDefinitionCraftingAffinityBuilder SetAffinityGroups(
         float durationMultiplier,

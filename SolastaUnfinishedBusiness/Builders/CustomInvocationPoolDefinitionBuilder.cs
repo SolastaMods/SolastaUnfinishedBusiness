@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+[UsedImplicitly]
 internal class CustomInvocationPoolDefinitionBuilder
     : DefinitionBuilder<FeatureDefinitionCustomInvocationPool, CustomInvocationPoolDefinitionBuilder>
 {

@@ -5,8 +5,8 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionBonusCantripsBuilder : DefinitionBuilder<
-    FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+internal class FeatureDefinitionBonusCantripsBuilder
+    : DefinitionBuilder<FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
 {
     internal FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
     {

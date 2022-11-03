@@ -7,8 +7,8 @@ using UnityEngine.AddressableAssets;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<
-    FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
+internal class FeatureDefinitionAdditionalDamageBuilder
+    : DefinitionBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
 {
     internal FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
     {

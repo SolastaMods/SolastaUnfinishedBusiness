@@ -33,11 +33,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(RuleDefinitions.AdvantageType affinity)
     {
         Definition.initiativeAffinity = affinity;
         return this;
     }
+#endif
 
     #region Constructors
 

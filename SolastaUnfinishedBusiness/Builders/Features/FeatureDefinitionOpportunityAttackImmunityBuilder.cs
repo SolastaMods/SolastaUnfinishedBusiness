@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+[UsedImplicitly]
 internal class FeatureDefinitionOpportunityAttackImmunityBuilder
     : DefinitionBuilder<FeatureDefinitionOpportunityAttackImmunity, FeatureDefinitionOpportunityAttackImmunityBuilder>
 {

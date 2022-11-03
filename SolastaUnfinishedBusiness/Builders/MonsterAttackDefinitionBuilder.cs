@@ -4,8 +4,8 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Builders;
 
 [UsedImplicitly]
-internal class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition,
-    MonsterAttackDefinitionBuilder>
+internal class MonsterAttackDefinitionBuilder
+    : DefinitionBuilder<MonsterAttackDefinition, MonsterAttackDefinitionBuilder>
 {
     internal MonsterAttackDefinitionBuilder SetEffectDescription(EffectDescription effect)
     {

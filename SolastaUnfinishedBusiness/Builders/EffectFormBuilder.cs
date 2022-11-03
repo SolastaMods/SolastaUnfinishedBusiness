@@ -151,14 +151,11 @@ internal class EffectFormBuilder
 #endif
 
     internal EffectFormBuilder SetDamageForm(
-            string damageType = DamageTypeBludgeoning,
-            int diceNumber = 0,
-            DieType dieType = DieType.D1,
-            int bonusDamage = 0,
-            HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never)
-        // bool versatile = false,
-        // DieType versatileDieType = DieType.D1,
-        // params TrendInfo[] damageBonusTrends)
+        string damageType = DamageTypeBludgeoning,
+        int diceNumber = 0,
+        DieType dieType = DieType.D1,
+        int bonusDamage = 0,
+        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never)
     {
         var damageForm = new DamageForm
         {

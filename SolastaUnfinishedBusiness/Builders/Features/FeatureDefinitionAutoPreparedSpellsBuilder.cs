@@ -10,7 +10,8 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAutoPreparedSpellsBuilder
     : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
 {
-    internal FeatureDefinitionAutoPreparedSpellsBuilder AddPreparedSpellGroup(int classLevel,
+    internal FeatureDefinitionAutoPreparedSpellsBuilder AddPreparedSpellGroup(
+        int classLevel,
         params SpellDefinition[] spells)
     {
         Definition.AutoPreparedSpellsGroups.Add(new AutoPreparedSpellsGroup

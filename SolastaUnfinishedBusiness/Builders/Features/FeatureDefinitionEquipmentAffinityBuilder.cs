@@ -5,8 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionEquipmentAffinityBuilder
-    : DefinitionBuilder<FeatureDefinitionEquipmentAffinity,
-        FeatureDefinitionEquipmentAffinityBuilder>
+    : DefinitionBuilder<FeatureDefinitionEquipmentAffinity, FeatureDefinitionEquipmentAffinityBuilder>
 {
     internal FeatureDefinitionEquipmentAffinityBuilder SetAdditionalCarryingCapacity(int value)
     {

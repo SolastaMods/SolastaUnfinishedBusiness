@@ -8,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<
-    FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
+internal class FeatureDefinitionAbilityCheckAffinityBuilder
+    : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType,
@@ -18,23 +18,26 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         Definition.AffinityGroups.SetRange(
-            abilityProficiencyPairs.Select(pair => new AbilityCheckAffinityGroup
-            {
-                abilityScoreName = pair.abilityScoreName,
-                proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
-                affinity = affinityType,
-                abilityCheckModifierDiceNumber = diceNumber,
-                abilityCheckModifierDieType = dieType
-            }));
+            abilityProficiencyPairs
+                .Select(pair => new AbilityCheckAffinityGroup
+                {
+                    abilityScoreName = pair.abilityScoreName,
+                    proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
+                    affinity = affinityType,
+                    abilityCheckModifierDiceNumber = diceNumber,
+                    abilityCheckModifierDieType = dieType
+                }));
         Definition.AffinityGroups.Sort(Sorting.Compare);
         return this;
     }
 
+#if false
     internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks(bool value = true)
     {
         Definition.useControllerAbilityChecks = value;
         return this;
     }
+#endif
 
     #region Constructors
 

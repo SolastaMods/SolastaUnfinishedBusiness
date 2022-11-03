@@ -5,9 +5,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
-internal class FeatureDefinitionGrantCustomInvocationsBuilder : DefinitionBuilder<
-    FeatureDefinitionGrantCustomInvocations,
-    FeatureDefinitionGrantCustomInvocationsBuilder>
+internal class FeatureDefinitionGrantCustomInvocationsBuilder
+    : DefinitionBuilder<FeatureDefinitionGrantCustomInvocations, FeatureDefinitionGrantCustomInvocationsBuilder>
 {
 #if false
     internal FeatureDefinitionGrantCustomInvocationsBuilder SetInvocations(
