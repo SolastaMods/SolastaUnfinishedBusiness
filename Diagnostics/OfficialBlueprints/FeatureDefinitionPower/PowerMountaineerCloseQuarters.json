@@ -83,7 +83,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "SwapPositions",
           "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -107,7 +108,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "FallProne",
           "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -79,7 +79,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "RallyKindred",
           "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -79,7 +79,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "DragToOrigin",
           "distance": 2,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

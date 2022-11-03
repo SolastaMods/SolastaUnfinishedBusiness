@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "AuraOfRighteousness",
   "limitedUsage": "None",
-  "firstTargetOnly": true,
+  "firstTargetOnly": false,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpellDamagesTarget",

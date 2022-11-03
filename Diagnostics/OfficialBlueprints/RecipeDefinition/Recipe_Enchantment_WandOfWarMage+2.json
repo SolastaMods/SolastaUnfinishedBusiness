@@ -22,7 +22,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&WandOfWarMage+2_Title",
-    "description": "Feature/&NoContentTitle",
+    "description": "Equipment/&WandOfWarMage+2_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

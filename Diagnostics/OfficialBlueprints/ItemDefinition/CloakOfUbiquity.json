@@ -245,8 +245,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "TacticalAdventuresContentHidden",
+  "contentCopyright": "TacticalAdventuresContent",
   "guid": "3df70ea368fa5fd4d9d34c49c3ee601d",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "CloakOfUbiquity"
 }

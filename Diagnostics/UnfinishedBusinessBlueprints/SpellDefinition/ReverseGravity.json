@@ -117,7 +117,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "Levitate",
           "distance": 10,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

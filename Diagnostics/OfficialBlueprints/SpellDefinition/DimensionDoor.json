@@ -92,7 +92,8 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "TeleportToDestination",
           "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

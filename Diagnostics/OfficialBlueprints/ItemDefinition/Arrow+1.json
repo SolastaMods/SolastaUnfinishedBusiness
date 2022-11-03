@@ -38,7 +38,7 @@
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
+      "appliesOnItemOnly": true,
       "type": "Feature",
       "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
       "conditionDefinition": null,
