@@ -12,9 +12,9 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
 {
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
-        CharacterAbilityCheckAffinity affinityType,
-        DieType dieType,
-        int diceNumber,
+        CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         Definition.AffinityGroups.SetRange(

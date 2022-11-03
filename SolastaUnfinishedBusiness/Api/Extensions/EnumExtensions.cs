@@ -8,7 +8,8 @@ internal enum ExtraSituationalContext
     MainWeaponIsMelee = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     MainWeaponIsFinesseOrLightRange = 1002,
-    MainWeaponIsVersatileWithoutShield = 1003
+    MainWeaponIsVersatileWithoutShield = 1003,
+    TargetIsNotEffectSource = 1004
 }
 
 internal enum ExtraEffectFormType

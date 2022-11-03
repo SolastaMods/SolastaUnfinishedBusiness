@@ -71,3 +71,4 @@ UI/&InventoryFilterCategory=Category
 UI/&InventoryFilterCost=Cost
 UI/&InventoryFilterWeight=Weight
 UI/&InventoryFilterCostPerWeight=Cost per Weight
+Rules/&SituationalContext1004Format=if creature is attacking not source of the effect:

@@ -461,7 +461,7 @@ public static class RulesetCharacterPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
-            return MirrorImage.PatchAttackRoll(instructions);
+            return MirrorImageLogic.PatchAttackRoll(instructions);
         }
     }
 
@@ -476,7 +476,7 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
-            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
         }
 
         public static void Postfix(
@@ -489,7 +489,7 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImage.AttackRollPostfix(__instance, attackMode, target, toHitTrends, ref outcome, ref successDelta,
+            MirrorImageLogic.AttackRollPostfix(__instance, attackMode, target, toHitTrends, ref outcome, ref successDelta,
                 testMode);
         }
     }
@@ -505,7 +505,7 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
-            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
         }
 
         public static void Postfix(
@@ -517,7 +517,7 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImage.AttackRollPostfix(__instance, null, target, toHitTrends, ref outcome, ref successDelta,
+            MirrorImageLogic.AttackRollPostfix(__instance, null, target, toHitTrends, ref outcome, ref successDelta,
                 testMode);
         }
     }

@@ -387,7 +387,7 @@ internal static class InventorClass
             .SetFilterByDeity(false)
             .SetSubclasses(
                 InnovationAlchemy.Build(),
-                // InnovationNecromancy.Build(),
+                InnovationArmor.Build(),
                 InnovationWeapon.Build()
             )
             .AddToDB());
@@ -822,18 +822,18 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 
         if (success)
         {
-            result = "Feedback/&SaveSuccessOutcome";
+            result = GameConsole.SaveSuccessOutcome;
             resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
             saveOutcome = RollOutcome.Success;
         }
         else
         {
-            result = "Feedback/&SaveFailureOutcome";
+            result = GameConsole.SaveFailureOutcome;
             resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) {Indent = true};
 
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
