@@ -23,6 +23,7 @@ public static class InnovationArmor
             .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Defense)
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
+            .AddFeaturesAtLevel(9, BuildArmorModification())
             .AddToDB();
     }
 
@@ -182,6 +183,16 @@ public static class InnovationArmor
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildArmorModification()
+    {
+        return FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifierInventorInfusionPoolArmorModification")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(ArmorerInfusions.Marker)
+            .SetFixedValue(InventorClass.InfusionPool, 2)
+            .AddToDB();
+    }
+
     private static bool InGuardianMode(RulesetCharacter character)
     {
         return character.HasConditionOfType(GuardianMarkerName);
@@ -206,6 +217,57 @@ public static class InnovationArmor
     {
         var item = mode?.sourceDefinition as ItemDefinition;
         return item == CustomWeaponsContext.ThunderGauntlet || item == CustomWeaponsContext.LightningLauncher;
+    }
+
+    private static void AddArmorBonusesToBuiltinAttack(RulesetCharacterHero hero, RulesetAttackMode attackMode)
+    {
+        var features = new List<FeatureDefinition>();
+
+        var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
+        var armor = inventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+        if (armor == null) { return; }
+
+        armor.EnumerateFeaturesToBrowse<FeatureDefinitionAttackModifier>(features);
+
+        var hitBonus = 0;
+        var damageBonus = 0;
+        var magical = armor.ItemDefinition.Magical;
+
+        foreach (var feature in features)
+        {
+            var modifier = feature as FeatureDefinitionAttackModifier;
+
+            if (modifier == null) { continue; }
+
+            if (modifier.magicalWeapon) { magical = true; }
+
+            hitBonus += modifier.attackRollModifier;
+            damageBonus += modifier.damageRollModifier;
+        }
+
+        if (magical)
+        {
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
+        }
+
+        TrendInfo trendInfo;
+        if (hitBonus != 0)
+        {
+            trendInfo = new TrendInfo(hitBonus, FeatureSourceType.Equipment, armor.Name, null);
+
+            attackMode.ToHitBonus += hitBonus;
+            attackMode.ToHitBonusTrends.Add(trendInfo);
+        }
+
+        var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+
+
+        if (damageBonus != 0 && damage != null)
+        {
+            trendInfo = new TrendInfo(damageBonus, FeatureSourceType.Equipment, armor.Name, null);
+            damage.BonusDamage += damageBonus;
+            damage.DamageBonusTrends.Add(trendInfo);
+        }
     }
 
     private class AddGauntletAttack : AddExtraAttackBase
@@ -233,7 +295,7 @@ public static class InnovationArmor
                 null
             );
 
-            //TODO: count weapon infusions from armor for to hit/to damage bonuses
+            AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
             return new List<RulesetAttackMode> {attackMode};
         }
@@ -264,9 +326,18 @@ public static class InnovationArmor
                 null
             );
 
-            //TODO: count weapon infusions from armor for to hit/to damage bonuses
+            AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
             return new List<RulesetAttackMode> {attackMode};
         }
+    }
+
+    internal class ArmorerInfusions
+    {
+        private ArmorerInfusions()
+        {
+        }
+
+        public static ArmorerInfusions Marker { get; } = new();
     }
 }

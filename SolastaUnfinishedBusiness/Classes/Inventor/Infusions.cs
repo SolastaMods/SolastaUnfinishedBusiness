@@ -3,6 +3,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
@@ -411,6 +412,12 @@ internal static class Infusions
 
         public override bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
         {
+            if (character.HasSubFeatureOfType<InnovationArmor.ArmorerInfusions>()
+                && IsBodyArmor(character, rulesetItem))
+            {
+                return true;
+            }
+
             if (rulesetItem.ItemDefinition.magical)
             {
                 return false;
