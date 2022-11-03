@@ -136,6 +136,11 @@ internal static class ValidatorsCharacter
                || (!ValidatorsWeapon.IsTwoHanded(main) && ValidatorsWeapon.IsUnarmedWeapon(off));
     };
 
+    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
+    {
+        return character.HasFreeHandSlot();
+    };
+
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
         var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]

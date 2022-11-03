@@ -582,9 +582,26 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
         damageForm.damageType = RuleDefinitions.DamageTypeThunder;
 
+        const string conditionName = "ConditionThunderGauntletDistract";
+        baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create(conditionName)
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                .SetAllowMultipleInstances(true)
+                .SetSpecialDuration(true)
+                .SetDuration(DurationType.Round, 1)
+                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityThunderGauntletDistract")
+                    .SetGuiPresentation(conditionName, Category.Condition)
+                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                    .AddToDB())
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .Build());
+
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
-            //TODO: add proper icon
-            ItemDefinitions.GauntletsOfOgrePower.GuiPresentation.SpriteReference, properties: new[] {ThunderImpactVFX});
+            CustomSprite.ItemThundergauntlet, properties: new[] {ThunderImpactVFX});
+        ThunderGauntlet.inDungeonEditor = false;
     }
 
 
@@ -612,9 +629,8 @@ internal static class CustomWeaponsContext
         damageForm.damageType = RuleDefinitions.DamageTypeLightning;
 
         LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,
-            baseDescription,
-            //TODO: add proper icon
-            SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference, properties: new[] {LightningImpactVFX});
+            baseDescription, CustomSprite.ItemGemLightning, properties: new[] {LightningImpactVFX});
+        LightningLauncher.inDungeonEditor = false;
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,

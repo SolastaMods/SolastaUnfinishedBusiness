@@ -462,4 +462,25 @@
   <data name="SpellRadiantMotes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\SpellRadiantMotes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ConditionGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Conditions\ConditionGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConditionInfiltrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Conditions\ConditionInfiltrate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PowerGuardianMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerGuardianMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PowerInfiltratorMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerInfiltratorMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ItemGemLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\ItemGemLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ItemThundergauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\ItemThundergauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PowerDefensiveField" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerDefensiveField.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
