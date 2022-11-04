@@ -23,7 +23,7 @@ internal static class CustomWeaponsContext
 
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
     internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
-    internal static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
+    internal static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
     internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     internal static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
@@ -139,14 +139,6 @@ internal static class CustomWeaponsContext
 
     private static void BuildHandwraps()
     {
-        ItemDefinitions.UnarmedStrikeBase.WeaponDescription.WeaponTags.Add(TagsDefinitions.WeaponTagLight);
-
-        HandwrapsPlus1 = BuildHandwrapsCommon("Handwraps+1", 400, true, true, Uncommon, WeaponPlus1);
-        HandwrapsPlus2 = BuildHandwrapsCommon("Handwraps+2", 1500, true, true, Rare, WeaponPlus2);
-
-        MerchantContext.AddItem(HandwrapsPlus1, ShopItemType.ShopMeleePlus1);
-        MerchantContext.AddItem(HandwrapsPlus2, ShopItemType.ShopMeleePlus2);
-
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
@@ -185,17 +177,11 @@ internal static class CustomWeaponsContext
                 .Build())
             .Build();
 
-        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsPlus1, 24, 10,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)), ShopItemType.ShopCrafting);
-
-        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsPlus2, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem)), ShopItemType.ShopCrafting);
-
         MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfForce, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem)), ShopItemType.ShopCrafting);
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet)), ShopItemType.ShopCrafting);
 
         MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfPulling, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Slavestone)), ShopItemType.ShopCrafting);
+            ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet)), ShopItemType.ShopCrafting);
     }
 
     [NotNull]
@@ -205,7 +191,7 @@ internal static class CustomWeaponsContext
     {
         return BuildWeapon(
             name,
-            ItemDefinitions.UnarmedStrikeBase,
+            ItemDefinitions.Primed_Gauntlet,
             goldCost,
             noDescription, rarity, needId: needId,
             properties: properties
