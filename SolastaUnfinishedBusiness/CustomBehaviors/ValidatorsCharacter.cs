@@ -136,10 +136,7 @@ internal static class ValidatorsCharacter
                || (!ValidatorsWeapon.IsTwoHanded(main) && ValidatorsWeapon.IsUnarmedWeapon(off));
     };
 
-    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
-    {
-        return character.HasFreeHandSlot();
-    };
+    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {

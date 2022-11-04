@@ -97,20 +97,6 @@ public static class Precision
 
         return Math.Abs(a - b) < epsilon;
     }
-
-#if false
-    public static bool AlmostEquals(this float a, float b, float epsilon = FloatEpsilon)
-    {
-        // ReSharper disable CompareOfFloatsByEqualityOperator
-        if (a == b)
-        {
-            return true;
-        }
-        // ReSharper restore CompareOfFloatsByEqualityOperator
-
-        return Math.Abs(a - b) < epsilon;
-    }
-#endif
 }
 
 public static class SignificantDigits

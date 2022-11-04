@@ -11,8 +11,10 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
     public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ =>
         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
+#if false
     public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
+#endif
 
     private readonly IsPowerUseValidHandler[] validators;
 
@@ -21,7 +23,7 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
         this.validators = validators.Select(v => new IsPowerUseValidHandler((character, _) => v(character))).ToArray();
     }
 
-    internal ValidatorsPowerUse(params IsPowerUseValidHandler[] validators)
+    private ValidatorsPowerUse(params IsPowerUseValidHandler[] validators)
     {
         this.validators = validators;
     }

@@ -94,10 +94,16 @@ internal sealed class PushesFromEffectPoint
 
         var target = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
 
-        if (target == null) { return true; }
+        if (target == null)
+        {
+            return true;
+        }
 
         //if origin point matches target - skip pushing
-        if (position == target.LocationPosition) { return false; }
+        if (position == target.LocationPosition)
+        {
+            return false;
+        }
 
         var reverse = motionForm.Type == MotionForm.MotionType.DragToOrigin;
 

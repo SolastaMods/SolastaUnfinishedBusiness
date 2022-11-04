@@ -10,6 +10,7 @@ internal static class CustomSituationalContext
     {
         var context = contextParams.situationalContext;
         RulesetEntity effectSource = null;
+        
         if (contextParams.sourceEffectId != 0)
         {
             RulesetEntity.TryGetEntity(contextParams.sourceEffectId, out effectSource);

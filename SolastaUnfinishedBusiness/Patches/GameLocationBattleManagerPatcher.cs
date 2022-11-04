@@ -95,68 +95,10 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleCharacterMoveEnd_Patch
     {
-        //DEMOTE: Magus code
-#if false
-        public static void Prefix(GameLocationCharacter mover)
-        {
-            //PATCH: support for conditions that trigger on movement end
-            //Mostly for Magus's `Rupture Strike`
-            //TODO: move this code to separate file
-            
-            if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
-            {
-                return;
-            }
-
-            var matchingOccurenceConditions = new List<RulesetCondition>();
-            foreach (var item2 in mover.RulesetCharacter.ConditionsByCategory
-                         .SelectMany(item => item.Value))
-            {
-                switch (item2.endOccurence)
-                {
-                    case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
-                        matchingOccurenceConditions.Add(item2);
-                        break;
-                }
-            }
-
-            var effectManager =
-                ServiceRepository.GetService<IWorldLocationSpecialEffectsService>() as
-                    WorldLocationSpecialEffectsManager;
-
-            foreach (var condition in matchingOccurenceConditions)
-            {
-                Main.Log($"source character GUID {condition.sourceGuid}");
-
-                if (effectManager != null)
-                {
-                    effectManager.ConditionAdded(mover.RulesetCharacter, condition, true);
-                    mover.RulesetActor.ExecuteRecurrentForms(condition);
-                    effectManager.ConditionRemoved(mover.RulesetCharacter, condition);
-                }
-
-                if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
-                {
-                    mover.RulesetActor.RemoveCondition(condition);
-                    mover.RulesetActor.ProcessConditionDurationEnded(condition);
-                }
-                else if (condition.CanSaveToCancel && condition.HasSaveOverride)
-                {
-                    mover.RulesetActor.SaveToCancelCondition(condition);
-                }
-                else
-                {
-                    mover.RulesetActor.ConditionOccurenceReached?.Invoke(mover.RulesetActor, condition);
-                }
-            }
-        }
-#endif
-
         public static IEnumerator Postfix(
             IEnumerator values,
             GameLocationBattleManager __instance,
-            GameLocationCharacter mover
-        )
+            GameLocationCharacter mover)
         {
             //PATCH: support for Polearm Expert AoO
             //processes saved movement to trigger AoO when appropriate

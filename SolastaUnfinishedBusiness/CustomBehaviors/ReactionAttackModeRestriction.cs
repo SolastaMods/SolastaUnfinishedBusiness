@@ -36,18 +36,17 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
         };
     }
 
-    internal static bool CanCharacterReactWithPower(GameLocationBattleManager battle, RulesetUsablePower usablePower)
+    internal static bool CanCharacterReactWithPower(GameLocationBattleManager _, RulesetUsablePower usablePower)
     {
         var (attacker, defender, attackMode) = ReactionContext;
 
-        if (attacker == null || defender == null || attackMode == null) { return true; }
-
-        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
-        if (validator != null && !validator.ValidReactionMode(attackMode, attacker, defender))
+        if (attacker == null || defender == null || attackMode == null)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
+        
+        return validator == null || validator.ValidReactionMode(attackMode, attacker, defender);
     }
 }
