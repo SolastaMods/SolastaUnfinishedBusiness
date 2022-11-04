@@ -33,11 +33,22 @@ public static class CharacterInspectionScreenPatcher
             //PATCH: resets the inspection context for MC heroes
             Global.InspectedHero = null;
 
-            //PATCH: Enable Inventory Filtering and Sorting
+            //PATCH: enables Inventory Filtering and Sorting
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 InventoryManagementContext.ResetControls();
             }
+        }
+    }
+    
+    //PATCH: resets the inspection context for MC heroes otherwise we get class name bleeding on char pool
+    [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterInspectionScreen_DoClose
+    {
+        internal static void Prefix()
+        {
+            Global.InspectedHero = null;
         }
     }
 }
