@@ -21,7 +21,7 @@ public static class CharacterStageAbilityScoresPanelPatcher
                 return instructions;
             }
 
-            return instructions.ReplaceAllCode(
+            return instructions.ReplaceCode(
                 instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                instruction.operand.ToString() == CharacterContext.GameBuyPoints.ToString(),
                 -1,
@@ -43,18 +43,18 @@ public static class CharacterStageAbilityScoresPanelPatcher
             }
 
             return instructions
-                .ReplaceAllCode(instruction => instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
                         CharacterContext.GameBuyPoints.ToString(),
                     -1,
                     0,
                     new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints))
-                .ReplaceAllCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                                instruction.operand.ToString() ==
                                                CharacterContext.GameBuyPoints.ToString(),
                     -1,
                     0,
                     new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints))
-                .ReplaceAllCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                                instruction.operand.ToString() ==
                                                CharacterContext.GameMaxAttribute.ToString(),
                     -1,

@@ -42,7 +42,7 @@ public static class CharacterSelectionModalPatcher
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
-            return instructions.ReplaceAllCode(instruction => instruction.LoadsField(levelsField),
+            return instructions.ReplaceCode(instruction => instruction.LoadsField(levelsField),
                 -1,
                 2,
                 new CodeInstruction(OpCodes.Ldfld, levelsField),

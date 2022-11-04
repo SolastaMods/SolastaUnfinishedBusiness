@@ -14,10 +14,10 @@ internal static class TranspileHelper
         MethodInfo methodInfo,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceAllCode(x => x.Calls(methodInfo), -1, 0, codeInstructions);
+        return instructions.ReplaceCode(x => x.Calls(methodInfo), -1, 0, codeInstructions);
     }
 
-    public static IEnumerable<CodeInstruction> ReplaceAllCode(
+    public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
         int occurrence,

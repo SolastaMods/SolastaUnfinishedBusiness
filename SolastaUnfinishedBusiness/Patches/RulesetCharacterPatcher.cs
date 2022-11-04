@@ -613,7 +613,7 @@ public static class RulesetCharacterPatcher
 
             return instructions
                 // first call to roll die checks the initiator
-                .ReplaceAllCode(instruction => instruction.Calls(rollDieMethod),
+                .ReplaceCode(instruction => instruction.Calls(rollDieMethod),
                     1,
                     0,
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
@@ -624,7 +624,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
-                .ReplaceAllCode(instruction => instruction.Calls(rollDieMethod),
+                .ReplaceCode(instruction => instruction.Calls(rollDieMethod),
                     1, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
                     0,
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
@@ -651,7 +651,7 @@ public static class RulesetCharacterPatcher
             >(CustomEnumerate).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceAllCode(instruction =>
+            return instructions.ReplaceCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
                 -1,

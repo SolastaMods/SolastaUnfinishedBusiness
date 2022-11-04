@@ -25,7 +25,7 @@ internal sealed class PushesFromEffectPoint
                 List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
                 CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
 
-        return instructions.ReplaceAllCode(
+        return instructions.ReplaceCode(
             instruction => $"{instruction.operand}".Contains("ApplyEffectForms"),
             -1,
             0,

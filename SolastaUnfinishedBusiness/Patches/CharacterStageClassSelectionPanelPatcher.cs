@@ -143,7 +143,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            return instructions.ReplaceAllCode(instruction =>
+            return instructions.ReplaceCode(instruction =>
                     instruction.Calls(setActiveMethod),
                 4,
                 0,
