@@ -33,9 +33,9 @@ internal static class ShieldAttack
         var customIsWeapon = new Func<ItemDefinition, bool>(CustomIsWeapon).Method;
 
         return instructions
-            .ReplaceCall(weaponDescription,
+            .ReplaceAllCalls(weaponDescription,
                 new CodeInstruction(OpCodes.Call, customWeaponDescription))
-            .ReplaceCall(isWeapon,
+            .ReplaceAllCalls(isWeapon,
                 new CodeInstruction(OpCodes.Call, customIsWeapon));
     }
 

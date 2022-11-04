@@ -46,7 +46,7 @@ public static class CharacterStageLevelGainPanelPatcher
             var customGetLastAssignedClassAndLevelMethod =
                 typeof(EnterStage_Patch).GetMethod("GetLastAssignedClassAndLevel");
 
-            return instructions.ReplaceCall(getLastAssignedClassAndLevelMethod,
+            return instructions.ReplaceAllCalls(getLastAssignedClassAndLevelMethod,
                 new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod));
         }
     }
@@ -76,7 +76,7 @@ public static class CharacterStageLevelGainPanelPatcher
             var filteredSpellRepertoiresMethod =
                 new Func<RulesetCharacterHero, List<RulesetSpellRepertoire>>(SpellRepertoires).Method;
 
-            return instructions.ReplaceCall(spellRepertoiresMethod,
+            return instructions.ReplaceAllCalls(spellRepertoiresMethod,
                 new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod));
         }
     }

@@ -117,7 +117,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            return instructions.ReplaceCall(levelMethod,
+            return instructions.ReplaceAllCalls(levelMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));

@@ -81,7 +81,7 @@ public static class GuiCharacterPatcher
             var getSlotsNumberMethod = typeof(RulesetSpellRepertoire).GetMethod("GetSlotsNumber");
             var myGetSlotsNumberMethod = typeof(DisplayUniqueLevelSpellSlots_Patch).GetMethod("GetSlotsNumber");
 
-            return instructions.ReplaceCall(getSlotsNumberMethod,
+            return instructions.ReplaceAllCalls(getSlotsNumberMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myGetSlotsNumberMethod));
         }

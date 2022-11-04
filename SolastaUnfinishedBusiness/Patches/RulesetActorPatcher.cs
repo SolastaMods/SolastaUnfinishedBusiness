@@ -68,11 +68,19 @@ public static class RulesetActorPatcher
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(MyEnumerate).Method;
 
-            return instructions.ReplaceCode(instruction =>
-                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse")
-                    && instruction.operand.ToString().Contains("IDamageAffinityProvider"),
-                0,
-                new CodeInstruction(OpCodes.Call, myEnumerate));
+            foreach (var instruction in instructions)
+            {
+                var operand = $"{instruction.operand}";
+
+                if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IDamageAffinityProvider"))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myEnumerate);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
 
         private static void MyEnumerate(
@@ -117,7 +125,7 @@ public static class RulesetActorPatcher
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
 
-            return instructions.ReplaceCall(rollDieMethod,
+            return instructions.ReplaceAllCalls(rollDieMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, myRollDieMethod));
@@ -266,9 +274,9 @@ public static class RulesetActorPatcher
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var custom = new Action<RulesetActor>(RefreshClassModifiers).Method;
 
-            return instructions.ReplaceCall(refreshAttributes,
-                new CodeInstruction(OpCodes.Call, custom),
+            return instructions.ReplaceAllCalls(refreshAttributes,
                 new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, custom),
                 new CodeInstruction(OpCodes.Call, refreshAttributes));
         }
     }

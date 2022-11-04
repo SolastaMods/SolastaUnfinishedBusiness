@@ -288,7 +288,7 @@ internal static class SharedSpellsContext
         var myMaxSpellLevelOfSpellCastLevelMethod =
             new Func<RulesetSpellRepertoire, int>(MaxSpellLevelOfSpellCastingLevel).Method;
 
-        return instructions.ReplaceCall(maxSpellLevelOfSpellCastLevelMethod,
+        return instructions.ReplaceAllCalls(maxSpellLevelOfSpellCastLevelMethod,
             new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod));
     }
 

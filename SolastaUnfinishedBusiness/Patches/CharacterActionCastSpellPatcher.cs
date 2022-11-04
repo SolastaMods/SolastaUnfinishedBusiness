@@ -107,7 +107,7 @@ public static class CharacterActionCastSpellPatcher
                 new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassContext.SpellCastingLevel)
                     .Method;
 
-            return instructions.ReplaceCall(spellCastingLevelMethod,
+            return instructions.ReplaceAllCalls(spellCastingLevelMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }

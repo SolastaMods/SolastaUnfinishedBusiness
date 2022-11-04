@@ -676,10 +676,9 @@ public static class RulesetCharacterPatcher
             >(CustomEnumerate).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceCode(instruction =>
+            return instructions.ReplaceAllCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
-                0,
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -865,7 +864,7 @@ public static class RulesetCharacterPatcher
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
 
-            return instructions.ReplaceCall(bind,
+            return instructions.ReplaceAllCalls(bind,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, maxUses));
         }
@@ -883,7 +882,7 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
-            return instructions.ReplaceCall(restoreAllSpellSlotsMethod,
+            return instructions.ReplaceAllCalls(restoreAllSpellSlotsMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
@@ -995,7 +994,7 @@ public static class RulesetCharacterPatcher
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
-            return instructions.ReplaceCall(isFunctionAvailable,
+            return instructions.ReplaceAllCalls(isFunctionAvailable,
                 new CodeInstruction(OpCodes.Call, customMethod));
         }
 

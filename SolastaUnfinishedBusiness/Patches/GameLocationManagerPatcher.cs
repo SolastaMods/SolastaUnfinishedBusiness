@@ -74,9 +74,8 @@ public static class GameLocationManagerPatcher
             //PATCH: prevent some effects from being removed when entering new location
             var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
 
-            return instructions.ReplaceCode(instruction =>
+            return instructions.ReplaceAllCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"),
-                0,
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, maybeTerminate));
         }

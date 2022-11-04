@@ -482,10 +482,10 @@ public static class CharacterBuildingManagerPatcher
                 new Func<RacePresentation, CharacterHeroBuildingData, RangedInt>(PreferedHairColors).Method;
 
             return instructions
-                .ReplaceCall(preferedSkinColorsMethod,
+                .ReplaceAllCalls(preferedSkinColorsMethod,
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod))
-                .ReplaceCall(preferedHairColorsColorsMethod,
+                .ReplaceAllCalls(preferedHairColorsColorsMethod,
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
         }
