@@ -679,6 +679,7 @@ public static class RulesetCharacterPatcher
             return instructions.ReplaceAllCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
+                -1,
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 

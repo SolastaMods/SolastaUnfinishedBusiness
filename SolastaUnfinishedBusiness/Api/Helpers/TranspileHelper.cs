@@ -14,14 +14,16 @@ internal static class TranspileHelper
         MethodInfo methodInfo,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceAllCode(x => x.Calls(methodInfo), codeInstructions);
+        return instructions.ReplaceAllCode(x => x.Calls(methodInfo), -1, codeInstructions);
     }
 
     public static IEnumerable<CodeInstruction> ReplaceAllCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
+        int occurance,
         params CodeInstruction[] codeInstructions)
     {
+        var found = 0;
         var code = instructions.ToList();
         var bindIndex = code.FindIndex(match);
 
@@ -32,14 +34,21 @@ internal static class TranspileHelper
 
         while (bindIndex >= 0)
         {
-            for (var i = 0; i < codeInstructions.Length; i++)
+            if (occurance < 0 || ++found == occurance)
             {
-                code.Insert(bindIndex + i, codeInstructions[i]);
+                for (var i = 0; i < codeInstructions.Length; i++)
+                {
+                    code.Insert(bindIndex + i, codeInstructions[i]);
+                }
+
+                code.RemoveAt(bindIndex + codeInstructions.Length);
+
+                bindIndex = code.FindIndex(bindIndex + codeInstructions.Length, match);
             }
-
-            code.RemoveAt(bindIndex + codeInstructions.Length);
-
-            bindIndex = code.FindIndex(bindIndex + codeInstructions.Length, match);
+            else
+            {
+                bindIndex = code.FindIndex(bindIndex + 1, match);
+            }
         }
 
         return code;

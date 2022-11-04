@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -54,23 +55,13 @@ public static class FeatureDefinitionMagicAffinityPatcher
         {
             var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
             var myFormatMethod = new Func<FeatureDefinitionMagicAffinity, string>(FormatSpellList).Method;
-            var found = 0;
 
-            foreach (var instruction in instructions)
-            {
-                // find first call to Gui.Format and replace it with our custom method
-                if (instruction.Calls(formatMethod) && ++found == 1)
-                {
-                    yield return new CodeInstruction(OpCodes.Pop);
-                    yield return new CodeInstruction(OpCodes.Pop);
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, myFormatMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceAllCode(instruction => instruction.Calls(formatMethod),
+                1,
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myFormatMethod));
         }
     }
 }

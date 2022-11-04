@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 
@@ -154,24 +155,15 @@ public static class RulesetImplementationManagerLocationPatcher
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var addedConditionPos = Main.IsDebugBuild ? 37 : 27;
-            var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod =
                 typeof(ApplySummonForm_Patch).GetMethod("ExtendInflictCondition");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(inflictConditionMethod) && ++found == 3)
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos); // addedCondition
-                    yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceAllCode(instruction => instruction.Calls(inflictConditionMethod),
+                3,
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos),
+                new CodeInstruction(OpCodes.Call, extendInflictConditionMethod));
         }
     }
 

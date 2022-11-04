@@ -137,25 +137,20 @@ public static class CharacterStageClassSelectionPanelPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var found = 0;
             var setActiveMethod = typeof(GameObject).GetMethod("SetActive");
             var mySetActiveMethod = new Func<RulesetCharacterHero, bool>(SetActive).Method;
             var currentHeroField =
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(setActiveMethod) && ++found == 4)
-                {
-                    yield return new CodeInstruction(OpCodes.Pop);
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                    yield return new CodeInstruction(OpCodes.Call, mySetActiveMethod);
-                }
-
-                yield return instruction;
-            }
+            return instructions.ReplaceAllCode(instruction =>
+                    instruction.Calls(setActiveMethod),
+                4,
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, currentHeroField),
+                new CodeInstruction(OpCodes.Call, mySetActiveMethod),
+                new CodeInstruction(OpCodes.Call, setActiveMethod));
         }
     }
 }
