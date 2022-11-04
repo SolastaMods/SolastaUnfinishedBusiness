@@ -231,9 +231,7 @@ internal abstract class Node
     }
 
     internal abstract void SetDirty();
-    internal abstract bool IsDirty();
-    internal abstract void SetValue(object value);
-    protected abstract void UpdateValue();
+    internal abstract void UpdateValue();
 }
 
 internal abstract class GenericNode<TNode> : Node
@@ -386,11 +384,6 @@ internal abstract class GenericNode<TNode> : Node
         _valueIsDirty = true;
     }
 
-    internal override bool IsDirty()
-    {
-        return _valueIsDirty;
-    }
-
     private static Node FindOrCreateChildForValue(Type type, params object[] childArgs)
     {
         return Activator.CreateInstance(type, AllFlags, null, childArgs, null) as Node;
@@ -520,7 +513,7 @@ internal abstract class GenericNode<TNode> : Node
         _propertyNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    protected override void UpdateValue()
+    internal override void UpdateValue()
     {
         if (!_valueIsDirty)
         {
@@ -528,7 +521,6 @@ internal abstract class GenericNode<TNode> : Node
         }
 
         _valueIsDirty = false;
-
         _componentIsDirty = true;
         _itemIsDirty = true;
 
@@ -563,12 +555,6 @@ internal abstract class PassiveNode<TNode> : GenericNode<TNode>
     }
 
     internal override bool IsException => false;
-
-    internal override void SetValue(object value)
-    {
-        SetDirty();
-        Value = (TNode)value;
-    }
 
     internal void SetValue(TNode value)
     {
@@ -632,11 +618,6 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
             UpdateValue();
             return _isException;
         }
-    }
-
-    internal override void SetValue(object value)
-    {
-        throw new NotImplementedException();
     }
 
     internal override Node GetParent()
