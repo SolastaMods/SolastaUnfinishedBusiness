@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using TA;
@@ -480,23 +481,13 @@ public static class CharacterBuildingManagerPatcher
             var myPreferedHairColorsColorsMethod =
                 new Func<RacePresentation, CharacterHeroBuildingData, RangedInt>(PreferedHairColors).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(preferedSkinColorsMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 1); // heroBuildingData
-                    yield return new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod);
-                }
-                else if (instruction.Calls(preferedHairColorsColorsMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 1); // heroBuildingData
-                    yield return new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            instructions = TranspileHelper.ReplaceCodeCall(instructions, preferedSkinColorsMethod,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod));
+
+            return TranspileHelper.ReplaceCodeCall(instructions, preferedHairColorsColorsMethod,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
         }
     }
 }

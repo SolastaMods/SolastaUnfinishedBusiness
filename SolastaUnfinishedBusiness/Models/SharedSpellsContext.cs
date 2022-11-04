@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Subclasses;
 using static FeatureDefinitionCastSpell;
@@ -287,17 +288,8 @@ internal static class SharedSpellsContext
         var myMaxSpellLevelOfSpellCastLevelMethod =
             new Func<RulesetSpellRepertoire, int>(MaxSpellLevelOfSpellCastingLevel).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(maxSpellLevelOfSpellCastLevelMethod))
-            {
-                yield return new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        return TranspileHelper.ReplaceCodeCall(instructions, maxSpellLevelOfSpellCastLevelMethod,
+            new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod));
     }
 
     #region Caster Level Context

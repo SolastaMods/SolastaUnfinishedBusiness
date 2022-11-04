@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -16,8 +17,6 @@ public static class CharacterStageSpellSelectionPanelPatcher
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var code = new List<CodeInstruction>(instructions);
-
             //PATCH: Multiclass: Replaces calls to `BindLearning` with custom one, that processes spell visibility/tags for multiclass
             var bindMethod = typeof(SpellsByLevelGroup).GetMethod("BindLearning");
             var customBind = new Action<
@@ -39,15 +38,9 @@ public static class CharacterStageSpellSelectionPanelPatcher
                 CharacterStageSpellSelectionPanel // panel
             >(MulticlassGameUiContext.SpellsByLevelGroupBindLearning).Method;
 
-            var bindIndex = code.FindIndex(x => x.Calls(bindMethod));
-
-            if (bindIndex > 0)
-            {
-                code[bindIndex] = new CodeInstruction(OpCodes.Call, customBind);
-                code.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_0));
-            }
-
-            return code;
+            return TranspileHelper.ReplaceCodeCall(instructions, bindMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, customBind));
         }
     }
 }

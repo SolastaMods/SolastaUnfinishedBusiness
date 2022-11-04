@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -44,17 +45,8 @@ public static class ArchetypesPreviewModalPatcher
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
             var myLevelMethod = new Func<FeatureUnlockByLevel, int>(Level).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(levelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return TranspileHelper.ReplaceCodeCall(instructions, levelMethod,
+                new CodeInstruction(OpCodes.Call, myLevelMethod));
         }
     }
 

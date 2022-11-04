@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -23,18 +24,9 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromGuiAction).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(findAttacks))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_2);
-                yield return new CodeInstruction(OpCodes.Call, method);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        return TranspileHelper.ReplaceCodeCall(instructions, findAttacks,
+            new CodeInstruction(OpCodes.Ldarg_2),
+            new CodeInstruction(OpCodes.Call, method));
     }
 
     private static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(
@@ -65,18 +57,9 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromForcedAttack).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(findAttacks))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_2);
-                yield return new CodeInstruction(OpCodes.Call, method);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        return TranspileHelper.ReplaceCodeCall(instructions, findAttacks,
+            new CodeInstruction(OpCodes.Ldarg_2),
+            new CodeInstruction(OpCodes.Call, method));
     }
 
     private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(

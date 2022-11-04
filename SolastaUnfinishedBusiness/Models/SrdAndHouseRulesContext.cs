@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
@@ -488,18 +489,9 @@ internal static class ArmorClassStacking
             RulesetCharacterMonster
         >(ProcessWildShapeAc).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(sort))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Call, unstack);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        return TranspileHelper.ReplaceCodeCall(instructions, sort,
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Call, unstack));
     }
 
     private static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
@@ -687,20 +679,11 @@ internal static class UpcastConjureElementalAndFey
     internal static IEnumerable<CodeInstruction> ReplaceSubSpellList(IEnumerable<CodeInstruction> instructions)
     {
         var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
-        var getSpellList = new Func<SpellDefinition, int, List<SpellDefinition>>(SubspellsList);
+        var getSpellList = new Func<SpellDefinition, int, List<SpellDefinition>>(SubspellsList).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(subspellsListMethod))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
-                yield return new CodeInstruction(OpCodes.Call, getSpellList.Method);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        return TranspileHelper.ReplaceCodeCall(instructions, subspellsListMethod,
+            new CodeInstruction(OpCodes.Ldarg, 5),
+            new CodeInstruction(OpCodes.Call, getSpellList));
     }
 
     [CanBeNull]

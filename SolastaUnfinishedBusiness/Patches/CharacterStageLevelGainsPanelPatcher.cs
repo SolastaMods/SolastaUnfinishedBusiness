@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -45,12 +46,8 @@ public static class CharacterStageLevelGainPanelPatcher
             var customGetLastAssignedClassAndLevelMethod =
                 typeof(EnterStage_Patch).GetMethod("GetLastAssignedClassAndLevel");
 
-            var code = instructions.ToList();
-            var index = code.FindIndex(x => x.Calls(getLastAssignedClassAndLevelMethod));
-
-            code[index] = new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod);
-
-            return code;
+            return TranspileHelper.ReplaceCodeCall(instructions, getLastAssignedClassAndLevelMethod,
+                new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod));
         }
     }
 
@@ -75,15 +72,12 @@ public static class CharacterStageLevelGainPanelPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var code = instructions.ToList();
             var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
             var filteredSpellRepertoiresMethod =
                 new Func<RulesetCharacterHero, List<RulesetSpellRepertoire>>(SpellRepertoires).Method;
-            var index = code.FindIndex(x => x.Calls(spellRepertoiresMethod));
 
-            code[index] = new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod);
-
-            return code;
+            return TranspileHelper.ReplaceCodeCall(instructions, spellRepertoiresMethod,
+                new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod));
         }
     }
 }

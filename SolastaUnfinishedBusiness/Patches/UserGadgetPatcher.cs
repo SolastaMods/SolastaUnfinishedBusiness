@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -24,17 +25,9 @@ public static class UserGadgetPatcher
             var myDungeonMakerPresenceMethod =
                 new Func<MonsterDefinition, MonsterDefinition.DungeonMaker>(DungeonMakerPresence).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(dungeonMakerPresenceMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return TranspileHelper
+                .ReplaceCodeCall(instructions, dungeonMakerPresenceMethod,
+                    new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod));
         }
     }
 }

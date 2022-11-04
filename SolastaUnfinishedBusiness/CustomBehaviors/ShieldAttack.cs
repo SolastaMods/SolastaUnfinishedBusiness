@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -31,21 +32,11 @@ internal static class ShieldAttack
         var customWeaponDescription = new Func<ItemDefinition, WeaponDescription>(CustomWeaponDescription).Method;
         var customIsWeapon = new Func<ItemDefinition, bool>(CustomIsWeapon).Method;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(weaponDescription))
-            {
-                yield return new CodeInstruction(OpCodes.Call, customWeaponDescription);
-            }
-            else if (instruction.Calls(isWeapon))
-            {
-                yield return new CodeInstruction(OpCodes.Call, customIsWeapon);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        instructions = TranspileHelper.ReplaceCodeCall(instructions, weaponDescription,
+            new CodeInstruction(OpCodes.Call, customWeaponDescription));
+
+        return TranspileHelper.ReplaceCodeCall(instructions, isWeapon,
+            new CodeInstruction(OpCodes.Call, customIsWeapon));
     }
 
     private static WeaponDescription CustomWeaponDescription(ItemDefinition item)

@@ -23,7 +23,6 @@ public static class CharacterReactionItemPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
-            var codes = instructions.ToList();
             var customBindMethod =
                 new Action<CharacterReactionSubitem, RulesetSpellRepertoire, int, string, bool,
                     CharacterReactionSubitem.SubitemSelectedHandler, ReactionRequest>(CustomBind).Method;
@@ -31,13 +30,9 @@ public static class CharacterReactionItemPatcher
             var bind = typeof(CharacterReactionSubitem).GetMethod("Bind",
                 BindingFlags.Public | BindingFlags.Instance);
 
-            var bindIndex = codes.FindIndex(x => x.Calls(bind));
-
-            if (bindIndex > 0)
-            {
-                codes[bindIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
-                codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_1));
-            }
+            var codes = TranspileHelper.ReplaceCodeCall(instructions, bind,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, customBindMethod)).ToList();
 
             //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
             //this assert was added in 1.4.5 and triggers if non-spell caster does AoO

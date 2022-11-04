@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -116,19 +117,10 @@ public static class CharacterStageClassSelectionPanelPatcher
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(levelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                    yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return TranspileHelper.ReplaceCodeCall(instructions, levelMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, currentHeroField),
+                new CodeInstruction(OpCodes.Call, myLevelMethod));
         }
     }
 

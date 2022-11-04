@@ -24,12 +24,12 @@ internal static class TranspileHelper
             return code;
         }
 
-        for (var i = codeInstructions.Length - 1; i >= 0; i--)
+        for (var i = 0; i < codeInstructions.Length; i++)
         {
-            code.Insert(bindIndex, codeInstructions[i]);
+            code.Insert(bindIndex + i, codeInstructions[i]);
         }
 
-        code.RemoveAt(bindIndex);
+        code.RemoveAt(bindIndex + codeInstructions.Length);
 
         return code;
     }

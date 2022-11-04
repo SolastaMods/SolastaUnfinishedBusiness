@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -106,18 +107,9 @@ public static class CharacterActionCastSpellPatcher
                 new Func<RulesetSpellRepertoire, CharacterActionCastSpell, int>(MulticlassContext.SpellCastingLevel)
                     .Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(spellCastingLevelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this
-                    yield return new CodeInstruction(OpCodes.Call, spellCastingLevel);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return TranspileHelper.ReplaceCodeCall(instructions, spellCastingLevelMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }
     }
 
