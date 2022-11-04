@@ -11,22 +11,26 @@ internal static class ReachMeleeTargeting
 {
     // Replaces call to `FindBestActionDestination` with custom method that respects attack mode's reach
     // Needed for reach melee
-    internal static void ApplyCursorLocationIsValidAttackTranspile(List<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> ApplyCursorLocationIsValidAttackTranspile(
+        IEnumerable<CodeInstruction> instructions)
     {
-        var insertionIndex = instructions.FindIndex(x =>
+        var codes = instructions.ToList();
+        var insertionIndex = codes.FindIndex(x =>
             x.opcode == OpCodes.Call && x.operand.ToString().Contains("FindBestActionDestination"));
 
         if (insertionIndex <= 0)
         {
-            return;
+            return codes;
         }
 
         var method = typeof(ReachMeleeTargeting)
             .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
-        instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
-        instructions.InsertRange(insertionIndex,
+        codes[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
+        codes.InsertRange(insertionIndex,
             new[] { new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1) });
+
+        return codes;
     }
 
     // Used in `ApplyCursorLocationIsValidAttackTranspile`

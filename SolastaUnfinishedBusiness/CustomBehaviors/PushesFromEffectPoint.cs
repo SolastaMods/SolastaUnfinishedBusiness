@@ -18,7 +18,7 @@ internal sealed class PushesFromEffectPoint
 
     public static PushesFromEffectPoint Marker { get; } = new();
 
-    public static IEnumerable<CodeInstruction> ModifyApplyFormsCall(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> ModifyApplyFormsCall(IEnumerable<CodeInstruction> instructions)
     {
         var method =
             new Func<IRulesetImplementationService, List<EffectForm>, RulesetImplementationDefinitions.ApplyFormsParams,

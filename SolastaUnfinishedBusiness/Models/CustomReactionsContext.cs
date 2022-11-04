@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -157,11 +158,12 @@ internal static class CustomReactionsContext
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 
-    internal static void ForcePreferredCantripUsage(List<CodeInstruction> codes)
+    internal static IEnumerable<CodeInstruction> ForcePreferredCantripUsage(
+        this IEnumerable<CodeInstruction> instructions)
     {
+        var codes = instructions.ToList();
         var customBindMethod =
             new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
-
         var containsIndex = -1;
 
         //TODO: is there a better way to detect proper placement?
@@ -195,6 +197,8 @@ internal static class CustomReactionsContext
         {
             codes[containsIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
         }
+
+        return codes;
     }
 
     private static bool CheckAndModifyCantrips(List<SpellDefinition> readied, SpellDefinition preferred)

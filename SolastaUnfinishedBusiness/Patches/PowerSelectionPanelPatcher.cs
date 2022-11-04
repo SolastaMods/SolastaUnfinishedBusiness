@@ -18,6 +18,7 @@ public static class PowerSelectionPanelPatcher
     private static RectTransform _secondRow;
     private static RectTransform _thirdRow;
 
+    //TODO: REVIEW LOGGING
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Bind_Patch

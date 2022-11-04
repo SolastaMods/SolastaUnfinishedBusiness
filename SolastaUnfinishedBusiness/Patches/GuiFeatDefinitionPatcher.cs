@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,23 +39,9 @@ public static class GuiFeatDefinitionPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
-            //which are registered before feat selection at lvl 1
             var codes = instructions.ToList();
-            var callSpellRepertoiresIndex =
-                codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
 
-            codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call,
-                new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
-            codes.RemoveAt(callSpellRepertoiresIndex + 1);
-
-            //PATCH: fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1
-            //it replaces the Trace comparision ClassesHistory.Count > 1 with ClassesHistory.Count > 0
-            if (!Main.IsDebugBuild)
-            {
-                return codes;
-            }
-
+            //PATCH: Removes annoying error message on DEBUG builds
             var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
 
             if (assertCheckIndex != -1)
@@ -62,7 +49,14 @@ public static class GuiFeatDefinitionPatcher
                 codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
             }
 
-            return codes;
+            //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
+            //which are registered before feat selection at lvl 1
+            return codes.ReplaceCode(c =>
+                    c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")),
+                1,
+                1,
+                new CodeInstruction(OpCodes.Call,
+                    new Func<RulesetCharacterHero, int>(CanCastSpells).Method));
         }
 
         private static int CanCastSpells([NotNull] RulesetCharacterHero hero)

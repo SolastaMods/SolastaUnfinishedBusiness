@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class FeatureApplicationValidation
 {
-    internal static void ValidateActionPerformanceProviders(List<CodeInstruction> codes)
+    internal static IEnumerable<CodeInstruction> ValidateActionPerformanceProviders(
+        this IEnumerable<CodeInstruction> instructions)
     {
         var enumerate = new Action<
             RulesetActor,
@@ -17,6 +20,7 @@ internal static class FeatureApplicationValidation
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
         >(EnumerateActionPerformanceProviders).Method;
 
+        var codes = instructions.ToList();
         var bindIndex = codes.FindIndex(x =>
         {
             if (x.operand == null)
@@ -29,10 +33,12 @@ internal static class FeatureApplicationValidation
             return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider");
         });
 
-        if (bindIndex > 0)
+        if (bindIndex >= 0)
         {
             codes[bindIndex] = new CodeInstruction(OpCodes.Call, enumerate);
         }
+
+        return codes;
     }
 
     private static void EnumerateActionPerformanceProviders(
@@ -55,7 +61,8 @@ internal static class FeatureApplicationValidation
         });
     }
 
-    internal static void ValidateAdditionalActionProviders(List<CodeInstruction> codes)
+    internal static IEnumerable<CodeInstruction> ValidateAdditionalActionProviders(
+        this IEnumerable<CodeInstruction> instructions)
     {
         var enumerate = new Action<
             RulesetActor,
@@ -63,7 +70,8 @@ internal static class FeatureApplicationValidation
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
         >(EnumerateAdditionalActionProviders).Method;
 
-        var bindIndex2 = codes.FindIndex(x =>
+        var codes = instructions.ToList();
+        var bindIndex = codes.FindIndex(x =>
         {
             if (x.operand == null)
             {
@@ -75,10 +83,12 @@ internal static class FeatureApplicationValidation
             return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IAdditionalActionsProvider");
         });
 
-        if (bindIndex2 > 0)
+        if (bindIndex > 0)
         {
-            codes[bindIndex2] = new CodeInstruction(OpCodes.Call, enumerate);
+            codes[bindIndex] = new CodeInstruction(OpCodes.Call, enumerate);
         }
+
+        return codes;
     }
 
     private static void EnumerateAdditionalActionProviders(
@@ -100,7 +110,8 @@ internal static class FeatureApplicationValidation
         });
     }
 
-    internal static void ValidateAttributeModifiersFromConditions(List<CodeInstruction> codes)
+    internal static IEnumerable<CodeInstruction> ValidateAttributeModifiersFromConditions(
+        IEnumerable<CodeInstruction> instructions)
     {
         //Replaces first `IsInst` operator with custom validator
 
@@ -110,14 +121,11 @@ internal static class FeatureApplicationValidation
             FeatureDefinition
         >(ValidateAttributeModifier).Method;
 
-        var index = codes.FindIndex(x => x.opcode == OpCodes.Isinst);
-
-        if (index > 0)
-        {
-            codes[index] = new CodeInstruction(OpCodes.Call, validate);
-            //add `this` (RulesetCharacter) as second argument
-            codes.Insert(index, new CodeInstruction(OpCodes.Ldarg_0));
-        }
+        return instructions.ReplaceCode(instruction => instruction.opcode == OpCodes.Isinst,
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Call, validate));
     }
 
     private static FeatureDefinition ValidateAttributeModifier(FeatureDefinition feature,

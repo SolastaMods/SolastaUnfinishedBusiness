@@ -445,12 +445,8 @@ public static class RulesetCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
             //PATCH: support for validation of attribute modifications applied through conditions
-            FeatureApplicationValidation.ValidateAttributeModifiersFromConditions(codes);
-
-            return codes;
+            return FeatureApplicationValidation.ValidateAttributeModifiersFromConditions(instructions);
         }
     }
 

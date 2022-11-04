@@ -196,13 +196,9 @@ public static class GameLocationCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
             //PATCH: Support for Pugilist Fighting Style
             // Removes check that makes `ShoveBonus` action unavailable if character has no shield
-            Pugilist.RemoveShieldRequiredForBonusPush(codes);
-
-            return codes;
+            return instructions.RemoveShieldRequiredForBonusPush();
         }
 
         public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
@@ -219,15 +215,11 @@ public static class GameLocationCharacterPatcher
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
-            //PATCH: Support for `IDefinitionApplicationValidator`
-            FeatureApplicationValidation.ValidateActionPerformanceProviders(codes);
-
-            //PATCH: Support for `IDefinitionApplicationValidator`
-            FeatureApplicationValidation.ValidateAdditionalActionProviders(codes);
-
-            return codes.AsEnumerable();
+            return instructions
+                //PATCH: Support for `IDefinitionApplicationValidator`
+                .ValidateActionPerformanceProviders()
+                //PATCH: Support for `IDefinitionApplicationValidator`
+                .ValidateAdditionalActionProviders();
         }
     }
 

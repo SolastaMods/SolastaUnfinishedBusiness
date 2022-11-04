@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -63,37 +64,26 @@ public class MirrorImageLogic
 
     internal static IEnumerable<CodeInstruction> PatchAttackRoll(IEnumerable<CodeInstruction> instructions)
     {
-        var foundAC = false;
-        var replaced = false;
         var method = new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(GetAC).Method;
 
-        foreach (var instruction in instructions)
-        {
-            var operand = $"{instruction.operand}";
+        var code = instructions.ToList();
+        var foundAcIndex = code.FindIndex(instruction =>
+            instruction.opcode == OpCodes.Ldstr && $"{instruction.operand}".Contains(AttributeDefinitions.ArmorClass));
 
-            if (instruction.opcode == OpCodes.Ldstr && operand.Contains(AttributeDefinitions.ArmorClass))
-            {
-                foundAC = true;
-                yield return instruction;
-            }
-            else if (foundAC && !replaced && instruction.opcode == OpCodes.Callvirt &&
-                     operand.Contains("get_CurrentValue"))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_2);
-                yield return new CodeInstruction(OpCodes.Ldarg, 4);
-                yield return new CodeInstruction(OpCodes.Call, method);
-                replaced = true;
-            }
-            else
-            {
-                yield return instruction;
-            }
+        if (foundAcIndex >= 0)
+        {
+            return code.ReplaceCode(
+                instruction => instruction.opcode == OpCodes.Callvirt &&
+                               $"{instruction.operand}".Contains("get_CurrentValue"),
+                1,
+                0, new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldarg, 4),
+                new CodeInstruction(OpCodes.Call, method));
         }
 
-        if (!replaced)
-        {
-            Main.Error("RulesetCharacter.RollAttack PATCH FAILED");
-        }
+        Main.Error("RulesetCharacter.RollAttack patch.");
+
+        return code;
     }
 
     private static int GetAC(RulesetAttribute attribute, RulesetActor target,

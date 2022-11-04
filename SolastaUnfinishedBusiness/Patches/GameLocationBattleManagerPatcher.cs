@@ -47,12 +47,8 @@ public static class GameLocationBattleManagerPatcher
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
             //PATCH: Makes only preferred cantrip valid if it is selected and forced
-            CustomReactionsContext.ForcePreferredCantripUsage(codes);
-
-            return codes;
+            return instructions.ForcePreferredCantripUsage();
         }
     }
 
