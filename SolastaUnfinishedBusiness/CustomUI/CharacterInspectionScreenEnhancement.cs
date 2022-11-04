@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -354,29 +355,20 @@ internal static class CharacterInspectionScreenEnhancement
         var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
             BindingFlags.Instance | BindingFlags.NonPublic);
         var myEnumerateClassBadgesMethod = new Action<CharacterInformationPanel>(EnumerateClassBadges).Method;
-        var found = 0;
 
-        foreach (var instruction in instructions)
-        {
-            if (instruction.Calls(containsMethod))
-            {
-                found++;
-
-                if (found is 2 or 3)
-                {
-                    yield return new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod);
-                }
-
-                yield return instruction;
-            }
-            else if (instruction.Calls(enumerateClassBadgesMethod))
-            {
-                yield return new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod);
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+        // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
+        return instructions
+            .ReplaceAllCalls(enumerateClassBadgesMethod,
+                new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
+            .ReplaceAllCode(instruction => instruction.Calls(containsMethod),
+                2,
+                0,
+                new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
+                new CodeInstruction(OpCodes.Call, containsMethod))
+            .ReplaceAllCode(instruction => instruction.Calls(containsMethod),
+                2,
+                0,
+                new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
+                new CodeInstruction(OpCodes.Call, containsMethod));
     }
 }

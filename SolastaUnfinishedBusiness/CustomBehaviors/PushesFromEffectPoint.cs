@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -24,20 +25,12 @@ internal sealed class PushesFromEffectPoint
                 List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
                 CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
 
-        foreach (var code in instructions)
-        {
-            var operand = $"{code.operand}";
-
-            if (operand.Contains("ApplyEffectForms"))
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Call, method);
-            }
-            else
-            {
-                yield return code;
-            }
-        }
+        return instructions.ReplaceAllCode(
+            instruction => $"{instruction.operand}".Contains("ApplyEffectForms"),
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Call, method));
     }
 
     private static int SetPositionAndApplyForms(

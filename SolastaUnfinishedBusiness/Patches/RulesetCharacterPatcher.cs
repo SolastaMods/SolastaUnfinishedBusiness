@@ -608,57 +608,32 @@ public static class RulesetCharacterPatcher
         //
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var found = 0;
             var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
             var extendedRollDieMethod = typeof(ResolveContestCheck_Patch).GetMethod("ExtendedRollDie");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(rollDieMethod))
-                {
-#if false
-                    ++found;
-
-                    switch (found)
-                    {
-                        // first call to roll die checks the initiator
-                        case 1:
-                            yield return new CodeInstruction(OpCodes.Ldarg, 1); // baseBonus
-                            yield return new CodeInstruction(OpCodes.Ldarg, 2); // rollModifier
-                            yield return new CodeInstruction(OpCodes.Ldarg, 3); // abilityScoreName
-                            yield return new CodeInstruction(OpCodes.Ldarg, 4); // proficiencyName
-                            yield return new CodeInstruction(OpCodes.Ldarg, 5); // advantageTrends
-                            yield return new CodeInstruction(OpCodes.Ldarg, 6); // modifierTrends
-
-                            break;
-                        // second call to roll die checks the opponent
-                        case 2:
-                            yield return new CodeInstruction(OpCodes.Ldarg, 7); // opponentBaseBonus
-                            yield return new CodeInstruction(OpCodes.Ldarg, 8); // opponentRollModifier
-                            yield return new CodeInstruction(OpCodes.Ldarg, 9); // opponentAbilityScoreName
-                            yield return new CodeInstruction(OpCodes.Ldarg, 10); // opponentProficiencyName
-                            yield return new CodeInstruction(OpCodes.Ldarg, 11); // opponentAdvantageTrends
-                            yield return new CodeInstruction(OpCodes.Ldarg, 12); // opponentModifierTrends
-
-                            break;
-                    }
-#endif
-                    // optimized version
-                    for (var i = 1; i <= 6; i++)
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg, (found * 6) + i);
-                    }
-
-                    found++;
-                    // end optimized version
-
-                    yield return new CodeInstruction(OpCodes.Call, extendedRollDieMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions
+                // first call to roll die checks the initiator
+                .ReplaceAllCode(instruction => instruction.Calls(rollDieMethod),
+                    1,
+                    0,
+                    new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
+                    new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
+                    new CodeInstruction(OpCodes.Ldarg, 3), // abilityScoreName
+                    new CodeInstruction(OpCodes.Ldarg, 4), // proficiencyName
+                    new CodeInstruction(OpCodes.Ldarg, 5), // advantageTrends
+                    new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
+                    new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
+                // second call to roll die checks the opponent
+                .ReplaceAllCode(instruction => instruction.Calls(rollDieMethod),
+                    1, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
+                    0,
+                    new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
+                    new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
+                    new CodeInstruction(OpCodes.Ldarg, 9), // opponentAbilityScoreName
+                    new CodeInstruction(OpCodes.Ldarg, 10), // opponentProficiencyName
+                    new CodeInstruction(OpCodes.Ldarg, 11), // opponentAdvantageTrends
+                    new CodeInstruction(OpCodes.Ldarg, 12), // opponentModifierTrends
+                    new CodeInstruction(OpCodes.Call, extendedRollDieMethod));
         }
     }
 
