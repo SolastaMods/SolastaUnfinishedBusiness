@@ -36,7 +36,6 @@ internal static class Level20Context
 
     internal const int ModMaxLevel = 20;
     internal const int GameMaxLevel = 12;
-    internal const int GameFinalMaxLevel = 16;
 
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
@@ -149,12 +148,14 @@ internal static class Level20Context
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
             // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16 - not required...
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 16
+            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
             typeof(InvocationSubPanel).GetMethod("SetState"), // 12
-            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 16
-            typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12, 16
-            typeof(RulesetEntity).GetMethod("SerializeElements") // 12, 16
+            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 12
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12
+            typeof(RulesetEntity).GetMethod("SerializeElements"), // 12
+            typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"), // 12
+            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit") // 12
         };
 
         foreach (var method in methods)
@@ -671,9 +672,7 @@ internal static class Level20Context
         }
 
         code
-            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S
-                          && (Convert.ToInt32(x.operand) == GameFinalMaxLevel ||
-                              Convert.ToInt32(x.operand) == GameMaxLevel))
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
             .ForEach(x => x.operand = ModMaxLevel);
 
         return code;
