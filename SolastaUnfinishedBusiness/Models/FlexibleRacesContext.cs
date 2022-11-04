@@ -66,8 +66,7 @@ internal static class FlexibleRacesContext
             "RaceGnome",
             new List<string>
             {
-                "AttributeModifierGnomeAbilityScoreIncrease",
-                "AttributeModifierForestGnomeAbilityScoreIncrease"
+                "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
             }
         },
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },

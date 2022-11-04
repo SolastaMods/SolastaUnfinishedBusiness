@@ -12,8 +12,11 @@ public static class GuiCharacterActionPatcher
         public static void Postfix(GuiCharacterAction __instance, ref int __result)
         {
             //PATCH: Get remaining attack uses (ammunition) from forced attack mode
-            if (__instance.forcedAttackMode == null) { return; }
-            
+            if (__instance.forcedAttackMode == null)
+            {
+                return;
+            }
+
             __result = __instance.ActingCharacter.RulesetCharacter.GetRemainingAttackUses(__instance.forcedAttackMode);
         }
     }

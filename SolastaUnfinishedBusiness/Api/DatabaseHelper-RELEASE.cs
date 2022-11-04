@@ -1681,6 +1681,9 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition Primed_Gauntlet { get; } =
+            GetDefinition<ItemDefinition>("Primed Gauntlet");
+
         internal static ItemDefinition RingDarkvision { get; } =
             GetDefinition<ItemDefinition>("RingDarkvision");
 
