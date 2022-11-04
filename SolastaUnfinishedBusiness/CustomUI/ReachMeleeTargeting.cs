@@ -22,7 +22,6 @@ internal static class ReachMeleeTargeting
             instruction => instruction.opcode == OpCodes.Call &&
                            instruction.operand.ToString().Contains("FindBestActionDestination"),
             -1,
-            0,
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Ldloc_1),
             new CodeInstruction(OpCodes.Call, method));

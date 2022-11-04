@@ -76,7 +76,7 @@ public class MirrorImageLogic
                 instruction => instruction.opcode == OpCodes.Callvirt &&
                                $"{instruction.operand}".Contains("get_CurrentValue"),
                 1,
-                0, new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Ldarg, 4),
                 new CodeInstruction(OpCodes.Call, method));
         }

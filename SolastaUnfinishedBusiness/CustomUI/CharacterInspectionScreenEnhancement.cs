@@ -358,13 +358,13 @@ internal static class CharacterInspectionScreenEnhancement
 
         // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
         return instructions
-            .ReplaceAllCalls(enumerateClassBadgesMethod,
+            .ReplaceCalls(enumerateClassBadgesMethod,
                 new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
-            .ReplaceCalls(containsMethod,
+            .ReplaceCall(containsMethod,
                 2,
                 new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                 new CodeInstruction(OpCodes.Call, containsMethod))
-            .ReplaceCalls(containsMethod,
+            .ReplaceCall(containsMethod,
                 2,
                 new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                 new CodeInstruction(OpCodes.Call, containsMethod));

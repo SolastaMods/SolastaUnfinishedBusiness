@@ -56,7 +56,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
             var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
             var myFormatMethod = new Func<FeatureDefinitionMagicAffinity, string>(FormatSpellList).Method;
 
-            return instructions.ReplaceCalls(formatMethod,
+            return instructions.ReplaceCall(formatMethod,
                 1,
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Pop),

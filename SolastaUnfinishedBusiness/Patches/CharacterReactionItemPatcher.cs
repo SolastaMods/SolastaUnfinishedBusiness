@@ -29,7 +29,7 @@ public static class CharacterReactionItemPatcher
                     CharacterReactionSubitem.SubitemSelectedHandler, ReactionRequest>(CustomBind).Method;
 
             return instructions
-                .ReplaceAllCalls(bind,
+                .ReplaceCalls(bind,
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, customBindMethod))
 

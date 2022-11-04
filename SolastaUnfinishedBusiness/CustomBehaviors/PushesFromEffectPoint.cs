@@ -28,7 +28,6 @@ internal sealed class PushesFromEffectPoint
         return instructions.ReplaceCode(
             instruction => $"{instruction.operand}".Contains("ApplyEffectForms"),
             -1,
-            0,
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Call, method));
     }

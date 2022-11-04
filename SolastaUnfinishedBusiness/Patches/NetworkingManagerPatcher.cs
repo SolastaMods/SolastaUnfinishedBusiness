@@ -39,7 +39,7 @@ public static class NetworkingManagerPatcher
                 typeof(PhotonNetwork).GetMethod("CreateRoom", BindingFlags.Public | BindingFlags.Static);
             var myCreateRoomMethod = new Func<string, RoomOptions, TypedLobby, string[], bool>(CreateRoom).Method;
 
-            return instructions.ReplaceAllCalls(createRoomMethod,
+            return instructions.ReplaceCalls(createRoomMethod,
                 new CodeInstruction(OpCodes.Call, myCreateRoomMethod));
         }
     }

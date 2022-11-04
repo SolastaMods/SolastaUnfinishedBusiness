@@ -171,7 +171,7 @@ public static class RulesetEffectSpellPatcher
             var spellCastingLevel =
                 new Func<RulesetSpellRepertoire, RulesetEffectSpell, int>(MulticlassContext.SpellCastingLevel).Method;
 
-            return instructions.ReplaceAllCalls(spellCastingLevelMethod,
+            return instructions.ReplaceCalls(spellCastingLevelMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }

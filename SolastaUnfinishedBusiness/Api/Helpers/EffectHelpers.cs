@@ -35,7 +35,7 @@ internal static class EffectHelpers
 
             case RuleDefinitions.EffectDifficultyClassComputation.FixedValue:
                 return effectDescription.FixedSavingThrowDifficultyClass;
-
+#if false
             //TODO: implement missing computation methods (like Ki and Breath Weapon)
             case RuleDefinitions.EffectDifficultyClassComputation.Ki:
                 break;
@@ -43,6 +43,7 @@ internal static class EffectHelpers
                 break;
             case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
                 break;
+#endif
         }
 
         return def;
@@ -50,18 +51,18 @@ internal static class EffectHelpers
 
     internal static RulesetCharacter GetSummoner(RulesetCharacter summon)
     {
-        if (summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-                RuleDefinitions.ConditionConjuredCreature, out var activeCondition))
-        {
-            return GetCharacterByGuid(activeCondition.SourceGuid);
-        }
-
-        return null;
+        return summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
+            RuleDefinitions.ConditionConjuredCreature, out var activeCondition)
+            ? GetCharacterByGuid(activeCondition.SourceGuid)
+            : null;
     }
 
-    internal static RulesetCharacter GetCharacterByGuid(ulong guid)
+    private static RulesetCharacter GetCharacterByGuid(ulong guid)
     {
-        if (guid == 0) { return null; }
+        if (guid == 0)
+        {
+            return null;
+        }
 
         if (!RulesetEntity.TryGetEntity<RulesetEntity>(guid, out var entity))
         {
@@ -74,18 +75,24 @@ internal static class EffectHelpers
     internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
     {
         var summons = new List<RulesetCharacter>();
-        if (effect == null) { return summons; }
+
+        if (effect == null)
+        {
+            return summons;
+        }
 
         foreach (var conditionGuid in effect.trackedConditionGuids)
         {
-            if (RulesetEntity.TryGetEntity<RulesetCondition>(conditionGuid, out var condition)
-                && condition.Name == RuleDefinitions.ConditionConjuredCreature)
+            if (!RulesetEntity.TryGetEntity<RulesetCondition>(conditionGuid, out var condition)
+                || condition.Name != RuleDefinitions.ConditionConjuredCreature)
             {
-                if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var creature)
-                    && creature != null)
-                {
-                    summons.TryAdd(creature);
-                }
+                continue;
+            }
+
+            if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var creature)
+                && creature != null)
+            {
+                summons.TryAdd(creature);
             }
         }
 
@@ -94,7 +101,10 @@ internal static class EffectHelpers
 
     internal static RulesetCharacter GetCharacterByEffectGuid(ulong guid)
     {
-        if (guid == 0) { return null; }
+        if (guid == 0)
+        {
+            return null;
+        }
 
         if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
         {
@@ -111,7 +121,10 @@ internal static class EffectHelpers
 
     internal static (RulesetCharacter, BaseDefinition) GetCharacterAndSourceDefinitionByEffectGuid(ulong guid)
     {
-        if (guid == 0) { return (null, null); }
+        if (guid == 0)
+        {
+            return (null, null);
+        }
 
         if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
         {

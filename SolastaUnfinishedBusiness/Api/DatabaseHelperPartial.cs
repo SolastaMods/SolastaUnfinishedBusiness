@@ -14,13 +14,13 @@ internal static partial class DatabaseHelper
         if (db == null)
         {
             throw new SolastaUnfinishedBusinessException(
-                $"Database of type {typeof(T).Name} not found.");
+                $"{typeof(T).Name} not found.");
         }
 
         if (!db.TryGetElement(key, out var definition))
         {
             throw new SolastaUnfinishedBusinessException(
-                $"Definition with name={key} not found in database {typeof(T).Name}.");
+                $"{key} not found in database {typeof(T).Name}.");
         }
 
         return definition;

@@ -25,7 +25,7 @@ public static class UserGadgetPatcher
             var myDungeonMakerPresenceMethod =
                 new Func<MonsterDefinition, MonsterDefinition.DungeonMaker>(DungeonMakerPresence).Method;
 
-            return instructions.ReplaceAllCalls(dungeonMakerPresenceMethod,
+            return instructions.ReplaceCalls(dungeonMakerPresenceMethod,
                 new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod));
         }
     }

@@ -83,7 +83,6 @@ internal static class PugilistHelper
 
         return instructions.ReplaceCode(instruction => $"{instruction.operand}".Contains("IsWearingShield"),
             -1,
-            0,
             new CodeInstruction(OpCodes.Call, customMethod));
     }
 }

@@ -609,7 +609,7 @@ public static class RulesetCharacterPatcher
 
             return instructions
                 // first call to roll die checks the initiator
-                .ReplaceCalls(rollDieMethod,
+                .ReplaceCall(rollDieMethod,
                     1,
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
                     new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
@@ -619,7 +619,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
-                .ReplaceCalls(rollDieMethod,
+                .ReplaceCall(rollDieMethod,
                     1, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
@@ -649,7 +649,6 @@ public static class RulesetCharacterPatcher
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
                 -1,
-                0,
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -835,7 +834,7 @@ public static class RulesetCharacterPatcher
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
 
-            return instructions.ReplaceAllCalls(bind,
+            return instructions.ReplaceCalls(bind,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, maxUses));
         }
@@ -853,7 +852,7 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
-            return instructions.ReplaceAllCalls(restoreAllSpellSlotsMethod,
+            return instructions.ReplaceCalls(restoreAllSpellSlotsMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
@@ -965,7 +964,7 @@ public static class RulesetCharacterPatcher
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
-            return instructions.ReplaceAllCalls(isFunctionAvailable,
+            return instructions.ReplaceCalls(isFunctionAvailable,
                 new CodeInstruction(OpCodes.Call, customMethod));
         }
 
