@@ -67,16 +67,16 @@ public class MirrorImageLogic
         var replaced = false;
         var method = new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(GetAC).Method;
 
-        foreach (var code in instructions)
+        foreach (var instruction in instructions)
         {
-            var operand = $"{code.operand}";
+            var operand = $"{instruction.operand}";
 
-            if (code.opcode == OpCodes.Ldstr && operand.Contains(AttributeDefinitions.ArmorClass))
+            if (instruction.opcode == OpCodes.Ldstr && operand.Contains(AttributeDefinitions.ArmorClass))
             {
                 foundAC = true;
-                yield return code;
+                yield return instruction;
             }
-            else if (foundAC && !replaced && code.opcode == OpCodes.Callvirt &&
+            else if (foundAC && !replaced && instruction.opcode == OpCodes.Callvirt &&
                      operand.Contains("get_CurrentValue"))
             {
                 yield return new CodeInstruction(OpCodes.Ldarg_2);
@@ -86,7 +86,7 @@ public class MirrorImageLogic
             }
             else
             {
-                yield return code;
+                yield return instruction;
             }
         }
 

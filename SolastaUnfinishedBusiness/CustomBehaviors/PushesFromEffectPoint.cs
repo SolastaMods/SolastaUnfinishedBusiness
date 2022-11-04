@@ -24,9 +24,9 @@ internal sealed class PushesFromEffectPoint
                 List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
                 CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
 
-        foreach (var code in instructions)
+        foreach (var instruction in instructions)
         {
-            var operand = $"{code.operand}";
+            var operand = $"{instruction.operand}";
 
             if (operand.Contains("ApplyEffectForms"))
             {
@@ -35,7 +35,7 @@ internal sealed class PushesFromEffectPoint
             }
             else
             {
-                yield return code;
+                yield return instruction;
             }
         }
     }

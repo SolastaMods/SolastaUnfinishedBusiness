@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -52,19 +53,20 @@ public static class FunctorTeleportPatcher
             var characterField =
                 typeof(FunctorTeleport).GetField("'<index>5__4'", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            foreach (var instruction in instructions)
+            var code = instructions.ToList();
+            var bindIndex = code.FindIndex(x => x.Calls(teleportCharacterMethod));
+
+            if (bindIndex >= 0)
             {
-                yield return instruction;
-
-                if (!instruction.Calls(teleportCharacterMethod))
-                {
-                    continue;
-                }
-
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Ldfld, characterField);
-                yield return new CodeInstruction(OpCodes.Call, followCharacterOnTeleportMethod);
+                code.InsertRange(bindIndex,
+                    new CodeInstruction[]
+                    {
+                        new(OpCodes.Call, teleportCharacterMethod), new(OpCodes.Ldarg_0),
+                        new(OpCodes.Ldfld, characterField), new(OpCodes.Call, followCharacterOnTeleportMethod)
+                    });
             }
+
+            return code;
         }
     }
 }
