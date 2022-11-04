@@ -360,14 +360,12 @@ internal static class CharacterInspectionScreenEnhancement
         return instructions
             .ReplaceAllCalls(enumerateClassBadgesMethod,
                 new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
-            .ReplaceCode(instruction => instruction.Calls(containsMethod),
+            .ReplaceCalls(containsMethod,
                 2,
-                0,
                 new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                 new CodeInstruction(OpCodes.Call, containsMethod))
-            .ReplaceCode(instruction => instruction.Calls(containsMethod),
+            .ReplaceCalls(containsMethod,
                 2,
-                0,
                 new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                 new CodeInstruction(OpCodes.Call, containsMethod));
     }

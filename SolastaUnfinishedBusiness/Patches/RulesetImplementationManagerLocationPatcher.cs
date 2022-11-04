@@ -159,9 +159,8 @@ public static class RulesetImplementationManagerLocationPatcher
             var extendInflictConditionMethod =
                 typeof(ApplySummonForm_Patch).GetMethod("ExtendInflictCondition");
 
-            return instructions.ReplaceCode(instruction => instruction.Calls(inflictConditionMethod),
+            return instructions.ReplaceCalls(inflictConditionMethod,
                 3,
-                0,
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos),
                 new CodeInstruction(OpCodes.Call, extendInflictConditionMethod));

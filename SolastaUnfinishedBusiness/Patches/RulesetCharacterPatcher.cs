@@ -613,9 +613,8 @@ public static class RulesetCharacterPatcher
 
             return instructions
                 // first call to roll die checks the initiator
-                .ReplaceCode(instruction => instruction.Calls(rollDieMethod),
+                .ReplaceCalls(rollDieMethod,
                     1,
-                    0,
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
                     new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
                     new CodeInstruction(OpCodes.Ldarg, 3), // abilityScoreName
@@ -624,9 +623,8 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
-                .ReplaceCode(instruction => instruction.Calls(rollDieMethod),
+                .ReplaceCalls(rollDieMethod,
                     1, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
-                    0,
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
                     new CodeInstruction(OpCodes.Ldarg, 9), // opponentAbilityScoreName
