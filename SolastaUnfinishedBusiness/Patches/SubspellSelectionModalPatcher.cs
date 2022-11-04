@@ -32,7 +32,7 @@ public static class SubspellSelectionModalPatcher
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces available subspell list with additional higher level elemental/fey
-            return UpcastConjureElementalAndFey.ReplaceSubSpellList(instructions).ToList();
+            return UpcastConjureElementalAndFey.ReplaceSubSpellList(instructions);
         }
     }
 }

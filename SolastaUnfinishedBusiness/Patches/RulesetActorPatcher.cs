@@ -71,6 +71,7 @@ public static class RulesetActorPatcher
             foreach (var instruction in instructions)
             {
                 var operand = $"{instruction.operand}";
+
                 if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IDamageAffinityProvider"))
                 {
                     yield return new CodeInstruction(OpCodes.Call, myEnumerate);
@@ -124,19 +125,10 @@ public static class RulesetActorPatcher
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(rollDieMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this (RulesetActor)
-                    yield return new CodeInstruction(OpCodes.Ldarg_2); // rollContext
-                    yield return new CodeInstruction(OpCodes.Call, myRollDieMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(rollDieMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Call, myRollDieMethod));
         }
 
         public static int RollDie(

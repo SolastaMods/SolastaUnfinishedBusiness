@@ -616,6 +616,7 @@ public static class RulesetCharacterPatcher
             {
                 if (instruction.Calls(rollDieMethod))
                 {
+#if false
                     ++found;
 
                     switch (found)
@@ -641,6 +642,15 @@ public static class RulesetCharacterPatcher
 
                             break;
                     }
+#endif
+                    // optimized version
+                    for (var i = 1; i <= 6; i++)
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg, found  * 6 + i);
+                    }
+
+                    found++;
+                    // end optimized version
 
                     yield return new CodeInstruction(OpCodes.Call, extendedRollDieMethod);
                 }
