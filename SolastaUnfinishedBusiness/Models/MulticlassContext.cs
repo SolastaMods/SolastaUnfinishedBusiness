@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -244,16 +243,31 @@ internal static class MulticlassContext
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
         var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
+        var instructionsToBypass = 0;
 
-        return instructions
-            .ReplaceAllCode(instruction => instruction.Calls(classesAndLevelsMethod),
-                -1,
-                2,
-                new CodeInstruction(OpCodes.Call, getClassLevelMethod))
-            .ReplaceAllCode(instruction => instruction.Calls(classesAndLevelsMethod),
-                -1,
-                1,
-                new CodeInstruction(OpCodes.Call, classesHistoryMethod));
+        foreach (var instruction in instructions)
+        {
+            if (instructionsToBypass > 0)
+            {
+                instructionsToBypass--;
+            }
+            else if (instruction.Calls(classesAndLevelsMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+
+                instructionsToBypass = 2; // bypasses the [] and the classDefinition index
+            }
+            else if (instruction.Calls(classesHistoryMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+
+                instructionsToBypass = 1; // bypasses the count
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
     }
 
     private static void PatchClassLevel()
