@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -80,18 +81,9 @@ public static class GuiCharacterPatcher
             var getSlotsNumberMethod = typeof(RulesetSpellRepertoire).GetMethod("GetSlotsNumber");
             var myGetSlotsNumberMethod = typeof(DisplayUniqueLevelSpellSlots_Patch).GetMethod("GetSlotsNumber");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(getSlotsNumberMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, myGetSlotsNumberMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(getSlotsNumberMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myGetSlotsNumberMethod));
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -23,19 +24,10 @@ public static class ItemMenuModalPatcher
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = new Func<ItemMenuModal, bool>(RequiresDeity).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(requiresDeityMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Pop);
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, myRequiresDeityMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(requiresDeityMethod,
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myRequiresDeityMethod));
         }
     }
 }

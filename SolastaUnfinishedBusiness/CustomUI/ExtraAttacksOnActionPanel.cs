@@ -24,7 +24,7 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromGuiAction).Method;
 
-        return TranspileHelper.ReplaceCodeCall(instructions, findAttacks,
+        return instructions.ReplaceCall(findAttacks,
             new CodeInstruction(OpCodes.Ldarg_2),
             new CodeInstruction(OpCodes.Call, method));
     }
@@ -57,7 +57,7 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromForcedAttack).Method;
 
-        return TranspileHelper.ReplaceCodeCall(instructions, findAttacks,
+        return instructions.ReplaceCall(findAttacks,
             new CodeInstruction(OpCodes.Ldarg_2),
             new CodeInstruction(OpCodes.Call, method));
     }

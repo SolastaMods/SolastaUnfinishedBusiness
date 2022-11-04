@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -21,18 +22,9 @@ public static class UserCampaignPoolManagerPatcher
             var deleteMethod = typeof(File).GetMethod("Delete");
             var backupAndDeleteMethod = new Action<string, UserContent>(DmProEditorContext.BackupAndDelete).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(deleteMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    yield return new CodeInstruction(OpCodes.Call, backupAndDeleteMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(deleteMethod,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, backupAndDeleteMethod));
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -22,17 +23,8 @@ public static class GameLocationPositioningManagerPatcher
             var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
                 Type.DefaultBinder, new[] { typeof(string) }, null);
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(logErrorMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Pop);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(logErrorMethod,
+                new CodeInstruction(OpCodes.Pop));
         }
     }
 }

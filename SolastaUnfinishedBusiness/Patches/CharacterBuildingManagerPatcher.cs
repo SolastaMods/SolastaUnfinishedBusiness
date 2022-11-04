@@ -481,13 +481,13 @@ public static class CharacterBuildingManagerPatcher
             var myPreferedHairColorsColorsMethod =
                 new Func<RacePresentation, CharacterHeroBuildingData, RangedInt>(PreferedHairColors).Method;
 
-            instructions = TranspileHelper.ReplaceCodeCall(instructions, preferedSkinColorsMethod,
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod));
-
-            return TranspileHelper.ReplaceCodeCall(instructions, preferedHairColorsColorsMethod,
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
+            return instructions
+                .ReplaceCall(preferedSkinColorsMethod,
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod))
+                .ReplaceCall(preferedHairColorsColorsMethod,
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
         }
     }
 }

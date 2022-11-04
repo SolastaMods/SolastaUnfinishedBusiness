@@ -7,6 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using Photon.Pun;
 using Photon.Realtime;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,17 +39,8 @@ public static class NetworkingManagerPatcher
                 typeof(PhotonNetwork).GetMethod("CreateRoom", BindingFlags.Public | BindingFlags.Static);
             var myCreateRoomMethod = new Func<string, RoomOptions, TypedLobby, string[], bool>(CreateRoom).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(createRoomMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, myCreateRoomMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(createRoomMethod,
+                new CodeInstruction(OpCodes.Call, myCreateRoomMethod));
         }
     }
 }

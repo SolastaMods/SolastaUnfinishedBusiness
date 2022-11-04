@@ -45,7 +45,7 @@ public static class ArchetypesPreviewModalPatcher
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
             var myLevelMethod = new Func<FeatureUnlockByLevel, int>(Level).Method;
 
-            return TranspileHelper.ReplaceCodeCall(instructions, levelMethod,
+            return instructions.ReplaceCall(levelMethod,
                 new CodeInstruction(OpCodes.Call, myLevelMethod));
         }
     }

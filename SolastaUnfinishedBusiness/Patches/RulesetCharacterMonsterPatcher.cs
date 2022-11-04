@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -42,16 +43,10 @@ public static class RulesetCharacterMonsterPatcher
             var refreshAttributeModifiers =
                 typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
-            foreach (var code in instructions)
-            {
-                if (code.Calls(refreshAttributes))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, refreshAttributeModifiers);
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                }
-
-                yield return code;
-            }
+            return instructions.ReplaceCall(refreshAttributes,
+                new CodeInstruction(OpCodes.Call, refreshAttributeModifiers),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, refreshAttributes));
         }
     }
 

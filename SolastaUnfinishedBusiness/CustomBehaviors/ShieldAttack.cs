@@ -32,11 +32,11 @@ internal static class ShieldAttack
         var customWeaponDescription = new Func<ItemDefinition, WeaponDescription>(CustomWeaponDescription).Method;
         var customIsWeapon = new Func<ItemDefinition, bool>(CustomIsWeapon).Method;
 
-        instructions = TranspileHelper.ReplaceCodeCall(instructions, weaponDescription,
-            new CodeInstruction(OpCodes.Call, customWeaponDescription));
-
-        return TranspileHelper.ReplaceCodeCall(instructions, isWeapon,
-            new CodeInstruction(OpCodes.Call, customIsWeapon));
+        return instructions
+            .ReplaceCall(weaponDescription,
+                new CodeInstruction(OpCodes.Call, customWeaponDescription))
+            .ReplaceCall(isWeapon,
+                new CodeInstruction(OpCodes.Call, customIsWeapon));
     }
 
     private static WeaponDescription CustomWeaponDescription(ItemDefinition item)
@@ -53,9 +53,15 @@ internal static class ShieldAttack
 
     internal static bool IsMagicShield(RulesetItem shield)
     {
-        if (shield == null) { return false; }
+        if (shield == null)
+        {
+            return false;
+        }
 
-        if (shield.ItemDefinition.Magical) { return true; }
+        if (shield.ItemDefinition.Magical)
+        {
+            return true;
+        }
 
         var features = new List<FeatureDefinition>();
 

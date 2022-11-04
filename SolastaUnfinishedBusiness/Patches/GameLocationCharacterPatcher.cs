@@ -202,7 +202,7 @@ public static class GameLocationCharacterPatcher
             // Removes check that makes `ShoveBonus` action unavailable if character has no shield
             Pugilist.RemoveShieldRequiredForBonusPush(codes);
 
-            return codes.AsEnumerable();
+            return codes;
         }
 
         public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,14 +44,10 @@ public static class FeatSubPanelPatcher
             var forceSameWidthMethod =
                 new Action<RectTransform, bool, FeatSubPanel>(FeatsContext.ForceSameWidth).Method;
 
-            var code = instructions.ToList();
-            var index = code.FindIndex(x => x.Calls(forceRebuildLayoutImmediateMethod));
-
-            code[index] = new CodeInstruction(OpCodes.Ldarg_1);
-            code.Insert(index + 1, new CodeInstruction(OpCodes.Call, forceSameWidthMethod));
-            code.Insert(index + 1, new CodeInstruction(OpCodes.Ldarg_0));
-
-            return code;
+            return instructions.ReplaceCall(forceRebuildLayoutImmediateMethod,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, forceSameWidthMethod));
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -23,23 +22,21 @@ public static class CharacterReactionItemPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
+            var bind = typeof(CharacterReactionSubitem).GetMethod("Bind",
+                BindingFlags.Public | BindingFlags.Instance);
             var customBindMethod =
                 new Action<CharacterReactionSubitem, RulesetSpellRepertoire, int, string, bool,
                     CharacterReactionSubitem.SubitemSelectedHandler, ReactionRequest>(CustomBind).Method;
 
-            var bind = typeof(CharacterReactionSubitem).GetMethod("Bind",
-                BindingFlags.Public | BindingFlags.Instance);
+            return instructions
+                .ReplaceCall(bind,
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, customBindMethod))
 
-            var codes = TranspileHelper.ReplaceCodeCall(instructions, bind,
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, customBindMethod)).ToList();
-
-            //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
-            //this assert was added in 1.4.5 and triggers if non-spell caster does AoO
-            //happens because we replaced default AoO reaction with warcaster one, so they would merge properly when several are triggered at once
-            TranspileHelper.RemoveBoolAsserts(codes);
-
-            return codes.AsEnumerable();
+                //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
+                //this assert was added in 1.4.5 and triggers if non-spell caster does AoO
+                //happens because we replaced default AoO reaction with warcaster one, so they would merge properly when several are triggered at once
+                .RemoveBoolAsserts();
         }
 
         public static void Postfix([NotNull] CharacterReactionItem __instance)

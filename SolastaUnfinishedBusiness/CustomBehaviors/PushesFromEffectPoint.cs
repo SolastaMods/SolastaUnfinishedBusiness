@@ -27,6 +27,7 @@ internal sealed class PushesFromEffectPoint
         foreach (var code in instructions)
         {
             var operand = $"{code.operand}";
+
             if (operand.Contains("ApplyEffectForms"))
             {
                 yield return new CodeInstruction(OpCodes.Ldarg_0);

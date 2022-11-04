@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -32,18 +33,9 @@ public static class SlotStatusTablePatcher
             var myUniqueLevelSlotsMethod =
                 new Func<FeatureDefinitionCastSpell, RulesetSpellRepertoire, bool>(UniqueLevelSlots).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(uniqueLevelSlotsMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    yield return new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(uniqueLevelSlotsMethod,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
         }
 
         //PATCH: creates different slots colors and pop up messages depending on slot types

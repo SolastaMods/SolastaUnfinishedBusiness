@@ -8,6 +8,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -857,22 +858,13 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: Makes powers that have their max usage extended by pool modifiers show up correctly during rest
             //replace calls to MaxUses getter to custom method that accounts for extended power usage
-            var codes = instructions.ToList();
+            var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
 
-            var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
-            var bindIndex = codes.FindIndex(x => x.Calls(bind));
-
-            if (bindIndex <= 0)
-            {
-                return codes.AsEnumerable();
-            }
-
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, maxUses);
-            codes.Insert(bindIndex, new CodeInstruction(OpCodes.Ldarg_0));
-
-            return codes.AsEnumerable();
+            return instructions.ReplaceCall(bind,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, maxUses));
         }
     }
 
@@ -887,20 +879,11 @@ public static class RulesetCharacterPatcher
                 new Action<RulesetSpellRepertoire, RulesetCharacter, RuleDefinitions.RestType>(RestoreAllSpellSlots)
                     .Method;
 
-            foreach (var instruction in instructions)
-            {
-                //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
-                if (instruction.Calls(restoreAllSpellSlotsMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // rulesetCharacter
-                    yield return new CodeInstruction(OpCodes.Ldarg_1); // restType
-                    yield return new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
+            return instructions.ReplaceCall(restoreAllSpellSlotsMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
         }
 
         private static void RestoreAllSpellSlots(
@@ -1009,17 +992,8 @@ public static class RulesetCharacterPatcher
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(isFunctionAvailable))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, customMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(isFunctionAvailable,
+                new CodeInstruction(OpCodes.Call, customMethod));
         }
 
         [UsedImplicitly]

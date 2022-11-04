@@ -9,19 +9,17 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class TranspileHelper
 {
-    public static IEnumerable<CodeInstruction> ReplaceCodeCall(
-        IEnumerable<CodeInstruction> instructions,
-        MethodInfo calledMethod,
+    public static IEnumerable<CodeInstruction> ReplaceCall(
+        this IEnumerable<CodeInstruction> instructions,
+        MethodInfo methodInfo,
         params CodeInstruction[] codeInstructions)
     {
         var code = instructions.ToList();
-        var bindIndex = code.FindIndex(x => x.Calls(calledMethod));
+        var bindIndex = code.FindIndex(x => x.Calls(methodInfo));
 
         if (bindIndex <= 0)
         {
-            //TODO: improve this error message
-            Main.Error("cannot find code to replace.");
-            return code;
+            throw new Exception();
         }
 
         for (var i = 0; i < codeInstructions.Length; i++)
@@ -34,15 +32,18 @@ internal static class TranspileHelper
         return code;
     }
 
-    internal static void RemoveBoolAsserts(List<CodeInstruction> codes)
+    internal static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
     {
         int assertIndex;
         var noAssert = new Action<bool>(NoAssert).Method;
+        var code = instructions.ToList();
 
-        while ((assertIndex = GetNextAssert(codes, typeof(bool))) >= 0)
+        while ((assertIndex = GetNextAssert(code, typeof(bool))) >= 0)
         {
-            codes[assertIndex] = new CodeInstruction(OpCodes.Call, noAssert);
+            code[assertIndex] = new CodeInstruction(OpCodes.Call, noAssert);
         }
+
+        return code;
     }
 
     private static int GetNextAssert(List<CodeInstruction> codes, params Type[] types)

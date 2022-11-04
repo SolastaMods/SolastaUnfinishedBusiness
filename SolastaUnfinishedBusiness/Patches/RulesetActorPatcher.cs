@@ -8,6 +8,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -281,16 +282,10 @@ public static class RulesetActorPatcher
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var custom = new Action<RulesetActor>(RefreshClassModifiers).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(refreshAttributes))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, custom);
-                }
-
-                yield return instruction;
-            }
+            return instructions.ReplaceCall(refreshAttributes,
+                new CodeInstruction(OpCodes.Call, custom),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, refreshAttributes));
         }
     }
 }

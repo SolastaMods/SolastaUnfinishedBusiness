@@ -117,7 +117,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            return TranspileHelper.ReplaceCodeCall(instructions, levelMethod,
+            return instructions.ReplaceCall(levelMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
@@ -43,7 +42,7 @@ public static class CharacterInformationPanelPatcher
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: overrides the selected class search term with the one determined by the hotkeys / enumerate class badges logic
-            return CharacterInspectionScreenEnhancement.EnableClassSelector(instructions).ToList();
+            return CharacterInspectionScreenEnhancement.EnableClassSelector(instructions);
         }
     }
 }

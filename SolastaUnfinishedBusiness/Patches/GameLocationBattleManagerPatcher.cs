@@ -52,7 +52,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: Makes only preferred cantrip valid if it is selected and forced
             CustomReactionsContext.ForcePreferredCantripUsage(codes);
 
-            return codes.AsEnumerable();
+            return codes;
         }
     }
 

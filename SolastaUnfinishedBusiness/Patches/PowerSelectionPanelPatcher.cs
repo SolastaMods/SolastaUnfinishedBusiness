@@ -37,7 +37,7 @@ public static class PowerSelectionPanelPatcher
                 }
             );
 
-            return codes.AsEnumerable();
+            return codes;
         }
 
         //PATCH: remove invalid powers from display using our custom validators

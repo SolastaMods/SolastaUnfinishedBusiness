@@ -38,7 +38,7 @@ public static class CharacterStageSpellSelectionPanelPatcher
                 CharacterStageSpellSelectionPanel // panel
             >(MulticlassGameUiContext.SpellsByLevelGroupBindLearning).Method;
 
-            return TranspileHelper.ReplaceCodeCall(instructions, bindMethod,
+            return instructions.ReplaceCall(bindMethod,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, customBind));
         }

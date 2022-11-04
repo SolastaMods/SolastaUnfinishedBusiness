@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -74,19 +75,10 @@ public static class CursorLocationGeometricShapePatcher
             var myUpdateCubePositionRegularMethod =
                 typeof(UpdateGeometricShape_Patch).GetMethod("MyUpdateCubePosition_Regular");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(updateCubePositionRegularMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this
-                    yield return new CodeInstruction(OpCodes.Ldfld, targetParameter2Field);
-                    yield return new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(updateCubePositionRegularMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, targetParameter2Field),
+                new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod));
         }
     }
 
@@ -211,19 +203,10 @@ public static class CursorLocationGeometricShapePatcher
             var myCubeContainsPointRegularMethod =
                 typeof(DoesShapeContainPoint_Patch).GetMethod("MyCubeContainsPoint_Regular");
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(cubeContainsPointRegularMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // this
-                    yield return new CodeInstruction(OpCodes.Ldfld, geometricParameter2Field);
-                    yield return new CodeInstruction(OpCodes.Call, myCubeContainsPointRegularMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCall(cubeContainsPointRegularMethod,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, geometricParameter2Field),
+                new CodeInstruction(OpCodes.Call, myCubeContainsPointRegularMethod));
         }
     }
 }
