@@ -14,20 +14,43 @@ internal static class TranspileHelper
         MethodInfo methodInfo,
         params CodeInstruction[] codeInstructions)
     {
+        return instructions.ReplaceCode(x => x.Calls(methodInfo), 0, codeInstructions);
+    }
+
+    public static IEnumerable<CodeInstruction> ReplaceCall(
+        this IEnumerable<CodeInstruction> instructions,
+        MethodInfo methodInfo,
+        int bypass,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCode(x => x.Calls(methodInfo), bypass, codeInstructions);
+    }
+
+    public static IEnumerable<CodeInstruction> ReplaceCode(
+        this IEnumerable<CodeInstruction> instructions,
+        Predicate<CodeInstruction> match,
+        int bypass,
+        params CodeInstruction[] codeInstructions)
+    {
         var code = instructions.ToList();
-        var bindIndex = code.FindIndex(x => x.Calls(methodInfo));
+        var bindIndex = code.FindIndex(match);
 
         if (bindIndex <= 0)
         {
             throw new Exception();
         }
 
-        for (var i = 0; i < codeInstructions.Length; i++)
+        while (bindIndex >= 0)
         {
-            code.Insert(bindIndex + i, codeInstructions[i]);
-        }
+            for (var i = 0; i < codeInstructions.Length; i++)
+            {
+                code.Insert(bindIndex + i, codeInstructions[i]);
+            }
 
-        code.RemoveAt(bindIndex + codeInstructions.Length);
+            code.RemoveAt(bindIndex + codeInstructions.Length);
+
+            bindIndex = code.FindIndex(bindIndex + codeInstructions.Length, match);
+        }
 
         return code;
     }

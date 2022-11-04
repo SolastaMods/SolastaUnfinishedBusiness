@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -73,18 +74,11 @@ public static class GameLocationManagerPatcher
             //PATCH: prevent some effects from being removed when entering new location
             var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    yield return new CodeInstruction(OpCodes.Call, maybeTerminate);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCode(instruction =>
+                    instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"),
+                0,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, maybeTerminate));
         }
 
         private static void MaybeTerminate([NotNull] RulesetEffect effect, bool self, bool willEnterChainedLocation)

@@ -58,7 +58,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
 
             foreach (var instruction in instructions)
             {
-                // find first call to Gui.Format and replace it with oour custom method
+                // find first call to Gui.Format and replace it with our custom method
                 if (instruction.Calls(formatMethod) && ++found == 1)
                 {
                     yield return new CodeInstruction(OpCodes.Pop);

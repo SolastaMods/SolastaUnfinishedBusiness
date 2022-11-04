@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -23,6 +24,19 @@ internal sealed class PushesFromEffectPoint
             new Func<IRulesetImplementationService, List<EffectForm>, RulesetImplementationDefinitions.ApplyFormsParams,
                 List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
                 CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
+
+        var code = instructions.ToList();
+        var bindIndex = code.FindIndex(x => x.operand.ToString().Contains("ApplyEffectForms"));
+
+        if (bindIndex >= 0)
+        {
+            code.InsertRange(bindIndex,
+                new CodeInstruction[] { new(OpCodes.Ldarg_0), new(OpCodes.Call, method) });
+
+            code.RemoveAt(bindIndex);
+        }
+
+        //return code;
 
         foreach (var instruction in instructions)
         {

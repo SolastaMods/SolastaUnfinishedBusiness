@@ -68,19 +68,11 @@ public static class RulesetActorPatcher
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(MyEnumerate).Method;
 
-            foreach (var instruction in instructions)
-            {
-                var operand = $"{instruction.operand}";
-
-                if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IDamageAffinityProvider"))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, myEnumerate);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCode(instruction =>
+                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse")
+                    && instruction.operand.ToString().Contains("IDamageAffinityProvider"),
+                0,
+                new CodeInstruction(OpCodes.Call, myEnumerate));
         }
 
         private static void MyEnumerate(

@@ -58,7 +58,7 @@ public static class FunctorTeleportPatcher
 
             if (bindIndex >= 0)
             {
-                code.InsertRange(bindIndex,
+                code.InsertRange(bindIndex + 1,
                     new CodeInstruction[]
                     {
                         new(OpCodes.Call, teleportCharacterMethod), new(OpCodes.Ldarg_0),

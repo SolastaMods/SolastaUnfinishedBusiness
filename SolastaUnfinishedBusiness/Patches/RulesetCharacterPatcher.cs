@@ -646,7 +646,7 @@ public static class RulesetCharacterPatcher
                     // optimized version
                     for (var i = 1; i <= 6; i++)
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg, found  * 6 + i);
+                        yield return new CodeInstruction(OpCodes.Ldarg, (found * 6) + i);
                     }
 
                     found++;
@@ -675,19 +675,12 @@ public static class RulesetCharacterPatcher
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(CustomEnumerate).Method;
 
-            foreach (var instruction in instructions)
-            {
-                //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-                if (instruction.opcode == OpCodes.Callvirt &&
-                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, enumerate);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceCode(instruction =>
+                    instruction.opcode == OpCodes.Callvirt &&
+                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
+                0,
+                new CodeInstruction(OpCodes.Call, enumerate));
         }
 
         private static void CustomEnumerate(

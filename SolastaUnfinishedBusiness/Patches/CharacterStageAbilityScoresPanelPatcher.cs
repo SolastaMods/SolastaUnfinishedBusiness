@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -15,25 +16,16 @@ public static class CharacterStageAbilityScoresPanelPatcher
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            foreach (var instruction in instructions)
+            if (!Main.Settings.EnableEpicPointsAndArray)
             {
-                if (Main.Settings.EnableEpicPointsAndArray)
-                {
-                    if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                        CharacterContext.GameBuyPoints.ToString())
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                return instructions;
             }
+
+            return instructions.ReplaceCode(
+                instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
+                               instruction.operand.ToString() == CharacterContext.GameBuyPoints.ToString(),
+                0,
+                new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints));
         }
     }
 
@@ -44,35 +36,24 @@ public static class CharacterStageAbilityScoresPanelPatcher
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            foreach (var instruction in instructions)
+            if (Main.Settings.EnableEpicPointsAndArray)
             {
-                if (Main.Settings.EnableEpicPointsAndArray)
-                {
-                    if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
-                        CharacterContext.GameBuyPoints.ToString())
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints);
-                    }
-                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                             CharacterContext.GameBuyPoints.ToString())
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints);
-                    }
-                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
-                             CharacterContext.GameMaxAttribute.ToString())
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModMaxAttribute);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                return instructions;
             }
+
+            return instructions
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
+                        CharacterContext.GameBuyPoints.ToString(),
+                    0,
+                    new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints))
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
+                        CharacterContext.GameBuyPoints.ToString(),
+                    0,
+                    new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints))
+                .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() ==
+                        CharacterContext.GameMaxAttribute.ToString(),
+                    0,
+                    new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModMaxAttribute));
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using TMPro;
 using UnityEngine;
 
@@ -19,18 +20,10 @@ public static class AttunementModalPatcher
         {
             var method = new Func<AttunementModal, int>(GetLimit).Method;
 
-            foreach (var instruction in instructions)
-            {
-                if (instruction.opcode == OpCodes.Ldc_I4_3)
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, method);
-                }
-                else
-                {
-                    yield return instruction;
-                }
-            }
+            return instructions.ReplaceCode(x => x.opcode == OpCodes.Ldc_I4_3,
+                0,
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, method));
         }
 
         public static void Postfix(AttunementModal __instance)
