@@ -45,6 +45,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSortingFeats { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
+    public bool EnableSortingRaces { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
 #if DEBUG
     public bool EnableSortingFutureFeatures { get; set; }

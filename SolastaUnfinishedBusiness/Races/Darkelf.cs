@@ -158,7 +158,6 @@ internal static class DarkelfSubraceBuilder
                 PowerDarkelfDarkness)
             .AddToDB();
 
-        raceDarkelf.GuiPresentation.sortOrder = ElfSylvan.GuiPresentation.sortOrder + 1;
         raceDarkelf.subRaces.Clear();
         Elf.SubRaces.Add(raceDarkelf);
 

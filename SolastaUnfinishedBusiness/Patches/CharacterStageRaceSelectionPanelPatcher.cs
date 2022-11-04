@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -9,7 +10,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageRaceSelectionPanelPatcher
 {
-#if false
     //PATCH: sorts the races panel by Title
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -24,7 +24,6 @@ public static class CharacterStageRaceSelectionPanelPatcher
             }
         }
     }
-#endif
 
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -46,7 +46,7 @@ internal static class KoboldRaceBuilder
         {
             BuildDarkKobold(raceKobold), BuildDraconicKobold(raceKobold)
         });
-        raceKobold.GuiPresentation.sortOrder = Elf.GuiPresentation.sortOrder + 1;
+
         RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
