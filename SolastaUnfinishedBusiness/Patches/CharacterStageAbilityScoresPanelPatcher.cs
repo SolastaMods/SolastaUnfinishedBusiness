@@ -49,14 +49,14 @@ public static class CharacterStageAbilityScoresPanelPatcher
                     0,
                     new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
-                                               instruction.operand.ToString() ==
-                                               CharacterContext.GameBuyPoints.ToString(),
+                                            instruction.operand.ToString() ==
+                                            CharacterContext.GameBuyPoints.ToString(),
                     -1,
                     0,
                     new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
-                                               instruction.operand.ToString() ==
-                                               CharacterContext.GameMaxAttribute.ToString(),
+                                            instruction.operand.ToString() ==
+                                            CharacterContext.GameMaxAttribute.ToString(),
                     -1,
                     0,
                     new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModMaxAttribute));

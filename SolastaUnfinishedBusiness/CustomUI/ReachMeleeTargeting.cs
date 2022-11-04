@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -14,23 +15,17 @@ internal static class ReachMeleeTargeting
     internal static IEnumerable<CodeInstruction> ApplyCursorLocationIsValidAttackTranspile(
         IEnumerable<CodeInstruction> instructions)
     {
-        var codes = instructions.ToList();
-        var insertionIndex = codes.FindIndex(x =>
-            x.opcode == OpCodes.Call && x.operand.ToString().Contains("FindBestActionDestination"));
-
-        if (insertionIndex <= 0)
-        {
-            return codes;
-        }
-
         var method = typeof(ReachMeleeTargeting)
             .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
-        codes[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
-        codes.InsertRange(insertionIndex,
-            new[] { new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1) });
-
-        return codes;
+        return instructions.ReplaceCode(
+            instruction => instruction.opcode == OpCodes.Call &&
+                           instruction.operand.ToString().Contains("FindBestActionDestination"),
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldloc_1),
+            new CodeInstruction(OpCodes.Call, method));
     }
 
     // Used in `ApplyCursorLocationIsValidAttackTranspile`

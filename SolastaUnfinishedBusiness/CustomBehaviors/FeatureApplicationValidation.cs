@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -20,25 +19,12 @@ internal static class FeatureApplicationValidation
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
         >(EnumerateActionPerformanceProviders).Method;
 
-        var codes = instructions.ToList();
-        var bindIndex = codes.FindIndex(x =>
-        {
-            if (x.operand == null)
-            {
-                return false;
-            }
-
-            var operand = x.operand.ToString();
-
-            return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider");
-        });
-
-        if (bindIndex >= 0)
-        {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, enumerate);
-        }
-
-        return codes;
+        return instructions.ReplaceCode(instruction =>
+                $"{instruction.operand}".Contains("EnumerateFeaturesToBrowse") &&
+                $"{instruction.operand}".Contains("IActionPerformanceProvider"),
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Call, enumerate));
     }
 
     private static void EnumerateActionPerformanceProviders(
@@ -70,25 +56,12 @@ internal static class FeatureApplicationValidation
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
         >(EnumerateAdditionalActionProviders).Method;
 
-        var codes = instructions.ToList();
-        var bindIndex = codes.FindIndex(x =>
-        {
-            if (x.operand == null)
-            {
-                return false;
-            }
-
-            var operand = x.operand.ToString();
-
-            return operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IAdditionalActionsProvider");
-        });
-
-        if (bindIndex > 0)
-        {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, enumerate);
-        }
-
-        return codes;
+        return instructions.ReplaceCode(instruction =>
+                $"{instruction.operand}".Contains("EnumerateFeaturesToBrowse") &&
+                $"{instruction.operand}".Contains("IAdditionalActionsProvider"),
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Call, enumerate));
     }
 
     private static void EnumerateAdditionalActionProviders(

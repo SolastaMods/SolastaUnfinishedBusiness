@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -79,25 +79,11 @@ internal static class PugilistHelper
             return true;
         }
 
-        var codes = instructions.ToList();
         var customMethod = new Func<RulesetActor, bool>(True).Method;
-        var bindIndex = codes.FindIndex(x =>
-        {
-            if (x.operand == null)
-            {
-                return false;
-            }
 
-            var operand = x.operand.ToString();
-
-            return operand.Contains("IsWearingShield");
-        });
-
-        if (bindIndex > 0)
-        {
-            codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
-        }
-
-        return codes;
+        return instructions.ReplaceCode(instruction => $"{instruction.operand}".Contains("IsWearingShield"),
+            -1,
+            0,
+            new CodeInstruction(OpCodes.Call, customMethod));
     }
 }
