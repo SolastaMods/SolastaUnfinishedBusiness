@@ -18,7 +18,6 @@ public static class PowerSelectionPanelPatcher
     private static RectTransform _secondRow;
     private static RectTransform _thirdRow;
 
-    //TODO: REVIEW LOGGING
     [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Bind_Patch
@@ -28,15 +27,21 @@ public static class PowerSelectionPanelPatcher
             var codes = instructions.ToList();
             var powerCanceledHandler = codes.FindIndex(x =>
                 x.opcode == OpCodes.Call && x.operand.ToString().Contains("PowerCancelled"));
-
             var removePowersMethod = new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
 
-            codes.InsertRange(powerCanceledHandler + 1,
-                new List<CodeInstruction>
-                {
-                    new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
-                }
-            );
+            if (powerCanceledHandler >= 0)
+            {
+                codes.InsertRange(powerCanceledHandler + 1,
+                    new List<CodeInstruction>
+                    {
+                        new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
+                    }
+                );
+            }
+            else
+            {
+                Main.Error("PowerSelectionPanel.Bind");
+            }
 
             return codes;
         }

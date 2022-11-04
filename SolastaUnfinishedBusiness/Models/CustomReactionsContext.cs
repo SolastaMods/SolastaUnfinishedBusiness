@@ -158,7 +158,6 @@ internal static class CustomReactionsContext
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 
-    //TODO: REVIEW LOGGING
     internal static IEnumerable<CodeInstruction> ForcePreferredCantripUsage(
         this IEnumerable<CodeInstruction> instructions)
     {
@@ -197,6 +196,10 @@ internal static class CustomReactionsContext
         if (containsIndex > 0)
         {
             codes[containsIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
+        }
+        else
+        {
+            Main.Error("ForcePreferredCantripUsage");
         }
 
         return codes;

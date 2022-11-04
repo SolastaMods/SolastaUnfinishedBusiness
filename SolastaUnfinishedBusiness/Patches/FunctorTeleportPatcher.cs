@@ -46,7 +46,6 @@ public static class FunctorTeleportPatcher
             Main.Log($"Teleported: {character.Name}");
         }
 
-        //TODO: REVIEW LOGGING
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var teleportCharacterMethod = typeof(GameLocationPositioningManager).GetMethod("TeleportCharacter");
@@ -65,6 +64,10 @@ public static class FunctorTeleportPatcher
                         new(OpCodes.Call, teleportCharacterMethod), new(OpCodes.Ldarg_0),
                         new(OpCodes.Ldfld, characterField), new(OpCodes.Call, followCharacterOnTeleportMethod)
                     });
+            }
+            else
+            {
+                Main.Error("FunctorTeleport.Teleport");
             }
 
             return code;
