@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,28 +39,14 @@ public static class CharacterSelectionModalPatcher
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var bypass = 0;
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
-            foreach (var instruction in instructions)
-            {
-                if (bypass-- > 0)
-                {
-                    continue;
-                }
-
-                yield return instruction;
-
-                if (!instruction.LoadsField(levelsField))
-                {
-                    continue;
-                }
-
-                yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-
-                bypass = 2;
-            }
+            return instructions.ReplaceAllCode(instruction => instruction.LoadsField(levelsField),
+                -1,
+                2,
+                new CodeInstruction(OpCodes.Ldfld, levelsField),
+                new CodeInstruction(OpCodes.Call, myLevelMethod));
         }
     }
 }

@@ -22,6 +22,7 @@ public static class AttunementModalPatcher
 
             return instructions.ReplaceAllCode(x => x.opcode == OpCodes.Ldc_I4_3,
                 -1,
+                0,
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
         }

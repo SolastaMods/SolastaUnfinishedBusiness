@@ -146,6 +146,7 @@ public static class CharacterStageClassSelectionPanelPatcher
             return instructions.ReplaceAllCode(instruction =>
                     instruction.Calls(setActiveMethod),
                 4,
+                0,
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),

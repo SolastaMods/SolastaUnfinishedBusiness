@@ -161,6 +161,7 @@ public static class RulesetImplementationManagerLocationPatcher
 
             return instructions.ReplaceAllCode(instruction => instruction.Calls(inflictConditionMethod),
                 3,
+                0,
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos),
                 new CodeInstruction(OpCodes.Call, extendInflictConditionMethod));

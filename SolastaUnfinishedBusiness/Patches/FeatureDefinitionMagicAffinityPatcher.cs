@@ -58,6 +58,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
 
             return instructions.ReplaceAllCode(instruction => instruction.Calls(formatMethod),
                 1,
+                0,
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldarg_0),

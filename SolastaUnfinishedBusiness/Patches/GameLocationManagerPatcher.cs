@@ -77,6 +77,7 @@ public static class GameLocationManagerPatcher
             return instructions.ReplaceAllCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"),
                 -1,
+                0,
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, maybeTerminate));
         }
