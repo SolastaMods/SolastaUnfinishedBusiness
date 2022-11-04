@@ -20,7 +20,7 @@ internal static class TranspileHelper
     public static IEnumerable<CodeInstruction> ReplaceAllCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
-        int occurance,
+        int occurrence,
         int bypass,
         params CodeInstruction[] codeInstructions)
     {
@@ -35,7 +35,7 @@ internal static class TranspileHelper
 
         while (bindIndex >= 0)
         {
-            if (occurance < 0 || ++found == occurance)
+            if (occurrence < 0 || ++found == occurrence)
             {
                 for (var i = 0; i < codeInstructions.Length; i++)
                 {
