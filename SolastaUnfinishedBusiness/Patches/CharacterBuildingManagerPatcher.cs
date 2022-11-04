@@ -134,6 +134,9 @@ public static class CharacterBuildingManagerPatcher
 
             //PATCH: grants custom features
             LevelUpContext.GrantCustomFeatures(hero);
+
+            //PATCH: grants items from new classes if required
+            LevelUpContext.GrantItemsIfRequired(hero);
         }
 
         public static void Postfix([NotNull] RulesetCharacterHero hero)
@@ -143,9 +146,6 @@ public static class CharacterBuildingManagerPatcher
 
             //PATCH: adds whole list caster spells to KnownSpells collection to improve the MC spell selection UI
             LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
-
-            //PATCH: grants items from new classes if required
-            LevelUpContext.GrantItemsIfRequired(hero);
 
             //PATCH: unregisters the hero leveling up
             LevelUpContext.UnregisterHero(hero);

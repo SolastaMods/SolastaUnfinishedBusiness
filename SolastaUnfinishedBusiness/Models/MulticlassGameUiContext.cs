@@ -77,13 +77,17 @@ internal static class MulticlassGameUiContext
     {
         var spellRepertoire = __instance.SpellRepertoire;
 
+        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+            or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+        {
+            return;
+        }
+
         var hero = __instance.GuiCharacter.RulesetCharacterHero;
         var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
+        var classSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-        var classSpellLevel = spellRepertoire.spellCastingRace != null
-            ? 0
-            : SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
         SharedSpellsContext.FactorMysticArcanum(hero, spellRepertoire, ref classSpellLevel);
 
@@ -367,9 +371,9 @@ internal static class MulticlassGameUiContext
             var i = 0;
             var classesCount = hero.ClassesAndLevels.Count;
             var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
-            var sortedClasses = hero.ClassesAndLevels
-                .OrderByDescending(entry => entry.Value)
-                .ThenBy(entry => entry.Key.FormatTitle());
+            var sortedClasses = from entry in hero.ClassesAndLevels
+                orderby entry.Value descending, entry.Key.FormatTitle()
+                select entry;
 
             foreach (var kvp in sortedClasses)
             {
@@ -409,7 +413,7 @@ internal static class MulticlassGameUiContext
     [NotNull]
     internal static string GetAllClassesHitDiceLabel([NotNull] GuiCharacter character, out int dieTypeCount)
     {
-        // Assert.IsNotNull(character, nameof(character));
+        Assert.IsNotNull(character, nameof(character));
 
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;
@@ -521,15 +525,12 @@ internal static class MulticlassGameUiContext
             {
                 autoPrepareTag = feature.AutoPreparedTag;
 
-                foreach (var preparedSpellsGroup in feature.AutoPreparedSpellsGroups)
+                foreach (var spells in from preparedSpellsGroup in feature.AutoPreparedSpellsGroups
+                         from spells in preparedSpellsGroup.SpellsList
+                         where spells.SpellLevel == @group.SpellLevel
+                         select spells)
                 {
-                    foreach (var spells in preparedSpellsGroup.SpellsList)
-                    {
-                        if (spells.SpellLevel == group.SpellLevel)
-                        {
-                            group.autoPreparedSpells.Add(spells);
-                        }
-                    }
+                    group.autoPreparedSpells.Add(spells);
                 }
 
                 foreach (var autoPreparedSpell in group.autoPreparedSpells
