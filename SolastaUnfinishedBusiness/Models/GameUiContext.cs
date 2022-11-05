@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Utils;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -17,6 +16,21 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
+    // Toggle HUD components
+    internal const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
+
+    // Debug Overlay
+    internal const InputCommands.Id CtrlShiftD = (InputCommands.Id)44440005;
+
+    // Export Character
+    internal const InputCommands.Id CtrlShiftE = (InputCommands.Id)44440006;
+
+    // Spawn Encounter
+    internal const InputCommands.Id CtrlShiftS = (InputCommands.Id)44440007;
+
+    // Teleport Party
+    internal const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
+
     private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
@@ -617,46 +631,46 @@ internal static class GameUiContext
         inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
         // HUD
-        inputService.RegisterCommand(Hotkeys.CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Debug Overlay
-        inputService.RegisterCommand(Hotkeys.CtrlShiftD, (int)KeyCode.D, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(CtrlShiftD, (int)KeyCode.D, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Export Character
-        inputService.RegisterCommand(Hotkeys.CtrlShiftE, (int)KeyCode.E, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(CtrlShiftE, (int)KeyCode.E, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Spawn Encounter
-        inputService.RegisterCommand(Hotkeys.CtrlShiftS, (int)KeyCode.S, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(CtrlShiftS, (int)KeyCode.S, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
 
         // Teleport
-        inputService.RegisterCommand(Hotkeys.CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
+        inputService.RegisterCommand(CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
     {
-        if (Main.Settings.EnableCharacterExport && command == Hotkeys.CtrlShiftE)
+        if (Main.Settings.EnableCharacterExport && command == CtrlShiftE)
         {
             CharacterExportContext.ExportInspectedCharacter();
         }
 
-        if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CtrlShiftH)
+        if (Main.Settings.EnableHotkeyToggleHud && command == CtrlShiftH)
         {
             GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
         }
-        else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CtrlShiftD)
+        else if (Main.Settings.EnableHotkeyDebugOverlay && command == CtrlShiftD)
         {
             ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
         }
-        else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CtrlShiftT)
+        else if (Main.Settings.EnableTeleportParty && command == CtrlShiftT)
         {
             Teleporter.ConfirmTeleportParty();
         }
-        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CtrlShiftS)
+        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == CtrlShiftS)
         {
             EncountersSpawnContext.ConfirmStageEncounter();
         }
