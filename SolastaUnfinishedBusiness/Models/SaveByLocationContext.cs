@@ -33,6 +33,8 @@ internal static class SaveByLocationContext
 
     internal static GameObject Dropdown { get; private set; }
 
+    internal static bool UseLightEnumeration { get; private set; }
+
     private static IEnumerable<UserLocation> AllLocations
     {
         get
@@ -44,7 +46,13 @@ internal static class SaveByLocationContext
 
             var userLocationPoolService = ServiceRepository.GetService<IUserLocationPoolService>();
 
-            userLocationPoolService.EnumeratePool(out _, new List<string>());
+            if (!userLocationPoolService.Enumerated)
+            {
+                UseLightEnumeration = true;
+                userLocationPoolService.EnumeratePool(out _, new List<string>());
+                UseLightEnumeration = false;
+            }
+
             _allLocations = userLocationPoolService.AllLocations;
 
             return _allLocations;
@@ -62,7 +70,13 @@ internal static class SaveByLocationContext
 
             var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
-            userCampaignPoolService.EnumeratePool(out _, new List<string>());
+            if (!userCampaignPoolService.Enumerated)
+            {
+                UseLightEnumeration = true;
+                userCampaignPoolService.EnumeratePool(out _, new List<string>());
+                UseLightEnumeration = false;
+            }
+
             _allCampaigns = userCampaignPoolService.AllCampaigns;
 
             return _allCampaigns;
