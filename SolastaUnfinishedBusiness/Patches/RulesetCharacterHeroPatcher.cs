@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
         public static void Prefix(RulesetCharacterHero __instance)
         {
             //PATCH: clears cached customized spell effects
-            PowersBundleContext.ClearSpellEffectCache(__instance);
+            PowerBundle.ClearSpellEffectCache(__instance);
 
             //PATCH: Support for `IHeroRefreshed`
             __instance.GetSubFeaturesByType<IHeroRefreshed>()
@@ -542,19 +542,22 @@ public static class RulesetCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class EnumerateAfterRestActions_Patch
     {
-        public static void Postfix(RulesetCharacterHero __instance,
-            RuleDefinitions.RestType restType,
-            List<RulesetItem> attunableItems,
-            RestDefinitions.RestStage restStage)
+        public static void Postfix(RulesetCharacterHero __instance)
         {
             __instance.afterRestActions.RemoveAll(activity =>
             {
-                if (activity.functor != PowersBundleContext.UseCustomRestPowerFunctorName) { return false; }
+                if (activity.functor != PowerBundleContext.UseCustomRestPowerFunctorName)
+                {
+                    return false;
+                }
 
                 var power = __instance.UsablePowers.FirstOrDefault(usablePower =>
                     usablePower.PowerDefinition.Name == activity.StringParameter);
 
-                if (power == null) { return false; }
+                if (power == null)
+                {
+                    return false;
+                }
 
                 return !__instance.CanUsePower(power.PowerDefinition);
             });

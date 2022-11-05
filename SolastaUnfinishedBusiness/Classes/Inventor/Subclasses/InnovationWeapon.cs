@@ -95,7 +95,7 @@ public static class InnovationWeapon
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
-                PowersBundleContext.UseCustomRestPowerFunctorName,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
                 name)
             .AddToDB();
 

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -24,7 +25,7 @@ public static class GuiSpellDefinitionPatcher
         public static void Postfix(GuiSpellDefinition __instance, ref EffectDescription __result)
         {
             //PATCH: support for ICustomMagicEffectBasedOnCaster allowing to pick spell effect for GUI depending on caster properties
-            __result = PowersBundleContext.ModifyMagicEffectGui(__result, __instance.SpellDefinition);
+            __result = PowerBundle.ModifyMagicEffectGui(__result, __instance.SpellDefinition);
         }
     }
 }

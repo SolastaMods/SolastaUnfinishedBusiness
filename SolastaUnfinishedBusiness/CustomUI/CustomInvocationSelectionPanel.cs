@@ -5,8 +5,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -355,7 +355,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             {
                 var feature = learned[i];
 
-                if (!PowersBundleContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
+                if (!PowerBundle.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
                 {
                     dirty = true;
                     learned.RemoveAt(i);
@@ -1116,9 +1116,8 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var selected = learned.Contains(boxFeature);
             var isUnlearned = unlearnedFeatures != null && unlearnedFeatures.Contains(boxFeature);
-            var isValid =
-                PowersBundleContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators,
-                    out var requirements);
+            var isValid = PowerBundle.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators,
+                out var requirements);
             var canLearn = !selected && !alreadyHas && isValid;
 
             box.SetupUI(hero, pool.Sprite, requirements);
@@ -1153,7 +1152,7 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
-            PowersBundleContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
+            PowerBundle.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
 
             box.SetupUI(hero, pool.Sprite, requirements);
 

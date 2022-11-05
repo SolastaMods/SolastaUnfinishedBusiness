@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
@@ -76,7 +76,7 @@ internal static class CharacterReactionSubitemExtension
         var toggle = instance.toggle;
         var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
         var spell = spellRepertoire.KnownSpells[slotLevel];
-        var power = PowersBundleContext.GetPower(spell);
+        var power = PowerBundle.GetPower(spell);
 
         if (power == null)
         {

@@ -141,7 +141,7 @@ internal static class Infusions
             .SetUniqueInstance()
             .AddToDB());
 
-        PowersBundleContext.RegisterPowerBundle(masterPower, true, infuseWithBonus, infuseNoBonus);
+        PowerBundle.RegisterPowerBundle(masterPower, true, infuseWithBonus, infuseNoBonus);
 
         #endregion
 
@@ -185,7 +185,7 @@ internal static class Infusions
             .SetUniqueInstance()
             .AddToDB());
 
-        PowersBundleContext.RegisterPowerBundle(masterPower, true, powers);
+        PowerBundle.RegisterPowerBundle(masterPower, true, powers);
 
         #endregion
 

@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -21,7 +22,7 @@ public static class RulesetEffectSpellPatcher
         public static void Postfix(RulesetEffectSpell __instance, ref EffectDescription __result)
         {
             // allowing to pick and/or tweak spell effect depending on some caster properties
-            __result = PowersBundleContext.ModifySpellEffect(__result, __instance);
+            __result = PowerBundle.ModifySpellEffect(__result, __instance);
         }
     }
 

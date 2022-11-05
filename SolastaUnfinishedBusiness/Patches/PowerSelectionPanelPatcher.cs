@@ -7,7 +7,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -153,7 +152,7 @@ public static class PowerSelectionPanelPatcher
     {
         public static void Postfix()
         {
-            PowersBundleContext.CloseSubPowerSelectionModal();
+            PowerBundle.CloseSubPowerSelectionModal();
 
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {

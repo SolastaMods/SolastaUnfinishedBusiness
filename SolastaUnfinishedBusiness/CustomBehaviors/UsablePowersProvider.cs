@@ -2,7 +2,6 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -50,7 +49,7 @@ internal static class UsablePowersProvider
             return;
         }
 
-        var pool = PowersBundleContext.GetPoolPower(usablePower, character);
+        var pool = PowerBundle.GetPoolPower(usablePower, character);
 
         if (pool == null || pool == usablePower)
         {
@@ -58,7 +57,7 @@ internal static class UsablePowersProvider
         }
 
         var powerCost = usablePower.PowerDefinition.CostPerUse;
-        var maxUsesForPool = PowersBundleContext.GetMaxUsesForPool(pool, character);
+        var maxUsesForPool = PowerBundle.GetMaxUsesForPool(pool, character);
 
         usablePower.maxUses = maxUsesForPool / powerCost;
         usablePower.remainingUses = pool.RemainingUses / powerCost;

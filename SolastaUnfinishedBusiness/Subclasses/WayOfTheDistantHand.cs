@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
@@ -131,7 +130,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(
+        PowerBundle.RegisterPowerBundle(
             powerWayOfTheDistantHandZenArrowTechnique,
             true,
             powerWayOfTheDistantHandZenArrowProne,
@@ -323,7 +322,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(
+        PowerBundle.RegisterPowerBundle(
             powerWayOfTheDistantHandZenArrowUpgradedTechnique,
             true,
             powerWayOfTheDistantHandZenArrowUpgradedProne,

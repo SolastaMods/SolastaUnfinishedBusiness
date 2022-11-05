@@ -49,7 +49,7 @@ internal static class BootContext
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
-        PowersBundleContext.Load();
+        PowerBundleContext.Load();
 
         DmProEditorContext.Load();
         GameUiContext.Load();

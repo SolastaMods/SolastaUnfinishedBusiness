@@ -2,7 +2,7 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
@@ -134,8 +134,8 @@ internal sealed class PatronElementalist : AbstractSubclass
             enhancedPowers[i] = enhancedPower;
         }
 
-        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers);
-        PowersBundleContext.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
+        PowerBundle.RegisterPowerBundle(powerElementalistElementalFormPool, true, regularPowers);
+        PowerBundle.RegisterPowerBundle(powerElementalistElementalEnhancedFormPool, true, enhancedPowers);
 
         var featureSetElementalistKnowledge = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,

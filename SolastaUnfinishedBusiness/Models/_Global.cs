@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -87,7 +88,7 @@ internal static class Global
                 break;
 
             case CharacterActionSpendPower spendPower:
-                PowersBundleContext.SpendBundledPowerIfNeeded(spendPower);
+                PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                 break;
         }
     }

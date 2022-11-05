@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -58,7 +57,7 @@ internal static class Tooltips
         }
 
         var usablePower = UsablePowersProvider.Get(power, character);
-        var maxUses = PowersBundleContext.GetMaxUsesForPool(usablePower, character);
+        var maxUses = PowerBundle.GetMaxUsesForPool(usablePower, character);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remainingUses}/{maxUses}";

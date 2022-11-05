@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -66,7 +67,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetBonusToAttack(true)
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(powerPoolAncientForestHerbalBrew, true,
+        PowerBundle.RegisterPowerBundle(powerPoolAncientForestHerbalBrew, true,
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, "Toxifying", Poison_Basic),
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, "Healing", PotionOfHealing),
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityAcidResistance, PotionOfSpeed),
@@ -83,7 +84,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
-                PowersBundleContext.UseCustomRestPowerFunctorName,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
                 powerPoolAncientForestHerbalBrew.name)
             .AddToDB();
 

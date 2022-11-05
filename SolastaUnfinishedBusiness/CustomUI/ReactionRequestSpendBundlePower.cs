@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -70,7 +69,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         foreach (var power in bundle.SubPowers
                      .Where(x => CanUsePower(rulesetCharacter, x)))
         {
-            reactionParams.SpellRepertoire.KnownSpells.Add(PowersBundleContext.GetSpell(power));
+            reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundle.GetSpell(power));
             SubOptionsAvailability.Add(i, true);
 
             if (!selected)
@@ -116,7 +115,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
             .AllActionDefinitions[ActionDefinitions.Id.SpendPower];
 
         var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
-        var power = PowersBundleContext.GetPower(spell);
+        var power = PowerBundle.GetPower(spell);
 
         var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = actingCharacter.RulesetCharacter;

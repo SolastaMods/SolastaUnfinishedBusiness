@@ -16,7 +16,7 @@ public static class AfterRestActionItemPatcher
         public static bool Prefix(AfterRestActionItem __instance)
         {
             //PATCH: replaces callback execution for bundled powers to show sub-power selection
-            return PowersBundleContext.ExecuteAfterRestCb(__instance);
+            return PowerBundle.ExecuteAfterRestCb(__instance);
         }
     }
 
@@ -29,7 +29,10 @@ public static class AfterRestActionItemPatcher
             var activity = __instance.RestActivityDefinition;
             var hero = __instance.Hero;
 
-            if (activity.functor != PowersBundleContext.UseCustomRestPowerFunctorName) { return; }
+            if (activity.functor != PowerBundleContext.UseCustomRestPowerFunctorName)
+            {
+                return;
+            }
 
             var power = hero.UsablePowers.FirstOrDefault(usablePower =>
                 usablePower.PowerDefinition.Name == activity.StringParameter);

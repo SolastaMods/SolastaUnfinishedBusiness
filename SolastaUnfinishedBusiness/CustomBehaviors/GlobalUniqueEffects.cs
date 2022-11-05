@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -157,9 +156,9 @@ internal static class GlobalUniqueEffects
         {
             allSubPowers.Add(power);
 
-            var bundles = PowersBundleContext.GetMasterPowersBySubPower(power);
+            var bundles = PowerBundle.GetMasterPowersBySubPower(power);
 
-            foreach (var subPower in bundles.Select(PowersBundleContext.GetBundle).Where(bundle => bundle.TerminateAll)
+            foreach (var subPower in bundles.Select(PowerBundle.GetBundle).Where(bundle => bundle.TerminateAll)
                          .SelectMany(bundle => bundle.SubPowers))
             {
                 allSubPowers.Add(subPower);

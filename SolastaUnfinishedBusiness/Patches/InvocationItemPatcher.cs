@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -24,7 +25,7 @@ public class InvocationItemPatcher
             var tooltip = __instance.Tooltip;
             var hero = tooltip.Context as RulesetCharacter ?? Global.CurrentCharacter;
 
-            PowersBundleContext.ValidatePrerequisites(hero, custom, custom.Validators, out var requirements);
+            PowerBundle.ValidatePrerequisites(hero, custom, custom.Validators, out var requirements);
 
             var gui = new GuiPresentationBuilder(custom.GuiPresentation).Build();
             var item = custom.Item;

@@ -3,20 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal static class PowersBundleContext
+internal static class PowerBundle
 {
-    internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
-
     private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
     private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
@@ -515,12 +511,6 @@ internal static class PowersBundleContext
         action.ActingCharacter.RulesetCharacter.UsePower(usablePower);
     }
 
-    internal static void Load()
-    {
-        ServiceRepository.GetService<IFunctorService>()
-            .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
-    }
-
     /**
      * Patch implementation
      * Replaces power with a spell that has sub-spells and then activates bundled power according to selected subspell.
@@ -580,7 +570,7 @@ internal static class PowersBundleContext
 
         var activity = instance.RestActivityDefinition;
 
-        if (activity.Functor != UseCustomRestPowerFunctorName || activity.StringParameter == null)
+        if (activity.Functor != PowerBundleContext.UseCustomRestPowerFunctorName || activity.StringParameter == null)
         {
             return true;
         }
@@ -683,84 +673,5 @@ internal static class PowersBundleContext
         // internal FeatureDefinitionFeatureSet PowerSet { get; }
 
         private RulesetSpellRepertoire Repertoire { get; }
-    }
-}
-
-internal sealed class FunctorUseCustomRestPower : Functor
-{
-    private bool powerUsed;
-
-    public override IEnumerator Execute(
-        [NotNull] FunctorParametersDescription functorParameters,
-        FunctorExecutionContext context)
-    {
-        var functor = this;
-        var powerName = functorParameters.StringParameter;
-        var power = PowersBundleContext.GetPower(powerName);
-
-        if (power == null && !DatabaseHelper.TryGetDefinition(powerName, out power))
-        {
-            yield break;
-        }
-
-        var ruleChar = functorParameters.RestingHero;
-        var usablePower = UsablePowersProvider.Get(power, ruleChar);
-
-        if (power.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
-        {
-            GameLocationCharacter fromActor = null;
-            var retarget = power.GetFirstSubFeatureOfType<IRetargetCustomRestPower>();
-            if (retarget != null)
-            {
-                fromActor = retarget.GetTarget(ruleChar);
-            }
-
-            fromActor ??= GameLocationCharacter.GetFromActor(ruleChar);
-
-            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (fromActor != null)
-            {
-                functor.powerUsed = false;
-                ServiceRepository.GetService<IGameLocationActionService>();
-
-                var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
-
-                actionParams.TargetCharacters.Add(fromActor);
-                actionParams.ActionModifiers.Add(new ActionModifier());
-                actionParams.RulesetEffect =
-                    rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
-                actionParams.SkipAnimationsAndVFX = true;
-
-                ServiceRepository.GetService<ICommandService>()
-                    .ExecuteAction(actionParams, functor.ActionExecuted, false);
-
-                while (!functor.powerUsed)
-                {
-                    yield return null;
-                }
-            }
-            else
-            {
-                var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-
-                formsParams.FillSourceAndTarget(ruleChar, ruleChar);
-                formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
-                formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-
-                //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-                ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
-
-                GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
-                    $"Feedback/&{power.Name}UsedWhileTravellingFormat");
-            }
-        }
-
-        Trace.LogWarning("Unable to assign targets to power");
-    }
-
-    private void ActionExecuted(CharacterAction action)
-    {
-        powerUsed = true;
     }
 }

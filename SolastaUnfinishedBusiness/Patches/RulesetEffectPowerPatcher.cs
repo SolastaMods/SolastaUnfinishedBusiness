@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -74,7 +73,7 @@ public static class RulesetEffectPowerPatcher
         {
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
             // allowing to pick and/or tweak power effect depending on some properties of the user
-            __result = PowersBundleContext.ModifyPowerEffect(__result, __instance);
+            __result = PowerBundle.ModifyPowerEffect(__result, __instance);
         }
     }
 

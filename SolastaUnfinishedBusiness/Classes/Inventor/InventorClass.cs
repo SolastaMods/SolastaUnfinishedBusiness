@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
@@ -651,7 +650,7 @@ internal static class InventorClass
         }
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers.ToArray());
-        PowersBundleContext.RegisterPowerBundle(master, true, powers);
+        PowerBundle.RegisterPowerBundle(master, true, powers);
 
         return master;
     }

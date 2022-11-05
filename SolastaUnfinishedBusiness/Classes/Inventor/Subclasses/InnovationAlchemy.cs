@@ -81,7 +81,7 @@ public static class InnovationAlchemy
             .SetUniqueInstance()
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(ElementalBombs, true,
+        PowerBundle.RegisterPowerBundle(ElementalBombs, true,
             MakeBombFireDamageToggle(),
             BuildColdBombs(deviceDescription),
             BuildLightningBombs(deviceDescription),
@@ -103,7 +103,7 @@ public static class InnovationAlchemy
             .SetUniqueInstance()
             .AddToDB();
 
-        PowersBundleContext.RegisterPowerBundle(AdvancedBombs, true,
+        PowerBundle.RegisterPowerBundle(AdvancedBombs, true,
             BuildForceBombs(deviceDescription),
             BuildRadiantBombs(deviceDescription),
             BuildNecroBombs(deviceDescription),
