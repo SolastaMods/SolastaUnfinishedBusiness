@@ -222,7 +222,10 @@ public static class RulesetCharacterPatcher
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific) { return; }
+            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
+            {
+                return;
+            }
 
             var materialTag = spell.SpecificMaterialComponentTag;
             var requiredCost = spell.SpecificMaterialComponentCostGp;
