@@ -28,6 +28,17 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, patchContext, codeInstructions);
     }
 
+    public static IEnumerable<CodeInstruction> ReplaceCall(
+        this IEnumerable<CodeInstruction> instructions,
+        MethodInfo methodInfo,
+        int occurrence,
+        int bypass,
+        string patchContext,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, bypass, patchContext, codeInstructions);
+    }
+
     public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,

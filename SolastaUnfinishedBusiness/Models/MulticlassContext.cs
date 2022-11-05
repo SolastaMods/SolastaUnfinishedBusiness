@@ -238,73 +238,77 @@ internal static class MulticlassContext
     // ClassLevel patching support
     //
 
-    private static IEnumerable<CodeInstruction> ClassLevelTranspiler(
+    private static IEnumerable<CodeInstruction> ClassesAndLevelsTranspiler(
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
+        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
+
+        return instructions.ReplaceCall(classesAndLevelsMethod,
+            -1,
+            2,
+            "MulticlassContext.ClassesAndLevels",
+            new CodeInstruction(OpCodes.Call, getClassLevelMethod));
+    }
+
+    private static IEnumerable<CodeInstruction> ClassesHistoryTranspiler(
+        [NotNull] IEnumerable<CodeInstruction> instructions)
+    {
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
         var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
-        var instructionsToBypass = 0;
-        var replaced = false;
 
-        foreach (var instruction in instructions)
-        {
-            if (instructionsToBypass > 0)
-            {
-                instructionsToBypass--;
-                replaced = true;
-            }
-            else if (instruction.Calls(classesAndLevelsMethod))
-            {
-                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-
-                instructionsToBypass = 2; // bypasses the [] and the classDefinition index
-            }
-            else if (instruction.Calls(classesHistoryMethod))
-            {
-                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-
-                instructionsToBypass = 1; // bypasses the count
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
-
-        if (!replaced)
-        {
-            Main.Error("ClassLevelTranspiler");
-        }
+        return instructions.ReplaceCall(classesHistoryMethod,
+            -1,
+            1,
+            "MulticlassContext.ClassesHistory",
+            new CodeInstruction(OpCodes.Call, getClassLevelMethod));
     }
 
     private static void PatchClassLevel()
     {
-        var methods = new[]
+        var classesAndLevelsMethods = new[]
         {
-            // these use ClassesAndLevels[classDefinition]
             typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
-            typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding),
-            // these use ClassesHistory.Count
+            typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding)
+        };
+
+        var classesHistoryMethods = new[]
+        {
             typeof(CharacterStageSpellSelectionPanel).GetMethod("Refresh", PrivateBinding),
             typeof(CharacterBuildingManager).GetMethod("AutoAcquireSpells")
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler =
+        var classesAndLevelsTranspiler =
             new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(
-                ClassLevelTranspiler).Method;
+                ClassesAndLevelsTranspiler).Method;
+        var classesHistoryTranspiler =
+            new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(
+                ClassesHistoryTranspiler).Method;
 
-        try
+        foreach (var method in classesAndLevelsMethods)
         {
-            foreach (var method in methods)
+            try
             {
-                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
+                harmony.Patch(method, transpiler: new HarmonyMethod(classesAndLevelsTranspiler));
+            }
+            catch
+            {
+                Main.Error(
+                    $"Failed to apply Multiclass classesAndLevels patch to {method.DeclaringType}.{method.Name}");
             }
         }
-        catch
+
+        foreach (var method in classesHistoryMethods)
         {
-            Main.Error("cannot fully patch Multiclass selected class levels");
+            try
+            {
+                harmony.Patch(method, transpiler: new HarmonyMethod(classesHistoryTranspiler));
+            }
+            catch
+            {
+                Main.Error($"Failed to apply Multiclass classesHistory patch to {method.DeclaringType}.{method.Name}");
+            }
         }
     }
 
@@ -334,16 +338,16 @@ internal static class MulticlassContext
         var harmony = new Harmony("SolastaUnfinishedBusiness");
         var prefix = new Func<CharacterHeroBuildingData, bool>(ShouldEquipmentBeAssigned).Method;
 
-        try
+        foreach (var method in methods)
         {
-            foreach (var method in methods)
+            try
             {
                 harmony.Patch(method, new HarmonyMethod(prefix));
             }
-        }
-        catch
-        {
-            Main.Error("cannot fully patch Multiclass equipment");
+            catch
+            {
+                Main.Error($"Failed to apply Multiclass equipment patch to {method.DeclaringType}.{method.Name}");
+            }
         }
     }
 
@@ -443,18 +447,21 @@ internal static class MulticlassContext
                 var currentHeroField =
                     classType!.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.StagePanel",
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    "MulticlassContext.get_FeatureUnlocks.StagePanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.BuildingManager:
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.BuildingManager",
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    "MulticlassContext.get_FeatureUnlocks.BuildingManager",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.CharacterHero:
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.CharacterHero",
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    "MulticlassContext.get_FeatureUnlocks.CharacterHero",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
@@ -463,7 +470,8 @@ internal static class MulticlassContext
                     typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
                 var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
 
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.InformationPanel",
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    "MulticlassContext.get_FeatureUnlocks.InformationPanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, inspectedCharacterMethod),
                     new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod),
