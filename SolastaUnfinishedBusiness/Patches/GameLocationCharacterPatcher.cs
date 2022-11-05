@@ -209,7 +209,7 @@ public static class GameLocationCharacterPatcher
             var trueMethod = new Func<RulesetActor, bool>(True).Method;
 
             return instructions.ReplaceCalls(isWearingShieldMethod,
-                "GameLocationCharacter.GetActionStatus_Patch",
+                "GameLocationCharacter.GetActionStatus",
                 new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
@@ -243,11 +243,11 @@ public static class GameLocationCharacterPatcher
             return instructions
                 //PATCH: Support for `IDefinitionApplicationValidator`
                 .ReplaceEnumerateFeaturesToBrowse("IActionPerformanceProvider",
-                    -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateActionPerformanceProviders",
+                    -1, "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
                     new CodeInstruction(OpCodes.Call, enumerate1))
                 //PATCH: Support for `IDefinitionApplicationValidator`
                 .ReplaceEnumerateFeaturesToBrowse("IAdditionalActionsProvider",
-                    -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateAdditionalActionProviders",
+                    -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));
         }
     }
@@ -286,7 +286,7 @@ public static class GameLocationCharacterPatcher
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromForcedAttack).Method;
 
             return instructions.ReplaceCalls(findAttacks,
-                "GameLocationCharacter.GetActionAvailableIterations_Patch",
+                "GameLocationCharacter.GetActionAvailableIterations",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, method));
         }

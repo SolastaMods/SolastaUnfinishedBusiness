@@ -41,7 +41,7 @@ public static class SubspellSelectionModalPatcher
                 new Func<SpellDefinition, int, List<SpellDefinition>>(UpcastConjureElementalAndFey.SubspellsList)
                     .Method;
 
-            return instructions.ReplaceCalls(subspellsListMethod, "SubspellSelectionModal.Bind_Patch",
+            return instructions.ReplaceCalls(subspellsListMethod, "SubspellSelectionModal.Bind",
                 new CodeInstruction(OpCodes.Ldarg, 5),
                 new CodeInstruction(OpCodes.Call, getSpellList));
         }

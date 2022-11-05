@@ -327,10 +327,10 @@ public static class RulesetImplementationManagerPatcher
 
             return instructions
                 .ReplaceCalls(weaponDescription,
-                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider_Patch.1",
+                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider.WeaponDescription",
                     new CodeInstruction(OpCodes.Call, customWeaponDescription))
                 .ReplaceCalls(isWeapon,
-                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider_Patch.2",
+                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider.IsWeapon",
                     new CodeInstruction(OpCodes.Call, customIsWeapon));
         }
 

@@ -76,7 +76,7 @@ public static class GameLocationManagerPatcher
             var maybeTerminateMethod = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
 
             return instructions.ReplaceCall(terminateMethod,
-                1, "GameLocationManager.StopCharacterEffectsIfRelevant_Patch",
+                1, "GameLocationManager.StopCharacterEffectsIfRelevant",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, maybeTerminateMethod));
         }

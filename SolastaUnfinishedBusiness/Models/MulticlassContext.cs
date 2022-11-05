@@ -448,20 +448,20 @@ internal static class MulticlassContext
                     classType!.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 return instructions.ReplaceCalls(classFeatureUnlocksMethod,
-                    "MulticlassContext.get_FeatureUnlocks.StagePanel",
+                    "MulticlassContext.FeatureUnlocksTranspiler.StagePanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.BuildingManager:
                 return instructions.ReplaceCalls(classFeatureUnlocksMethod,
-                    "MulticlassContext.get_FeatureUnlocks.BuildingManager",
+                    "MulticlassContext.FeatureUnlocksTranspiler.BuildingManager",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.CharacterHero:
                 return instructions.ReplaceCalls(classFeatureUnlocksMethod,
-                    "MulticlassContext.get_FeatureUnlocks.CharacterHero",
+                    "MulticlassContext.FeatureUnlocksTranspiler.CharacterHero",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
@@ -471,7 +471,7 @@ internal static class MulticlassContext
                 var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
 
                 return instructions.ReplaceCalls(classFeatureUnlocksMethod,
-                    "MulticlassContext.get_FeatureUnlocks.InformationPanel",
+                    "MulticlassContext.FeatureUnlocksTranspiler.InformationPanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, inspectedCharacterMethod),
                     new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod),

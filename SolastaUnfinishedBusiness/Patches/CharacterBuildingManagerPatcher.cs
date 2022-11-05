@@ -483,11 +483,11 @@ public static class CharacterBuildingManagerPatcher
 
             return instructions
                 .ReplaceCalls(preferedSkinColorsMethod,
-                    "CharacterBuildingManager.AssignDefaultMorphotypes_Patch.get_PreferedSkinColors",
+                    "CharacterBuildingManager.AssignDefaultMorphotypes.PreferedSkinColors",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod))
                 .ReplaceCalls(preferedHairColorsColorsMethod,
-                    "CharacterBuildingManager.AssignDefaultMorphotypes_Patch.get_PreferedHairColors",
+                    "CharacterBuildingManager.AssignDefaultMorphotypes.PreferedHairColors",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
         }

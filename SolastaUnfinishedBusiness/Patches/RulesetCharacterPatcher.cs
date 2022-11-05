@@ -455,7 +455,7 @@ public static class RulesetCharacterPatcher
             >(FeatureApplicationValidation.ValidateAttributeModifier).Method;
 
             return instructions.ReplaceCode(instruction => instruction.opcode == OpCodes.Isinst,
-                -1, "RulesetCharacter.RefreshAttributeModifiersFromConditions_Patch",
+                -1, "RulesetCharacter.RefreshAttributeModifiersFromConditions",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, validate));
         }
@@ -475,7 +475,7 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             return instructions.ReplaceCall(currentValueMethod,
-                1, "RulesetCharacter.RollAttack_Patch",
+                1, "RulesetCharacter.RollAttack",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Ldarg, 4),
                 new CodeInstruction(OpCodes.Call, method));
@@ -630,7 +630,7 @@ public static class RulesetCharacterPatcher
             return instructions
                 // first call to roll die checks the initiator
                 .ReplaceCall(rollDieMethod,
-                    1, "RulesetCharacter.ResolveContestCheck_Patch.1",
+                    1, "RulesetCharacter.ResolveContestCheck.RollDie1",
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
                     new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
                     new CodeInstruction(OpCodes.Ldarg, 3), // abilityScoreName
@@ -641,7 +641,7 @@ public static class RulesetCharacterPatcher
                 // second call to roll die checks the opponent
                 .ReplaceCall(
                     rollDieMethod, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
-                    1, "RulesetCharacter.ResolveContestCheck_Patch.2",
+                    1, "RulesetCharacter.ResolveContestCheck.RollDie2",
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
                     new CodeInstruction(OpCodes.Ldarg, 9), // opponentAbilityScoreName
@@ -668,7 +668,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
-                -1, "RulesetCharacter.RefreshSpellRepertoires_Patch",
+                -1, "RulesetCharacter.RefreshSpellRepertoires",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -855,11 +855,12 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             return instructions
-                .ReplaceCalls(bind, "RulesetCharacter.ApplyRest_Patch.get_MaxUses",
+                .ReplaceCalls(bind,
+                    "RulesetCharacter.ApplyRest.MaxUses",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, maxUses))
                 .ReplaceCalls(restoreAllSpellSlotsMethod,
-                    "RulesetCharacter.ApplyRest_Patch.RestoreAllSpellSlots",
+                    "RulesetCharacter.ApplyRest.RestoreAllSpellSlots",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
@@ -972,7 +973,7 @@ public static class RulesetCharacterPatcher
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
             return instructions.ReplaceCalls(isFunctionAvailable,
-                "RulesetCharacter.RefreshUsableDeviceFunctions_Patch",
+                "RulesetCharacter.RefreshUsableDeviceFunctions",
                 new CodeInstruction(OpCodes.Call, customMethod));
         }
 

@@ -46,7 +46,7 @@ public static class RulesetCharacterMonsterPatcher
             var refreshAttributeModifiers =
                 typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
-            return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonster.RefreshAll_Patch",
+            return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonster.RefreshAll",
                 new CodeInstruction(OpCodes.Call, refreshAttributeModifiers),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, refreshAttributes));
@@ -73,7 +73,7 @@ public static class RulesetCharacterMonsterPatcher
                 RulesetCharacterMonster
             >(ArmorClassStacking.ProcessWildShapeAc).Method;
 
-            return instructions.ReplaceCalls(sort, "RulesetCharacterMonster.RefreshArmorClass_Patch",
+            return instructions.ReplaceCalls(sort, "RulesetCharacterMonster.RefreshArmorClass",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, unstack));
         }

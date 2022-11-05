@@ -46,7 +46,7 @@ public static class CharacterSelectionModalPatcher
 
             return instructions.ReplaceLoadField(levelsField,
                 -1,
-                2, "CharacterSelectionModal.EnumeratePlates_Patch",
+                2, "CharacterSelectionModal.EnumeratePlates",
                 new CodeInstruction(OpCodes.Ldfld, levelsField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));
         }

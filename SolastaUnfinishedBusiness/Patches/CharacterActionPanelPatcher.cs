@@ -54,7 +54,7 @@ public static class CharacterActionPanelPatcher
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromGuiAction).Method;
 
-            return instructions.ReplaceCalls(findAttacks, "CharacterActionPanel.OnActivateAction_Patch",
+            return instructions.ReplaceCalls(findAttacks, "CharacterActionPanel.OnActivateAction",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, method));
         }

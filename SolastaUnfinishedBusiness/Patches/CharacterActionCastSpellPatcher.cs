@@ -110,7 +110,7 @@ public static class CharacterActionCastSpellPatcher
                     .Method;
 
             return instructions.ReplaceCalls(spellCastingLevelMethod,
-                "CharacterActionCastSpell.GetAdvancementData_Patch",
+                "CharacterActionCastSpell.GetAdvancementData",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }

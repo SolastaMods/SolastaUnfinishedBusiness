@@ -59,14 +59,14 @@ public static class CharacterInformationPanelPatcher
             // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
             return instructions
                 .ReplaceCalls(enumerateClassBadgesMethod,
-                    "CharacterInformationPanel.Refresh_Patch.EnumerateClassBadges",
+                    "CharacterInformationPanel.Refresh.EnumerateClassBadges",
                     new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
                 .ReplaceCall(containsMethod,
-                    2, "CharacterInformationPanel.Refresh_Patch.Contains.1",
+                    2, "CharacterInformationPanel.Refresh.Contains.1",
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                     new CodeInstruction(OpCodes.Call, containsMethod))
                 .ReplaceCall(containsMethod,
-                    2, "CharacterInformationPanel.Refresh_Patch.Contains.2",
+                    2, "CharacterInformationPanel.Refresh.Contains.2",
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                     new CodeInstruction(OpCodes.Call, containsMethod));
         }

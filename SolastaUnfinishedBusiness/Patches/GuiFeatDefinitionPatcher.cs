@@ -53,7 +53,7 @@ public static class GuiFeatDefinitionPatcher
             //which are registered before feat selection at lvl 1
             return codes.ReplaceCall(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires"),
                 1,
-                1, "GuiFeatDefinition.IsFeatMatchingPrerequisites_Patch",
+                1, "GuiFeatDefinition.IsFeatMatchingPrerequisites",
                 new CodeInstruction(OpCodes.Call,
                     new Func<RulesetCharacterHero, int>(CanCastSpells).Method));
         }

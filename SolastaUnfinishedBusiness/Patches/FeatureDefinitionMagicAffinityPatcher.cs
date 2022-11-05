@@ -59,7 +59,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
             var myFormatMethod = new Func<FeatureDefinitionMagicAffinity, string>(FormatSpellList).Method;
 
             return instructions.ReplaceCall(formatMethod,
-                1, "FeatureDefinitionMagicAffinity.FormatDescription_Patch",
+                1, "FeatureDefinitionMagicAffinity.FormatDescription",
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldarg_0),

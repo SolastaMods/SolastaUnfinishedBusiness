@@ -117,7 +117,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                 typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
-            return instructions.ReplaceCalls(levelMethod, "CharacterStageClassSelectionPanel.FillClassFeatures_Patch",
+            return instructions.ReplaceCalls(levelMethod, "CharacterStageClassSelectionPanel.FillClassFeatures",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));
@@ -144,7 +144,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                     BindingFlags.Instance | BindingFlags.NonPublic);
 
             return instructions.ReplaceCall(setActiveMethod,
-                4, "CharacterStageClassSelectionPanel.Refresh_Patch",
+                4, "CharacterStageClassSelectionPanel.Refresh",
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),

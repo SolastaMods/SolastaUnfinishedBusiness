@@ -25,7 +25,7 @@ public static class CursorLocationBattleFriendlyTurnPatcher
                 .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCalls(findBestActionDestinationMethod,
-                "CursorLocationBattleFriendlyTurn.IsValidAttack_Patch",
+                "CursorLocationBattleFriendlyTurn.IsValidAttack",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldloc_1),
                 new CodeInstruction(OpCodes.Call, method));

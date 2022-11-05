@@ -59,7 +59,7 @@ public static class GameLocationBattleManagerPatcher
             return instructions.ReplaceCallGeneric(
                 "Contains",
                 -1,
-                "GameLocationBattleManager.CanPerformReadiedActionOnCharacter_Patch",
+                "GameLocationBattleManager.CanPerformReadiedActionOnCharacter",
                 new CodeInstruction(OpCodes.Call, customBindMethod));
         }
     }

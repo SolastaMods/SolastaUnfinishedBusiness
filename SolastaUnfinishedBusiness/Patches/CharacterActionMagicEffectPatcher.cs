@@ -215,7 +215,7 @@ public static class CharacterActionMagicEffectPatcher
 
             return instructions.ReplaceCallGeneric(
                 "ApplyEffectForms",
-                -1, "CharacterActionMagicEffect.ApplyForms_Patch",
+                -1, "CharacterActionMagicEffect.ApplyForms",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
         }

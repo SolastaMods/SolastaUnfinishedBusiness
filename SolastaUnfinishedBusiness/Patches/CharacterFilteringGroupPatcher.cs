@@ -27,7 +27,7 @@ public static class CharacterFilteringGroupPatcher
 
             return instructions.ReplaceLoadField(levelsField,
                 -1,
-                2, "CharacterFilteringGroup.Compare_Patch",
+                2, "CharacterFilteringGroup.Compare",
                 new CodeInstruction(OpCodes.Ldfld, levelsField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));
         }

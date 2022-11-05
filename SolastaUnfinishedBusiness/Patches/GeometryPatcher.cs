@@ -76,7 +76,7 @@ public static class CursorLocationGeometricShapePatcher
                 typeof(UpdateGeometricShape_Patch).GetMethod("MyUpdateCubePosition_Regular");
 
             return instructions.ReplaceCalls(updateCubePositionRegularMethod,
-                "CursorLocationGeometricShape.UpdateGeometricShape_Patch",
+                "CursorLocationGeometricShape.UpdateGeometricShape",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, targetParameter2Field),
                 new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod));
@@ -206,7 +206,7 @@ public static class CursorLocationGeometricShapePatcher
                 typeof(DoesShapeContainPoint_Patch).GetMethod("MyCubeContainsPoint_Regular");
 
             return instructions.ReplaceCalls(cubeContainsPointRegularMethod,
-                "CursorLocationGeometricShape.DoesShapeContainPoint_Patch",
+                "CursorLocationGeometricShape.DoesShapeContainPoint",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, geometricParameter2Field),
                 new CodeInstruction(OpCodes.Call, myCubeContainsPointRegularMethod));

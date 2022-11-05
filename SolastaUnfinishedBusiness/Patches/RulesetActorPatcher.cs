@@ -69,7 +69,7 @@ public static class RulesetActorPatcher
             >(MyEnumerate).Method;
 
             return instructions.ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
-                -1, "RulesetActor.ModulateSustainedDamage_Patch",
+                -1, "RulesetActor.ModulateSustainedDamage",
                 new CodeInstruction(OpCodes.Call, myEnumerate));
         }
 
@@ -115,7 +115,7 @@ public static class RulesetActorPatcher
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
 
-            return instructions.ReplaceCalls(rollDieMethod, "RulesetActor.RollDie_Patch",
+            return instructions.ReplaceCalls(rollDieMethod, "RulesetActor.RollDie",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, myRollDieMethod));
@@ -265,7 +265,7 @@ public static class RulesetActorPatcher
             var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var custom = new Action<RulesetActor>(RefreshClassModifiers).Method;
 
-            return instructions.ReplaceCalls(refreshAttributes, "RulesetActor.RefreshAttributes_Patch",
+            return instructions.ReplaceCalls(refreshAttributes, "RulesetActor.RefreshAttributes",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
                 new CodeInstruction(OpCodes.Call, refreshAttributes));
