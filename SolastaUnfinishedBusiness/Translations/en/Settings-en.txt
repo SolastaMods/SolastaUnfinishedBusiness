@@ -84,7 +84,6 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStyles=Feats & Fighting Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
-ModUi/&FollowCharactersOnTeleport=Camera follows teleported character(s)
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&Gameplay=Gameplay
 ModUi/&GameUi=Game UI
