@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -18,7 +19,8 @@ public static class CharacterFilteringGroupPatcher
             return levels.Sum();
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");

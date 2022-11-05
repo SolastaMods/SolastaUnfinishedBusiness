@@ -197,7 +197,8 @@ public static class CharacterActionMagicEffectPatcher
     })]
     public static class ApplyForms_Patch
     {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for `PushesFromEffectPoint`
             // allows push/grab motion effects to work relative to casting point, instead of caster's position

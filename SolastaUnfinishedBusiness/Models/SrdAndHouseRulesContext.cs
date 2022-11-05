@@ -477,7 +477,7 @@ internal static class SrdAndHouseRulesContext
 
 internal static class ArmorClassStacking
 {
-    internal static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefreshTranspiler(
+    internal static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefresh(
         IEnumerable<CodeInstruction> instructions)
     {
         var sort = new Action<

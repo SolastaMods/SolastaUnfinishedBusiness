@@ -12,8 +12,8 @@ internal static class ReachMeleeTargeting
 {
     // Replaces call to `FindBestActionDestination` with custom method that respects attack mode's reach
     // Needed for reach melee
-    internal static IEnumerable<CodeInstruction> ApplyCursorLocationIsValidAttackTranspile(
-        IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> ApplyCursorLocationIsValidAttack(
+        this IEnumerable<CodeInstruction> instructions)
     {
         var method = typeof(ReachMeleeTargeting)
             .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);

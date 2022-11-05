@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
@@ -34,7 +35,8 @@ public static class RulesetCharacterMonsterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshAll_Patch
     {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for rage/ki/other stuff while shape-shifted
 
@@ -54,13 +56,14 @@ public static class RulesetCharacterMonsterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshArmorClass_Patch
     {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: implements exclusivity for some AC modifiers
             // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
             // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
             // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-            return ArmorClassStacking.AddAcTrendsToMonsterAcRefreshTranspiler(instructions);
+            return ArmorClassStacking.AddAcTrendsToMonsterAcRefresh(instructions);
         }
     }
 

@@ -66,10 +66,10 @@ public static class GameLocationManagerPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
-    internal static class GameLocationManager_StopCharacterEffectsIfRelevant
+    public static class StopCharacterEffectsIfRelevant_Patch
     {
         [NotNull]
-        internal static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: prevent some effects from being removed when entering new location
             var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;

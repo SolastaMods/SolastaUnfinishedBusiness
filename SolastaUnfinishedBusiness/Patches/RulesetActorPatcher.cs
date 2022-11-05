@@ -259,7 +259,8 @@ public static class RulesetActorPatcher
             }
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             // needed for sorcery points, healing pools, ki points to be of proper sizes when multiclass
             // adds custom method right before the end that recalculates modifier values specifically for class-level modifiers

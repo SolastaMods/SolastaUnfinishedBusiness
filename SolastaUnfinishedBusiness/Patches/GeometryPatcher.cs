@@ -66,7 +66,7 @@ public static class CursorLocationGeometricShapePatcher
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var targetParameter2Field =
                 typeof(CursorLocationGeometricShape).GetField("targetParameter2",
@@ -194,7 +194,8 @@ public static class CursorLocationGeometricShapePatcher
             return result;
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var geometricParameter2Field =
                 typeof(GameLocationTargetingManager).GetField("geometricParameter2",

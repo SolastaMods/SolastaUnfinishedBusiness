@@ -76,7 +76,7 @@ internal static class TranspileHelper
         return code;
     }
 
-    internal static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
     {
         int assertIndex;
         var noAssert = new Action<bool>(NoAssert).Method;

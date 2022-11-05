@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -152,7 +153,8 @@ public static class RulesetImplementationManagerLocationPatcher
                 sourceProficiencyBonus, bardicInspirationDie);
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var addedConditionPos = Main.IsDebugBuild ? 37 : 27;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
