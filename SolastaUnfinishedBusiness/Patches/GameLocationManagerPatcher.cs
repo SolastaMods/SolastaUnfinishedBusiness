@@ -72,14 +72,13 @@ public static class GameLocationManagerPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: prevent some effects from being removed when entering new location
-            var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
+            var terminateMethod = typeof(RulesetEffect).GetMethod("Terminate");
+            var maybeTerminateMethod = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
 
-            return instructions.ReplaceCode(instruction =>
-                    instruction.opcode == OpCodes.Callvirt &&
-                    instruction.operand?.ToString().Contains("Terminate") == true,
-                -1, "GameLocationManager.StopCharacterEffectsIfRelevant_Patch",
+            return instructions.ReplaceCall(terminateMethod,
+                1, "GameLocationManager.StopCharacterEffectsIfRelevant_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, maybeTerminate));
+                new CodeInstruction(OpCodes.Call, maybeTerminateMethod));
         }
 
         private static void MaybeTerminate([NotNull] RulesetEffect effect, bool self, bool willEnterChainedLocation)

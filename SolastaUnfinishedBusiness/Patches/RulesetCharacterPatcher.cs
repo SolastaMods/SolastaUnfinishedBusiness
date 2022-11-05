@@ -468,30 +468,17 @@ public static class RulesetCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //TODO: find if possible to get this transpile to use the helper
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
+            var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
             var method =
                 new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
                     .Method;
-            var code = instructions.ToList();
-            var foundAcIndex = code.FindIndex(instruction =>
-                instruction.opcode == OpCodes.Ldstr &&
-                $"{instruction.operand}".Contains(AttributeDefinitions.ArmorClass));
 
-            if (foundAcIndex >= 0)
-            {
-                return code.ReplaceCode(
-                    instruction => instruction.opcode == OpCodes.Callvirt &&
-                                   $"{instruction.operand}".Contains("get_CurrentValue"),
-                    1, "RulesetCharacter.RollAttack_Patch",
-                    new CodeInstruction(OpCodes.Ldarg_2),
-                    new CodeInstruction(OpCodes.Ldarg, 4),
-                    new CodeInstruction(OpCodes.Call, method));
-            }
-
-            Main.Error("MirrorImageLogic");
-
-            return code;
+            return instructions.ReplaceCall(currentValueMethod,
+                1, "RulesetCharacter.RollAttack_Patch",
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldarg, 4),
+                new CodeInstruction(OpCodes.Call, method));
         }
     }
 
@@ -680,9 +667,7 @@ public static class RulesetCharacterPatcher
             >(CustomEnumerate).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceCode(instruction =>
-                    instruction.opcode == OpCodes.Callvirt &&
-                    instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true,
+            return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
                 -1, "RulesetCharacter.RefreshSpellRepertoires_Patch",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }

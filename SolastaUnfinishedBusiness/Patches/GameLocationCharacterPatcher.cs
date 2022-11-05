@@ -205,12 +205,12 @@ public static class GameLocationCharacterPatcher
                 return true;
             }
 
-            var customMethod = new Func<RulesetActor, bool>(True).Method;
+            var isWearingShieldMethod = typeof(RulesetCharacter).GetMethod("IsWearingShield");
+            var trueMethod = new Func<RulesetActor, bool>(True).Method;
 
-            return instructions.ReplaceCode(
-                instruction => instruction.operand?.ToString().Contains("IsWearingShield") == true,
-                -1, "GameLocationCharacter.GetActionStatus_Patch",
-                new CodeInstruction(OpCodes.Call, customMethod));
+            return instructions.ReplaceCalls(isWearingShieldMethod,
+                "GameLocationCharacter.GetActionStatus_Patch",
+                new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
         public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
@@ -242,15 +242,11 @@ public static class GameLocationCharacterPatcher
 
             return instructions
                 //PATCH: Support for `IDefinitionApplicationValidator`
-                .ReplaceCode(instruction =>
-                        instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
-                        instruction.operand?.ToString().Contains("IActionPerformanceProvider") == true,
+                .ReplaceEnumerateFeaturesToBrowse("IActionPerformanceProvider",
                     -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateActionPerformanceProviders",
                     new CodeInstruction(OpCodes.Call, enumerate1))
                 //PATCH: Support for `IDefinitionApplicationValidator`
-                .ReplaceCode(instruction =>
-                        instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
-                        instruction.operand?.ToString().Contains("IAdditionalActionsProvider") == true,
+                .ReplaceEnumerateFeaturesToBrowse("IAdditionalActionsProvider",
                     -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));
         }

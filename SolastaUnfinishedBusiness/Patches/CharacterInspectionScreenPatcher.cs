@@ -40,7 +40,7 @@ public static class CharacterInspectionScreenPatcher
             }
         }
     }
-    
+
     //PATCH: resets the inspection context for MC heroes otherwise we get class name bleeding on char pool
     [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

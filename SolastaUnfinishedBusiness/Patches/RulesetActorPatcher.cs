@@ -68,9 +68,7 @@ public static class RulesetActorPatcher
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(MyEnumerate).Method;
 
-            return instructions.ReplaceCode(
-                instruction => $"{instruction.operand}".Contains("EnumerateFeaturesToBrowse") &&
-                               $"{instruction.operand}".Contains("IDamageAffinityProvider"),
+            return instructions.ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
                 -1, "RulesetActor.ModulateSustainedDamage_Patch",
                 new CodeInstruction(OpCodes.Call, myEnumerate));
         }

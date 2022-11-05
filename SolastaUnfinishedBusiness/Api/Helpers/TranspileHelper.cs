@@ -9,17 +9,17 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class TranspileHelper
 {
-    // 40 replace calls
+    // 42 replace calls
     public static IEnumerable<CodeInstruction> ReplaceCalls(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCall(methodInfo, -1, patchContext, codeInstructions);
+        return instructions.ReplaceCode(i => i.Calls(methodInfo), -1, patchContext, codeInstructions);
     }
 
-    // 7 replace call
+    // 9 replace call
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
@@ -42,7 +42,48 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, bypass, patchContext, codeInstructions);
     }
 
-    // 15 replace code
+    // 2 replace call generic code
+    public static IEnumerable<CodeInstruction> ReplaceCallGeneric(
+        this IEnumerable<CodeInstruction> instructions,
+        string contains,
+        int occurrence,
+        string patchContext,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCode(
+            instruction =>
+                instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains(contains),
+            occurrence, 0, patchContext, codeInstructions);
+    }
+
+    // 4 replace call EnumerateFeaturesToBrowse
+    public static IEnumerable<CodeInstruction> ReplaceEnumerateFeaturesToBrowse(
+        this IEnumerable<CodeInstruction> instructions,
+        string featureToBrowse,
+        int occurrence,
+        string patchContext,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCode(instruction =>
+                instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
+                instruction.operand?.ToString().Contains(featureToBrowse) == true,
+            occurrence, 0, patchContext, codeInstructions);
+    }
+
+    // 2 bypass replace load field
+    public static IEnumerable<CodeInstruction> ReplaceLoadField(
+        this IEnumerable<CodeInstruction> instructions,
+        FieldInfo fieldInfo,
+        int occurrence,
+        int bypass,
+        string patchContext,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCode(instruction => instruction.LoadsField(fieldInfo),
+            occurrence, bypass, patchContext, codeInstructions);
+    }
+
+    // 6 generic replace code
     public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
@@ -53,8 +94,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(match, occurrence, 0, patchContext, codeInstructions);
     }
 
-    // 3 replace bypass code
-    public static IEnumerable<CodeInstruction> ReplaceCode(
+    private static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
         int occurrence,

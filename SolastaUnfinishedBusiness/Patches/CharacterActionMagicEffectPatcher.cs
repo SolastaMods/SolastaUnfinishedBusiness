@@ -213,8 +213,8 @@ public static class CharacterActionMagicEffectPatcher
                     List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
                     CharacterActionMagicEffect, int>(PushesFromEffectPoint.SetPositionAndApplyForms).Method;
 
-            return instructions.ReplaceCode(
-                instruction => instruction.operand?.ToString().Contains("ApplyEffectForms") == true,
+            return instructions.ReplaceCallGeneric(
+                "ApplyEffectForms",
                 -1, "CharacterActionMagicEffect.ApplyForms_Patch",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));

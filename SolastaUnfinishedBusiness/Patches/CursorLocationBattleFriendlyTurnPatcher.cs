@@ -19,13 +19,13 @@ public static class CursorLocationBattleFriendlyTurnPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: ReachMeleeTargeting
+            var findBestActionDestinationMethod = typeof(CursorLocationBattleFriendlyTurn)
+                .GetMethod("FindBestActionDestination", BindingFlags.Instance | BindingFlags.NonPublic);
             var method = typeof(ReachMeleeTargeting)
                 .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
 
-            return instructions.ReplaceCode(
-                instruction => instruction.opcode == OpCodes.Call &&
-                               instruction.operand?.ToString().Contains("FindBestActionDestination") == true,
-                -1, "CursorLocationBattleFriendlyTurn.IsValidAttack_Patch",
+            return instructions.ReplaceCalls(findBestActionDestinationMethod,
+                "CursorLocationBattleFriendlyTurn.IsValidAttack_Patch",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldloc_1),
                 new CodeInstruction(OpCodes.Call, method));

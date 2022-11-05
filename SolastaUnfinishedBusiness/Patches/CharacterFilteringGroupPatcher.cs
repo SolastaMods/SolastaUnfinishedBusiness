@@ -25,7 +25,7 @@ public static class CharacterFilteringGroupPatcher
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
-            return instructions.ReplaceCode(instruction => instruction.LoadsField(levelsField),
+            return instructions.ReplaceLoadField(levelsField,
                 -1,
                 2, "CharacterFilteringGroup.Compare_Patch",
                 new CodeInstruction(OpCodes.Ldfld, levelsField),
