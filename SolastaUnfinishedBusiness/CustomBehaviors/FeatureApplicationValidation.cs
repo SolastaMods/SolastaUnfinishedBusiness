@@ -22,7 +22,7 @@ internal static class FeatureApplicationValidation
         return instructions.ReplaceCode(instruction =>
                 $"{instruction.operand}".Contains("EnumerateFeaturesToBrowse") &&
                 $"{instruction.operand}".Contains("IActionPerformanceProvider"),
-            -1,
+            -1, "FeatureApplicationValidation.ValidateActionPerformanceProviders",
             new CodeInstruction(OpCodes.Call, enumerate));
     }
 
@@ -58,7 +58,7 @@ internal static class FeatureApplicationValidation
         return instructions.ReplaceCode(instruction =>
                 $"{instruction.operand}".Contains("EnumerateFeaturesToBrowse") &&
                 $"{instruction.operand}".Contains("IAdditionalActionsProvider"),
-            -1,
+            -1, "FeatureApplicationValidation.ValidateAdditionalActionProviders",
             new CodeInstruction(OpCodes.Call, enumerate));
     }
 
@@ -93,7 +93,7 @@ internal static class FeatureApplicationValidation
         >(ValidateAttributeModifier).Method;
 
         return instructions.ReplaceCode(instruction => instruction.opcode == OpCodes.Isinst,
-            -1,
+            -1, "FeatureApplicationValidation.ValidateAttributeModifiersFromConditions",
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Call, validate));
     }

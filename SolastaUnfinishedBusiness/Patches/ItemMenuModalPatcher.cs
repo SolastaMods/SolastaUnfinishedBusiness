@@ -26,7 +26,7 @@ public static class ItemMenuModalPatcher
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = new Func<ItemMenuModal, bool>(RequiresDeity).Method;
 
-            return instructions.ReplaceCalls(requiresDeityMethod,
+            return instructions.ReplaceCalls(requiresDeityMethod, "ItemMenuModalPatcher.SetupFromItem_Patch",
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myRequiresDeityMethod));

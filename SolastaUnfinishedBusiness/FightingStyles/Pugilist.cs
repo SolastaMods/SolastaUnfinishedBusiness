@@ -82,7 +82,7 @@ internal static class PugilistHelper
         var customMethod = new Func<RulesetActor, bool>(True).Method;
 
         return instructions.ReplaceCode(instruction => $"{instruction.operand}".Contains("IsWearingShield"),
-            -1,
+            -1, "PugilistHelper.RemoveShieldRequiredForBonusPush",
             new CodeInstruction(OpCodes.Call, customMethod));
     }
 }

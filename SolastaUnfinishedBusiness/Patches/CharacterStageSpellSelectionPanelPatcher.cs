@@ -40,7 +40,7 @@ public static class CharacterStageSpellSelectionPanelPatcher
                 CharacterStageSpellSelectionPanel // panel
             >(MulticlassGameUiContext.SpellsByLevelGroupBindLearning).Method;
 
-            return instructions.ReplaceCalls(bindMethod,
+            return instructions.ReplaceCalls(bindMethod, "CharacterStageSpellSelectionPanelPatcher.Refresh_Patch",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, customBind));
         }

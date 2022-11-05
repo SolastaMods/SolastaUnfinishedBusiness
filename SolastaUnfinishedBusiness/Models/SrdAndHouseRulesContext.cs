@@ -489,7 +489,7 @@ internal static class ArmorClassStacking
             RulesetCharacterMonster
         >(ProcessWildShapeAc).Method;
 
-        return instructions.ReplaceCalls(sort,
+        return instructions.ReplaceCalls(sort, "ArmorClassStacking.AddAcTrendsToMonsterAcRefresh",
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Call, unstack));
     }
@@ -681,7 +681,7 @@ internal static class UpcastConjureElementalAndFey
         var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
         var getSpellList = new Func<SpellDefinition, int, List<SpellDefinition>>(SubspellsList).Method;
 
-        return instructions.ReplaceCalls(subspellsListMethod,
+        return instructions.ReplaceCalls(subspellsListMethod, "UpcastConjureElementalAndFey.ReplaceSubSpellList",
             new CodeInstruction(OpCodes.Ldarg, 5),
             new CodeInstruction(OpCodes.Call, getSpellList));
     }

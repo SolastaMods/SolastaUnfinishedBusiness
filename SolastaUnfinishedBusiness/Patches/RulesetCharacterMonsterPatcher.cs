@@ -45,7 +45,7 @@ public static class RulesetCharacterMonsterPatcher
             var refreshAttributeModifiers =
                 typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
-            return instructions.ReplaceCalls(refreshAttributes,
+            return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonsterPatcher.RefreshAll_Patch",
                 new CodeInstruction(OpCodes.Call, refreshAttributeModifiers),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, refreshAttributes));

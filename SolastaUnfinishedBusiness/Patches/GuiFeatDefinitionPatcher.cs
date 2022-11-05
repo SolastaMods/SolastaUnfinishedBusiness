@@ -54,7 +54,7 @@ public static class GuiFeatDefinitionPatcher
             return codes.ReplaceCode(c =>
                     c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")),
                 1,
-                1,
+                1, "GuiFeatDefinitionPatcher.IsFeatMatchingPrerequisites_Patch",
                 new CodeInstruction(OpCodes.Call,
                     new Func<RulesetCharacterHero, int>(CanCastSpells).Method));
         }

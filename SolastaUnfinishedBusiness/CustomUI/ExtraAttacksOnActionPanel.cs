@@ -24,7 +24,7 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromGuiAction).Method;
 
-        return instructions.ReplaceCalls(findAttacks,
+        return instructions.ReplaceCalls(findAttacks, "ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInActionPanel",
             new CodeInstruction(OpCodes.Ldarg_2),
             new CodeInstruction(OpCodes.Call, method));
     }
@@ -57,7 +57,7 @@ internal static class ExtraAttacksOnActionPanel
             RulesetAttackMode
         >(FindExtraActionAttackModesFromForcedAttack).Method;
 
-        return instructions.ReplaceCalls(findAttacks,
+        return instructions.ReplaceCalls(findAttacks, "ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInLocationCharacter",
             new CodeInstruction(OpCodes.Ldarg_2),
             new CodeInstruction(OpCodes.Call, method));
     }

@@ -37,7 +37,7 @@ public static class SpellActivationBoxPatcher
             var myUniqueLevelSlotsMethod =
                 new Func<FeatureDefinitionCastSpell, RulesetCharacterHero, bool>(UniqueLevelSlots).Method;
 
-            return instructions.ReplaceCalls(uniqueLevelSlotsMethod,
+            return instructions.ReplaceCalls(uniqueLevelSlotsMethod, "SpellActivationBoxPatcher.BindSpell_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
         }
