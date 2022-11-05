@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -33,7 +36,14 @@ public static class SubspellSelectionModalPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces available subspell list with additional higher level elemental/fey
-            return UpcastConjureElementalAndFey.ReplaceSubSpellList(instructions);
+            var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
+            var getSpellList =
+                new Func<SpellDefinition, int, List<SpellDefinition>>(UpcastConjureElementalAndFey.SubspellsList)
+                    .Method;
+
+            return instructions.ReplaceCalls(subspellsListMethod, "SubspellSelectionModal.Bind_Patch",
+                new CodeInstruction(OpCodes.Ldarg, 5),
+                new CodeInstruction(OpCodes.Call, getSpellList));
         }
     }
 }

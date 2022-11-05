@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using HarmonyLib;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
@@ -10,7 +6,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using UnityEngine;
 using static ActionDefinitions;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -158,54 +153,7 @@ internal static class CustomReactionsContext
         toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
     }
 
-    internal static IEnumerable<CodeInstruction> ForcePreferredCantripUsage(
-        this IEnumerable<CodeInstruction> instructions)
-    {
-        var codes = instructions.ToList();
-        var customBindMethod =
-            new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
-        var containsIndex = -1;
-
-        //TODO: is there a better way to detect proper placement?
-        for (var i = 0; i < codes.Count; i++)
-        {
-            if (i < 1)
-            {
-                continue;
-            }
-
-            var code = codes[i];
-
-            if (code.opcode != OpCodes.Callvirt || !code.operand.ToString().Contains("Contains"))
-            {
-                continue;
-            }
-
-            var prev = codes[i - 1];
-
-            if (prev.opcode != OpCodes.Callvirt || !prev.operand.ToString().Contains("PreferredReadyCantrip"))
-            {
-                continue;
-            }
-
-            containsIndex = i;
-
-            break;
-        }
-
-        if (containsIndex > 0)
-        {
-            codes[containsIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
-        }
-        else
-        {
-            Main.Error("ForcePreferredCantripUsage");
-        }
-
-        return codes;
-    }
-
-    private static bool CheckAndModifyCantrips(List<SpellDefinition> readied, SpellDefinition preferred)
+    internal static bool CheckAndModifyCantrips(List<SpellDefinition> readied, SpellDefinition preferred)
     {
         if (!_forcePreferredCantrip)
         {

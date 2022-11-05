@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using HarmonyLib;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -18,21 +14,7 @@ internal sealed class PushesFromEffectPoint
 
     public static PushesFromEffectPoint Marker { get; } = new();
 
-    internal static IEnumerable<CodeInstruction> ModifyApplyFormsCall(IEnumerable<CodeInstruction> instructions)
-    {
-        var method =
-            new Func<IRulesetImplementationService, List<EffectForm>, RulesetImplementationDefinitions.ApplyFormsParams,
-                List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
-                CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
-
-        return instructions.ReplaceCode(
-            instruction => instruction.operand?.ToString().Contains("ApplyEffectForms") == true,
-            -1, "PushesFromEffectPoint.ModifyApplyFormsCall",
-            new CodeInstruction(OpCodes.Ldarg_0),
-            new CodeInstruction(OpCodes.Call, method));
-    }
-
-    private static int SetPositionAndApplyForms(
+    internal static int SetPositionAndApplyForms(
         IRulesetImplementationService service,
         List<EffectForm> effectForms,
         RulesetImplementationDefinitions.ApplyFormsParams formsParams,

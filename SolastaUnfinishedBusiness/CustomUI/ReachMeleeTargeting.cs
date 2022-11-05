@@ -1,33 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Helpers;
+﻿using System.Linq;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class ReachMeleeTargeting
 {
-    // Replaces call to `FindBestActionDestination` with custom method that respects attack mode's reach
-    // Needed for reach melee
-    internal static IEnumerable<CodeInstruction> ApplyCursorLocationIsValidAttack(
-        this IEnumerable<CodeInstruction> instructions)
-    {
-        var method = typeof(ReachMeleeTargeting)
-            .GetMethod("FindBestActionDestination", BindingFlags.Static | BindingFlags.NonPublic);
-
-        return instructions.ReplaceCode(
-            instruction => instruction.opcode == OpCodes.Call &&
-                           instruction.operand?.ToString().Contains("FindBestActionDestination") == true,
-            -1, "ReachMeleeTargeting.ApplyCursorLocationIsValidAttack",
-            new CodeInstruction(OpCodes.Ldarg_0),
-            new CodeInstruction(OpCodes.Ldloc_1),
-            new CodeInstruction(OpCodes.Call, method));
-    }
-
-    // Used in `ApplyCursorLocationIsValidAttackTranspile`
+    // Used in `CursorLocationBattleFriendlyTurnPatcher`
     // ReSharper disable once UnusedMember.Global
     internal static bool FindBestActionDestination(
         GameLocationCharacter actor,

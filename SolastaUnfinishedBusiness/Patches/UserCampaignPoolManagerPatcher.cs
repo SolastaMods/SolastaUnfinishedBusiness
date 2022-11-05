@@ -22,7 +22,7 @@ public static class UserCampaignPoolManagerPatcher
             var deleteMethod = typeof(File).GetMethod("Delete");
             var backupAndDeleteMethod = new Action<string, UserContent>(DmProEditorContext.BackupAndDelete).Method;
 
-            return instructions.ReplaceCalls(deleteMethod, "UserCampaignPoolManagerPatcher.SaveUserCampaign_Patch",
+            return instructions.ReplaceCalls(deleteMethod, "UserCampaignPoolManager.SaveUserCampaign_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, backupAndDeleteMethod));
         }

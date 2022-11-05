@@ -23,7 +23,7 @@ public static class AttunementModalPatcher
             var method = new Func<AttunementModal, int>(GetLimit).Method;
 
             return instructions.ReplaceCode(x => x.opcode == OpCodes.Ldc_I4_3,
-                -1, "AttunementModalPatcher.Refresh_Patch",
+                -1, "AttunementModal.Refresh_Patch",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
         }

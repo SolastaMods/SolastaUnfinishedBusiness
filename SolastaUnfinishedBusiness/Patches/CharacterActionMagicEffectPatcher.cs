@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -204,8 +207,17 @@ public static class CharacterActionMagicEffectPatcher
             // allows push/grab motion effects to work relative to casting point, instead of caster's position
             // used for Grenadier's force grenades
             // sets position of the formsParams to the first position from ActionParams, when applicable
+            var method =
+                new Func<IRulesetImplementationService, List<EffectForm>,
+                    RulesetImplementationDefinitions.ApplyFormsParams,
+                    List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
+                    CharacterActionMagicEffect, int>(PushesFromEffectPoint.SetPositionAndApplyForms).Method;
 
-            return PushesFromEffectPoint.ModifyApplyFormsCall(instructions);
+            return instructions.ReplaceCode(
+                instruction => instruction.operand?.ToString().Contains("ApplyEffectForms") == true,
+                -1, "CharacterActionMagicEffect.ApplyForms_Patch",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, method));
         }
     }
 }

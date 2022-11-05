@@ -26,7 +26,7 @@ public static class CharacterStageAbilityScoresPanelPatcher
             return instructions.ReplaceCode(
                 instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                instruction.operand?.ToString() == CharacterContext.GameBuyPoints.ToString(),
-                -1, "CharacterStageAbilityScoresPanelPatcher.Reset_Patch",
+                -1, "CharacterStageAbilityScoresPanel.Reset_Patch",
                 new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints));
         }
     }

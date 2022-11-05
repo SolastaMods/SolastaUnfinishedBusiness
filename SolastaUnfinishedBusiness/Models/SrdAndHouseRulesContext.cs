@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
@@ -477,24 +474,7 @@ internal static class SrdAndHouseRulesContext
 
 internal static class ArmorClassStacking
 {
-    internal static IEnumerable<CodeInstruction> AddAcTrendsToMonsterAcRefresh(
-        IEnumerable<CodeInstruction> instructions)
-    {
-        var sort = new Action<
-            List<RulesetAttributeModifier>
-        >(RulesetAttributeModifier.SortAttributeModifiersList).Method;
-
-        var unstack = new Action<
-            List<RulesetAttributeModifier>,
-            RulesetCharacterMonster
-        >(ProcessWildShapeAc).Method;
-
-        return instructions.ReplaceCalls(sort, "ArmorClassStacking.AddAcTrendsToMonsterAcRefresh",
-            new CodeInstruction(OpCodes.Ldarg_0),
-            new CodeInstruction(OpCodes.Call, unstack));
-    }
-
-    private static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
+    internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
     {
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
@@ -676,18 +656,8 @@ internal static class UpcastConjureElementalAndFey
      * Patch implementation
      * Replaces calls to masterSpell.SubspellsList getter with custom method that adds extra options for upcasted elementals/fey
      */
-    internal static IEnumerable<CodeInstruction> ReplaceSubSpellList(IEnumerable<CodeInstruction> instructions)
-    {
-        var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
-        var getSpellList = new Func<SpellDefinition, int, List<SpellDefinition>>(SubspellsList).Method;
-
-        return instructions.ReplaceCalls(subspellsListMethod, "UpcastConjureElementalAndFey.ReplaceSubSpellList",
-            new CodeInstruction(OpCodes.Ldarg, 5),
-            new CodeInstruction(OpCodes.Call, getSpellList));
-    }
-
     [CanBeNull]
-    private static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
+    internal static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
     {
         var subspellsList = masterSpell.SubspellsList;
         var mySlotLevel = masterSpell.Name == ConjureElemental.Name

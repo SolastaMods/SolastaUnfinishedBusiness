@@ -23,7 +23,7 @@ public static class GameLocationPositioningManagerPatcher
             var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
                 Type.DefaultBinder, new[] { typeof(string) }, null);
 
-            return instructions.ReplaceCalls(logErrorMethod, "GameLocationPositioningManagerPatcher.CharacterMoved_Patch",
+            return instructions.ReplaceCalls(logErrorMethod, "GameLocationPositioningManager.CharacterMoved_Patch",
                 new CodeInstruction(OpCodes.Pop));
         }
     }

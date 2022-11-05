@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
@@ -316,7 +319,19 @@ public static class RulesetImplementationManagerPatcher
         {
             //PATCH: support for shield counting as melee
             //replaces calls to ItemDefinition's isWeapon and WeaponDescription getter with custom ones that account for shield
-            return ShieldAttack.MakeShieldCountAsMelee(instructions);
+            var weaponDescription = typeof(ItemDefinition).GetMethod("get_WeaponDescription");
+            var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");
+            var customWeaponDescription =
+                new Func<ItemDefinition, WeaponDescription>(ShieldAttack.CustomWeaponDescription).Method;
+            var customIsWeapon = new Func<ItemDefinition, bool>(ShieldAttack.CustomIsWeapon).Method;
+
+            return instructions
+                .ReplaceCalls(weaponDescription,
+                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider_Patch.1",
+                    new CodeInstruction(OpCodes.Call, customWeaponDescription))
+                .ReplaceCalls(isWeapon,
+                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider_Patch.2",
+                    new CodeInstruction(OpCodes.Call, customIsWeapon));
         }
 
         public static void Postfix(ref bool __result,

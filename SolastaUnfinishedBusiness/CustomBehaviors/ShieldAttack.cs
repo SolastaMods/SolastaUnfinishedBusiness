@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Helpers;
+﻿using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -24,29 +20,14 @@ internal static class ShieldAttack
         animation = ShieldStrike.ShieldWeaponType.AnimationTag;
     }
 
-    //replaces calls to ItemDefinition's isWeapon and Wea[ponDescription getter with custom ones that account for shield
-    internal static IEnumerable<CodeInstruction> MakeShieldCountAsMelee(IEnumerable<CodeInstruction> instructions)
-    {
-        var weaponDescription = typeof(ItemDefinition).GetMethod("get_WeaponDescription");
-        var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");
-        var customWeaponDescription = new Func<ItemDefinition, WeaponDescription>(CustomWeaponDescription).Method;
-        var customIsWeapon = new Func<ItemDefinition, bool>(CustomIsWeapon).Method;
-
-        return instructions
-            .ReplaceCalls(weaponDescription, "MakeShieldCountAsMelee.get_WeaponDescription",
-                new CodeInstruction(OpCodes.Call, customWeaponDescription))
-            .ReplaceCalls(isWeapon, "MakeShieldCountAsMelee.get_IsWeapon",
-                new CodeInstruction(OpCodes.Call, customIsWeapon));
-    }
-
-    private static WeaponDescription CustomWeaponDescription(ItemDefinition item)
+    internal static WeaponDescription CustomWeaponDescription(ItemDefinition item)
     {
         return ShieldStrike.IsShield(item)
             ? ShieldStrike.ShieldWeaponDescription
             : item.WeaponDescription;
     }
 
-    private static bool CustomIsWeapon(ItemDefinition item)
+    internal static bool CustomIsWeapon(ItemDefinition item)
     {
         return item.IsWeapon || ShieldStrike.IsShield(item);
     }

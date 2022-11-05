@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -45,7 +46,7 @@ public static class RulesetCharacterMonsterPatcher
             var refreshAttributeModifiers =
                 typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
-            return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonsterPatcher.RefreshAll_Patch",
+            return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonster.RefreshAll_Patch",
                 new CodeInstruction(OpCodes.Call, refreshAttributeModifiers),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, refreshAttributes));
@@ -63,7 +64,18 @@ public static class RulesetCharacterMonsterPatcher
             // Makes sure various unarmored defense features don't stack with themselves and Dragon Resilience
             // Replaces calls to `RulesetAttributeModifier.SortAttributeModifiersList` with custom method
             // that removes inactive exclusive modifiers, and then calls `RulesetAttributeModifier.SortAttributeModifiersList`
-            return ArmorClassStacking.AddAcTrendsToMonsterAcRefresh(instructions);
+            var sort = new Action<
+                List<RulesetAttributeModifier>
+            >(RulesetAttributeModifier.SortAttributeModifiersList).Method;
+
+            var unstack = new Action<
+                List<RulesetAttributeModifier>,
+                RulesetCharacterMonster
+            >(ArmorClassStacking.ProcessWildShapeAc).Method;
+
+            return instructions.ReplaceCalls(sort, "RulesetCharacterMonster.RefreshArmorClass_Patch",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, unstack));
         }
     }
 

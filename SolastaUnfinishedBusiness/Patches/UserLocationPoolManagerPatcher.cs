@@ -22,7 +22,7 @@ public static class UserLocationPoolManagerPatcher
             var deleteMethod = typeof(File).GetMethod("Delete");
             var backupAndDeleteMethod = new Action<string, UserContent>(DmProEditorContext.BackupAndDelete).Method;
 
-            return instructions.ReplaceCalls(deleteMethod, "UserLocationPoolManagerPatcher.SaveUserLocation_Patch",
+            return instructions.ReplaceCalls(deleteMethod, "UserLocationPoolManager.SaveUserLocation_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, backupAndDeleteMethod));
         }

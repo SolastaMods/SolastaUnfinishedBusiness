@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -62,29 +59,7 @@ public class MirrorImageLogic
             .ToList();
     }
 
-    internal static IEnumerable<CodeInstruction> PatchAttackRoll(IEnumerable<CodeInstruction> instructions)
-    {
-        var method = new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(GetAC).Method;
-
-        var code = instructions.ToList();
-        var foundAcIndex = code.FindIndex(instruction =>
-            instruction.opcode == OpCodes.Ldstr && $"{instruction.operand}".Contains(AttributeDefinitions.ArmorClass));
-
-        if (foundAcIndex >= 0)
-        {
-            return code.ReplaceCode(
-                instruction => instruction.opcode == OpCodes.Callvirt &&
-                               $"{instruction.operand}".Contains("get_CurrentValue"),
-                1, "MirrorImageLogic.PatchAttackRoll",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldarg, 4),
-                new CodeInstruction(OpCodes.Call, method));
-        }
-
-        return code;
-    }
-
-    private static int GetAC(RulesetAttribute attribute, RulesetActor target,
+    internal static int GetAC(RulesetAttribute attribute, RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends)
     {
         if (!TargetsMirrorImage(toHitTrends)) { return attribute.CurrentValue; }

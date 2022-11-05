@@ -51,10 +51,9 @@ public static class GuiFeatDefinitionPatcher
 
             //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
             //which are registered before feat selection at lvl 1
-            return codes.ReplaceCode(c =>
-                    c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")),
+            return codes.ReplaceCall(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires"),
                 1,
-                1, "GuiFeatDefinitionPatcher.IsFeatMatchingPrerequisites_Patch",
+                1, "GuiFeatDefinition.IsFeatMatchingPrerequisites_Patch",
                 new CodeInstruction(OpCodes.Call,
                     new Func<RulesetCharacterHero, int>(CanCastSpells).Method));
         }

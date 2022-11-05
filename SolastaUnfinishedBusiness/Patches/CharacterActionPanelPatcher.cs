@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
@@ -41,7 +44,19 @@ public static class CharacterActionPanelPatcher
         {
             //PATCH: Support for ExtraAttacksOnActionPanel
             //replaces calls to FindExtraActionAttackModes to custom method which supports forced attack modes for offhand attacks
-            return ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInActionPanel(instructions);
+            var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
+            var method = new Func<
+                GameLocationCharacter,
+                ActionDefinitions.Id,
+                bool,
+                bool,
+                GuiCharacterAction,
+                RulesetAttackMode
+            >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromGuiAction).Method;
+
+            return instructions.ReplaceCalls(findAttacks, "CharacterActionPanel.OnActivateAction_Patch",
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Call, method));
         }
     }
 }

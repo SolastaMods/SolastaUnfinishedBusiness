@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 
@@ -44,7 +48,27 @@ public static class CharacterInformationPanelPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: overrides the selected class search term with the one determined by the hotkeys / enumerate class badges logic
-            return CharacterInspectionScreenEnhancement.EnableClassSelector(instructions);
+            var containsMethod = typeof(string).GetMethod("Contains");
+            var getSelectedClassSearchTermMethod =
+                new Func<string, string>(CharacterInspectionScreenEnhancement.GetSelectedClassSearchTerm).Method;
+            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            var myEnumerateClassBadgesMethod =
+                new Action<CharacterInformationPanel>(CharacterInspectionScreenEnhancement.EnumerateClassBadges).Method;
+
+            // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
+            return instructions
+                .ReplaceCalls(enumerateClassBadgesMethod,
+                    "CharacterInformationPanel.Refresh_Patch.EnumerateClassBadges",
+                    new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
+                .ReplaceCall(containsMethod,
+                    2, "CharacterInformationPanel.Refresh_Patch.Contains.1",
+                    new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
+                    new CodeInstruction(OpCodes.Call, containsMethod))
+                .ReplaceCall(containsMethod,
+                    2, "CharacterInformationPanel.Refresh_Patch.Contains.2",
+                    new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
+                    new CodeInstruction(OpCodes.Call, containsMethod));
         }
     }
 }

@@ -75,8 +75,9 @@ public static class GameLocationManagerPatcher
             var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
 
             return instructions.ReplaceCode(instruction =>
-                    instruction.opcode == OpCodes.Callvirt && instruction.operand?.ToString().Contains("Terminate") == true,
-                -1, "GameLocationManagerPatcher.StopCharacterEffectsIfRelevant_Patch",
+                    instruction.opcode == OpCodes.Callvirt &&
+                    instruction.operand?.ToString().Contains("Terminate") == true,
+                -1, "GameLocationManager.StopCharacterEffectsIfRelevant_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, maybeTerminate));
         }

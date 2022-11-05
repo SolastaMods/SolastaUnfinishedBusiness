@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -26,7 +20,7 @@ internal static class CharacterInspectionScreenEnhancement
         Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
     [NotNull]
-    private static string GetSelectedClassSearchTerm(string original)
+    internal static string GetSelectedClassSearchTerm(string original)
     {
         var selectedClass = SelectedClass;
 
@@ -36,7 +30,7 @@ internal static class CharacterInspectionScreenEnhancement
                    : selectedClass.Name);
     }
 
-    private static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
+    internal static void EnumerateClassBadges([NotNull] CharacterInformationPanel __instance)
     {
         var badgeDefinitions = __instance.badgeDefinitions;
         var classBadgesTable = __instance.classBadgesTable;
@@ -346,27 +340,5 @@ internal static class CharacterInspectionScreenEnhancement
         {
             labelsGroup.GetChild(i).gameObject.SetActive(false);
         }
-    }
-
-    internal static IEnumerable<CodeInstruction> EnableClassSelector(IEnumerable<CodeInstruction> instructions)
-    {
-        var containsMethod = typeof(string).GetMethod("Contains");
-        var getSelectedClassSearchTermMethod = new Func<string, string>(GetSelectedClassSearchTerm).Method;
-        var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
-            BindingFlags.Instance | BindingFlags.NonPublic);
-        var myEnumerateClassBadgesMethod = new Action<CharacterInformationPanel>(EnumerateClassBadges).Method;
-
-        // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
-        return instructions
-            .ReplaceCalls(enumerateClassBadgesMethod, "EnableClassSelector.EnumerateClassBadges",
-                new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod))
-            .ReplaceCall(containsMethod,
-                2, "EnableClassSelector.Contains.1",
-                new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
-                new CodeInstruction(OpCodes.Call, containsMethod))
-            .ReplaceCall(containsMethod,
-                2, "EnableClassSelector.Contains.2",
-                new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
-                new CodeInstruction(OpCodes.Call, containsMethod));
     }
 }

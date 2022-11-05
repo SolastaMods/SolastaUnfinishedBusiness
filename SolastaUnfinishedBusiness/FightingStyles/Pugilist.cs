@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Helpers;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -64,25 +60,5 @@ internal sealed class Pugilist : AbstractFightingStyle
 
             effectDescription.EffectForms.Insert(k + 1, additionalDice);
         }
-    }
-}
-
-internal static class PugilistHelper
-{
-    // Removes check that makes `ShoveBonus` action unavailable if character has no shield
-    // Replaces call to RulesetActor.IsWearingShield with custom method that always returns true
-    internal static IEnumerable<CodeInstruction> RemoveShieldRequiredForBonusPush(
-        this IEnumerable<CodeInstruction> instructions)
-    {
-        static bool True(RulesetActor actor)
-        {
-            return true;
-        }
-
-        var customMethod = new Func<RulesetActor, bool>(True).Method;
-
-        return instructions.ReplaceCode(instruction => instruction.operand?.ToString().Contains("IsWearingShield") == true,
-            -1, "PugilistHelper.RemoveShieldRequiredForBonusPush",
-            new CodeInstruction(OpCodes.Call, customMethod));
     }
 }

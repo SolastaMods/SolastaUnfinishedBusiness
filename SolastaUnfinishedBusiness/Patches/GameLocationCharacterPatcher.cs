@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -198,7 +200,17 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: Support for Pugilist Fighting Style
             // Removes check that makes `ShoveBonus` action unavailable if character has no shield
-            return instructions.RemoveShieldRequiredForBonusPush();
+            static bool True(RulesetActor actor)
+            {
+                return true;
+            }
+
+            var customMethod = new Func<RulesetActor, bool>(True).Method;
+
+            return instructions.ReplaceCode(
+                instruction => instruction.operand?.ToString().Contains("IsWearingShield") == true,
+                -1, "GameLocationCharacter.GetActionStatus_Patch",
+                new CodeInstruction(OpCodes.Call, customMethod));
         }
 
         public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
@@ -216,11 +228,31 @@ public static class GameLocationCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
+            var enumerate1 = new Action<
+                RulesetActor,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(FeatureApplicationValidation.EnumerateActionPerformanceProviders).Method;
+
+            var enumerate2 = new Action<
+                RulesetActor,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(FeatureApplicationValidation.EnumerateAdditionalActionProviders).Method;
+
             return instructions
                 //PATCH: Support for `IDefinitionApplicationValidator`
-                .ValidateActionPerformanceProviders()
+                .ReplaceCode(instruction =>
+                        instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
+                        instruction.operand?.ToString().Contains("IActionPerformanceProvider") == true,
+                    -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateActionPerformanceProviders",
+                    new CodeInstruction(OpCodes.Call, enumerate1))
                 //PATCH: Support for `IDefinitionApplicationValidator`
-                .ValidateAdditionalActionProviders();
+                .ReplaceCode(instruction =>
+                        instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
+                        instruction.operand?.ToString().Contains("IAdditionalActionsProvider") == true,
+                    -1, "GameLocationCharacter.RefreshActionPerformances_Patch.ValidateAdditionalActionProviders",
+                    new CodeInstruction(OpCodes.Call, enumerate2));
         }
     }
 
@@ -247,7 +279,20 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: Support for ExtraAttacksOnActionPanel
             //replaces calls to FindExtraActionAttackModes to custom method which supports forced attack modes for offhand attacks
-            return ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInLocationCharacter(instructions);
+            var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
+            var method = new Func<
+                GameLocationCharacter,
+                ActionDefinitions.Id,
+                bool,
+                bool,
+                RulesetAttackMode,
+                RulesetAttackMode
+            >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromForcedAttack).Method;
+
+            return instructions.ReplaceCalls(findAttacks,
+                "GameLocationCharacter.GetActionAvailableIterations_Patch",
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Call, method));
         }
     }
 }

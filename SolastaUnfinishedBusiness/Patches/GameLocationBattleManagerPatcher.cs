@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -50,7 +52,17 @@ public static class GameLocationBattleManagerPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Makes only preferred cantrip valid if it is selected and forced
-            return instructions.ForcePreferredCantripUsage();
+            var customBindMethod =
+                new Func<List<SpellDefinition>, SpellDefinition, bool>(CustomReactionsContext.CheckAndModifyCantrips)
+                    .Method;
+
+            return instructions.ReplaceCode(
+                instruction => instruction.opcode == OpCodes.Callvirt &&
+                               instruction.operand?.ToString().Contains("Contains") == true,
+                -1,
+                0,
+                "GameLocationBattleManager.CanPerformReadiedActionOnCharacter_Patch",
+                new CodeInstruction(OpCodes.Call, customBindMethod));
         }
     }
 

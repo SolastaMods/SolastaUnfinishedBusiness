@@ -9,6 +9,7 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class TranspileHelper
 {
+    // 40 replace calls
     public static IEnumerable<CodeInstruction> ReplaceCalls(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
@@ -18,6 +19,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCall(methodInfo, -1, patchContext, codeInstructions);
     }
 
+    // 7 replace call
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
@@ -28,6 +30,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, patchContext, codeInstructions);
     }
 
+    // 3 bypass replace call
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
@@ -39,6 +42,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, bypass, patchContext, codeInstructions);
     }
 
+    // 15 replace code
     public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
@@ -49,6 +53,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCode(match, occurrence, 0, patchContext, codeInstructions);
     }
 
+    // 3 replace bypass code
     public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,

@@ -446,7 +446,18 @@ public static class RulesetCharacterPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for validation of attribute modifications applied through conditions
-            return FeatureApplicationValidation.ValidateAttributeModifiersFromConditions(instructions);
+            //Replaces first `IsInst` operator with custom validator
+
+            var validate = new Func<
+                FeatureDefinition,
+                RulesetCharacter,
+                FeatureDefinition
+            >(FeatureApplicationValidation.ValidateAttributeModifier).Method;
+
+            return instructions.ReplaceCode(instruction => instruction.opcode == OpCodes.Isinst,
+                -1, "RulesetCharacter.RefreshAttributeModifiersFromConditions_Patch",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, validate));
         }
     }
 
@@ -457,8 +468,30 @@ public static class RulesetCharacterPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
+            //TODO: find if possible to get this transpile to use the helper
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
-            return MirrorImageLogic.PatchAttackRoll(instructions);
+            var method =
+                new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
+                    .Method;
+            var code = instructions.ToList();
+            var foundAcIndex = code.FindIndex(instruction =>
+                instruction.opcode == OpCodes.Ldstr &&
+                $"{instruction.operand}".Contains(AttributeDefinitions.ArmorClass));
+
+            if (foundAcIndex >= 0)
+            {
+                return code.ReplaceCode(
+                    instruction => instruction.opcode == OpCodes.Callvirt &&
+                                   $"{instruction.operand}".Contains("get_CurrentValue"),
+                    1, "RulesetCharacter.RollAttack_Patch",
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg, 4),
+                    new CodeInstruction(OpCodes.Call, method));
+            }
+
+            Main.Error("MirrorImageLogic");
+
+            return code;
         }
     }
 
@@ -610,7 +643,7 @@ public static class RulesetCharacterPatcher
             return instructions
                 // first call to roll die checks the initiator
                 .ReplaceCall(rollDieMethod,
-                    1, "RulesetCharacterPatcher.ResolveContestCheck_Patch.1",
+                    1, "RulesetCharacter.ResolveContestCheck_Patch.1",
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
                     new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
                     new CodeInstruction(OpCodes.Ldarg, 3), // abilityScoreName
@@ -619,8 +652,9 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
-                .ReplaceCall(rollDieMethod, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
-                    1,  "RulesetCharacterPatcher.ResolveContestCheck_Patch.2",
+                .ReplaceCall(
+                    rollDieMethod, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
+                    1, "RulesetCharacter.ResolveContestCheck_Patch.2",
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
                     new CodeInstruction(OpCodes.Ldarg, 9), // opponentAbilityScoreName
@@ -649,7 +683,7 @@ public static class RulesetCharacterPatcher
             return instructions.ReplaceCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true,
-                -1, "RulesetCharacterPatcher.RefreshSpellRepertoires_Patch",
+                -1, "RulesetCharacter.RefreshSpellRepertoires_Patch",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -836,10 +870,11 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             return instructions
-                .ReplaceCalls(bind, "RulesetCharacterPatcher.ApplyRest_Patch.get_MaxUses",
+                .ReplaceCalls(bind, "RulesetCharacter.ApplyRest_Patch.get_MaxUses",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, maxUses))
-                .ReplaceCalls(restoreAllSpellSlotsMethod, "RulesetCharacterPatcher.ApplyRest_Patch.RestoreAllSpellSlots",
+                .ReplaceCalls(restoreAllSpellSlotsMethod,
+                    "RulesetCharacter.ApplyRest_Patch.RestoreAllSpellSlots",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
@@ -951,7 +986,8 @@ public static class RulesetCharacterPatcher
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
-            return instructions.ReplaceCalls(isFunctionAvailable,"RulesetCharacterPatcher.RefreshUsableDeviceFunctions_Patch",
+            return instructions.ReplaceCalls(isFunctionAvailable,
+                "RulesetCharacter.RefreshUsableDeviceFunctions_Patch",
                 new CodeInstruction(OpCodes.Call, customMethod));
         }
 

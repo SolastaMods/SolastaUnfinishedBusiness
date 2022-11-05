@@ -27,8 +27,6 @@ internal static class GameUiDisplay
             {
                 Main.Settings.DontFollowMargin = intValue;
             }
-
-            UI.Label("");
         }
 
         UI.Label("");

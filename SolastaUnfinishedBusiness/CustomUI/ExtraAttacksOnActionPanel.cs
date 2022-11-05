@@ -1,35 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class ExtraAttacksOnActionPanel
 {
-    internal static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInActionPanel(
-        IEnumerable<CodeInstruction> instructions)
-    {
-        var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
-        var method = new Func<
-            GameLocationCharacter,
-            Id,
-            bool,
-            bool,
-            GuiCharacterAction,
-            RulesetAttackMode
-        >(FindExtraActionAttackModesFromGuiAction).Method;
-
-        return instructions.ReplaceCalls(findAttacks, "ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInActionPanel",
-            new CodeInstruction(OpCodes.Ldarg_2),
-            new CodeInstruction(OpCodes.Call, method));
-    }
-
-    private static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(
+    internal static RulesetAttackMode FindExtraActionAttackModesFromGuiAction(
         GameLocationCharacter character,
         Id actionId,
         bool getWithMostAttackNb,
@@ -44,25 +22,7 @@ internal static class ExtraAttacksOnActionPanel
         return guiAction.ForcedAttackMode;
     }
 
-    internal static IEnumerable<CodeInstruction> ReplaceFindExtraActionAttackModesInLocationCharacter(
-        IEnumerable<CodeInstruction> instructions)
-    {
-        var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
-        var method = new Func<
-            GameLocationCharacter,
-            Id,
-            bool,
-            bool,
-            RulesetAttackMode,
-            RulesetAttackMode
-        >(FindExtraActionAttackModesFromForcedAttack).Method;
-
-        return instructions.ReplaceCalls(findAttacks, "ExtraAttacksOnActionPanel.ReplaceFindExtraActionAttackModesInLocationCharacter",
-            new CodeInstruction(OpCodes.Ldarg_2),
-            new CodeInstruction(OpCodes.Call, method));
-    }
-
-    private static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(
+    internal static RulesetAttackMode FindExtraActionAttackModesFromForcedAttack(
         GameLocationCharacter character,
         Id actionId,
         bool getWithMostAttackNb,
