@@ -1,4 +1,6 @@
-// automatically generated on 11/3/2022 12:00:00 AM
+// automatically generated on 11/5/2022 12:00:00 AM
+
+using TA.AI;
 
 namespace SolastaUnfinishedBusiness.Api;
 
@@ -8340,6 +8342,42 @@ internal static partial class DatabaseHelper
             GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }
 
+    internal static class FormationDefinitions
+    {
+        internal static FormationDefinition Caer_Lem_Cutscene_05_Nego { get; } =
+            GetDefinition<FormationDefinition>("Caer_Lem_Cutscene_05_Nego");
+
+        internal static FormationDefinition Column2 { get; } =
+            GetDefinition<FormationDefinition>("Column2");
+
+        internal static FormationDefinition Dialog_Level_01_CaerLem_03 { get; } =
+            GetDefinition<FormationDefinition>("Dialog_Level_01_CaerLem_03");
+
+        internal static FormationDefinition MagicMouth { get; } =
+            GetDefinition<FormationDefinition>("MagicMouth");
+
+        internal static FormationDefinition Mummy { get; } =
+            GetDefinition<FormationDefinition>("Mummy");
+
+        internal static FormationDefinition OrcGateKeepers { get; } =
+            GetDefinition<FormationDefinition>("OrcGateKeepers");
+
+        internal static FormationDefinition OrcPatrol { get; } =
+            GetDefinition<FormationDefinition>("OrcPatrol");
+
+        internal static FormationDefinition PinchTrap { get; } =
+            GetDefinition<FormationDefinition>("PinchTrap");
+
+        internal static FormationDefinition SingleCreature { get; } =
+            GetDefinition<FormationDefinition>("SingleCreature");
+
+        internal static FormationDefinition Squad4 { get; } =
+            GetDefinition<FormationDefinition>("Squad4");
+
+        internal static FormationDefinition Test_Placement { get; } =
+            GetDefinition<FormationDefinition>("Test_Placement");
+    }
+
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition AgonizingBlast { get; } =
@@ -12204,6 +12242,2013 @@ internal static partial class DatabaseHelper
             GetDefinition<KnowledgeLevelDefinition>("Unknown0");
     }
 
+    internal static class LootPackDefinitions
+    {
+        internal static LootPackDefinition ABJURATION_Coparann_LightFiller_Illustration { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_Coparann_LightFiller_Illustration");
+
+        internal static LootPackDefinition ABJURATION_JAIL_Lootpack_Chest { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_JAIL_Lootpack_Chest");
+
+        internal static LootPackDefinition ABJURATION_KythaelasChest { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_KythaelasChest");
+
+        internal static LootPackDefinition ABJURATION_MONASTERY_01_Lootpack_Minotaur { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_MONASTERY_01_Lootpack_Minotaur");
+
+        internal static LootPackDefinition ABJURATION_MONASTERY_02_Lootpack_GoblinSack { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_MONASTERY_02_Lootpack_GoblinSack");
+
+        internal static LootPackDefinition ABJURATION_MONASTERY_03_Lootpack_EmtansChest { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_MONASTERY_03_Lootpack_EmtansChest");
+
+        internal static LootPackDefinition ABJURATION_MONASTERY_04_Lootpack_WarFoundry { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_MONASTERY_04_Lootpack_WarFoundry");
+
+        internal static LootPackDefinition ABJURATION_ORACLE_Lootpack_Chest { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_ORACLE_Lootpack_Chest");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Laboratory_Chest_01_Trapped { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Laboratory_Chest_01_Trapped");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Laboratory_SmallChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Laboratory_SmallChest_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Library_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Library_02");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Library_03 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Library_03");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Library_04 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Library_04");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Salon1_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Salon1_Barrel_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Basement_Salon1_SmallChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Basement_Salon1_SmallChest_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hall_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hall_Barrel_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hall_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hall_Chest_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_Chest_01");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_Chest_02");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_JuteSack_01_Secret { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_JuteSack_01_Secret");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_JuteSack_02_Secret { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_JuteSack_02_Secret");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_JuteSack_03 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_JuteSack_03");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_JuteSack_04_Underwater { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_JuteSack_04_Underwater");
+
+        internal static LootPackDefinition ABJURATION_WizardTower_Hill_JuteSack_05 { get; } =
+            GetDefinition<LootPackDefinition>("ABJURATION_WizardTower_Hill_JuteSack_05");
+
+        internal static LootPackDefinition Adam_The_Twelfth_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Adam_The_Twelfth_Loot_Drop");
+
+        internal static LootPackDefinition Aer_Elai_Final_AcidLake_Loot_Broken_Crate { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_AcidLake_Loot_Broken_Crate");
+
+        internal static LootPackDefinition Aer_Elai_Final_AcidLake_Loot_JuteSack_A { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_AcidLake_Loot_JuteSack_A");
+
+        internal static LootPackDefinition Aer_Elai_Final_AcidLake_Loot_JuteSack_Closed { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_AcidLake_Loot_JuteSack_Closed");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Basket_01");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Basket_02 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Basket_02");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Broken_Crate { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Broken_Crate");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Chest_01");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Chest_02");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Clay_Pots_01 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Clay_Pots_01");
+
+        internal static LootPackDefinition Aer_Elai_Final_BentPalace_Loot_Clay_Pots_02 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_BentPalace_Loot_Clay_Pots_02");
+
+        internal static LootPackDefinition Aer_Elai_Final_Rift_Loot_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_Rift_Loot_Chest_01");
+
+        internal static LootPackDefinition Aer_Elai_Final_Rift_Loot_Clay_Pots_01 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_Rift_Loot_Clay_Pots_01");
+
+        internal static LootPackDefinition Aer_Elai_Final_Rift_Loot_Clay_Pots_02 { get; } =
+            GetDefinition<LootPackDefinition>("Aer_Elai_Final_Rift_Loot_Clay_Pots_02");
+
+        internal static LootPackDefinition Air_Elemental_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Air_Elemental_loot_drop");
+
+        internal static LootPackDefinition Albino_Minotaur_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Albino_Minotaur_loot_drop");
+
+        internal static LootPackDefinition Ape_Giant_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ape_Giant_loot_drop");
+
+        internal static LootPackDefinition Ape_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ape_loot_drop");
+
+        internal static LootPackDefinition ARISTOCRAT_AdriasChest_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("ARISTOCRAT_AdriasChest_Loot_drop");
+
+        internal static LootPackDefinition Arrok_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Arrok_loot_drop");
+
+        internal static LootPackDefinition Backers_Lootpack_Items { get; } =
+            GetDefinition<LootPackDefinition>("Backers_Lootpack_Items");
+
+        internal static LootPackDefinition Backers_Lootpack_Items_B_Cumulative { get; } =
+            GetDefinition<LootPackDefinition>("Backers_Lootpack_Items_B_Cumulative");
+
+        internal static LootPackDefinition Backers_Lootpack_Items_C_Cumulative { get; } =
+            GetDefinition<LootPackDefinition>("Backers_Lootpack_Items_C_Cumulative");
+
+        internal static LootPackDefinition BadlandsApe_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BadlandsApe_loot_drop");
+
+        internal static LootPackDefinition BadlandsBear_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BadlandsBear_loot_drop");
+
+        internal static LootPackDefinition BadlandsSpider_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BadlandsSpider_loot_drop");
+
+        internal static LootPackDefinition BasicChestLoot { get; } =
+            GetDefinition<LootPackDefinition>("BasicChestLoot");
+
+        internal static LootPackDefinition BasicChestLoot_1 { get; } =
+            GetDefinition<LootPackDefinition>("BasicChestLoot 1");
+
+        internal static LootPackDefinition BasicChestLootTutoPrison { get; } =
+            GetDefinition<LootPackDefinition>("BasicChestLootTutoPrison");
+
+        internal static LootPackDefinition BasicCorpseLoot1 { get; } =
+            GetDefinition<LootPackDefinition>("BasicCorpseLoot1");
+
+        internal static LootPackDefinition BasicCorpseLoot2 { get; } =
+            GetDefinition<LootPackDefinition>("BasicCorpseLoot2");
+
+        internal static LootPackDefinition BasicCorpseLoot3 { get; } =
+            GetDefinition<LootPackDefinition>("BasicCorpseLoot3");
+
+        internal static LootPackDefinition BasicHayStackLootTutoPrison { get; } =
+            GetDefinition<LootPackDefinition>("BasicHayStackLootTutoPrison");
+
+        internal static LootPackDefinition BasicSackPileLoot1 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot1");
+
+        internal static LootPackDefinition BasicSackPileLoot10 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot10");
+
+        internal static LootPackDefinition BasicSackPileLoot2 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot2");
+
+        internal static LootPackDefinition BasicSackPileLoot3 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot3");
+
+        internal static LootPackDefinition BasicSackPileLoot4 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot4");
+
+        internal static LootPackDefinition BasicSackPileLoot5 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot5");
+
+        internal static LootPackDefinition BasicSackPileLoot6 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot6");
+
+        internal static LootPackDefinition BasicSackPileLoot7 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot7");
+
+        internal static LootPackDefinition BasicSackPileLoot8 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot8");
+
+        internal static LootPackDefinition BasicSackPileLoot9 { get; } =
+            GetDefinition<LootPackDefinition>("BasicSackPileLoot9");
+
+        internal static LootPackDefinition BlackBear_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BlackBear_loot_drop");
+
+        internal static LootPackDefinition Bone_Keep_Cemetery_Loot_Angbi_Bones_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Cemetery_Loot_Angbi_Bones_01");
+
+        internal static LootPackDefinition Bone_Keep_Cemetery_Loot_Angbi_Bones_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Cemetery_Loot_Angbi_Bones_02");
+
+        internal static LootPackDefinition Bone_Keep_Cemetery_Loot_Angbi_Bones_03 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Cemetery_Loot_Angbi_Bones_03");
+
+        internal static LootPackDefinition Bone_Keep_Cemetery_Loot_Tomb_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Cemetery_Loot_Tomb_01");
+
+        internal static LootPackDefinition Bone_Keep_Cemetery_Loot_Tomb_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Cemetery_Loot_Tomb_02");
+
+        internal static LootPackDefinition Bone_Keep_Courtyard_Loot_Barrack { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Courtyard_Loot_Barrack");
+
+        internal static LootPackDefinition Bone_Keep_Courtyard_Loot_Store_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Courtyard_Loot_Store_01");
+
+        internal static LootPackDefinition Bone_Keep_Courtyard_Loot_Store_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Courtyard_Loot_Store_02");
+
+        internal static LootPackDefinition Bone_Keep_Courtyard_Loot_Tower_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Courtyard_Loot_Tower_01");
+
+        internal static LootPackDefinition Bone_Keep_Courtyard_Loot_Tower_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Courtyard_Loot_Tower_02");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_AkshasArmorstand { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_AkshasArmorstand");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_AkshasBed { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_AkshasBed");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_AkshasLibrary { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_AkshasLibrary");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_AkshasNightstand { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_AkshasNightstand");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_BrokenTowerSack { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_BrokenTowerSack");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_CellChest { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_CellChest");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_Claypots { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_Claypots");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_Corridor_Library01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_Corridor_Library01");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_Corridor_Library02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_Corridor_Library02");
+
+        internal static LootPackDefinition Bone_Keep_DefilerLair_SideTowerSmallChest { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_DefilerLair_SideTowerSmallChest");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Food { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Food");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Crate { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Crate");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Library_LizzariasQuarters { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Library_LizzariasQuarters");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Library_Lobby { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Library_Lobby");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Library_Study { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Library_Study");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_NightStand_LizzariasQuarters { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_NightStand_LizzariasQuarters");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Pot { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Pot");
+
+        internal static LootPackDefinition Bone_Keep_Laboratory_Loot_Shelf_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Laboratory_Loot_Shelf_01");
+
+        internal static LootPackDefinition Bone_Keep_Outdoor_Loot_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Outdoor_Loot_Crate_01");
+
+        internal static LootPackDefinition Bone_Keep_Outdoor_Loot_Entrance_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Outdoor_Loot_Entrance_01");
+
+        internal static LootPackDefinition Bone_Keep_Outdoor_Loot_Pond_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Outdoor_Loot_Pond_01");
+
+        internal static LootPackDefinition Bone_Keep_Outdoor_Loot_Rest_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Outdoor_Loot_Rest_01");
+
+        internal static LootPackDefinition Bone_Keep_Outdoor_Loot_Shelf_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Outdoor_Loot_Shelf_01");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Book_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Book_01");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Book_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Book_02");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Book_03 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Book_03");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Book_04 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Book_04");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Corpse_03 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Corpse_03");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Corpse_Rogue_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Corpse_Rogue_02");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Corpse_Wizard_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Corpse_Wizard_01");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Crate_01");
+
+        internal static LootPackDefinition Bone_Keep_Solar_Loot_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_Loot_Crate_02");
+
+        internal static LootPackDefinition Bone_Keep_Solar_MasterChest { get; } =
+            GetDefinition<LootPackDefinition>("Bone_Keep_Solar_MasterChest");
+
+        internal static LootPackDefinition BrimstoneViper_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BrimstoneViper_loot_drop");
+
+        internal static LootPackDefinition BrownBear_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("BrownBear_loot_drop");
+
+        internal static LootPackDefinition Bulette_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Bulette_loot_drop");
+
+        internal static LootPackDefinition Bulette_Mutated_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Bulette_Mutated_loot_drop");
+
+        internal static LootPackDefinition CAERLEM_Cave_Loot_01_Mushroom { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Cave_Loot_01_Mushroom");
+
+        internal static LootPackDefinition CAERLEM_Cave_Loot_02_Corpse { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Cave_Loot_02_Corpse");
+
+        internal static LootPackDefinition CAERLEM_Cave_Loot_03_Climb4Loot { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Cave_Loot_03_Climb4Loot");
+
+        internal static LootPackDefinition CAERLEM_Cave_Loot_04_Jump4Loot { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Cave_Loot_04_Jump4Loot");
+
+        internal static LootPackDefinition CAERLEM_Cave_Loot_05_Jump5Loot { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Cave_Loot_05_Jump5Loot");
+
+        internal static LootPackDefinition CAERLEM_DungeonChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_DungeonChest_01");
+
+        internal static LootPackDefinition CAERLEM_DungeonChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_DungeonChest_02");
+
+        internal static LootPackDefinition CAERLEM_FoodCrate { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_FoodCrate");
+
+        internal static LootPackDefinition CAERLEM_GoblinCave_Loot_01 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_GoblinCave_Loot_01");
+
+        internal static LootPackDefinition CAERLEM_GoblinCave_Loot_02 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_GoblinCave_Loot_02");
+
+        internal static LootPackDefinition CAERLEM_Loot_PickupQuest_HiddenBlade { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_Loot_PickupQuest_HiddenBlade");
+
+        internal static LootPackDefinition CAERLEM_TowerChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_TowerChest_01");
+
+        internal static LootPackDefinition CAERLEM_TowerChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("CAERLEM_TowerChest_02");
+
+        internal static LootPackDefinition Caravan_Loot_Food_DEBUG { get; } =
+            GetDefinition<LootPackDefinition>("Caravan_Loot_Food_DEBUG");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_Forest_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_Forest_Basket_01");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_Forest_BasketInCobWeb_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_Forest_BasketInCobWeb_01");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_Forest_BasketInCobWeb_02 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_Forest_BasketInCobWeb_02");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_01");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_02 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_02");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_03 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_03");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_04 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_04");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_05 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_05");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_06 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_06");
+
+        internal static LootPackDefinition CONJURATION_LavaForest_LavaRiver_Trunk_07 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_LavaForest_LavaRiver_Trunk_07");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_01");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_02");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_03 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_03");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_04 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_04");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_05 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_05");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_06 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_06");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_07 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_07");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_08 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_08");
+
+        internal static LootPackDefinition CONJURATION_TheEgo_TheMaze_Chest_08_Empty { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgo_TheMaze_Chest_08_Empty");
+
+        internal static LootPackDefinition CONJURATION_TheEgoReworked_TheMaze_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgoReworked_TheMaze_Chest_01");
+
+        internal static LootPackDefinition CONJURATION_TheEgoReworked_TheMaze_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheEgoReworked_TheMaze_Chest_02");
+
+        internal static LootPackDefinition CONJURATION_TheID_Arena_Chest_3rd_Round { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_Arena_Chest_3rd_Round");
+
+        internal static LootPackDefinition CONJURATION_TheID_Arena_Chest_4th_Round { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_Arena_Chest_4th_Round");
+
+        internal static LootPackDefinition CONJURATION_TheID_ArenaMonsterLootEmpty { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_ArenaMonsterLootEmpty");
+
+        internal static LootPackDefinition CONJURATION_TheID_TheCave_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_TheCave_Barrel_01");
+
+        internal static LootPackDefinition CONJURATION_TheID_TheDarkCave_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_TheDarkCave_Barrel_01");
+
+        internal static LootPackDefinition CONJURATION_TheID_TheDarkCave_Barrel_02 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_TheDarkCave_Barrel_02");
+
+        internal static LootPackDefinition CONJURATION_TheID_TheGreed_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheID_TheGreed_Chest_01");
+
+        internal static LootPackDefinition CONJURATION_TheSuperEgo_Mansion_OptionalQuest_LootQuest_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("CONJURATION_TheSuperEgo_Mansion_OptionalQuest_LootQuest_Chest_01");
+
+        internal static LootPackDefinition Coparann_Mines_Loot_Hideout_Document_01 { get; } =
+            GetDefinition<LootPackDefinition>("Coparann_Mines_Loot_Hideout_Document_01");
+
+        internal static LootPackDefinition Coparann_Mines_Loot_HideoutKey { get; } =
+            GetDefinition<LootPackDefinition>("Coparann_Mines_Loot_HideoutKey");
+
+        internal static LootPackDefinition Coparann_Mines_Loot_WagonLever { get; } =
+            GetDefinition<LootPackDefinition>("Coparann_Mines_Loot_WagonLever");
+
+        internal static LootPackDefinition CR0_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR0_Loot_Pack");
+
+        internal static LootPackDefinition CR1_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR1_Loot_Pack");
+
+        internal static LootPackDefinition CR2_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR2_Loot_Pack");
+
+        internal static LootPackDefinition CR3_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR3_Loot_Pack");
+
+        internal static LootPackDefinition CR4_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR4_Loot_Pack");
+
+        internal static LootPackDefinition CR5_Loot_Pack { get; } =
+            GetDefinition<LootPackDefinition>("CR5_Loot_Pack");
+
+        internal static LootPackDefinition CrimsonSpider_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("CrimsonSpider_loot_drop");
+
+        internal static LootPackDefinition CRX_1_2_Scrolls { get; } =
+            GetDefinition<LootPackDefinition>("CRX_1_2_Scrolls");
+
+        internal static LootPackDefinition CRX_1_Potion_1_Poison { get; } =
+            GetDefinition<LootPackDefinition>("CRX_1_Potion_1_Poison");
+
+        internal static LootPackDefinition CRX_1_Recipe_1_Ingredient { get; } =
+            GetDefinition<LootPackDefinition>("CRX_1_Recipe_1_Ingredient");
+
+        internal static LootPackDefinition CRX_1_WondrousItem { get; } =
+            GetDefinition<LootPackDefinition>("CRX_1_WondrousItem");
+
+        internal static LootPackDefinition CRX_Food_1D3_MundaneItems { get; } =
+            GetDefinition<LootPackDefinition>("CRX_Food_1D3_MundaneItems");
+
+        internal static LootPackDefinition CRX_Legendary_Loot { get; } =
+            GetDefinition<LootPackDefinition>("CRX_Legendary_Loot");
+
+        internal static LootPackDefinition CRX_MagicArmor_plus_1 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicArmor_plus_1");
+
+        internal static LootPackDefinition CRX_MagicArmor_plus_2 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicArmor_plus_2");
+
+        internal static LootPackDefinition CRX_MagicWeapon_plus_1 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicWeapon_plus_1");
+
+        internal static LootPackDefinition CRX_MagicWeapon_plus_2 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicWeapon_plus_2");
+
+        internal static LootPackDefinition CRX_RandomAmmo { get; } =
+            GetDefinition<LootPackDefinition>("CRX_RandomAmmo");
+
+        internal static LootPackDefinition CYFLEN_STASH_Merran_loot_pack { get; } =
+            GetDefinition<LootPackDefinition>("CYFLEN_STASH_Merran_loot_pack");
+
+        internal static LootPackDefinition CYFLEN_STASH_Merton_loot_pack { get; } =
+            GetDefinition<LootPackDefinition>("CYFLEN_STASH_Merton_loot_pack");
+
+        internal static LootPackDefinition DEBUG_CHEAT_LotsOfFoodRations { get; } =
+            GetDefinition<LootPackDefinition>("DEBUG_CHEAT_LotsOfFoodRations");
+
+        internal static LootPackDefinition DeepSpider_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DeepSpider_loot_drop");
+
+        internal static LootPackDefinition DireWolf_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DireWolf_loot_drop");
+
+        internal static LootPackDefinition DireWolf_Mutant_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DireWolf_Mutant_loot_drop");
+
+        internal static LootPackDefinition DLC1_Badri_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Badri_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Buried_City_Jungle_Ruins_Quest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Jungle_Ruins_Quest_01");
+
+        internal static LootPackDefinition DLC1_Buried_City_Jungle_Ruins_Quest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Jungle_Ruins_Quest_02");
+
+        internal static LootPackDefinition DLC1_Buried_City_Jungle_Ruins_Quest_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Jungle_Ruins_Quest_03");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Battleroom { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Battleroom");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Chest_Key { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Chest_Key");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Chest_Pack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Chest_Pack");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Chest_Pack2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Chest_Pack2");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Entrance_Corpse { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Entrance_Corpse");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_Entrance_Corpse2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_Entrance_Corpse2");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_ArmorStand { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_ArmorStand");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_Barrel { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_Barrel");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_Basket { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_Basket");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_Chest_01");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_ClayPots { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_ClayPots");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_CrateRebelHome { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_CrateRebelHome");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_Ellaria_Crate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_Ellaria_Crate");
+
+        internal static LootPackDefinition DLC1_Buried_City_Lootpack_HQ_RennosChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Lootpack_HQ_RennosChest");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Barrel { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Barrel");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Chest1 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Chest1");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Chest2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Chest2");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Crate01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Crate01");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Crate02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Crate02");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Crate03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Crate03");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Crate04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Crate04");
+
+        internal static LootPackDefinition DLC1_Buried_City_Palace_Lootpack_Library { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Buried_City_Palace_Lootpack_Library");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_Entrance_BrokenCrate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_Entrance_BrokenCrate");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_Inn_BrokenCrate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_Inn_BrokenCrate");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_Market_BrokenCrate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_Market_BrokenCrate");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_Music_Hall_BrokenCrate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_Music_Hall_BrokenCrate");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_MusicHall_Library { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_MusicHall_Library");
+
+        internal static LootPackDefinition DLC1_City_Lootpack_MusicHall_NightStand { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_City_Lootpack_MusicHall_NightStand");
+
+        internal static LootPackDefinition DLC1_Complex_Guard_Captain_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Complex_Guard_Captain_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Complex_Guard_Captain_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Complex_Guard_Captain_Stealable_Loot");
+
+        internal static LootPackDefinition DLC1_Ellaria_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Ellaria_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_GiantBeetle_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_GiantBeetle_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_HarvestArea_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_HarvestArea_Lootpack");
+
+        internal static LootPackDefinition DLC1_HendeolasLootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_HendeolasLootpack");
+
+        internal static LootPackDefinition DLC1_Karelia_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Karelia_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Lootpack_Anfarel_Noble { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Anfarel_Noble");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_BeetleKey02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_BeetleKey02");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Esfalad_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Esfalad_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Esfalad_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Esfalad_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Esfalad_Crate_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Esfalad_Crate_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Esfalad_Crate_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Esfalad_Crate_04");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Finaliel_Lab_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Finaliel_Lab_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Finaliel_Lab_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Finaliel_Lab_Chest_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Finaliel_Lab_Library { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Finaliel_Lab_Library");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_People_04_Pickpocketable_Sharpeyes { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_People_04_Pickpocketable_Sharpeyes");
+
+        internal static LootPackDefinition DLC1_Lootpack_City_Rebellion_01_Pickpocketable { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Rebellion_01_Pickpocketable");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Chest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Chest");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Corpse_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Corpse_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Crate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Crate");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Crate_Forge_09 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Crate_Forge_09");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Sack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Sack");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_ClayPots_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_ClayPots_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_ClayPots_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_ClayPots_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Crate_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Crate_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Crate_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Crate_04");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_Library_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_WeaponRack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_WeaponRack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_WeaponRack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_WeaponRack_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Facilities_WeaponRack_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Facilities_WeaponRack_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Ground_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Ground_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Ground_Barrel_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Ground_Barrel_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Ground_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Ground_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Ground_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Ground_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Outdoor_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Outdoor_Trunk_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Corpse_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Corpse_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Library_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Library_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Small_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Small_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Second_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Second_Weapon_Rack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_BrokenCrate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_BrokenCrate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_BrokenCrate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_BrokenCrate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_Corpse_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_Corpse_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_Corpse_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_Corpse_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Drop_Orenetis { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Drop_Orenetis");
+
+        internal static LootPackDefinition DLC1_Lootpack_Drop_Rose { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Drop_Rose");
+
+        internal static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Druid { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Druid");
+
+        internal static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Guard { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Guard");
+
+        internal static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Hunter { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Hunter");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Escort_Backpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Escort_Backpack");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Grotto_Pelt { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Grotto_Pelt");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Grotto_VIP_Pack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Grotto_VIP_Pack");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Nest_Corpse_Pack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Nest_Corpse_Pack");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Nest_Crate_Exit_Key { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Nest_Crate_Exit_Key");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Nest_Crate_Pack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Nest_Crate_Pack");
+
+        internal static LootPackDefinition DLC1_Lootpack_Marches_Outside_Grotto_Pack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Marches_Outside_Grotto_Pack");
+
+        internal static LootPackDefinition DLC1_Lootpack_MysteriousPalace_Cellar_Crate { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_MysteriousPalace_Cellar_Crate");
+
+        internal static LootPackDefinition DLC1_Lootpack_MysteriousPalace_Cellar_JuteSack { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_MysteriousPalace_Cellar_JuteSack");
+
+        internal static LootPackDefinition DLC1_Lootpack_MysteriousPalace_Library_Chest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_MysteriousPalace_Library_Chest");
+
+        internal static LootPackDefinition DLC1_Lootpack_MysteriousPalace_Library_Library_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_MysteriousPalace_Library_Library_A");
+
+        internal static LootPackDefinition DLC1_Lootpack_MysteriousPalace_Library_Library_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_MysteriousPalace_Library_Library_B");
+
+        internal static LootPackDefinition DLC1_Lootpack_Pickpocketable_Badri { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Pickpocketable_Badri");
+
+        internal static LootPackDefinition DLC1_Lootpack_Pickpocketable_Finaliel { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Pickpocketable_Finaliel");
+
+        internal static LootPackDefinition DLC1_Lootpack_Pickpocketable_Forge_Guard { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Pickpocketable_Forge_Guard");
+
+        internal static LootPackDefinition DLC1_Lootpack_Pickpocketable_Rose { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Pickpocketable_Rose");
+
+        internal static LootPackDefinition DLC1_Lootpack_Quest_Forge_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Quest_Forge_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Quest_Orenetis_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Quest_Orenetis_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Quest_Rebellion_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Quest_Rebellion_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Boathouse { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Boathouse");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_CorpseOnPillar { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_CorpseOnPillar");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Forge_SmallChest_Rebellion_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Forge_SmallChest_Rebellion_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_ForgeCamp_Loot01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_ForgeCamp_Loot01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_ForgeCamp_Loot02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_ForgeCamp_Loot02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_ForgeCamp_Loot03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_ForgeCamp_Loot03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_HasdrubalsChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_HasdrubalsChest");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Loot_LoveLetter { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_LoveLetter");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Loot_PrisonKey { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_PrisonKey");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Loot_RuganKey { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_RuganKey");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Orc_Camp_Corpse01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Orc_Camp_Corpse01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_OrcChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_OrcChest");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_River_Corpse { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_River_Corpse");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Ruins_Chest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Ruins_Chest");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Ruins_Chest_FlyOnly { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Ruins_Chest_FlyOnly");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_Ruins_Corpse_FlyOnly { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Ruins_Corpse_FlyOnly");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_SpiderHut { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_SpiderHut");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_SpiderNest_Cocoon1 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_SpiderNest_Cocoon1");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_SpiderNest_Cocoon2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_SpiderNest_Cocoon2");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_SpiderNest_Corpse { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_SpiderNest_Corpse");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_SpiderNest_Corpse2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_SpiderNest_Corpse2");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_UndeadTower { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_UndeadTower");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_WitchLedger { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_WitchLedger");
+
+        internal static LootPackDefinition DLC1_Lootpack_Swamp_WitchSmallChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_WitchSmallChest");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Forest_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Forest_Basket_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Forest_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Forest_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Forest_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Forest_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Forest_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Forest_Trunk_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Basket_Pack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Broken_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Broken_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Corpse_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Corpse_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plain_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plain_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plateau_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plateau_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plateau_Broken_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plateau_Broken_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plateau_Corpse_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plateau_Corpse_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Plateau_Corpse_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Plateau_Corpse_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_River_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_River_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_River_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_River_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_River_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_River_Trunk_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Armor_Stand_B_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Armor_Stand_B_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Barrel_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Barrel_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Basket_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Broken_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Broken_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Bucket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Bucket_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Chest_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Caves_Small_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Caves_Small_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Armor_Stand_B_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Armor_Stand_B_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Armor_Stand_B_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Armor_Stand_B_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Chest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Chest_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Chest_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Chest_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Chest_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Chest_04");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_DeadBody_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_DeadBody_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_DeadBody_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_DeadBody_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_DeadBody_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_DeadBody_03");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_JuteSack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_JuteSack_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Library_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Library_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Small_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Small_Chest_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Tomb_C_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Tomb_C_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Tomb_C_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Tomb_C_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Underground_Temple_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Underground_Temple_Weapon_Rack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Barrel_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Basket_Pack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Crate_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Crate_02");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_JuteSack_01");
+
+        internal static LootPackDefinition DLC1_Lootpack_Valley_Waterfall_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Lootpack_Valley_Waterfall_Library_01");
+
+        internal static LootPackDefinition DLC1_NPC_Complex_Wizard_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Complex_Wizard_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Complex_Wizard_Pickpocketable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Complex_Wizard_Pickpocketable_Loot");
+
+        internal static LootPackDefinition DLC1_NPC_Dominion_Arcanist_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Dominion_Arcanist_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Dominion_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Dominion_Archer_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Dominion_Rookie_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Dominion_Rookie_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Dominion_Soldier_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Dominion_Soldier_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Mask_Fighter_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Mask_Fighter_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Mask_Spy_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Mask_Spy_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Mask_Vando_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Mask_Vando_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Bandit_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Bandit_loot_drop");
+
+        internal static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Mage_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Mage_loot_drop");
+
+        internal static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Priest_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Priest_loot_drop");
+
+        internal static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Spy_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Spy_loot_drop");
+
+        internal static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Veteran_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Veteran_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Orc_Shaman_Leader_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Orc_Shaman_Leader_loot_drop");
+
+        internal static LootPackDefinition DLC1_PeopleHideoutChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_PeopleHideoutChest");
+
+        internal static LootPackDefinition DLC1_Reya_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Reya_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_SpiderNest_Lootpack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_SpiderNest_Lootpack_01");
+
+        internal static LootPackDefinition DLC1_SpiderNest_Lootpack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_SpiderNest_Lootpack_02");
+
+        internal static LootPackDefinition DLC1_Swamp_Forge_Guard_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Swamp_Forge_Guard_Stealable_Loot");
+
+        internal static LootPackDefinition DLC1_Swamp_Queen_Dryad_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Swamp_Queen_Dryad_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Valley_NPC_Samko_Flint_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Valley_NPC_Samko_Flint_Loot_Drop");
+
+        internal static LootPackDefinition DLC1_Valley_NPC_Telerien_Purevoice_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC1_Valley_NPC_Telerien_Purevoice_Loot_Drop");
+
+        internal static LootPackDefinition Dropped_Gear_DLC1_Bodyguard { get; } =
+            GetDefinition<LootPackDefinition>("Dropped_Gear_DLC1_Bodyguard");
+
+        internal static LootPackDefinition Dropped_Gear_DLC1_City_Guard { get; } =
+            GetDefinition<LootPackDefinition>("Dropped_Gear_DLC1_City_Guard");
+
+        internal static LootPackDefinition Dropped_Gear_DLC1_Trainer { get; } =
+            GetDefinition<LootPackDefinition>("Dropped_Gear_DLC1_Trainer");
+
+        internal static LootPackDefinition Dryad_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Dryad_loot_drop");
+
+        internal static LootPackDefinition Dryad_Water_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Dryad_Water_loot_drop");
+
+        internal static LootPackDefinition Eagle_Matriarch_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Eagle_Matriarch_loot_drop");
+
+        internal static LootPackDefinition Earth_Elemental_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Earth_Elemental_loot_drop");
+
+        internal static LootPackDefinition Estalla_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Estalla_loot_drop");
+
+        internal static LootPackDefinition Evocation_Loot_Arena_Armor_Stand { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Arena_Armor_Stand");
+
+        internal static LootPackDefinition Evocation_Loot_Arena_Weapon_Rack { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Arena_Weapon_Rack");
+
+        internal static LootPackDefinition Evocation_Loot_Burrow_Corpse { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Burrow_Corpse");
+
+        internal static LootPackDefinition Evocation_Loot_Crossroad_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Crossroad_Crate_01");
+
+        internal static LootPackDefinition Evocation_Loot_Crossroad_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Crossroad_Crate_02");
+
+        internal static LootPackDefinition Evocation_Loot_Crossroad_Tomb { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Crossroad_Tomb");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_Chapel_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_Chapel_01");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_Chapel_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_Chapel_02");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_Crate_01");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_Crate_02");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_Crate_03 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_Crate_03");
+
+        internal static LootPackDefinition Evocation_Loot_Entrance_HighGround { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Entrance_HighGround");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Bucket_Mound03_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Bucket_Mound03_01");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Bucket_Mound03_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Bucket_Mound03_02");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Bucket_Mound03_03 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Bucket_Mound03_03");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Crate_Mound01_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Crate_Mound01_01");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Crate_Mound02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Crate_Mound02");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Crate_Mound03 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Crate_Mound03");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Crate_Mound04 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Crate_Mound04");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Jutesack_Mound04 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Jutesack_Mound04");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Jutesack_Mound05_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Jutesack_Mound05_01");
+
+        internal static LootPackDefinition Evocation_Loot_Market_Jutesack_Mound05_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Market_Jutesack_Mound05_02");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Crate { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Crate");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Jutesack_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Jutesack_01");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Jutesack_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Jutesack_02");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Jutesack_03 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Jutesack_03");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Tomb_01 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Tomb_01");
+
+        internal static LootPackDefinition Evocation_Loot_Necropolis_Tomb_02 { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_Necropolis_Tomb_02");
+
+        internal static LootPackDefinition Evocation_Loot_test { get; } =
+            GetDefinition<LootPackDefinition>("Evocation_Loot_test");
+
+        internal static LootPackDefinition Feral_Dragon_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Feral_Dragon_loot_drop");
+
+        internal static LootPackDefinition Fire_Elemental_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Fire_Elemental_loot_drop");
+
+        internal static LootPackDefinition Fire_Jester_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Fire_Jester_loot_drop");
+
+        internal static LootPackDefinition Fire_Osprey_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Fire_Osprey_loot_drop");
+
+        internal static LootPackDefinition FireSpider_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("FireSpider_loot_drop");
+
+        internal static LootPackDefinition Generic_Necromancer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Generic_Necromancer_loot_drop");
+
+        internal static LootPackDefinition Ghost_Emtan_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ghost_Emtan_loot_drop");
+
+        internal static LootPackDefinition Ghost_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ghost_loot_drop");
+
+        internal static LootPackDefinition Giant_Crow_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Crow_loot_drop");
+
+        internal static LootPackDefinition Giant_Fire_Attacker_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Fire_Attacker_WhiteCity_1_loot_drop");
+
+        internal static LootPackDefinition Giant_Fire_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Fire_loot_drop");
+
+        internal static LootPackDefinition Giant_Frost_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Frost_loot_drop");
+
+        internal static LootPackDefinition Giant_Hill_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Hill_loot_drop");
+
+        internal static LootPackDefinition Giant_Rugan_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Rugan_loot_drop");
+
+        internal static LootPackDefinition Giant_Stone_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Stone_loot_drop");
+
+        internal static LootPackDefinition Giant_Storm_Citizen_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_Citizen_WhiteCity_1_loot_drop");
+
+        internal static LootPackDefinition Giant_Storm_Citizen_WhiteCity_2_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_Citizen_WhiteCity_2_loot_drop");
+
+        internal static LootPackDefinition Giant_Storm_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Storm_loot_drop");
+
+        internal static LootPackDefinition Giant_Trader_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Trader_loot_drop");
+
+        internal static LootPackDefinition Glabrezu_General_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Glabrezu_General_loot_drop");
+
+        internal static LootPackDefinition Glabrezu_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Glabrezu_loot_drop");
+
+        internal static LootPackDefinition Glabrezu_small_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Glabrezu_small_loot_drop");
+
+        internal static LootPackDefinition Goblin_Cutthroat_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Goblin_Cutthroat_loot_drop");
+
+        internal static LootPackDefinition Goblin_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Goblin_loot_drop");
+
+        internal static LootPackDefinition Goblin_Shaman_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Goblin_Shaman_loot_drop");
+
+        internal static LootPackDefinition Goblin_skirmisher_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Goblin_skirmisher_loot_drop");
+
+        internal static LootPackDefinition Golem_Clay_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Golem_Clay_loot_drop");
+
+        internal static LootPackDefinition Golem_Ice_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Golem_Ice_loot_drop");
+
+        internal static LootPackDefinition Golem_Iron_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Golem_Iron_loot_drop");
+
+        internal static LootPackDefinition Golem_Stone_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Golem_Stone_loot_drop");
+
+        internal static LootPackDefinition Hag_Green_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Hag_Green_loot_drop");
+
+        internal static LootPackDefinition Hag_Swamp_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Hag_Swamp_loot_drop");
+
+        internal static LootPackDefinition Harvestable_AcidPuddle_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_AcidPuddle_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_AngryBush_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_AngryBush_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_BadlandsBriar_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_BadlandsBriar_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_BloodBush_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_BloodBush_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_Brownpatch_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_Brownpatch_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_DeepRoot_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_DeepRoot_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_DragonBramble_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_DragonBramble_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_DwarvenThicket_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_DwarvenThicket_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_GallivanThicket_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_GallivanThicket_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_ImperialVine_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_ImperialVine_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_LavaStones_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_LavaStones_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_MagnesiumDeposit_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_MagnesiumDeposit_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_MoonShruberry_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_MoonShruberry_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_MossPatch_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_MossPatch_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_OrchidBush_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_OrchidBush_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_PrimordialLavaStones_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_PrimordialLavaStones_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_QueenVine_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_QueenVine_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_SerpentRock_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_SerpentRock_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_SkarnRock_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_SkarnRock_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_StormBriar_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_StormBriar_Loot_drop");
+
+        internal static LootPackDefinition Harvestable_TrollBramble_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Harvestable_TrollBramble_Loot_drop");
+
+        internal static LootPackDefinition Hezrou_General_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Hezrou_General_loot_drop");
+
+        internal static LootPackDefinition Hezrou_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Hezrou_loot_drop");
+
+        internal static LootPackDefinition Hezrou_Small_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Hezrou_Small_loot_drop");
+
+        internal static LootPackDefinition HighPriest_SorakInfiltrator_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("HighPriest_SorakInfiltrator_loot_drop");
+
+        internal static LootPackDefinition Incubus_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Incubus_loot_drop");
+
+        internal static LootPackDefinition Kill_loot_Helia_Fairblade { get; } =
+            GetDefinition<LootPackDefinition>("Kill_loot_Helia_Fairblade");
+
+        internal static LootPackDefinition Kill_loot_Krim_Sunsail { get; } =
+            GetDefinition<LootPackDefinition>("Kill_loot_Krim_Sunsail");
+
+        internal static LootPackDefinition Kill_loot_LeyrinCatpaw { get; } =
+            GetDefinition<LootPackDefinition>("Kill_loot_LeyrinCatpaw");
+
+        internal static LootPackDefinition Kill_loot_Lord_Hammond { get; } =
+            GetDefinition<LootPackDefinition>("Kill_loot_Lord_Hammond");
+
+        internal static LootPackDefinition Laethar_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Laethar_loot_drop");
+
+        internal static LootPackDefinition LD_ChestLoot_secret { get; } =
+            GetDefinition<LootPackDefinition>("LD_ChestLoot_secret");
+
+        internal static LootPackDefinition LD_ChestLoot02 { get; } =
+            GetDefinition<LootPackDefinition>("LD_ChestLoot02");
+
+        internal static LootPackDefinition LEGENDARY_Loot_Chest { get; } =
+            GetDefinition<LootPackDefinition>("LEGENDARY_Loot_Chest");
+
+        internal static LootPackDefinition LEGENDARY_Loot_Item { get; } =
+            GetDefinition<LootPackDefinition>("LEGENDARY_Loot_Item");
+
+        internal static LootPackDefinition Loot_BridgeOverCliff01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_BridgeOverCliff01");
+
+        internal static LootPackDefinition Loot_BridgeOverCliff02 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_BridgeOverCliff02");
+
+        internal static LootPackDefinition Loot_Broken_Crate_Wanderer { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Broken_Crate_Wanderer");
+
+        internal static LootPackDefinition Loot_CorpseRoom01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CorpseRoom01");
+
+        internal static LootPackDefinition Loot_CovenOfArivad_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CovenOfArivad_Chest_01");
+
+        internal static LootPackDefinition Loot_CovenOfArivad_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CovenOfArivad_Library_01");
+
+        internal static LootPackDefinition Loot_CrossRoads01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads01");
+
+        internal static LootPackDefinition Loot_CrossRoads02 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads02");
+
+        internal static LootPackDefinition Loot_CrossRoads03 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads03");
+
+        internal static LootPackDefinition Loot_CrossRoads04 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads04");
+
+        internal static LootPackDefinition Loot_CrossRoads05 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads05");
+
+        internal static LootPackDefinition Loot_CrossRoads06 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads06");
+
+        internal static LootPackDefinition Loot_CrossRoads07 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_CrossRoads07");
+
+        internal static LootPackDefinition Loot_Farmhouse_Cart { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Farmhouse_Cart");
+
+        internal static LootPackDefinition Loot_Farmhouse_HiddenChest { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Farmhouse_HiddenChest");
+
+        internal static LootPackDefinition Loot_Lowlife_Quest_Document { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Lowlife_Quest_Document");
+
+        internal static LootPackDefinition Loot_Mansion_Interior_BasicChest1 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Mansion_Interior_BasicChest1");
+
+        internal static LootPackDefinition Loot_Mansion_Interior_BasicContainer1 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Mansion_Interior_BasicContainer1");
+
+        internal static LootPackDefinition Loot_OrcHideout_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_OrcHideout_01");
+
+        internal static LootPackDefinition Loot_OrcHideout_02 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_OrcHideout_02");
+
+        internal static LootPackDefinition Loot_OrcHideout_03 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_OrcHideout_03");
+
+        internal static LootPackDefinition Loot_OrcHideout_04 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_OrcHideout_04");
+
+        internal static LootPackDefinition Loot_OrcsGuards { get; } =
+            GetDefinition<LootPackDefinition>("Loot_OrcsGuards");
+
+        internal static LootPackDefinition Loot_PickupQuest_GhostsOfTheEmpire { get; } =
+            GetDefinition<LootPackDefinition>("Loot_PickupQuest_GhostsOfTheEmpire");
+
+        internal static LootPackDefinition Loot_PickupQuest_HickoryCorner { get; } =
+            GetDefinition<LootPackDefinition>("Loot_PickupQuest_HickoryCorner");
+
+        internal static LootPackDefinition Loot_PickupQuest_LavaForest { get; } =
+            GetDefinition<LootPackDefinition>("Loot_PickupQuest_LavaForest");
+
+        internal static LootPackDefinition Loot_PickupQuest_MagisterAmulet { get; } =
+            GetDefinition<LootPackDefinition>("Loot_PickupQuest_MagisterAmulet");
+
+        internal static LootPackDefinition Loot_RodricHideout_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_RodricHideout_Chest_01");
+
+        internal static LootPackDefinition Loot_RodricHideout_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_RodricHideout_Crate_01");
+
+        internal static LootPackDefinition Loot_RodricHideout_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_RodricHideout_Crate_02");
+
+        internal static LootPackDefinition Loot_SpiderNest01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_SpiderNest01");
+
+        internal static LootPackDefinition Loot_Spy_Fort_01 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Spy_Fort_01");
+
+        internal static LootPackDefinition Loot_Spy_Fort_02 { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Spy_Fort_02");
+
+        internal static LootPackDefinition Loot_TempleOfMisaye_LockedChest { get; } =
+            GetDefinition<LootPackDefinition>("Loot_TempleOfMisaye_LockedChest");
+
+        internal static LootPackDefinition Loot_Test_Quest { get; } =
+            GetDefinition<LootPackDefinition>("Loot_Test_Quest");
+
+        internal static LootPackDefinition Lootpack_Gifts_From_Princess { get; } =
+            GetDefinition<LootPackDefinition>("Lootpack_Gifts_From_Princess");
+
+        internal static LootPackDefinition Marilith_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Marilith_loot_drop");
+
+        internal static LootPackDefinition Minotaur_Elite_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Minotaur_Elite_loot_drop");
+
+        internal static LootPackDefinition Minotaur_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Minotaur_loot_drop");
+
+        internal static LootPackDefinition Minotaur_Mutant_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Minotaur_Mutant_loot_drop");
+
+        internal static LootPackDefinition Minotaur_Spectral_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Minotaur_Spectral_loot_drop");
+
+        internal static LootPackDefinition Mummy_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Mummy_loot_drop");
+
+        internal static LootPackDefinition MummyLord_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("MummyLord_loot_drop");
+
+        internal static LootPackDefinition Necromancer_BoneKeep_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Necromancer_BoneKeep_loot_drop");
+
+        internal static LootPackDefinition NewEmpireEmbassy_Basket { get; } =
+            GetDefinition<LootPackDefinition>("NewEmpireEmbassy_Basket");
+
+        internal static LootPackDefinition NewEmpireEmbassy_Small_Chest { get; } =
+            GetDefinition<LootPackDefinition>("NewEmpireEmbassy_Small_Chest");
+
+        internal static LootPackDefinition NPC_Aksha_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("NPC_Aksha_Loot_Drop");
+
+        internal static LootPackDefinition NPC_GarradSoldier_Loot_Drop_nondetection { get; } =
+            GetDefinition<LootPackDefinition>("NPC_GarradSoldier_Loot_Drop_nondetection");
+
+        internal static LootPackDefinition NPC_Highwayman_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("NPC_Highwayman_loot_drop");
+
+        internal static LootPackDefinition NPC_MasterOfConjuration_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("NPC_MasterOfConjuration_loot_drop");
+
+        internal static LootPackDefinition NPC_Urka_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("NPC_Urka_Loot_Drop");
+
+        internal static LootPackDefinition Ogre_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ogre_loot_drop");
+
+        internal static LootPackDefinition Ogre_Zombie_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Ogre_Zombie_loot_drop");
+
+        internal static LootPackDefinition Onereia_Spectral_Dragon_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Onereia_Spectral_Dragon_Loot_Drop");
+
+        internal static LootPackDefinition Orc_Archer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Orc_Archer_loot_drop");
+
+        internal static LootPackDefinition Orc_Berseker_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Orc_Berseker_loot_drop");
+
+        internal static LootPackDefinition Orc_Chieftain_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Orc_Chieftain_loot_drop");
+
+        internal static LootPackDefinition Orc_Grunt_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Orc_Grunt_loot_drop");
+
+        internal static LootPackDefinition Orc_Shaman_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Orc_Shaman_loot_drop");
+
+        internal static LootPackDefinition Palace_Residence_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("Palace_Residence_Lootpack");
+
+        internal static LootPackDefinition PeaksAbomination_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PeaksAbomination_loot_drop");
+
+        internal static LootPackDefinition PeaksTerror_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PeaksTerror_loot_drop");
+
+        internal static LootPackDefinition Pickpocket_DLC1_City_Guard { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_DLC1_City_Guard");
+
+        internal static LootPackDefinition Pickpocket_generic_loot_100GP { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_100GP");
+
+        internal static LootPackDefinition Pickpocket_generic_loot_10GP { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_10GP");
+
+        internal static LootPackDefinition Pickpocket_generic_loot_50GP { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_50GP");
+
+        internal static LootPackDefinition Pickpocket_generic_loot_LowMoney { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_LowMoney");
+
+        internal static LootPackDefinition Pickpocket_generic_loot_MedMoney { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_MedMoney");
+
+        internal static LootPackDefinition Pickpocket_loot_Helia_Fairblade { get; } =
+            GetDefinition<LootPackDefinition>("Pickpocket_loot_Helia_Fairblade");
+
+        internal static LootPackDefinition PolarBear_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("PolarBear_loot_drop");
+
+        internal static LootPackDefinition Remorhaz_Ancient_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Remorhaz_Ancient_Loot_Drop");
+
+        internal static LootPackDefinition Remorhaz_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Remorhaz_Loot_Drop");
+
+        internal static LootPackDefinition Rodric_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Rodric_loot_drop");
+
+        internal static LootPackDefinition Secondary_KillRazan_Loot { get; } =
+            GetDefinition<LootPackDefinition>("Secondary_KillRazan_Loot");
+
+        internal static LootPackDefinition Sessroth_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sessroth_loot_drop");
+
+        internal static LootPackDefinition Shambling_Mound_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Shambling_Mound_Loot_Drop");
+
+        internal static LootPackDefinition Skarn_Ghoul_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Skarn_Ghoul_Loot_Drop");
+
+        internal static LootPackDefinition Skeleton_archer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_archer_loot_drop");
+
+        internal static LootPackDefinition Skeleton_Enforcer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_Enforcer_loot_drop");
+
+        internal static LootPackDefinition Skeleton_Knight_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_Knight_loot_drop");
+
+        internal static LootPackDefinition Skeleton_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_loot_drop");
+
+        internal static LootPackDefinition Skeleton_Marksman_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_Marksman_Loot_Drop");
+
+        internal static LootPackDefinition Skeleton_Sorcerer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Skeleton_Sorcerer_loot_drop");
+
+        internal static LootPackDefinition Smart_Giant_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Smart_Giant_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Acolyte_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Acolyte_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Archpriest_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Archpriest_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Assassin_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Assassin_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Kratshar_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Kratshar_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Priest_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Priest_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Saboteur_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Saboteur_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Shikkath_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Shikkath_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Skirmisher_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Skirmisher_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Slayer_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Slayer_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Templar_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Templar_loot_drop");
+
+        internal static LootPackDefinition Sorr_Akkath_Warrior_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Sorr-Akkath_Warrior_loot_drop");
+
+        internal static LootPackDefinition Spider_Queen_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Spider_Queen_loot_drop");
+
+        internal static LootPackDefinition SRD_Acolyte_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Acolyte_loot_drop");
+
+        internal static LootPackDefinition SRD_Bandit_Captain_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Bandit_Captain_loot_drop");
+
+        internal static LootPackDefinition SRD_Bandit_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Bandit_loot_drop");
+
+        internal static LootPackDefinition SRD_Berserker_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Berserker_loot_drop");
+
+        internal static LootPackDefinition SRD_Cult_Fanatic_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Cult_Fanatic_loot_drop");
+
+        internal static LootPackDefinition SRD_Mage_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Mage_loot_drop");
+
+        internal static LootPackDefinition SRD_Priest_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Priest_loot_drop");
+
+        internal static LootPackDefinition SRD_Scout_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Scout_loot_drop");
+
+        internal static LootPackDefinition SRD_Spy_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Spy_loot_drop");
+
+        internal static LootPackDefinition SRD_Thug_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_Thug_loot_drop");
+
+        internal static LootPackDefinition TELEMA_Cave_Entrance_Loot_Chest01 { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Cave_Entrance_Loot_Chest01");
+
+        internal static LootPackDefinition TELEMA_Cave_Entrance_Loot_Chest02 { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Cave_Entrance_Loot_Chest02");
+
+        internal static LootPackDefinition TELEMA_Library_Loot_Chest { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Library_Loot_Chest");
+
+        internal static LootPackDefinition TELEMA_Orc_Camp_Loot_Chest01 { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Orc_Camp_Loot_Chest01");
+
+        internal static LootPackDefinition TELEMA_Orc_Camp_Loot_Chest02 { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Orc_Camp_Loot_Chest02");
+
+        internal static LootPackDefinition TELEMA_Outdoors_Loot_Basket { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Outdoors_Loot_Basket");
+
+        internal static LootPackDefinition TELEMA_Outdoors_Loot_Chest { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Outdoors_Loot_Chest");
+
+        internal static LootPackDefinition TELEMA_Vertical_Room_Loot_Chest { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Vertical_Room_Loot_Chest");
+
+        internal static LootPackDefinition TELEMA_Vertical_Room_Loot_Chest2 { get; } =
+            GetDefinition<LootPackDefinition>("TELEMA_Vertical_Room_Loot_Chest2");
+
+        internal static LootPackDefinition Test_Chest_Loot { get; } =
+            GetDefinition<LootPackDefinition>("Test_Chest_Loot");
+
+        internal static LootPackDefinition Test_Chest_Loot_02 { get; } =
+            GetDefinition<LootPackDefinition>("Test_Chest_Loot_02");
+
+        internal static LootPackDefinition Test_Chest_Loot_03 { get; } =
+            GetDefinition<LootPackDefinition>("Test_Chest_Loot_03");
+
+        internal static LootPackDefinition TEST_LOOTPACK_ARMORS_ALL { get; } =
+            GetDefinition<LootPackDefinition>("TEST_LOOTPACK_ARMORS_ALL");
+
+        internal static LootPackDefinition TEST_LOOTPACK_DOCUMENTS_ALL { get; } =
+            GetDefinition<LootPackDefinition>("TEST_LOOTPACK_DOCUMENTS_ALL");
+
+        internal static LootPackDefinition TEST_LOOTPACK_WEAPONSS_ALL { get; } =
+            GetDefinition<LootPackDefinition>("TEST_LOOTPACK_WEAPONSS_ALL");
+
+        internal static LootPackDefinition Test_UsableDevice { get; } =
+            GetDefinition<LootPackDefinition>("Test_UsableDevice");
+
+        internal static LootPackDefinition TigerDrake_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("TigerDrake_loot_drop");
+
+        internal static LootPackDefinition TirmarianTower_ArmorStand_01 { get; } =
+            GetDefinition<LootPackDefinition>("TirmarianTower_ArmorStand_01");
+
+        internal static LootPackDefinition TirmarianTower_Chest_01 { get; } =
+            GetDefinition<LootPackDefinition>("TirmarianTower_Chest_01");
+
+        internal static LootPackDefinition TirmarianTower_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("TirmarianTower_Library_01");
+
+        internal static LootPackDefinition Tom_Worker_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Tom_Worker_loot_drop");
+
+        internal static LootPackDefinition Tom_Worker_loot_drop_letter { get; } =
+            GetDefinition<LootPackDefinition>("Tom_Worker_loot_drop_letter");
+
+        internal static LootPackDefinition TOWEROFMAGIC_CrownRoomChest { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_CrownRoomChest");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Entrance_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Entrance_Lootpack");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Gravity_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Gravity_Lootpack");
+
+        internal static LootPackDefinition TOWEROFMAGIC_OutdoorLootpack_01 { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_OutdoorLootpack_01");
+
+        internal static LootPackDefinition TOWEROFMAGIC_OutdoorLootpack_02 { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_OutdoorLootpack_02");
+
+        internal static LootPackDefinition TOWEROFMAGIC_OutdoorLootpack_03 { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_OutdoorLootpack_03");
+
+        internal static LootPackDefinition TOWEROFMAGIC_OutdoorLootpack_04 { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_OutdoorLootpack_04");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_Climb { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_Climb");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_ClimbTrapped { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_ClimbTrapped");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_Fly_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_Fly_Lootpack");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_Jump5_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_Jump5_Lootpack");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_Levitate_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_Levitate_Lootpack");
+
+        internal static LootPackDefinition TOWEROFMAGIC_Weird_Trapped { get; } =
+            GetDefinition<LootPackDefinition>("TOWEROFMAGIC_Weird_Trapped");
+
+        internal static LootPackDefinition Troll_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Troll_loot_drop");
+
+        internal static LootPackDefinition Troll_Mutant_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Troll_Mutant_loot_drop");
+
+        internal static LootPackDefinition Tutorial_01_Basket { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_01_Basket");
+
+        internal static LootPackDefinition Tutorial_01_Chest_Exit { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_01_Chest_Exit");
+
+        internal static LootPackDefinition Tutorial_01_Chest_Jump { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_01_Chest_Jump");
+
+        internal static LootPackDefinition Tutorial_03_Loot_Basket { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_03_Loot_Basket");
+
+        internal static LootPackDefinition Tutorial_03_Loot_Potion { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_03_Loot_Potion");
+
+        internal static LootPackDefinition Tutorial_04_Chest_quest { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_04_Chest_quest");
+
+        internal static LootPackDefinition Tutorial_04_Loot_Bonus { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_04_Loot_Bonus");
+
+        internal static LootPackDefinition Tutorial_04_Loot_Stealable { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_04_Loot_Stealable");
+
+        internal static LootPackDefinition Tutorial_05_Loot_ThievesTools { get; } =
+            GetDefinition<LootPackDefinition>("Tutorial_05_Loot_ThievesTools");
+
+        internal static LootPackDefinition Veteran_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Veteran_Loot_Drop");
+
+        internal static LootPackDefinition Veteran_SorakAgent_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Veteran_SorakAgent_Loot_Drop");
+
+        internal static LootPackDefinition Vrock_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Vrock_loot_drop");
+
+        internal static LootPackDefinition Warlord_Loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Warlord_Loot_drop");
+
+        internal static LootPackDefinition Wight_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Wight_loot_drop");
+
+        internal static LootPackDefinition WightLord_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("WightLord_loot_drop");
+
+        internal static LootPackDefinition WinterWolf_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("WinterWolf_loot_drop");
+
+        internal static LootPackDefinition Wolf_snake_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Wolf_snake_loot_drop");
+
+        internal static LootPackDefinition Young_Remorhaz_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Young_Remorhaz_Loot_Drop");
+
+        internal static LootPackDefinition Zombie_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Zombie_loot_drop");
+    }
+
     internal static class MerchantCategoryDefinitions
     {
         internal static MerchantCategoryDefinition Adventuring { get; } =
@@ -12367,6 +14412,1287 @@ internal static partial class DatabaseHelper
 
         internal static MetamagicOptionDefinition MetamagicTwinnedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicTwinnedSpell");
+    }
+
+    internal static class MonsterAttackDefinitions
+    {
+        internal static MonsterAttackDefinition Attack_Acolyte_Club { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Acolyte_Club");
+
+        internal static MonsterAttackDefinition Attack_Air_Elemental_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Air_Elemental_Slam");
+
+        internal static MonsterAttackDefinition Attack_AlphaWolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_AlphaWolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Ancient_Remorhaz_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_Bite");
+
+        internal static MonsterAttackDefinition Attack_Ancient_Remorhaz_QuickBite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_QuickBite");
+
+        internal static MonsterAttackDefinition Attack_Ancient_Remorhaz_StunningBite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ancient_Remorhaz_StunningBite");
+
+        internal static MonsterAttackDefinition Attack_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ape_Fist");
+
+        internal static MonsterAttackDefinition Attack_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_ArmoredFighter_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_ArmoredFighter_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Arwin_Merton_Lightbringer_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Arwin_Merton_Lightbringer_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Arwin_Merton_Longsword_2 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Arwin_Merton_Longsword_2");
+
+        internal static MonsterAttackDefinition Attack_ArwinMerton_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_ArwinMerton_Longbow");
+
+        internal static MonsterAttackDefinition Attack_Auroc_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Auroc_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Auroc_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Auroc_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_BadlandHunter_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BadlandHunter_Longbow");
+
+        internal static MonsterAttackDefinition Attack_BadlandHunter_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BadlandHunter_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Badlands_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Badlands_Ape_Fist");
+
+        internal static MonsterAttackDefinition Attack_Badlands_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Badlands_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Badlands_Spider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Badlands_Spider_Bite");
+
+        internal static MonsterAttackDefinition Attack_BadlandsBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BadlandsBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_BadlandsBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BadlandsBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Bandit_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_Bandit_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Bandit_Greatsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_Greatsword");
+
+        internal static MonsterAttackDefinition Attack_Bandit_LightCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_LightCrossbow");
+
+        internal static MonsterAttackDefinition Attack_Bandit_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Bandit_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bandit_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_BanditCaptain_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BanditCaptain_Dagger");
+
+        internal static MonsterAttackDefinition Attack_BanditCaptain_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BanditCaptain_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Berserker_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Berserker_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Beryl_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Beryl_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_Beryl_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Beryl_Hammer");
+
+        internal static MonsterAttackDefinition Attack_Black_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Black_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_BlackBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BlackBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_BlackBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BlackBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_blood_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_blood_Bite");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_blood_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_blood_Claw");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_blood_Spit { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_blood_Spit");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_dread_blood_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_dread_blood_Bite");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_dread_blood_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_dread_blood_Claw");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_flesh_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_flesh_Bite");
+
+        internal static MonsterAttackDefinition Attack_Brood_of_flesh_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Brood_of_flesh_Claw");
+
+        internal static MonsterAttackDefinition Attack_BrownBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BrownBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_BrownBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_BrownBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Bulette_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bulette_Bite");
+
+        internal static MonsterAttackDefinition Attack_Bulette_Snow_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Bulette_Snow_Bite");
+
+        internal static MonsterAttackDefinition Attack_CityGuard { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_CityGuard");
+
+        internal static MonsterAttackDefinition Attack_CityGuard_Gallivan { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_CityGuard_Gallivan");
+
+        internal static MonsterAttackDefinition Attack_CityGuard_NewEmpire { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_CityGuard_NewEmpire");
+
+        internal static MonsterAttackDefinition Attack_Coparann_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Coparann_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_Coparann_Guard_Axe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Coparann_Guard_Axe");
+
+        internal static MonsterAttackDefinition Attack_Couatl_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Couatl_Bite");
+
+        internal static MonsterAttackDefinition Attack_CultFanatic_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_CultFanatic_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Dagger_Aksha { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Dagger_Aksha");
+
+        internal static MonsterAttackDefinition Attack_Daliat_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Daliat_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Daliat_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Daliat_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_Darkweaver_LightCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Darkweaver_LightCrossbow");
+
+        internal static MonsterAttackDefinition Attack_Darkweaver_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Darkweaver_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DeepSpider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DeepSpider_Bite");
+
+        internal static MonsterAttackDefinition Attack_DeepSpider_Web { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DeepSpider_Web");
+
+        internal static MonsterAttackDefinition Attack_Defiler_Bite_Aksha { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Defiler_Bite_Aksha");
+
+        internal static MonsterAttackDefinition Attack_Defiler_Bite_Razan { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Defiler_Bite_Razan");
+
+        internal static MonsterAttackDefinition Attack_Dire_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Dire_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Divine_Avatar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Divine_Avatar");
+
+        internal static MonsterAttackDefinition Attack_Divine_Avatar_Cleric { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Divine_Avatar_Cleric");
+
+        internal static MonsterAttackDefinition Attack_Divine_Avatar_Wizard { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Divine_Avatar_Wizard");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Anfarel_Guard_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Anfarel_Guard_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Anfarel_Guard_MorningstarPlus1 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Anfarel_Guard_Morningstar+1");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Anfarel_Noble_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Anfarel_Noble_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Badri_BattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Badri_BattleAxe");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Badri_Handaxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Badri_Handaxe");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Bully_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Bully_Fist");
+
+        internal static MonsterAttackDefinition Attack_DLC1_CityGuard_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_CityGuard_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_CityGuard_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_CityGuard_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Arcanist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Arcanist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Archer_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Archer_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Archer_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Archer_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Rookie_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Rookie_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Rookie_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Rookie_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Soldier_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Soldier_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Dominion_Soldier_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Dominion_Soldier_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Ellaria_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Ellaria_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Ellaria_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Ellaria_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Forge_Druid_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Forge_Druid_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_DLC1_ForgeHunter_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_ForgeHunter_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_ForgeHunter_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_ForgeHunter_Longbow");
+
+        internal static MonsterAttackDefinition Attack_DLC1_ForgeRanger_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_ForgeRanger_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC1_ForgeRanger_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_ForgeRanger_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Henrik_BattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Henrik_BattleAxe");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Karelia_BattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Karelia_BattleAxe");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Malariel_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Malariel_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mana_Crafter_Dagger_Melee { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mana_Crafter_Dagger_Melee");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mana_Crafter_Dagger_Ranged { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mana_Crafter_Dagger_Ranged");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mana_Scientist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mana_Scientist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mask_Cleric_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mask_Cleric_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mask_Fighter_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mask_Fighter_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mask_Spy_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mask_Spy_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mask_Spy_Dart { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mask_Spy_Dart");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Mask_Vando_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Mask_Vando_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC1_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC1_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC1_Greatsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC1_Greatsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC1_Scientist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC1_Scientist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC3_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC3_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC3_Dart { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC3_Dart");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC4_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC4_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC4_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC4_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_NPC8_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_NPC8_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_People03_Bodyguard_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_People03_Bodyguard_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Praetorian_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Praetorian_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Praetorian_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Praetorian_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Reya_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Reya_Hammer");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Samko_Flint_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Samko_Flint_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Samko_Flint_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Samko_Flint_Hammer");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Telerien_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Telerien_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Trainer_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC1_Trainer_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Staff");
+
+        internal static MonsterAttackDefinition Attack_EagleMatriarch_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_EagleMatriarch_Talons");
+
+        internal static MonsterAttackDefinition Attack_Earth_Elemental_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Earth_Elemental_Slam");
+
+        internal static MonsterAttackDefinition Attack_Estalla_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Estalla_Claw");
+
+        internal static MonsterAttackDefinition Attack_Feral_Dragon_Green_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Green_Bite");
+
+        internal static MonsterAttackDefinition Attack_Feral_Dragon_Green_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Green_Claw");
+
+        internal static MonsterAttackDefinition Attack_Feral_Dragon_Red_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Red_Bite");
+
+        internal static MonsterAttackDefinition Attack_Feral_Dragon_Red_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Feral_Dragon_Red_Claw");
+
+        internal static MonsterAttackDefinition Attack_Fey_Bear_Bite_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_Bear_Bite_MonsterAttack");
+
+        internal static MonsterAttackDefinition Attack_Fey_Bear_Claw_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_Bear_Claw_MonsterAttack");
+
+        internal static MonsterAttackDefinition Attack_Fey_GiantApe_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_GiantApe_Fist");
+
+        internal static MonsterAttackDefinition Attack_Fey_GiantApe_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_GiantApe_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Fey_GiantEagle_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_GiantEagle_Beak");
+
+        internal static MonsterAttackDefinition Attack_Fey_GiantEagle_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_GiantEagle_Talons");
+
+        internal static MonsterAttackDefinition Attack_Fey_Wolf_Bite_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fey_Wolf_Bite_MonsterAttack");
+
+        internal static MonsterAttackDefinition Attack_Fire_Elemental_Touch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fire_Elemental_Touch");
+
+        internal static MonsterAttackDefinition Attack_Fire_Jester_Firebolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fire_Jester_Firebolt");
+
+        internal static MonsterAttackDefinition Attack_Fire_Jester_Touch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fire_Jester_Touch");
+
+        internal static MonsterAttackDefinition Attack_Fire_Spider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fire_Spider_Bite");
+
+        internal static MonsterAttackDefinition Attack_Fire_Spider_Web { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Fire_Spider_Web");
+
+        internal static MonsterAttackDefinition Attack_FireOsprey_Touch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_FireOsprey_Touch");
+
+        internal static MonsterAttackDefinition Attack_FlyingSnake_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_FlyingSnake_Bite");
+
+        internal static MonsterAttackDefinition Attack_Galar_Rapier { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Galar_Rapier");
+
+        internal static MonsterAttackDefinition Attack_Galar_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Galar_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_Gargoyle_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Gargoyle_Bite");
+
+        internal static MonsterAttackDefinition Attack_Gargoyle_Claws { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Gargoyle_Claws");
+
+        internal static MonsterAttackDefinition Attack_Generic_Barbarian_Handaxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Generic_Barbarian_Handaxe");
+
+        internal static MonsterAttackDefinition Attack_Generic_Barbarian_Maul { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Generic_Barbarian_Maul");
+
+        internal static MonsterAttackDefinition Attack_Generic_Guard_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Generic_Sorak_Infiltrator_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Generic_Sorak_Infiltrator_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Ghast_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghast_Bite");
+
+        internal static MonsterAttackDefinition Attack_Ghast_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghast_Claw");
+
+        internal static MonsterAttackDefinition Attack_Ghost_Withering_Laethar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghost_Withering_Laethar");
+
+        internal static MonsterAttackDefinition Attack_Ghost_Withering_Touch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghost_Withering_Touch");
+
+        internal static MonsterAttackDefinition Attack_Ghost_Withering_Touch_Servant { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghost_Withering_Touch_Servant");
+
+        internal static MonsterAttackDefinition Attack_Ghost_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghost_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Ghoul_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghoul_Bite");
+
+        internal static MonsterAttackDefinition Attack_Ghoul_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ghoul_Claw");
+
+        internal static MonsterAttackDefinition Attack_Giant_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Ape_Fist");
+
+        internal static MonsterAttackDefinition Attack_Giant_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Fire_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Fire_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Fire_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Fire_Sword");
+
+        internal static MonsterAttackDefinition Attack_Giant_Frost_Axe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Frost_Axe");
+
+        internal static MonsterAttackDefinition Attack_Giant_Frost_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Frost_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Hill_Greatclub { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Hill_Greatclub");
+
+        internal static MonsterAttackDefinition Attack_Giant_Hill_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Hill_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Stone_Club { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Stone_Club");
+
+        internal static MonsterAttackDefinition Attack_Giant_Stone_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Stone_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Storm_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Storm_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Storm_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Storm_Sword");
+
+        internal static MonsterAttackDefinition Attack_GiantBeetle_AcidSpray { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantBeetle_AcidSpray");
+
+        internal static MonsterAttackDefinition Attack_GiantBeetle_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantBeetle_Claw");
+
+        internal static MonsterAttackDefinition Attack_GiantCrow_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantCrow_Beak");
+
+        internal static MonsterAttackDefinition Attack_GiantCrow_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantCrow_Talons");
+
+        internal static MonsterAttackDefinition Attack_GiantEagle_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantEagle_Beak");
+
+        internal static MonsterAttackDefinition Attack_GiantEagle_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_GiantEagle_Talons");
+
+        internal static MonsterAttackDefinition Attack_Glabrezu_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_Fist");
+
+        internal static MonsterAttackDefinition Attack_Glabrezu_General_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_General_Fist");
+
+        internal static MonsterAttackDefinition Attack_Glabrezu_General_Pincer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_General_Pincer");
+
+        internal static MonsterAttackDefinition Attack_Glabrezu_Pincer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Glabrezu_Pincer");
+
+        internal static MonsterAttackDefinition Attack_Goblin_Cutthroat_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Goblin_Cutthroat_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Goblin_Cutthroat_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Goblin_Cutthroat_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_Goblin_PebbleThrow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Goblin_PebbleThrow");
+
+        internal static MonsterAttackDefinition Attack_Goblin_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Goblin_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Goblin_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Goblin_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_Golem_Clay_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Golem_Clay_Slam");
+
+        internal static MonsterAttackDefinition Attack_Golem_Ice_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Golem_Ice_Slam");
+
+        internal static MonsterAttackDefinition Attack_Golem_Iron_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Golem_Iron_Slam");
+
+        internal static MonsterAttackDefinition Attack_Golem_Stone_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Golem_Stone_Slam");
+
+        internal static MonsterAttackDefinition Attack_Green_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Green_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_Green_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Green_Dragon_Claw");
+
+        internal static MonsterAttackDefinition Attack_Green_Dragon_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Green_Dragon_Tail");
+
+        internal static MonsterAttackDefinition Attack_Green_Hag_Claw_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Green_Hag_Claw_MonsterAttack");
+
+        internal static MonsterAttackDefinition Attack_Gromnir_Stonefist_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Gromnir_Stonefist_Hammer");
+
+        internal static MonsterAttackDefinition Attack_Hasdrubal_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Longbow");
+
+        internal static MonsterAttackDefinition Attack_Hasdrubal_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Bite");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Claw");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_General_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_General_Bite");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_General_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_General_Claw");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_General_Claw_Shoving { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_General_Claw_Shoving");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_General_Poison_Bolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_General_Poison_Bolt");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Poison_Bolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Poison_Bolt");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Small_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Small_Bite");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Small_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Small_Claw");
+
+        internal static MonsterAttackDefinition Attack_Hezrou_Small_Poison_Bolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Small_Poison_Bolt");
+
+        internal static MonsterAttackDefinition Attack_HighPriest_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_HighPriest_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_Hyeronimus_Greatsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Greatsword");
+
+        internal static MonsterAttackDefinition Attack_Hyeronimus_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Javelin");
+
+        internal static MonsterAttackDefinition Attack_Ice_Elemental_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ice_Elemental_Slam");
+
+        internal static MonsterAttackDefinition Attack_Illoreth { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Illoreth");
+
+        internal static MonsterAttackDefinition Attack_Incubus_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Incubus_Claw");
+
+        internal static MonsterAttackDefinition Attack_Incubus_Firebolt { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Incubus_Firebolt");
+
+        internal static MonsterAttackDefinition Attack_InvisibleStalker { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_InvisibleStalker");
+
+        internal static MonsterAttackDefinition Attack_Joris_Nikannen_Axe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Joris_Nikannen_Axe");
+
+        internal static MonsterAttackDefinition Attack_Juggernaut_Antenna { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Juggernaut_Antenna");
+
+        internal static MonsterAttackDefinition Attack_Juggernaut_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Juggernaut_Bite");
+
+        internal static MonsterAttackDefinition Attack_Juggernaut_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Juggernaut_Claw");
+
+        internal static MonsterAttackDefinition Attack_Kebra_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kebra_Staff");
+
+        internal static MonsterAttackDefinition Attack_Kutkartal_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kutkartal_Beak");
+
+        internal static MonsterAttackDefinition Attack_Kutkartal_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kutkartal_Talons");
+
+        internal static MonsterAttackDefinition Attack_Kythaela_Dagger_Bonus { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kythaela_Dagger_Bonus");
+
+        internal static MonsterAttackDefinition Attack_Kythaela_Dagger_Main { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kythaela_Dagger_Main");
+
+        internal static MonsterAttackDefinition Attack_Kythaela_WithSpells_Dagger_Bonus { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kythaela_WithSpells_Dagger_Bonus");
+
+        internal static MonsterAttackDefinition Attack_Kythaela_WithSpells_Dagger_Main { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Kythaela_WithSpells_Dagger_Main");
+
+        internal static MonsterAttackDefinition Attack_Liam_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Liam_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Lisbath_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_Lisbath_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Sword");
+
+        internal static MonsterAttackDefinition Attack_Mage_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mage_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Mardracht_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mardracht_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Marilith_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Marilith_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail");
+
+        internal static MonsterAttackDefinition Attack_Melek_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Melek_Longbow");
+
+        internal static MonsterAttackDefinition Attack_Melek_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Melek_Mace");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Charged_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Charged_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Elite_Charged_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Elite_Charged_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Elite_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Elite_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Elite_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Elite_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Mutant_Charged_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Mutant_Charged_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Mutant_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Mutant_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Mutant_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Mutant_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Spectral_Charged_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Spectral_Charged_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Spectral_Gore { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Spectral_Gore");
+
+        internal static MonsterAttackDefinition Attack_Minotaur_Spectral_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Spectral_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Mummy_DreadfulGlare { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mummy_DreadfulGlare");
+
+        internal static MonsterAttackDefinition Attack_Mummy_RottingFist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mummy_RottingFist");
+
+        internal static MonsterAttackDefinition Attack_MummyLord_DreadfulGlare { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_MummyLord_DreadfulGlare");
+
+        internal static MonsterAttackDefinition Attack_MummyLord_RottingFist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_MummyLord_RottingFist");
+
+        internal static MonsterAttackDefinition Attack_Mutant_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutant_Ape_Fist");
+
+        internal static MonsterAttackDefinition Attack_Mutant_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutant_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Mutant_Dire_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutant_Dire_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Mutated_Bear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutated_Bear_Bite");
+
+        internal static MonsterAttackDefinition Attack_Mutated_Bear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutated_Bear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Mutated_Bulette_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Mutated_Bulette_Bite");
+
+        internal static MonsterAttackDefinition Attack_Necromancer_BoneKeep_WitheringTouch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Necromancer_BoneKeep_WitheringTouch");
+
+        internal static MonsterAttackDefinition Attack_Necromancer_WitheringTouch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Necromancer_WitheringTouch");
+
+        internal static MonsterAttackDefinition Attack_Ogre_Club { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ogre_Club");
+
+        internal static MonsterAttackDefinition Attack_Ogre_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ogre_Javelin");
+
+        internal static MonsterAttackDefinition Attack_Ogre_Zombie_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Ogre_Zombie_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_Oni_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Oni_Claw");
+
+        internal static MonsterAttackDefinition Attack_Oni_GreatAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Oni_GreatAxe");
+
+        internal static MonsterAttackDefinition Attack_Orc_Archer_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Archer_Mace");
+
+        internal static MonsterAttackDefinition Attack_Orc_Arrok_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Arrok_Staff");
+
+        internal static MonsterAttackDefinition Attack_Orc_Beastmaster_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Beastmaster_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Orc_Beastmaster_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Beastmaster_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_Orc_Berserker_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Berserker_Javelin");
+
+        internal static MonsterAttackDefinition Attack_Orc_Berserker_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Berserker_Mace");
+
+        internal static MonsterAttackDefinition Attack_Orc_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Orc_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Orc_Grimblade_IceBlade { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Grimblade_IceBlade");
+
+        internal static MonsterAttackDefinition Attack_Orc_Grimblade_IceDagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Grimblade_IceDagger");
+
+        internal static MonsterAttackDefinition Attack_Orc_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Javelin");
+
+        internal static MonsterAttackDefinition Attack_Orc_Shaman_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_Shaman_Staff");
+
+        internal static MonsterAttackDefinition Attack_Orc_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orc_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_OrcChieftain_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_OrcChieftain_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_OrcChieftain_Spear { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_OrcChieftain_Spear");
+
+        internal static MonsterAttackDefinition Attack_Orenetis_DLC_Touch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Orenetis_DLC_Touch");
+
+        internal static MonsterAttackDefinition Attack_PeaksAbomination_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksAbomination_Claw");
+
+        internal static MonsterAttackDefinition Attack_PeaksAbomination_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksAbomination_Rock");
+
+        internal static MonsterAttackDefinition Attack_PeaksTerror_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksTerror_Claw");
+
+        internal static MonsterAttackDefinition Attack_PeaksTerror_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PeaksTerror_Rock");
+
+        internal static MonsterAttackDefinition Attack_Phase_Spider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Phase_Spider_Bite");
+
+        internal static MonsterAttackDefinition Attack_Pilgrim_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Pilgrim_Bite");
+
+        internal static MonsterAttackDefinition Attack_Pilgrim_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Pilgrim_Claw");
+
+        internal static MonsterAttackDefinition Attack_Pilgrim_PheromoneSpray { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Pilgrim_PheromoneSpray");
+
+        internal static MonsterAttackDefinition Attack_PoisonousSnake_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PoisonousSnake_Bite");
+
+        internal static MonsterAttackDefinition Attack_PolarBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PolarBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_PolarBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_PolarBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Priest_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Priest_Mace");
+
+        internal static MonsterAttackDefinition Attack_Rapier_Razan { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Rapier_Razan");
+
+        internal static MonsterAttackDefinition Attack_Redscar_Orc_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Redscar_Orc_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_Redscar_Orc_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Redscar_Orc_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_Remorhaz_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Remorhaz_Bite");
+
+        internal static MonsterAttackDefinition Attack_Robar_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Robar_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_Robar_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Robar_Sword");
+
+        internal static MonsterAttackDefinition Attack_Rodric_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Rodric_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Scout_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Scout_Longbow");
+
+        internal static MonsterAttackDefinition Attack_Scout_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Scout_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Sessroth_Javelin { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sessroth_Javelin");
+
+        internal static MonsterAttackDefinition Attack_Sessroth_Maul { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sessroth_Maul");
+
+        internal static MonsterAttackDefinition Attack_ShockArcanist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_ShockArcanist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_SkarnGhoul_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SkarnGhoul_Claw");
+
+        internal static MonsterAttackDefinition Attack_SkarnGhoul_PebbleThrow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SkarnGhoul_PebbleThrow");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Enforcer_Axe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Enforcer_Axe");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Enforcer_Pebble { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Enforcer_Pebble");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Knight_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Knight_Sword");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Marksman_Bow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Marksman_Bow");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Marksman_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Marksman_Sword");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_ShortBow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_ShortBow");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_ShortSword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_ShortSword");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Sorcerer_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Sorcerer_Staff");
+
+        internal static MonsterAttackDefinition Attack_Skeleton_Spear { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Skeleton_Spear");
+
+        internal static MonsterAttackDefinition Attack_SnowAllianceGuard { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SnowAllianceGuard");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Abomination_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Abomination_Claw");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Acolyte_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Acolyte_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Acolyte_Ranged { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Acolyte_Ranged");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Archpriest_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Archpriest_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Assassin_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Assassin_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Assassin_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Assassin_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Devastator_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Devastator_Claw");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Harasser_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Harasser_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Harasser_Shrieker_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Harasser_Shrieker_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Kratshar_Shrieker_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Kratshar_Shrieker_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Priest_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Priest_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Saboteur_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Saboteur_Bite");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Shikkath_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Shikkath_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Shikkath_Shrieker { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Shikkath_Shrieker");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Shikkath_TouchOfDarkness { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Shikkath_TouchOfDarkness");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Skirmisher_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Skirmisher_Claw");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Skirmisher_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Skirmisher_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Slayer_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Slayer_Dagger");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Slayer_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Slayer_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Templar_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Templar_Claw");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Templar_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Templar_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Warrior_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Warrior_Claw");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_Warrior_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Warrior_Poisoned_Spine");
+
+        internal static MonsterAttackDefinition Attack_Sorr_Tarr_Avatar_Shrieker { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Tarr_Avatar_Shrieker");
+
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw");
+
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail");
+
+        internal static MonsterAttackDefinition Attack_Spectral_Spider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Spider_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spider_Crimson_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Crimson_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spider_Crimson_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Crimson_Claw");
+
+        internal static MonsterAttackDefinition Attack_Spider_Crimson_Spit { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Crimson_Spit");
+
+        internal static MonsterAttackDefinition Attack_Spider_Queen_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Queen_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spider_Queen_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Queen_Claw");
+
+        internal static MonsterAttackDefinition Attack_Spider_Queen_Web { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spider_Queen_Web");
+
+        internal static MonsterAttackDefinition Attack_Spiderling_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spiderling_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spiderling_Crimson_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spiderling_Crimson_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spiderling_Crimson_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spiderling_Crimson_Claw");
+
+        internal static MonsterAttackDefinition Attack_Spiderling_Crimson_Spit { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spiderling_Crimson_Spit");
+
+        internal static MonsterAttackDefinition Attack_SpiritApe_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritApe_Fist");
+
+        internal static MonsterAttackDefinition Attack_SpiritApe_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritApe_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_SpiritBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_SpiritBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_SpiritEagle_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritEagle_Beak");
+
+        internal static MonsterAttackDefinition Attack_SpiritEagle_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritEagle_Talons");
+
+        internal static MonsterAttackDefinition Attack_SpiritSpider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritSpider_Bite");
+
+        internal static MonsterAttackDefinition Attack_SpiritTiger_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritTiger_Bite");
+
+        internal static MonsterAttackDefinition Attack_SpiritTiger_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritTiger_Claw");
+
+        internal static MonsterAttackDefinition Attack_SpiritViper_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritViper_Bite");
+
+        internal static MonsterAttackDefinition Attack_SpiritWolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_SpiritWolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Spy_LightCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spy_LightCrossbow");
+
+        internal static MonsterAttackDefinition Attack_Spy_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spy_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Starving_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Starving_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Swamp_Hag_Claw_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Swamp_Hag_Claw_MonsterAttack");
+
+        internal static MonsterAttackDefinition Attack_Thug_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Thug_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_Thug_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Thug_Mace");
+
+        internal static MonsterAttackDefinition Attack_TigerDrake_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_TigerDrake_Bite");
+
+        internal static MonsterAttackDefinition Attack_Torch { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Torch");
+
+        internal static MonsterAttackDefinition Attack_Troll_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Troll_Bite");
+
+        internal static MonsterAttackDefinition Attack_Troll_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Troll_Claw");
+
+        internal static MonsterAttackDefinition Attack_Troll_Mutant_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Troll_Mutant_Bite");
+
+        internal static MonsterAttackDefinition Attack_Troll_Mutant_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Troll_Mutant_Claw");
+
+        internal static MonsterAttackDefinition Attack_TundraTiger_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_TundraTiger_Bite");
+
+        internal static MonsterAttackDefinition Attack_TundraTiger_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_TundraTiger_Claw");
+
+        internal static MonsterAttackDefinition Attack_Veteran_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Veteran_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_Veteran_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Veteran_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Veteran_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Veteran_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Veteran_Sorak_Agent_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Veteran_Sorak_Agent_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Veteran_Sorak_Agent_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Veteran_Sorak_Agent_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Vrock_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrock_Beak");
+
+        internal static MonsterAttackDefinition Attack_Vrock_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrock_Talons");
+
+        internal static MonsterAttackDefinition Attack_Vrockling_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrockling_Beak");
+
+        internal static MonsterAttackDefinition Attack_Vrockling_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Vrockling_Talons");
+
+        internal static MonsterAttackDefinition Attack_WereBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WereBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_WereBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WereBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Werewolf_humanoid_crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Werewolf_humanoid_crossbow");
+
+        internal static MonsterAttackDefinition Attack_Werewolf_humanoid_sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Werewolf_humanoid_sword");
+
+        internal static MonsterAttackDefinition Attack_White_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_White_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Claw");
+
+        internal static MonsterAttackDefinition Attack_White_Dragon_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_White_Dragon_Tail");
+
+        internal static MonsterAttackDefinition Attack_Widshape_Badlands_Spider_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Widshape_Badlands_Spider_Bite");
+
+        internal static MonsterAttackDefinition Attack_Wight_LifeDrain { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wight_LifeDrain");
+
+        internal static MonsterAttackDefinition Attack_Wight_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wight_Longbow");
+
+        internal static MonsterAttackDefinition Attack_Wight_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wight_Longsword");
+
+        internal static MonsterAttackDefinition Attack_WightLord_LifeDrain { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WightLord_LifeDrain");
+
+        internal static MonsterAttackDefinition Attack_WightLord_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WightLord_Longbow");
+
+        internal static MonsterAttackDefinition Attack_WightLord_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WightLord_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_Ape_Fist { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Fist");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Bite");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Claw");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Beak { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Beak");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_WindSnake_Freeze { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WindSnake_Freeze");
+
+        internal static MonsterAttackDefinition Attack_WindSnake_RayOfFrost { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_WindSnake_RayOfFrost");
+
+        internal static MonsterAttackDefinition Attack_Winter_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Winter_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wolf_Bite");
+
+        internal static MonsterAttackDefinition Attack_Worker_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Worker_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_Wraith_Life_Drain { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wraith_Life_Drain");
+
+        internal static MonsterAttackDefinition Attack_Young_Black_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Young_Black_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_Young_Black_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Young_Black_Dragon_Claw");
+
+        internal static MonsterAttackDefinition Attack_Young_Green_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Young_Green_Dragon_Bite");
+
+        internal static MonsterAttackDefinition Attack_Young_Green_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Young_Green_Dragon_Claw");
+
+        internal static MonsterAttackDefinition Attack_Young_Remorhaz_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Young_Remorhaz_Bite");
+
+        internal static MonsterAttackDefinition Attack_Zealot_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Zealot_Bite");
+
+        internal static MonsterAttackDefinition Attack_Zealot_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Zealot_Claw");
+
+        internal static MonsterAttackDefinition Attack_ZealotShockingAntenna { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_ZealotShockingAntenna");
+
+        internal static MonsterAttackDefinition Attack_Zombie_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Zombie_Slam");
+
+        internal static MonsterAttackDefinition Dryad_Club_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Club_MonsterAttack");
+
+        internal static MonsterAttackDefinition Dryad_Mutant_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Mutant_MonsterAttack");
+
+        internal static MonsterAttackDefinition Dryad_Mutant_Spine_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Mutant_Spine_MonsterAttack");
+
+        internal static MonsterAttackDefinition Dryad_Queen_Club_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Queen_Club_MonsterAttack");
+
+        internal static MonsterAttackDefinition Dryad_Queen_Spine_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Queen_Spine_MonsterAttack");
+
+        internal static MonsterAttackDefinition Dryad_Water_MonsterAttack { get; } =
+            GetDefinition<MonsterAttackDefinition>("Dryad_Water_MonsterAttack");
+
+        internal static MonsterAttackDefinition ShamblingMound_Slam { get; } =
+            GetDefinition<MonsterAttackDefinition>("ShamblingMound_Slam");
     }
 
     internal static class MonsterDefinitions
@@ -13980,6 +17306,1578 @@ internal static partial class DatabaseHelper
             GetDefinition<MonsterDefinition>("Zombie");
     }
 
+    internal static class MorphotypeCategoryDefinitions
+    {
+        internal static MorphotypeCategoryDefinition Age { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Age");
+
+        internal static MorphotypeCategoryDefinition Backstory { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Backstory");
+
+        internal static MorphotypeCategoryDefinition BeardShape { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("BeardShape");
+
+        internal static MorphotypeCategoryDefinition BodyDecoration { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("BodyDecoration");
+
+        internal static MorphotypeCategoryDefinition BodyDecorationColor { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("BodyDecorationColor");
+
+        internal static MorphotypeCategoryDefinition Eye { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Eye");
+
+        internal static MorphotypeCategoryDefinition EyeColor { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("EyeColor");
+
+        internal static MorphotypeCategoryDefinition FaceShape { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("FaceShape");
+
+        internal static MorphotypeCategoryDefinition HairColor { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("HairColor");
+
+        internal static MorphotypeCategoryDefinition HairShape { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("HairShape");
+
+        internal static MorphotypeCategoryDefinition Horns { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Horns");
+
+        internal static MorphotypeCategoryDefinition Musculature { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Musculature");
+
+        internal static MorphotypeCategoryDefinition Origin { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Origin");
+
+        internal static MorphotypeCategoryDefinition Pronoun { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Pronoun");
+
+        internal static MorphotypeCategoryDefinition Scars { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Scars");
+
+        internal static MorphotypeCategoryDefinition Skin { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Skin");
+
+        internal static MorphotypeCategoryDefinition Tail { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Tail");
+
+        internal static MorphotypeCategoryDefinition TailLength { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("TailLength");
+
+        internal static MorphotypeCategoryDefinition Voice { get; } =
+            GetDefinition<MorphotypeCategoryDefinition>("Voice");
+    }
+
+    internal static class MorphotypeElementDefinitions
+    {
+        internal static MorphotypeElementDefinition Age { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Age");
+
+        internal static MorphotypeElementDefinition BeardShape_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_A");
+
+        internal static MorphotypeElementDefinition BeardShape_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_B");
+
+        internal static MorphotypeElementDefinition BeardShape_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_C");
+
+        internal static MorphotypeElementDefinition BeardShape_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_D");
+
+        internal static MorphotypeElementDefinition BeardShape_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_E");
+
+        internal static MorphotypeElementDefinition BeardShape_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_F");
+
+        internal static MorphotypeElementDefinition BeardShape_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_G");
+
+        internal static MorphotypeElementDefinition BeardShape_H { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_H");
+
+        internal static MorphotypeElementDefinition BeardShape_I { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_I");
+
+        internal static MorphotypeElementDefinition BeardShape_J { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_J");
+
+        internal static MorphotypeElementDefinition BeardShape_K { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_K");
+
+        internal static MorphotypeElementDefinition BeardShape_L { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_L");
+
+        internal static MorphotypeElementDefinition BeardShape_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_None");
+
+        internal static MorphotypeElementDefinition BeardShape_O { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_O");
+
+        internal static MorphotypeElementDefinition BeardShape_P { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BeardShape_P");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererChildOfTheRift { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererChildOfTheRift");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererDraconic { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererDraconic");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererHauntedSoul { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererHauntedSoul");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Dragonborn_SorcererManaPainter { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Dragonborn_SorcererManaPainter");
+
+        internal static MorphotypeElementDefinition BodyDecoration_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_None");
+
+        internal static MorphotypeElementDefinition BodyDecoration_SorcererChildOfTheRift { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererChildOfTheRift");
+
+        internal static MorphotypeElementDefinition BodyDecoration_SorcererDraconic { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererDraconic");
+
+        internal static MorphotypeElementDefinition BodyDecoration_SorcererHauntedSoul { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererHauntedSoul");
+
+        internal static MorphotypeElementDefinition BodyDecoration_SorcererManaPainter { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererManaPainter");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_01");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_02");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_03");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_04");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_05");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_06");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_07");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_08");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_09");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_10");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_11");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_12");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_13");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_14");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_15");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_01");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_02");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_03");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_04");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_05");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_06");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_07");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_08");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_09");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_10");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_11");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_12");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_13");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_14");
+
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_15");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_00 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_00");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_01");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_02");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_03");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_04");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_05");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_06");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_07");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_08");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_09");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_10");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_11");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_12");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_13");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_14");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_15");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_16");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_17");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_18");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_19 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_19");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_20 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_20");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_21 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_21");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_22 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_22");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_23 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_23");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_24 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_24");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_25 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_25");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_26 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_26");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_27 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_27");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_28 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_28");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_Default_29 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_29");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_00 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_00");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_01");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_02");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_03");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_04");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_05");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_06");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_07");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_08");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_09");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_10");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_11");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_12");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_13");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_14");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_15");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_00 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_00");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_01");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_02");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_03");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_04");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_05");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_06");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_07");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_08");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_09");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_10");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_11");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_12");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_13");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_14");
+
+        internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_15");
+
+        internal static MorphotypeElementDefinition Eye_Default { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_Default");
+
+        internal static MorphotypeElementDefinition Eye_Dragonborn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_Dragonborn");
+
+        internal static MorphotypeElementDefinition Eye_SorcererChildOfTheRift { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_SorcererChildOfTheRift");
+
+        internal static MorphotypeElementDefinition Eye_SorcererDraconic { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_SorcererDraconic");
+
+        internal static MorphotypeElementDefinition Eye_SorcererManaPainter { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Eye_SorcererManaPainter");
+
+        internal static MorphotypeElementDefinition EyeColor_001 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_001");
+
+        internal static MorphotypeElementDefinition EyeColor_002 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_002");
+
+        internal static MorphotypeElementDefinition EyeColor_003 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_003");
+
+        internal static MorphotypeElementDefinition EyeColor_004 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_004");
+
+        internal static MorphotypeElementDefinition EyeColor_005 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_005");
+
+        internal static MorphotypeElementDefinition EyeColor_006 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_006");
+
+        internal static MorphotypeElementDefinition EyeColor_007 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_007");
+
+        internal static MorphotypeElementDefinition EyeColor_008 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_008");
+
+        internal static MorphotypeElementDefinition EyeColor_009 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_009");
+
+        internal static MorphotypeElementDefinition EyeColor_010 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_010");
+
+        internal static MorphotypeElementDefinition EyeColor_011 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_011");
+
+        internal static MorphotypeElementDefinition EyeColor_012 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_012");
+
+        internal static MorphotypeElementDefinition EyeColor_013 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_013");
+
+        internal static MorphotypeElementDefinition EyeColor_014 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_014");
+
+        internal static MorphotypeElementDefinition EyeColor_015 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_015");
+
+        internal static MorphotypeElementDefinition EyeColor_016 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_016");
+
+        internal static MorphotypeElementDefinition EyeColor_017 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_017");
+
+        internal static MorphotypeElementDefinition EyeColor_018 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_018");
+
+        internal static MorphotypeElementDefinition EyeColor_019 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_019");
+
+        internal static MorphotypeElementDefinition EyeColor_020 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_020");
+
+        internal static MorphotypeElementDefinition EyeColor_021 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_021");
+
+        internal static MorphotypeElementDefinition EyeColor_022 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_022");
+
+        internal static MorphotypeElementDefinition EyeColor_023 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_023");
+
+        internal static MorphotypeElementDefinition EyeColorBlack { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorBlack");
+
+        internal static MorphotypeElementDefinition EyeColorBlue { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorBlue");
+
+        internal static MorphotypeElementDefinition EyeColorBrown { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorBrown");
+
+        internal static MorphotypeElementDefinition EyeColorDefiler { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorDefiler");
+
+        internal static MorphotypeElementDefinition EyeColorGolden { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorGolden");
+
+        internal static MorphotypeElementDefinition EyeColorGreen { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorGreen");
+
+        internal static MorphotypeElementDefinition EyeColorHazel { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorHazel");
+
+        internal static MorphotypeElementDefinition EyeColorInfiltrator { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorInfiltrator");
+
+        internal static MorphotypeElementDefinition EyeColorLavender { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorLavender");
+
+        internal static MorphotypeElementDefinition EyeColorNecromancer { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorNecromancer");
+
+        internal static MorphotypeElementDefinition EyeColorRed { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorRed");
+
+        internal static MorphotypeElementDefinition EyeColorSilver { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColorSilver");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_01");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_02");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_03");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_04");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_05");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_06");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_07");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_08");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_09");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_10");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_11");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_12");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_13");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_14");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_15");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_16");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_17");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_18");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_19 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_19");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_20 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_20");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_21 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_21");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_22 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_22");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_23 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_23");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_24 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_24");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_25 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_25");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_26 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_26");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_27 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_27");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_28 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_28");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_29 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_29");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_30 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_30");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_31 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_31");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_32 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_32");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_33 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_33");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_34 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_34");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_35 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_35");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_36 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_36");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_37 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_37");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_38 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_38");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_39 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_39");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_40 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_40");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_41 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_41");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_42 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_42");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_43 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_43");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_44 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_44");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_45 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_45");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_46 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_46");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_47 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_47");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_48 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_48");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_49 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_49");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Defiler { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Defiler");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_01");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_02");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_03");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_04");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_05");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_06");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_07");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_08");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_09");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_10");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_11");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_12");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_13");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_14");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_15");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_16");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_17");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_18");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_19 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_19");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_20 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_20");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_21 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_21");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_22 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_22");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_23 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_23");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_24 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_24");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_25 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_25");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_26 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_26");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_27 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_27");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_28 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_28");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_29 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_29");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_30 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_30");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_31 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_31");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_32 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_32");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_33 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_33");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_34 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_34");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_35 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_35");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_36 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_36");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_37 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_37");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_38 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_38");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_39 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_39");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_40 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_40");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_41 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_41");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_42 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_42");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_43 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_43");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_44 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_44");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Dragonborn_45 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Dragonborn_45");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_Neutral { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Neutral");
+
+        internal static MorphotypeElementDefinition FaceAndSkinBronze { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinBronze");
+
+        internal static MorphotypeElementDefinition FaceAndSkinCopperish { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinCopperish");
+
+        internal static MorphotypeElementDefinition FaceAndSkinFair { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinFair");
+
+        internal static MorphotypeElementDefinition FaceAndSkinObsidian { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinObsidian");
+
+        internal static MorphotypeElementDefinition FaceAndSkinPale { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinPale");
+
+        internal static MorphotypeElementDefinition FaceAndSkinTan { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkinTan");
+
+        internal static MorphotypeElementDefinition FaceShape_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_A");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_A");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_B");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_C");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_D");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_E");
+
+        internal static MorphotypeElementDefinition FaceShape_AF_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_F");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_A");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_B");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_C");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_D");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_E");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_F");
+
+        internal static MorphotypeElementDefinition FaceShape_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_B");
+
+        internal static MorphotypeElementDefinition FaceShape_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_C");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_A");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_B");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_C");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_D");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_E");
+
+        internal static MorphotypeElementDefinition FaceShape_CA_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_F");
+
+        internal static MorphotypeElementDefinition FaceShape_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_D");
+
+        internal static MorphotypeElementDefinition FaceShape_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_E");
+
+        internal static MorphotypeElementDefinition FaceShape_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_F");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_A");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_B");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_C");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_D");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_E");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_F");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Alena { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Alena");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Bartender { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Bartender");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Carran_Rightower { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Carran_Rightower");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Dek { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Dek");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Edvan_Danantar { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Edvan_Danantar");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Hugo_Requer { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Hugo_Requer");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Karel_Martel { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Karel_Martel");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Verissa_Ironshell { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Verissa_Ironshell");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Zhoron { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Zhoron");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_A");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_B");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_C");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_D");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_E");
+
+        internal static MorphotypeElementDefinition FaceShape_HO_NPC_Badri { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_NPC_Badri");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Adrasteia_Epimeles_Aspis { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Adrasteia_Epimeles_Aspis");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Aksha { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Aksha");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Annie_Bagmordah { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Annie_Bagmordah");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Arwin_Merton { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Arwin_Merton");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Atima_Bladeburn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Atima_Bladeburn");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Beric_Sunblaze { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Beric_Sunblaze");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Beryl_Stonebeard { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Beryl_Stonebeard");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Cafrain_Shadow { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Cafrain_Shadow");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ceannard { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ceannard");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ceiwad_Silverflower { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ceiwad_Silverflower");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Citizen { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Citizen");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Daliat_Sunbird { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Daliat_Sunbird");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Dalon_Lark { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Dalon_Lark");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ellaria_Anfarel { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ellaria_Anfarel");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Esfalad_Graymas { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Esfalad_Graymas");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Finaliel_SharpMind { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Finaliel_SharpMind");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Galar_Goldentongue { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Galar_Goldentongue");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Gorim_Ironsoot { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gorim_Ironsoot");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Gormdottir { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gormdottir");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Gromnir_Stonefist { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gromnir_Stonefist");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Halman_Summer { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Halman_Summer");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Hanno_Mudstrider { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Hanno_Mudstrider");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Heather_Merran { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Heather_Merran");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Idriel_Fair_Brow { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Idriel_Fair_Brow");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ilastar_Keenmind_Airgetine { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ilastar_Keenmind_Airgetine");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Iolair_Faisech { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Iolair_Faisech");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Joriel_Fox_Eye { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Joriel_Fox_Eye");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Joris_Nikannen { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Joris_Nikannen");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Karelia_Snowfox { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Karelia_Snowfox");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Kiaradth_BrightSpark { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Kiaradth_BrightSpark");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Krim_Sunsail { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Krim_Sunsail");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Kythaela_Wildspring { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Kythaela_Wildspring");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Leira_Kean { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Leira_Kean");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Lena { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lena");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Lisbath_Townsend { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lisbath_Townsend");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Lizzaria_of_Grimhold { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lizzaria_of_Grimhold");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Llygath_Steelmind { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Llygath_Steelmind");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Lysantir { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lysantir");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Maddy_Greenisle { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Maddy_Greenisle");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Malariel_Brogarad { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Malariel_Brogarad");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Mardracht { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Mardracht");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Marin_Ving { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Marin_Ving");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Medwal_Strongfire { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Medwal_Strongfire");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Mildred_Warmhearth { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Mildred_Warmhearth");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Morden_Kyre { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Morden_Kyre");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Morgan { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Morgan");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Nobleman { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Nobleman");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Orenetis { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Orenetis");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Priest_of_Arun { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Priest_of_Arun");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Priest_of_Maraike { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Priest_of_Maraike");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Priestess_of_Pakri { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Priestess_of_Pakri");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Princess { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Princess");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Razan_Holarant { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Razan_Holarant");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Renno_Highwater { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Renno_Highwater");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Reya_Schildberg { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Reya_Schildberg");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Robar_Sharp { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Robar_Sharp");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ron { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ron");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Rose_Fairwind { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Rose_Fairwind");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Samko_Flint { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Samko_Flint");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Serafiel_Anfarel { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Serafiel_Anfarel");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Sima_Temple { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Sima_Temple");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Talbut_the_Grey { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Talbut_the_Grey");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_TavernGuy { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_TavernGuy");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Telerien_Purevoice { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Telerien_Purevoice");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_TomWorker { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_TomWorker");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Wilf_Warmhearth { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Wilf_Warmhearth");
+
+        internal static MorphotypeElementDefinition HairColor_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_01");
+
+        internal static MorphotypeElementDefinition HairColor_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_02");
+
+        internal static MorphotypeElementDefinition HairColor_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_03");
+
+        internal static MorphotypeElementDefinition HairColor_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_04");
+
+        internal static MorphotypeElementDefinition HairColor_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_05");
+
+        internal static MorphotypeElementDefinition HairColor_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_06");
+
+        internal static MorphotypeElementDefinition HairColor_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_07");
+
+        internal static MorphotypeElementDefinition HairColor_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_08");
+
+        internal static MorphotypeElementDefinition HairColor_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_09");
+
+        internal static MorphotypeElementDefinition HairColor_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_10");
+
+        internal static MorphotypeElementDefinition HairColor_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_11");
+
+        internal static MorphotypeElementDefinition HairColor_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_12");
+
+        internal static MorphotypeElementDefinition HairColor_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_13");
+
+        internal static MorphotypeElementDefinition HairColor_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_14");
+
+        internal static MorphotypeElementDefinition HairColor_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_15");
+
+        internal static MorphotypeElementDefinition HairColor_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_16");
+
+        internal static MorphotypeElementDefinition HairColor_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_17");
+
+        internal static MorphotypeElementDefinition HairColor_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_18");
+
+        internal static MorphotypeElementDefinition HairColor_19 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_19");
+
+        internal static MorphotypeElementDefinition HairColor_20 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_20");
+
+        internal static MorphotypeElementDefinition HairColor_21 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_21");
+
+        internal static MorphotypeElementDefinition HairColor_22 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_22");
+
+        internal static MorphotypeElementDefinition HairColor_31 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_31");
+
+        internal static MorphotypeElementDefinition HairColor_32 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_32");
+
+        internal static MorphotypeElementDefinition HairColor_33 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_33");
+
+        internal static MorphotypeElementDefinition HairColor_34 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_34");
+
+        internal static MorphotypeElementDefinition HairColor_35 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_35");
+
+        internal static MorphotypeElementDefinition HairColor_36 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_36");
+
+        internal static MorphotypeElementDefinition HairColor_37 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_37");
+
+        internal static MorphotypeElementDefinition HairColor_38 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_38");
+
+        internal static MorphotypeElementDefinition HairColor_39 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_39");
+
+        internal static MorphotypeElementDefinition HairColor_40 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_40");
+
+        internal static MorphotypeElementDefinition HairColor_41 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_41");
+
+        internal static MorphotypeElementDefinition HairColor_42 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_42");
+
+        internal static MorphotypeElementDefinition HairColor_43 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_43");
+
+        internal static MorphotypeElementDefinition HairColor_44 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_44");
+
+        internal static MorphotypeElementDefinition HairColor_45 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_45");
+
+        internal static MorphotypeElementDefinition HairColor_46 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_46");
+
+        internal static MorphotypeElementDefinition HairColor_47 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColor_47");
+
+        internal static MorphotypeElementDefinition HairColorBlack { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorBlack");
+
+        internal static MorphotypeElementDefinition HairColorBlond { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorBlond");
+
+        internal static MorphotypeElementDefinition HairColorBlue { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorBlue");
+
+        internal static MorphotypeElementDefinition HairColorBrown { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorBrown");
+
+        internal static MorphotypeElementDefinition HairColorCopper { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorCopper");
+
+        internal static MorphotypeElementDefinition HairColorOlive { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorOlive");
+
+        internal static MorphotypeElementDefinition HairColorRed { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorRed");
+
+        internal static MorphotypeElementDefinition HairColorRose { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorRose");
+
+        internal static MorphotypeElementDefinition HairColorSandyBrown { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorSandyBrown");
+
+        internal static MorphotypeElementDefinition HairColorSilver { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairColorSilver");
+
+        internal static MorphotypeElementDefinition HairShape_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_A");
+
+        internal static MorphotypeElementDefinition HairShape_AA { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_AA");
+
+        internal static MorphotypeElementDefinition HairShape_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_B");
+
+        internal static MorphotypeElementDefinition HairShape_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_C");
+
+        internal static MorphotypeElementDefinition HairShape_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_D");
+
+        internal static MorphotypeElementDefinition HairShape_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_E");
+
+        internal static MorphotypeElementDefinition HairShape_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_F");
+
+        internal static MorphotypeElementDefinition HairShape_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_G");
+
+        internal static MorphotypeElementDefinition HairShape_H { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_H");
+
+        internal static MorphotypeElementDefinition HairShape_I { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_I");
+
+        internal static MorphotypeElementDefinition HairShape_J { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_J");
+
+        internal static MorphotypeElementDefinition HairShape_K { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_K");
+
+        internal static MorphotypeElementDefinition HairShape_L { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_L");
+
+        internal static MorphotypeElementDefinition HairShape_M { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_M");
+
+        internal static MorphotypeElementDefinition HairShape_N { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_N");
+
+        internal static MorphotypeElementDefinition HairShape_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_None");
+
+        internal static MorphotypeElementDefinition HairShape_O { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_O");
+
+        internal static MorphotypeElementDefinition HairShape_P { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_P");
+
+        internal static MorphotypeElementDefinition HairShape_Q { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_Q");
+
+        internal static MorphotypeElementDefinition HairShape_R { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_R");
+
+        internal static MorphotypeElementDefinition HairShape_S { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_S");
+
+        internal static MorphotypeElementDefinition HairShape_T { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_T");
+
+        internal static MorphotypeElementDefinition HairShape_U { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_U");
+
+        internal static MorphotypeElementDefinition HairShape_V { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_V");
+
+        internal static MorphotypeElementDefinition HairShape_W { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_W");
+
+        internal static MorphotypeElementDefinition HairShape_X { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_X");
+
+        internal static MorphotypeElementDefinition HairShape_Y { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_Y");
+
+        internal static MorphotypeElementDefinition HairShape_Z { get; } =
+            GetDefinition<MorphotypeElementDefinition>("HairShape_Z");
+
+        internal static MorphotypeElementDefinition Horns_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_A");
+
+        internal static MorphotypeElementDefinition Horns_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_B");
+
+        internal static MorphotypeElementDefinition Horns_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_C");
+
+        internal static MorphotypeElementDefinition Horns_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_D");
+
+        internal static MorphotypeElementDefinition Horns_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_E");
+
+        internal static MorphotypeElementDefinition Horns_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_None");
+
+        internal static MorphotypeElementDefinition Musculature { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Musculature");
+
+        internal static MorphotypeElementDefinition Origin_AF { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_AF");
+
+        internal static MorphotypeElementDefinition Origin_AS { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_AS");
+
+        internal static MorphotypeElementDefinition Origin_CA { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_CA");
+
+        internal static MorphotypeElementDefinition Origin_Dragonborn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_Dragonborn");
+
+        internal static MorphotypeElementDefinition Origin_HO { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_HO");
+
+        internal static MorphotypeElementDefinition Origin_NonHuman { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Origin_NonHuman");
+
+        internal static MorphotypeElementDefinition Scars_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_01");
+
+        internal static MorphotypeElementDefinition Scars_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_02");
+
+        internal static MorphotypeElementDefinition Scars_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_03");
+
+        internal static MorphotypeElementDefinition Scars_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_04");
+
+        internal static MorphotypeElementDefinition Scars_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_05");
+
+        internal static MorphotypeElementDefinition Scars_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_06");
+
+        internal static MorphotypeElementDefinition Scars_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_07");
+
+        internal static MorphotypeElementDefinition Scars_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_08");
+
+        internal static MorphotypeElementDefinition Scars_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_09");
+
+        internal static MorphotypeElementDefinition Scars_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_10");
+
+        internal static MorphotypeElementDefinition Scars_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_11");
+
+        internal static MorphotypeElementDefinition Scars_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_12");
+
+        internal static MorphotypeElementDefinition Scars_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_13");
+
+        internal static MorphotypeElementDefinition Scars_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_14");
+
+        internal static MorphotypeElementDefinition Scars_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_15");
+
+        internal static MorphotypeElementDefinition Scars_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_16");
+
+        internal static MorphotypeElementDefinition Scars_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_17");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_01 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_01");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_02 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_02");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_03 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_03");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_04 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_04");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_05 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_05");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_06 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_06");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_07 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_07");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_08 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_08");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_09 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_09");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_10 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_10");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_11 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_11");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_12");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_13");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_14");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_15");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_16");
+
+        internal static MorphotypeElementDefinition Scars_Dragonborn_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_Dragonborn_17");
+
+        internal static MorphotypeElementDefinition Scars_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Scars_None");
+
+        internal static MorphotypeElementDefinition Tail_A { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_A");
+
+        internal static MorphotypeElementDefinition Tail_B { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_B");
+
+        internal static MorphotypeElementDefinition Tail_C { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_C");
+
+        internal static MorphotypeElementDefinition Tail_D { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_D");
+
+        internal static MorphotypeElementDefinition Tail_E { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_E");
+
+        internal static MorphotypeElementDefinition Tail_None { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_None");
+
+        internal static MorphotypeElementDefinition TailLength { get; } =
+            GetDefinition<MorphotypeElementDefinition>("TailLength");
+    }
+
     internal static class NarrativeTreeDefinitions
     {
     }
@@ -13990,6 +18888,117 @@ internal static partial class DatabaseHelper
 
     internal static class QuestTreeDefinitions
     {
+    }
+
+    internal static class ReactionDefinitions
+    {
+        internal static ReactionDefinition AlterAttackPower { get; } =
+            GetDefinition<ReactionDefinition>("AlterAttackPower");
+
+        internal static ReactionDefinition AlterAttackSpell { get; } =
+            GetDefinition<ReactionDefinition>("AlterAttackSpell");
+
+        internal static ReactionDefinition BardicInspiration { get; } =
+            GetDefinition<ReactionDefinition>("BardicInspiration");
+
+        internal static ReactionDefinition BlessingOfTheElements { get; } =
+            GetDefinition<ReactionDefinition>("BlessingOfTheElements");
+
+        internal static ReactionDefinition BlockAttack { get; } =
+            GetDefinition<ReactionDefinition>("BlockAttack");
+
+        internal static ReactionDefinition BorrowLuck { get; } =
+            GetDefinition<ReactionDefinition>("BorrowLuck");
+
+        internal static ReactionDefinition CastFallPreventionSpell { get; } =
+            GetDefinition<ReactionDefinition>("CastFallPreventionSpell");
+
+        internal static ReactionDefinition CastImmunityToSpell { get; } =
+            GetDefinition<ReactionDefinition>("CastImmunityToSpell");
+
+        internal static ReactionDefinition CounterAttackWithPower { get; } =
+            GetDefinition<ReactionDefinition>("CounterAttackWithPower");
+
+        internal static ReactionDefinition CounterAttackWithSpellHellishRebuke { get; } =
+            GetDefinition<ReactionDefinition>("CounterAttackWithSpellHellishRebuke");
+
+        internal static ReactionDefinition CounterAttackWithSpellMagicAffinityShadowRetribution { get; } =
+            GetDefinition<ReactionDefinition>("CounterAttackWithSpellMagicAffinityShadowRetribution");
+
+        internal static ReactionDefinition CounterSpell { get; } =
+            GetDefinition<ReactionDefinition>("CounterSpell");
+
+        internal static ReactionDefinition DeflectMissile { get; } =
+            GetDefinition<ReactionDefinition>("DeflectMissile");
+
+        internal static ReactionDefinition DeflectMissileMonk { get; } =
+            GetDefinition<ReactionDefinition>("DeflectMissileMonk");
+
+        internal static ReactionDefinition DiamondSoul { get; } =
+            GetDefinition<ReactionDefinition>("DiamondSoul");
+
+        internal static ReactionDefinition GiantKiller { get; } =
+            GetDefinition<ReactionDefinition>("GiantKiller");
+
+        internal static ReactionDefinition IndomitableResistance { get; } =
+            GetDefinition<ReactionDefinition>("IndomitableResistance");
+
+        internal static ReactionDefinition LeafScales { get; } =
+            GetDefinition<ReactionDefinition>("LeafScales");
+
+        internal static ReactionDefinition OpportunityAttack { get; } =
+            GetDefinition<ReactionDefinition>("OpportunityAttack");
+
+        internal static ReactionDefinition RageVersusSurprise { get; } =
+            GetDefinition<ReactionDefinition>("RageVersusSurprise");
+
+        internal static ReactionDefinition ReactionShot { get; } =
+            GetDefinition<ReactionDefinition>("ReactionShot");
+
+        internal static ReactionDefinition ReactiveCarapace { get; } =
+            GetDefinition<ReactionDefinition>("ReactiveCarapace");
+
+        internal static ReactionDefinition ReadiedAction { get; } =
+            GetDefinition<ReactionDefinition>("ReadiedAction");
+
+        internal static ReactionDefinition Retaliation { get; } =
+            GetDefinition<ReactionDefinition>("Retaliation");
+
+        internal static ReactionDefinition Retribution { get; } =
+            GetDefinition<ReactionDefinition>("Retribution");
+
+        internal static ReactionDefinition ReturnMissile { get; } =
+            GetDefinition<ReactionDefinition>("ReturnMissile");
+
+        internal static ReactionDefinition SharedPain { get; } =
+            GetDefinition<ReactionDefinition>("SharedPain");
+
+        internal static ReactionDefinition SlowFall { get; } =
+            GetDefinition<ReactionDefinition>("SlowFall");
+
+        internal static ReactionDefinition SpendPower { get; } =
+            GetDefinition<ReactionDefinition>("SpendPower");
+
+        internal static ReactionDefinition SpendSpellSlot { get; } =
+            GetDefinition<ReactionDefinition>("SpendSpellSlot");
+
+        internal static ReactionDefinition StandAgainstTheTide { get; } =
+            GetDefinition<ReactionDefinition>("StandAgainstTheTide");
+
+        internal static ReactionDefinition SwiftRetaliation { get; } =
+            GetDefinition<ReactionDefinition>("SwiftRetaliation");
+
+        internal static ReactionDefinition SwirlingDance { get; } =
+            GetDefinition<ReactionDefinition>("SwirlingDance");
+
+        internal static ReactionDefinition UncannyDodge { get; } =
+            GetDefinition<ReactionDefinition>("UncannyDodge");
+
+        internal static ReactionDefinition UsePower { get; } =
+            GetDefinition<ReactionDefinition>("UsePower");
+
+        internal static ReactionDefinition WarCry { get; } =
+            GetDefinition<ReactionDefinition>("WarCry");
     }
 
     internal static class RecipeDefinitions
@@ -15845,6 +20854,447 @@ internal static partial class DatabaseHelper
     {
     }
 
+    internal static class DecisionPackageDefinitions
+    {
+        internal static DecisionPackageDefinition Adria_CombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Adria_CombatDecisions");
+
+        internal static DecisionPackageDefinition AirElementalCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("AirElementalCombatDecisions");
+
+        internal static DecisionPackageDefinition BanditCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("BanditCombatDecisions");
+
+        internal static DecisionPackageDefinition BanditPackTacticsCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("BanditPackTacticsCombatDecisions");
+
+        internal static DecisionPackageDefinition BroodCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("BroodCombatDecisions");
+
+        internal static DecisionPackageDefinition BuletteCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("BuletteCombatDecisions");
+
+        internal static DecisionPackageDefinition CasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("CasterCombatDecisions");
+
+        internal static DecisionPackageDefinition ClayGolemDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("ClayGolemDecisions");
+
+        internal static DecisionPackageDefinition ClericCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("ClericCombatDecisions");
+
+        internal static DecisionPackageDefinition Confused_Attack { get; } =
+            GetDefinition<DecisionPackageDefinition>("Confused_Attack");
+
+        internal static DecisionPackageDefinition Confused_Move { get; } =
+            GetDefinition<DecisionPackageDefinition>("Confused_Move");
+
+        internal static DecisionPackageDefinition CubeOfLightCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("CubeOfLightCombatDecisions");
+
+        internal static DecisionPackageDefinition DeepSpiderCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DeepSpiderCombatDecisions");
+
+        internal static DecisionPackageDefinition DefaultFlyingBeastWithBackupRangeCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultFlyingBeastWithBackupRangeCombatDecisions");
+
+        internal static DecisionPackageDefinition DefaultMeleeBeastCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultMeleeBeastCombatDecisions");
+
+        internal static DecisionPackageDefinition DefaultMeleeBeastWithBackupRangeCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultMeleeBeastWithBackupRangeCombatDecisions");
+
+        internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
+
+        internal static DecisionPackageDefinition DefaultRangeWithBackupMeleeDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultRangeWithBackupMeleeDecisions");
+
+        internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
+
+        internal static DecisionPackageDefinition DefilerCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DefilerCombatDecisions");
+
+        internal static DecisionPackageDefinition DemonicInfluence { get; } =
+            GetDefinition<DecisionPackageDefinition>("DemonicInfluence");
+
+        internal static DecisionPackageDefinition DragonCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DragonCombatDecisions");
+
+        internal static DecisionPackageDefinition DryadCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DryadCombatDecisions");
+
+        internal static DecisionPackageDefinition DryadQueenCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DryadQueenCombatDecisions");
+
+        internal static DecisionPackageDefinition DryadWaterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("DryadWaterCombatDecisions");
+
+        internal static DecisionPackageDefinition EncounterSpawn_PackMedium { get; } =
+            GetDefinition<DecisionPackageDefinition>("EncounterSpawn_PackMedium");
+
+        internal static DecisionPackageDefinition EncounterSpawn_PackSmall { get; } =
+            GetDefinition<DecisionPackageDefinition>("EncounterSpawn_PackSmall");
+
+        internal static DecisionPackageDefinition EncounterSpawn_PackSmall_PenalizeAltitude { get; } =
+            GetDefinition<DecisionPackageDefinition>("EncounterSpawn_PackSmall_PenalizeAltitude");
+
+        internal static DecisionPackageDefinition EncounterSpawn_Skirmisher { get; } =
+            GetDefinition<DecisionPackageDefinition>("EncounterSpawn_Skirmisher");
+
+        internal static DecisionPackageDefinition EncounterSpawn_Spread { get; } =
+            GetDefinition<DecisionPackageDefinition>("EncounterSpawn_Spread");
+
+        internal static DecisionPackageDefinition Fear { get; } =
+            GetDefinition<DecisionPackageDefinition>("Fear");
+
+        internal static DecisionPackageDefinition FighterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("FighterCombatDecisions");
+
+        internal static DecisionPackageDefinition FireOspreyCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("FireOspreyCombatDecisions");
+
+        internal static DecisionPackageDefinition FlyingSnakeCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("FlyingSnakeCombatDecisions");
+
+        internal static DecisionPackageDefinition Generic_Necromancer_CombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Generic_Necromancer_CombatDecisions");
+
+        internal static DecisionPackageDefinition GhastCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GhastCombatDecisions");
+
+        internal static DecisionPackageDefinition GhostCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GhostCombatDecisions");
+
+        internal static DecisionPackageDefinition GhoulCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GhoulCombatDecisions");
+
+        internal static DecisionPackageDefinition GiantDefaultCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GiantDefaultCombatDecisions");
+
+        internal static DecisionPackageDefinition GiantSpiderCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GiantSpiderCombatDecisions");
+
+        internal static DecisionPackageDefinition GiantStormCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GiantStormCombatDecisions");
+
+        internal static DecisionPackageDefinition GlabrezuCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GlabrezuCombatDecisions");
+
+        internal static DecisionPackageDefinition GlabrezuGeneral_LegendaryAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("GlabrezuGeneral_LegendaryAoE_Debuff");
+
+        internal static DecisionPackageDefinition GlabrezuGeneral_LegendaryAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("GlabrezuGeneral_LegendaryAoE_DpS");
+
+        internal static DecisionPackageDefinition GlabrezuGeneral_LegendaryAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("GlabrezuGeneral_LegendaryAttack");
+
+        internal static DecisionPackageDefinition GlabrezuGeneralCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GlabrezuGeneralCombatDecisions");
+
+        internal static DecisionPackageDefinition GoblinCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GoblinCombatDecisions");
+
+        internal static DecisionPackageDefinition GoblinShamanCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GoblinShamanCombatDecisions");
+
+        internal static DecisionPackageDefinition GoblinSkirmisherCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GoblinSkirmisherCombatDecisions");
+
+        internal static DecisionPackageDefinition GreenHagCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("GreenHagCombatDecisions");
+
+        internal static DecisionPackageDefinition HezrouCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("HezrouCombatDecisions");
+
+        internal static DecisionPackageDefinition HezrouGeneralCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("HezrouGeneralCombatDecisions");
+
+        internal static DecisionPackageDefinition IceGolemDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IceGolemDecisions");
+
+        internal static DecisionPackageDefinition Idle { get; } =
+            GetDefinition<DecisionPackageDefinition>("Idle");
+
+        internal static DecisionPackageDefinition IdleGuard_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition IdleGuard_Default_CanAttackNPC { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default_CanAttackNPC");
+
+        internal static DecisionPackageDefinition IdleGuard_NoIntercept { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_NoIntercept");
+
+        internal static DecisionPackageDefinition IdleGuard_Tutorial { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Tutorial");
+
+        internal static DecisionPackageDefinition IdleStopActionsThenIdleGuard_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleStopActionsThenIdleGuard_Default");
+
+        internal static DecisionPackageDefinition IncubusCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IncubusCombatDecisions");
+
+        internal static DecisionPackageDefinition IronGolemDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IronGolemDecisions");
+
+        internal static DecisionPackageDefinition LegendaryAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryAoE_Debuff");
+
+        internal static DecisionPackageDefinition LegendaryAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryAoE_DpS");
+
+        internal static DecisionPackageDefinition LegendaryDefilerAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDefilerAoE_Debuff");
+
+        internal static DecisionPackageDefinition LegendaryDefilerAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDefilerAoE_DpS");
+
+        internal static DecisionPackageDefinition LegendaryDefilerAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDefilerAttack");
+
+        internal static DecisionPackageDefinition LegendaryDefilerDarkness { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDefilerDarkness");
+
+        internal static DecisionPackageDefinition LegendaryDefilerLifeLeechAlly { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDefilerLifeLeechAlly");
+
+        internal static DecisionPackageDefinition LegendaryDragonAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDragonAttack");
+
+        internal static DecisionPackageDefinition LegendaryDragonWingAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryDragonWingAttack");
+
+        internal static DecisionPackageDefinition LegendaryHezrouAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryHezrouAttack");
+
+        internal static DecisionPackageDefinition LegendaryHezrouAttackAndMove { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryHezrouAttackAndMove");
+
+        internal static DecisionPackageDefinition LegendaryHezrouLifeLeechAlly { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryHezrouLifeLeechAlly");
+
+        internal static DecisionPackageDefinition LegendaryLaetharCast_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryLaetharCast_Debuff");
+
+        internal static DecisionPackageDefinition LegendaryLaetharCast_Teleport { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryLaetharCast_Teleport");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordAoE_Debuff_BlasphemousWord { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordAoE_Debuff_BlasphemousWord");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordAoE_Debuff_BlindingDust { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordAoE_Debuff_BlindingDust");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordAoE_Debuff_ChannelNegativeEnergy { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordAoE_Debuff_ChannelNegativeEnergy");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordAttack_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordAttack_Default");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordCast_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordCast_Debuff");
+
+        internal static DecisionPackageDefinition LegendaryMummyLordCast_Teleport { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryMummyLordCast_Teleport");
+
+        internal static DecisionPackageDefinition LegendaryRemorhazAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryRemorhazAoE_DpS");
+
+        internal static DecisionPackageDefinition LegendaryRemorhazAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryRemorhazAttack");
+
+        internal static DecisionPackageDefinition LegendaryRemorhazStunningAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryRemorhazStunningAttack");
+
+        internal static DecisionPackageDefinition LegendarySorakAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySorakAoE_Debuff");
+
+        internal static DecisionPackageDefinition LegendarySorakAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySorakAoE_DpS");
+
+        internal static DecisionPackageDefinition LegendarySorakAttack_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySorakAttack_Default");
+
+        internal static DecisionPackageDefinition LegendarySorakAttack_TouchOfDarkness { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySorakAttack_TouchOfDarkness");
+
+        internal static DecisionPackageDefinition LegendarySpiderQueenAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySpiderQueenAoE_Debuff");
+
+        internal static DecisionPackageDefinition LegendarySpiderQueenAoE_DpS { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySpiderQueenAoE_DpS");
+
+        internal static DecisionPackageDefinition LegendarySpiderQueenAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySpiderQueenAttack");
+
+        internal static DecisionPackageDefinition LegendarySpiderQueenLifeLeechAlly { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySpiderQueenLifeLeechAlly");
+
+        internal static DecisionPackageDefinition MarilithCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("MarilithCombatDecisions");
+
+        internal static DecisionPackageDefinition MinotaurCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("MinotaurCombatDecisions");
+
+        internal static DecisionPackageDefinition MummyCombatDecision { get; } =
+            GetDefinition<DecisionPackageDefinition>("MummyCombatDecision");
+
+        internal static DecisionPackageDefinition MummyLordCombatDecision { get; } =
+            GetDefinition<DecisionPackageDefinition>("MummyLordCombatDecision");
+
+        internal static DecisionPackageDefinition MutantApeCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("MutantApeCombatDecisions");
+
+        internal static DecisionPackageDefinition Necromancer_CombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Necromancer_CombatDecisions");
+
+        internal static DecisionPackageDefinition OffensiveCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("OffensiveCasterCombatDecisions");
+
+        internal static DecisionPackageDefinition OrcArcherCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("OrcArcherCombatDecisions");
+
+        internal static DecisionPackageDefinition OrcCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("OrcCombatDecisions");
+
+        internal static DecisionPackageDefinition OrcGrimbladeCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("OrcGrimbladeCombatDecisions");
+
+        internal static DecisionPackageDefinition PaladinCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PaladinCombatDecisions");
+
+        internal static DecisionPackageDefinition Patrol_Default_No_Attack { get; } =
+            GetDefinition<DecisionPackageDefinition>("Patrol_Default_No_Attack");
+
+        internal static DecisionPackageDefinition Patrol_DefaultDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Patrol_DefaultDecisions");
+
+        internal static DecisionPackageDefinition Patrol_TutorialDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("Patrol_TutorialDecisions");
+
+        internal static DecisionPackageDefinition PatrolNode_GroupAndTimeWait { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_GroupAndTimeWait");
+
+        internal static DecisionPackageDefinition PatrolNode_GroupAndTimeWait_30 { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_GroupAndTimeWait_30");
+
+        internal static DecisionPackageDefinition PatrolNode_GroupAndTimeWait_5 { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_GroupAndTimeWait_5");
+
+        internal static DecisionPackageDefinition PatrolNode_HuskTimeWait { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_HuskTimeWait");
+
+        internal static DecisionPackageDefinition PatrolNode_TimeWait { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_TimeWait");
+
+        internal static DecisionPackageDefinition PatrolNode_TimeWait_1 { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_TimeWait_1");
+
+        internal static DecisionPackageDefinition PatrolNode_TimeWait_10 { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_TimeWait_10");
+
+        internal static DecisionPackageDefinition PatrolNode_TimeWait_30 { get; } =
+            GetDefinition<DecisionPackageDefinition>("PatrolNode_TimeWait_30");
+
+        internal static DecisionPackageDefinition PeaksAbominationCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PeaksAbominationCombatDecisions");
+
+        internal static DecisionPackageDefinition PeaksTerrorCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PeaksTerrorCombatDecisions");
+
+        internal static DecisionPackageDefinition PhaseSpiderCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("PhaseSpiderCombatDecisions");
+
+        internal static DecisionPackageDefinition RangedWithSelfHealCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RangedWithSelfHealCombatDecisions");
+
+        internal static DecisionPackageDefinition RedeemerCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RedeemerCombatDecisions");
+
+        internal static DecisionPackageDefinition RemorhazCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RemorhazCombatDecisions");
+
+        internal static DecisionPackageDefinition RogueCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RogueCombatDecisions");
+
+        internal static DecisionPackageDefinition RogueShadowCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("RogueShadowCasterCombatDecisions");
+
+        internal static DecisionPackageDefinition ShamblingMoundCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("ShamblingMoundCombatDecisions");
+
+        internal static DecisionPackageDefinition SkeletonKnightCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SkeletonKnightCombatDecisions");
+
+        internal static DecisionPackageDefinition SkeletonSorcererCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SkeletonSorcererCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakAcolyteCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakAcolyteCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakAssassinCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakAssassinCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakGruntCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakGruntCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakHarasserCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakHarasserCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakKratshar_OffensiveCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakKratshar_OffensiveCasterCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakSaboteurCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakSaboteurCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakShikkathAndBossCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakShikkathAndBossCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakSkirmisherCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakSkirmisherCombatDecisions");
+
+        internal static DecisionPackageDefinition SpiderCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SpiderCombatDecisions");
+
+        internal static DecisionPackageDefinition SpiderQueenCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SpiderQueenCombatDecisions");
+
+        internal static DecisionPackageDefinition StaticDragonCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("StaticDragonCombatDecisions");
+
+        internal static DecisionPackageDefinition StoneGolemDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("StoneGolemDecisions");
+
+        internal static DecisionPackageDefinition SwampHagCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SwampHagCombatDecisions");
+
+        internal static DecisionPackageDefinition TurnUndead { get; } =
+            GetDefinition<DecisionPackageDefinition>("TurnUndead");
+
+        internal static DecisionPackageDefinition VrockCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("VrockCombatDecisions");
+
+        internal static DecisionPackageDefinition VrocklingCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("VrocklingCombatDecisions");
+
+        internal static DecisionPackageDefinition WightCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("WightCombatDecisions");
+
+        internal static DecisionPackageDefinition WightLordCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("WightLordCombatDecisions");
+
+        internal static DecisionPackageDefinition WinterWolfCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("WinterWolfCombatDecisions");
+
+        internal static DecisionPackageDefinition WolfCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("WolfCombatDecisions");
+
+        internal static DecisionPackageDefinition ZombieCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("ZombieCombatDecisions");
+    }
+
     internal static class ToolTypeDefinitions
     {
         internal static ToolTypeDefinition ArtisanToolSmithToolsType { get; } =
@@ -15877,6 +21327,189 @@ internal static partial class DatabaseHelper
 
     internal static class TravelJournalDefinitions
     {
+    }
+
+    internal static class TreasureTableDefinitions
+    {
+        internal static TreasureTableDefinition IngredientLootStandard { get; } =
+            GetDefinition<TreasureTableDefinition>("IngredientLootStandard");
+
+        internal static TreasureTableDefinition Random_Air_Elemental_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Air_Elemental_Table");
+
+        internal static TreasureTableDefinition Random_BadlandsSpider_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_BadlandsSpider_Table");
+
+        internal static TreasureTableDefinition Random_BrimstoneViper_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_BrimstoneViper_Table");
+
+        internal static TreasureTableDefinition Random_CrimsonSpider_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_CrimsonSpider_Table");
+
+        internal static TreasureTableDefinition Random_DeepSpider_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_DeepSpider_Table");
+
+        internal static TreasureTableDefinition Random_Earth_Elemental_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Earth_Elemental_Table");
+
+        internal static TreasureTableDefinition Random_Fire_Elemental_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Fire_Elemental_Table");
+
+        internal static TreasureTableDefinition Random_Fire_Osprey_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Fire_Osprey_Table");
+
+        internal static TreasureTableDefinition Random_FireSpider_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_FireSpider_Table");
+
+        internal static TreasureTableDefinition Random_Ghost_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Ghost_Table");
+
+        internal static TreasureTableDefinition Random_Goblin_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Goblin_Table");
+
+        internal static TreasureTableDefinition Random_Golem_Clay_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Golem_Clay_Table");
+
+        internal static TreasureTableDefinition Random_Golem_Ice_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Golem_Ice_Table");
+
+        internal static TreasureTableDefinition Random_Golem_Iron_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Golem_Iron_Table");
+
+        internal static TreasureTableDefinition Random_Golem_Stone_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Golem_Stone_Table");
+
+        internal static TreasureTableDefinition Random_Necromancer_BoneKeep_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Necromancer_BoneKeep_Table");
+
+        internal static TreasureTableDefinition Random_Orc_Archer_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Orc_Archer_Table");
+
+        internal static TreasureTableDefinition Random_Orc_Chieftain_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Orc_Chieftain_Table");
+
+        internal static TreasureTableDefinition Random_Orc_Grunt_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Orc_Grunt_Table");
+
+        internal static TreasureTableDefinition Random_Orc_Shaman_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Orc_Shaman_Table");
+
+        internal static TreasureTableDefinition Random_Shambling_Mound_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Shambling_Mound_Table");
+
+        internal static TreasureTableDefinition Random_Skarn_Ghoul_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skarn_Ghoul_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Archer_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Archer_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Enforcer_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Enforcer_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Knight_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Knight_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Marksman_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Marksman_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Sorcerer_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Sorcerer_Table");
+
+        internal static TreasureTableDefinition Random_Skeleton_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Skeleton_Table");
+
+        internal static TreasureTableDefinition Random_Sorak_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Sorak_Table");
+
+        internal static TreasureTableDefinition Random_TigerDrake_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_TigerDrake_Table");
+
+        internal static TreasureTableDefinition Random_Troll_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Troll_Table");
+
+        internal static TreasureTableDefinition Random_Wight_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Wight_Table");
+
+        internal static TreasureTableDefinition Random_Zombie_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("Random_Zombie_Table");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Badlands_Arid { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Badlands_Arid");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Badlands_Green { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Badlands_Green");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Badlands_Volcanic { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Badlands_Volcanic");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Marches { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Marches");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Principality_Forest { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Principality_Forest");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_Principality_Grassland { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Principality_Grassland");
+
+        internal static TreasureTableDefinition RandomTreasureTableA_Gem { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableA_Gem");
+
+        internal static TreasureTableDefinition RandomTreasureTableB_Consumables { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableB_Consumables");
+
+        internal static TreasureTableDefinition RandomTreasureTableC_MagicWeapons_01 { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableC_MagicWeapons_01");
+
+        internal static TreasureTableDefinition RandomTreasureTableC_MagicWeapons_Armors { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableC_MagicWeapons_Armors");
+
+        internal static TreasureTableDefinition RandomTreasureTableD_Wondrous_Items { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableD_Wondrous_Items");
+
+        internal static TreasureTableDefinition RandomTreasureTableD1_Weapons_02 { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableD1_Weapons_02");
+
+        internal static TreasureTableDefinition RandomTreasureTableD2_Armors_02 { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableD2_Armors_02");
+
+        internal static TreasureTableDefinition RandomTreasureTableE_Ingredients { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableE_Ingredients");
+
+        internal static TreasureTableDefinition RandomTreasureTableE2_Mundane_Ingredients { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableE2_Mundane_Ingredients");
+
+        internal static TreasureTableDefinition RandomTreasureTableF_Mundane_Gear { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableF_Mundane_Gear");
+
+        internal static TreasureTableDefinition RandomTreasureTableG_25_GP_Art_Items { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableG_25_GP_Art_Items");
+
+        internal static TreasureTableDefinition RandomTreasureTableH_50_GP_Art_Items { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableH_50_GP_Art_Items");
+
+        internal static TreasureTableDefinition RandomTreasureTableI_Poisons { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableI_Poisons");
+
+        internal static TreasureTableDefinition RandomTreasureTableI2_PoisonedProjectiles { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableI2_PoisonedProjectiles");
+
+        internal static TreasureTableDefinition RandomTreasureTableI3_RandomAmmo { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableI3_RandomAmmo");
+
+        internal static TreasureTableDefinition RandomTreasureTableJ_Scrolls { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableJ_Scrolls");
+
+        internal static TreasureTableDefinition RandomTreasureTableK_Recipe_Manuals { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableK_Recipe_Manuals");
+
+        internal static TreasureTableDefinition RandomTreasureTableL_Legendary { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableL_Legendary");
+
+        internal static TreasureTableDefinition RandomTreasureTableM_Primed_Item { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableM_Primed_Item");
+
+        internal static TreasureTableDefinition RandomWeaponTable { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomWeaponTable");
     }
 
     internal static class TutorialTableDefinitions
