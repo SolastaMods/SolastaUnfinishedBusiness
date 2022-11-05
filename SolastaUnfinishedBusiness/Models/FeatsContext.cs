@@ -188,10 +188,7 @@ internal static class FeatsContext
 
     internal static void SortFeats(FeatSubPanel panel)
     {
-        if (Main.Settings.EnableSortingFeats)
-        {
-            panel.relevantFeats.Sort(CompareFeats);
-        }
+        panel.relevantFeats.Sort(CompareFeats);
     }
 
     internal static int CompareFeats(FeatDefinition a, FeatDefinition b)

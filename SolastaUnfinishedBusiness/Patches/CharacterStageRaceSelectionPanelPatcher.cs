@@ -10,21 +10,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageRaceSelectionPanelPatcher
 {
-    //PATCH: sorts the races panel by Title
-    [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "Compare")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class Compare_Patch
-    {
-        public static void Postfix(CharacterRaceDefinition left, CharacterRaceDefinition right, ref int __result)
-        {
-            if (Main.Settings.EnableSortingRaces)
-            {
-                __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
-                    StringComparison.CurrentCultureIgnoreCase);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnBeginShow_Patch
