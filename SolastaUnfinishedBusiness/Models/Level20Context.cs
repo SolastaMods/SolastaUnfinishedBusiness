@@ -146,7 +146,7 @@ internal static class Level20Context
         var methods = new[]
         {
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 16 - not required...
+            typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 12
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
@@ -155,7 +155,9 @@ internal static class Level20Context
             typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12
             typeof(RulesetEntity).GetMethod("SerializeElements"), // 12
             typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit") // 12
+            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"), // 12
+            typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"), // 12
+            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit") // 12
         };
 
         foreach (var method in methods)
@@ -671,9 +673,17 @@ internal static class Level20Context
             return code;
         }
 
-        code
-            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel)
-            .ForEach(x => x.operand = ModMaxLevel);
+        var result = code
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel);
+
+        if (result.Count > 0)
+        {
+            result.ForEach(x => x.operand = ModMaxLevel);
+        }
+        else
+        {
+            Main.Error("Level20Transpiler");
+        }
 
         return code;
     }
