@@ -131,8 +131,7 @@ internal static class CustomWeaponsContext
 
         var weapon = builder.AddToDB();
 
-        //TODO: add to editor only if option turned on
-        weapon.inDungeonEditor = true;
+        weapon.inDungeonEditor = Main.Settings.AddNewWeaponsAndRecipesToEditor ;
 
         return weapon;
     }

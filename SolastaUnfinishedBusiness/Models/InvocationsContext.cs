@@ -12,13 +12,11 @@ internal static class InvocationsContext
 
     internal static void Load()
     {
-        //TODO: should we make invocations selectable through mod ui?
         BuildEldritchSmite();
     }
 
     private static void BuildEldritchSmite()
     {
-        //TODO: tweak GLBM and SpendSpell reaction to allow only pact slots for the smites
         InvocationDefinitionBuilder
             .Create("InvocationEldritchSmite")
             .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)

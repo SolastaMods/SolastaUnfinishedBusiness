@@ -129,7 +129,6 @@ internal class ReactionRequestWarcaster : ReactionRequest
                 target.LocationPosition,
                 actionModifier);
 
-            //TODO: TPA to confirm this is correct
             return !battle.IsValidAttackForReadiedAction(attackParams, false, RuleDefinitions.CoverType.None);
         });
 
