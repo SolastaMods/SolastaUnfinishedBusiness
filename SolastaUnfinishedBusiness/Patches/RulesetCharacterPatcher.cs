@@ -801,10 +801,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //
-    //TODO: Consolidate below
-    //
-
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ApplyRest_Patch
@@ -833,29 +829,19 @@ public static class RulesetCharacterPatcher
             var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
-
-            return instructions.ReplaceCalls(bind,
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, maxUses));
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class ApplyRest_Patch_2
-    {
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
             var myRestoreAllSpellSlotsMethod =
                 new Action<RulesetSpellRepertoire, RulesetCharacter, RuleDefinitions.RestType>(RestoreAllSpellSlots)
                     .Method;
 
-            //PATCH: Correctly solve short rests for Warlocks under MC (MULTICLASS)
-            return instructions.ReplaceCalls(restoreAllSpellSlotsMethod,
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
+            return instructions
+                .ReplaceCalls(bind,
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, maxUses))
+                .ReplaceCalls(restoreAllSpellSlotsMethod,
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
         }
 
         private static void RestoreAllSpellSlots(
