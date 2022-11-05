@@ -129,26 +129,26 @@ public static class InnovationWeapon
     private static RulesetCharacter GetBladedefender(RulesetCharacter character)
     {
         var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
-
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
 
-        if (summons.Empty()) { return null; }
-
-        return summons[0];
+        return summons.Empty() ? null : summons[0];
     }
 
     private static bool HasInjuredDefender(RulesetCharacter character)
     {
         var blade = GetBladedefender(character);
-        if (blade == null) { return false; }
 
-        return blade.IsMissingHitPoints;
+        return blade is { IsMissingHitPoints: true };
     }
 
     private static string GetRestPowerTitle(RulesetCharacter character)
     {
         var blade = GetBladedefender(character);
-        if (blade == null) { return string.Empty; }
+
+        if (blade == null)
+        {
+            return string.Empty;
+        }
 
         return Gui.Format("Feature/&PowerInnovationWeaponSteelDefenderRecuperateFormat",
             blade.CurrentHitPoints.ToString(),
@@ -450,15 +450,24 @@ public static class InnovationWeapon
         private static bool IsCommanded(RulesetCharacter character)
         {
             //can act freely outside of battle
-            if (Gui.Battle == null) { return true; }
+            if (Gui.Battle == null)
+            {
+                return true;
+            }
 
             var summoner = character.GetMySummoner()?.RulesetCharacter;
 
             //shouldn't happen, but consider being commanded in this case
-            if (summoner == null) { return true; }
+            if (summoner == null)
+            {
+                return true;
+            }
 
             //can act if summoner is KO
-            if (summoner.IsUnconscious) { return true; }
+            if (summoner.IsUnconscious)
+            {
+                return true;
+            }
 
             //can act if summoner commanded
             return summoner.HasConditionOfType(CommandSteelDefenderCondition);
@@ -493,9 +502,8 @@ public static class InnovationWeapon
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress) { return false; }
-
-            return character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
+                   character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
         }
     }
 
@@ -504,9 +512,8 @@ public static class InnovationWeapon
         public GameLocationCharacter GetTarget(RulesetCharacter user)
         {
             var blade = GetBladedefender(user);
-            if (blade == null) { return null; }
 
-            return GameLocationCharacter.GetFromActor(blade);
+            return blade == null ? null : GameLocationCharacter.GetFromActor(blade);
         }
     }
 }
