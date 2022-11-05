@@ -362,20 +362,6 @@ internal static class MulticlassContext
             ),
 
             // CharacterStageDeitySelectionPanel
-            (
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
-                HeroContext.StagePanel
-            ),
-            (
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
-            ),
-            (
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
-            ),
             (typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage") ?? NullMethod, HeroContext.StagePanel),
 
             // CharacterStageLevelGainsPanel
@@ -398,34 +384,11 @@ internal static class MulticlassContext
                 HeroContext.StagePanel
             ),
 
-            // CharacterStageSubclassSelectionPanel
-            (
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb") ?? NullMethod,
-                HeroContext.StagePanel
-            ),
-            (
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
-            ),
-            (
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
-            ),
-            (
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
-                HeroContext.StagePanel
-            ),
-
             // CharacterBuildingManager
             (
                 typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ?? NullMethod,
                 HeroContext.BuildingManager
             ),
-
-            // ArchetypesPreviewModal
-            // (typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), HeroContext.BuildingManager),
 
             // CharacterInformationPanel
             (
