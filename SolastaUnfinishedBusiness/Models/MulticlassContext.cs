@@ -448,18 +448,18 @@ internal static class MulticlassContext
         var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>
             (FeatureUnlocksTranspiler).Method;
 
-        try
+        foreach (var patch in patches)
         {
-            foreach (var patch in patches)
+            FeatureUnlocksContext = patch;
+            var method = patch.Item1;
+            try
             {
-                FeatureUnlocksContext = patch;
-
-                harmony.Patch(patch.Item1, transpiler: new HarmonyMethod(transpiler));
+                harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
             }
-        }
-        catch
-        {
-            Main.Error("cannot fully patch Multiclass feature unlocks");
+            catch
+            {
+                Main.Error($"Failed to apply Multiclass feature unlocks patch to {method.DeclaringType}.{method.Name}");
+            }
         }
     }
 
@@ -539,7 +539,7 @@ internal static class MulticlassContext
 
         if (!replaced)
         {
-            Main.Error("FeatureUnlocksTranspiler");
+            throw new Exception();
         }
     }
 
