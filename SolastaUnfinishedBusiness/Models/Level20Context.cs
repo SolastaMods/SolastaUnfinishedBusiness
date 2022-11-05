@@ -168,7 +168,7 @@ internal static class Level20Context
             }
             catch
             {
-                Main.Error("cannot fully patch Level 20");
+                Main.Error($"Failed to apply Level20Transpiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }

@@ -263,7 +263,7 @@ internal static class SharedSpellsContext
             }
             catch
             {
-                Main.Error("cannot fully patch Shared Slots");
+                Main.Error($"Failed to apply SharedSpellsTranspiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }
@@ -288,7 +288,8 @@ internal static class SharedSpellsContext
         var myMaxSpellLevelOfSpellCastLevelMethod =
             new Func<RulesetSpellRepertoire, int>(MaxSpellLevelOfSpellCastingLevel).Method;
 
-        return instructions.ReplaceCalls(maxSpellLevelOfSpellCastLevelMethod, "SharedSpellsContext.SharedSpellsTranspiler",
+        return instructions.ReplaceCalls(maxSpellLevelOfSpellCastLevelMethod,
+            "SharedSpellsContext.SharedSpellsTranspiler",
             new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastLevelMethod));
     }
 

@@ -26,7 +26,7 @@ internal sealed class PushesFromEffectPoint
                 CharacterActionMagicEffect, int>(SetPositionAndApplyForms).Method;
 
         return instructions.ReplaceCode(
-            instruction => $"{instruction.operand}".Contains("ApplyEffectForms"),
+            instruction => instruction.operand.ToString().Contains("ApplyEffectForms"),
             -1, "PushesFromEffectPoint.ModifyApplyFormsCall",
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Call, method));

@@ -295,7 +295,7 @@ internal static class MulticlassContext
             catch
             {
                 Main.Error(
-                    $"Failed to apply Multiclass classesAndLevels patch to {method.DeclaringType}.{method.Name}");
+                    $"Failed to apply ClassesAndLevelsTranspiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
 
@@ -307,7 +307,7 @@ internal static class MulticlassContext
             }
             catch
             {
-                Main.Error($"Failed to apply Multiclass classesHistory patch to {method.DeclaringType}.{method.Name}");
+                Main.Error($"Failed to ClassesHistoryTranspiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }
@@ -346,7 +346,7 @@ internal static class MulticlassContext
             }
             catch
             {
-                Main.Error($"Failed to apply Multiclass equipment patch to {method.DeclaringType}.{method.Name}");
+                Main.Error($"Failed to apply ShouldEquipmentBeAssigned patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }
@@ -427,7 +427,7 @@ internal static class MulticlassContext
             }
             catch
             {
-                Main.Error($"Failed to apply Multiclass feature unlocks patch to {method.DeclaringType}.{method.Name}");
+                Main.Error($"Failed to apply FeatureUnlocksTranspiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }
