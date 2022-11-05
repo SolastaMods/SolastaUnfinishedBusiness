@@ -56,7 +56,7 @@ public static class GameLocationBattleManagerPatcher
                 new Func<List<SpellDefinition>, SpellDefinition, bool>(CustomReactionsContext.CheckAndModifyCantrips)
                     .Method;
 
-            return instructions.ReplaceCallGeneric(
+            return instructions.ReplaceCall(
                 "Contains",
                 -1,
                 "GameLocationBattleManager.CanPerformReadiedActionOnCharacter",

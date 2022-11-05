@@ -16,10 +16,11 @@ internal static class TranspileHelper
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo), -1, 0, patchContext, codeInstructions);
+        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo),
+            -1, 0, patchContext, codeInstructions);
     }
 
-    // 10 replace call
+    // 11 replace call
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
@@ -27,7 +28,8 @@ internal static class TranspileHelper
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo), occurrence, 0, patchContext, codeInstructions);
+        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo),
+            occurrence, 0, patchContext, codeInstructions);
     }
 
     // 3 bypass replace call
@@ -39,21 +41,20 @@ internal static class TranspileHelper
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo), occurrence, bypass, patchContext,
-            codeInstructions);
+        return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo),
+            occurrence, bypass, patchContext, codeInstructions);
     }
 
     // 2 replace call generic code
-    public static IEnumerable<CodeInstruction> ReplaceCallGeneric(
+    public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         string contains,
         int occurrence,
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(
-            instruction =>
-                instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains(contains),
+        return instructions.ReplaceCodeImpl(i => i.opcode == OpCodes.Callvirt &&
+                                                 i.operand.ToString().Contains(contains),
             occurrence, 0, patchContext, codeInstructions);
     }
 
@@ -65,9 +66,9 @@ internal static class TranspileHelper
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(instruction =>
-                instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
-                instruction.operand?.ToString().Contains(featureToBrowse) == true,
+        return instructions.ReplaceCodeImpl(i => i.opcode == OpCodes.Callvirt &&
+                                                 i.operand.ToString().Contains("EnumerateFeaturesToBrowse") &&
+                                                 i.operand.ToString().Contains(featureToBrowse),
             occurrence, 0, patchContext, codeInstructions);
     }
 
@@ -80,7 +81,7 @@ internal static class TranspileHelper
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(instruction => instruction.LoadsField(fieldInfo),
+        return instructions.ReplaceCodeImpl(i => i.LoadsField(fieldInfo),
             occurrence, bypass, patchContext, codeInstructions);
     }
 
