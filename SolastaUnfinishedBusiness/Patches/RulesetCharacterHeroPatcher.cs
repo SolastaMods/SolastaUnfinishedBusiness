@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -155,22 +154,9 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: clears cached customized spell effects
             CustomFeaturesContext.ClearSpellEffectCache(__instance);
 
-#if false
-            //PATCH: Support for `IHeroRefreshedListener`
-            __instance.GetSubFeaturesByType<IHeroRefreshedListener>()
+            //PATCH: Support for `IHeroRefreshed`
+            __instance.GetSubFeaturesByType<IHeroRefreshed>()
                 .ForEach(listener => listener.OnHeroRefreshed(__instance));
-#endif
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterHero), "ItemEquiped")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class ItemEquiped_Patch
-    {
-        public static void Postfix(RulesetCharacterHero __instance, RulesetItem rulesetItem)
-        {
-            //PATCH: blade dancer only trigger certain features if certain item aren't wielded
-            WizardBladeDancer.OnItemEquipped(__instance, rulesetItem);
         }
     }
 

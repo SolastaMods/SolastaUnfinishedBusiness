@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -141,6 +142,12 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         // use sets for better descriptions on level up
         //
 
+        var heroRefreshedBladeDanceValidateEquipment = FeatureDefinitionBuilder
+            .Create("HeroRefreshedBladeDanceValidateEquipment")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new HeroRefreshedBladeDanceValidateEquipment())
+            .AddToDB();
+
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerBladeDance")
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
@@ -163,6 +170,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create("WizardBladeDancer")
             .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
+                heroRefreshedBladeDanceValidateEquipment,
                 proficiencyBladeDancerLightArmor,
                 proficiencyBladeDancerMartialWeapon,
                 featureSetBladeDancerBladeDance)
@@ -195,29 +203,34 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWieldingTwoHandedWeapon();
     }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem rulesetItem)
+    private class HeroRefreshedBladeDanceValidateEquipment : IHeroRefreshed
     {
-        if (IsBladeDanceValid(hero))
+        public void OnHeroRefreshed([NotNull] RulesetCharacter hero)
         {
-            return;
-        }
+            if (IsBladeDanceValid(hero))
+            {
+                return;
+            }
 
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
-        {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
-        }
+            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
+            {
+                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                    new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
+            }
 
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerDanceOfDefense.Name))
-        {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
-        }
+            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    ConditionBladeDancerDanceOfDefense.Name))
+            {
+                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                    new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
+            }
 
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerDanceOfVictory.Name))
-        {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
+            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    ConditionBladeDancerDanceOfVictory.Name))
+            {
+                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                    new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
+            }
         }
     }
 }

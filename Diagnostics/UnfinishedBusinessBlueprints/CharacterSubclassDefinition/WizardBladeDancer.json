@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:HeroRefreshedBladeDanceValidateEquipment:4dce0745-e8ae-5ce4-9fdd-ed7d03feadd2",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyBladeDancerLightArmor:4b8ce8e0-5f9e-521a-8381-cac664825a68",
       "level": 2
     },
