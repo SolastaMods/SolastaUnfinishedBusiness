@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -50,29 +51,16 @@ public static class FunctorTeleportPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var teleportCharacterMethod = typeof(GameLocationPositioningManager).GetMethod("TeleportCharacter");
+            var teleportCharacterMethod = typeof(IGameLocationPositioningService).GetMethod("TeleportCharacter");
             var followCharacterOnTeleportMethod = new Action<GameLocationCharacter>(FollowCharacterOnTeleport).Method;
             var characterField =
                 typeof(FunctorTeleport).GetField("'<index>5__4'", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            var code = instructions.ToList();
-            var bindIndex = code.FindIndex(x => x.Calls(teleportCharacterMethod));
-
-            if (bindIndex >= 0)
-            {
-                code.InsertRange(bindIndex + 1,
-                    new CodeInstruction[]
-                    {
-                        new(OpCodes.Call, teleportCharacterMethod), new(OpCodes.Ldarg_0),
-                        new(OpCodes.Ldfld, characterField), new(OpCodes.Call, followCharacterOnTeleportMethod)
-                    });
-            }
-            else
-            {
-                Main.Error("FunctorTeleport.Teleport");
-            }
-
-            return code;
+            return instructions.ReplaceCalls(teleportCharacterMethod,
+                new CodeInstruction(OpCodes.Call, teleportCharacterMethod),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, characterField),
+                new CodeInstruction(OpCodes.Call, followCharacterOnTeleportMethod));
         }
     }
 }
