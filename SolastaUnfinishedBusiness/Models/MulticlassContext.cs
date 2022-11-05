@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -414,7 +415,8 @@ internal static class MulticlassContext
         foreach (var patch in patches)
         {
             FeatureUnlocksContext = patch;
-            var method = patch.Item1;
+            var method = FeatureUnlocksContext.Item1;
+
             try
             {
                 harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
@@ -426,52 +428,6 @@ internal static class MulticlassContext
         }
     }
 
-    [ItemNotNull]
-    private static IEnumerable<CodeInstruction> YieldHero()
-    {
-        switch (FeatureUnlocksContext.Item2)
-        {
-            case HeroContext.StagePanel:
-                var classType = FeatureUnlocksContext.Item1.DeclaringType;
-
-                if (classType != null)
-                {
-                    var currentHeroField =
-                        classType.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
-
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                }
-
-                break;
-
-            case HeroContext.BuildingManager:
-                yield return new CodeInstruction(OpCodes.Ldarg_1);
-
-                break;
-
-            case HeroContext.CharacterHero:
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-
-                break;
-
-            case HeroContext.InformationPanel:
-                var inspectedCharacterMethod =
-                    typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
-                var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
-
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Call, inspectedCharacterMethod);
-                yield return new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod);
-
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    // ReSharper disable once UnusedMember.Global
     private static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
@@ -479,30 +435,42 @@ internal static class MulticlassContext
         var classFilteredFeatureUnlocksMethod =
             new Func<CharacterClassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
                 ClassFilteredFeatureUnlocks).Method;
-        var replaced = false;
 
-        foreach (var instruction in instructions)
+        switch (FeatureUnlocksContext.Item2)
         {
-            if (instruction.Calls(classFeatureUnlocksMethod))
-            {
-                foreach (var inst in YieldHero())
-                {
-                    yield return inst;
-                }
+            case HeroContext.StagePanel:
+                var classType = FeatureUnlocksContext.Item1.DeclaringType;
+                var currentHeroField =
+                    classType!.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldfld, currentHeroField),
+                    new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
-                replaced = true;
-            }
-            else
-            {
-                yield return instruction;
-            }
-        }
+            case HeroContext.BuildingManager:
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
-        if (!replaced)
-        {
-            throw new Exception();
+            case HeroContext.CharacterHero:
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
+
+            case HeroContext.InformationPanel:
+                var inspectedCharacterMethod =
+                    typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
+                var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
+
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, inspectedCharacterMethod),
+                    new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod),
+                    new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
+
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
