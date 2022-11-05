@@ -76,7 +76,7 @@ public static class GameLocationManagerPatcher
 
             return instructions.ReplaceCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt && instruction.operand.ToString().Contains("Terminate"),
-                -1,
+                -1, "GameLocationManagerPatcher.StopCharacterEffectsIfRelevant_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, maybeTerminate));
         }

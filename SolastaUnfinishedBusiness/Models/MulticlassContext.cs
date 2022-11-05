@@ -443,18 +443,18 @@ internal static class MulticlassContext
                 var currentHeroField =
                     classType!.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.StagePanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.BuildingManager:
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.BuildingManager",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.CharacterHero:
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.CharacterHero",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
@@ -463,7 +463,7 @@ internal static class MulticlassContext
                     typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
                 var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
 
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
+                return instructions.ReplaceCalls(classFeatureUnlocksMethod, "MulticlassContext.get_FeatureUnlocks.InformationPanel",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, inspectedCharacterMethod),
                     new CodeInstruction(OpCodes.Call, rulesetCharacterHeroMethod),

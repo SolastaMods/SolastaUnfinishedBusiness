@@ -12,27 +12,30 @@ internal static class TranspileHelper
     public static IEnumerable<CodeInstruction> ReplaceCalls(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
+        string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCall(methodInfo, -1, codeInstructions);
+        return instructions.ReplaceCall(methodInfo, -1, patchContext, codeInstructions);
     }
 
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
         int occurrence,
+        string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, codeInstructions);
+        return instructions.ReplaceCode(i => i.Calls(methodInfo), occurrence, patchContext, codeInstructions);
     }
 
     public static IEnumerable<CodeInstruction> ReplaceCode(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
         int occurrence,
+        string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCode(match, occurrence, 0, codeInstructions);
+        return instructions.ReplaceCode(match, occurrence, 0, patchContext, codeInstructions);
     }
 
     public static IEnumerable<CodeInstruction> ReplaceCode(
@@ -40,6 +43,7 @@ internal static class TranspileHelper
         Predicate<CodeInstruction> match,
         int occurrence,
         int bypass,
+        string patchContext,
         params CodeInstruction[] codeInstructions)
     {
         var found = 0;
@@ -48,7 +52,7 @@ internal static class TranspileHelper
 
         if (bindIndex <= 0)
         {
-            throw new Exception();
+            Main.Error($"Failed to apply transpiler patch [{patchContext}]!");
         }
 
         while (bindIndex >= 0)

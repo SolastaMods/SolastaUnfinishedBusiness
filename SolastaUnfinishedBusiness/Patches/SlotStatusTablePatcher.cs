@@ -33,7 +33,7 @@ public static class SlotStatusTablePatcher
             var myUniqueLevelSlotsMethod =
                 new Func<FeatureDefinitionCastSpell, RulesetSpellRepertoire, bool>(UniqueLevelSlots).Method;
 
-            return instructions.ReplaceCalls(uniqueLevelSlotsMethod,
+            return instructions.ReplaceCalls(uniqueLevelSlotsMethod, "SlotStatusTablePatcher.Bind_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
         }

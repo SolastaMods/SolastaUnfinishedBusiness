@@ -610,7 +610,7 @@ public static class RulesetCharacterPatcher
             return instructions
                 // first call to roll die checks the initiator
                 .ReplaceCall(rollDieMethod,
-                    1,
+                    1, "RulesetCharacterPatcher.ResolveContestCheck_Patch.1",
                     new CodeInstruction(OpCodes.Ldarg, 1), // baseBonus
                     new CodeInstruction(OpCodes.Ldarg, 2), // rollModifier
                     new CodeInstruction(OpCodes.Ldarg, 3), // abilityScoreName
@@ -619,8 +619,8 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg, 6), // modifierTrends
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
-                .ReplaceCall(rollDieMethod,
-                    1, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
+                .ReplaceCall(rollDieMethod, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
+                    1,  "RulesetCharacterPatcher.ResolveContestCheck_Patch.2",
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
                     new CodeInstruction(OpCodes.Ldarg, 9), // opponentAbilityScoreName
@@ -649,7 +649,7 @@ public static class RulesetCharacterPatcher
             return instructions.ReplaceCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
                     instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
-                -1,
+                -1, "RulesetCharacterPatcher.RefreshSpellRepertoires_Patch",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -836,10 +836,10 @@ public static class RulesetCharacterPatcher
                     .Method;
 
             return instructions
-                .ReplaceCalls(bind,
+                .ReplaceCalls(bind, "RulesetCharacterPatcher.ApplyRest_Patch.get_MaxUses",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, maxUses))
-                .ReplaceCalls(restoreAllSpellSlotsMethod,
+                .ReplaceCalls(restoreAllSpellSlotsMethod, "RulesetCharacterPatcher.ApplyRest_Patch.RestoreAllSpellSlots",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
@@ -951,7 +951,7 @@ public static class RulesetCharacterPatcher
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
             var customMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("IsFunctionAvailable");
 
-            return instructions.ReplaceCalls(isFunctionAvailable,
+            return instructions.ReplaceCalls(isFunctionAvailable,"RulesetCharacterPatcher.RefreshUsableDeviceFunctions_Patch",
                 new CodeInstruction(OpCodes.Call, customMethod));
         }
 

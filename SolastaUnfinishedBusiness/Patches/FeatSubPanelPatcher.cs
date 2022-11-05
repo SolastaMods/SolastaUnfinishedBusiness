@@ -44,7 +44,7 @@ public static class FeatSubPanelPatcher
             var forceSameWidthMethod =
                 new Action<RectTransform, bool, FeatSubPanel>(FeatsContext.ForceSameWidth).Method;
 
-            return instructions.ReplaceCalls(forceRebuildLayoutImmediateMethod,
+            return instructions.ReplaceCalls(forceRebuildLayoutImmediateMethod, "FeatSubPanelPatcher.SetState_Patch",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, forceSameWidthMethod));

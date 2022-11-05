@@ -75,13 +75,11 @@ public class MirrorImageLogic
             return code.ReplaceCode(
                 instruction => instruction.opcode == OpCodes.Callvirt &&
                                $"{instruction.operand}".Contains("get_CurrentValue"),
-                1,
+                1, "MirrorImageLogic.PatchAttackRoll",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Ldarg, 4),
                 new CodeInstruction(OpCodes.Call, method));
         }
-
-        Main.Error("RulesetCharacter.RollAttack patch.");
 
         return code;
     }

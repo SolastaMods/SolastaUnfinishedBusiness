@@ -26,7 +26,7 @@ public static class CharacterStageAbilityScoresPanelPatcher
             return instructions.ReplaceCode(
                 instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                instruction.operand.ToString() == CharacterContext.GameBuyPoints.ToString(),
-                -1,
+                -1, "CharacterStageAbilityScoresPanelPatcher.Reset_Patch",
                 new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints));
         }
     }
@@ -47,17 +47,17 @@ public static class CharacterStageAbilityScoresPanelPatcher
             return instructions
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() ==
                         CharacterContext.GameBuyPoints.ToString(),
-                    -1,
+                    -1, "CharacterStageAbilityScoresPanel.Refresh_Patch.1",
                     new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                             instruction.operand.ToString() ==
                                             CharacterContext.GameBuyPoints.ToString(),
-                    -1,
+                    -1, "CharacterStageAbilityScoresPanel.Refresh_Patch.2",
                     new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                             instruction.operand.ToString() ==
                                             CharacterContext.GameMaxAttribute.ToString(),
-                    -1,
+                    -1, "CharacterStageAbilityScoresPanel.Refresh_Patch.3",
                     new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModMaxAttribute));
         }
     }

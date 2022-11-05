@@ -21,7 +21,7 @@ internal static class ReachMeleeTargeting
         return instructions.ReplaceCode(
             instruction => instruction.opcode == OpCodes.Call &&
                            instruction.operand.ToString().Contains("FindBestActionDestination"),
-            -1,
+            -1, "ReachMeleeTargeting.ApplyCursorLocationIsValidAttack",
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Ldloc_1),
             new CodeInstruction(OpCodes.Call, method));

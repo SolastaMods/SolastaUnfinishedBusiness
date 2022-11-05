@@ -56,7 +56,7 @@ public static class FunctorTeleportPatcher
             var characterField =
                 typeof(FunctorTeleport).GetField("'<index>5__4'", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            return instructions.ReplaceCalls(teleportCharacterMethod,
+            return instructions.ReplaceCalls(teleportCharacterMethod, "FunctorTeleportPatcher.Execute_Patch",
                 new CodeInstruction(OpCodes.Call, teleportCharacterMethod),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, characterField),
