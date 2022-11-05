@@ -244,12 +244,14 @@ internal static class MulticlassContext
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
         var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
         var instructionsToBypass = 0;
+        var replaced = false;
 
         foreach (var instruction in instructions)
         {
             if (instructionsToBypass > 0)
             {
                 instructionsToBypass--;
+                replaced = true;
             }
             else if (instruction.Calls(classesAndLevelsMethod))
             {
@@ -267,6 +269,11 @@ internal static class MulticlassContext
             {
                 yield return instruction;
             }
+        }
+
+        if (!replaced)
+        {
+            Main.Error("ClassLevelTranspiler");
         }
     }
 
@@ -509,6 +516,7 @@ internal static class MulticlassContext
         var classFilteredFeatureUnlocksMethod =
             new Func<CharacterClassDefinition, RulesetCharacterHero, IEnumerable<FeatureUnlockByLevel>>(
                 ClassFilteredFeatureUnlocks).Method;
+        var replaced = false;
 
         foreach (var instruction in instructions)
         {
@@ -520,11 +528,18 @@ internal static class MulticlassContext
                 }
 
                 yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+
+                replaced = true;
             }
             else
             {
                 yield return instruction;
             }
+        }
+
+        if (!replaced)
+        {
+            Main.Error("FeatureUnlocksTranspiler");
         }
     }
 
