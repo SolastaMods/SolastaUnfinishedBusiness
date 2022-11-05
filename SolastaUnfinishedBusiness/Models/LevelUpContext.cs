@@ -4,6 +4,8 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
@@ -480,6 +482,41 @@ internal static class LevelUpContext
         }
     }
 
+    private static void RecursiveGrantCustomFeatures(
+        RulesetCharacterHero hero,
+        string tag,
+        [NotNull] List<FeatureDefinition> features)
+    {
+        foreach (var grantedFeature in features)
+        {
+            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IFeatureDefinitionCustomCode>())
+            {
+                customCode.ApplyFeature(hero, tag);
+            }
+
+            switch (grantedFeature)
+            {
+                case FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } featureDefinitionFeatureSet:
+                    RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
+                    break;
+
+                case FeatureDefinitionProficiency
+                {
+                    ProficiencyType: RuleDefinitions.ProficiencyType.FightingStyle
+                } featureDefinitionProficiency:
+                    featureDefinitionProficiency.Proficiencies
+                        .ForEach(prof =>
+                            hero.TrainedFightingStyles
+                                .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
+                                    .GetElement(prof)));
+                    break;
+            }
+        }
+    }
+
     internal static void GrantCustomFeatures(RulesetCharacterHero hero)
     {
         var buildingData = hero.GetHeroBuildingData();
@@ -491,7 +528,7 @@ internal static class LevelUpContext
         {
             foreach (var feat in kvp.Value)
             {
-                CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, kvp.Key, feat.Features);
+                RecursiveGrantCustomFeatures(hero, kvp.Key, feat.Features);
             }
         }
 
@@ -499,7 +536,7 @@ internal static class LevelUpContext
 
         if (hero.ActiveFeatures.TryGetValue(classTag, out var classFeatures))
         {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, classTag, classFeatures);
+            RecursiveGrantCustomFeatures(hero, classTag, classFeatures);
         }
 
         if (selectedSubclass == null)
@@ -511,7 +548,7 @@ internal static class LevelUpContext
 
         if (hero.ActiveFeatures.TryGetValue(subclassTag, out var subclassFeatures))
         {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, classTag, subclassFeatures);
+            RecursiveGrantCustomFeatures(hero, classTag, subclassFeatures);
         }
     }
 

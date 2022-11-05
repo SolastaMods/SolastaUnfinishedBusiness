@@ -58,7 +58,7 @@ internal static class Tooltips
         }
 
         var usablePower = UsablePowersProvider.Get(power, character);
-        var maxUses = CustomFeaturesContext.GetMaxUsesForPool(usablePower, character);
+        var maxUses = PowersBundleContext.GetMaxUsesForPool(usablePower, character);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remainingUses}/{maxUses}";

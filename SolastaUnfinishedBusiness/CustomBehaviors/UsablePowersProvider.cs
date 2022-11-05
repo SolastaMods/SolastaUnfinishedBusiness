@@ -50,7 +50,7 @@ internal static class UsablePowersProvider
             return;
         }
 
-        var pool = CustomFeaturesContext.GetPoolPower(usablePower, character);
+        var pool = PowersBundleContext.GetPoolPower(usablePower, character);
 
         if (pool == null || pool == usablePower)
         {
@@ -58,7 +58,7 @@ internal static class UsablePowersProvider
         }
 
         var powerCost = usablePower.PowerDefinition.CostPerUse;
-        var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
+        var maxUsesForPool = PowersBundleContext.GetMaxUsesForPool(pool, character);
 
         usablePower.maxUses = maxUsesForPool / powerCost;
         usablePower.remainingUses = pool.RemainingUses / powerCost;

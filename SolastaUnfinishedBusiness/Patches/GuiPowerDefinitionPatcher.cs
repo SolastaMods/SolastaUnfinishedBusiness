@@ -25,7 +25,7 @@ public static class GuiPowerDefinitionPatcher
         {
             //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
             // makes tooltips show modified effects
-            __result = CustomFeaturesContext.ModifyMagicEffectGui(__result, __instance.PowerDefinition);
+            __result = PowersBundleContext.ModifyMagicEffectGui(__result, __instance.PowerDefinition);
         }
     }
 }

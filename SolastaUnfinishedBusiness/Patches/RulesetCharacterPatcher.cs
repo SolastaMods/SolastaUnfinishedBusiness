@@ -300,7 +300,7 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            var effect = CustomFeaturesContext.ModifySpellEffect(cantrip, __instance);
+            var effect = PowersBundleContext.ModifySpellEffect(cantrip, __instance);
             var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
             var hasAttack = cantrip.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
             var notGadgets = effect.TargetFilteringMethod != RuleDefinitions.TargetFilteringMethod.GadgetOnly;
@@ -817,7 +817,7 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance)
         {
             //PATCH: update usage for power pools
-            CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
+            PowersBundleContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
 
@@ -831,7 +831,7 @@ public static class RulesetCharacterPatcher
             //PATCH: update usage for power pools
             if (!simulate)
             {
-                CustomFeaturesContext.RechargeLinkedPowers(__instance, restType);
+                PowersBundleContext.RechargeLinkedPowers(__instance, restType);
             }
 
             // The player isn't recharging the shared pool features, just the pool.
@@ -848,7 +848,7 @@ public static class RulesetCharacterPatcher
             //replace calls to MaxUses getter to custom method that accounts for extended power usage
             var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
             var maxUses =
-                new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
+                new Func<RulesetUsablePower, RulesetCharacter, int>(PowersBundleContext.GetMaxUsesForPool).Method;
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
             var myRestoreAllSpellSlotsMethod =
                 new Action<RulesetSpellRepertoire, RulesetCharacter, RuleDefinitions.RestType>(RestoreAllSpellSlots)

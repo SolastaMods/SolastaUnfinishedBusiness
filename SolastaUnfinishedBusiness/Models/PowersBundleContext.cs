@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -19,6 +20,364 @@ internal static class PowersBundleContext
     private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
     private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
     private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
+
+    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
+
+    internal static void RechargeLinkedPowers(
+        [NotNull] RulesetCharacter character,
+        RuleDefinitions.RestType restType)
+    {
+        var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
+
+        foreach (var usablePower in character.UsablePowers)
+        {
+            FeatureDefinitionPower rechargedPower;
+
+            if (usablePower.PowerDefinition is IPowerSharedPool pool)
+            {
+                rechargedPower = pool.GetUsagePoolPower();
+            }
+            else if (usablePower.PowerDefinition.HasSubFeatureOfType<HasModifiedUses>())
+            {
+                rechargedPower = usablePower.PowerDefinition;
+            }
+            else
+            {
+                continue;
+            }
+
+            // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
+            // it recharges on a long rest and this is a long rest
+            if (!pointPoolPowerDefinitions.Contains(rechargedPower)
+                && (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest
+                    || (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest
+                        && restType == RuleDefinitions.RestType.LongRest)))
+            {
+                pointPoolPowerDefinitions.Add(rechargedPower);
+            }
+        }
+
+        // Find the UsablePower of the point pool powers.
+        foreach (var poolPower in character.UsablePowers)
+        {
+            if (!pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
+            {
+                continue;
+            }
+
+            var poolSize = GetMaxUsesForPool(poolPower, character);
+
+            poolPower.remainingUses = poolSize;
+
+            AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
+        }
+    }
+
+    private static void AssignUsesToSharedPowersForPool(
+        [NotNull] RulesetCharacter character,
+        RulesetUsablePower poolPower,
+        int remainingUses,
+        int totalUses)
+    {
+        // Find powers that rely on this pool
+        foreach (var usablePower in character.UsablePowers)
+        {
+            var power = usablePower.PowerDefinition;
+
+            if (power is not IPowerSharedPool pool)
+            {
+                continue;
+            }
+
+            var pointPoolPower = pool.GetUsagePoolPower();
+
+            if (pointPoolPower != poolPower.PowerDefinition)
+            {
+                continue;
+            }
+
+            if (power.CostPerUse == 0)
+            {
+                //Shared pool powers should have some cost, otherwise why make them shared?
+                Main.Error($"Shared pool power '{power.Name}' has zero use cost!");
+                usablePower.maxUses = totalUses;
+                usablePower.remainingUses = remainingUses;
+            }
+            else
+            {
+                usablePower.maxUses = totalUses / power.CostPerUse;
+                usablePower.remainingUses = remainingUses / power.CostPerUse;
+            }
+        }
+    }
+
+    [CanBeNull]
+    internal static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
+    {
+        if (power.PowerDefinition is not IPowerSharedPool pool)
+        {
+            return null;
+        }
+
+        var poolPower = pool.GetUsagePoolPower();
+
+        return character.UsablePowers.FirstOrDefault(usablePower => usablePower.PowerDefinition == poolPower);
+    }
+
+    internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
+    {
+        return poolPower.MaxUses + character.GetSubFeaturesByType<IPowerUseModifier>()
+            .Where(m => m.PowerPool == poolPower.PowerDefinition)
+            .Sum(m => m.PoolChangeAmount(character));
+    }
+
+    internal static int GetMaxUsesForPool(this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            power = poolPower.GetUsagePoolPower();
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        return usablePower == null ? 0 : GetMaxUsesForPool(usablePower, character);
+    }
+
+    internal static void UpdateUsageForPower(this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power,
+        int poolUsage)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            power = poolPower.GetUsagePoolPower();
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        if (usablePower != null)
+        {
+            UpdateUsageForPowerPool(character, poolUsage, usablePower);
+        }
+    }
+
+    internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
+        [NotNull] RulesetUsablePower modifiedPower,
+        int poolUsage)
+    {
+        if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+        {
+            return;
+        }
+
+        var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == pointPoolPower);
+
+        if (usablePower != null)
+        {
+            UpdateUsageForPowerPool(character, poolUsage, usablePower);
+        }
+    }
+
+    private static void UpdateUsageForPowerPool(
+        RulesetCharacter character,
+        int poolUsage,
+        RulesetUsablePower usablePower)
+    {
+        var maxUses = GetMaxUsesForPool(usablePower, character);
+        var remainingUses = Mathf.Clamp(usablePower.RemainingUses - poolUsage, 0, maxUses);
+
+        usablePower.remainingUses = remainingUses;
+        AssignUsesToSharedPowersForPool(character, usablePower, remainingUses, maxUses);
+
+        // refresh character control panel after power pool usage is updated
+        // needed for custom point pools on portrait to update properly in some cases
+        GameUiContext.GameHud.RefreshCharacterControlPanel();
+    }
+
+    internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
+    {
+        if (power.CostPerUse == 0 || power.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
+        {
+            return int.MaxValue;
+        }
+
+        if (power.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
+        {
+            return character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints;
+        }
+
+        if (power is IPowerSharedPool poolPower)
+        {
+            return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        if (usablePower == null)
+        {
+            return 0;
+        }
+
+        return usablePower.RemainingUses / power.CostPerUse;
+    }
+
+    internal static int GetRemainingPowerCharges(this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power)
+    {
+        if (power is IPowerSharedPool poolPower)
+        {
+            return GetRemainingPowerPoolUses(character, poolPower);
+        }
+
+        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+
+        return usablePower?.RemainingUses ?? 0;
+    }
+
+    private static int GetRemainingPowerPoolUses(
+        this RulesetCharacter character,
+        [NotNull] IPowerSharedPool sharedPoolPower)
+    {
+        var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+
+        foreach (var poolPower in character.UsablePowers)
+        {
+            if (poolPower.PowerDefinition != pointPoolPower)
+            {
+                continue;
+            }
+
+            return poolPower.RemainingUses;
+        }
+
+        return 0;
+    }
+
+    internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
+    {
+        return ModifyMagicEffect(original, spell.SpellDefinition, spell.Caster);
+    }
+
+    internal static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
+    {
+        return ModifyMagicEffect(spell.EffectDescription, spell, caster);
+    }
+
+    internal static EffectDescription ModifyPowerEffect(EffectDescription original, [NotNull] RulesetEffectPower power)
+    {
+        return ModifyMagicEffect(original, power.PowerDefinition, power.User);
+    }
+
+    private static string Key(BaseDefinition definition)
+    {
+        return $"{definition.GetType()}:{definition.Name}";
+    }
+
+    private static EffectDescription GetCachedEffect(RulesetCharacter caster, BaseDefinition definition)
+    {
+        if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
+        {
+            return null;
+        }
+
+        return !effects.TryGetValue(Key(definition), out var effect) ? null : effect;
+    }
+
+    private static void CacheEffect(RulesetCharacter caster, BaseDefinition definition, EffectDescription effect)
+    {
+        Dictionary<string, EffectDescription> effects;
+
+        if (!SpellEffectCache.ContainsKey(caster.Guid))
+        {
+            effects = new Dictionary<string, EffectDescription>();
+            SpellEffectCache.Add(caster.Guid, effects);
+        }
+        else
+        {
+            effects = SpellEffectCache[caster.Guid];
+        }
+
+        effects.AddOrReplace(Key(definition), effect);
+    }
+
+    internal static void ClearSpellEffectCache(RulesetCharacter caster)
+    {
+        SpellEffectCache.Remove(caster.Guid);
+    }
+
+    private static EffectDescription ModifyMagicEffect(
+        EffectDescription original,
+        BaseDefinition definition,
+        [CanBeNull] RulesetCharacter caster)
+    {
+        var result = original;
+
+        if (caster == null)
+        {
+            return result;
+        }
+
+        var cached = GetCachedEffect(caster, definition);
+
+        if (cached != null)
+        {
+            return cached;
+        }
+
+        var baseDefinition = definition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+
+        if (baseDefinition != null)
+        {
+            result = baseDefinition.GetCustomEffect(caster) ?? original;
+        }
+
+        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>();
+
+        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+
+        if (!modifiers.Empty())
+        {
+            result = modifiers.Aggregate(EffectDescriptionBuilder.Create(result).Build(),
+                (current, f) => f.ModifyEffect(definition, current, caster));
+        }
+
+        CacheEffect(caster, definition, result);
+
+        return result;
+    }
+
+    /**Modifies spell/power description for GUI purposes.*/
+    internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
+        [NotNull] BaseDefinition definition)
+    {
+        return ModifyMagicEffect(original, definition, Global.CurrentCharacter);
+    }
+
+    internal static bool ValidatePrerequisites(
+        [NotNull] RulesetCharacter character,
+        [NotNull] BaseDefinition feature,
+        [NotNull] IEnumerable<IDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] out List<string> prerequisites)
+    {
+        var result = true;
+        prerequisites = new List<string>();
+
+        foreach (var validator in validators)
+        {
+            if (!validator(character, feature, out var line))
+            {
+                result = false;
+            }
+
+            if (line != null)
+            {
+                prerequisites.Add(line);
+            }
+        }
+
+        return result;
+    }
 
     internal static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
         [NotNull] params FeatureDefinitionPower[] subPowers)
@@ -346,6 +705,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
 
         var ruleChar = functorParameters.RestingHero;
         var usablePower = UsablePowersProvider.Get(power, ruleChar);
+
         if (power.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
         {
             GameLocationCharacter fromActor = null;
@@ -355,10 +715,7 @@ internal sealed class FunctorUseCustomRestPower : Functor
                 fromActor = retarget.GetTarget(ruleChar);
             }
 
-            if (fromActor == null)
-            {
-                fromActor = GameLocationCharacter.GetFromActor(ruleChar);
-            }
+            fromActor ??= GameLocationCharacter.GetFromActor(ruleChar);
 
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
 
@@ -391,14 +748,11 @@ internal sealed class FunctorUseCustomRestPower : Functor
                 formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
                 formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
 
-                if (power != null)
-                {
-                    //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-                    ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
+                //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+                ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
-                    GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
-                        $"Feedback/&{power.Name}UsedWhileTravellingFormat");
-                }
+                GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
+                    $"Feedback/&{power.Name}UsedWhileTravellingFormat");
             }
         }
 

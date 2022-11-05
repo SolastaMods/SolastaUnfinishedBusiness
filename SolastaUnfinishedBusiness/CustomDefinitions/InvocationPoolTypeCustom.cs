@@ -12,7 +12,7 @@ internal class InvocationPoolTypeCustom
 {
     private static readonly List<InvocationPoolTypeCustom> PrivatePools = new();
 
-    private readonly Dictionary<int, List<InvocationDefinitionCustom>> PrivateFeaturesByLevel = new();
+    private readonly Dictionary<int, List<InvocationDefinitionCustom>> privateFeaturesByLevel = new();
 
     private InvocationPoolTypeCustom()
     {
@@ -44,6 +44,7 @@ internal class InvocationPoolTypeCustom
             Name = name, Sprite = sprite, RequireClassLevels = requireClassLevel
         };
         PrivatePools.Add(pool);
+
         return pool;
     }
 
@@ -77,30 +78,30 @@ internal class InvocationPoolTypeCustom
     internal List<InvocationDefinitionCustom> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
-        return (PrivateFeaturesByLevel.TryGetValue(level, out var result) ? result : null)
+        return (privateFeaturesByLevel.TryGetValue(level, out var result) ? result : null)
                ?? new List<InvocationDefinitionCustom>();
     }
 
     private void Refresh(IEnumerable<InvocationDefinitionCustom> invocations)
     {
-        PrivateFeaturesByLevel.Clear();
+        privateFeaturesByLevel.Clear();
         AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
         AllFeatures.ForEach(f => GetOrMakeLevelFeatures(f.requiredLevel).Add(f));
-        AllLevels.SetRange(PrivateFeaturesByLevel.Select(e => e.Key));
+        AllLevels.SetRange(privateFeaturesByLevel.Select(e => e.Key));
         AllLevels.Sort();
     }
 
     private List<InvocationDefinitionCustom> GetOrMakeLevelFeatures(int level)
     {
         List<InvocationDefinitionCustom> levelFeatures;
-        if (!PrivateFeaturesByLevel.ContainsKey(level))
+        if (!privateFeaturesByLevel.ContainsKey(level))
         {
             levelFeatures = new List<InvocationDefinitionCustom>();
-            PrivateFeaturesByLevel.Add(level, levelFeatures);
+            privateFeaturesByLevel.Add(level, levelFeatures);
         }
         else
         {
-            levelFeatures = PrivateFeaturesByLevel[level];
+            levelFeatures = privateFeaturesByLevel[level];
         }
 
         return levelFeatures;

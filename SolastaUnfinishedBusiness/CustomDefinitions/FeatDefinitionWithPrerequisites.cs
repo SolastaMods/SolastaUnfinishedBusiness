@@ -12,7 +12,6 @@ internal sealed class FeatDefinitionWithPrerequisites : FeatDefinition
     internal (bool result, string output) Validate(FeatDefinitionWithPrerequisites feat, RulesetCharacterHero hero)
     {
         var results = Validators.Select(v => v(feat, hero));
-
         var valueTuples = results as (bool result, string output)[] ?? results.ToArray();
 
         return valueTuples.Any()

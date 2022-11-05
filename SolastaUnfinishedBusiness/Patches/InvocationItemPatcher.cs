@@ -24,7 +24,7 @@ public class InvocationItemPatcher
             var tooltip = __instance.Tooltip;
             var hero = tooltip.Context as RulesetCharacter ?? Global.CurrentCharacter;
 
-            CustomFeaturesContext.ValidatePrerequisites(hero, custom, custom.Validators, out var requirements);
+            PowersBundleContext.ValidatePrerequisites(hero, custom, custom.Validators, out var requirements);
 
             var gui = new GuiPresentationBuilder(custom.GuiPresentation).Build();
             var item = custom.Item;

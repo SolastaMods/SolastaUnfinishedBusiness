@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
         public static void Prefix(RulesetCharacterHero __instance)
         {
             //PATCH: clears cached customized spell effects
-            CustomFeaturesContext.ClearSpellEffectCache(__instance);
+            PowersBundleContext.ClearSpellEffectCache(__instance);
 
             //PATCH: Support for `IHeroRefreshed`
             __instance.GetSubFeaturesByType<IHeroRefreshed>()

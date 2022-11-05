@@ -355,7 +355,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             {
                 var feature = learned[i];
 
-                if (!CustomFeaturesContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
+                if (!PowersBundleContext.ValidatePrerequisites(currentHero, feature, feature.Validators, out _))
                 {
                     dirty = true;
                     learned.RemoveAt(i);
@@ -1116,8 +1116,9 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var selected = learned.Contains(boxFeature);
             var isUnlearned = unlearnedFeatures != null && unlearnedFeatures.Contains(boxFeature);
-            var isValid = CustomFeaturesContext
-                .ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
+            var isValid =
+                PowersBundleContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators,
+                    out var requirements);
             var canLearn = !selected && !alreadyHas && isValid;
 
             box.SetupUI(hero, pool.Sprite, requirements);
@@ -1152,7 +1153,7 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
-            CustomFeaturesContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
+            PowersBundleContext.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
 
             box.SetupUI(hero, pool.Sprite, requirements);
 

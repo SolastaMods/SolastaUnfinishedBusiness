@@ -21,7 +21,7 @@ public static class RulesetEffectSpellPatcher
         public static void Postfix(RulesetEffectSpell __instance, ref EffectDescription __result)
         {
             // allowing to pick and/or tweak spell effect depending on some caster properties
-            __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
+            __result = PowersBundleContext.ModifySpellEffect(__result, __instance);
         }
     }
 
