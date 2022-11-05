@@ -648,7 +648,7 @@ public static class RulesetCharacterPatcher
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceCode(instruction =>
                     instruction.opcode == OpCodes.Callvirt &&
-                    instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse"),
+                    instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true,
                 -1, "RulesetCharacterPatcher.RefreshSpellRepertoires_Patch",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }

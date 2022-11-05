@@ -20,8 +20,8 @@ internal static class FeatureApplicationValidation
         >(EnumerateActionPerformanceProviders).Method;
 
         return instructions.ReplaceCode(instruction =>
-                instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse") &&
-                instruction.operand.ToString().Contains("IActionPerformanceProvider"),
+                instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
+                instruction.operand?.ToString().Contains("IActionPerformanceProvider") == true,
             -1, "FeatureApplicationValidation.ValidateActionPerformanceProviders",
             new CodeInstruction(OpCodes.Call, enumerate));
     }
@@ -56,8 +56,8 @@ internal static class FeatureApplicationValidation
         >(EnumerateAdditionalActionProviders).Method;
 
         return instructions.ReplaceCode(instruction =>
-                instruction.operand.ToString().Contains("EnumerateFeaturesToBrowse") &&
-                instruction.operand.ToString().Contains("IAdditionalActionsProvider"),
+                instruction.operand?.ToString().Contains("EnumerateFeaturesToBrowse") == true &&
+                instruction.operand?.ToString().Contains("IAdditionalActionsProvider") == true,
             -1, "FeatureApplicationValidation.ValidateAdditionalActionProviders",
             new CodeInstruction(OpCodes.Call, enumerate));
     }

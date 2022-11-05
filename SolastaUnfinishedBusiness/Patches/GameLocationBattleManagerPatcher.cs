@@ -301,12 +301,19 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            if (!hasNonNegatedDamage) { yield break; }
+            if (!hasNonNegatedDamage)
+            {
+                yield break;
+            }
 
             // Can I reduce the damage consuming slots? (i.e: Blade Dancer)
             //TODO: check if this properly works under MC
             var repertoire = defenderCharacter.GetClassSpellRepertoire();
-            if (repertoire == null) { yield break; }
+
+            if (repertoire == null)
+            {
+                yield break;
+            }
 
             foreach (var feature in defenderCharacter
                          .GetFeaturesByType<FeatureDefinitionReduceDamage>())
