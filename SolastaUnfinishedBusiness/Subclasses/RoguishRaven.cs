@@ -81,7 +81,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
         var concentrationProvider = new StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
-            CustomIcons.GetSprite("DeadeyeConcentrationIcon",
+            CustomSprites.GetSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionRavenHeartSeekingShotTrigger = ConditionDefinitionBuilder
@@ -134,7 +134,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             )
             .AddToDB();
 
-        var deadEyeSprite = CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
+        var deadEyeSprite = CustomSprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
 
         var powerRavenHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenHeartSeekingShot")

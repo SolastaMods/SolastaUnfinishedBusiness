@@ -31,7 +31,7 @@ internal static class Infusions
         #region 02 Enhance Focus
 
         var name = "InfusionEnhanceArcaneFocus";
-        var sprite = CustomIcons.GetSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
+        var sprite = CustomSprites.GetSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
         var power = BuildInfuseItemPowerInvocation(2, name, sprite, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
@@ -52,7 +52,7 @@ internal static class Infusions
         #region 02 Enhance Armor
 
         name = "InfusionEnhanceDefense";
-        sprite = CustomIcons.GetSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
+        sprite = CustomSprites.GetSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
         power = BuildInfuseItemPowerInvocation(2, name, sprite, IsNonEnhancedArmor,
             FeatureDefinitionAttributeModifierBuilder.Create($"AttributeModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
@@ -70,7 +70,7 @@ internal static class Infusions
         #region 02 Enhance Weapon
 
         name = "InfusionEnhanceWeapon";
-        sprite = CustomIcons.GetSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
+        sprite = CustomSprites.GetSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
         power = BuildInfuseItemPowerInvocation(2, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -93,7 +93,7 @@ internal static class Infusions
         #region 02 Mind Sharpener
 
         name = "InfusionMindSharpener";
-        sprite = CustomIcons.GetSprite("MindSharpener", Resources.MindSharpener, 128);
+        sprite = CustomSprites.GetSprite("MindSharpener", Resources.MindSharpener, 128);
         BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
@@ -105,7 +105,7 @@ internal static class Infusions
 
         #region 02 Returning Weapon
 
-        sprite = CustomIcons.GetSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
+        sprite = CustomSprites.GetSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeaponWithBonus";
         var infuseWithBonus = BuildInfuseItemPower(name, name, sprite, IsThrownWeapon,
             FeatureDefinitionAttackModifierBuilder
@@ -147,7 +147,7 @@ internal static class Infusions
 
         #region 06 Resistant Armor
 
-        sprite = CustomIcons.GetSprite("ResistantArmor", Resources.ResistantArmor, 128);
+        sprite = CustomSprites.GetSprite("ResistantArmor", Resources.ResistantArmor, 128);
         name = "InfusionResistantArmor";
         //TODO: RAW needs to require attunement
 

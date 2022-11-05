@@ -11,7 +11,7 @@ using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Utils.CustomIcons;
+using static SolastaUnfinishedBusiness.Utils.CustomSprites;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 
@@ -89,7 +89,7 @@ public static class InnovationAlchemy
             BuildPoisonBombs(deviceDescription)
         );
 
-        //TODO: maybe make elementa and advanced bombs not exclusive?
+        //TODO: maybe make elemental and advanced bombs not exclusive?
         //Like show bomb forms for 1 element and 1 advanced element at same time?
         //Or maybe make global limit of 2 elements at once, regardless of whether they are simple or advanced?
         AdvancedBombs = FeatureDefinitionPowerBuilder

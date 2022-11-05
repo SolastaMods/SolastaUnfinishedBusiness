@@ -32,21 +32,21 @@ public static class MapGadgetItemPatcher
             {
                 case -1:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
-                    __instance.iconImage.sprite = CustomIcons.GetOrCreateSprite("Fire", Resources.Fire, 24);
+                    __instance.iconImage.sprite = CustomSprites.GetOrCreateSprite("Fire", Resources.Fire, 24);
                     __instance.guiTooltip.Content = "Camp";
 
                     break;
                 case -2:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
-                        CustomIcons.GetOrCreateSprite("Entrance", Resources.Entry, 24);
+                        CustomSprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
                     __instance.guiTooltip.Content = "Exit";
 
                     break;
                 case -3:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
-                        CustomIcons.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
+                        CustomSprites.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
                     __instance.guiTooltip.Content = "Teleporter";
 
                     break;

@@ -5,12 +5,14 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityGraphics = UnityEngine.Graphics;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Utils;
 
-internal static class CustomIcons
+public static class CustomSprites
 {
+    #region CustomSprite
+
     private static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 
     /// <summary>
@@ -96,4 +98,39 @@ internal static class CustomIcons
 
         return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
     }
+
+    #endregion
+
+    #region Conditions
+
+    internal static AssetReferenceSprite ConditionGuardian =>
+        GetSprite("ConditionGuardian", Resources.ConditionGuardian, 32);
+
+    internal static AssetReferenceSprite ConditionInfiltrate =>
+        GetSprite("ConditionInfiltrate", Resources.ConditionInfiltrate, 32);
+
+    #endregion
+
+    #region Powers
+
+    internal static AssetReferenceSprite PowerGuardianMode =>
+        GetSprite("PowerGuardianMode", Resources.PowerGuardianMode, 256, 128);
+
+    internal static AssetReferenceSprite PowerInfiltratorMode =>
+        GetSprite("PowerInfiltratorMode", Resources.PowerInfiltratorMode, 256, 128);
+
+    internal static AssetReferenceSprite PowerDefensiveField =>
+        GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128);
+
+    #endregion
+
+    #region Items
+
+    internal static AssetReferenceSprite ItemThundergauntlet =>
+        GetSprite("ItemThundergauntlet", Resources.ItemThundergauntlet, 128);
+
+    internal static AssetReferenceSprite ItemGemLightning =>
+        GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128);
+
+    #endregion
 }

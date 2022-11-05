@@ -75,7 +75,7 @@ public static class InnovationArmor
 
         var guardianMarker = ConditionDefinitionBuilder
             .Create(GuardianMarkerName)
-            .SetGuiPresentation(Category.Condition, CustomSprite.ConditionGuardian)
+            .SetGuiPresentation(Category.Condition, CustomSprites.ConditionGuardian)
             .SetSilent(Silent.WhenRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
@@ -86,7 +86,7 @@ public static class InnovationArmor
 
         var infiltratorMarker = ConditionDefinitionBuilder
             .Create(InfiltratorMarkerName)
-            .SetGuiPresentation(Category.Condition, CustomSprite.ConditionInfiltrate)
+            .SetGuiPresentation(Category.Condition, CustomSprites.ConditionInfiltrate)
             .SetSilent(Silent.WhenRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
@@ -109,7 +109,7 @@ public static class InnovationArmor
 
         var guardianMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeGuardian")
-            .SetGuiPresentation(Category.Feature, CustomSprite.PowerGuardianMode)
+            .SetGuiPresentation(Category.Feature, CustomSprites.PowerGuardianMode)
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(NotGuardianMode),
                 ValidatorsPowerUse.NotInCombat,
@@ -132,7 +132,7 @@ public static class InnovationArmor
 
         var infiltratorMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeInfiltrator")
-            .SetGuiPresentation(Category.Feature, CustomSprite.PowerInfiltratorMode)
+            .SetGuiPresentation(Category.Feature, CustomSprites.PowerInfiltratorMode)
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(NotInfiltratorMode),
                 ValidatorsPowerUse.NotInCombat,
@@ -154,7 +154,7 @@ public static class InnovationArmor
 
         var defensiveField = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorDefensiveField")
-            .SetGuiPresentation(Category.Feature, CustomSprite.PowerDefensiveField)
+            .SetGuiPresentation(Category.Feature, CustomSprites.PowerDefensiveField)
             .SetCustomSubFeatures(new ValidatorsPowerUse(InGuardianMode), InventorClassHolder.Marker)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()

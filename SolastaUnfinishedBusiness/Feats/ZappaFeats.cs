@@ -64,7 +64,7 @@ internal static class ZappaFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
             "Tooltip/&DeadeyeConcentration",
-            CustomIcons.GetSprite("DeadeyeConcentrationIcon",
+            CustomSprites.GetSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionDeadeyeTrigger = ConditionDefinitionBuilder
@@ -83,7 +83,7 @@ internal static class ZappaFeats
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
-                CustomIcons.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
+                CustomSprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder

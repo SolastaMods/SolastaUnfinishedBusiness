@@ -344,7 +344,7 @@ internal static class Level20Context
 
     private static void MonkLoad()
     {
-        var emptyBodySprite = CustomIcons.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
+        var emptyBodySprite = CustomSprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
 
         var powerMonkEmptyBody = FeatureDefinitionPowerBuilder
             .Create("PowerMonkEmptyBody")

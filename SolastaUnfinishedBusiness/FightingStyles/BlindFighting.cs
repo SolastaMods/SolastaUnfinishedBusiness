@@ -12,7 +12,7 @@ internal class BlindFighting : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("BlindFighting")
         .SetGuiPresentation(Category.FightingStyle,
-            CustomIcons.GetSprite("BlindFighting", Resources.BlindFighting, 256))
+            CustomSprites.GetSprite("BlindFighting", Resources.BlindFighting, 256))
         .SetFeatures(FeatureDefinitionSenseBuilder
             .Create("SenseBlindFighting")
             .SetGuiPresentationNoContent(true)

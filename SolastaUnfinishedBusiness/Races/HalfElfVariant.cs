@@ -20,7 +20,7 @@ internal static class RaceHalfElfVariantRaceBuilder
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
         var halfDarkelfSpriteReference =
-            CustomIcons.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
+            CustomSprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var raceHalfElfDark = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceHalfElfDark")
@@ -34,7 +34,7 @@ internal static class RaceHalfElfVariantRaceBuilder
                 PowerDarkelfDarkness)
             .AddToDB();
 
-        var halfHighSpriteReference = CustomIcons.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
+        var halfHighSpriteReference = CustomSprites.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var raceHalfElfHigh = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
@@ -45,7 +45,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             .AddToDB();
 
         var halfSylvanSpriteReference =
-            CustomIcons.GetSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
+            CustomSprites.GetSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
         var raceHalfElfSylvan = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceHalfElfSylvan")

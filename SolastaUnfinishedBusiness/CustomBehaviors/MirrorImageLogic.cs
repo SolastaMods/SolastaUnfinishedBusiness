@@ -35,7 +35,7 @@ public class MirrorImageLogic
         return ConditionDefinitionBuilder
             .Create(ConditionName)
             .SetGuiPresentation(Category.Condition,
-                CustomIcons.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
+                CustomSprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
             .SetCustomSubFeatures(Marker)
             .SetSilent(Silent.WhenAdded)
             .SetAllowMultipleInstances(true)

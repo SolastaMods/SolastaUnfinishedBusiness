@@ -22,7 +22,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     internal WayOfTheDistantHand()
     {
-        var zenArrow = CustomIcons.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
+        var zenArrow = CustomSprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
         //
         // LEVEL 03
@@ -162,7 +162,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        var flurryOfArrowsSprite = CustomIcons.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
+        var flurryOfArrowsSprite = CustomSprites.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
 
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")

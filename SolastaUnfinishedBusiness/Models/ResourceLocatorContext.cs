@@ -69,7 +69,7 @@ internal sealed class SpriteResourceLocator : IResourceLocator
     public bool Locate([NotNull] object key, Type type, out IList<IResourceLocation> locations)
     {
         var id = key.ToString();
-        var sprite = CustomIcons.GetSpriteByGuid(id);
+        var sprite = CustomSprites.GetSpriteByGuid(id);
 
         if (sprite != null)
         {

@@ -26,10 +26,10 @@ internal static class InventorClass
     private const string InfusionsName = "FeatureInventorInfusionPool";
 
     private static readonly AssetReferenceSprite Sprite =
-        CustomIcons.GetSprite("Inventor", Resources.Inventor, 1024, 576);
+        CustomSprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        CustomIcons.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
+        CustomSprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -715,7 +715,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildFlashOfGenius()
     {
         var text = "PowerInventorFlashOfGenius";
-        var sprite = CustomIcons.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
+        var sprite = CustomSprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder

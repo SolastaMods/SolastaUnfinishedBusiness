@@ -19,7 +19,7 @@ internal static class GnomeRaceBuilder
     private static CharacterRaceDefinition BuildGnome()
     {
         var gnomeSpriteReference =
-            CustomIcons.GetSprite("Gnome", Resources.Gnome, 1024, 512);
+            CustomSprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
 
         var attributeModifierGnomeAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGnomeAbilityScoreIncrease")

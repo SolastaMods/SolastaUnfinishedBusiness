@@ -24,7 +24,7 @@ internal static class GrayDwarfSubraceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildGrayDwarf()
     {
-        var grayDwarfSpriteReference = CustomIcons.GetSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
+        var grayDwarfSpriteReference = CustomSprites.GetSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
 
         var attributeModifierGrayDwarfStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease")

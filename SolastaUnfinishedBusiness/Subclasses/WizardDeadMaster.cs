@@ -27,7 +27,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     internal WizardDeadMaster()
     {
-        var spriteReference = CustomIcons.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
+        var spriteReference = CustomSprites.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
