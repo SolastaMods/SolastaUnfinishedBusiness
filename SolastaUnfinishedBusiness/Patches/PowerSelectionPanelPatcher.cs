@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,26 +25,18 @@ public static class PowerSelectionPanelPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-            var powerCanceledHandler = codes.FindIndex(x =>
-                x.opcode == OpCodes.Call && x.operand.ToString().Contains("PowerCancelled"));
-            var removePowersMethod = new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
+            var powerCancelledMethod = typeof(PowerSelectionPanel).GetMethod("get_PowerCancelled");
+            var removeInvalidPowersMethod =
+                new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
 
-            if (powerCanceledHandler >= 0)
-            {
-                codes.InsertRange(powerCanceledHandler + 1,
-                    new List<CodeInstruction>
-                    {
-                        new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
-                    }
-                );
-            }
-            else
-            {
-                Main.Error("PowerSelectionPanel.Bind");
-            }
-
-            return codes;
+            return instructions.ReplaceCall(
+                powerCancelledMethod,
+                1,
+                "PowerSelectionPanel.Bind",
+                new CodeInstruction(OpCodes.Call, powerCancelledMethod),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, removeInvalidPowersMethod));
         }
 
         //PATCH: remove invalid powers from display using our custom validators
