@@ -25,15 +25,15 @@ public static class PowerSelectionPanelPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var powerCancelledMethod = typeof(PowerSelectionPanel).GetMethod("get_PowerCancelled");
+            var setPowerCancelledMethod = typeof(PowerSelectionPanel).GetMethod("set_PowerCancelled");
             var removeInvalidPowersMethod =
                 new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
 
             return instructions.ReplaceCall(
-                powerCancelledMethod,
+                setPowerCancelledMethod,
                 1,
                 "PowerSelectionPanel.Bind",
-                new CodeInstruction(OpCodes.Call, powerCancelledMethod),
+                new CodeInstruction(OpCodes.Call, setPowerCancelledMethod),
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, removeInvalidPowersMethod));
