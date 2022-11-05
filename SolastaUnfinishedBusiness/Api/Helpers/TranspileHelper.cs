@@ -19,7 +19,7 @@ internal static class TranspileHelper
         return instructions.ReplaceCodeImpl(i => i.Calls(methodInfo), -1, 0, patchContext, codeInstructions);
     }
 
-    // 9 replace call
+    // 10 replace call
     public static IEnumerable<CodeInstruction> ReplaceCall(
         this IEnumerable<CodeInstruction> instructions,
         MethodInfo methodInfo,
