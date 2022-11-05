@@ -131,7 +131,7 @@ internal static class CustomWeaponsContext
 
         var weapon = builder.AddToDB();
 
-        weapon.inDungeonEditor = Main.Settings.AddNewWeaponsAndRecipesToEditor ;
+        weapon.inDungeonEditor = Main.Settings.AddNewWeaponsAndRecipesToEditor;
 
         return weapon;
     }

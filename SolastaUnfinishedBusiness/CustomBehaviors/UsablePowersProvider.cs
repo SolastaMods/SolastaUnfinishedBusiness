@@ -76,7 +76,7 @@ internal static class UsablePowersProvider
         }
 
         string className = null;
-        
+
         if (classDefinition == null)
         {
             classDefinition = actor.FindClassHoldingFeature(power);

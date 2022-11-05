@@ -46,7 +46,7 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
         }
 
         var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
-        
+
         return validator == null || validator.ValidReactionMode(attackMode, attacker, defender);
     }
 }

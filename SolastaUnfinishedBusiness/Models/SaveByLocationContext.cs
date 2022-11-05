@@ -44,7 +44,8 @@ internal static class SaveByLocationContext
                 return _allLocations;
             }
 
-            var userLocationPoolService = (UserLocationPoolManager) ServiceRepository.GetService<IUserLocationPoolService>();
+            var userLocationPoolService =
+                (UserLocationPoolManager)ServiceRepository.GetService<IUserLocationPoolService>();
 
             if (!userLocationPoolService.Enumerated)
             {
@@ -69,7 +70,8 @@ internal static class SaveByLocationContext
                 return _allCampaigns;
             }
 
-            var userCampaignPoolService = (UserCampaignPoolManager)ServiceRepository.GetService<IUserCampaignPoolService>();
+            var userCampaignPoolService =
+                (UserCampaignPoolManager)ServiceRepository.GetService<IUserCampaignPoolService>();
 
             if (!userCampaignPoolService.Enumerated)
             {
