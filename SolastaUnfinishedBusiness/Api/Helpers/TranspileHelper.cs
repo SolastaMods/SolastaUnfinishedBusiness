@@ -96,6 +96,21 @@ internal static class TranspileHelper
         return instructions.ReplaceCodeImpl(match, occurrence, 0, patchContext, codeInstructions);
     }
 
+    public static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
+    {
+        static void NoAssert(bool condition)
+        {
+        }
+
+        var assert = typeof(Trace).GetMethod("Assert", new[] { typeof(bool) });
+        var noAssert = new Action<bool>(NoAssert).Method;
+        var code = instructions.ToList();
+
+        code.FindAll(x => x.Calls(assert)).ForEach(x => x.operand = noAssert);
+
+        return code;
+    }
+
     private static IEnumerable<CodeInstruction> ReplaceCodeImpl(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
@@ -136,30 +151,5 @@ internal static class TranspileHelper
         }
 
         return code;
-    }
-
-    public static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
-    {
-        int assertIndex;
-        var noAssert = new Action<bool>(NoAssert).Method;
-        var code = instructions.ToList();
-
-        while ((assertIndex = GetNextAssert(code, typeof(bool))) >= 0)
-        {
-            code[assertIndex] = new CodeInstruction(OpCodes.Call, noAssert);
-        }
-
-        return code;
-    }
-
-    private static int GetNextAssert(List<CodeInstruction> codes, params Type[] types)
-    {
-        var assert = typeof(Trace).GetMethod("Assert", types);
-
-        return codes.FindIndex(x => x.Calls(assert));
-    }
-
-    private static void NoAssert(bool condition)
-    {
     }
 }
