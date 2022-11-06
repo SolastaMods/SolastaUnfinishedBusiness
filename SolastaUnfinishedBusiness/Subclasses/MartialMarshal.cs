@@ -216,31 +216,31 @@ internal sealed class MartialMarshal : AbstractSubclass
         var conditionMarshalEternalComradeAc = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeSavingThrow = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeSavingThrow")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeDamage = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHit = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHp = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
             .SetAdditionalDamageType(FighterClass)
             .AddToDB();

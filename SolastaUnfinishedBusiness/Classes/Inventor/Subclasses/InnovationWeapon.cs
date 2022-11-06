@@ -241,7 +241,7 @@ public static class InnovationWeapon
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 //Bonuses from Inventor's level
@@ -249,7 +249,7 @@ public static class InnovationWeapon
                     .Create("ConditionInnovationWeaponSummonSteelDefenderLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: InventorClass.ClassName, active: false)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus) // 5 HP per level
@@ -259,7 +259,7 @@ public static class InnovationWeapon
                     .Create("ConditionInnovationWeaponSummonSteelDefenderIntelligence")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus)
                     //Set damage type to class name so `ExtraOriginOfAmount.SourceAbilityBonus` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: AttributeDefinitions.Intelligence, active: false)
                     .SetFeatures(hpBonus) // 1 hp per INT mod

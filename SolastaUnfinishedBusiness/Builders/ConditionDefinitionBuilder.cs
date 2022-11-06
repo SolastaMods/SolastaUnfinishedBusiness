@@ -49,6 +49,11 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder SetAmountOrigin(ExtraOriginOfAmount value)
+    {
+        return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
+    }
+
     internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
     {
         Definition.conditionParticleReference = value;
