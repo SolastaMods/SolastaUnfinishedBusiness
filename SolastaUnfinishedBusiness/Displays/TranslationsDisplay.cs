@@ -18,15 +18,15 @@ internal static class TranslationsDisplay
         {
             UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));
 
-            var intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
+            var intValue = Array.IndexOf(TranslatorContext.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
             if (UI.SelectionGrid(
                     ref intValue,
-                    Translations.AvailableLanguages,
-                    Translations.AvailableLanguages.Length,
+                    TranslatorContext.AvailableLanguages,
+                    TranslatorContext.AvailableLanguages.Length,
                     3, UI.Width(300)))
             {
-                Main.Settings.SelectedLanguageCode = Translations.AvailableLanguages[intValue];
+                Main.Settings.SelectedLanguageCode = TranslatorContext.AvailableLanguages[intValue];
             }
         }
 
@@ -35,7 +35,7 @@ internal static class TranslationsDisplay
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
-                     .Where(x => !x.TechnicalInfo.StartsWith(TranslatorContext.UbTranslationTag))
+                     .Where(x => !x.TechnicalInfo.StartsWith(TranslatorContext.TranslatorBehaviour.UbTranslationTag))
                      .OrderBy(x => x.Title))
         {
             var exportName = userCampaign.Title;
@@ -48,7 +48,7 @@ internal static class TranslationsDisplay
                     UI.Width(120));
                 UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300));
 
-                if (TranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
+                if (TranslatorContext.TranslatorBehaviour.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
                         $"{status.PercentageComplete:00.0%}").Bold().Khaki();
@@ -62,12 +62,12 @@ internal static class TranslationsDisplay
                     {
                         if (status == null)
                         {
-                            TranslatorContext.TranslateUserCampaign(
+                            TranslatorContext.TranslatorBehaviour.TranslateUserCampaign(
                                 Main.Settings.SelectedLanguageCode, userCampaign.Title, userCampaign);
                         }
                         else
                         {
-                            TranslatorContext.Cancel(userCampaign.Title);
+                            TranslatorContext.TranslatorBehaviour.Cancel(userCampaign.Title);
                         }
                     },
                     UI.Width(200));

@@ -32,7 +32,7 @@ internal static class BootContext
         DiagnosticsContext.CacheTaDefinitions();
 
         // Load Translations and Resources Locator after
-        Translations.Load();
+        Load();
         ResourceLocatorContext.Load();
 
         // Create our Content Pack for anything that gets further created

@@ -262,7 +262,7 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Translations
     //
 
-    public string SelectedLanguageCode { get; set; } = Translations.English;
+    public string SelectedLanguageCode { get; set; } = TranslatorContext.English;
 
     //
     // Encounters - General
