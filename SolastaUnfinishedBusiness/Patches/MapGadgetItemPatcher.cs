@@ -37,20 +37,21 @@ public static class MapGadgetItemPatcher
                 case -1:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite = Sprites.GetOrCreateSprite("Fire", Resources.Fire, 24);
-                    __instance.guiTooltip.Content = "Camp";
+                    __instance.guiTooltip.Content = Gui.Localize("Tooltip/&CustomMapMarkerCamp");
 
                     break;
                 case -2:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         Sprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
-                    __instance.guiTooltip.Content = GetGadgetDestinationLocation(gameGadget) ?? "Exit";
+                    __instance.guiTooltip.Content = GetGadgetDestinationLocation(gameGadget) 
+                                                    ?? Gui.Localize("Tooltip/&CustomMapMarkerExit");
                     break;
                 case -3:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         Sprites.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
-                    __instance.guiTooltip.Content = "Teleporter";
+                    __instance.guiTooltip.Content = Gui.Localize("Tooltip/&CustomMapMarkerTeleport");
 
                     break;
                 default:
