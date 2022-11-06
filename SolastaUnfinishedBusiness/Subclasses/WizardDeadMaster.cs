@@ -59,13 +59,17 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetRequiredMonsterTag(CreateDeadTag)
             .SetAddedConditions(ConditionDefinitionBuilder
                     .Create("ConditionDeadMasterUndeadChainsProficiency")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(ChainsName, Category.Feature)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(attackBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionDeadMasterUndeadChainsLevel")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(ChainsName, Category.Feature)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, WizardClass)
                     .SetFeatures(hpBonus, hpBonus)
                     .AddToDB())
@@ -224,6 +228,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddCreatureTags(CreateDeadTag)
             .SetFullyControlledWhenAllied(true)
+            .SetDroppedLootDefinition(null)
             .AddToDB();
     }
 
