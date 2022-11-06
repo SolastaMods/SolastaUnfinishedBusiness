@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -40,8 +41,7 @@ public static class MapGadgetItemPatcher
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         Sprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
-                    __instance.guiTooltip.Content = "Exit";
-
+                    __instance.guiTooltip.Content = GetGadgetDestinationLocation(gameGadget) ?? "Exit";
                     break;
                 case -3:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
@@ -58,6 +58,16 @@ public static class MapGadgetItemPatcher
             __instance.gameObject.SetActive(true);
 
             return false;
+        }
+
+        private static string GetGadgetDestinationLocation(GameGadget gameGadget)
+        {
+            return gameGadget.ActiveListeners
+                .SelectMany(x => x.FunctorParams)
+                .OfType<FunctorParametersDescription>()
+                .Where(x => x.LocationDefinition != null && !string.IsNullOrEmpty(x.StringParameter2))
+                .Select(p => p.StringParameter2)
+                .FirstOrDefault();
         }
     }
 }
