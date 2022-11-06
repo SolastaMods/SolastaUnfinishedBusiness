@@ -2,7 +2,8 @@
 using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -28,6 +29,8 @@ public static class MapGadgetItemPatcher
             {
                 return true;
             }
+
+            __instance.iconImage.color = Color.white;
 
             switch ((int)itemType)
             {
