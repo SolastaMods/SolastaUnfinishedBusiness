@@ -3,7 +3,6 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Utils;
 
 namespace SolastaUnfinishedBusiness.Displays;
 

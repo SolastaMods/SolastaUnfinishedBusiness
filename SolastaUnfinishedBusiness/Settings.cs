@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
 
-namespace SolastaUnfinishedBusiness.Utils;
+namespace SolastaUnfinishedBusiness;
 
 public sealed class Core
 {

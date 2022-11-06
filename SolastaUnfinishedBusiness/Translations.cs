@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 
-namespace SolastaUnfinishedBusiness.Utils;
+namespace SolastaUnfinishedBusiness;
 
 internal static class Translations
 {

@@ -5,7 +5,6 @@ using System.Reflection;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Utils;
 using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 
@@ -13,11 +12,10 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Main
 {
-    private static ModManager<Core, Settings> Mod { get; set; }
-
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
 
     internal static readonly string ModFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    private static ModManager<Core, Settings> Mod { get; set; }
 
     internal static bool Enabled { get; private set; }
 
