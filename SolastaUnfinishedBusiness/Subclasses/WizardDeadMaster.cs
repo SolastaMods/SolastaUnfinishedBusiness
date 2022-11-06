@@ -16,6 +16,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -144,29 +145,56 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     {
         var createDeadSpellMonsters =
             new Dictionary<(int clazz, int spell),
-                List<(MonsterDefinition monster, int number, AssetReferenceSprite icon)>>
+                List<(MonsterDefinition monster, int number, AssetReferenceSprite icon, BaseDefinition[] attackSprites
+                    )>>
             {
                 {
-                    (2, 1),
-                    new()
+                    (2, 1), new()
                     {
-                        (Skeleton, 2, Sprites.SpellRaiseSkeleton),
-                        (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher)
+                        (Skeleton, 2, Sprites.SpellRaiseSkeleton, new BaseDefinition[] {Scimitar}),
+                        (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher,
+                            new BaseDefinition[] {Shortbow, Shortsword})
                     }
                 }, //CR 0.25 x2
-                { (3, 2), new() { (Ghoul, 1, Sprites.SpellRaiseGhoul) } }, //CR 1
-                { (5, 3), new() { (Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer) } }, //CR 2
+                {
+                    (3, 2), new()
+                    {
+                        (Ghoul, 1, Sprites.SpellRaiseGhoul,
+                            new BaseDefinition[]
+                            {
+                                MonsterAttackDefinitions.Attack_Wildshape_GiantEagle_Talons,
+                                MonsterAttackDefinitions.Attack_Wildshape_Wolf_Bite
+                            })
+                    }
+                }, //CR 1
+                {
+                    (5, 3),
+                    new() {(Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer, new BaseDefinition[] {Battleaxe})}
+                }, //CR 2
                 {
                     (7, 4),
                     new()
                     {
-                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight),
-                        (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman)
+                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] {Longsword}),
+                        (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman,
+                            new BaseDefinition[] {Longbow, Shortsword})
                     }
                 }, //CR 3
-                { (9, 5), new() { (Ghost, 1, Sprites.SpellRaiseGhost) } }, //CR 4
-                { (11, 6), new() { (Wight, 2, Sprites.SpellRaiseWight) } }, //CR 3 x2
-                { (13, 7), new() { (WightLord, 1, Sprites.SpellRaiseWightLord) } } //CR 6
+                {
+                    (9, 5),
+                    new() {(Ghost, 1, Sprites.SpellRaiseGhost, new BaseDefinition[] {Enchanted_Dagger_Souldrinker})}
+                }, //CR 4
+                {
+                    (11, 6),
+                    new() {(Wight, 2, Sprites.SpellRaiseWight, new BaseDefinition[] {LongswordPlus2, LongbowPlus1})}
+                }, //CR 3 x2
+                {
+                    (13, 7), new()
+                    {
+                        (WightLord, 1, Sprites.SpellRaiseWightLord,
+                            new BaseDefinition[] {Enchanted_Longsword_Frostburn, Enchanted_Shortbow_Medusa})
+                    }
+                } //CR 6
             };
 
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
@@ -179,9 +207,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
             for (var i = 0; i < monsters.Count; i++)
             {
-                var monster = MakeSummonedMonster(monsters[i].monster);
-                var count = monsters[i].number;
-                var icon = monsters[i].icon;
+                var data = monsters[i];
+                var monster = MakeSummonedMonster(data.monster, data.attackSprites);
+                var count = data.number;
+                var icon = data.icon;
 
                 spells.Add(SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
@@ -219,9 +248,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return result.ToArray();
     }
 
-    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster)
+    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster, BaseDefinition[] attackSprites)
     {
-        return MonsterDefinitionBuilder
+        var modified = MonsterDefinitionBuilder
             .Create(monster, $"Risen{monster.Name}")
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
@@ -230,6 +259,21 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetFullyControlledWhenAllied(true)
             .SetDroppedLootDefinition(null)
             .AddToDB();
+
+        if (attackSprites != null)
+        {
+            for (int i = 0; i < attackSprites.Length; i++)
+            {
+                var attack = modified.AttackIterations.ElementAtOrDefault(i);
+                if (attack != null)
+                {
+                    attack.MonsterAttackDefinition.GuiPresentation.spriteReference =
+                        attackSprites[i].GuiPresentation.SpriteReference;
+                }
+            }
+        }
+
+        return modified;
     }
 
     private sealed class TargetReducedToZeroHpDeadMasterStarkHarvest : ITargetReducedToZeroHp
