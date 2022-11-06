@@ -5,9 +5,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -162,7 +162,7 @@ public static class InnovationWeapon
         return FeatureDefinitionPowerBuilder
             .Create(SummonSteelDefenderPower)
             .SetGuiPresentation(Category.Feature,
-                CustomSprites.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
+                Sprites.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -287,7 +287,7 @@ public static class InnovationWeapon
         var monster = MonsterDefinitionBuilder
             .Create("InnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
-                CustomSprites.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
+                Sprites.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
             .HideFromDungeonEditor()
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores(
@@ -311,7 +311,7 @@ public static class InnovationWeapon
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")
                     .SetGuiPresentation(Category.Feature,
-                        CustomSprites.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 256, 128))
+                        Sprites.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 256, 128))
                     .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
                     // RAW this can heal any other Inventor construct, this version only heals self
                     .SetEffectDescription(EffectDescriptionBuilder
@@ -411,7 +411,7 @@ public static class InnovationWeapon
         return FeatureDefinitionPowerBuilder
             .Create("PowerInnovationWeaponArcaneJolt")
             .SetGuiPresentation(Category.Feature,
-                CustomSprites.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
+                Sprites.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence,
                 1, 0)
             .SetEffectDescription(EffectDescriptionBuilder

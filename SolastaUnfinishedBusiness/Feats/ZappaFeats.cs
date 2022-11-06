@@ -7,9 +7,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.CustomBehaviors.ValidatorsFeat;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -64,7 +64,7 @@ internal static class ZappaFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
             "Tooltip/&DeadeyeConcentration",
-            CustomSprites.GetSprite("DeadeyeConcentrationIcon",
+            Sprites.GetSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionDeadeyeTrigger = ConditionDefinitionBuilder
@@ -83,7 +83,7 @@ internal static class ZappaFeats
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
             .SetGuiPresentation("FeatDeadeye", Category.Feat,
-                CustomSprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
+                Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder

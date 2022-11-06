@@ -5,9 +5,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -27,7 +27,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     internal WizardDeadMaster()
     {
-        var spriteReference = CustomSprites.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
+        var spriteReference = Sprites.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
 
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")

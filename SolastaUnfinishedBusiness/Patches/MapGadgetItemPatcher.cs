@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -32,21 +32,21 @@ public static class MapGadgetItemPatcher
             {
                 case -1:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
-                    __instance.iconImage.sprite = CustomSprites.GetOrCreateSprite("Fire", Resources.Fire, 24);
+                    __instance.iconImage.sprite = Sprites.GetOrCreateSprite("Fire", Resources.Fire, 24);
                     __instance.guiTooltip.Content = "Camp";
 
                     break;
                 case -2:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
-                        CustomSprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
+                        Sprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
                     __instance.guiTooltip.Content = "Exit";
 
                     break;
                 case -3:
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
-                        CustomSprites.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
+                        Sprites.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
                     __instance.guiTooltip.Content = "Teleporter";
 
                     break;

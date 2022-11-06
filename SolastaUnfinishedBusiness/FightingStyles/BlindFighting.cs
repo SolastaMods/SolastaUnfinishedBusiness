@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -12,7 +12,7 @@ internal class BlindFighting : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("BlindFighting")
         .SetGuiPresentation(Category.FightingStyle,
-            CustomSprites.GetSprite("BlindFighting", Resources.BlindFighting, 256))
+            Sprites.GetSprite("BlindFighting", Resources.BlindFighting, 256))
         .SetFeatures(FeatureDefinitionSenseBuilder
             .Create("SenseBlindFighting")
             .SetGuiPresentationNoContent(true)

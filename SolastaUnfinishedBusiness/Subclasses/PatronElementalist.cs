@@ -3,8 +3,8 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -91,13 +91,13 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetExtendedSpellList(spellListElementalist)
             .AddToDB();
 
-        var iconRegular = CustomSprites.GetSprite(
+        var iconRegular = Sprites.GetSprite(
             "ElementalFormIcon", Resources.ElementalFormIcon, 24, 24);
-        var iconEnhanced = CustomSprites.GetSprite(
+        var iconEnhanced = Sprites.GetSprite(
             "ElementalFormIconEnhanced", Resources.ElementalFormIconEnhanced, 24, 24);
-        var formRegular = CustomSprites.GetSprite(
+        var formRegular = Sprites.GetSprite(
             "ElementalForm", Resources.ElementalForm, 128, 64);
-        var formEnhanced = CustomSprites.GetSprite(
+        var formEnhanced = Sprites.GetSprite(
             "ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
 
         var powerElementalistElementalFormPool = FeatureDefinitionPowerBuilder

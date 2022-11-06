@@ -11,8 +11,8 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -344,7 +344,7 @@ internal static class Level20Context
 
     private static void MonkLoad()
     {
-        var emptyBodySprite = CustomSprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
+        var emptyBodySprite = Sprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
 
         var powerMonkEmptyBody = FeatureDefinitionPowerBuilder
             .Create("PowerMonkEmptyBody")

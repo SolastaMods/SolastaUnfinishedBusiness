@@ -3,9 +3,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -29,7 +29,7 @@ internal static class DarkelfSubraceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
-        var darkelfSpriteReference = CustomSprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
+        var darkelfSpriteReference = Sprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDarkelfCharismaAbilityScoreIncrease")

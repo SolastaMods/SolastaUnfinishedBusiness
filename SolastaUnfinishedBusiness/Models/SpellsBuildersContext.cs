@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Utils;
+using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -30,7 +30,7 @@ internal static class SpellsBuildersContext
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerFarStep")
             .SetGuiPresentation(Category.Feature,
-                CustomSprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
+                Sprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
@@ -58,7 +58,7 @@ internal static class SpellsBuildersContext
 
         return SpellDefinitionBuilder
             .Create("FarStep")
-            .SetGuiPresentation(Category.Spell, CustomSprites.GetSprite("SpellFarStep", Resources.SpellFarStep, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellFarStep", Resources.SpellFarStep, 128))
             .SetSpellLevel(5)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -219,7 +219,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "AcidClaws";
 
-        var spriteReference = CustomSprites.GetSprite(NAME, Resources.AcidClaws, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.AcidClaws, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -259,7 +259,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "AirBlast";
 
-        var spriteReference = CustomSprites.GetSprite(NAME, Resources.AirBlast, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.AirBlast, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -306,7 +306,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "BurstOfRadiance";
 
-        var spriteReference = CustomSprites.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -366,7 +366,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildMinorLifesteal()
     {
-        var spriteReference = CustomSprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
+        var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
 
         return SpellDefinitionBuilder
             .Create("MinorLifesteal")
@@ -443,7 +443,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell,
-                CustomSprites.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
+                Sprites.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(true)
@@ -534,7 +534,7 @@ internal static class SpellsBuildersContext
         return SpellDefinitionBuilder
             .Create("SunlightBlade")
             .SetGuiPresentation(Category.Spell,
-                CustomSprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
+                Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(true)
@@ -596,7 +596,7 @@ internal static class SpellsBuildersContext
 
     internal static SpellDefinition BuildThornyVines()
     {
-        var spriteReference = CustomSprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
+        var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
 
         return SpellDefinitionBuilder
             .Create("ThornyVines")
@@ -802,7 +802,7 @@ internal static class SpellsBuildersContext
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell,
-                CustomSprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
+                Sprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetVerboseComponent(true)
@@ -988,7 +988,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "EarthTremor";
 
-        var spriteReference = CustomSprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
 
         // var rubbleProxy = EffectProxyDefinitionBuilder
         //     .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy")
@@ -1040,7 +1040,7 @@ internal static class SpellsBuildersContext
     {
         const string NAME = "WinterBreath";
 
-        var spriteReference = CustomSprites.GetSprite(NAME, Resources.WinterBreath, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -1115,7 +1115,7 @@ internal static class SpellsBuildersContext
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var sprite = CustomSprites.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
+        var sprite = Sprites.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
 
         return SpellDefinitionBuilder
             .Create("SpiritShroud")

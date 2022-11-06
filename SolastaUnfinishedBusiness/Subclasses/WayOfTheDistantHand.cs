@@ -3,8 +3,8 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -22,7 +22,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     internal WayOfTheDistantHand()
     {
-        var zenArrow = CustomSprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
+        var zenArrow = Sprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
         //
         // LEVEL 03
@@ -162,7 +162,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        var flurryOfArrowsSprite = CustomSprites.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
+        var flurryOfArrowsSprite = Sprites.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
 
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")

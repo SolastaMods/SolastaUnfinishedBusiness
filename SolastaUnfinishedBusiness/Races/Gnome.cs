@@ -2,8 +2,8 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -19,7 +19,7 @@ internal static class GnomeRaceBuilder
     private static CharacterRaceDefinition BuildGnome()
     {
         var gnomeSpriteReference =
-            CustomSprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
+            Sprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
 
         var attributeModifierGnomeAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGnomeAbilityScoreIncrease")

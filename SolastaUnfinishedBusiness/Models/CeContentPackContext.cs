@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -14,7 +14,7 @@ internal static class CeContentPackContext
 
     internal static void Load()
     {
-        var sprite = CustomSprites.GetSprite("ContentPack", Resources.ContentPack, 128);
+        var sprite = Sprites.GetSprite("ContentPack", Resources.ContentPack, 128);
 
         _ = ContentPackDefinitionBuilder
             .Create(CeContentPack.ToString())

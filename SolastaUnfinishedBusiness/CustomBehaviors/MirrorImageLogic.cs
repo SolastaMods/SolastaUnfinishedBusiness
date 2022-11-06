@@ -5,8 +5,8 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static ConsoleStyleDuplet;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -35,7 +35,7 @@ public class MirrorImageLogic
         return ConditionDefinitionBuilder
             .Create(ConditionName)
             .SetGuiPresentation(Category.Condition,
-                CustomSprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
+                Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
             .SetCustomSubFeatures(Marker)
             .SetSilent(Silent.WhenAdded)
             .SetAllowMultipleInstances(true)

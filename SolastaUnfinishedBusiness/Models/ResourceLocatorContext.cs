@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Utils;
+using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -69,7 +69,7 @@ internal sealed class SpriteResourceLocator : IResourceLocator
     public bool Locate([NotNull] object key, Type type, out IList<IResourceLocation> locations)
     {
         var id = key.ToString();
-        var sprite = CustomSprites.GetSpriteByGuid(id);
+        var sprite = Sprites.GetSpriteByGuid(id);
 
         if (sprite != null)
         {

@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -24,7 +24,7 @@ internal static class GrayDwarfSubraceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildGrayDwarf()
     {
-        var grayDwarfSpriteReference = CustomSprites.GetSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
+        var grayDwarfSpriteReference = Sprites.GetSprite("GrayDwarf", Resources.GrayDwarf, 1024, 512);
 
         var attributeModifierGrayDwarfStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGrayDwarfStrengthAbilityScoreIncrease")

@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using TA;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -22,7 +22,7 @@ internal static class RaceBolgrifBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildBolgrif()
     {
-        var bolgrifSpriteReference = CustomSprites.GetSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
+        var bolgrifSpriteReference = Sprites.GetSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
         var attributeModifierBolgrifWisdomAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease")

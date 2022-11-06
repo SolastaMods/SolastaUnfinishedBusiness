@@ -3,9 +3,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -81,7 +81,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
         var concentrationProvider = new StopPowerConcentrationProvider("HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
-            CustomSprites.GetSprite("DeadeyeConcentrationIcon",
+            Sprites.GetSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionRavenHeartSeekingShotTrigger = ConditionDefinitionBuilder
@@ -134,7 +134,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             )
             .AddToDB();
 
-        var deadEyeSprite = CustomSprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
+        var deadEyeSprite = Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
 
         var powerRavenHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenHeartSeekingShot")

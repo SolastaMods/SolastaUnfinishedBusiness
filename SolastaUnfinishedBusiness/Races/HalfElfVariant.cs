@@ -2,8 +2,8 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -20,7 +20,7 @@ internal static class RaceHalfElfVariantRaceBuilder
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
         var halfDarkelfSpriteReference =
-            CustomSprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
+            Sprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var raceHalfElfDark = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceHalfElfDark")
@@ -34,7 +34,7 @@ internal static class RaceHalfElfVariantRaceBuilder
                 PowerDarkelfDarkness)
             .AddToDB();
 
-        var halfHighSpriteReference = CustomSprites.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
+        var halfHighSpriteReference = Sprites.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
         var raceHalfElfHigh = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
@@ -45,7 +45,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             .AddToDB();
 
         var halfSylvanSpriteReference =
-            CustomSprites.GetSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
+            Sprites.GetSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
         var raceHalfElfSylvan = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceHalfElfSylvan")

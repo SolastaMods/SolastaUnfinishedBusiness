@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -108,7 +108,7 @@ internal static class EwFeats
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
-            "Tooltip/&PowerAttackConcentration", CustomSprites.GetSprite("PowerAttackConcentrationIcon",
+            "Tooltip/&PowerAttackConcentration", Sprites.GetSprite("PowerAttackConcentrationIcon",
                 Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionPowerAttackTrigger = ConditionDefinitionBuilder
@@ -140,7 +140,7 @@ internal static class EwFeats
         var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
             .SetGuiPresentation("FeatPowerAttack", Category.Feat,
-                CustomSprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
+                Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()

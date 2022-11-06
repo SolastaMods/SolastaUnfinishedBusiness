@@ -7,11 +7,11 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
-namespace SolastaUnfinishedBusiness.Utils;
+namespace SolastaUnfinishedBusiness.CustomUI;
 
-public static class CustomSprites
+public static class Sprites
 {
-    #region CustomSprite
+    #region CustomSprites
 
     private static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 

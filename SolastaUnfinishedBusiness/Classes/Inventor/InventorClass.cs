@@ -10,9 +10,9 @@ using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -26,10 +26,10 @@ internal static class InventorClass
     private const string InfusionsName = "FeatureInventorInfusionPool";
 
     private static readonly AssetReferenceSprite Sprite =
-        CustomSprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
+        Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
     private static readonly AssetReferenceSprite Pictogram =
-        CustomSprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
+        Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
     public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
@@ -715,7 +715,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildFlashOfGenius()
     {
         var text = "PowerInventorFlashOfGenius";
-        var sprite = CustomSprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
+        var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder

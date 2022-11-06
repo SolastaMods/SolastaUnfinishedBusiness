@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
@@ -11,7 +12,6 @@ using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Utils.CustomSprites;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 
@@ -73,7 +73,7 @@ public static class InnovationAlchemy
         ElementalBombs = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyBombsElemental")
             .SetGuiPresentation(Category.Feature,
-                GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
+                Sprites.GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
@@ -95,7 +95,7 @@ public static class InnovationAlchemy
         AdvancedBombs = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyBombsAdvanced")
             .SetGuiPresentation(Category.Feature,
-                GetSprite("AlchemyBombAdvanced", Resources.AlchemyBombAdvanced, 256, 128))
+                Sprites.GetSprite("AlchemyBombAdvanced", Resources.AlchemyBombAdvanced, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
@@ -114,7 +114,7 @@ public static class InnovationAlchemy
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
             .SetGuiPresentation(BombsFeatureName, Category.Feature,
-                GetSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
+                Sprites.GetSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
             .SetRequiresIdentification(false)
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
@@ -137,15 +137,15 @@ public static class InnovationAlchemy
         var validator =
             new ValidatorsPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
-        var sprite = GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator);
 
-        sprite = GetSprite("AlchemyBombFireBreath", Resources.AlchemyBombFireBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombFireBreath", Resources.AlchemyBombFireBreath, 128);
         particle = BurningHands.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator);
 
-        sprite = GetSprite("AlchemyBombFirePrecise", Resources.AlchemyBombFirePrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombFirePrecise", Resources.AlchemyBombFirePrecise, 128);
         particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator);
 
@@ -163,15 +163,15 @@ public static class InnovationAlchemy
             .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var sprite = GetSprite("AlchemyBombColdSplash", Resources.AlchemyBombColdSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombColdSplash", Resources.AlchemyBombColdSplash, 128);
         var particle = ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombColdBreath", Resources.AlchemyBombColdBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombColdBreath", Resources.AlchemyBombColdBreath, 128);
         particle = ConeOfCold.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombColdPrecise", Resources.AlchemyBombColdPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombColdPrecise", Resources.AlchemyBombColdPrecise, 128);
         particle = RayOfFrost.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -198,15 +198,15 @@ public static class InnovationAlchemy
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
-        var sprite = GetSprite("AlchemyBombLightningSplash", Resources.AlchemyBombLightningSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombLightningSplash", Resources.AlchemyBombLightningSplash, 128);
         var particle = ShockingGrasp.EffectDescription.effectParticleParameters;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombLightningBreath", Resources.AlchemyBombLightningBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombLightningBreath", Resources.AlchemyBombLightningBreath, 128);
         particle = LightningBolt.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombLightningPrecise", Resources.AlchemyBombLightningPrecise, 128);
         particle = CallLightning.EffectDescription.effectParticleParameters;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -238,18 +238,18 @@ public static class InnovationAlchemy
 
         var spray = PoisonSpray.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombPoisonSplash", Resources.AlchemyBombPoisonSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombPoisonSplash", Resources.AlchemyBombPoisonSplash, 128);
         var particle = new EffectParticleParameters();
         particle.Copy(FeatureDefinitionPowers.PowerSpiderQueenPoisonCloud.EffectDescription.effectParticleParameters);
         particle.targetParticleReference = spray.targetParticleReference;
         particle.casterParticleReference = new AssetReference();
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombPoisonBreath", Resources.AlchemyBombPoisonBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombPoisonBreath", Resources.AlchemyBombPoisonBreath, 128);
         particle = FeatureDefinitionPowers.PowerDragonBreath_Poison.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombPoisonPrecise", Resources.AlchemyBombPoisonPrecise, 128);
         particle = spray;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -271,15 +271,15 @@ public static class InnovationAlchemy
 
         var splash = AcidSplash.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombAcidSplash", Resources.AlchemyBombAcidSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombAcidSplash", Resources.AlchemyBombAcidSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombAcidBreath", Resources.AlchemyBombAcidBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombAcidBreath", Resources.AlchemyBombAcidBreath, 128);
         particle = FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombAcidPrecise", Resources.AlchemyBombAcidPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombAcidPrecise", Resources.AlchemyBombAcidPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -301,16 +301,16 @@ public static class InnovationAlchemy
 
         var splash = MagicMissile.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
-        sprite = GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
         particle = WallOfForce.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombForcePrecise", Resources.AlchemyBombForcePrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombForcePrecise", Resources.AlchemyBombForcePrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -341,16 +341,16 @@ public static class InnovationAlchemy
 
         var splash = Sparkle.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
-        sprite = GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
         particle = BurningHands_B.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombRadiantPrecise", Resources.AlchemyBombRadiantPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombRadiantPrecise", Resources.AlchemyBombRadiantPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -386,16 +386,16 @@ public static class InnovationAlchemy
 
         var splash = VampiricTouch.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
-        sprite = GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
         particle = VampiricTouch.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombNecroticPrecise", Resources.AlchemyBombNecroticPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombNecroticPrecise", Resources.AlchemyBombNecroticPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -429,16 +429,16 @@ public static class InnovationAlchemy
 
         var splash = Shatter.EffectDescription.effectParticleParameters;
 
-        var sprite = GetSprite("AlchemyBombThunderSplash", Resources.AlchemyBombThunderSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombThunderSplash", Resources.AlchemyBombThunderSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
-        sprite = GetSprite("AlchemyBombThunderBreath", Resources.AlchemyBombThunderBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombThunderBreath", Resources.AlchemyBombThunderBreath, 128);
         particle = Thunderwave.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombThunderPrecise", Resources.AlchemyBombThunderPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombThunderPrecise", Resources.AlchemyBombThunderPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
@@ -476,16 +476,16 @@ public static class InnovationAlchemy
         splash.targetParticleReference = splash.effectParticleReference;
         splash.effectParticleReference = new AssetReference();
 
-        var sprite = GetSprite("AlchemyBombPsychicSplash", Resources.AlchemyBombPsychicSplash, 128);
+        var sprite = Sprites.GetSprite("AlchemyBombPsychicSplash", Resources.AlchemyBombPsychicSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(damage, dieType, save, sprite, particle, validator, effect);
         powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
 
-        sprite = GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
+        sprite = Sprites.GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
         particle = splash; //PhantasmalKiller.EffectDescription.effectParticleParameters;
         var powerBombBreath = MakeBreathBombPower(damage, dieType, save, sprite, particle, validator, effect);
 
-        sprite = GetSprite("AlchemyBombPsychicPrecise", Resources.AlchemyBombPsychicPrecise, 128);
+        sprite = Sprites.GetSprite("AlchemyBombPsychicPrecise", Resources.AlchemyBombPsychicPrecise, 128);
         particle = splash;
         var powerBombPrecise = MakePreciseBombPower(damage, dieType, sprite, particle, validator, effect);
 
