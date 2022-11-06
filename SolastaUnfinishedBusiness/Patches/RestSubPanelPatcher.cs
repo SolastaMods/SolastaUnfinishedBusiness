@@ -13,22 +13,25 @@ public static class RestSubPanelPatcher
     {
         public static void Prefix([NotNull] RestSubPanel __instance)
         {
+            var y1 = __instance.characterPlatesTable.anchoredPosition.y;
+            var y2 = __instance.restModulesTable.anchoredPosition.y;
+
             //PATCH: scales down the rest sub panel whenever the party size is bigger than 4 (PARTYSIZE)
             switch (Gui.GameCampaign.Party.CharactersList.Count)
             {
                 case 5:
-                    __instance.characterPlatesTable.anchoredPosition = new Vector2(-5f, -25f);
-                    __instance.restModulesTable.anchoredPosition = new Vector2(-5f, 0);
+                    __instance.characterPlatesTable.anchoredPosition = new Vector2(-5f, y1);
+                    __instance.restModulesTable.anchoredPosition = new Vector2(-5f, y2);
                     break;
 
                 case 6:
-                    __instance.characterPlatesTable.anchoredPosition = new Vector2(-125f, -25f);
-                    __instance.restModulesTable.anchoredPosition = new Vector2(-125f, 0);
+                    __instance.characterPlatesTable.anchoredPosition = new Vector2(-125f, y1);
+                    __instance.restModulesTable.anchoredPosition = new Vector2(-125f, y2);
                     break;
 
                 default:
-                    __instance.characterPlatesTable.anchoredPosition = new Vector2(0, -25f);
-                    __instance.restModulesTable.anchoredPosition = new Vector2(0, 0);
+                    __instance.characterPlatesTable.anchoredPosition = new Vector2(0, y1);
+                    __instance.restModulesTable.anchoredPosition = new Vector2(0, y2);
                     break;
             }
         }
