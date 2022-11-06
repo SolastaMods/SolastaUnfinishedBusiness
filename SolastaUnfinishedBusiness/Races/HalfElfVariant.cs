@@ -19,8 +19,7 @@ internal static class RaceHalfElfVariantRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
-        var halfDarkelfSpriteReference =
-            Sprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
+        var halfDarkelfSpriteReference = Sprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
         var raceHalfElfDark = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceHalfElfDark")

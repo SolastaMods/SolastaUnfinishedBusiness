@@ -108,8 +108,8 @@ internal static class EwFeats
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
-            "Tooltip/&PowerAttackConcentration", Sprites.GetSprite("PowerAttackConcentrationIcon",
-                Resources.PowerAttackConcentrationIcon, 64, 64));
+            "Tooltip/&PowerAttackConcentration",
+            Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionPowerAttackTrigger = ConditionDefinitionBuilder
             .Create("ConditionPowerAttackTrigger")

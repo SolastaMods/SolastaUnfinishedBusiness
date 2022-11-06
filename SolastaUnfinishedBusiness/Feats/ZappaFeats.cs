@@ -64,8 +64,7 @@ internal static class ZappaFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
             "Tooltip/&DeadeyeConcentration",
-            Sprites.GetSprite("DeadeyeConcentrationIcon",
-                Resources.DeadeyeConcentrationIcon, 64, 64));
+            Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionDeadeyeTrigger = ConditionDefinitionBuilder
             .Create("ConditionDeadeyeTrigger")
