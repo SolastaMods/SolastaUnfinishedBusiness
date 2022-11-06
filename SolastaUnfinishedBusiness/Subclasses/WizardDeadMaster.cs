@@ -224,6 +224,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddCreatureTags(CreateDeadTag)
             .SetFullyControlledWhenAllied(true)
+            .SetDroppedLootDefinition(null)
             .AddToDB();
     }
 
