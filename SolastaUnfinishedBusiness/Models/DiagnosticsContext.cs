@@ -8,7 +8,6 @@ using I2.Loc;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.DataMiner;
-using SolastaUnfinishedBusiness.Utils;
 using Object = UnityEngine.Object;
 #endif
 
@@ -131,6 +130,7 @@ internal static class DiagnosticsContext
     private static Dictionary<BaseDefinition, BaseDefinition> _taBaseDefinitionAndCopy;
     private static BaseDefinition[] _taBaseDefinitions;
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
+
     internal static readonly string ProjectFolder =
         Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
@@ -191,55 +191,6 @@ internal static class DiagnosticsContext
         const string BASE_FILENAME = "CE-Definitions";
 
         CreateDefinitionDiagnostics(_ceBaseDefinitions, BASE_FILENAME);
-
-        //CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{BASE_FILENAME}-Translations-OrphanedTerms-en.txt"));
-    }
-
-    private static void CheckOrphanedTerms([NotNull] string outputFile)
-    {
-        var terms = new Dictionary<string, string>();
-
-        foreach (var line in Translations.GetTranslations(Translations.English))
-        {
-            try
-            {
-                if (line == null)
-                {
-                    continue;
-                }
-
-                var columns = line.Split(new[] { '\t', ' ' }, 2);
-
-                terms.Add(columns[0], columns[1]);
-            }
-            catch
-            {
-                // ignored
-            }
-        }
-
-        foreach (var definition in _ceBaseDefinitions)
-        {
-            var title = definition.GuiPresentation.Title;
-            var description = definition.GuiPresentation.Description;
-
-            if (title != null && terms.ContainsKey(title))
-            {
-                terms.Remove(title);
-            }
-
-            if (description != null && !description.Contains("{") && terms.ContainsKey(description))
-            {
-                terms.Remove(description);
-            }
-        }
-
-        using var writer = new StreamWriter(outputFile);
-
-        foreach (var kvp in terms)
-        {
-            writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
-        }
     }
 
     private static void CreateDefinitionDiagnostics([CanBeNull] BaseDefinition[] baseDefinitions, string baseFilename)

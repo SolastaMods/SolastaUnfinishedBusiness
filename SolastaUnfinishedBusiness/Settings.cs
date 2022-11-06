@@ -19,8 +19,8 @@ public class Settings : UnityModManager.ModSettings
     // Welcome Message
     //
 
-    public bool DisplayWelcomeMessage { get; set; } = true;
     public int EnableDiagsDump { get; set; }
+    public bool DisplayWelcomeMessage { get; set; } = true;
 
     //
     // SETTINGS UI TOGGLES
@@ -39,25 +39,16 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS HIDDEN ON UI
     //
 
+    public bool DontConsumeSlots { get; set; }
+    public bool EnableCommandAllUndead { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
-#if DEBUG
-    public bool EnableSortingFutureFeatures { get; set; }
-#else
     public bool EnableSortingFutureFeatures { get; set; } = true;
-#endif
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
-    public bool DontConsumeSlots { get; set; }
-
-#if DEBUG
-    public bool EnableCommandAllUndead { get; set; }
-#else
-    public bool EnableCommandAllUndead { get; set; } = true;
-#endif
 
     //
     // Character - General
@@ -76,7 +67,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEvenLevels { get; set; }
     public bool EnableLevel20 { get; set; }
 
-    // Multiclass
     public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; } = 3;
     public bool EnableMinInOutAttributes { get; set; } = true;
@@ -106,22 +96,14 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubclassEnabled { get; } = new();
 
     //
-    // Characters - Feats
+    // Characters - Feats, Groups and Fighting Styles
     //
 
     public int FeatSliderPosition { get; set; } = 4;
     public List<string> FeatEnabled { get; } = new();
 
-    //
-    // Characters - Feat Groups
-    //
-
     public int FeatGroupSliderPosition { get; set; } = 4;
     public List<string> FeatGroupEnabled { get; } = new();
-
-    //
-    // Characters - Fighting Styles
-    //
 
     public int FightingStyleSliderPosition { get; set; } = 4;
     public List<string> FightingStyleEnabled { get; } = new();
@@ -138,26 +120,32 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
+    public bool FixSorcererTwinnedLogic { get; set; }
+    public bool ApplySrdWeightToFoodRations { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
     public bool EnableUpcastConjureElementalAndFey { get; set; }
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-    public bool FixSorcererTwinnedLogic { get; set; }
-    public bool FullyControlConjurations { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool RemoveRecurringEffectOnEntangle { get; set; }
+
     public bool ChangeSleetStormToCube { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
-    public bool ApplySrdWeightToFoodRations { get; set; }
+
 
     // House
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
+
+    public bool FullyControlConjurations { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
 
     //
@@ -206,14 +194,6 @@ public class Settings : UnityModManager.ModSettings
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = 1.5f;
-
-    // Debug
-    public bool DebugLogDefinitionCreation { get; set; }
-    public bool DebugLogFieldInitialization { get; set; }
-    public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-#if DEBUG
-    public bool DebugLogVariantMisuse { get; set; }
-#endif
 
     //
     // Interface - Game UI
@@ -270,4 +250,12 @@ public class Settings : UnityModManager.ModSettings
 
     public bool EnableEnemiesControlledByPlayer { get; set; }
     public bool EnableHeroesControlledByComputer { get; set; }
+
+    // Debug
+#if DEBUG
+    public bool DebugLogDefinitionCreation { get; set; }
+    public bool DebugLogFieldInitialization { get; set; }
+    public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+    public bool DebugLogVariantMisuse { get; set; }
+#endif
 }

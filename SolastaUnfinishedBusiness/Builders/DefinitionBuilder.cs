@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
@@ -11,6 +9,9 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using Object = UnityEngine.Object;
+#if DEBUG
+using System.Collections;
+#endif
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -21,15 +22,15 @@ internal abstract class DefinitionBuilder
 
     internal static readonly Guid CeNamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
 
-    private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
-        GetAllDefinitionNames();
-
     protected static string CreateGuid(Guid guid, string name)
     {
         return GuidHelper.Create(guid, name).ToString();
     }
 
-    [Conditional("DEBUG")]
+#if DEBUG
+    private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
+        GetAllDefinitionNames();
+
     protected static void LogDefinition(string message)
     {
         if (Main.Settings.DebugLogDefinitionCreation)
@@ -61,11 +62,7 @@ internal abstract class DefinitionBuilder
                       Environment.NewLine +
                       $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
-#if DEBUG
             throw new SolastaUnfinishedBusinessException(msg);
-#else
-            Main.Error(msg);
-#endif
         }
 
         DefinitionNames.Add(definitionName, (definitionTypeName, true));
@@ -86,6 +83,7 @@ internal abstract class DefinitionBuilder
 
         return definitions;
     }
+#endif
 }
 
 // Used to allow extension methods in other mods to set GuiPresentation 
@@ -171,7 +169,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 $"Unable to locate any database(s) matching definition type='{Definition.GetType().FullName}', name='{Definition.name}', guid='{Definition.GUID}'.");
         }
 
+#if DEBUG
         LogDefinition($"Added to db: name={Definition.Name}, guid={Definition.GUID}");
+#endif
 
         return Definition;
 
@@ -312,41 +312,46 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
         void LocalInitializeCollectionFields(Type type)
         {
-            if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
-                type == typeof(Object))
+            while (true)
             {
-                return;
-            }
-
-            // Reflection will only return private fields declared on this type, not base classes
-            foreach (var field in type
-                         .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                         .Where(f => f.FieldType.IsGenericType)
-                         .Where(f => f.GetValue(Definition) == null))
-            {
-                try
+                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) || type == typeof(Object))
                 {
-                    LogFieldInitialization(
-                        $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
-
-                    field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
+                    return;
                 }
-                catch (Exception ex)
+
+                // Reflection will only return private fields declared on this type, not base classes
+                foreach (var field in type
+                             .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                             .Where(f => f.FieldType.IsGenericType)
+                             .Where(f => f.GetValue(Definition) == null))
                 {
-                    Main.Error(ex);
+                    try
+                    {
+#if DEBUG
+                        LogFieldInitialization(
+                            $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+#endif
+
+                        field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
+                    }
+                    catch (Exception ex)
+                    {
+                        Main.Error(ex);
+                    }
                 }
-            }
 
-            // So travel down the hierarchy
-            LocalInitializeCollectionFields(type.BaseType);
-
-            [Conditional("DEBUG")]
-            static void LogFieldInitialization(string message)
-            {
-                if (Main.Settings.DebugLogFieldInitialization)
+#if DEBUG
+                static void LogFieldInitialization(string message)
                 {
-                    Main.Log(message);
+                    if (Main.Settings.DebugLogFieldInitialization)
+                    {
+                        Main.Log(message);
+                    }
                 }
+#endif
+
+                // So travel down the hierarchy
+                type = type.BaseType;
             }
         }
     }
@@ -368,7 +373,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         Definition = ScriptableObject.CreateInstance<TDefinition>();
         Definition.name = name;
 
+#if DEBUG
         VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
+#endif
 
         InitializeCollectionFields();
 
@@ -380,7 +387,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         // create guid from namespace+name
         Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
+#if DEBUG
         LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
+#endif
     }
 
     /// <summary>
@@ -398,7 +407,10 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         Definition = Object.Instantiate(original);
         Definition.name = name;
 
+#if DEBUG
         VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
+#endif
+
         InitializeCollectionFields();
 
         if (namespaceGuid == Guid.Empty)
@@ -438,8 +450,6 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
     ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
     ///     You must then provide your own specialized constructor and/or Create method.
     /// </summary>
-    private static bool DisableStandardCreateMethods => false;
-
     private static TBuilder CreateImpl(params object[] parameters)
     {
         var parameterTypes = parameters.Select(p => p.GetType()).ToArray();
@@ -454,12 +464,6 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
         }
 
         var builder = (TBuilder)ctor.Invoke(parameters);
-
-        if (DisableStandardCreateMethods)
-        {
-            throw new SolastaUnfinishedBusinessException(
-                $"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
-        }
 
         builder.Initialise();
 
