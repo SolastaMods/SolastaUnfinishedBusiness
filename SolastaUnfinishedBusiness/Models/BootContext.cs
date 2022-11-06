@@ -49,7 +49,7 @@ internal static class BootContext
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
         PowerBundleContext.Load();
-        
+
         //
         // other stuff can be loaded in any order
         //

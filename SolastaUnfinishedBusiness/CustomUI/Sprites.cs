@@ -112,15 +112,16 @@ public static class Sprites
     #endregion
 
     #region Spells
+
     internal static AssetReferenceSprite SpellRaiseSkeleton =>
         GetSprite("SpellRaiseSkeleton", Resources.SpellRaiseSkeleton, 128);
-    
+
     internal static AssetReferenceSprite SpellRaiseSkeletonArcher =>
         GetSprite("SpellRaiseSkeletonArcher", Resources.SpellRaiseSkeletonArcher, 128);
-    
+
     internal static AssetReferenceSprite SpellRaiseGhoul =>
         GetSprite("SpellRaiseGhoul", Resources.SpellRaiseGhoul, 128);
-    
+
     internal static AssetReferenceSprite SpellRaiseSkeletonEnforcer =>
         GetSprite("SpellRaiseSkeletonEnforcer", Resources.SpellRaiseSkeletonEnforcer, 128);
 
@@ -139,10 +140,8 @@ public static class Sprites
     internal static AssetReferenceSprite SpellRaiseWightLord =>
         GetSprite("SpellRaiseWightLord", Resources.SpellRaiseWightLord, 128);
 
-    
-
     #endregion
-    
+
     #region Powers
 
     internal static AssetReferenceSprite PowerGuardianMode =>

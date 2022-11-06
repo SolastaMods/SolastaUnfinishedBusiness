@@ -256,6 +256,15 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition SkarnGhoul { get; } =
             GetDefinition<MonsterDefinition>("SkarnGhoul");
 
+        internal static MonsterDefinition Ghost { get; } =
+            GetDefinition<MonsterDefinition>("Ghost");
+
+        internal static MonsterDefinition Wight { get; } =
+            GetDefinition<MonsterDefinition>("Wight");
+
+        internal static MonsterDefinition WightLord { get; } =
+            GetDefinition<MonsterDefinition>("WightLord");
+
         internal static MonsterDefinition Skeleton { get; } =
             GetDefinition<MonsterDefinition>("Skeleton");
 

@@ -59,13 +59,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetRequiredMonsterTag(CreateDeadTag)
             .SetAddedConditions(ConditionDefinitionBuilder
                     .Create("ConditionDeadMasterUndeadChainsProficiency")
-                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetGuiPresentationNoContent(true)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(attackBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionDeadMasterUndeadChainsLevel")
-                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetGuiPresentationNoContent(true)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, WizardClass)
                     .SetFeatures(hpBonus, hpBonus)
                     .AddToDB())
@@ -150,8 +150,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher)
                     }
                 }, //CR 0.25 x2
-                {(3, 2), new() {(Ghoul, 1, Sprites.SpellRaiseGhoul)}}, //CR 1
-                {(5, 3), new() {(Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer)}}, //CR 2
+                { (3, 2), new() { (Ghoul, 1, Sprites.SpellRaiseGhoul) } }, //CR 1
+                { (5, 3), new() { (Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer) } }, //CR 2
                 {
                     (7, 4),
                     new()
@@ -160,9 +160,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman)
                     }
                 }, //CR 3
-                {(9, 5), new() {(Ghost, 1, Sprites.SpellRaiseGhost)}}, //CR 4
-                {(11, 6), new() {(Wight, 2, Sprites.SpellRaiseWight)}}, //CR 3 x2
-                {(13, 7), new() {(WightLord, 1, Sprites.SpellRaiseWightLord)}}, //CR 6
+                { (9, 5), new() { (Ghost, 1, Sprites.SpellRaiseGhost) } }, //CR 4
+                { (11, 6), new() { (Wight, 2, Sprites.SpellRaiseWight) } }, //CR 3 x2
+                { (13, 7), new() { (WightLord, 1, Sprites.SpellRaiseWightLord) } } //CR 6
             };
 
         var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();

@@ -95,8 +95,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.fullyControlledWhenAllied = value;
         return this;
     }
-    
-    
+
     internal MonsterDefinitionBuilder SetDungeonMakerPresence(MonsterDefinition.DungeonMaker presence)
     {
         Definition.dungeonMakerPresence = presence;
@@ -134,22 +133,22 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetStandardHitPoints(int Hp)
+    internal MonsterDefinitionBuilder SetStandardHitPoints(int hp)
     {
-        Definition.standardHitPoints = Hp;
+        Definition.standardHitPoints = hp;
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetAbilityScores(int STR, int DEX, int CON, int INT, int WIS, int CHA)
+    internal MonsterDefinitionBuilder SetAbilityScores(params int[] a)
     {
         Array.Clear(Definition.AbilityScores, 0, Definition.AbilityScores.Length);
 
-        Definition.AbilityScores.SetValue(STR, 0); // STR
-        Definition.AbilityScores.SetValue(DEX, 1); // DEX
-        Definition.AbilityScores.SetValue(CON, 2); // CON
-        Definition.AbilityScores.SetValue(INT, 3); // INT
-        Definition.AbilityScores.SetValue(WIS, 4); // WIS
-        Definition.AbilityScores.SetValue(CHA, 5); // CHA
+        // must follow the std order STR, DEX, CON, INT, WIS, CHA
+        for (var i = 0; i <= 5; i++)
+        {
+            Definition.AbilityScores.SetValue(a[i], i);
+        }
+
         return this;
     }
 

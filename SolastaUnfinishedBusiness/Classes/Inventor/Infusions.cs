@@ -122,7 +122,7 @@ internal static class Infusions
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
             .SetCustomSubFeatures(ReturningWeapon.Instance)
-            .SetAttackRollModifier(0)
+            .SetAttackRollModifier()
             .SetDamageRollModifier(0)
             .AddToDB();
 

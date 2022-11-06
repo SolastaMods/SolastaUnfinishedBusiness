@@ -184,7 +184,7 @@ public static class InnovationWeapon
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeInnovationWeaponSummonSteelDefenderHP")
             .SetGuiPresentationNoContent()
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints, 0)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
             .AddToDB();
 
         var toHit = FeatureDefinitionAttackModifierBuilder

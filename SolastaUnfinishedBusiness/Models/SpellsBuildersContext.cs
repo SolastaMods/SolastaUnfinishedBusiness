@@ -272,7 +272,8 @@ internal static class SpellsBuildersContext
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(true)
@@ -549,7 +550,7 @@ internal static class SpellsBuildersContext
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetSpellLevel(1)
-            .SetUniqueInstance(true)
+            .SetUniqueInstance()
             .SetCastingTime(ActivationTime.Minute10)
             .SetRitualCasting(ActivationTime.Minute10)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -629,7 +630,8 @@ internal static class SpellsBuildersContext
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetVerboseComponent(true)

@@ -385,8 +385,8 @@ internal static class InventorClass
             .SetSubclassSuffix("InventorInnovation")
             .SetFilterByDeity(false)
             .SetSubclasses(
-                InnovationAlchemy.Build(),
                 InnovationArmor.Build(),
+                InnovationAlchemy.Build(),
                 InnovationWeapon.Build()
             )
             .AddToDB());

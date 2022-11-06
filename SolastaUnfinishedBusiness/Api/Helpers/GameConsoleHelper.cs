@@ -55,10 +55,10 @@ internal static class GameConsoleHelper
     internal static void LogCharacterConversationLine(string character, string line, bool npc)
     {
         var console = Gui.Game.GameConsole;
+        var type = npc ? ConsoleStyleDuplet.ParameterType.Enemy : ConsoleStyleDuplet.ParameterType.Player;
         var entry = new GameConsoleEntry($"{{0}}: {line}", console.consoleTableDefinition,
             baseType: ConsoleStyleDuplet.ParameterType.Banter);
 
-        var type = npc ? ConsoleStyleDuplet.ParameterType.Enemy : ConsoleStyleDuplet.ParameterType.Player;
         entry.AddParameter(type, character);
         console.AddEntry(entry);
     }
