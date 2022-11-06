@@ -11,7 +11,7 @@ internal class FeatureDefinitionAttributeModifierBuilder
     internal FeatureDefinitionAttributeModifierBuilder SetModifier(
         AttributeModifierOperation modifierType,
         string attribute,
-        int amount)
+        int amount = 0)
     {
         Definition.modifierOperation = modifierType;
         Definition.modifiedAttribute = attribute;

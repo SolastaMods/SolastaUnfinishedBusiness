@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -25,10 +24,6 @@ public static class RulesetCharacterMonsterPatcher
             //PATCH: support for rage/ki/other stuff while shape-shifted
             //Transfers some of the ability modifiers to shape shifted form 
             MulticlassWildshapeContext.FinalizeMonster(__instance, keepMentalAbilityScores);
-
-            //PATCH: allows us to change monsters created by Dead Master
-            //TODO: Consider using `FeatureDefinitionSummoningAffinity` for this
-            WizardDeadMaster.OnMonsterCreated(__instance);
         }
     }
 

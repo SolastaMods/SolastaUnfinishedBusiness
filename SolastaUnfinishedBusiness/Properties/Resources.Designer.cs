@@ -482,16 +482,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] CreateDead {
-            get {
-                object obj = ResourceManager.GetObject("CreateDead", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] Darkelf {
             get {
                 object obj = ResourceManager.GetObject("Darkelf", resourceCulture);
@@ -1118,6 +1108,96 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] SpellRadiantMotes {
             get {
                 object obj = ResourceManager.GetObject("SpellRadiantMotes", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseGhost {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseGhost", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseGhoul {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseGhoul", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseSkeleton {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseSkeleton", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseSkeletonArcher {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseSkeletonArcher", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseSkeletonEnforcer {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseSkeletonEnforcer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseSkeletonKnight {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseSkeletonKnight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseSkeletonMarksman {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseSkeletonMarksman", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseWight {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseWight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpellRaiseWightLord {
+            get {
+                object obj = ResourceManager.GetObject("SpellRaiseWightLord", resourceCulture);
                 return ((byte[])(obj));
             }
         }

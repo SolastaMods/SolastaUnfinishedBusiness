@@ -17,7 +17,7 @@ internal class FeatureDefinitionAttackModifierBuilder
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
-        int value,
+        int value = 0,
         AttackModifierMethod method = AttackModifierMethod.FlatValue)
     {
         Definition.attackRollModifierMethod = method;

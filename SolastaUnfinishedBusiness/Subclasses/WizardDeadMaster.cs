@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -22,18 +22,15 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
-    private const string CreateDeadSpellPrefix = "CreateDead";
-    private const string AttackModifierDeadMasterUndeadChainsPrefix = "AttackModifierDeadMasterUndeadChains";
+    private const string CreateDeadTag = "DeadMasterMinion";
 
     internal WizardDeadMaster()
     {
-        var spriteReference = Sprites.GetSprite("CreateDead", Resources.CreateDead, 128, 128);
-
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Wizard)
-            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups(spriteReference))
+            .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
@@ -42,20 +39,37 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetCustomSubFeatures(new TargetReducedToZeroHpDeadMasterStarkHarvest())
             .AddToDB();
 
-        var deadMasterUndeadChains = FeatureDefinitionBuilder
-            .Create("DeadMasterUndeadChains")
-            .SetGuiPresentation(Category.Feature)
+        const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";
+
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierDeadMasterUndeadChains")
+            .SetGuiPresentation(ChainsName, Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+                AttributeDefinitions.HitPoints)
+            .AddToDB();
+        var attackBonus = FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierDeadMasterUndeadChains")
+            .SetGuiPresentation(ChainsName, Category.Feature)
+            .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 
-        // all possible proficiency bonuses 
-        for (var i = 2; i < 7; i++)
-        {
-            _ = FeatureDefinitionAttackModifierBuilder
-                .Create($"{AttackModifierDeadMasterUndeadChainsPrefix}{i}")
-                .SetGuiPresentation("DeadMasterUndeadChains", Category.Feature)
-                .SetAttackRollModifier(i)
-                .AddToDB();
-        }
+        var deadMasterUndeadChains = FeatureDefinitionSummoningAffinityBuilder
+            .Create(ChainsName)
+            .SetGuiPresentation(Category.Feature)
+            .SetRequiredMonsterTag(CreateDeadTag)
+            .SetAddedConditions(ConditionDefinitionBuilder
+                    .Create("ConditionDeadMasterUndeadChainsProficiency")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetFeatures(attackBonus)
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionDeadMasterUndeadChainsLevel")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, WizardClass)
+                    .SetFeatures(hpBonus, hpBonus)
+                    .AddToDB())
+            .AddToDB();
 
         var damageAffinityDeadMasterHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic")
@@ -87,9 +101,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, DomainMischief)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
-                targetReducedToZeroHpDeadMasterStarkHarvest)
+                deadMasterUndeadChains
+            )
             .AddFeaturesAtLevel(6,
-                deadMasterUndeadChains)
+                targetReducedToZeroHpDeadMasterStarkHarvest)
             .AddFeaturesAtLevel(10,
                 damageAffinityDeadMasterHardenToNecrotic)
             .AddFeaturesAtLevel(14,
@@ -120,118 +135,96 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    internal static void OnMonsterCreated(RulesetCharacterMonster monster)
-    {
-        if (Global.CastedSpell == null || !Global.CastedSpell.Name.StartsWith(CreateDeadSpellPrefix))
-        {
-            return;
-        }
-
-        var caster = Global.ActionCharacter.RulesetCharacter as RulesetCharacterHero
-                     ?? Global.ActionCharacter.RulesetCharacter.OriginalFormCharacter as
-                         RulesetCharacterHero;
-
-        if (caster == null
-            || !caster.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Wizard, out var subclassDefinition)
-            || subclassDefinition.Name != WizardDeadMasterName)
-        {
-            return;
-        }
-
-        var casterLevel = caster.ClassesAndLevels[CharacterClassDefinitions.Wizard];
-
-        if (casterLevel < 6)
-        {
-            return;
-        }
-
-        var proficiencyBonus = caster.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-
-        monster.GetAttribute(AttributeDefinitions.HitPoints).BaseValue += casterLevel;
-
-        if (TryGetDefinition<FeatureDefinitionAttackModifier>(
-                $"{AttackModifierDeadMasterUndeadChainsPrefix}{proficiencyBonus}",
-                out var featureDefinitionAttackModifier))
-        {
-            monster.ActiveFeatures.Add(featureDefinitionAttackModifier);
-        }
-
-        var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
-
-        gameLoreService.LearnMonsterKnowledge(monster.MonsterDefinition, KnowledgeLevelDefinitions.Mastered4);
-    }
-
     [NotNull]
-    private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[]
-        GetDeadSpellAutoPreparedGroups(AssetReferenceSprite spriteReference)
+    private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] GetDeadSpellAutoPreparedGroups()
     {
-        var createDeadSpellMonsters = new Dictionary<int, List<MonsterDefinition>>
-        {
-            { 3, new List<MonsterDefinition> { Zombie, Skeleton, Skeleton_Archer } },
-            { 5, new List<MonsterDefinition> { Ghoul, Skeleton_Enforcer } },
-            { 7, new List<MonsterDefinition> { Skeleton_Knight, Skeleton_Marksman, Skeleton_Sorcerer } }
-        };
+        var createDeadSpellMonsters =
+            new Dictionary<(int clazz, int spell),
+                List<(MonsterDefinition monster, int number, AssetReferenceSprite icon)>>
+            {
+                {
+                    (2, 1),
+                    new()
+                    {
+                        (Skeleton, 2, Sprites.SpellRaiseSkeleton),
+                        (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher)
+                    }
+                }, //CR 0.25 x2
+                {(3, 2), new() {(Ghoul, 1, Sprites.SpellRaiseGhoul)}}, //CR 1
+                {(5, 3), new() {(Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer)}}, //CR 2
+                {
+                    (7, 4),
+                    new()
+                    {
+                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight),
+                        (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman)
+                    }
+                }, //CR 3
+                {(9, 5), new() {(Ghost, 1, Sprites.SpellRaiseGhost)}}, //CR 4
+                {(11, 6), new() {(Wight, 2, Sprites.SpellRaiseWight)}}, //CR 3 x2
+                {(13, 7), new() {(WightLord, 1, Sprites.SpellRaiseWightLord)}}, //CR 6
+            };
 
-        var result = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[createDeadSpellMonsters.Count];
+        var result = new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>();
 
-        for (var j = 0; j < createDeadSpellMonsters.Count; j++)
+        foreach (var kvp in createDeadSpellMonsters)
         {
-            var kvp = createDeadSpellMonsters.ElementAt(j);
             var level = kvp.Key;
             var monsters = kvp.Value;
-            var spells = new SpellDefinition[monsters.Count];
+            var spells = new List<SpellDefinition>();
 
             for (var i = 0; i < monsters.Count; i++)
             {
-                var monster = monsters[i];
-                var subSpell = SpellDefinitionBuilder
-                    .Create(ConjureFey, $"CreateDead{monster.name}")
+                var monster = MakeSummonedMonster(monsters[i].monster);
+                var count = monsters[i].number;
+                var icon = monsters[i].icon;
+
+                spells.Add(SpellDefinitionBuilder
+                    .Create($"CreateDead{monster.name}")
                     .SetGuiPresentation(
-                        monster.GuiPresentation.Title,
-                        monster.GuiPresentation.Description,
-                        spriteReference)
+                        Gui.Format("Spell/&SpellRaiseDeadFormatTitle", monster.FormatTitle()),
+                        Gui.Format("Spell/&SpellRaiseDeadFormatDescription", monster.FormatTitle(),
+                            monster.FormatDescription()),
+                        icon)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-                    .SetSpellLevel(level)
+                    .SetSpellLevel(level.spell)
+                    .SetSomaticComponent(true)
+                    .SetMaterialComponent(MaterialComponentType.Mundane)
+                    .SetVerboseComponent(true)
+                    .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+                    .SetUniqueInstance()
                     .SetRequiresConcentration(false)
-                    .SetCastingTime(ActivationTime.Minute1)
-                    .SetSubSpells()
-                    .AddToDB();
-
-                monster.fullyControlledWhenAllied = true;
-
-                subSpell.EffectDescription.rangeParameter = 1;
-                subSpell.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = monster.name;
-                subSpell.EffectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
-                subSpell.EffectDescription.durationType = DurationType.UntilAnyRest;
-
-                spells[i] = subSpell;
+                    .SetCastingTime(ActivationTime.Action)
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.Position, count)
+                        .SetDurationData(DurationType.Minute, 10)
+                        .SetParticleEffectParameters(VampiricTouch)
+                        .SetEffectForms(EffectFormBuilder.Create()
+                            .SetSummonCreatureForm(1, monster.Name)
+                            .Build())
+                        .Build())
+                    .AddToDB());
             }
 
-            var spell = SpellDefinitionBuilder
-                .Create(ConjureFey, $"CreateDead{level}")
-                .SetGuiPresentation(Category.Spell, spriteReference)
-                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-                .SetSpellLevel(level)
-                .SetRequiresConcentration(false)
-                .SetCastingTime(ActivationTime.Minute1)
-                .SetSubSpells(spells)
-                .AddToDB();
-
-            spell.EffectDescription.effectForms.Clear();
-            spell.EffectDescription.rangeParameter = 1;
-            spell.EffectDescription.effectAdvancement.effectIncrementMethod = EffectIncrementMethod.None;
-            spell.EffectDescription.durationType = DurationType.UntilAnyRest;
-
-            var autoPreparedSpellsGroup =
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = level, SpellsList = new List<SpellDefinition> { spell }
-                };
-
-            result[j] = autoPreparedSpellsGroup;
+            result.Add(new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            {
+                ClassLevel = level.clazz, SpellsList = spells
+            });
         }
 
-        return result;
+        return result.ToArray();
+    }
+
+    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster)
+    {
+        return MonsterDefinitionBuilder
+            .Create(monster, $"Risen{monster.Name}")
+            .SetDefaultFaction(FactionDefinitions.Party)
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
+            .AddCreatureTags(CreateDeadTag)
+            .SetFullyControlledWhenAllied(true)
+            .AddToDB();
     }
 
     private sealed class TargetReducedToZeroHpDeadMasterStarkHarvest : ITargetReducedToZeroHp
