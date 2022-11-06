@@ -95,6 +95,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.fullyControlledWhenAllied = value;
         return this;
     }
+    
+    
+    internal MonsterDefinitionBuilder SetDungeonMakerPresence(MonsterDefinition.DungeonMaker presence)
+    {
+        Definition.dungeonMakerPresence = presence;
+        return this;
+    }
 
     internal MonsterDefinitionBuilder SetHitDice(DieType dieType, int hitDice)
     {
@@ -182,6 +189,12 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     internal MonsterDefinitionBuilder SetCreatureTags(params string[] tags)
     {
         Definition.CreatureTags.SetRange(tags);
+        return this;
+    }
+
+    internal MonsterDefinitionBuilder AddCreatureTags(params string[] tags)
+    {
+        Definition.CreatureTags.AddRange(tags);
         return this;
     }
 

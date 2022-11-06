@@ -361,6 +361,7 @@ public static class InnovationWeapon
             .NoExperienceGain()
             .SetChallengeRating(0)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetMonsterPresentation(MonsterPresentationBuilder.Create()
                 .SetPrefab(EffectProxyDefinitions.ProxyArcaneSword.prefabReference)
                 .SetModelScale(0.5f)
