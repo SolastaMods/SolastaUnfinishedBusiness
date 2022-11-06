@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:HeroRefreshedBladeDanceValidateEquipment:4dce0745-e8ae-5ce4-9fdd-ed7d03feadd2",
+      "featureDefinition": "Definition:FeatureSetBladeDancerBladeDance:9b607616-747c-5a9b-83ea-fdcde0466dec",
       "level": 2
     },
     {
@@ -18,17 +18,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetBladeDancerBladeDance:9b607616-747c-5a9b-83ea-fdcde0466dec",
+      "featureDefinition": "Definition:HeroRefreshedBladeDanceValidateEquipment:4dce0745-e8ae-5ce4-9fdd-ed7d03feadd2",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:76d4e568-ee87-5e94-b391-7e235e6fae99",
+      "featureDefinition": "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:76d4e568-ee87-5e94-b391-7e235e6fae99",
       "level": 6
     },
     {

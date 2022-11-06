@@ -10,22 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:3e408ad8-a69c-594f-b099-ce572770f3f8",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:1de1d65f-edf1-5800-b72f-4c13c00039e7",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:SavingThrowAffinityGnomeCunningFeature:2dd8a75a-2214-5cb8-bff0-4096394465cc",
       "level": 1
     },
     {
@@ -35,17 +20,32 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityGnomeCunningFeature:2dd8a75a-2214-5cb8-bff0-4096394465cc",
+      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:1de1d65f-edf1-5800-b72f-4c13c00039e7",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellGnomeNaturalIllusionist:c3d62586-0572-52a4-a60d-a60aedd738a8",
+      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:3e408ad8-a69c-594f-b099-ce572770f3f8",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyGnomeLanguages:e48268df-5d65-5633-beaa-177fb427e75f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellGnomeNaturalIllusionist:c3d62586-0572-52a4-a60d-a60aedd738a8",
       "level": 1
     }
   ],

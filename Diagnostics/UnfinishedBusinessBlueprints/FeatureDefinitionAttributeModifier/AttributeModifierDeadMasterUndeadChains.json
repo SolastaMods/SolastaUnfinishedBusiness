@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "HitPoints",
+  "modifierOperation": "AddConditionAmount",
+  "modifierValue": 0,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DeadMasterUndeadChainsTitle",
-    "description": "Feature/&DeadMasterUndeadChainsDescription",
+    "title": "Feature/&SummoningAffinityDeadMasterUndeadChainsTitle",
+    "description": "Feature/&SummoningAffinityDeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c40d34e4-d9da-5c1d-88ff-ad3971ec7ff5",
+  "guid": "c366c121-0945-5b6b-873a-de2cca24ce07",
   "contentPack": 9999,
-  "name": "DeadMasterUndeadChains"
+  "name": "AttributeModifierDeadMasterUndeadChains"
 }

@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TargetReducedToZeroHpDeadMasterStarkHarvest:a36543ab-7740-5dc1-9761-48956c7e4173",
+      "featureDefinition": "Definition:SummoningAffinityDeadMasterUndeadChains:afdb20e8-8265-5158-86f0-89a10fad52c1",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DeadMasterUndeadChains:c40d34e4-d9da-5c1d-88ff-ad3971ec7ff5",
+      "featureDefinition": "Definition:TargetReducedToZeroHpDeadMasterStarkHarvest:a36543ab-7740-5dc1-9761-48956c7e4173",
       "level": 6
     },
     {

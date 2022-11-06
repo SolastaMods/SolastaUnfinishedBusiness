@@ -14,6 +14,33 @@ ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
 ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
 ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+CreateDeadRisenGhost	Title='Raise Spectral Avenger'.
+CreateDeadRisenGhost	Description='Summons <b>Spectral Avenger</b>:
+A powerful, ethereal undead creature.'.
+CreateDeadRisenGhoul	Title='Raise Ghoul'.
+CreateDeadRisenGhoul	Description='Summons <b>Ghoul</b>:
+A ravenous undead creature, constantly searching for flesh to eat.'.
+CreateDeadRisenSkeleton	Title='Raise Skeleton'.
+CreateDeadRisenSkeleton	Description='Summons <b>Skeleton</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
+CreateDeadRisenSkeleton_Archer	Title='Raise Skeleton Archer'.
+CreateDeadRisenSkeleton_Archer	Description='Summons <b>Skeleton Archer</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
+CreateDeadRisenSkeleton_Enforcer	Title='Raise Skeletal Enforcer'.
+CreateDeadRisenSkeleton_Enforcer	Description='Summons <b>Skeletal Enforcer</b>:
+A powerful undead creature armed with an axe and a shield.'.
+CreateDeadRisenSkeleton_Knight	Title='Raise Skeletal Knight'.
+CreateDeadRisenSkeleton_Knight	Description='Summons <b>Skeletal Knight</b>:
+A powerful undead creature, created by raising a dead knight.'.
+CreateDeadRisenSkeleton_Marksman	Title='Raise Skeletal Marksman'.
+CreateDeadRisenSkeleton_Marksman	Description='Summons <b>Skeletal Marksman</b>:
+A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.'.
+CreateDeadRisenWight	Title='Raise Wight'.
+CreateDeadRisenWight	Description='Summons <b>Wight</b>:
+A Wight'.
+CreateDeadRisenWightLord	Title='Raise Wight Lord'.
+CreateDeadRisenWightLord	Description='Summons <b>Wight Lord</b>:
+A powerful wight, trained to withstand the light of day.'.
 DamageAffinityInfusionResistantArmorDamageAcid	Description='Resistance to Acid: damage is halved'.
 DamageAffinityInfusionResistantArmorDamageCold	Description='Resistance to Cold: damage is halved'.
 DamageAffinityInfusionResistantArmorDamageFire	Description='Resistance to Fire: damage is halved'.

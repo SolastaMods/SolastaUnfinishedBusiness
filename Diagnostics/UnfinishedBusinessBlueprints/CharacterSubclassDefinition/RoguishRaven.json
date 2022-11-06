@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRavenSharpShooter:96a4c766-88c0-5c74-a8ad-887da79584b0",
+      "featureDefinition": "Definition:FeatureSetRavenHeartSeekingShot:40cf35c9-4d14-55b3-a918-7f09365f4f7d",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRavenHeartSeekingShot:40cf35c9-4d14-55b3-a918-7f09365f4f7d",
+      "featureDefinition": "Definition:FeatureSetRavenSharpShooter:96a4c766-88c0-5c74-a8ad-887da79584b0",
       "level": 3
     },
     {

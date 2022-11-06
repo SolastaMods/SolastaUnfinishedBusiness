@@ -23,17 +23,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityMoonlitStrong:8076ce55-9b01-5c37-8c85-5af9471f9e93",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMoonlitDarkMoon:1d03cf2d-7bdc-5489-babe-81bb5e3606a2",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMoonlitFullMoon:6357d148-e552-5c54-b45e-b36dd261dbd7",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityMoonlitStrong:8076ce55-9b01-5c37-8c85-5af9471f9e93",
       "level": 6
     },
     {

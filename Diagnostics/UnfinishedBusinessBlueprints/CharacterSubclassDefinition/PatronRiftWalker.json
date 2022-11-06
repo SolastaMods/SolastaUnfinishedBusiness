@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRiftWalkerBlink:0ddfb64d-6da6-55fa-9944-4ec5a337effa",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityRiftWalkerExpandedSpells:18a81672-abf4-557e-b8b8-9c8ead0e6545",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRiftWalkerRiftWalk:79992dc4-649e-567e-8623-6d6c64cdba9a",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRiftWalkerBlink:0ddfb64d-6da6-55fa-9944-4ec5a337effa",
       "level": 1
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRiftWalkerRiftControl:685e0573-efc4-5d23-9066-30e20b4482d2",
+      "featureDefinition": "Definition:DamageAffinityRiftWalkerFadeIntoTheVoid:e05ae837-1690-5731-bcef-0a7f0e73e389",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityRiftWalkerFadeIntoTheVoid:e05ae837-1690-5731-bcef-0a7f0e73e389",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftControl:685e0573-efc4-5d23-9066-30e20b4482d2",
       "level": 10
     },
     {

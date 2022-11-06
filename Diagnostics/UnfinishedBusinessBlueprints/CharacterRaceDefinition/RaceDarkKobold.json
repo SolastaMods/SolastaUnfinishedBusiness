@@ -15,17 +15,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityDarkKoboldLightSensitivity:ef7792be-cce3-5545-a497-66e316dd5254",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDarkKoboldGrovelCowerAndBeg:64232eff-49bf-5ab6-93ba-61e407210831",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityDarkKoboldLightSensitivity:ef7792be-cce3-5545-a497-66e316dd5254",
       "level": 1
     }
   ],

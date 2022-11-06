@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
-  "attackRollModifierMethod": "FlatValue",
+  "attackRollModifierMethod": "SourceConditionAmount",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 5,
+  "attackRollModifier": 0,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "None",
   "damageRollUseCasterBonus": false,
@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DeadMasterUndeadChainsTitle",
-    "description": "Feature/&DeadMasterUndeadChainsDescription",
+    "title": "Feature/&SummoningAffinityDeadMasterUndeadChainsTitle",
+    "description": "Feature/&SummoningAffinityDeadMasterUndeadChainsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "09535cad-404e-5a04-9f58-7f796fe66869",
+  "guid": "4c02da82-5b84-556b-a0a8-0ffa64b90888",
   "contentPack": 9999,
-  "name": "AttackModifierDeadMasterUndeadChains5"
+  "name": "AttackModifierDeadMasterUndeadChains"
 }
