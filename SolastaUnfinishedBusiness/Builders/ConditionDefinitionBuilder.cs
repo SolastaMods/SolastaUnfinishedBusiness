@@ -49,6 +49,17 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder SetAmountOrigin(ExtraOriginOfAmount value, string source = null)
+    {
+        //ExtraOriginOfAmount uses additionalDamageType as value for class or ability to get amount from
+        if (source != null)
+        {
+            Definition.additionalDamageType = source;
+        }
+
+        return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
+    }
+
     internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
     {
         Definition.conditionParticleReference = value;

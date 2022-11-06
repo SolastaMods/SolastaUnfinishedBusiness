@@ -297,9 +297,6 @@
   <data name="ProducedFlameThrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\ProducedFlameThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CreateDead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Spells\AnimateDead.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ThornyVines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\ThornyVines.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -482,5 +479,32 @@
   </data>
   <data name="PowerDefensiveField" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerDefensiveField.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseGhost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseGhost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseGhoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseGhoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseSkeleton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseSkeleton.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseSkeletonArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseSkeletonArcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseSkeletonEnforcer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseSkeletonEnforcer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseSkeletonKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseSkeletonKnight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseSkeletonMarksman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseSkeletonMarksman.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseWight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseWight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpellRaiseWightLord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\SpellRaiseWightLord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
