@@ -32,7 +32,7 @@ internal static class BootContext
         DiagnosticsContext.CacheTaDefinitions();
 
         // Load Translations and Resources Locator after
-        Load();
+        TranslatorContext.Load();
         ResourceLocatorContext.Load();
 
         // Create our Content Pack for anything that gets further created
@@ -41,15 +41,21 @@ internal static class BootContext
         // Cache all Merchant definitions and what item types they sell
         MerchantTypeContext.Load();
 
-        // can be loaded in any order so we bump them at the beginning
-        CharacterExportContext.Load();
-        ToolsContext.Load();
+        //
+        // custom stuff that can be loaded in any order
+        //
 
         CustomReactionsContext.Load();
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
         PowerBundleContext.Load();
+        
+        //
+        // other stuff can be loaded in any order
+        //
 
+        ToolsContext.Load();
+        CharacterExportContext.Load();
         DmProEditorContext.Load();
         GameUiContext.Load();
 
