@@ -129,7 +129,7 @@
   "audioRaceRTPCValue": 6.0,
   "challengeRating": 3.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Wight_loot_drop:cfe6995b715071244949e3216b94a0fd",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

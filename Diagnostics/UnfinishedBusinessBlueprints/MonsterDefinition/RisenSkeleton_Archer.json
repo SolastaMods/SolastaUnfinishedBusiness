@@ -63,7 +63,7 @@
   "audioRaceRTPCValue": 18.0,
   "challengeRating": 0.25,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Skeleton_archer_loot_drop:9ac30f5ca2554cd4eacae87a335a6a81",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

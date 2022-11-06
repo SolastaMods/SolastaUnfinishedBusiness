@@ -41,7 +41,7 @@
   "audioRaceRTPCValue": 18.0,
   "challengeRating": 3.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Skeleton_Marksman_Loot_Drop:a270d4d7ca2a1f94ebc7c98ec034a812",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

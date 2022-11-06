@@ -41,7 +41,7 @@
   "audioRaceRTPCValue": 18.0,
   "challengeRating": 0.25,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Skeleton_loot_drop:a438a810f9f87c64fa559c58f2d4cd29",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

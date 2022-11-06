@@ -47,7 +47,7 @@
   "audioRaceRTPCValue": 18.0,
   "challengeRating": 3.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Skeleton_Knight_loot_drop:585f15a2caa666f4682cddc5ea85b8bd",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

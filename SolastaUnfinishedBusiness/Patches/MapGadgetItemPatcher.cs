@@ -44,7 +44,7 @@ public static class MapGadgetItemPatcher
                     __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
                     __instance.iconImage.sprite =
                         Sprites.GetOrCreateSprite("Entrance", Resources.Entry, 24);
-                    __instance.guiTooltip.Content = GetGadgetDestinationLocation(gameGadget) 
+                    __instance.guiTooltip.Content = GetGadgetDestinationLocation(gameGadget)
                                                     ?? Gui.Localize("Tooltip/&CustomMapMarkerExit");
                     break;
                 case -3:
