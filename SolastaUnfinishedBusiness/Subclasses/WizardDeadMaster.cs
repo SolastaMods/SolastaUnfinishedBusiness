@@ -151,9 +151,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 {
                     (2, 1), new()
                     {
-                        (Skeleton, 2, Sprites.SpellRaiseSkeleton, new BaseDefinition[] {Scimitar}),
+                        (Skeleton, 2, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
                         (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher,
-                            new BaseDefinition[] {Shortbow, Shortsword})
+                            new BaseDefinition[] { Shortbow, Shortsword })
                     }
                 }, //CR 0.25 x2
                 {
@@ -169,30 +169,33 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 }, //CR 1
                 {
                     (5, 3),
-                    new() {(Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer, new BaseDefinition[] {Battleaxe})}
-                }, //CR 2
-                {
-                    (7, 4),
                     new()
                     {
-                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] {Longsword}),
+                        (Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer,
+                            new BaseDefinition[] { Battleaxe })
+                    }
+                }, //CR 2
+                {
+                    (7, 4), new()
+                    {
+                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] { Longsword }),
                         (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman,
-                            new BaseDefinition[] {Longbow, Shortsword})
+                            new BaseDefinition[] { Longbow, Shortsword })
                     }
                 }, //CR 3
                 {
                     (9, 5),
-                    new() {(Ghost, 1, Sprites.SpellRaiseGhost, new BaseDefinition[] {Enchanted_Dagger_Souldrinker})}
+                    new() { (Ghost, 1, Sprites.SpellRaiseGhost, new BaseDefinition[] { Enchanted_Dagger_Souldrinker }) }
                 }, //CR 4
                 {
                     (11, 6),
-                    new() {(Wight, 2, Sprites.SpellRaiseWight, new BaseDefinition[] {LongswordPlus2, LongbowPlus1})}
+                    new() { (Wight, 2, Sprites.SpellRaiseWight, new BaseDefinition[] { LongswordPlus2, LongbowPlus1 }) }
                 }, //CR 3 x2
                 {
                     (13, 7), new()
                     {
                         (WightLord, 1, Sprites.SpellRaiseWightLord,
-                            new BaseDefinition[] {Enchanted_Longsword_Frostburn, Enchanted_Shortbow_Medusa})
+                            new BaseDefinition[] { Enchanted_Longsword_Frostburn, Enchanted_Shortbow_Medusa })
                     }
                 } //CR 6
             };
@@ -262,7 +265,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         if (attackSprites != null)
         {
-            for (int i = 0; i < attackSprites.Length; i++)
+            for (var i = 0; i < attackSprites.Length; i++)
             {
                 var attack = modified.AttackIterations.ElementAtOrDefault(i);
                 if (attack != null)

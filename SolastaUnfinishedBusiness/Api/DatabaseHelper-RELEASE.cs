@@ -1,6 +1,7 @@
 // this file is manually maintained
 // whenever you use a definition in DEBUG mode copy it over here
 // goal is to increase mod boot time and reduce total payload size
+// last update on 11/06/22 2:25 PM
 
 using TA.AI;
 
@@ -111,6 +112,12 @@ internal static partial class DatabaseHelper
     {
         internal static MonsterAttackDefinition Attack_Generic_Guard_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
+
+        internal static MonsterAttackDefinition Attack_Wildshape_Wolf_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Wolf_Bite");
     }
 
     internal static class DecisionPackageDefinitions
@@ -280,9 +287,6 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Skeleton_Marksman { get; } =
             GetDefinition<MonsterDefinition>("Skeleton_Marksman");
 
-        internal static MonsterDefinition Skeleton_Sorcerer { get; } =
-            GetDefinition<MonsterDefinition>("Skeleton_Sorcerer");
-
         internal static MonsterDefinition Sorr_Akkath_Shikkath { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Shikkath");
 
@@ -300,9 +304,6 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Wolf { get; } =
             GetDefinition<MonsterDefinition>("Wolf");
-
-        internal static MonsterDefinition Zombie { get; } =
-            GetDefinition<MonsterDefinition>("Zombie");
     }
 
     internal static class ConditionDefinitions
@@ -631,9 +632,6 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition DwarfHill { get; } =
             GetDefinition<CharacterRaceDefinition>("DwarfHill");
 
-        internal static CharacterRaceDefinition DwarfSnow { get; } =
-            GetDefinition<CharacterRaceDefinition>("DwarfSnow");
-
         internal static CharacterRaceDefinition Elf { get; } =
             GetDefinition<CharacterRaceDefinition>("Elf");
 
@@ -793,8 +791,8 @@ internal static partial class DatabaseHelper
         internal static FactionStatusDefinition Indifference { get; } =
             GetDefinition<FactionStatusDefinition>("Indifference");
 
-        // internal static FactionStatusDefinition LivingLegend { get; } =
-        //     GetDefinition<FactionStatusDefinition>("LivingLegend");
+        internal static FactionStatusDefinition LivingLegend { get; } =
+            GetDefinition<FactionStatusDefinition>("LivingLegend");
 
         internal static FactionStatusDefinition Sympathy { get; } =
             GetDefinition<FactionStatusDefinition>("Sympathy");
@@ -1857,9 +1855,6 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ABJURATION_TOWER_Poem { get; } =
             GetDefinition<ItemDefinition>("ABJURATION_TOWER_Poem");
 
-        internal static ItemDefinition AlchemistFire { get; } =
-            GetDefinition<ItemDefinition>("AlchemistFire");
-
         internal static ItemDefinition AmuletOfHealth { get; } =
             GetDefinition<ItemDefinition>("AmuletOfHealth");
 
@@ -2322,8 +2317,14 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Longbow { get; } =
             GetDefinition<ItemDefinition>("Longbow");
 
+        internal static ItemDefinition LongbowPlus1 { get; } =
+            GetDefinition<ItemDefinition>("LongbowPlus1");
+
         internal static ItemDefinition Longsword { get; } =
             GetDefinition<ItemDefinition>("Longsword");
+
+        internal static ItemDefinition LongswordPlus2 { get; } =
+            GetDefinition<ItemDefinition>("LongswordPlus2");
 
         internal static ItemDefinition Mace { get; } =
             GetDefinition<ItemDefinition>("Mace");
@@ -2534,12 +2535,6 @@ internal static partial class DatabaseHelper
     {
         internal static ItemFlagDefinition ItemFlagPrimed { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlagPrimed");
-    }
-
-    internal static class KnowledgeLevelDefinitions
-    {
-        internal static KnowledgeLevelDefinition Mastered4 { get; } =
-            GetDefinition<KnowledgeLevelDefinition>("Mastered4");
     }
 
     internal static class MerchantCategoryDefinitions
