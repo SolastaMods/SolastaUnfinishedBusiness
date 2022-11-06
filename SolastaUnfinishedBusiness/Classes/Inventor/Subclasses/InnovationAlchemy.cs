@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Spells;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static RuleDefinitions.EffectIncrementMethod;
@@ -266,7 +267,7 @@ public static class InnovationAlchemy
         var (toggle, validator) = MakeElementToggleMarker(damage);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(SpellsBuildersContext.AcidClawCondition, ConditionForm.ConditionOperation.Add)
+            .SetConditionForm(SpellBuilders.AcidClawCondition, ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = AcidSplash.EffectDescription.effectParticleParameters;
