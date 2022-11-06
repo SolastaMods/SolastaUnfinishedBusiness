@@ -60,7 +60,7 @@ internal static class CraftingContext
         "All",
         "Ammunition",
         "Armor",
-        "Usable Devices",
+        "UsableDevices",
         "Weapons"
     };
 
@@ -191,7 +191,7 @@ internal static class CraftingContext
         FilterGuiDropdown.ClearOptions();
         FilterGuiDropdown.onValueChanged.AddListener(delegate { craftingPanel.Refresh(); });
 
-        ItemCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced { text = x }));
+        ItemCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced { text = Gui.Localize(x) }));
 
         FilterGuiDropdown.AddOptions(filterOptions);
         FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
