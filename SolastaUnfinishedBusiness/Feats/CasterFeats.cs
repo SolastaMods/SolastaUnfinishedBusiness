@@ -90,15 +90,20 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, groupFeats));
         feats.AddRange(groupFeats);
 
-        // fey teleportation
+        #region Fey Teleportation
 
         const string FEY_TELEPORT = "FeyTeleport";
 
-        var autoPreparedSpellsFeyTeleportation = AutoPreparedClassLists(
-            BuildSpellGroup(0, MistyStep),
-            MistyStep.GuiPresentation,
-            "AutoPreparedSpellsFeyTeleportation", FEY_TELEPORT);
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeyTeleportation")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(BuildSpellGroup(0, MistyStep))
+            .SetSpellcastingClass(null)
+            .SetAutoTag(FEY_TELEPORT)
+            .AddToDB();
 
+        //Invocations for now don't support bonus actions, so leave custom power for now
         var powerFeatFeyTeleportationMistyStep = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFeyTeleportationMistyStep")
             .SetGuiPresentation(MistyStep.GuiPresentation)
@@ -120,8 +125,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Pakri,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -131,8 +136,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -142,8 +147,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Maraike,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB()
@@ -151,6 +156,8 @@ internal static class CasterFeats
 
         groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", FEY_TELEPORT, groupFeats));
         feats.AddRange(groupFeats);
+
+        #endregion
 
         #region Celestial Touched
 
