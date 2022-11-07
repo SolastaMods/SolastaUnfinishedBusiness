@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -253,117 +252,54 @@ internal static class CasterFeats
 
         #endregion
 
-        // shadow touched
+        #region Shadow Touched
 
-        const string SHADOW_TOUCHED = "ShadowTouched";
+        const string SHADOW = "ShadowTouched";
 
-        var autoPreparedSpellsFeatShadowTouched = AutoPreparedClassLists(
-            BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds),
-            GuiPresentationBuilder
-                .Build("AutoPreparedSpellsFeatShadowTouched", Category.Feature),
-            "AutoPreparedSpellsFeatShadowTouched", SHADOW_TOUCHED);
+        spells = BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds);
 
-        var powerFeatShadowTouchedInvisibility = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInvisibility")
-            .SetGuiPresentation(Invisibility.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(Invisibility.EffectDescription)
-            .AddToDB();
-
-        var powerFeatShadowTouchedFalseLife = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedFalseLife")
-            .SetGuiPresentation(FalseLife.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(FalseLife.EffectDescription)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsInt = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsInt")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsWis = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsWis")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsCha = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsCha")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatShadowTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(SHADOW)
             .AddToDB();
 
         groupFeats.SetRange(
             // shadow touched int
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedInt")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsInt,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Pakri)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB(),
             // shadow touched wis
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedWis")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsWis,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Maraike)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB(),
             // shadow touched cha
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedCha")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsCha,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Solasta)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW_TOUCHED, groupFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW, groupFeats));
         feats.AddRange(groupFeats);
 
-        GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
-    }
+        #endregion
 
-    [NotNull]
-    private static FeatureDefinition[] AutoPreparedClassLists(
-        FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
-        GuiPresentation learnShadowTouchedPresentation,
-        string namePrefix,
-        string autoPrepTag)
-    {
-        return DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .Select(x =>
-                FeatureDefinitionAutoPreparedSpellsBuilder
-                    .Create(namePrefix + x.Name)
-                    .SetGuiPresentation(learnShadowTouchedPresentation)
-                    .SetPreparedSpellGroups(spellGroup)
-                    .SetSpellcastingClass(x)
-                    .SetAutoTag(autoPrepTag)
-                    .AddToDB())
-            .Cast<FeatureDefinition>()
-            .ToArray();
+        GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 
     [NotNull]
