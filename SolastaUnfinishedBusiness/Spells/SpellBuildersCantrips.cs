@@ -363,21 +363,18 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 PerformAttackAfterMagicEffectUse.MeleeAttack,
-                new UpgradeRangeBasedOnWeaponReach(),
-                CustomSpellEffectLevel.ByCasterLevel)
+                new UpgradeRangeBasedOnWeaponReach())
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetIgnoreCover()
-                .SetEffectAdvancement(
+                .SetEffectAdvancement( //this is needed for tooltip
                     EffectIncrementMethod.CasterLevelTable,
                     additionalDicePerIncrement: 1,
                     incrementMultiplier: 1)
                 .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(EffectFormBuilder
-                        .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .SetConditionForm(ConditionDefinitionBuilder
                                 .Create("ConditionSunlightBlade")
@@ -392,9 +389,10 @@ internal static partial class SpellBuilders
                                     .SetNotificationTag("SunlightBlade")
                                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                     .SetAttackModeOnly()
+                                    .SetAttackOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(DamageTypeRadiant)
-                                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 5)
+                                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
                                     .SetTargetCondition(sunlitMark, AdditionalDamageTriggerCondition.TargetHasCondition)
                                     .SetConditionOperations(highlight)
                                     .SetAddLightSource(true)
@@ -405,8 +403,7 @@ internal static partial class SpellBuilders
                             true,
                             false)
                         .Build(),
-                    EffectFormBuilder
-                        .Create()
+                    EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)
                         .Build())
