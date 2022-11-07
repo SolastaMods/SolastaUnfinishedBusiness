@@ -374,6 +374,36 @@ internal static class LevelUpContext
             : levelUpData.OtherClassesKnownSpells;
     }
 
+    internal static void EnumerateExtraSpells(Dictionary<SpellDefinition, string> extraSpells,
+        RulesetCharacterHero hero)
+    {
+        if (hero == null) { return; }
+
+        foreach (var feature in hero.GetFeaturesByType<FeatureDefinitionAutoPreparedSpells>())
+        {
+            foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
+            {
+                extraSpells.TryAdd(spell, feature.AutoPreparedTag);
+            }
+        }
+
+        if (hero.TryGetHeroBuildingData(out var data))
+        {
+            var features = data.levelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .SelectMany(f => f.Features)
+                .OfType<FeatureDefinitionAutoPreparedSpells>();
+
+            foreach (var feature in features)
+            {
+                foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
+                {
+                    extraSpells.TryAdd(spell, feature.AutoPreparedTag);
+                }
+            }
+        }
+    }
+
     internal static void GrantItemsIfRequired([NotNull] RulesetCharacterHero hero)
     {
         if (!LevelUpTab.TryGetValue(hero, out var levelUpData) || !levelUpData.IsLevelingUp)
