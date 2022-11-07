@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&FeaturePathOfTheRageMageEnhancedArcaneExplosionTitle",
+    "description": "Feature/&FeaturePathOfTheRageMageEnhancedArcaneExplosionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eba68d4d-f97e-5600-95a3-d17389199bc3",
+  "guid": "701b0fa7-1733-5f19-ae83-c6205ca4816e",
   "contentPack": 9999,
-  "name": "ProducedFlameThrower"
+  "name": "FeaturePathOfTheRageMageEnhancedArcaneExplosion"
 }

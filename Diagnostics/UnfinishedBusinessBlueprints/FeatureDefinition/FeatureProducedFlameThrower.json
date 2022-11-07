@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&WayOfTheDistantHandKiPoweredArrowsTitle",
-    "description": "Feature/&WayOfTheDistantHandKiPoweredArrowsDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c9a2b764-8d91-5c0a-9db2-607e55cd82d1",
+  "guid": "be97c29d-f954-54ce-bfd7-99320e3b9899",
   "contentPack": 9999,
-  "name": "WayOfTheDistantHandKiPoweredArrows"
+  "name": "FeatureProducedFlameThrower"
 }

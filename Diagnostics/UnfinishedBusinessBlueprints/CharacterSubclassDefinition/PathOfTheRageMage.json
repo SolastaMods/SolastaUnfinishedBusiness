@@ -43,12 +43,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheRageMageSupernaturalExploits:23dd3df1-d67e-5c19-a6db-a258c17cc02d",
+      "featureDefinition": "Definition:FeaturePathOfTheRageMageSupernaturalExploits:e9589b9f-7159-5584-ac9f-15b09fed5e4b",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheRageMageEnhancedArcaneExplosion:0a30a65f-edc0-523c-80ef-890572119682",
+      "featureDefinition": "Definition:FeaturePathOfTheRageMageEnhancedArcaneExplosion:701b0fa7-1733-5f19-ae83-c6205ca4816e",
       "level": 14
     }
   ],

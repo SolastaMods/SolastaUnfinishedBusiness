@@ -305,7 +305,7 @@ internal static class Level20Context
         // only a placeholder to display the feature name
         // this is solved on CanCastSpells patch
         var druidBeastSpells = FeatureDefinitionBuilder
-            .Create("DruidBeastSpells")
+            .Create("FeatureDruidBeastSpells")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

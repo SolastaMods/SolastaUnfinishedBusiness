@@ -536,7 +536,7 @@ internal static class CustomWeaponsContext
             .SetDamageForm(DamageTypeFire, 1, DieType.D8)
             .Build());
         flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
-            .Create("ProducedFlameThrower")
+            .Create("FeatureProducedFlameThrower")
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(
                 new ModifyProducedFlameDice(),

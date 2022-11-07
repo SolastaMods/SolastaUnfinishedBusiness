@@ -204,7 +204,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
-            .Create("WayOfTheDistantHandKiPoweredArrows")
+            .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new AddTagToWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
@@ -216,7 +216,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         var wayOfDistantHandsZenArcherStunningArrows = FeatureDefinitionBuilder
-            .Create("WayOfTheDistantHandZenArcherStunningArrows")
+            .Create("FeatureWayOfTheDistantHandZenArcherStunningArrows")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ZenArcherStunningArrows())
             .AddToDB();

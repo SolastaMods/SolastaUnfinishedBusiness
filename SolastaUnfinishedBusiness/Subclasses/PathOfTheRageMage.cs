@@ -49,7 +49,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
 
         // a general definition of the Supernatural Exploits feature at level up
         var pathOfTheRageMageSupernaturalExploits = FeatureDefinitionBuilder
-            .Create("PathOfTheRageMageSupernaturalExploits")
+            .Create("FeaturePathOfTheRageMageSupernaturalExploits")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -114,7 +114,7 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
             .AddToDB();
 
         var pathOfTheRageMageEnhancedArcaneExplosion = FeatureDefinitionBuilder
-            .Create("PathOfTheRageMageEnhancedArcaneExplosion")
+            .Create("FeaturePathOfTheRageMageEnhancedArcaneExplosion")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

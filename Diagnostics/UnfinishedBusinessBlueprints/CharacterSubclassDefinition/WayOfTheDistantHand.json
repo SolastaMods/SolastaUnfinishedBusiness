@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WayOfTheDistantHandKiPoweredArrows:c9a2b764-8d91-5c0a-9db2-607e55cd82d1",
+      "featureDefinition": "Definition:FeatureWayOfTheDistantHandKiPoweredArrows:8acc04de-0e89-5533-8c62-3da460e9f7a1",
       "level": 6
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WayOfTheDistantHandZenArcherStunningArrows:757924fd-72c0-5d10-8213-10e9b928d5be",
+      "featureDefinition": "Definition:FeatureWayOfTheDistantHandZenArcherStunningArrows:b25ffd2c-c7e5-5d8a-94f7-86908a085c14",
       "level": 11
     }
   ],
