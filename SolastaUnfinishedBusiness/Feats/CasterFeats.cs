@@ -4,6 +4,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -97,7 +100,7 @@ internal static class CasterFeats
         var powerFeatFeyTeleportationMistyStep = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFeyTeleportationMistyStep")
             .SetGuiPresentation(MistyStep.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(MistyStep.EffectDescription)
             .AddToDB();
 
@@ -105,7 +108,7 @@ internal static class CasterFeats
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.Language, "Language_Tirmarian")
+                ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 
         groupFeats.SetRange(
@@ -160,21 +163,21 @@ internal static class CasterFeats
         var powerFeatCelestialTouchedHealingWord = FeatureDefinitionPowerBuilder
             .Create("PowerFeatCelestialTouchedHealingWord")
             .SetGuiPresentation(HealingWord.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(HealingWord.EffectDescription)
             .AddToDB();
 
         var powerFeatCelestialTouchedCureWounds = FeatureDefinitionPowerBuilder
             .Create("PowerFeatCelestialTouchedCureWounds")
             .SetGuiPresentation(CureWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(CureWounds.EffectDescription)
             .AddToDB();
 
         var powerFeatCelestialTouchedLesserRestoration = FeatureDefinitionPowerBuilder
             .Create("PowerFeatCelestialTouchedLesserRestoration")
             .SetGuiPresentation(LesserRestoration.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(LesserRestoration.EffectDescription)
             .AddToDB();
 
@@ -330,21 +333,21 @@ internal static class CasterFeats
         var powerFeatShadowTouchedInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerFeatShadowTouchedInvisibility")
             .SetGuiPresentation(Invisibility.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(Invisibility.EffectDescription)
             .AddToDB();
 
         var powerFeatShadowTouchedFalseLife = FeatureDefinitionPowerBuilder
             .Create("PowerFeatShadowTouchedFalseLife")
             .SetGuiPresentation(FalseLife.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(FalseLife.EffectDescription)
             .AddToDB();
 
         var powerFeatShadowTouchedInflictWoundsInt = FeatureDefinitionPowerBuilder
             .Create("PowerFeatShadowTouchedInflictWoundsInt")
             .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(InflictWounds.EffectDescription)
             .SetBonusToAttack(true, true)
             .AddToDB();
@@ -352,7 +355,7 @@ internal static class CasterFeats
         var powerFeatShadowTouchedInflictWoundsWis = FeatureDefinitionPowerBuilder
             .Create("PowerFeatShadowTouchedInflictWoundsWis")
             .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(InflictWounds.EffectDescription)
             .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
             .AddToDB();
@@ -360,7 +363,7 @@ internal static class CasterFeats
         var powerFeatShadowTouchedInflictWoundsCha = FeatureDefinitionPowerBuilder
             .Create("PowerFeatShadowTouchedInflictWoundsCha")
             .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(InflictWounds.EffectDescription)
             .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
@@ -440,24 +443,24 @@ internal static class CasterFeats
         return FeatureDefinitionPowerBuilder
             .Create(name)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(
-                    RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
-                    RuleDefinitions.TargetType.Individuals)
+                    Side.All, RangeType.Distance, 6,
+                    TargetType.Individuals)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,
                     AttributeDefinitions.Strength,
                     true,
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     savingThrowDifficultyAbility)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetMotionForm(motionType, 1)
                     .Build())
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build())
             .AddToDB();
