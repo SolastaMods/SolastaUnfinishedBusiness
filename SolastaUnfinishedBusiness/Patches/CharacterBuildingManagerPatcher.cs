@@ -131,6 +131,8 @@ public static class CharacterBuildingManagerPatcher
         {
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
+            
+            LevelUpContext.GrantCustomFeaturesFromFeats(hero, __instance);
 
             //PATCH: grants custom features
             LevelUpContext.GrantCustomFeatures(hero);
@@ -204,7 +206,7 @@ public static class CharacterBuildingManagerPatcher
                 return;
             }
 
-            FeatureDefinitionGrantCustomInvocations.GrantInvocations(hero, tag, grantedFeatures);
+            FeatureDefinitionGrantInvocations.GrantInvocations(hero, tag, grantedFeatures);
         }
     }
 
@@ -222,7 +224,7 @@ public static class CharacterBuildingManagerPatcher
 
             if (hero.ActiveFeatures.TryGetValue(tag, out var features))
             {
-                FeatureDefinitionGrantCustomInvocations.RemoveInvocations(hero, tag, features);
+                FeatureDefinitionGrantInvocations.RemoveInvocations(hero, tag, features);
             }
         }
     }
@@ -241,7 +243,7 @@ public static class CharacterBuildingManagerPatcher
 
             if (hero.ActiveFeatures.TryGetValue(tag, out var features))
             {
-                FeatureDefinitionGrantCustomInvocations.RemoveInvocations(hero, tag, features);
+                FeatureDefinitionGrantInvocations.RemoveInvocations(hero, tag, features);
             }
         }
     }

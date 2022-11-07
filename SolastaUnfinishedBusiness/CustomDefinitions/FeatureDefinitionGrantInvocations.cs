@@ -3,10 +3,10 @@ using System.Linq;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
+internal class FeatureDefinitionGrantInvocations : FeatureDefinition
 {
     // ReSharper disable once CollectionNeverUpdated.Local
-    private List<InvocationDefinitionCustom> Invocations { get; } = new();
+    internal List<InvocationDefinition> Invocations { get; } = new();
 
     internal static void GrantInvocations(
         RulesetCharacterHero hero,
@@ -14,7 +14,7 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
         IEnumerable<FeatureDefinition> grantedFeatures)
     {
         var features = grantedFeatures
-            .OfType<FeatureDefinitionGrantCustomInvocations>()
+            .OfType<FeatureDefinitionGrantInvocations>()
             .ToList();
 
         if (features.Empty())
@@ -36,7 +36,7 @@ internal class FeatureDefinitionGrantCustomInvocations : FeatureDefinition
         IEnumerable<FeatureDefinition> removedFeatures)
     {
         var features = removedFeatures
-            .OfType<FeatureDefinitionGrantCustomInvocations>()
+            .OfType<FeatureDefinitionGrantInvocations>()
             .ToList();
 
         if (features.Empty())

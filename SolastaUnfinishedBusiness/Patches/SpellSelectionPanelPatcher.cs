@@ -1,6 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -42,6 +48,24 @@ public static class SpellSelectionPanelPatcher
 
             GameUiContext.SpellSelectionPanelMultilineBind(
                 __instance, caster, spellCastEngaged, actionType, cantripOnly);
+        }
+
+        [NotNull]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: hide spell panels for repertoires that have hidden spell casting feature
+            var getRepertoires = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
+            var getVisiblerepertoires = new Func<RulesetCharacter, List<RulesetSpellRepertoire>>(GetRepertoires).Method;
+
+            return instructions.ReplaceCalls(getRepertoires, "SpellSelectionPanel.Bind",
+                new CodeInstruction(OpCodes.Call, getVisiblerepertoires));
+        }
+
+        private static List<RulesetSpellRepertoire> GetRepertoires(RulesetCharacter character)
+        {
+            return character.SpellRepertoires
+                .Where(r => !r.SpellCastingFeature.GuiPresentation.Hidden)
+                .ToList();
         }
     }
 

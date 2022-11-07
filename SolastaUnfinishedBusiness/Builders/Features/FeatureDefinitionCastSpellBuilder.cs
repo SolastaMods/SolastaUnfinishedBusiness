@@ -72,6 +72,13 @@ internal class FeatureDefinitionCastSpellBuilder
                 }
 
                 break;
+            case CasterProgression.None:
+                for (; level < 21; level++)
+                {
+                    knownSpells.Add(0);
+                }
+
+                break;
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
@@ -136,6 +143,18 @@ internal class FeatureDefinitionCastSpellBuilder
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
                         Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
+                    };
+
+                    slotsPerLevels.Add(slotsForLevel);
+                }
+
+                break;
+            case CasterProgression.None:
+                for (; level < 21; level++)
+                {
+                    var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                    {
+                        Level = level, Slots = SlotsByCasterLevel[0]
                     };
 
                     slotsPerLevels.Add(slotsForLevel);
