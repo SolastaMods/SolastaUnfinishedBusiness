@@ -558,6 +558,10 @@ internal static class MulticlassGameUiContext
             FilterMulticlassBleeding(group, localHeroCharacter, allSpells, group.autoPreparedSpells, pointPool,
                 group.extraSpellsMap);
         }
+        
+        //Properly tag and not allow to pick spells that are auto-prepared from various features
+        LevelUpContext.EnumerateExtraSpells(group.extraSpellsMap, localHeroCharacter);
+        group.autoPreparedSpells.AddRange(group.extraSpellsMap.Keys);
 
         group.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
             allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, autoPrepareTag,
@@ -643,14 +647,16 @@ internal static class MulticlassGameUiContext
             : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
 
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
-            .Where(x => x.SpellLevel == spellLevel).ToList();
+            .Where(x => x.Key.SpellLevel == spellLevel).ToList();
 
-        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
+        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Any(p => p.Key == x));
 
-        foreach (var spell in otherClassesKnownSpells)
+        foreach (var pair in otherClassesKnownSpells)
         {
+            var spell = pair.Key;
+
             //Add multiclass tag to spells known from other classes
-            extraSpellsMap.TryAdd(spell, "Multiclass");
+            extraSpellsMap.TryAdd(spell, pair.Value);
 
             // displays known spells from other classes
             if (!Main.Settings.DisplayAllKnownSpellsDuringLevelUp)

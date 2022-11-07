@@ -212,6 +212,11 @@ internal static class TranslatorContext
         Main.Logger.Log($"{lineCount} {languageCode} translation terms loaded.");
     }
 
+    internal static bool HasTranslation(string term)
+    {
+        return LocalizationManager.Sources[0].ContainsTerm(term);
+    }
+
     internal sealed class TranslatorBehaviour : MonoBehaviour
     {
         internal const string UbTranslationTag = "UB auto translation\n";

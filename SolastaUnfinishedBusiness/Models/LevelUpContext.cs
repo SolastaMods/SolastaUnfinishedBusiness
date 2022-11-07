@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -13,6 +14,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class LevelUpContext
 {
+    internal const string ExtraClassTag = "@Class";
+    internal const string ExtraSubclassTag = "@Subclass";
+
     // keeps a tab on all heroes leveling up
     private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
@@ -321,36 +325,50 @@ internal static class LevelUpContext
     }
 
     [NotNull]
-    private static HashSet<SpellDefinition> CacheOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
+    private static Dictionary<SpellDefinition, string> CacheOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
     {
         var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
-        var knownSpells = new List<SpellDefinition>();
+        var knownSpells = new Dictionary<SpellDefinition, string>();
 
         foreach (var spellRepertoire in hero.SpellRepertoires
                      .Where(x => x != selectedRepertoire))
         {
             var castingFeature = spellRepertoire.SpellCastingFeature;
+            var tag = "Multiclass";
+            if (spellRepertoire.spellCastingClass != null)
+            {
+                tag = $"{ExtraClassTag}|{spellRepertoire.spellCastingClass.Name}";
+            }
+            else if (spellRepertoire.spellCastingSubclass != null)
+            {
+                tag = $"{ExtraSubclassTag}|{spellRepertoire.spellCastingSubclass.Name}";
+            }
+            else if (spellRepertoire.spellCastingRace != null)
+            {
+                tag = $"Race";
+            }
 
             switch (castingFeature.spellKnowledge)
             {
                 case RuleDefinitions.SpellKnowledge.Selection:
-                    knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
-                    knownSpells.AddRange(spellRepertoire.KnownCantrips);
-                    knownSpells.AddRange(spellRepertoire.KnownSpells);
+                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells, tag);
+                    knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
+                    knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     break;
                 case RuleDefinitions.SpellKnowledge.Spellbook:
-                    knownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
-                    knownSpells.AddRange(spellRepertoire.KnownCantrips);
-                    knownSpells.AddRange(spellRepertoire.KnownSpells);
-                    knownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells, tag);
+                    knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
+                    knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
+                    knownSpells.TryAddRange(spellRepertoire.EnumerateAvailableScribedSpells(), tag);
                     break;
                 case RuleDefinitions.SpellKnowledge.WholeList:
-                    knownSpells.AddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells));
+                    knownSpells.TryAddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells),
+                        tag);
                     break;
             }
         }
 
-        return knownSpells.ToHashSet();
+        return knownSpells;
     }
 
     internal static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
@@ -367,11 +385,41 @@ internal static class LevelUpContext
             : levelUpData.AllowedAutoPreparedSpells;
     }
 
-    internal static HashSet<SpellDefinition> GetOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
+    internal static Dictionary<SpellDefinition, string> GetOtherClassesKnownSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
-            ? new HashSet<SpellDefinition>()
+            ? new Dictionary<SpellDefinition, string>()
             : levelUpData.OtherClassesKnownSpells;
+    }
+
+    internal static void EnumerateExtraSpells(Dictionary<SpellDefinition, string> extraSpells,
+        RulesetCharacterHero hero)
+    {
+        if (hero == null) { return; }
+
+        foreach (var feature in hero.GetFeaturesByType<FeatureDefinitionAutoPreparedSpells>())
+        {
+            foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
+            {
+                extraSpells.TryAdd(spell, feature.AutoPreparedTag);
+            }
+        }
+
+        if (hero.TryGetHeroBuildingData(out var data))
+        {
+            var features = data.levelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .SelectMany(f => f.Features)
+                .OfType<FeatureDefinitionAutoPreparedSpells>();
+
+            foreach (var feature in features)
+            {
+                foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
+                {
+                    extraSpells.TryAdd(spell, feature.AutoPreparedTag);
+                }
+            }
+        }
     }
 
     internal static void GrantItemsIfRequired([NotNull] RulesetCharacterHero hero)
@@ -568,7 +616,7 @@ internal static class LevelUpContext
         {
             var otherClassesKnownSpells = GetOtherClassesKnownSpells(hero);
 
-            __result.RemoveAll(x => otherClassesKnownSpells.Contains(x));
+            __result.RemoveAll(x => otherClassesKnownSpells.ContainsKey(x));
         }
         else
         {
@@ -621,6 +669,6 @@ internal static class LevelUpContext
         internal HashSet<SpellDefinition> AllowedAutoPreparedSpells =>
             CacheAllowedAutoPreparedSpells(SelectedClassFeatures);
 
-        internal HashSet<SpellDefinition> OtherClassesKnownSpells => CacheOtherClassesKnownSpells(Hero);
+        internal Dictionary<SpellDefinition, string> OtherClassesKnownSpells => CacheOtherClassesKnownSpells(Hero);
     }
 }
