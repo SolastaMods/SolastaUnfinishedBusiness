@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeInnovationWeaponSummonSteelDefenderSkills:d1e543ed-2c43-5d64-a4f6-2aaec905ed1f",
+    "Definition:AbilityCheckAffinityInnovationWeaponSummonSteelDefenderSkills:14a673f1-254d-544e-bbbe-7988ddbeeecc",
     "Definition:SavingThrowAffinityInnovationWeaponSummonSteelDefender:c68b000a-ea4f-5b16-8356-e59a77464220"
   ],
   "allowMultipleInstances": false,

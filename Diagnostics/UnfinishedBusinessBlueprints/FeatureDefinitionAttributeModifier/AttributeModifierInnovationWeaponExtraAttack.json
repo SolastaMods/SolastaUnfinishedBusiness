@@ -1,15 +1,17 @@
 {
-  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
-  "useControllerAbilityChecks": false,
-  "affinityGroups": [],
-  "substractBardicDieRoll": false,
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "AttacksNumber",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&AttributeModifierInnovationWeaponExtraAttackTitle",
+    "description": "Feature/&AttributeModifierInnovationWeaponExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d1e543ed-2c43-5d64-a4f6-2aaec905ed1f",
+  "guid": "1da02c4c-236a-5f08-9eed-eb63d5f9dcb3",
   "contentPack": 9999,
-  "name": "AttributeInnovationWeaponSummonSteelDefenderSkills"
+  "name": "AttributeModifierInnovationWeaponExtraAttack"
 }

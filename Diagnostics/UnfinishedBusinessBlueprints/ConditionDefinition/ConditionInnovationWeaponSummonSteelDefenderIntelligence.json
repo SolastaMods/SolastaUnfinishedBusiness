@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeInnovationWeaponSummonSteelDefenderHP:aecdcc08-f109-5c6d-899b-fd34425470d6"
+    "Definition:AttributeModifierInnovationWeaponSummonSteelDefenderHP:e0c92a9e-5cd0-5d2e-9328-232f0e2b944e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

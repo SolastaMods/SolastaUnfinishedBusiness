@@ -157,7 +157,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .AddToDB();
 
         var pathOfTheLightIlluminatingStrikeImprovement = FeatureDefinitionBuilder
-            .Create("PathOfTheLightIlluminatingStrikeImprovement")
+            .Create("FeaturePathOfTheLightIlluminatingStrikeImprovement")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 

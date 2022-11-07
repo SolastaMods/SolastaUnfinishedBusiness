@@ -178,7 +178,7 @@ public static class InnovationArmor
     private static FeatureDefinition BuildExtraAttack()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("ProficiencyInnovationArmorExtraAttack")
+            .Create("AttributeModifierInnovationArmorExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();

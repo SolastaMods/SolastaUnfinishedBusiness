@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeImprovement:e9c3be2e-9cec-5d8e-a343-a39280b037c3",
+      "featureDefinition": "Definition:FeaturePathOfTheLightIlluminatingStrikeImprovement:0ab67b30-21ea-5f14-8bf2-c9f540ebc812",
       "level": 10
     },
     {

@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "ForceIfBetter",
-  "modifierValue": 2,
+  "modifiedAttribute": "HitPoints",
+  "modifierOperation": "AddConditionAmount",
+  "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,
@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyInnovationArmorExtraAttackTitle",
-    "description": "Feature/&ProficiencyInnovationArmorExtraAttackDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb808714-e24b-5402-b547-3b36ab6eb4ac",
+  "guid": "e0c92a9e-5cd0-5d2e-9328-232f0e2b944e",
   "contentPack": 9999,
-  "name": "ProficiencyInnovationArmorExtraAttack"
+  "name": "AttributeModifierInnovationWeaponSummonSteelDefenderHP"
 }

@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "ForceIfBetter",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyInnovationWeaponExtraAttackTitle",
-    "description": "Feature/&ProficiencyInnovationWeaponExtraAttackDescription",
+    "title": "Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementTitle",
+    "description": "Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1b3cc585-0eef-5449-b5db-140c57f6ff9c",
+  "guid": "0ab67b30-21ea-5f14-8bf2-c9f540ebc812",
   "contentPack": 9999,
-  "name": "ProficiencyInnovationWeaponExtraAttack"
+  "name": "FeaturePathOfTheLightIlluminatingStrikeImprovement"
 }

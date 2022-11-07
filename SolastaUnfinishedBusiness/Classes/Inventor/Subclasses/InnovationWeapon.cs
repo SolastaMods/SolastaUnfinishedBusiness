@@ -63,7 +63,7 @@ public static class InnovationWeapon
     private static FeatureDefinition BuildExtraAttack()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("ProficiencyInnovationWeaponExtraAttack")
+            .Create("AttributeModifierInnovationWeaponExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
@@ -182,7 +182,7 @@ public static class InnovationWeapon
     private static FeatureDefinition BuildSteelDefenderAffinity()
     {
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeInnovationWeaponSummonSteelDefenderHP")
+            .Create("AttributeModifierInnovationWeaponSummonSteelDefenderHP")
             .SetGuiPresentationNoContent()
             .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
             .AddToDB();
@@ -207,7 +207,7 @@ public static class InnovationWeapon
             .AddToDB();
 
         var skills = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AttributeInnovationWeaponSummonSteelDefenderSkills")
+            .Create("AbilityCheckAffinityInnovationWeaponSummonSteelDefenderSkills")
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(
                 new AddPBToSummonCheck(1, SkillDefinitions.Athletics),
@@ -325,7 +325,7 @@ public static class InnovationWeapon
                         .Build())
                     .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
-                    .Create("FeatureInnovationWeaponSteelDefenderInitiative")
+                    .Create("ConditionAffinityInnovationWeaponSteelDefenderInitiative")
                     .SetGuiPresentationNoContent()
                     .SetConditionAffinityType(ConditionAffinityType.Immunity)
                     .SetConditionType(ConditionDefinitions.ConditionSurprised)

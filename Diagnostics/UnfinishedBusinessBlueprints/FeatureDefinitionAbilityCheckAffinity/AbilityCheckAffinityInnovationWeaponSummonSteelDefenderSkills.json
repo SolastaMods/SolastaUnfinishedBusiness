@@ -1,12 +1,8 @@
 {
-  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
-  "conditionType": "ConditionSurprised",
-  "savingThrowAdvantageType": "None",
-  "savingThrowModifier": 0,
-  "conditionAffinityType": "Immunity",
-  "silent": false,
-  "rerollSaveWhenGained": false,
-  "rerollAdvantageType": "None",
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -33,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5cd5fc7f-db51-5e83-bc92-85fb0e3fe9b4",
+  "guid": "14a673f1-254d-544e-bbbe-7988ddbeeecc",
   "contentPack": 9999,
-  "name": "FeatureInnovationWeaponSteelDefenderInitiative"
+  "name": "AbilityCheckAffinityInnovationWeaponSummonSteelDefenderSkills"
 }

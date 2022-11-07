@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyInnovationArmorExtraAttack:eb808714-e24b-5402-b547-3b36ab6eb4ac",
+      "featureDefinition": "Definition:AttributeModifierInnovationArmorExtraAttack:0c1cff3e-7c84-5d6e-963e-7b910f9e96c5",
       "level": 5
     },
     {
