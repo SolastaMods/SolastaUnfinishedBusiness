@@ -152,78 +152,52 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", FEY_TELEPORT, groupFeats));
         feats.AddRange(groupFeats);
 
-        // celestial touched
+        #region Celestial Touched
 
-        const string CELESTIAL_TOUCHED = "CelestialTouched";
+        const string CELESTIAL = "CelestialTouched";
 
-        var autoPreparedSpellsFeatCelestialTouched = AutoPreparedClassLists(
-            BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration),
-            GuiPresentationBuilder
-                .Build("AutoPreparedSpellsFeatCelestialTouched", Category.Feature),
-            "AutoPreparedSpellsFeatCelestialTouched", CELESTIAL_TOUCHED);
+        spells = BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
 
-        var powerFeatCelestialTouchedHealingWord = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedHealingWord")
-            .SetGuiPresentation(HealingWord.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(HealingWord.EffectDescription)
-            .AddToDB();
-
-        var powerFeatCelestialTouchedCureWounds = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedCureWounds")
-            .SetGuiPresentation(CureWounds.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(CureWounds.EffectDescription)
-            .AddToDB();
-
-        var powerFeatCelestialTouchedLesserRestoration = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedLesserRestoration")
-            .SetGuiPresentation(LesserRestoration.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(LesserRestoration.EffectDescription)
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatCelestialTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(CELESTIAL)
             .AddToDB();
 
         groupFeats.SetRange(
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Pakri)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB(),
             // celestial touched wis
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedWis")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Maraike)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB(),
             // celestial touched cha
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedCha")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Solasta)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL_TOUCHED, groupFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL, groupFeats));
         feats.AddRange(groupFeats);
+
+        #endregion
 
         #region Flame Touched
 
