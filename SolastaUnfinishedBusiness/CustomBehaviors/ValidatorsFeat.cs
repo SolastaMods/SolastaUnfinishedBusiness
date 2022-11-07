@@ -12,21 +12,6 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
-    internal static (bool, string) IsElfOrHalfElf(
-        FeatDefinitionWithPrerequisites _,
-        [NotNull] RulesetCharacterHero hero)
-    {
-        var isElf = hero.RaceDefinition.Name.Contains(DatabaseHelper.CharacterRaceDefinitions.Elf.Name);
-        var elfTitle = DatabaseHelper.CharacterRaceDefinitions.Elf.FormatTitle();
-        var halfElfTitle = DatabaseHelper.CharacterRaceDefinitions.HalfElf.FormatTitle();
-        var param = $"{elfTitle}, {halfElfTitle}";
-        var guiFormat = Gui.Format("Tooltip/&FeatPreReqIs", param);
-
-        return isElf
-            ? (true, guiFormat)
-            : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
-    }
-
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
         [NotNull] BaseDefinition baseDefinition)
@@ -58,7 +43,24 @@ internal static class ValidatorsFeat
     }
 
 #if false
+    // Tooltip/&FeatPreReqIs=Is {0}
+    internal static (bool, string) IsElfOrHalfElf(
+        FeatDefinitionWithPrerequisites _,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var isElf = hero.RaceDefinition.Name.Contains(DatabaseHelper.CharacterRaceDefinitions.Elf.Name);
+        var elfTitle = DatabaseHelper.CharacterRaceDefinitions.Elf.FormatTitle();
+        var halfElfTitle = DatabaseHelper.CharacterRaceDefinitions.HalfElf.FormatTitle();
+        var param = $"{elfTitle}, {halfElfTitle}";
+        var guiFormat = Gui.Format("Tooltip/&FeatPreReqIs", param);
+
+        return isElf
+            ? (true, guiFormat)
+            : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+    }
+
     [NotNull]
+    // Tooltip/&FeatPreReqLevelFormat=Min Character Level {0}
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
     {
@@ -68,21 +70,6 @@ internal static class ValidatorsFeat
             var guiFormat = Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString());
 
             return isLevelValid
-                ? (true, guiFormat)
-                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
-        };
-    }
-
-    [NotNull]
-    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeat(
-        FeatDefinition featDefinition)
-    {
-        return (_, hero) =>
-        {
-            var isValid = hero.TrainedFeats.Contains(featDefinition);
-            var guiFormat = Gui.Format("Tooltip/&FeatPreReqFeatFormat", featDefinition.FormatTitle());
-
-            return isValid
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };

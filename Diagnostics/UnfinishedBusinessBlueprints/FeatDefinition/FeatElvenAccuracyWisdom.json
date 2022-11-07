@@ -8,18 +8,17 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "ElvenPrecision",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AdditionalDamageFeatBrutalThugSneakAttack:27e928e1-fadf-533c-bf3a-9095ec1de571",
-    "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f"
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatBrutalThugTitle",
-    "description": "Feat/&FeatBrutalThugDescription",
+    "title": "Feat/&FeatElvenAccuracyWisdomTitle",
+    "description": "Feat/&FeatElvenAccuracyWisdomDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "63a9893a-5b64-5a01-aaae-ad83244ea0ed",
+  "guid": "f1b08180-1554-543a-b464-539a8a971a2f",
   "contentPack": 9999,
-  "name": "FeatBrutalThug"
+  "name": "FeatElvenAccuracyWisdom"
 }

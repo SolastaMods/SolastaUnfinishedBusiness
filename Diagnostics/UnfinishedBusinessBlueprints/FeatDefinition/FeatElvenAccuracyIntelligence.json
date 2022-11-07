@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,13 +12,13 @@
   "familyTag": "ElvenPrecision",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d"
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatElvenAccuracyWisdomTitle",
-    "description": "Feat/&FeatElvenAccuracyWisdomDescription",
+    "title": "Feat/&FeatElvenAccuracyIntelligenceTitle",
+    "description": "Feat/&FeatElvenAccuracyIntelligenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f1b08180-1554-543a-b464-539a8a971a2f",
+  "guid": "51caa56c-6977-5aeb-b5f9-e6b9ac1e14d6",
   "contentPack": 9999,
-  "name": "FeatElvenAccuracyWisdom"
+  "name": "FeatElvenAccuracyIntelligence"
 }

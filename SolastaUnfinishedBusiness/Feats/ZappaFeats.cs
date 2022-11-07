@@ -25,7 +25,9 @@ internal static class ZappaFeats
 {
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
 
-    internal static void CheckElvenPrecisionContext(bool result, RulesetCharacter character,
+    internal static void CheckElvenPrecisionContext(
+        bool result,
+        RulesetCharacter character,
         RulesetAttackMode attackMode)
     {
         if (!result || character is not RulesetCharacterHero hero || attackMode == null)
@@ -202,6 +204,9 @@ internal static class ZappaFeats
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
 
+#if false
+        // Feat/&FeatBrutalThugDescription=You gain simple and martial weapon proficiencies.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Hoodlum's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
+        // Feat/&FeatBrutalThugTitle=Brutal Thug
         // Brutal Thug
         var featBrutalThug = FeatDefinitionBuilder
             .Create("FeatBrutalThug")
@@ -216,6 +221,7 @@ internal static class ZappaFeats
                     .AddToDB(),
                 ProficiencyFighterWeapon)
             .AddToDB();
+#endif
 
         // Charismatic Defense
         var featCharismaticDefense = FeatDefinitionBuilder
@@ -272,7 +278,7 @@ internal static class ZappaFeats
             .AddToDB();
 
         // Dead Eye
-        var deadEye = BuildDeadEye();
+        var featDeadEye = BuildDeadEye();
 
         // Dual Weapon Defense
         var featDualWeaponDefense = FeatDefinitionBuilder
@@ -283,41 +289,41 @@ internal static class ZappaFeats
             .AddToDB();
 
         // Elven Accuracy (Dexterity)
-        var featElvenAccuracyDexterity = FeatDefinitionWithPrerequisitesBuilder
+        var featElvenAccuracyDexterity = FeatDefinitionBuilder
             .Create("FeatElvenAccuracyDexterity")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
-            .SetValidators(IsElfOrHalfElf)
+            //.SetValidators(IsElfOrHalfElf)
             .SetFeatFamily(ElvenPrecision)
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
 
         // Elven Accuracy (Intelligence)
-        var featElvenAccuracyIntelligence = FeatDefinitionWithPrerequisitesBuilder
+        var featElvenAccuracyIntelligence = FeatDefinitionBuilder
             .Create("FeatElvenAccuracyIntelligence")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
-            .SetValidators(IsElfOrHalfElf)
+            //.SetValidators(IsElfOrHalfElf)
             .SetFeatFamily(ElvenPrecision)
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
 
         // Elven Accuracy (Wisdom)
-        var featElvenAccuracyWisdom = FeatDefinitionWithPrerequisitesBuilder
+        var featElvenAccuracyWisdom = FeatDefinitionBuilder
             .Create("FeatElvenAccuracyWisdom")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
-            .SetValidators(IsElfOrHalfElf)
+            //.SetValidators(IsElfOrHalfElf)
             .SetFeatFamily(ElvenPrecision)
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
 
         // Elven Accuracy (Charisma)
-        var featElvenAccuracyCharisma = FeatDefinitionWithPrerequisitesBuilder
+        var featElvenAccuracyCharisma = FeatDefinitionBuilder
             .Create("FeatElvenAccuracyCharisma")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
-            .SetValidators(IsElfOrHalfElf)
+            //.SetValidators(IsElfOrHalfElf)
             .SetFeatFamily(ElvenPrecision)
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
@@ -418,11 +424,10 @@ internal static class ZappaFeats
         feats.AddRange(
             featArcaneDefense,
             featArcanePrecision,
-            featBrutalThug,
             featCharismaticDefense,
             featCharismaticPrecision,
             featDualWeaponDefense,
-            deadEye,
+            featDeadEye,
             featElvenAccuracyDexterity,
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom,
@@ -438,13 +443,13 @@ internal static class ZappaFeats
             featCharismaticDefense,
             featWiseDefense);
 
-        GroupFeats.MakeGroup(
-            FeatDefinitionWithPrerequisitesBuilder
-                .Create("FeatGroupElvenAccuracy")
-                .SetGuiPresentation(Category.Feat)
-                .SetValidators(IsElfOrHalfElf)
-                .SetFeatFamily(ElvenPrecision)
-                .AddToDB(),
+        GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenPrecision,
+            // FeatDefinitionWithPrerequisitesBuilder
+            //     .Create("FeatGroupElvenAccuracy")
+            //     .SetGuiPresentation(Category.Feat)
+            //     .SetValidators(IsElfOrHalfElf)
+            //     .SetFeatFamily(ElvenPrecision)
+            //     .AddToDB(),
             featElvenAccuracyCharisma,
             featElvenAccuracyDexterity,
             featElvenAccuracyIntelligence,

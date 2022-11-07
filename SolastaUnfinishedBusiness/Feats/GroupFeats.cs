@@ -19,11 +19,13 @@ internal static class GroupFeats
         feats.AddRange(Groups);
     }
 
+#if false    
     internal static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
     {
         group.SetCustomSubFeatures(new GroupedFeat(feats));
         Groups.Add(group);
     }
+#endif
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {

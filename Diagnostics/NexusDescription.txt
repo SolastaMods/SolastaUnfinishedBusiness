@@ -146,8 +146,6 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
-[*][b]Brutal Thug[/b]: You gain simple and martial weapon proficiencies.
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Hoodlum's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
@@ -189,7 +187,7 @@ You gain the ability to cast the burning hands and scorching ray spells once per
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
- You gain proficiency with all bows and crossbows.
+You gain proficiency with all bows and crossbows.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and +2 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
