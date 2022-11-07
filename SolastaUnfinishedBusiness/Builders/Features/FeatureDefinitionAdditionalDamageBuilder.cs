@@ -49,6 +49,16 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        ExtraAdditionalDamageAdvancement advancement,
+        int start = 0,
+        int increment = 1,
+        int step = 1,
+        int begin = 1)
+    {
+        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, start, increment, step, begin);
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
