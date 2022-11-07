@@ -2318,13 +2318,13 @@ internal static partial class DatabaseHelper
             GetDefinition<ItemDefinition>("Longbow");
 
         internal static ItemDefinition LongbowPlus1 { get; } =
-            GetDefinition<ItemDefinition>("LongbowPlus1");
+            GetDefinition<ItemDefinition>("Longbow+1");
 
         internal static ItemDefinition Longsword { get; } =
             GetDefinition<ItemDefinition>("Longsword");
 
         internal static ItemDefinition LongswordPlus2 { get; } =
-            GetDefinition<ItemDefinition>("LongswordPlus2");
+            GetDefinition<ItemDefinition>("Longsword+2");
 
         internal static ItemDefinition Mace { get; } =
             GetDefinition<ItemDefinition>("Mace");
