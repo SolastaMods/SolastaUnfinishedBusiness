@@ -12,3 +12,5 @@ Subclass/&WizardDeadMasterDescription=Dead Masters learn to manipulate the energ
 Subclass/&WizardDeadMasterTitle=Dead Master
 Spell/&SpellRaiseDeadFormatDescription=Summons <b>{0}</b>:\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Raise {0}
+Screen/&DeadMasterSpellDescription=This Dead Master spell is always prepared.
+Screen/&DeadMasterSpellTitle=Undead

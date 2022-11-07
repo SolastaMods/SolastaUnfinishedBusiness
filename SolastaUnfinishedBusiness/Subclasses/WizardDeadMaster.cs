@@ -31,6 +31,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .Create("AutoPreparedSpellsDeadMaster")
             .SetGuiPresentation(Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Wizard)
+            .SetAutoTag("DeadMaster")
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
