@@ -647,14 +647,16 @@ internal static class MulticlassGameUiContext
             : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
 
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
-            .Where(x => x.SpellLevel == spellLevel).ToList();
+            .Where(x => x.Key.SpellLevel == spellLevel).ToList();
 
-        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
+        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Any(p => p.Key == x));
 
-        foreach (var spell in otherClassesKnownSpells)
+        foreach (var pair in otherClassesKnownSpells)
         {
+            var spell = pair.Key;
+
             //Add multiclass tag to spells known from other classes
-            extraSpellsMap.TryAdd(spell, "Multiclass");
+            extraSpellsMap.TryAdd(spell, pair.Value);
 
             // displays known spells from other classes
             if (!Main.Settings.DisplayAllKnownSpellsDuringLevelUp)

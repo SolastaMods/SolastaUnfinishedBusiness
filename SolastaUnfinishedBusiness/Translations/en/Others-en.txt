@@ -80,3 +80,7 @@ UI/&RecipeFilterAmmunition=Ammunition
 UI/&RecipeFilterArmor=Armor
 UI/&RecipeFilterUsableDevices=Usable Devices
 UI/&RecipeFilterWeapons=Weapons
+Screen/&RaceExtraSpellDescription=You know this spell from your heritage.
+Screen/&RaceExtraSpellTitle=Heritage
+Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
+Screen/&SubclassClassExtraSpellDescriptionFormat=You know this spell from {0} subclass.
