@@ -204,16 +204,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         foreach (var kvp in createDeadSpellMonsters)
         {
-            var level = kvp.Key;
+            var (clazz, spell) = kvp.Key;
             var monsters = kvp.Value;
             var spells = new List<SpellDefinition>();
 
-            for (var i = 0; i < monsters.Count; i++)
+            foreach (var (monsterDefinition, count, icon, attackSprites) in monsters)
             {
-                var data = monsters[i];
-                var monster = MakeSummonedMonster(data.monster, data.attackSprites);
-                var count = data.number;
-                var icon = data.icon;
+                var monster = MakeSummonedMonster(monsterDefinition, attackSprites);
 
                 spells.Add(SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
@@ -223,7 +220,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                             monster.FormatDescription()),
                         icon)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-                    .SetSpellLevel(level.spell)
+                    .SetSpellLevel(spell)
                     .SetSomaticComponent(true)
                     .SetMaterialComponent(MaterialComponentType.Mundane)
                     .SetVerboseComponent(true)
@@ -244,7 +241,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
             result.Add(new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = level.clazz, SpellsList = spells
+                ClassLevel = clazz, SpellsList = spells
             });
         }
 
@@ -263,16 +260,19 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetDroppedLootDefinition(null)
             .AddToDB();
 
-        if (attackSprites != null)
+        if (attackSprites == null)
         {
-            for (var i = 0; i < attackSprites.Length; i++)
+            return modified;
+        }
+
+        for (var i = 0; i < attackSprites.Length; i++)
+        {
+            var attack = modified.AttackIterations.ElementAtOrDefault(i);
+
+            if (attack != null)
             {
-                var attack = modified.AttackIterations.ElementAtOrDefault(i);
-                if (attack != null)
-                {
-                    attack.MonsterAttackDefinition.GuiPresentation.spriteReference =
-                        attackSprites[i].GuiPresentation.SpriteReference;
-                }
+                attack.MonsterAttackDefinition.GuiPresentation.spriteReference =
+                    attackSprites[i].GuiPresentation.SpriteReference;
             }
         }
 
