@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +32,32 @@ public static class InvocationActivationBoxPatcher
             else
             {
                 __instance.gameObject.SetActive(true);
+                //PATCH: make custom tooltip
+                SetupCustomTooltip(__instance, invocation, activator);
+
                 //PATCH: Show power use slots for invocations that grant powers
                 UpdatePowerSlots(__instance, invocation, activator);
             }
+        }
+
+        private static void SetupCustomTooltip(InvocationActivationBox instance, RulesetInvocation invocation,
+            RulesetCharacter character)
+        {
+            var feature = invocation.invocationDefinition as InvocationDefinitionCustom;
+
+            if (feature == null || feature.PoolType == null) { return; }
+
+            var tooltip = instance.tooptip;
+            var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
+            var item = feature.Item;
+            var dataProvider = item == null
+                ? new CustomTooltipProvider(feature, gui)
+                : new CustomItemTooltipProvider(feature, gui, item);
+
+            tooltip.TooltipClass = dataProvider.TooltipClass;
+            tooltip.Content = feature.GuiPresentation.Description;
+            tooltip.Context = character;
+            tooltip.DataProvider = dataProvider;
         }
 
         private static GameObject slotPrefab;
@@ -48,7 +74,8 @@ public static class InvocationActivationBoxPatcher
 
             if (atWill) { return; }
 
-            box.gameObject.SetActive(false);
+            ServiceRepository.GetService<IGuiWrapperService>()
+                .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 
             var boxRect = box.rectTransform;
             var slotTable = boxRect.Find(TABLE_NAME);
@@ -66,16 +93,16 @@ public static class InvocationActivationBoxPatcher
                 var table = Object.Instantiate(powerBox.slotStatusTable.gameObject, boxRect);
                 table.name = TABLE_NAME;
                 var rect = table.GetComponent<RectTransform>();
-                rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 5, 0);
-                rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 10, 0);
+                var position = box.infinitySymbol.transform.position;
+                rect.position = new Vector3(position.x + 130, position.y - 5, 0);
                 tableTransform = rect;
 
                 highTransform = powerBox.transform.Find("Header/HighSlotNumber");
                 var high = Object.Instantiate(highTransform.gameObject, boxRect);
                 high.name = HIGH_SLOTS_NAME;
                 rect = high.GetComponent<RectTransform>();
-                rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 25, 0);
-                rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 10, 0);
+                // ReSharper disable once Unity.InefficientPropertyAccess
+                rect.position = new Vector3(position.x - 60, position.y - 5, 0);
                 highSlots = high.GetComponent<GuiLabel>();
             }
             else
@@ -145,8 +172,6 @@ public static class InvocationActivationBoxPatcher
                 tooltip.Content = Gui.FormatWithHighlight("Screen/&PowerUsedSomeDescription",
                     (maxUses - remainingUses).ToString());
             }
-
-            box.gameObject.SetActive(true);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(boxRect);
         }
