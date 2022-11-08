@@ -18,9 +18,11 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
 
     //TODO: add validator setter
     public IEnumerable<IDefinitionWithPrerequisites.Validate> Validators { get; } =
-        new IDefinitionWithPrerequisites.Validate[] {CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact};
+        new IDefinitionWithPrerequisites.Validate[] { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
-    private static bool CheckRequiredLevel(RulesetCharacter character, BaseDefinition definition,
+    private static bool CheckRequiredLevel(
+        RulesetCharacter character,
+        BaseDefinition definition,
         out string requirement)
     {
         requirement = null;
@@ -80,7 +82,9 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
         return level >= requiredLevel;
     }
 
-    private static bool CheckRequiredSpell(RulesetCharacter character, BaseDefinition definition,
+    private static bool CheckRequiredSpell(
+        RulesetCharacter character,
+        BaseDefinition definition,
         out string requirement)
     {
         requirement = null;

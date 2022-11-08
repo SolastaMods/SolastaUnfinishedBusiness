@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -197,7 +196,7 @@ internal static class RulesetCharacterExtensions
             return false;
         }
 
-        foreach (RulesetInvocation invocation in instance.Invocations)
+        foreach (var invocation in instance.Invocations)
         {
             bool validId;
             if (scope == ActionDefinitions.ActionScope.Battle)

@@ -21,7 +21,7 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         Definition.actionType = type;
         return this;
     }
-    
+
     internal ActionDefinitionBuilder SetActionScope(ActionDefinitions.ActionScope scope)
     {
         Definition.actionScope = scope;
@@ -34,8 +34,8 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
     {
     }
 
-    internal ActionDefinitionBuilder(ActionDefinition original, string name, Guid namespaceGuid) : base(original, name,
-        namespaceGuid)
+    internal ActionDefinitionBuilder(ActionDefinition original, string name, Guid namespaceGuid)
+        : base(original, name, namespaceGuid)
     {
     }
 

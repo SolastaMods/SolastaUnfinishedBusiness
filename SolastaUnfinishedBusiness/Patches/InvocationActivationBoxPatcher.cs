@@ -12,14 +12,17 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class InvocationActivationBoxPatcher
 {
-    const string TABLE_NAME = "SlotStatusTable";
-    const string HIGH_SLOTS_NAME = "HighSlotNumber";
+    private const string TableName = "SlotStatusTable";
+    private const string HighSlotsName = "HighSlotNumber";
 
     [HarmonyPatch(typeof(InvocationActivationBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Bind_Patch
     {
-        public static void Postfix(InvocationActivationBox __instance,
+        private static GameObject _slotPrefab;
+
+        public static void Postfix(
+            InvocationActivationBox __instance,
             RulesetInvocation invocation,
             RulesetCharacter activator)
         {
@@ -40,12 +43,17 @@ public static class InvocationActivationBoxPatcher
             }
         }
 
-        private static void SetupCustomTooltip(InvocationActivationBox instance, RulesetInvocation invocation,
+        private static void SetupCustomTooltip(
+            InvocationActivationBox instance,
+            RulesetInvocation invocation,
             RulesetCharacter character)
         {
             var feature = invocation.invocationDefinition as InvocationDefinitionCustom;
 
-            if (feature == null || feature.PoolType == null) { return; }
+            if (feature == null || feature.PoolType == null)
+            {
+                return;
+            }
 
             var tooltip = instance.tooptip;
             var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
@@ -60,46 +68,57 @@ public static class InvocationActivationBoxPatcher
             tooltip.DataProvider = dataProvider;
         }
 
-        private static GameObject slotPrefab;
-
         private static void UpdatePowerSlots(InvocationActivationBox box, RulesetInvocation invocation,
             RulesetCharacter character)
         {
             var power = invocation.invocationDefinition.GrantedFeature as FeatureDefinitionPower;
 
-            if (power == null) { return; }
+            if (power == null)
+            {
+                return;
+            }
 
             var atWill = power.rechargeRate == RuleDefinitions.RechargeRate.AtWill;
+
             box.infinitySymbol.gameObject.SetActive(atWill);
 
-            if (atWill) { return; }
+            if (atWill)
+            {
+                return;
+            }
 
             ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 
             var boxRect = box.rectTransform;
-            var slotTable = boxRect.Find(TABLE_NAME);
-            var highTransform = boxRect.Find(HIGH_SLOTS_NAME);
+            var slotTable = boxRect.Find(TableName);
+            var highTransform = boxRect.Find(HighSlotsName);
 
             RectTransform tableTransform;
             GuiLabel highSlots;
+
             if (slotTable == null)
             {
                 var panel = Gui.GuiService.GetScreen<PowerSelectionPanel>();
                 var powerBox = panel.usablePowerPrefab.GetComponent<UsablePowerBox>();
 
-                slotPrefab = powerBox.slotStatusPrefab;
+                _slotPrefab = powerBox.slotStatusPrefab;
 
                 var table = Object.Instantiate(powerBox.slotStatusTable.gameObject, boxRect);
-                table.name = TABLE_NAME;
+
+                table.name = TableName;
+
                 var rect = table.GetComponent<RectTransform>();
                 var position = box.infinitySymbol.transform.position;
+
                 rect.position = new Vector3(position.x + 130, position.y - 5, 0);
                 tableTransform = rect;
 
                 highTransform = powerBox.transform.Find("Header/HighSlotNumber");
+
                 var high = Object.Instantiate(highTransform.gameObject, boxRect);
-                high.name = HIGH_SLOTS_NAME;
+
+                high.name = HighSlotsName;
                 rect = high.GetComponent<RectTransform>();
                 // ReSharper disable once Unity.InefficientPropertyAccess
                 rect.position = new Vector3(position.x - 60, position.y - 5, 0);
@@ -112,14 +131,14 @@ public static class InvocationActivationBoxPatcher
             }
 
             var usablePower = UsablePowersProvider.Get(power, character);
-
-            int maxUses = character.GetMaxUsesOfPower(usablePower);
-            int remainingUses = character.GetRemainingUsesOfPower(usablePower);
-            bool powerUsesPoints = character.IsPowerUsingPool(usablePower);
-            bool powerUsesSlots = character.IsPowerUsingSlots(usablePower);
-            bool manySlots = maxUses > 5 || powerUsesPoints;
+            var maxUses = character.GetMaxUsesOfPower(usablePower);
+            var remainingUses = character.GetRemainingUsesOfPower(usablePower);
+            var powerUsesPoints = character.IsPowerUsingPool(usablePower);
+            var powerUsesSlots = character.IsPowerUsingSlots(usablePower);
+            var manySlots = maxUses > 5 || powerUsesPoints;
 
             highSlots.gameObject.SetActive(manySlots);
+
             if (manySlots)
             {
                 highSlots.Text = remainingUses.ToString();
@@ -128,34 +147,40 @@ public static class InvocationActivationBoxPatcher
             }
 
             tableTransform.gameObject.SetActive(true);
+
             while (tableTransform.childCount < maxUses)
             {
-                Gui.GetPrefabFromPool(slotPrefab, tableTransform);
+                Gui.GetPrefabFromPool(_slotPrefab, tableTransform);
             }
 
-            for (int index = 0; index < maxUses; ++index)
+            for (var index = 0; index < maxUses; ++index)
             {
-                Transform child = tableTransform.GetChild(index);
+                var child = tableTransform.GetChild(index);
+
                 child.gameObject.SetActive(true);
-                SlotStatus status = child.GetComponent<SlotStatus>();
+
+                var status = child.GetComponent<SlotStatus>();
+
                 status.Used.gameObject.SetActive(index >= remainingUses);
                 status.Available.gameObject.SetActive(index < remainingUses);
             }
 
             if (maxUses >= 0)
             {
-                for (int index = maxUses; index < tableTransform.childCount; ++index)
+                for (var index = maxUses; index < tableTransform.childCount; ++index)
                 {
                     tableTransform.GetChild(index).gameObject.SetActive(false);
                 }
             }
 
             var tooltip = tableTransform.GetComponent<GuiTooltip>();
+
             tooltip.anchorMode = TooltipDefinitions.AnchorMode.FREE;
+
             if (manySlots)
             {
                 tooltip.Content = !powerUsesPoints
-                    ? (!powerUsesSlots ? string.Empty : "Screen/&PowerRemainingSlotsDescription")
+                    ? !powerUsesSlots ? string.Empty : "Screen/&PowerRemainingSlotsDescription"
                     : "Screen/&PowerRemainingHealingPoolDescription";
                 highSlots.GetComponent<GuiTooltip>().Content = tooltip.Content;
             }
@@ -186,13 +211,15 @@ public static class InvocationActivationBoxPatcher
             //PATCH: clean up custom widgets added for power invocations
             var boxRect = __instance.rectTransform;
 
-            var slotTable = boxRect.Find(TABLE_NAME);
+            var slotTable = boxRect.Find(TableName);
+
             if (slotTable != null)
             {
                 slotTable.gameObject.SetActive(false);
             }
 
-            var highTransform = boxRect.Find(HIGH_SLOTS_NAME);
+            var highTransform = boxRect.Find(HighSlotsName);
+
             if (highTransform != null)
             {
                 highTransform.gameObject.SetActive(false);

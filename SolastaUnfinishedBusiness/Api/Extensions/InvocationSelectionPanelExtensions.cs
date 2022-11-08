@@ -14,6 +14,7 @@ public static class InvocationSelectionPanelExtensions
         CharacterActionPanel actionPanel)
     {
         invocationPanel.Bind(caster, selected, canceled);
+
         var table = invocationPanel.invocationsTable;
         var invocations = caster.RulesetCharacter.Invocations;
         var actionId = actionPanel.actionId;
@@ -44,12 +45,14 @@ public static class InvocationSelectionPanelExtensions
         }
 
         var child = invocationPanel.transform.Find("Header/InvocationLabel");
+
         if (child != null)
         {
             var label = child.GetComponent<GuiLabel>();
+
             if (label != null)
             {
-                label.Text = (actionId == Id.CastInvocation || actionId == (Id)ExtraActionId.CastInvocationBonus)
+                label.Text = actionId == Id.CastInvocation || actionId == (Id)ExtraActionId.CastInvocationBonus
                     ? "Feature/&PointPoolWarlockInvocationInitialTitle"
                     : action.GuiPresentation.Title;
             }

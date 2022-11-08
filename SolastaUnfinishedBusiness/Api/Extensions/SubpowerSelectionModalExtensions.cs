@@ -36,7 +36,7 @@ internal static class SubpowerSelectionModalExtensions
         {
             var child = instance.subpowersTable.GetChild(i);
             var component = child.GetComponent<SubpowerItem>();
-            
+
             if (i < powers.Count)
             {
                 child.gameObject.SetActive(true);

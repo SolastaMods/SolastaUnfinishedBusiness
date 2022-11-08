@@ -5,13 +5,14 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 public static class InvocationDefinitionExtensions
 {
-    internal static bool IsBonusAction(this InvocationDefinition invocation)
+    private static bool IsBonusAction(this InvocationDefinition invocation)
     {
         if (invocation.GrantedSpell != null)
         {
             return invocation.GrantedSpell.castingTime == RuleDefinitions.ActivationTime.BonusAction;
         }
-        else if (invocation.GrantedFeature is FeatureDefinitionPower power)
+
+        if (invocation.GrantedFeature is FeatureDefinitionPower power)
         {
             return power.ActivationTime == RuleDefinitions.ActivationTime.BonusAction;
         }
@@ -22,14 +23,13 @@ public static class InvocationDefinitionExtensions
     internal static Id GetActionId(this InvocationDefinition invocation)
     {
         var isBonus = invocation.IsBonusAction();
+
         if (invocation is InvocationDefinitionCustom custom)
         {
             return isBonus ? custom.BonusActionId : custom.MainActionId;
         }
-        else
-        {
-            return isBonus ? (Id)ExtraActionId.CastInvocationBonus : Id.CastInvocation;
-        }
+
+        return isBonus ? (Id)ExtraActionId.CastInvocationBonus : Id.CastInvocation;
     }
 
     internal static Id GetMainActionId(this InvocationDefinition invocation)

@@ -227,9 +227,9 @@ internal static partial class SpellBuilders
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
             .SetEffectForms(EffectFormBuilder.Create()
-                    .SetBonusMode(AddBonusMode.AbilityBonus)
-                    .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
-                    .Build())
+                .SetBonusMode(AddBonusMode.AbilityBonus)
+                .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
+                .Build())
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 5, additionalDicePerIncrement: 1)
             .Build();
 

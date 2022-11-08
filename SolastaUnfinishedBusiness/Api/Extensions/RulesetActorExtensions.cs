@@ -110,17 +110,21 @@ internal static class RulesetActorExtensions
         var locA = GameLocationCharacter.GetFromActor(actor);
         var locB = GameLocationCharacter.GetFromActor(target);
 
-        if (locA == null || locB == null) { return 0; }
+        if (locA == null || locB == null)
+        {
+            return 0;
+        }
 
         var service = ServiceRepository.GetService<IGameLocationPositioningService>();
+
         return Vector3.Distance(service.ComputeGravityCenterPosition(locA), service.ComputeGravityCenterPosition(locB));
     }
-    
+
     internal static bool IsTouchingGround(this RulesetActor actor)
     {
         return !actor.HasConditionOfType(RuleDefinitions.ConditionFlying)
                && !actor.HasConditionOfType(RuleDefinitions.ConditionLevitate)
                && !(actor is RulesetCharacter character &&
-                    character.MoveModes.ContainsKey((int) RuleDefinitions.MoveMode.Fly));
+                    character.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly));
     }
 }
