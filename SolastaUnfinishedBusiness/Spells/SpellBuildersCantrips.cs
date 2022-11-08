@@ -222,14 +222,11 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildResonatingStrike()
     {
-        var resonanceHighLevel = EffectDescriptionBuilder
-            .Create()
+        var resonanceHighLevel = EffectDescriptionBuilder.Create()
             .SetParticleEffectParameters(AcidSplash)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
+            .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
                     .Build())
@@ -248,13 +245,11 @@ internal static partial class SpellBuilders
                 new UpgradeEffectFromLevel(resonanceHighLevel, 5)
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(AcidSplash)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder)
                     .Build())
@@ -277,8 +272,7 @@ internal static partial class SpellBuilders
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
                 .SetTargetProximityData(true, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
@@ -286,8 +280,7 @@ internal static partial class SpellBuilders
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1,
                     incrementMultiplier: 1)
                 .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionResonatingStrike")
@@ -304,7 +297,7 @@ internal static partial class SpellBuilders
                                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                 .SetAttackModeOnly()
                                 .SetSpecificDamageType(DamageTypeThunder)
-                                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 0, 1, 4)
+                                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 0, 1, 4)
                                 .SetIgnoreCriticalDoubleDice(true)
                                 .AddToDB()
                             )
