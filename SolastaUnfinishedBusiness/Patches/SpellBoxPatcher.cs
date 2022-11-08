@@ -20,7 +20,10 @@ public static class SpellBoxPatcher
             SpellBox.BindMode bindMode
         )
         {
-            if (string.IsNullOrEmpty(extraSpellTag)) { return; }
+            if (string.IsNullOrEmpty(extraSpellTag))
+            {
+                return;
+            }
 
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on levelup
             if (extraSpellTag.StartsWith(LevelUpContext.ExtraClassTag)
@@ -47,12 +50,18 @@ public static class SpellBoxPatcher
         public static void Postfix(SpellBox __instance)
         {
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on levelup
-            if (string.IsNullOrEmpty(extraTag)) { return; }
+            if (string.IsNullOrEmpty(extraTag))
+            {
+                return;
+            }
 
             var parts = extraTag.Split('|');
             extraTag = null;
 
-            if (parts.Length != 2) { return; }
+            if (parts.Length != 2)
+            {
+                return;
+            }
 
             var type = parts[0];
             var name = parts[1];

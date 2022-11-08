@@ -226,7 +226,11 @@ public static class InnovationArmor
 
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
         var armor = inventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
-        if (armor == null) { return; }
+
+        if (armor == null)
+        {
+            return;
+        }
 
         armor.EnumerateFeaturesToBrowse<FeatureDefinitionAttackModifier>(features);
 
@@ -238,9 +242,15 @@ public static class InnovationArmor
         {
             var modifier = feature as FeatureDefinitionAttackModifier;
 
-            if (modifier == null) { continue; }
+            if (modifier == null)
+            {
+                continue;
+            }
 
-            if (modifier.magicalWeapon) { magical = true; }
+            if (modifier.magicalWeapon)
+            {
+                magical = true;
+            }
 
             hitBonus += modifier.attackRollModifier;
             damageBonus += modifier.damageRollModifier;
@@ -330,6 +340,7 @@ public static class InnovationArmor
             if (!attacked)
             {
                 var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
                 if (damage != null)
                 {
                     damage.diceNumber = 2;

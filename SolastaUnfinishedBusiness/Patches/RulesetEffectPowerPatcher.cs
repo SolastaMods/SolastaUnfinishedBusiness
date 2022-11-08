@@ -53,10 +53,17 @@ public static class RulesetEffectPowerPatcher
         public static void Postfix(RulesetEffectPower __instance, ref int __result, RulesetCharacter character)
         {
             //PATCH: support for `IClassHoldingFeature`
-            if (character is not RulesetCharacterHero hero) { return; }
+            if (character is not RulesetCharacterHero hero)
+            {
+                return;
+            }
 
             var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
-            if (holder == null) { return; }
+
+            if (holder == null)
+            {
+                return;
+            }
 
             if (hero.ClassesAndLevels.TryGetValue(holder.Class, out var level))
             {

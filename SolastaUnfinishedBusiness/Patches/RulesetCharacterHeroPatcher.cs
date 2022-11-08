@@ -73,9 +73,12 @@ public static class RulesetCharacterHeroPatcher
 
                 //PATCH: allow customized repertoire matching for invocation
                 var matcher = invocation.InvocationDefinition
-                    .GetFirstSubFeatureOfType<RepertoireValidForAutoPreperedFeature>();
+                    .GetFirstSubFeatureOfType<RepertoireValidForAutoPreparedFeature>();
 
-                if (matcher == null) { continue; }
+                if (matcher == null)
+                {
+                    continue;
+                }
 
                 foreach (var repertoire in __instance.SpellRepertoires)
                 {

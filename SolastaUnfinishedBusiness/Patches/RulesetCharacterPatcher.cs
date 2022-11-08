@@ -927,8 +927,9 @@ public static class RulesetCharacterPatcher
             var features = __instance.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>();
             foreach (var autoPreparedSpells in features)
             {
-                var matcher = autoPreparedSpells.GetFirstSubFeatureOfType<RepertoireValidForAutoPreperedFeature>();
+                var matcher = autoPreparedSpells.GetFirstSubFeatureOfType<RepertoireValidForAutoPreparedFeature>();
                 bool matches;
+
                 if (matcher == null)
                 {
                     matches = autoPreparedSpells.SpellcastingClass == spellRepertoire.spellCastingClass;
@@ -937,8 +938,11 @@ public static class RulesetCharacterPatcher
                 {
                     matches = matcher(spellRepertoire, __instance);
                 }
-                
-                if (!matches) { continue; }
+
+                if (!matches)
+                {
+                    continue;
+                }
 
                 var classLevel = __instance.GetSpellcastingLevel(spellRepertoire);
 

@@ -436,7 +436,10 @@ public static class InnovationWeapon
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             //If not commanded use Dodge at the turn start
-            if (IsCommanded(locationCharacter.RulesetCharacter)) { return; }
+            if (IsCommanded(locationCharacter.RulesetCharacter))
+            {
+                return;
+            }
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
@@ -489,7 +492,11 @@ public static class InnovationWeapon
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
-            if (status != ActionStatus.Available) { return; }
+
+            if (status != ActionStatus.Available)
+            {
+                return;
+            }
 
             var character = locationCharacter.RulesetCharacter;
             var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,

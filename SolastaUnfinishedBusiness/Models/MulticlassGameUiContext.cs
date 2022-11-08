@@ -558,7 +558,7 @@ internal static class MulticlassGameUiContext
             FilterMulticlassBleeding(group, localHeroCharacter, allSpells, group.autoPreparedSpells, pointPool,
                 group.extraSpellsMap);
         }
-        
+
         //Properly tag and not allow to pick spells that are auto-prepared from various features
         LevelUpContext.EnumerateExtraSpells(group.extraSpellsMap, localHeroCharacter);
         group.autoPreparedSpells.AddRange(group.extraSpellsMap.Keys);

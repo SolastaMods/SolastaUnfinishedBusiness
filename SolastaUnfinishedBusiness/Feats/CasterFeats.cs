@@ -96,7 +96,7 @@ internal static class CasterFeats
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeyTeleportation")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
             .SetPreparedSpellGroups(BuildSpellGroup(0, MistyStep))
             .SetSpellcastingClass(null)
             .SetAutoTag(FEY_TELEPORT)
@@ -167,7 +167,7 @@ internal static class CasterFeats
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatCelestialTouched")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
             .SetPreparedSpellGroups(spells)
             .SetSpellcastingClass(null)
             .SetAutoTag(CELESTIAL)
@@ -214,7 +214,7 @@ internal static class CasterFeats
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatFlameTouched")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
             .SetPreparedSpellGroups(spells)
             .SetSpellcastingClass(null)
             .SetAutoTag(FLAME_TOUCHED)
@@ -261,7 +261,7 @@ internal static class CasterFeats
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatShadowTouched")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
             .SetPreparedSpellGroups(spells)
             .SetSpellcastingClass(null)
             .SetAutoTag(SHADOW)
@@ -325,12 +325,15 @@ internal static class CasterFeats
 
         foreach (var spell in spellGroup.SpellsList)
         {
-            if (spell.castingTime is ActivationTime.Reaction) { continue; }
+            if (spell.castingTime is ActivationTime.Reaction)
+            {
+                continue;
+            }
 
             invocations.Add(CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{name}{spell.Name}{castingAttribute}")
                 .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
-                .SetCustomSubFeatures(ValidateReperoireForAutoprep.HasSpellCastingFeature(featureName))
+                .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(featureName))
                 .SetPoolType(null)
                 .SetGrantedSpell(spell, longRestRecharge: true)
                 .AddToDB());
@@ -342,7 +345,7 @@ internal static class CasterFeats
             .AddToDB();
 
 
-        return new FeatureDefinition[] {spellfeature, grant};
+        return new FeatureDefinition[] { spellfeature, grant };
     }
 
     [NotNull]

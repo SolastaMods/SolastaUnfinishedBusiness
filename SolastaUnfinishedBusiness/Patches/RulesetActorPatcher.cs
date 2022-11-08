@@ -79,7 +79,11 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
             actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(actor.featuresToBrowse, featuresOrigin);
-            if (actor is not RulesetCharacterHero hero) { return; }
+
+            if (actor is not RulesetCharacterHero hero)
+            {
+                return;
+            }
 
             foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
             {

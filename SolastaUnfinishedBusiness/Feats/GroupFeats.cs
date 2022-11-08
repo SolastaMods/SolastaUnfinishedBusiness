@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -19,7 +18,7 @@ internal static class GroupFeats
         feats.AddRange(Groups);
     }
 
-#if false    
+#if false
     internal static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
     {
         group.SetCustomSubFeatures(new GroupedFeat(feats));

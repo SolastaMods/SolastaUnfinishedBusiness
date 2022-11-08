@@ -76,11 +76,17 @@ public class MirrorImageLogic
     internal static void AttackRollPrefix(RulesetCharacter attacker, RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends, bool testMode)
     {
-        if (!testMode) { return; }
+        if (!testMode)
+        {
+            return;
+        }
 
         var conditions = GetConditions(target as RulesetCharacter);
 
-        if (conditions.Empty()) { return; }
+        if (conditions.Empty())
+        {
+            return;
+        }
 
         if (attacker.HasConditionOfType(RuleDefinitions.ConditionBlinded))
         {
@@ -134,7 +140,10 @@ public class MirrorImageLogic
         bool testMode)
     {
         //skip custom code if attacker doesn't target mirror image
-        if (!TargetsMirrorImage(toHitTrends)) { return; }
+        if (!TargetsMirrorImage(toHitTrends))
+        {
+            return;
+        }
 
         if (!testMode
             && outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
@@ -234,7 +243,10 @@ public class MirrorImageLogic
 
         public void RemoveFeature(RulesetCharacter hero)
         {
-            if (!GetConditions(hero).Empty()) { return; }
+            if (!GetConditions(hero).Empty())
+            {
+                return;
+            }
 
             hero.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
         }

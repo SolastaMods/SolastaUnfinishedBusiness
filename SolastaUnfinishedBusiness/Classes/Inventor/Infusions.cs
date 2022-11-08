@@ -470,7 +470,10 @@ internal static class Infusions
         {
             var modifier = feature as FeatureDefinitionAttributeModifier;
 
-            if (modifier == null) { continue; }
+            if (modifier == null)
+            {
+                continue;
+            }
 
             if (modifier.ModifiedAttribute == AttributeDefinitions.ArmorClass)
             {

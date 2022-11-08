@@ -11,6 +11,20 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetSpellRepertoirePatcher
 {
+    private static bool FormatTitle(RulesetSpellRepertoire __instance, ref string __result)
+    {
+        if (__instance.SpellCastingClass != null
+            || __instance.SpellCastingSubclass != null
+            || __instance.SpellCastingRace != null)
+        {
+            return true;
+        }
+
+        __result = __instance.SpellCastingFeature.FormatTitle();
+
+        return false;
+    }
+
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -245,19 +259,6 @@ public static class RulesetSpellRepertoirePatcher
                 availableSlotLevels.Remove(i);
             }
         }
-    }
-
-    private static bool FormatTitle(RulesetSpellRepertoire __instance, ref string __result)
-    {
-        if (__instance.SpellCastingClass != null
-            || __instance.SpellCastingSubclass != null
-            || __instance.SpellCastingRace != null)
-        {
-            return true;
-        }
-
-        __result = __instance.SpellCastingFeature.FormatTitle();
-        return false;
     }
 
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "FormatHeader")]
