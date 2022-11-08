@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -219,22 +220,19 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
-            //PATCH: support for bonus action invocations
-            if (actionId == (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus)
+            //PATCH: support for custom invocation action ids
+            if (CustomActionIdContext.IsInvocationActionId(actionId))
             {
-                __result = scope == ActionDefinitions.ActionScope.Battle
-                           && __instance.RulesetCharacter.CanCastAnyBonusActionInvocation()
-                    ? ActionDefinitions.ActionStatus.Available
-                    : ActionDefinitions.ActionStatus.Unavailable;
-            }
-
-            if (actionId == ActionDefinitions.Id.CastInvocation
-                && scope == ActionDefinitions.ActionScope.Battle
-                && __result == ActionDefinitions.ActionStatus.Available)
-            {
-                if (!__instance.RulesetCharacter.CanCastAnyMainActionInvocation())
+                var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+                if (action.actionScope != ActionDefinitions.ActionScope.All && scope != action.actionScope)
                 {
                     __result = ActionDefinitions.ActionStatus.Unavailable;
+                }
+                else
+                {
+                    __result = __instance.RulesetCharacter.CanCastAnyInvocationOfActionId(actionId, scope)
+                        ? ActionDefinitions.ActionStatus.Available
+                        : ActionDefinitions.ActionStatus.Unavailable;
                 }
             }
         }

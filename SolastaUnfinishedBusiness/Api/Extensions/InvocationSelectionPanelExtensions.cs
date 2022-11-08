@@ -1,4 +1,5 @@
 ﻿using UnityEngine.UI;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -15,6 +16,8 @@ public static class InvocationSelectionPanelExtensions
         invocationPanel.Bind(caster, selected, canceled);
         var table = invocationPanel.invocationsTable;
         var invocations = caster.RulesetCharacter.Invocations;
+        var actionId = actionPanel.actionId;
+        var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
 
         for (var i = 0; i < table.childCount; i++)
         {
@@ -23,21 +26,35 @@ public static class InvocationSelectionPanelExtensions
 
             if (active)
             {
-                //hide invocations that are not bonus action
-                if (actionPanel.actionId == (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus)
+                var invocationDefinition = box.Invocation.invocationDefinition;
+
+                //strict id checks when in battle
+                if (actionPanel.ActionScope == ActionScope.Battle)
                 {
-                    active = box.Invocation.invocationDefinition.IsBonusAction();
+                    active = actionId == invocationDefinition.GetActionId();
                 }
-                //filter main action invocations only during battle
-                else if (actionPanel.ActionScope == ActionDefinitions.ActionScope.Battle)
+                //allow all invocations that match main action id
+                else
                 {
-                    active = !box.Invocation.invocationDefinition.IsBonusAction();
+                    active = actionId == invocationDefinition.GetMainActionId();
                 }
             }
 
             box.gameObject.SetActive(active);
         }
-            
+
+        var child = invocationPanel.transform.Find("Header/InvocationLabel");
+        if (child != null)
+        {
+            var label = child.GetComponent<GuiLabel>();
+            if (label != null)
+            {
+                label.Text = (actionId == Id.CastInvocation || actionId == (Id)ExtraActionId.CastInvocationBonus)
+                    ? "Feature/&PointPoolWarlockInvocationInitialTitle"
+                    : action.GuiPresentation.Title;
+            }
+        }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(table);
         Gui.InputService.RecomputeSelectableNavigation(true);
     }

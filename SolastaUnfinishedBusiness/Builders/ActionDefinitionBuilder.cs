@@ -21,6 +21,12 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         Definition.actionType = type;
         return this;
     }
+    
+    internal ActionDefinitionBuilder SetActionScope(ActionDefinitions.ActionScope scope)
+    {
+        Definition.actionScope = scope;
+        return this;
+    }
 
     #region Constructors
 
