@@ -84,3 +84,5 @@ Screen/&RaceExtraSpellDescription=You know this spell from your heritage.
 Screen/&RaceExtraSpellTitle=Heritage
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&SubclassClassExtraSpellDescriptionFormat=You know this spell from {0} subclass.
+Action/&CastPlaneMagicDescription=Cast one of the spells you got from Plane Touched feats
+Action/&CastPlaneMagicTitle=Channel Plane Magic

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -332,6 +333,7 @@ internal static class CasterFeats
                 .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(featureName))
                 .SetPoolType(null)
                 .SetGrantedSpell(spell, longRestRecharge: true)
+                .SetActionId(ExtraActionId.CastPlaneMagicMain, ExtraActionId.CastPlaneMagicBonus)
                 .AddToDB());
         }
 
