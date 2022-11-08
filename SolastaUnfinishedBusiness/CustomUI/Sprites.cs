@@ -170,5 +170,8 @@ public static class Sprites
     internal static AssetReferenceSprite ActionPlaneMagic =>
         GetSprite("ActionPlaneMagic", Resources.ActionPlaneMagic, 80);
 
+    internal static AssetReferenceSprite ActionInfuse =>
+        GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
+
     #endregion
 }

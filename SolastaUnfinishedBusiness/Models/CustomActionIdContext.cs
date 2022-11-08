@@ -34,6 +34,14 @@ public static class CustomActionIdContext
                 .SetActionType(ActionType.Bonus)
                 .SetActionScope(ActionScope.Battle)
                 .AddToDB();
+
+            ActionDefinitionBuilder
+                .Create(baseAction, "InventorInfusion")
+                .SetGuiPresentation(Category.Action, Sprites.ActionInfuse, sortOrder: 20)
+                .SetActionId(ExtraActionId.InventorInfusion)
+                .SetActionType(ActionType.Main)
+                .SetActionScope(ActionScope.Exploration)
+                .AddToDB();
         }
     }
 
@@ -42,6 +50,7 @@ public static class CustomActionIdContext
         var extra = (ExtraActionId)id;
         return id is Id.CastInvocation
                || extra is ExtraActionId.CastInvocationBonus
+                   or ExtraActionId.InventorInfusion
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus;
     }
