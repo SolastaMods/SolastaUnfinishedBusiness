@@ -28,6 +28,7 @@ namespace SolastaUnfinishedBusiness.Displays
     // ReSharper disable once ClassNeverInstantiated.Global
     internal class ModUi : IMenuSelectablePage
     {
+        internal const int DontDisplayDescription = 4;
         internal const float PixelsPerColumn = 220;
         private int characterSelectedPane;
         public string Name => Gui.Localize("ModUi/&Character");

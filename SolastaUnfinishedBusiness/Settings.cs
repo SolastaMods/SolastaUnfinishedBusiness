@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
 
@@ -20,7 +21,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public int EnableDiagsDump { get; set; }
-    public bool DisplayWelcomeMessage { get; set; } = true;
+    public bool HideWelcomeMessage { get; set; }
 
     //
     // SETTINGS UI TOGGLES
@@ -32,15 +33,15 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; }
+    public bool DisplayMerchantsToggle { get; set; } = true;
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
     // SETTINGS HIDDEN ON UI
     //
 
-    public bool DontConsumeSlots { get; set; }
     public bool EnableCommandAllUndead { get; set; } = true;
+    public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
@@ -48,7 +49,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
-    public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
+    public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
 
     //
     // Character - General
@@ -68,11 +69,11 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLevel20 { get; set; }
 
     public bool EnableMulticlass { get; set; }
-    public int MaxAllowedClasses { get; set; } = MulticlassContext.DefaultClasses;
-    public bool EnableMinInOutAttributes { get; set; } = true;
+    public int MaxAllowedClasses { get; set; }
+    public bool EnableMinInOutAttributes { get; set; }
     public bool EnableRelearnSpells { get; set; }
-    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
-    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; } = true;
+    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -88,24 +89,24 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Races, Classes & Subclasses
     //
 
-    public int RaceSliderPosition { get; set; } = 4;
+    public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
-    public int ClassSliderPosition { get; set; } = 4;
+    public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> ClassEnabled { get; } = new();
-    public int SubclassSliderPosition { get; set; } = 4;
+    public int SubclassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> SubclassEnabled { get; } = new();
 
     //
     // Characters - Feats, Groups and Fighting Styles
     //
 
-    public int FeatSliderPosition { get; set; } = 4;
+    public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatEnabled { get; } = new();
 
-    public int FeatGroupSliderPosition { get; set; } = 4;
+    public int FeatGroupSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatGroupEnabled { get; } = new();
 
-    public int FightingStyleSliderPosition { get; set; } = 4;
+    public int FightingStyleSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FightingStyleEnabled { get; } = new();
 
     //
@@ -193,7 +194,7 @@ public class Settings : UnityModManager.ModSettings
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
-    public float FasterTimeModifier { get; set; } = 1.5f;
+    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
 
     //
     // Interface - Game UI
@@ -221,7 +222,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }

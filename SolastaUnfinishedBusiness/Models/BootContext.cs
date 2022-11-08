@@ -178,11 +178,11 @@ internal static class BootContext
         {
             DisplayUpdateMessage(version, changeLog);
         }
-        else if (Main.Settings.DisplayWelcomeMessage)
+        else if (!Main.Settings.HideWelcomeMessage)
         {
             DisplayWelcomeMessage();
 
-            Main.Settings.DisplayWelcomeMessage = false;
+            Main.Settings.HideWelcomeMessage = true;
         }
     }
 

@@ -18,8 +18,9 @@ public static class CharacterPoolManagerPatcher
                 return;
             }
 
-            Global.LastLevelUpHeroName =
-                Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp ? heroCharacter.Name : null;
+            Global.LastLevelUpHeroName = Main.Settings.KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp
+                ? heroCharacter.Name
+                : null;
         }
     }
 }

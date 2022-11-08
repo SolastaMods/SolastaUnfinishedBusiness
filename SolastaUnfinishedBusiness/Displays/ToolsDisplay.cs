@@ -10,6 +10,8 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ToolsDisplay
 {
+    internal const float DefaultFastTimeModifier = 1.5f;
+
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
     {
         (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true),
@@ -162,8 +164,8 @@ internal static class ToolsDisplay
         UI.Label("");
 
         var floatValue = Main.Settings.FasterTimeModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
-                1, string.Empty, UI.AutoWidth()))
+        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,
+                DefaultFastTimeModifier, 10f, DefaultFastTimeModifier, 1, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.FasterTimeModifier = floatValue;
         }

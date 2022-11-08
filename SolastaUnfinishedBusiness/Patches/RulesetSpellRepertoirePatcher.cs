@@ -38,7 +38,7 @@ public static class RulesetSpellRepertoirePatcher
                 return true;
             }
 
-            if (slotLevel == 0 || Main.Settings.DontConsumeSlots)
+            if (slotLevel == 0)
             {
                 return true;
             }
