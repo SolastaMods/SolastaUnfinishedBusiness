@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -82,9 +83,7 @@ internal sealed class Merciless : AbstractFightingStyle
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy =>
-                             enemy != attacker && int3.Distance(attacker.LocationPosition, enemy.LocationPosition) <=
-                             distance))
+                         .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
