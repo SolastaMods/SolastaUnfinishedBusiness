@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
-  "autopreparedTag": "Domain",
+  "autopreparedTag": "DeadMaster",
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",

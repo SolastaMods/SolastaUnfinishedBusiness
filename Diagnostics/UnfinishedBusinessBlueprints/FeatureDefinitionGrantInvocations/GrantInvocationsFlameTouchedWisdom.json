@@ -1,0 +1,25 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0bc6a6c9-88e9-5d8c-910e-7259c4b5d97e",
+  "contentPack": 9999,
+  "name": "GrantInvocationsFlameTouchedWisdom"
+}

@@ -13,22 +13,9 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedBarbarian:5fc5a825-7241-5ee2-b05d-05cd41c9e367",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedBard:d9730fbf-2a28-5af2-b8b1-969b784146d1",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedCleric:47eaba1b-20a1-59bf-afcb-9a493f924fdc",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedDruid:3cee7ab0-d8e2-501e-95a2-9a86a33eabc4",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedFighter:96ae53f8-33af-5b90-93a3-df18d109a469",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedInventor:76b4be3a-d3ab-58f0-b9c3-d8c865377ca2",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedMonk:9a162f45-5f99-52f9-bf1d-b71f4348eba7",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedPaladin:29ee1bb7-3398-5f4b-9fc0-174a77639154",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedRanger:67f6e925-346b-5dd6-94d6-e20d533f8bab",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedRogue:0d08a100-8e19-5e05-9292-37ee8c09c905",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedSorcerer:2f48882f-794e-56a3-8804-4297cf718a03",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedWarlock:a3399b46-05da-5ef7-9c89-8072d2cc4a83",
-    "Definition:AutoPreparedSpellsFeatShadowTouchedWizard:eb176128-006d-580d-ae93-1047cdb5e68f",
-    "Definition:PowerFeatShadowTouchedFalseLife:f8b87645-627d-5980-8610-5b217ce702dc",
-    "Definition:PowerFeatShadowTouchedInflictWoundsCha:a140c5d9-9481-5827-96c4-b81624fc8198",
-    "Definition:PowerFeatShadowTouchedInvisibility:e23cb8d8-af6d-561b-9d61-aa5b566c6c38"
+    "Definition:AutoPreparedSpellsFeatShadowTouched:f85f6e2d-c5d2-5d94-a6f5-024fd4aab2fe",
+    "Definition:CastSpellShadowTouchedCharisma:f4b5cee5-8ebf-5b0e-8c86-5e1eb993dc6f",
+    "Definition:GrantInvocationsShadowTouchedCharisma:345b1967-91c5-56f6-8b93-004159b27b41"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
