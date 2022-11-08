@@ -107,8 +107,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&CraftingManualRecipeEnchantCEPike+1Title",
-    "description": "Item/&CraftingManualRecipeEnchantCEPike+1Description",
+    "title": "Enchant Pike +1",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9198c200dd2f1c7468b9b31724b2baf2",
