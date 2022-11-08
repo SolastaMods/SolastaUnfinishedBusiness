@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -12,6 +13,13 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class SpellsContext
 {
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
+
+    internal static readonly SpellListDefinition EmptySpellList = SpellListDefinitionBuilder
+        .Create("SpellListEmpty")
+        .SetGuiPresentationNoContent(true)
+        .ClearSpells()
+        .FinalizeSpells(false)
+        .AddToDB();
 
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();

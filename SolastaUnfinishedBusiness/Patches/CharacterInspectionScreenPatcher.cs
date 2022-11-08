@@ -22,6 +22,25 @@ public static class CharacterInspectionScreenPatcher
             transform.position =
                 new Vector3(__instance.characterPlate.transform.position.x / 2f, transform.position.y, 0);
         }
+
+        public static void Postfix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
+        {
+            //PATCH: hide repertoires that have hidden spell castin feature
+            for (int index = 3; index < __instance.toggleGroup.transform.childCount; ++index)
+            {
+                var child = __instance.toggleGroup.transform.GetChild(index);
+
+                if (index > 3 || Gui.Game == null)
+                {
+                    var repertoire = heroCharacter.SpellRepertoires[index - __instance.staticTogglesNumber];
+
+                    if (repertoire.SpellCastingFeature.GuiPresentation.Hidden)
+                    {
+                        child.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
     }
 
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]

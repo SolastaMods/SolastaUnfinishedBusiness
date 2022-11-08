@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -271,7 +272,7 @@ internal static class LevelUpContext
                     allowedAutoPreparedSpells.AddRange(
                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                     break;
-                case FeatureDefinitionFeatureSet { uniqueChoices: false } featureDefinitionFeatureSet:
+                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
                     allowedAutoPreparedSpells.AddRange(
                         CacheAllowedAutoPreparedSpells(featureDefinitionFeatureSet.FeatureSet));
                     break;
@@ -291,7 +292,7 @@ internal static class LevelUpContext
         {
             switch (featureDefinition)
             {
-                case FeatureDefinitionFeatureSet { uniqueChoices: false } featureDefinitionFeatureSet:
+                case FeatureDefinitionFeatureSet {uniqueChoices: false} featureDefinitionFeatureSet:
                     allowedSpells.AddRange(
                         CacheAllowedSpells(featureDefinitionFeatureSet.FeatureSet));
                     break;
@@ -307,7 +308,7 @@ internal static class LevelUpContext
                         featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
                     break;
 
-                case FeatureDefinitionBonusCantrips { BonusCantrips: { } } featureDefinitionBonusCantrips:
+                case FeatureDefinitionBonusCantrips {BonusCantrips: { }} featureDefinitionBonusCantrips:
                     allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
                     break;
 
@@ -670,5 +671,23 @@ internal static class LevelUpContext
             CacheAllowedAutoPreparedSpells(SelectedClassFeatures);
 
         internal Dictionary<SpellDefinition, string> OtherClassesKnownSpells => CacheOtherClassesKnownSpells(Hero);
+    }
+
+    public static void GrantCustomFeaturesFromFeats(RulesetCharacterHero hero, CharacterBuildingManager instance)
+    {
+        var data = hero.GetOrCreateHeroBuildingData();
+
+        foreach (var pair in data.levelupTrainedFeats)
+        {
+            //Grant invocations from fet features
+            var features = pair.Value.SelectMany(f => f.Features).ToList();
+
+            FeatureDefinitionGrantInvocations.GrantInvocations(hero, pair.Key, features);
+
+            foreach (var castSpell in features.OfType<FeatureDefinitionCastSpell>())
+            {
+                hero.GrantSpellRepertoire(castSpell, null, null, null);
+            }
+        }
     }
 }

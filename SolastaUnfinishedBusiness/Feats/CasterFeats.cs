@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -17,6 +19,8 @@ internal static class CasterFeats
     {
         var groups = new List<FeatDefinition>();
         var groupFeats = new List<FeatDefinition>();
+        FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spells;
+        FeatureDefinitionAutoPreparedSpells autoPreparedSpells;
 
         // telekinetic general
         const string TELEKINETIC = "Telekinetic";
@@ -85,19 +89,24 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, groupFeats));
         feats.AddRange(groupFeats);
 
-        // fey teleportation
+        #region Fey Teleportation
 
         const string FEY_TELEPORT = "FeyTeleport";
 
-        var autoPreparedSpellsFeyTeleportation = AutoPreparedClassLists(
-            BuildSpellGroup(0, MistyStep),
-            MistyStep.GuiPresentation,
-            "AutoPreparedSpellsFeyTeleportation", FEY_TELEPORT);
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeyTeleportation")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(BuildSpellGroup(0, MistyStep))
+            .SetSpellcastingClass(null)
+            .SetAutoTag(FEY_TELEPORT)
+            .AddToDB();
 
+        //Invocations for now don't support bonus actions, so leave custom power for now
         var powerFeatFeyTeleportationMistyStep = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFeyTeleportationMistyStep")
             .SetGuiPresentation(MistyStep.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(MistyStep.EffectDescription)
             .AddToDB();
 
@@ -105,7 +114,7 @@ internal static class CasterFeats
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
-                RuleDefinitions.ProficiencyType.Language, "Language_Tirmarian")
+                ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 
         groupFeats.SetRange(
@@ -115,8 +124,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Pakri,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -126,8 +135,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -137,8 +146,8 @@ internal static class CasterFeats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Maraike,
                     proficiencyFeatFeyTeleportationTirmarian,
+                    autoPreparedSpells,
                     powerFeatFeyTeleportationMistyStep)
-                .AddFeatures(autoPreparedSpellsFeyTeleportation)
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB()
@@ -147,168 +156,92 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupTeleportation", FEY_TELEPORT, groupFeats));
         feats.AddRange(groupFeats);
 
-        // celestial touched
+        #endregion
 
-        const string CELESTIAL_TOUCHED = "CelestialTouched";
+        #region Celestial Touched
 
-        var autoPreparedSpellsFeatCelestialTouched = AutoPreparedClassLists(
-            BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration),
-            GuiPresentationBuilder
-                .Build("AutoPreparedSpellsFeatCelestialTouched", Category.Feature),
-            "AutoPreparedSpellsFeatCelestialTouched", CELESTIAL_TOUCHED);
+        const string CELESTIAL = "CelestialTouched";
 
-        var powerFeatCelestialTouchedHealingWord = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedHealingWord")
-            .SetGuiPresentation(HealingWord.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(HealingWord.EffectDescription)
-            .AddToDB();
+        spells = BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
 
-        var powerFeatCelestialTouchedCureWounds = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedCureWounds")
-            .SetGuiPresentation(CureWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(CureWounds.EffectDescription)
-            .AddToDB();
-
-        var powerFeatCelestialTouchedLesserRestoration = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatCelestialTouchedLesserRestoration")
-            .SetGuiPresentation(LesserRestoration.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(LesserRestoration.EffectDescription)
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatCelestialTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(CELESTIAL)
             .AddToDB();
 
         groupFeats.SetRange(
             // celestial touched int
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedInt")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Pakri)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB(),
             // celestial touched wis
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedWis")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Maraike)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB(),
             // celestial touched cha
             FeatDefinitionBuilder
                 .Create("FeatCelestialTouchedCha")
-                .SetFeatures(
-                    powerFeatCelestialTouchedHealingWord,
-                    powerFeatCelestialTouchedCureWounds,
-                    powerFeatCelestialTouchedLesserRestoration,
-                    AttributeModifierCreed_Of_Solasta)
-                .AddFeatures(autoPreparedSpellsFeatCelestialTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, CELESTIAL, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(CELESTIAL_TOUCHED)
+                .SetFeatFamily(CELESTIAL)
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL_TOUCHED, groupFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupCelestialTouched", CELESTIAL, groupFeats));
         feats.AddRange(groupFeats);
 
-        // flame touched
+        #endregion
+
+        #region Flame Touched
 
         const string FLAME_TOUCHED = "FlameTouched";
 
-        var autoPreparedSpellsFeatFlameTouched = AutoPreparedClassLists(
-            BuildSpellGroup(0, BurningHands, HellishRebuke, ScorchingRay),
-            GuiPresentationBuilder
-                .Build("AutoPreparedSpellsFeatFlameTouched", Category.Feature),
-            "AutoPreparedSpellsFeatFlameTouched", FLAME_TOUCHED);
+        spells = BuildSpellGroup(0, BurningHands, HellishRebuke, ScorchingRay);
 
-        var powerFeatFlameTouchedBurningHandsInt = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedBurningHandsInt")
-            .SetGuiPresentation(BurningHands.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(BurningHands.EffectDescription)
-            .SetBonusToAttack(true, true)
-            .AddToDB();
-
-        var powerFeatFlameTouchedBurningHandsWis = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedBurningHandsWis")
-            .SetGuiPresentation(BurningHands.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(BurningHands.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
-        var powerFeatFlameTouchedBurningHandsCha = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedBurningHandsCha")
-            .SetGuiPresentation(BurningHands.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(BurningHands.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var powerFeatFlameTouchedScorchingRayInt = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedScorchingRayInt")
-            .SetGuiPresentation(ScorchingRay.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(ScorchingRay.EffectDescription)
-            .SetBonusToAttack(true, true)
-            .AddToDB();
-
-        var powerFeatFlameTouchedScorchingRayWis = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedScorchingRayWis")
-            .SetGuiPresentation(ScorchingRay.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(ScorchingRay.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
-        var powerFeatFlameTouchedScorchingRayCha = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFlameTouchedScorchingRayCha")
-            .SetGuiPresentation(ScorchingRay.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(ScorchingRay.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatFlameTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(FLAME_TOUCHED)
             .AddToDB();
 
         groupFeats.SetRange(
             // flame touched int
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedInt")
-                .SetFeatures(
-                    powerFeatFlameTouchedBurningHandsInt,
-                    powerFeatFlameTouchedScorchingRayInt,
-                    AttributeModifierCreed_Of_Pakri)
-                .AddFeatures(autoPreparedSpellsFeatFlameTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FLAME_TOUCHED, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FLAME_TOUCHED)
                 .AddToDB(),
             // flame touched wis
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedWis")
-                .SetFeatures(
-                    powerFeatFlameTouchedBurningHandsWis,
-                    powerFeatFlameTouchedScorchingRayWis,
-                    AttributeModifierCreed_Of_Maraike)
-                .AddFeatures(autoPreparedSpellsFeatFlameTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FLAME_TOUCHED, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FLAME_TOUCHED)
                 .AddToDB(),
             // flame touched cha
             FeatDefinitionBuilder
                 .Create("FeatFlameTouchedCha")
-                .SetFeatures(
-                    powerFeatFlameTouchedBurningHandsCha,
-                    powerFeatFlameTouchedScorchingRayCha,
-                    AttributeModifierCreed_Of_Solasta)
-                .AddFeatures(autoPreparedSpellsFeatFlameTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FLAME_TOUCHED, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FLAME_TOUCHED)
                 .AddToDB()
@@ -317,117 +250,99 @@ internal static class CasterFeats
         groups.Add(GroupFeats.MakeGroup("FeatGroupFlameTouched", FLAME_TOUCHED, groupFeats));
         feats.AddRange(groupFeats);
 
-        // shadow touched
+        #endregion
 
-        const string SHADOW_TOUCHED = "ShadowTouched";
+        #region Shadow Touched
 
-        var autoPreparedSpellsFeatShadowTouched = AutoPreparedClassLists(
-            BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds),
-            GuiPresentationBuilder
-                .Build("AutoPreparedSpellsFeatShadowTouched", Category.Feature),
-            "AutoPreparedSpellsFeatShadowTouched", SHADOW_TOUCHED);
+        const string SHADOW = "ShadowTouched";
 
-        var powerFeatShadowTouchedInvisibility = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInvisibility")
-            .SetGuiPresentation(Invisibility.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(Invisibility.EffectDescription)
-            .AddToDB();
+        spells = BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds);
 
-        var powerFeatShadowTouchedFalseLife = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedFalseLife")
-            .SetGuiPresentation(FalseLife.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(FalseLife.EffectDescription)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsInt = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsInt")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsWis = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsWis")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
-        var powerFeatShadowTouchedInflictWoundsCha = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatShadowTouchedInflictWoundsCha")
-            .SetGuiPresentation(InflictWounds.GuiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-            .SetEffectDescription(InflictWounds.EffectDescription)
-            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatShadowTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateReperoireForAutoprep.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(SHADOW)
             .AddToDB();
 
         groupFeats.SetRange(
             // shadow touched int
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedInt")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsInt,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Pakri)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB(),
             // shadow touched wis
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedWis")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsWis,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Maraike)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB(),
             // shadow touched cha
             FeatDefinitionBuilder
                 .Create("FeatShadowTouchedCha")
-                .SetFeatures(
-                    powerFeatShadowTouchedInvisibility,
-                    powerFeatShadowTouchedInflictWoundsCha,
-                    powerFeatShadowTouchedFalseLife,
-                    AttributeModifierCreed_Of_Solasta)
-                .AddFeatures(autoPreparedSpellsFeatShadowTouched)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, SHADOW, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatFamily(SHADOW_TOUCHED)
+                .SetFeatFamily(SHADOW)
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW_TOUCHED, groupFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupShadowTouched", SHADOW, groupFeats));
         feats.AddRange(groupFeats);
+
+        #endregion
 
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 
     [NotNull]
-    private static FeatureDefinition[] AutoPreparedClassLists(
+    private static FeatureDefinition[] MakeSpellFeatureAndInvocations(
         FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
-        GuiPresentation learnShadowTouchedPresentation,
-        string namePrefix,
-        string autoPrepTag)
+        string name,
+        string castingAttribute)
     {
-        return DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .Select(x =>
-                FeatureDefinitionAutoPreparedSpellsBuilder
-                    .Create(namePrefix + x.Name)
-                    .SetGuiPresentation(learnShadowTouchedPresentation)
-                    .SetPreparedSpellGroups(spellGroup)
-                    .SetSpellcastingClass(x)
-                    .SetAutoTag(autoPrepTag)
-                    .AddToDB())
-            .Cast<FeatureDefinition>()
-            .ToArray();
+        var featureName = $"CastSpell{name}{castingAttribute}";
+        var spellfeature = FeatureDefinitionCastSpellBuilder
+            .Create(featureName)
+            .SetGuiPresentationNoContent(true)
+            .SetFocusType(EquipmentDefinitions.FocusType.None)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.None)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.None)
+            .SetSpellList(SpellsContext.EmptySpellList)
+            .SetSpellCastingAbility(castingAttribute)
+            .AddToDB();
+
+        var invocations = new List<InvocationDefinition>();
+
+        foreach (var spell in spellGroup.SpellsList)
+        {
+            if (spell.castingTime is ActivationTime.Reaction) { continue; }
+
+            invocations.Add(CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{name}{spell.Name}{castingAttribute}")
+                .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
+                .SetCustomSubFeatures(ValidateReperoireForAutoprep.HasSpellCastingFeature(featureName))
+                .SetPoolType(null)
+                .SetGrantedSpell(spell, longRestRecharge: true)
+                .AddToDB());
+        }
+
+        var grant = FeatureDefinitionGrantInvocationsBuilder
+            .Create($"GrantInvocations{name}{castingAttribute}")
+            .SetInvocations(invocations)
+            .AddToDB();
+
+
+        return new FeatureDefinition[] {spellfeature, grant};
     }
 
     [NotNull]
@@ -440,24 +355,24 @@ internal static class CasterFeats
         return FeatureDefinitionPowerBuilder
             .Create(name)
             .SetGuiPresentation(guiPresentation)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(
-                    RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 6,
-                    RuleDefinitions.TargetType.Individuals)
+                    Side.All, RangeType.Distance, 6,
+                    TargetType.Individuals)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,
                     AttributeDefinitions.Strength,
                     true,
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     savingThrowDifficultyAbility)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetMotionForm(motionType, 1)
                     .Build())
-                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
+                .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build())
             .AddToDB();

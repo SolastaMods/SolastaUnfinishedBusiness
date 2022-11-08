@@ -66,11 +66,26 @@ public static class RulesetCharacterHeroPatcher
     {
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //PATCH: mark some invocation as disabled by default
-            //used for Grenadier's bomb elements to not be enabled upon learning
             foreach (var invocation in __instance.Invocations)
             {
+                //PATCH: mark some invocation as disabled by default
                 invocation.active = !invocation.invocationDefinition.HasSubFeatureOfType<InvocationDisabledByDefault>();
+
+                //PATCH: allow customized repertoire matching for invocation
+                var matcher = invocation.InvocationDefinition
+                    .GetFirstSubFeatureOfType<RepertoireValidForAutoPreperedFeature>();
+
+                if (matcher == null) { continue; }
+
+                foreach (var repertoire in __instance.SpellRepertoires)
+                {
+                    if (matcher(repertoire, __instance))
+                    {
+                        invocation.invocationRepertoire = repertoire;
+                        invocation.spellCastingFeature = repertoire.spellCastingFeature;
+                        break;
+                    }
+                }
             }
         }
     }

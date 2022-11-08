@@ -41,7 +41,6 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
         return (TBuilder)this;
     }
 
-#if false
     internal TBuilder SetGrantedSpell(SpellDefinition spell,
         bool consumesSpellSlot = false,
         bool longRestRecharge = false,
@@ -53,7 +52,6 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
         Definition.overrideMaterialComponent = overrideMaterialComponent;
         return (TBuilder)this;
     }
-#endif
 
     #region Constructors
 

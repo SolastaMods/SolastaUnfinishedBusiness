@@ -924,11 +924,22 @@ public static class RulesetCharacterPatcher
             // this includes all the logic for the base function
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
-
-            foreach (var autoPreparedSpells in __instance.FeaturesToBrowse
-                         .Select(featureDefinition => featureDefinition as FeatureDefinitionAutoPreparedSpells)
-                         .Where(autoPreparedSpells => autoPreparedSpells!.SpellcastingClass == spellcastingClass))
+            var features = __instance.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>();
+            foreach (var autoPreparedSpells in features)
             {
+                var matcher = autoPreparedSpells.GetFirstSubFeatureOfType<RepertoireValidForAutoPreperedFeature>();
+                bool matches;
+                if (matcher == null)
+                {
+                    matches = autoPreparedSpells.SpellcastingClass == spellRepertoire.spellCastingClass;
+                }
+                else
+                {
+                    matches = matcher(spellRepertoire, __instance);
+                }
+                
+                if (!matches) { continue; }
+
                 var classLevel = __instance.GetSpellcastingLevel(spellRepertoire);
 
                 foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
