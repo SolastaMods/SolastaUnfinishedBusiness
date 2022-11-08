@@ -24,14 +24,18 @@ internal class CustomInvocationDefinitionBuilder
         return this;
     }
 
-    internal CustomInvocationDefinitionBuilder SetActionId(ActionDefinitions.Id main, ActionDefinitions.Id bonus)
+    internal CustomInvocationDefinitionBuilder SetActionId(
+        ActionDefinitions.Id main = ActionDefinitions.Id.CastInvocation,
+        ActionDefinitions.Id bonus = (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus)
     {
         Definition.MainActionId = main;
         Definition.BonusActionId = bonus;
         return this;
     }
 
-    internal CustomInvocationDefinitionBuilder SetActionId(ExtraActionId main, ExtraActionId bonus)
+    internal CustomInvocationDefinitionBuilder SetActionId(
+        ExtraActionId main = (ExtraActionId)ActionDefinitions.Id.CastInvocation,
+        ExtraActionId bonus = ExtraActionId.CastInvocationBonus)
     {
         return SetActionId((ActionDefinitions.Id)main, (ActionDefinitions.Id)bonus);
     }

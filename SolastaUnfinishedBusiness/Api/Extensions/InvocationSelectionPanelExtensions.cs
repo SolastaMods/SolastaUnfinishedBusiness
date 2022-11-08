@@ -22,7 +22,7 @@ public static class InvocationSelectionPanelExtensions
         for (var i = 0; i < table.childCount; i++)
         {
             var box = table.GetChild(i).GetComponent<InvocationActivationBox>();
-            var active = i < invocations.Count;
+            var active = i < invocations.Count && box.gameObject.activeSelf;
 
             if (active)
             {

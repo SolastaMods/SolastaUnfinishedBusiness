@@ -46,17 +46,24 @@ public static class RulesetCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanCastInvocation_Patch
     {
-        public static bool Prefix(ref bool __result, RulesetInvocation invocation)
+        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, RulesetInvocation invocation)
         {
             //PATCH: make sure we can't cast hidden invocations, so they will be hidden
-            if (!invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            if (invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
             {
-                return true;
+                __result = false;
+
+                return false;
             }
 
-            __result = false;
+            //PATCH: report invocation as castable if this is a power we can use
+            if (invocation.invocationDefinition.GrantedFeature is FeatureDefinitionPower power)
+            {
+                __result = __instance.CanUsePower(power);
+                return false;
+            }
 
-            return false;
+            return true;
         }
     }
 

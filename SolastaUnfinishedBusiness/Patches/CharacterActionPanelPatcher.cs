@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
@@ -37,7 +38,7 @@ public static class CharacterActionPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
-    [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
+    [HarmonyPatch(new[] {typeof(ActionDefinitions.Id), typeof(GuiCharacterAction)})]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnActivateAction_Patch
     {
@@ -61,6 +62,37 @@ public static class CharacterActionPanelPatcher
         }
     }
 
+    [HarmonyPatch(typeof(CharacterActionPanel), "InvocationCastEngaged")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class InvocationCastEngaged_Patch
+    {
+        public static bool Prefix(CharacterActionPanel __instance, RulesetInvocation invocation, int subspellIndex)
+        {
+            var definition = invocation.InvocationDefinition;
+            var power = definition.GrantedFeature as FeatureDefinitionPower;
+            if (power != null)
+            {
+                var actionDefinitions =
+                    ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
+                var action = actionDefinitions[__instance.actionId];
+                __instance.actionId = action.actionType == ActionDefinitions.ActionType.Bonus
+                    ? ActionDefinitions.Id.PowerBonus
+                    : ActionDefinitions.Id.PowerMain;
+                __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
+                __instance.PowerEngaged(UsablePowersProvider.Get(power, __instance.GuiCharacter.RulesetCharacter));
+                return false;
+            }
+
+            if (definition.GrantedSpell == null)
+            {
+                //Shouldn't happen - it shoud return from erlier, but just in case, to prevent crash
+                Main.Error("InvocationCastEngaged with null spell and not power feature");
+                return false;
+            }
+
+            return true;
+        }
+    }
 
     [HarmonyPatch(typeof(CharacterActionPanel), "SelectInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
