@@ -129,6 +129,11 @@ internal enum ExtraAdvancementDuration
     DominateMonster = 9002
 }
 
+internal enum ExtraActionId
+{
+    CastInvocationBonus = 9000,
+}
+
 internal static class EnumImplementation
 {
     internal static bool ComputeExtraAdvancementDuration(

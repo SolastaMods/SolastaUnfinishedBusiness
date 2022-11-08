@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -56,6 +57,30 @@ public static class CharacterActionPanelPatcher
 
             return instructions.ReplaceCalls(findAttacks, "CharacterActionPanel.OnActivateAction",
                 new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+
+    [HarmonyPatch(typeof(CharacterActionPanel), "SelectInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class SelectInvocation_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: Support for bonus action invocations
+            //replaces calls to InvocationSelectionPanel.Bind to custom method which supports filtering bonus and main action invocations
+            var bindInvocationSelectionPanel = typeof(InvocationSelectionPanel).GetMethod("Bind");
+            var method = new Action<
+                InvocationSelectionPanel,
+                GameLocationCharacter, // caster,
+                InvocationSelectionPanel.InvocationSelectedHandler, // selected,
+                InvocationSelectionPanel.InvocationCancelledHandler, // canceled,
+                CharacterActionPanel // panel
+            >(InvocationSelectionPanelExtensions.CustomBind).Method;
+
+            return instructions.ReplaceCalls(bindInvocationSelectionPanel, "CharacterActionPanel.SelectInvocation",
+                new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
         }
     }

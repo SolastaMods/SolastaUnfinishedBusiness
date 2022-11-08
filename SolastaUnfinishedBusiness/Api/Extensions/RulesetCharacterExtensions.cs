@@ -187,4 +187,31 @@ internal static class RulesetCharacterExtensions
     {
         return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(className);
     }
+
+    internal static bool CanCastAnyBonusActionInvocation(this RulesetCharacter instance)
+    {
+        if (instance.Invocations.Empty())
+            return false;
+        foreach (RulesetInvocation invocation in instance.Invocations)
+        {
+            if (invocation.invocationDefinition.IsBonusAction() && instance.CanCastInvocation(invocation))
+                return true;
+        }
+
+        return false;
+    }
+
+
+    internal static bool CanCastAnyMainActionInvocation(this RulesetCharacter instance)
+    {
+        if (instance.Invocations.Empty())
+            return false;
+        foreach (RulesetInvocation invocation in instance.Invocations)
+        {
+            if (!invocation.invocationDefinition.IsBonusAction() && instance.CanCastInvocation(invocation))
+                return true;
+        }
+
+        return false;
+    }
 }

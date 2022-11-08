@@ -213,11 +213,30 @@ public static class GameLocationCharacterPatcher
                 new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
-        public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
+        public static void Postfix(GameLocationCharacter __instance, ActionDefinitions.Id actionId,
             ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
+
+            //PATCH: support for bonus action invocations
+            if (actionId == (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus)
+            {
+                __result = scope == ActionDefinitions.ActionScope.Battle
+                           && __instance.RulesetCharacter.CanCastAnyBonusActionInvocation()
+                    ? ActionDefinitions.ActionStatus.Available
+                    : ActionDefinitions.ActionStatus.Unavailable;
+            }
+
+            if (actionId == ActionDefinitions.Id.CastInvocation
+                && scope == ActionDefinitions.ActionScope.Battle
+                && __result == ActionDefinitions.ActionStatus.Available)
+            {
+                if (!__instance.RulesetCharacter.CanCastAnyMainActionInvocation())
+                {
+                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                }
+            }
         }
     }
 
