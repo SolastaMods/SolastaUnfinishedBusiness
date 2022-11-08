@@ -176,11 +176,11 @@ internal static class CustomWeaponsContext
                 .Build())
             .Build();
 
-        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfForce, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet)), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfForce, 48, 16,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
 
-        MerchantContext.AddItem(RecipeHelper.BuildManual(RecipeHelper.BuildRecipe(HandwrapsOfPulling, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet)), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfPulling, 48, 16,
+            ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
     }
 
     [NotNull]
@@ -237,7 +237,7 @@ internal static class CustomWeaponsContext
         HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         HalberdPrimed.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPrimed, ShopItemType.ShopPrimedMelee);
-        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
             950, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
@@ -313,7 +313,7 @@ internal static class CustomWeaponsContext
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(PikePrimed, ShopItemType.ShopPrimedMelee);
-        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
             950, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
@@ -391,7 +391,7 @@ internal static class CustomWeaponsContext
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         LongMacePrimed.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePrimed, ShopItemType.ShopPrimedMelee);
-        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
             950, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
@@ -476,7 +476,7 @@ internal static class CustomWeaponsContext
         HandXbowPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HandXbowPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         MerchantContext.AddItem(HandXbowPrimed, ShopItemType.ShopPrimedRanged);
-        MerchantContext.AddItem(RecipeHelper.BuildPrimingManual(HandXbow, HandXbowPrimed), ShopItemType.ShopCrafting);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(HandXbow, HandXbowPrimed), ShopItemType.ShopCrafting);
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
             950, true, Rare, icon: HandXbowP1Icon, twoHanded: false,

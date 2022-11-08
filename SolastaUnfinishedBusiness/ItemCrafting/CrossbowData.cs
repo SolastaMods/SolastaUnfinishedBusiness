@@ -7,11 +7,11 @@ namespace SolastaUnfinishedBusiness.ItemCrafting;
 
 internal static class CrossbowData
 {
-    private static ItemCollection _crossbowItems;
+    private static ItemCollection _items;
 
     [NotNull]
-    internal static ItemCollection CrossbowItems =>
-        _crossbowItems ??= new ItemCollection
+    internal static ItemCollection Items =>
+        _items ??= new ItemCollection
         {
             BaseWeapons =
                 new List<ItemDefinition>

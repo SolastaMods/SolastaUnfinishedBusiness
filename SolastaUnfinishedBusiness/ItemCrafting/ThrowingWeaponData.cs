@@ -31,7 +31,7 @@ internal static class ThrowingWeaponData
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
                 new("Frostburn", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_Frostburn,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn)
-            },
-            NumProduced = 3
+            }
+            // NumProduced = 3
         };
 }

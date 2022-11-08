@@ -70,28 +70,23 @@ internal static class CraftingContext
 
     internal static void Load()
     {
-        foreach (var merchant in MerchantTypeContext.MerchantTypes
-                     .Where(x => x.Item2.IsDocument))
-        {
-            ItemRecipeGenerationHelper.StockItem(merchant.Item1, DatabaseHelper.ItemDefinitions.Maul);
-        }
+        //TODO: do we still need this?
+        MerchantContext.AddItem(DatabaseHelper.ItemDefinitions.Maul, ShopItemType.ShopCrafting);
 
         ItemRecipeGenerationHelper.AddPrimingRecipes();
         ItemRecipeGenerationHelper.AddIngredientEnchanting();
         ItemRecipeGenerationHelper.AddFactionItems();
-
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(CrossbowData.CrossbowItems);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(HandaxeData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(ThrowingWeaponData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(BashingWeaponsData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(QuarterstaffData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(GreatAxeData.Items);
-        ItemRecipeGenerationHelper.AddRecipesForWeapons(GreatSwordData.Items);
-
-        ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(CrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(BashingWeaponsData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(SpearData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatAxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatSwordData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ArmorAndShieldData.Items, true);
 
         foreach (var key in RecipeBooks.Keys)
         {
@@ -119,11 +114,7 @@ internal static class CraftingContext
 
         foreach (var item in RecipeBooks[key])
         {
-            foreach (var merchant in MerchantTypeContext.MerchantTypes
-                         .Where(x => x.Item2.IsDocument))
-            {
-                ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
-            }
+            MerchantContext.AddItem(item, ShopItemType.ShopCrafting);
         }
     }
 
@@ -136,6 +127,7 @@ internal static class CraftingContext
         }
 
         var available = Main.Settings.CraftingItemsInDm.Contains(key);
+
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
@@ -171,9 +163,7 @@ internal static class CraftingContext
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var craftingPanel = characterInspectionScreen.craftingPanel;
-
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
-
         var filter = Object.Instantiate(dropdownPrefab, craftingPanel.transform);
         var filterRect = filter.GetComponent<RectTransform>();
 
@@ -261,7 +251,6 @@ internal static class CraftingContext
     {
         internal List<ItemDefinition> BaseWeapons;
         internal List<MagicItemDataHolder> MagicToCopy;
-        internal int NumProduced = 1;
         internal List<ItemDefinition> PossiblePrimedItemsToReplace;
 
         internal struct MagicItemDataHolder

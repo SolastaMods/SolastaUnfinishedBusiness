@@ -2,7 +2,6 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.ItemCrafting;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemFlagDefinitions;
 
@@ -236,32 +235,39 @@ internal static class MerchantContext
 
 internal static class RecipeHelper
 {
-    public static RecipeDefinition BuildRecipe([NotNull] ItemDefinition item, int hours, int difficulty,
-        params ItemDefinition[] ingredients)
+    private static RecipeDefinition BuildRecipe(
+        [NotNull] ItemDefinition item, int hours, int difficulty, params ItemDefinition[] ingredients)
     {
         return RecipeDefinitionBuilder
             .Create($"RecipeEnchant{item.Name}")
-            .SetGuiPresentation(item.GuiPresentation.Title, GuiPresentationBuilder.EmptyString)
+            .SetGuiPresentation(item.GuiPresentation.Title, GuiPresentationBuilder.EmptyString, item)
             .SetCraftedItem(item)
             .SetCraftingCheckData(hours, difficulty, ToolTypeDefinitions.EnchantingToolType)
             .AddIngredients(ingredients)
             .AddToDB();
     }
 
-    [NotNull]
-    public static ItemDefinition BuildRecipeManual([NotNull] ItemDefinition item, int hours, int difficulty,
-        params ItemDefinition[] ingredients)
+    public static RecipeDefinition BuildPrimeRecipe(ItemDefinition item, ItemDefinition primed)
     {
-        return BuildManual(BuildRecipe(item, hours, difficulty, ingredients));
+        return RecipeDefinitionBuilder
+            .Create($"RecipePrime{item.Name}")
+            .SetGuiPresentation(primed.GuiPresentation.Title, GuiPresentationBuilder.EmptyString, primed)
+            .SetCraftedItem(primed)
+            .SetCraftingCheckData(8, 15, ToolTypeDefinitions.EnchantingToolType)
+            .AddIngredients(item)
+            .AddToDB();
     }
 
     [NotNull]
-    public static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe)
+    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, BaseDefinition item, string termTag)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder
             .Create($"CraftingManual{recipe.Name}")
-            .SetGuiPresentation(Category.Item, reference)
+            .SetGuiPresentation(
+                Gui.Format($"Item/&{termTag}Title", item.FormatTitle()),
+                item.guiPresentation.description,
+                reference)
             .SetItemPresentation(reference.ItemPresentation)
             .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
             .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)
@@ -276,9 +282,16 @@ internal static class RecipeHelper
     }
 
     [NotNull]
-    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
+    public static ItemDefinition BuildRecipeManual(
+        [NotNull] ItemDefinition item, int hours, int difficulty, params ItemDefinition[] ingredients)
     {
-        return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(item, primed));
+        return BuildManual(BuildRecipe(item, hours, difficulty, ingredients), item, "Enchant");
+    }
+
+    [NotNull]
+    public static ItemDefinition BuildPrimeManual(ItemDefinition item, ItemDefinition primed)
+    {
+        return BuildManual(BuildPrimeRecipe(item, primed), item, "Prime");
     }
 }
 
