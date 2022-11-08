@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -113,8 +114,7 @@ internal static class CasterFeats
         var proficiencyFeatFeyTeleportationTirmarian = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Language, "Language_Tirmarian")
+            .SetProficiencies(ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 
         groupFeats.SetRange(
@@ -309,7 +309,7 @@ internal static class CasterFeats
         string castingAttribute)
     {
         var featureName = $"CastSpell{name}{castingAttribute}";
-        var spellfeature = FeatureDefinitionCastSpellBuilder
+        var spellFeature = FeatureDefinitionCastSpellBuilder
             .Create(featureName)
             .SetGuiPresentationNoContent(true)
             .SetFocusType(EquipmentDefinitions.FocusType.None)
@@ -323,13 +323,9 @@ internal static class CasterFeats
 
         var invocations = new List<InvocationDefinition>();
 
-        foreach (var spell in spellGroup.SpellsList)
+        foreach (var spell in spellGroup.SpellsList
+                     .Where(x => x.castingTime is not ActivationTime.Reaction))
         {
-            if (spell.castingTime is ActivationTime.Reaction)
-            {
-                continue;
-            }
-
             invocations.Add(CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{name}{spell.Name}{castingAttribute}")
                 .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
@@ -344,8 +340,7 @@ internal static class CasterFeats
             .SetInvocations(invocations)
             .AddToDB();
 
-
-        return new FeatureDefinition[] { spellfeature, grant };
+        return new FeatureDefinition[] { spellFeature, grant };
     }
 
     [NotNull]
@@ -361,9 +356,7 @@ internal static class CasterFeats
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(
-                    Side.All, RangeType.Distance, 6,
-                    TargetType.Individuals)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                 .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,
