@@ -20,7 +20,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassContext
 {
-    internal const int MaxClasses = 3;
+    internal const int DefaultClasses = 3;
+    internal const int MaxClasses = 6;
 
     private const string ArmorTrainingDescription = "Feature/&ArmorTrainingShortDescription";
 

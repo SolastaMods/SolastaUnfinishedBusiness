@@ -791,8 +791,8 @@ internal static partial class DatabaseHelper
         internal static FactionStatusDefinition Indifference { get; } =
             GetDefinition<FactionStatusDefinition>("Indifference");
 
-        internal static FactionStatusDefinition LivingLegend { get; } =
-            GetDefinition<FactionStatusDefinition>("LivingLegend");
+        // internal static FactionStatusDefinition LivingLegend { get; } =
+        //     GetDefinition<FactionStatusDefinition>("LivingLegend");
 
         internal static FactionStatusDefinition Sympathy { get; } =
             GetDefinition<FactionStatusDefinition>("Sympathy");

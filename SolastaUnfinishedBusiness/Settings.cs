@@ -68,7 +68,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLevel20 { get; set; }
 
     public bool EnableMulticlass { get; set; }
-    public int MaxAllowedClasses { get; set; } = 3;
+    public int MaxAllowedClasses { get; set; } = MulticlassContext.DefaultClasses;
     public bool EnableMinInOutAttributes { get; set; } = true;
     public bool EnableRelearnSpells { get; set; }
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;

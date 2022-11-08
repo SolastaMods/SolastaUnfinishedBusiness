@@ -106,6 +106,7 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add i
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
+ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
