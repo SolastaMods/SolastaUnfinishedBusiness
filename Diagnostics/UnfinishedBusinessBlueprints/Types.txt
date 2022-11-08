@@ -1,3 +1,4 @@
+ActionDefinition
 CharacterClassDefinition
 CharacterRaceDefinition
 CharacterSubclassDefinition
