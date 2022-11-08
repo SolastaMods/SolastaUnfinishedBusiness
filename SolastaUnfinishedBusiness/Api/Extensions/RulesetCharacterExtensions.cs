@@ -187,4 +187,34 @@ internal static class RulesetCharacterExtensions
     {
         return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(className);
     }
+
+    internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,
+        ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope)
+    {
+        if (instance.Invocations.Empty())
+        {
+            return false;
+        }
+
+        foreach (RulesetInvocation invocation in instance.Invocations)
+        {
+            bool validId;
+            if (scope == ActionDefinitions.ActionScope.Battle)
+            {
+                validId = invocation.invocationDefinition.GetActionId() == actionId;
+            }
+            else
+            {
+                validId = invocation.invocationDefinition.GetMainActionId() == actionId;
+            }
+
+            if (validId && instance.CanCastInvocation(invocation))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

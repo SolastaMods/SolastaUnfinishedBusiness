@@ -164,4 +164,14 @@ public static class Sprites
         GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128);
 
     #endregion
+
+    #region Actions
+
+    internal static AssetReferenceSprite ActionPlaneMagic =>
+        GetSprite("ActionPlaneMagic", Resources.ActionPlaneMagic, 80);
+
+    internal static AssetReferenceSprite ActionInfuse =>
+        GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
+
+    #endregion
 }

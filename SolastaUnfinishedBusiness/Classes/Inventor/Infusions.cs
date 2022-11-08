@@ -137,7 +137,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUniqueInstance()
             .AddToDB());
 
@@ -181,7 +181,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUniqueInstance()
             .AddToDB());
 
@@ -268,10 +268,10 @@ internal static class Infusions
         CustomInvocationDefinitionBuilder
             .Create($"Invocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
-            .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(power)
+            .SetActionId(ExtraActionId.InventorInfusion)
             .AddToDB();
         return power;
     }
@@ -283,10 +283,10 @@ internal static class Infusions
         var invocation = CustomInvocationDefinitionBuilder
             .Create($"InvocationCreate{replica.name}")
             .SetGuiPresentation(Category.Feature, replica)
-            .SetCustomSubFeatures(Hidden.Marker)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
+            .SetActionId(ExtraActionId.InventorInfusion)
             .AddToDB();
 
         invocation.Item = replica;
@@ -314,7 +314,7 @@ internal static class Infusions
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
-                SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat, itemFilter)
+                SkipEffectRemovalOnLocationChange.Always, PowerVisibilityModifier.Hidden, itemFilter)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
@@ -350,7 +350,7 @@ internal static class Infusions
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
-                ValidatorsPowerUse.NotInCombat)
+                PowerVisibilityModifier.Hidden)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)

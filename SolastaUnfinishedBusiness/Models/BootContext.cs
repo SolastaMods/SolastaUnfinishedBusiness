@@ -37,6 +37,7 @@ internal static class BootContext
 
         // Create our Content Pack for anything that gets further created
         CeContentPackContext.Load();
+        CustomActionIdContext.Load();
 
         // Cache all Merchant definitions and what item types they sell
         MerchantTypeContext.Load();

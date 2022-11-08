@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -213,11 +214,27 @@ public static class GameLocationCharacterPatcher
                 new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
-        public static void Postfix(ref GameLocationCharacter __instance, ActionDefinitions.Id actionId,
+        public static void Postfix(GameLocationCharacter __instance, ActionDefinitions.Id actionId,
             ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
+
+            //PATCH: support for custom invocation action ids
+            if (CustomActionIdContext.IsInvocationActionId(actionId))
+            {
+                var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+                if (action.actionScope != ActionDefinitions.ActionScope.All && scope != action.actionScope)
+                {
+                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                }
+                else
+                {
+                    __result = __instance.RulesetCharacter.CanCastAnyInvocationOfActionId(actionId, scope)
+                        ? ActionDefinitions.ActionStatus.Available
+                        : ActionDefinitions.ActionStatus.Unavailable;
+                }
+            }
         }
     }
 
