@@ -11,10 +11,11 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InvocationsContext
 {
-    private const int Columns = 3;
-    private const int Width = 300;
+    private const int Columns = 4;
+    private const int Width = 230;
     private const int Height = 44;
-    private const int Spacing = 5;
+    private const int SpacingX = 7;
+    private const int SpacingY = 5;
 
     internal static HashSet<InvocationDefinition> Invocations { get; private set; } = new();
 
@@ -99,7 +100,7 @@ internal static class InvocationsContext
 
     private static int CompareInvocations(InvocationDefinition a, InvocationDefinition b)
     {
-        var compare = a.RequiredLevel - b.RequiredLevel;
+        var compare = Math.Max(a.RequiredLevel, 1) - Math.Max(b.RequiredLevel, 1);
 
         return compare == 0
             ? string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
@@ -124,22 +125,42 @@ internal static class InvocationsContext
             }
 
             var j = 0;
+            var level = 0;
+            var gap = 0;
             RectTransform rect;
 
             for (var i = 0; i < table.childCount; i++)
             {
                 var child = table.GetChild(i);
-                var invocationItem = child.GetComponent<InvocationItem>();
 
                 if (!child.gameObject.activeSelf)
                 {
                     continue;
                 }
 
+                var requiredLevel = child.GetComponent<InvocationItem>()
+                    .GuiInvocationDefinition
+                    .InvocationDefinition
+                    .RequiredLevel;
+
+                if (requiredLevel < 1) { requiredLevel = 1; }
+
+                if (requiredLevel != level)
+                {
+                    var mod = j % Columns;
+                    if (mod != 0)
+                    {
+                        j += Columns - mod;
+                    }
+
+                    level = requiredLevel;
+                    gap += 2 * SpacingY;
+                }
+
                 var x = j % Columns;
                 var y = j / Columns;
-                var posX = x * (Width + (Spacing * 2));
-                var posY = -y * (Height + Spacing);
+                var posX = x * (Width + SpacingX);
+                var posY = -y * (Height + SpacingY) - gap;
 
                 rect = child.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(posX, posY);
@@ -149,7 +170,8 @@ internal static class InvocationsContext
             }
 
             rect = table.GetComponent<RectTransform>();
-            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ((j / Columns) + 1) * (Height + Spacing));
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,
+                ((int)Math.Ceiling(j / (float)Columns)) * (Height + SpacingY) + gap);
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(table);
