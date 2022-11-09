@@ -125,7 +125,7 @@ internal static class InvocationsContext
             }
 
             var j = 0;
-            var level = 0;
+            var level = 1;
             var gap = 0;
             RectTransform rect;
 
