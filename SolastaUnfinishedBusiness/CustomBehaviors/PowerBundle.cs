@@ -513,7 +513,7 @@ internal static class PowerBundle
 
     /**
      * Patch implementation
-     * Replaces power with a spell that has sub-spells and then activates bundled power according to selected subspell.
+     * Shows sub-power selection modal for power bundles, then activates selected sub power
      * Returns true if nothing needs (or can) be done.
      */
     internal static bool PowerBoxActivated(UsablePowerBox box)
@@ -536,10 +536,13 @@ internal static class PowerBundle
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
-            //Note: ideal solution would be to patch `Unbind` of `UsablePowerBox` to auto close selector, instead of this check
             if (box != null && box.powerEngaged != null)
             {
                 box.powerEngaged(power);
+            }
+            else
+            {
+                Main.Error("Can't activate sub-power: box or handler is null");
             }
         }, box.RectTransform);
         subpowerSelectionModal.Show();
@@ -594,9 +597,9 @@ internal static class PowerBundle
      * Patch implementation
      * Closes sub-power selection modal
      */
-    internal static void CloseSubPowerSelectionModal()
+    internal static void CloseSubPowerSelectionModal(bool instant)
     {
-        Gui.GuiService.GetScreen<SubpowerSelectionModal>().OnCloseCb();
+        Gui.GuiService.GetScreen<SubpowerSelectionModal>().Hide(instant);
     }
 
     //TODO: decide if we need this, or can re-use native method of rest bundle powers
