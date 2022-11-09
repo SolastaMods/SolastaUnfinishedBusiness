@@ -1,9 +1,9 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
-  "requiredPact": null,
-  "grantedFeature": "Definition:MagicAffinityInvocationEldritchMind:0bbce03e-e29f-5dbc-8940-193269538fce",
+  "requiredLevel": -1,
+  "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
+  "grantedFeature": "Definition:FeatureSetInvocationImprovedPactWeapon:49fd9be1-8bc9-5e32-b156-c7550fee9da0",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationEldritchMindTitle",
-    "description": "Feature/&InvocationEldritchMindDescription",
+    "title": "Feature/&InvocationImprovedPactWeaponTitle",
+    "description": "Feature/&InvocationImprovedPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
-      "m_SubObjectName": "CastInvocation",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "778a99e7-ba0a-5982-afbe-04fe2cb146c8",
+  "guid": "29559951-626e-5c70-9ca2-4002555a0c10",
   "contentPack": 9999,
-  "name": "InvocationEldritchMind"
+  "name": "InvocationImprovedPactWeapon"
 }

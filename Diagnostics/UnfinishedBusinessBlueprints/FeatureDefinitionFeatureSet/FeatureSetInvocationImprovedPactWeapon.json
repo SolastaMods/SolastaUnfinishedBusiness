@@ -1,10 +1,18 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&InvocationImprovedPactWeaponTitle",
+    "description": "Feature/&InvocationImprovedPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b8b2a7d7-4707-5c7a-a37b-d3cbd3cedafa",
+  "guid": "49fd9be1-8bc9-5e32-b156-c7550fee9da0",
   "contentPack": 9999,
-  "name": "GrantInvocationsFlameTouchedIntelligence"
+  "name": "FeatureSetInvocationImprovedPactWeapon"
 }
