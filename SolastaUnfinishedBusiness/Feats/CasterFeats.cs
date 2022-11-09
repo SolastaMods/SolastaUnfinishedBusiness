@@ -339,6 +339,7 @@ internal static class CasterFeats
 
         var grant = FeatureDefinitionGrantInvocationsBuilder
             .Create($"GrantInvocations{name}{castingAttribute}")
+            .SetGuiPresentationNoContent(true)
             .SetInvocations(invocations)
             .AddToDB();
 
