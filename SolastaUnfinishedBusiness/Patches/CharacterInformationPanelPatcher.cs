@@ -55,8 +55,7 @@ public static class CharacterInformationPanelPatcher
                 BindingFlags.Instance | BindingFlags.NonPublic);
             var myEnumerateClassBadgesMethod =
                 new Action<CharacterInformationPanel>(CharacterInspectionScreenEnhancement.EnumerateClassBadges).Method;
-
-            // need to replace 2nd and 3rd occurrence so I call it twice looking for 2nd ones...
+            
             return instructions
                 .ReplaceCalls(enumerateClassBadgesMethod,
                     "CharacterInformationPanel.Refresh.EnumerateClassBadges",
@@ -66,7 +65,7 @@ public static class CharacterInformationPanelPatcher
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                     new CodeInstruction(OpCodes.Call, containsMethod))
                 .ReplaceCall(containsMethod,
-                    2, "CharacterInformationPanel.Refresh.Contains.2",
+                    3, "CharacterInformationPanel.Refresh.Contains.2",
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
                     new CodeInstruction(OpCodes.Call, containsMethod));
         }
