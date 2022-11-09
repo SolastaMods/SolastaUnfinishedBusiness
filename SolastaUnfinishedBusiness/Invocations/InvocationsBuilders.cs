@@ -244,7 +244,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(9, pact: FeatureSetPactBlade)
+            .SetRequirements(15, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationUltimatePactWeapon")
@@ -253,7 +253,7 @@ internal static class InvocationsBuilders
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                                 "AttackModifierInvocationUltimatePactWeaponPlus3")
-                            .SetAttackRollModifier(2)
+                            .SetAttackRollModifier(3)
                             .AddToDB(),
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
