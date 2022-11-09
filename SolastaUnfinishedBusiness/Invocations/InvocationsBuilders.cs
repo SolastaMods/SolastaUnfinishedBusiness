@@ -51,14 +51,18 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationUndyingServitude";
 
-        var createDeadRisenGhost = DatabaseRepository.GetDatabase<SpellDefinition>().GetElement("CreateDeadRisenGhost");
+        var spell = DatabaseRepository.GetDatabase<SpellDefinition>()
+            .GetElement("CreateDeadRisenSkeleton_Enforcer");
 
-        //TODO: make this a power bundle instead and add other undead from Dead Master subclass
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, createDeadRisenGhost)
+            .SetGuiPresentation(
+                GuiPresentationBuilder.CreateTitleKey(NAME, Category.Invocation),
+                Gui.Format(GuiPresentationBuilder.CreateDescriptionKey(NAME, Category.Invocation), spell.FormatTitle()),
+                spell
+            )
             .SetRequirements(5)
-            .SetGrantedSpell(createDeadRisenGhost, false, true)
+            .SetGrantedSpell(spell, false, true)
             .AddToDB();
     }
 
@@ -113,6 +117,24 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(powerInvocationGraspingBlast)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildHinderingBlast()
+    {
+        const string NAME = "InvocationHinderingBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
+            .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}")
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget)
+                .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
+                .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
+                    ConditionDefinitions.ConditionHindered_By_Frost)
+                .AddToDB())
             .AddToDB();
     }
 

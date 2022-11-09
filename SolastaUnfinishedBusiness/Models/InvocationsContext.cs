@@ -28,6 +28,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheProtectors());
         LoadInvocation(BuildGraspingBlast());
+        LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSuperiorPactWeapon());
@@ -125,7 +126,7 @@ internal static class InvocationsContext
             }
 
             var j = 0;
-            var level = 0;
+            var level = 1;
             var gap = 0;
             RectTransform rect;
 

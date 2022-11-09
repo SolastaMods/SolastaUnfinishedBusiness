@@ -72,11 +72,32 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)trigger);
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetRequiredSpecificSpell(SpellDefinition spell)
+    {
+        Definition.requiredSpecificSpell = spell;
+        return this;
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(
         params ConditionOperationDescription[] operations)
     {
         Definition.ConditionOperations.SetRange(operations);
         return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(ConditionOperationDescription operation)
+    {
+        Definition.ConditionOperations.Add(operation);
+        return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(
+        ConditionOperationDescription.ConditionOperation operation, ConditionDefinition condition)
+    {
+        return AddConditionOperation(new ConditionOperationDescription()
+        {
+            operation = operation, conditionDefinition = condition
+        });
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
@@ -155,6 +176,15 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     {
         Definition.requiredCharacterFamily = value;
         return this;
+    }
+
+    protected override void Initialise()
+    {
+        base.Initialise();
+        Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
+        Definition.damageDiceNumber = 0;
+        Definition.flatBonus = 0;
+        Definition.notificationTag = string.Empty;
     }
 
     #region Constructors

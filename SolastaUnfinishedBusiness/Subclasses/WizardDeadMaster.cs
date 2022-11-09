@@ -172,7 +172,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     (5, 3), new()
                     {
                         (Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer,
-                            new BaseDefinition[] { Battleaxe })
+                            new BaseDefinition[] { Battleaxe, MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock })
                     }
                 }, //CR 2
                 {
