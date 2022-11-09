@@ -1,7 +1,7 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 9,
+  "requiredLevel": 15,
   "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
   "grantedFeature": "Definition:FeatureSetInvocationUltimatePactWeapon:37e2a776-be61-5ab1-8eb9-a0fc13c94b28",
   "grantedSpell": null,
