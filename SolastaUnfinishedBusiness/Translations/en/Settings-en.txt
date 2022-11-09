@@ -81,7 +81,7 @@ ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space ba
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
-ModUi/&FeatsFightingStyles=Feats & Fighting Styles
+ModUi/&FeatsFightingStylesInvocations=Feats, Fighting Styles & Invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
@@ -99,6 +99,7 @@ ModUi/&Input=<color=#F0DAA0>Input:</color>
 ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
 ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips
+ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants

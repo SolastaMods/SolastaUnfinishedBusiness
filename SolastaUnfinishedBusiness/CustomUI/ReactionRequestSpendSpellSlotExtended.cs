@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Invocations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -16,7 +17,7 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         var spellRepertoire = ReactionParams.SpellRepertoire;
         int selected;
 
-        if (actionParams.StringParameter == InvocationsContext.EldritchSmiteTag)
+        if (actionParams.StringParameter == InvocationsBuilders.EldritchSmiteTag)
         {
             var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 

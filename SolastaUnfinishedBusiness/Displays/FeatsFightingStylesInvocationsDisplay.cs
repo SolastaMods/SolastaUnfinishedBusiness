@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class FeatsAndFightingStylesDisplay
+internal static class FeatsFightingStylesInvocationsDisplay
 {
     internal static void DisplayFeatsAndFightingStyles()
     {
@@ -47,6 +47,18 @@ internal static class FeatsAndFightingStylesDisplay
             ref sliderPos);
         Main.Settings.DisplayFightingStylesToggle = displayToggle;
         Main.Settings.FightingStyleSliderPosition = sliderPos;
+
+        displayToggle = Main.Settings.DisplayInvocationsToggle;
+        sliderPos = Main.Settings.InvocationSliderPosition;
+        ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&Invocations"),
+            InvocationsContext.Switch,
+            InvocationsContext.Invocations,
+            Main.Settings.InvocationEnabled,
+            ref displayToggle,
+            ref sliderPos);
+        Main.Settings.DisplayInvocationsToggle = displayToggle;
+        Main.Settings.InvocationSliderPosition = sliderPos;
 
         UI.Label("");
     }

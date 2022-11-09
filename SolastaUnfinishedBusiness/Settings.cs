@@ -32,6 +32,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatsToggle { get; set; } = true;
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; } = true;
+    public bool DisplayInvocationsToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
@@ -97,7 +98,7 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubclassEnabled { get; } = new();
 
     //
-    // Characters - Feats, Groups and Fighting Styles
+    // Characters - Feats, Groups, Fighting Styles and Invocations
     //
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -108,6 +109,9 @@ public class Settings : UnityModManager.ModSettings
 
     public int FightingStyleSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FightingStyleEnabled { get; } = new();
+
+    public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> InvocationEnabled { get; } = new();
 
     //
     // Characters - Spells

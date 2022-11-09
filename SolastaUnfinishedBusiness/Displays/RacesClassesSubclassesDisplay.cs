@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class RacesClassesAndSubclassesDisplay
+internal static class RacesClassesSubclassesDisplay
 {
 #if false
     private static void DisplayGeneral()

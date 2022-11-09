@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Invocations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -683,7 +684,7 @@ internal static class GameLocationBattleManagerTweaks
                                 // handle EldritchSmite case that can only consume pact slots
                                 if (featureDefinition is FeatureDefinitionAdditionalDamage
                                     {
-                                        NotificationTag: InvocationsContext.EldritchSmiteTag
+                                        NotificationTag: InvocationsBuilders.EldritchSmiteTag
                                     })
                                 {
                                     var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);

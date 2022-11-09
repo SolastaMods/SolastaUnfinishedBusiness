@@ -1,50 +1,64 @@
-﻿using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using static SolastaUnfinishedBusiness.Invocations.InvocationsBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InvocationsContext
 {
-    internal const string EldritchSmiteTag = "EldritchSmite";
+    internal static HashSet<InvocationDefinition> Invocations { get; private set; } = new();
 
     internal static void Load()
     {
-        BuildEldritchSmite();
-    }
+        LoadInvocation(BuildEldritchSmite());
 
-    private static void BuildEldritchSmite()
-    {
-        InvocationDefinitionBuilder
-            .Create("InvocationEldritchSmite")
-            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
-            .SetRequirements(5, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageInvocationEldritchSmite")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(WarlockHolder.Instance)
-                .SetNotificationTag(EldritchSmiteTag)
-                .SetDamageDice(RuleDefinitions.DieType.D8, 0)
-                .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetAttackModeOnly()
-                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
-                .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
-                .AddToDB())
-            .AddToDB();
-    }
+        // sorting
+        Invocations = Invocations.OrderBy(x => x.FormatTitle()).ToHashSet();
 
-    private class WarlockHolder : IClassHoldingFeature
-    {
-        private WarlockHolder()
+        // settings paring
+        foreach (var name in Main.Settings.InvocationEnabled
+                     .Where(name => Invocations.All(x => x.Name != name))
+                     .ToList())
         {
+            Main.Settings.InvocationEnabled.Remove(name);
+        }
+    }
+
+    private static void LoadInvocation([NotNull] InvocationDefinition invocationDefinition)
+    {
+        if (!Invocations.Contains(invocationDefinition))
+        {
+            Invocations.Add(invocationDefinition);
         }
 
-        public static IClassHoldingFeature Instance { get; } = new WarlockHolder();
+        UpdateInvocationVisibility(invocationDefinition);
+    }
 
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
+    private static void UpdateInvocationVisibility([NotNull] BaseDefinition invocationDefinition)
+    {
+        invocationDefinition.GuiPresentation.hidden =
+            !Main.Settings.InvocationEnabled.Contains(invocationDefinition.Name);
+    }
+
+    internal static void Switch(InvocationDefinition invocationDefinition, bool active)
+    {
+        if (!Invocations.Contains(invocationDefinition))
+        {
+            return;
+        }
+
+        var name = invocationDefinition.Name;
+
+        if (active)
+        {
+            Main.Settings.InvocationEnabled.TryAdd(name);
+        }
+        else
+        {
+            Main.Settings.InvocationEnabled.Remove(name);
+        }
+
+        UpdateInvocationVisibility(invocationDefinition);
     }
 }
