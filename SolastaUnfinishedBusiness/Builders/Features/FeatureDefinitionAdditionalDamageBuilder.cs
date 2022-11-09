@@ -157,6 +157,15 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    protected override void Initialise()
+    {
+        base.Initialise();
+        Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
+        Definition.damageDiceNumber = 0;
+        Definition.flatBonus = 0;
+        Definition.notificationTag = string.Empty;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
