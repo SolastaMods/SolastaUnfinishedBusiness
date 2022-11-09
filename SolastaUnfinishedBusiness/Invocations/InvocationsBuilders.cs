@@ -46,6 +46,33 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildMinionsOfChaos()
+    {
+        const string NAME = "InvocationMinionsOfChaos";
+        
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.ConjureElemental)
+            .SetRequirements(9)
+            .SetGrantedSpell(SpellDefinitions.ConjureElemental, false, true)
+            .AddToDB();
+    }
+    
+    internal static InvocationDefinition BuildUndyingServitude()
+    {
+        const string NAME = "InvocationUndyingServitude";
+
+        var createDeadRisenGhost = DatabaseRepository.GetDatabase<SpellDefinition>().GetElement("CreateDeadRisenGhost");
+        
+        //TODO: make this a power bundle instead and add other undead from Dead Master subclass
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, createDeadRisenGhost)
+            .SetRequirements(5)
+            .SetGrantedSpell(createDeadRisenGhost, false, true)
+            .AddToDB();
+    }
+    
     internal static InvocationDefinition BuildTrickstersEscape()
     {
         const string NAME = "InvocationTrickstersEscape";
@@ -168,7 +195,56 @@ internal static class InvocationsBuilders
                     .Create("FeatureSetInvocationImprovedPactWeapon")
                     .SetGuiPresentation(NAME, Category.Feature)
                     .SetCustomSubFeatures(
-                        FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                                "AttackModifierInvocationImprovedPactWeaponPlus1")
+                            .AddToDB(),
+                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildSuperiorPactWeapon()
+    {
+        const string NAME = "InvocationSuperiorPactWeapon";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetRequirements(9, pact: FeatureSetPactBlade)
+            .SetGrantedFeature(
+                FeatureDefinitionFeatureSetBuilder
+                    .Create("FeatureSetInvocationSuperiorPactWeapon")
+                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetCustomSubFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                                "AttackModifierInvocationSuperiorPactWeaponPlus2")
+                            .SetAttackRollModifier(2)
+                            .AddToDB(),
+                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildUltimatePactWeapon()
+    {
+        const string NAME = "InvocationUltimatePactWeapon";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetRequirements(9, pact: FeatureSetPactBlade)
+            .SetGrantedFeature(
+                FeatureDefinitionFeatureSetBuilder
+                    .Create("FeatureSetInvocationUltimatePactWeapon")
+                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetCustomSubFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                                "AttackModifierInvocationUltimatePactWeaponPlus3")
+                            .SetAttackRollModifier(2)
+                            .AddToDB(),
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();

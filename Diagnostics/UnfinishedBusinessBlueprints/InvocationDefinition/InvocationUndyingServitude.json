@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 5,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:CreateDeadRisenGhost:02a12317-e3e2-5833-9611-eeaaead7c151",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&InvocationUndyingServitudeTitle",
+    "description": "Feature/&InvocationUndyingServitudeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "39612bdb-cfe4-5151-8ae2-04a71bdccfc5",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8e4430cf-3b6d-5504-ac46-97324eeee3e0",
+  "contentPack": 9999,
+  "name": "InvocationUndyingServitude"
+}
