@@ -47,18 +47,6 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    internal static InvocationDefinition BuildMinionsOfChaos()
-    {
-        const string NAME = "InvocationMinionsOfChaos";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureElemental)
-            .SetRequirements(9)
-            .SetGrantedSpell(SpellDefinitions.ConjureElemental, false, true)
-            .AddToDB();
-    }
-
     internal static InvocationDefinition BuildUndyingServitude()
     {
         const string NAME = "InvocationUndyingServitude";
