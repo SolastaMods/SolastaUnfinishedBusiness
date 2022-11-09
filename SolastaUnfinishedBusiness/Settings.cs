@@ -47,6 +47,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
+    public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;

@@ -75,9 +75,6 @@ internal static class BootContext
         // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
         SubclassesContext.Load();
 
-        // Custom invocations
-        InvocationsContext.Load();
-
         // Load SRD and House rules towards the load phase end in case they change previous blueprints
         SrdAndHouseRulesContext.Load();
 
@@ -97,6 +94,9 @@ internal static class BootContext
             // There are feats that need all character classes loaded before they can properly be setup.
             FeatsContext.LateLoad();
 
+            // Custom invocations
+            InvocationsContext.LateLoad();
+            
             // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
             SpellsContext.LateLoad();
 

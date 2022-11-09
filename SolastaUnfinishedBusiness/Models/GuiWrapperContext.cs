@@ -42,4 +42,17 @@ internal static class GuiWrapperContext
         guiWrapperService.featDefinitionsMap.Clear();
         guiWrapperService.LoadFeatDefinitions();
     }
+    
+    internal static void RecacheInvocations()
+    {
+        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
+
+        if (guiWrapperService is not { })
+        {
+            return;
+        }
+
+        guiWrapperService.invocationDefinitionsMap.Clear();
+        guiWrapperService.LoadInvocationDefinitions();
+    }
 }
