@@ -25,7 +25,7 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
     where TDefinition : InvocationDefinition
     where TBuilder : InvocationDefinitionBuilder<TDefinition, TBuilder>
 {
-    internal TBuilder SetRequirements(int level = -1,
+    internal TBuilder SetRequirements(int level = 1,
         SpellDefinition spell = null,
         FeatureDefinition pact = null)
     {
