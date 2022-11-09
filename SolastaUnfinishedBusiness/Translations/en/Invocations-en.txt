@@ -32,3 +32,5 @@ Reaction/&SpendSpellSlotEldritchSmiteReactTitle=Smite
 Reaction/&SpendSpellSlotEldritchSmiteTitle=Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteDescription=Select a slot level to consume for your Eldritch Smite.
 Reaction/&SubitemSelectEldritchSmiteTitle=Slot Level
+Invocation/&InvocationHinderingBlastDescription=When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
+Invocation/&InvocationHinderingBlastTitle=Hindering Blast

@@ -28,6 +28,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheProtectors());
         LoadInvocation(BuildGraspingBlast());
+        LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSuperiorPactWeapon());

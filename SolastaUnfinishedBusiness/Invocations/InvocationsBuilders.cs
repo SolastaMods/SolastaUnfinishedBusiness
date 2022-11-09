@@ -116,6 +116,24 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildHinderingBlast()
+    {
+        const string NAME = "InvocationHinderingBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
+            .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}")
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget)
+                .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
+                .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
+                    ConditionDefinitions.ConditionHindered_By_Frost)
+                .AddToDB())
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildGiftOfTheEverLivingOnes()
     {
         const string NAME = "InvocationGiftOfTheEverLivingOnes";
