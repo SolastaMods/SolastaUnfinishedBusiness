@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -15,7 +16,7 @@ internal static class InvocationsBuilders
     {
         return InvocationDefinitionBuilder
             .Create("InvocationEldritchSmite")
-            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
@@ -40,7 +41,7 @@ internal static class InvocationsBuilders
         // cast Invisibility at will
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.Invisibility)
             .SetRequirements(15)
             .SetGrantedSpell(SpellDefinitions.Invisibility)
             .AddToDB();
@@ -49,30 +50,30 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildMinionsOfChaos()
     {
         const string NAME = "InvocationMinionsOfChaos";
-        
+
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.ConjureElemental)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureElemental)
             .SetRequirements(9)
             .SetGrantedSpell(SpellDefinitions.ConjureElemental, false, true)
             .AddToDB();
     }
-    
+
     internal static InvocationDefinition BuildUndyingServitude()
     {
         const string NAME = "InvocationUndyingServitude";
 
         var createDeadRisenGhost = DatabaseRepository.GetDatabase<SpellDefinition>().GetElement("CreateDeadRisenGhost");
-        
+
         //TODO: make this a power bundle instead and add other undead from Dead Master subclass
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, createDeadRisenGhost)
+            .SetGuiPresentation(Category.Invocation, createDeadRisenGhost)
             .SetRequirements(5)
             .SetGrantedSpell(createDeadRisenGhost, false, true)
             .AddToDB();
     }
-    
+
     internal static InvocationDefinition BuildTrickstersEscape()
     {
         const string NAME = "InvocationTrickstersEscape";
@@ -85,7 +86,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, spellTrickstersEscape)
+            .SetGuiPresentation(Category.Invocation, spellTrickstersEscape)
             .SetRequirements(7)
             .SetGrantedSpell(spellTrickstersEscape, false, true)
             .AddToDB();
@@ -97,13 +98,33 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetGrantedFeature(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInvocationEldritchMind")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                     .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildGraspingBlast()
+    {
+        const string NAME = "InvocationGraspingBlast";
+
+        var powerInvocationGraspingBlast = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerInvocationRepellingBlast, "PowerInvocationGraspingBlast")
+            .SetGuiPresentation(NAME, Category.Invocation)
+            .AddToDB();
+
+        powerInvocationGraspingBlast.EffectDescription.effectForms.SetRange(EffectFormBuilder.Create()
+            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .Build());
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
+            .SetGrantedFeature(powerInvocationGraspingBlast)
             .AddToDB();
     }
 
@@ -113,7 +134,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetGrantedFeature(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope)
             .AddToDB();
     }
@@ -124,14 +145,14 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, DamageAffinityHalfOrcRelentlessEndurance)
+            .SetGuiPresentation(Category.Invocation, DamageAffinityHalfOrcRelentlessEndurance)
             .SetRequirements(9, pact: FeatureSetPactTome)
             .SetGrantedFeature(
                 FeatureDefinitionDamageAffinityBuilder
                     .Create(
                         DamageAffinityHalfOrcRelentlessEndurance,
                         "DamageAffinityInvocationGiftOfTheProtectorsRelentlessEndurance")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .AddToDB())
             .AddToDB();
     }
@@ -142,14 +163,14 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerSorakShadowEscape)
+            .SetGuiPresentation(Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetRequirements(12)
             .SetGrantedFeature(
                 FeatureDefinitionPowerBuilder
                     .Create(
                         FeatureDefinitionPowers.PowerSorakShadowEscape,
                         "PowerInvocationBondOfTheTalismanShadowEscape")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .AddToDB())
             .AddToDB();
     }
@@ -160,23 +181,24 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest)
+            .SetGuiPresentation(Category.Invocation,
+                FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationAspectOfTheMoon")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .SetCustomSubFeatures(
                         FeatureDefinitionCampAffinityBuilder
                             .Create(
                                 FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
                                 "CampAffinityInvocationAspectOfTheMoonTrance")
-                            .SetGuiPresentation(NAME, Category.Feature)
+                            .SetGuiPresentation(NAME, Category.Invocation)
                             .AddToDB(),
                         FeatureDefinitionCampAffinityBuilder
                             .Create(
                                 FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest,
                                 "CampAffinityInvocationAspectOfTheMoonRest")
-                            .SetGuiPresentation(NAME, Category.Feature)
+                            .SetGuiPresentation(NAME, Category.Invocation)
                             .AddToDB())
                     .AddToDB())
             .AddToDB();
@@ -188,12 +210,12 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
             .SetRequirements(pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationImprovedPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .SetCustomSubFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
@@ -210,12 +232,12 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
             .SetRequirements(9, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationSuperiorPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .SetCustomSubFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
@@ -233,12 +255,12 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
             .SetRequirements(9, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationUltimatePactWeapon")
-                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetGuiPresentation(NAME, Category.Invocation)
                     .SetCustomSubFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,

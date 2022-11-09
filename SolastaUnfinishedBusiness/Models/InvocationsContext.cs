@@ -17,6 +17,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildEldritchSmite());
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheProtectors());
+        LoadInvocation(BuildGraspingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildMinionsOfChaos());
         LoadInvocation(BuildShroudOfShadow());

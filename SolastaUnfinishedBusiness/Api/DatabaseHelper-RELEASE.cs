@@ -160,6 +160,9 @@ internal static partial class DatabaseHelper
     {
         internal static InvocationDefinition EldritchSpear { get; } =
             GetDefinition<InvocationDefinition>("EldritchSpear");
+
+        internal static InvocationDefinition RepellingBlast { get; } =
+            GetDefinition<InvocationDefinition>("RepellingBlast");
     }
 
     internal static class AlignmentDefinitions
@@ -1483,6 +1486,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
+
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
 
