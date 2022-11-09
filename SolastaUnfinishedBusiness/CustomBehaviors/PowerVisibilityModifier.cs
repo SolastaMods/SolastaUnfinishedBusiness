@@ -33,7 +33,7 @@ internal class PowerVisibilityModifier
 
     private readonly IsPowerVisibleHandler handler;
 
-    private PowerVisibilityModifier(IsPowerVisibleHandler handler)
+    protected PowerVisibilityModifier(IsPowerVisibleHandler handler)
     {
         this.handler = handler;
     }

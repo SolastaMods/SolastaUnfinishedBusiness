@@ -71,7 +71,7 @@ public static class InvocationActivationBoxPatcher
         private static void UpdatePowerSlots(InvocationActivationBox box, RulesetInvocation invocation,
             RulesetCharacter character)
         {
-            var power = invocation.invocationDefinition.GrantedFeature as FeatureDefinitionPower;
+            var power = invocation.invocationDefinition.GetPower();
 
             if (power == null)
             {

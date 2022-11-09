@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -12,8 +13,8 @@ public static class RulesetInvocationPatcher
         public static bool Prefix(RulesetInvocation __instance, out bool __result)
         {
             //PATCH: do not count power granting invocations as permenent, so we can activate them
-            var grantedFeature = __instance.InvocationDefinition.GrantedFeature;
-            __result = grantedFeature != null && grantedFeature is not FeatureDefinitionPower;
+            var definition = __instance.InvocationDefinition;
+            __result = definition.GrantedFeature != null && definition.GetPower() == null;
             return false;
         }
     }

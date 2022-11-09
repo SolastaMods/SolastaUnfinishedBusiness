@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.CustomDefinitions;
+﻿using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
@@ -37,5 +38,15 @@ public static class InvocationDefinitionExtensions
         return invocation is InvocationDefinitionCustom custom
             ? custom.MainActionId
             : Id.CastInvocation;
+    }
+
+    internal static FeatureDefinitionPower GetPower(this InvocationDefinition invocation)
+    {
+        if (invocation.GrantedFeature is FeatureDefinitionPower power)
+        {
+            return power.HasSubFeatureOfType<PowerFromInvocation>() ? power : null;
+        }
+
+        return null;
     }
 }
