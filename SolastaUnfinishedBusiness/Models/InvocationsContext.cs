@@ -99,8 +99,11 @@ internal static class InvocationsContext
 
     private static int CompareInvocations(InvocationDefinition a, InvocationDefinition b)
     {
-        return string.Compare(a.FormatTitle(), b.FormatTitle(),
-            StringComparison.CurrentCultureIgnoreCase);
+        var compare = a.RequiredLevel - b.RequiredLevel;
+
+        return compare == 0
+            ? string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
+            : compare;
     }
 
     internal static void SortInvocations(InvocationSubPanel panel)
