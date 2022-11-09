@@ -106,7 +106,7 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         powerInvocationGraspingBlast.EffectDescription.effectForms.SetRange(EffectFormBuilder.Create()
-            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
             .Build());
 
         return InvocationDefinitionBuilder
