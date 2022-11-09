@@ -24,6 +24,7 @@
   "interruptionSavingThrowAbility": "Constitution",
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": true,
+  "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],

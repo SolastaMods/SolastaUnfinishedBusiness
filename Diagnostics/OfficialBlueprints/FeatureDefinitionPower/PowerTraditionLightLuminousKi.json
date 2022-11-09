@@ -341,7 +341,7 @@
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "disableIfTargetConditionIsOwned": "Definition:ConditionLuminousKi:af0a53f2cd83c114fb99aba99c9d129a",
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,

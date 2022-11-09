@@ -1,6 +1,22 @@
 {
   "$type": "GadgetBlueprint, Assembly-CSharp",
-  "parameters": [],
+  "parameters": [
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsLit",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    }
+  ],
   "interactionNodes": [
     {
       "$type": "InteractionNodeDescription, Assembly-CSharp",

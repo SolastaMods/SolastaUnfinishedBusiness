@@ -636,7 +636,6 @@ Ranger_Marksman_Level8	Title='CharacterTemplate/&GarradTitle'.
 Ranger_Marksman_Level8	Description='CharacterTemplate/&GarradDescription'.
 Ranger_ShadowTamer_Level8	Title='CharacterTemplate/&GarradTitle'.
 Ranger_ShadowTamer_Level8	Description='CharacterTemplate/&GarradDescription'.
-RecipeScroll_L4_ ConjureMinorElementals	Title='Equipment/&ScrollConjureMinorElementalTitle'.
 RecipeScroll_L4_ Deathward	Title='Equipment/&ScrollDeathWardTitle'.
 Regeneration_Ancient_Remorhaz	Title='Monster/&AncientRemorhaz_Regeneration_Title'.
 Regeneration_Ancient_Remorhaz	Description='Monster/&AncientRemorhaz_Regeneration_Description'.

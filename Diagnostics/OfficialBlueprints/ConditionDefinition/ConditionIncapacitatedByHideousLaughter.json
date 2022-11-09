@@ -14,12 +14,15 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
-  "interruptionRequiresSavingThrow": false,
+  "specialInterruptions": [
+    "Damaged"
+  ],
+  "interruptionRequiresSavingThrow": true,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
+  "interruptionSavingThrowAffinity": "Advantage",
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],

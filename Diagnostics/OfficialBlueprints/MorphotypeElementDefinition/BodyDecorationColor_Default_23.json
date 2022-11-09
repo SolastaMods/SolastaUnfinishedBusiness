@@ -11,9 +11,9 @@
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.1875,
-    "g": 0.75,
-    "b": 0.7036765,
+    "r": 0.0875,
+    "g": 0.35,
+    "b": 0.33157894,
     "a": 1.0
   },
   "thirdColor": {
@@ -53,13 +53,13 @@
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.1875,
-      "g": 0.75,
-      "b": 0.7036765,
+      "r": 0.07450981,
+      "g": 0.3019608,
+      "b": 0.282352954,
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 8,
+    "sortOrder": 23,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
