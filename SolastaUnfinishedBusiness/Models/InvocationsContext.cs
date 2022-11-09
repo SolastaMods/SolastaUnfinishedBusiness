@@ -11,7 +11,12 @@ internal static class InvocationsContext
 
     internal static void Load()
     {
+        LoadInvocation(BuildAspectOfTheMoon());
+        LoadInvocation(BuildBondOfTheTalisman());
+        LoadInvocation(BuildEldritchMind());
         LoadInvocation(BuildEldritchSmite());
+        LoadInvocation(BuildGiftOfTheProtectors());
+        LoadInvocation(BuildShroudOfShadow());
 
         // sorting
         Invocations = Invocations.OrderBy(x => x.FormatTitle()).ToHashSet();

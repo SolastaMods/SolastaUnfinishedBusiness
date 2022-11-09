@@ -1,7 +1,7 @@
 // this file is manually maintained
 // whenever you use a definition in DEBUG mode copy it over here
 // goal is to increase mod boot time and reduce total payload size
-// last update on 11/06/22 2:25 PM
+// last update on 11/08/22 7:00 PM
 
 using TA.AI;
 
@@ -9,6 +9,15 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class FeatureDefinitionCampAffinitys
+    {
+        internal static FeatureDefinitionCampAffinity CampAffinityDomainOblivionPeacefulRest { get; } =
+            GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityDomainOblivionPeacefulRest");
+
+        internal static FeatureDefinitionCampAffinity CampAffinityElfTrance { get; } =
+            GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityElfTrance");
+    }
+
     internal static class ReactionDefinitions
     {
         internal static ReactionDefinition OpportunityAttack { get; } =
@@ -1321,6 +1330,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
+
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
     }
@@ -1465,6 +1477,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
+
         internal static FeatureDefinitionPower PowerBarbarianPersistentRageStart { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianPersistentRageStart");
 

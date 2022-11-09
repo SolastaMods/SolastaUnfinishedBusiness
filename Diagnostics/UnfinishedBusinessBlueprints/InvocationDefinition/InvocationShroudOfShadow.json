@@ -1,22 +1,22 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 5,
-  "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
-  "grantedFeature": "Definition:AdditionalDamageInvocationEldritchSmite:bdf7f85a-0c06-5603-a653-8de8c05dcfde",
-  "grantedSpell": null,
+  "requiredLevel": 15,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
   "consumesSpellSlot": false,
   "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationEldritchSmiteTitle",
-    "description": "Feature/&InvocationEldritchSmiteDescription",
+    "title": "Feature/&InvocationShroudOfShadowTitle",
+    "description": "Feature/&InvocationShroudOfShadowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
-      "m_SubObjectName": "CastInvocation",
+      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
+      "m_SubObjectName": "Invisibility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "91ca8f2b-1dcc-5d42-8b0e-ec6f74c872e2",
+  "guid": "c402f6d0-081a-5f91-876c-b035fe9c6af2",
   "contentPack": 9999,
-  "name": "InvocationEldritchSmite"
+  "name": "InvocationShroudOfShadow"
 }

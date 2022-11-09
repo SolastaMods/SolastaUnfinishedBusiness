@@ -1,9 +1,9 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 5,
-  "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
-  "grantedFeature": "Definition:AdditionalDamageInvocationEldritchSmite:bdf7f85a-0c06-5603-a653-8de8c05dcfde",
+  "requiredLevel": 12,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerInvocationBondOfTheTalismanShadowEscape:58e998a0-37b6-51f6-9da4-d9a50cc8c046",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationEldritchSmiteTitle",
-    "description": "Feature/&InvocationEldritchSmiteDescription",
+    "title": "Feature/&InvocationBondOfTheTalismanTitle",
+    "description": "Feature/&InvocationBondOfTheTalismanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
-      "m_SubObjectName": "CastInvocation",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "91ca8f2b-1dcc-5d42-8b0e-ec6f74c872e2",
+  "guid": "5ba5723e-5b19-5811-9e29-d978598bf736",
   "contentPack": 9999,
-  "name": "InvocationEldritchSmite"
+  "name": "InvocationBondOfTheTalisman"
 }

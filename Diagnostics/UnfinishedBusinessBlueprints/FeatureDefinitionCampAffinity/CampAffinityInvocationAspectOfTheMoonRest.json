@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionCampAffinity, Assembly-CSharp",
+  "encounterRollModifier": -2,
+  "encounterNoSurpriseInCamp": true,
+  "awakeWhenCampAttacked": false,
+  "sleepDurationOverride": -1,
+  "ignoreFoodConsumption": false,
+  "fastBardicInspirationRecovery": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&InvocationAspectOfTheMoonTitle",
+    "description": "Feature/&InvocationAspectOfTheMoonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a8764a2e-62c3-5966-90ce-712b7e84a7d6",
+  "contentPack": 9999,
+  "name": "CampAffinityInvocationAspectOfTheMoonRest"
+}
