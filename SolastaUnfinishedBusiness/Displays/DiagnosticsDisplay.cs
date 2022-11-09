@@ -123,16 +123,22 @@ All settings start disabled by default.
 {6}
 [/list]
 
-[size=3][b]Spells[/b][/size]
+[size=3][b]Invocations[/b][/size]
 
 [list=1]
 {7}
 [/list]
 
-[size=3][b]Items & Crafting[/b][/size]
+[size=3][b]Spells[/b][/size]
 
 [list=1]
 {8}
+[/list]
+
+[size=3][b]Items & Crafting[/b][/size]
+
+[list=1]
+{9}
 [/list]
 
 [size=4][b]Credits[/b][/size]
@@ -333,6 +339,7 @@ All settings start disabled by default.
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
+                GenerateDescription(InvocationsContext.Invocations),
                 GenerateDescription(SpellsContext.Spells),
                 CraftingContext.GenerateItemsDescription());
 

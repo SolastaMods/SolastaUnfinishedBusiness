@@ -287,6 +287,25 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Titan Hunter[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [/list]
 
+[size=3][b]Invocations[/b][/size]
+
+[list=1]
+
+[*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
+[*][b]Bond of The Talisman[/b]: Teleport up to 30 ft away.
+[*][b]Eldritch Mind[/b]: You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
+[*][b]Eldritch Smite[/b]: Once per turn when you hit a creature with your weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+[*][b]Gift of the Ever-Living Ones[/b]: Regains the maximum number of hit points possible from any healing.
+[*][b]Gift of The Protectors[/b]: When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
+[*][b]Improved Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
+[*][b]Superior Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +2 bonus to its attack and damage rolls.
+[*][b]Ultimate Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +3 bonus to its attack and damage rolls.
+[*][b]Minions of Chaos[/b]: You can cast conjure elemental once using a warlock spell slot. You can't do so again until you finish a long rest.
+[*][b]Shroud of Shadow[/b]: You can cast invisibility at will, without expending a spell slot.
+[*][b]Trickster's Escape[/b]: You can cast freedom of movement once on yourself without expending a spell slot. You regain the ability to do so when you finish a long rest.
+[*][b]Undying Servitude[/b]: You can cast animate dead without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
+[/list]
+
 [size=3][b]Spells[/b][/size]
 
 [list=1]
