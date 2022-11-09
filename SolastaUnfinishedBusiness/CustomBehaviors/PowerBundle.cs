@@ -549,6 +549,49 @@ internal static class PowerBundle
 
     /**
      * Patch implementation
+     * Replaces invocationn activation with sub-power selection modal, after sub-power is selected activates invocation selected handler with proper sub-power index
+     * Returns true if nothing needs (or can) be done.
+     */
+    internal static bool InvocationPowerActivated(InvocationActivationBox box,
+        InvocationSelectionPanel.InvocationSelectedHandler selected)
+    {
+        var invocation = box.Invocation;
+        var masterPower = invocation.InvocationDefinition.GrantedFeature as FeatureDefinitionPower;
+
+        if (masterPower == null) { return true; }
+
+        var bundle = GetBundle(masterPower);
+
+        if (bundle == null)
+        {
+            return true;
+        }
+
+        if (selected == null)
+        {
+            return true;
+        }
+
+        var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+
+        subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (_, i) =>
+        {
+            if (box != null)
+            {
+                selected(invocation, i);
+            }
+            else
+            {
+                Main.Error("Can't activate invocation sub-power: box is null");
+            }
+        }, box.RectTransform);
+        subpowerSelectionModal.Show();
+
+        return false;
+    }
+
+    /**
+     * Patch implementation
      * Closes sub-power selection modal
      */
     internal static void CloseSubPowerSelectionModal()
