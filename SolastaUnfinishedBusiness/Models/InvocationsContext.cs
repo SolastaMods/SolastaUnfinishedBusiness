@@ -152,7 +152,7 @@ internal static class InvocationsContext
                 if (requiredLevel != level)
                 {
                     var mod = j % Columns;
-                    
+
                     if (mod != 0)
                     {
                         j += Columns - mod;

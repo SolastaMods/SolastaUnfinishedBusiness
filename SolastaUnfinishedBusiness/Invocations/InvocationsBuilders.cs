@@ -129,7 +129,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
-                .SetGuiPresentationNoContent(hidden: true)
+                .SetGuiPresentationNoContent(true)
                 .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget)
                 .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
                 .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,

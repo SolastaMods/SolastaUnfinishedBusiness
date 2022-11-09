@@ -122,6 +122,9 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Generic_Guard_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
 
+        internal static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock");
+
         internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
 

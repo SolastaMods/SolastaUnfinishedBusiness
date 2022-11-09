@@ -74,7 +74,7 @@ public static class CharacterActionPanelPatcher
             if (power != null)
             {
                 var bundle = power.GetBundle();
-                
+
                 if (bundle != null)
                 {
                     if (subspellIndex >= 0 && bundle.SubPowers.Count > subspellIndex)
