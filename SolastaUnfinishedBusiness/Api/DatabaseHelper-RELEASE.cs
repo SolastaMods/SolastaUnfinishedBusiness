@@ -1073,6 +1073,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionHealingModifiers
     {
+        internal static FeatureDefinitionHealingModifier HealingModifierBeaconOfHope { get; } =
+            GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierBeaconOfHope");
+
         internal static FeatureDefinitionHealingModifier HealingModifierChilledByTouch { get; } =
             GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierChilledByTouch");
     }
@@ -1359,6 +1362,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMagicAffinity MagicAffinityGreenmageGreenMagicList { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityGreenmageGreenMagicList");
+
+        internal static FeatureDefinitionMagicAffinity MagicAffinitySpellBladeIntoTheFray { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySpellBladeIntoTheFray");
     }
 
     internal static class FeatureDefinitionMovementAffinitys

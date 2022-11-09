@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Invocations;
 
@@ -45,13 +46,31 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildTrickstersEscape()
+    {
+        const string NAME = "InvocationTrickstersEscape";
+
+        var spellTrickstersEscape = SpellDefinitionBuilder
+            .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
+            .AddToDB();
+
+        spellTrickstersEscape.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, spellTrickstersEscape)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellTrickstersEscape, false, true)
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildEldritchMind()
     {
         const string NAME = "InvocationEldritchMind";
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
             .SetGrantedFeature(
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInvocationEldritchMind")
@@ -61,18 +80,29 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildGiftOfTheEverLivingOnes()
+    {
+        const string NAME = "InvocationGiftOfTheEverLivingOnes";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, InvocationDefinitions.EldritchSpear)
+            .SetGrantedFeature(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope)
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildGiftOfTheProtectors()
     {
         const string NAME = "InvocationGiftOfTheProtectors";
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, DamageAffinityHalfOrcRelentlessEndurance)
             .SetRequirements(9, pact: FeatureSetPactTome)
             .SetGrantedFeature(
                 FeatureDefinitionDamageAffinityBuilder
                     .Create(
-                        FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
+                        DamageAffinityHalfOrcRelentlessEndurance,
                         "DamageAffinityInvocationGiftOfTheProtectorsRelentlessEndurance")
                     .SetGuiPresentation(NAME, Category.Feature)
                     .AddToDB())
@@ -85,7 +115,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetRequirements(12)
             .SetGrantedFeature(
                 FeatureDefinitionPowerBuilder
@@ -102,8 +132,8 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationAspectOfTheMoon";
 
         return InvocationDefinitionBuilder
-            .Create("InvocationAspectOfTheMoon")
-            .SetGuiPresentation(Category.Feature)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationAspectOfTheMoon")
@@ -121,6 +151,25 @@ internal static class InvocationsBuilders
                                 "CampAffinityInvocationAspectOfTheMoonRest")
                             .SetGuiPresentation(NAME, Category.Feature)
                             .AddToDB())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildImprovedPactWeapon()
+    {
+        const string NAME = "InvocationImprovedPactWeapon";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+            .SetRequirements(pact: FeatureSetPactBlade)
+            .SetGrantedFeature(
+                FeatureDefinitionFeatureSetBuilder
+                    .Create("FeatureSetInvocationImprovedPactWeapon")
+                    .SetGuiPresentation(NAME, Category.Feature)
+                    .SetCustomSubFeatures(
+                        FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();
     }
