@@ -367,14 +367,15 @@ internal static class TranslatorContext
                                 parameterValue.StringValue =
                                     Translate(parameterValue.StringValue, languageCode);
                                 parameterValue.StringsList = parameterValue.StringsList
-                                    .Select(stringValue => Translate(stringValue, languageCode)).ToList();
+                                    .Select(stringValue => Translate(stringValue, languageCode))
+                                    .ToList();
 
                                 break;
 
                             case "LocationsList":
                                 foreach (var destination in parameterValue.DestinationsList)
                                 {
-                                    destination.DisplayedTitle = Translate(destination.UserLocationName, languageCode);
+                                    destination.DisplayedTitle = Translate(destination.DisplayedTitle, languageCode);
                                 }
 
                                 break;
