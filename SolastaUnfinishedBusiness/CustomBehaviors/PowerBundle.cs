@@ -559,7 +559,7 @@ internal static class PowerBundle
         InvocationSelectionPanel.InvocationSelectedHandler selected)
     {
         var invocation = box.Invocation;
-        var masterPower = invocation.InvocationDefinition.GrantedFeature as FeatureDefinitionPower;
+        var masterPower = invocation.InvocationDefinition.GetPower();
 
         if (masterPower == null) { return true; }
 

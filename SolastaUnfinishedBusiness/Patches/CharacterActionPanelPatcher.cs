@@ -69,7 +69,7 @@ public static class CharacterActionPanelPatcher
         public static bool Prefix(CharacterActionPanel __instance, RulesetInvocation invocation, int subspellIndex)
         {
             var definition = invocation.InvocationDefinition;
-            var power = definition.GrantedFeature as FeatureDefinitionPower;
+            var power = definition.GetPower();
 
             if (power != null)
             {

@@ -57,7 +57,8 @@ public static class RulesetCharacterHeroPatcher
             }
 
             //PATCH: report invocation as castable if this is a power we can use
-            if (invocation.invocationDefinition.GrantedFeature is FeatureDefinitionPower power)
+            var power = invocation.invocationDefinition.GetPower();
+            if (power)
             {
                 __result = __instance.CanUsePower(power);
                 return false;

@@ -137,7 +137,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .AddToDB());
 
@@ -181,7 +181,7 @@ internal static class Infusions
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .AddToDB());
 
@@ -314,7 +314,7 @@ internal static class Infusions
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
-                SkipEffectRemovalOnLocationChange.Always, PowerVisibilityModifier.Hidden, itemFilter)
+                SkipEffectRemovalOnLocationChange.Always, PowerFromInvocation.Marker, itemFilter)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
@@ -350,7 +350,7 @@ internal static class Infusions
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
-                PowerVisibilityModifier.Hidden)
+                PowerFromInvocation.Marker)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
