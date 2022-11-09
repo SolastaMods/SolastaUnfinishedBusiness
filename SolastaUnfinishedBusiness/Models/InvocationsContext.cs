@@ -123,10 +123,6 @@ internal static class InvocationsContext
                 return;
             }
 
-            var trainedInvocations = buildingData.LevelupTrainedInvocations.SelectMany(x => x.Value).ToList();
-
-            trainedInvocations.AddRange(hero.TrainedInvocations);
-
             var j = 0;
             RectTransform rect;
 
@@ -135,8 +131,7 @@ internal static class InvocationsContext
                 var child = table.GetChild(i);
                 var invocationItem = child.GetComponent<InvocationItem>();
 
-                if (!child.gameObject.activeSelf ||
-                    trainedInvocations.Contains(invocationItem.GuiInvocationDefinition.InvocationDefinition))
+                if (!child.gameObject.activeSelf)
                 {
                     continue;
                 }
