@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsWinged:38424ce2-440a-5610-ab87-91abb8bf62c1",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaSlippersOfSpiderClimbing:6148e9c5-d17c-5ade-bb75-b94e5792cda0",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Winged Boots",
-    "description": "Create replica <b>Winged Boots</b>:\nBirdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.",
+    "title": "Replica Slippers of Spider Climbing",
+    "description": "Create replica <b>Slippers of Spider Climbing</b>:\nThese magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8071548a3173498499cb2e7003e7b235",
-      "m_SubObjectName": "WingedBoots",
+      "m_AssetGUID": "11cb1c822bd01944488a822b5bf5b718",
+      "m_SubObjectName": "Slippers_of_Spider_Climbing",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "769eeaed-a4a9-5d00-8b17-cbaa83539765",
+  "guid": "c88ccaf2-2db2-5177-9062-23a743f30088",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBootsWinged"
+  "name": "CustomInvocationCreateInfusedReplicaSlippersOfSpiderClimbing"
 }

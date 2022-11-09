@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 10,
+  "requiredLevel": 14,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaSlippersOfSpiderClimbing:6148e9c5-d17c-5ade-bb75-b94e5792cda0",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaGemOfSeeing:66914bf4-0aa1-5646-88a0-3ef4137d72fa",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Slippers of Spider Climbing",
-    "description": "Create replica <b>Slippers of Spider Climbing</b>:\nThese magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.",
+    "title": "Replica Gem of Seeing",
+    "description": "Create replica <b>Gem of Seeing</b>:\nSuch gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "11cb1c822bd01944488a822b5bf5b718",
-      "m_SubObjectName": "Slippers_of_Spider_Climbing",
+      "m_AssetGUID": "6779a7540e7f6a4409a3364a9345d833",
+      "m_SubObjectName": "Gem_of_Seeing",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15ccab92-e150-5017-aa28-7ce41ccc8c13",
+  "guid": "2a1b5a2a-7316-57be-b820-e403e65813ca",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaSlippersOfSpiderClimbing"
+  "name": "CustomInvocationCreateInfusedReplicaGemOfSeeing"
 }

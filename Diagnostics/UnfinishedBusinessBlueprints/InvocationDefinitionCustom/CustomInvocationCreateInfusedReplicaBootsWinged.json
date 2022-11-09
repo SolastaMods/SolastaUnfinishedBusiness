@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaCloakOfProtection:a6bd7266-b35e-5477-ad45-8da5159113f2",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsWinged:38424ce2-440a-5610-ab87-91abb8bf62c1",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Cloak of Protection",
-    "description": "Create replica <b>Cloak of Protection</b>:\nAn exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. ",
+    "title": "Replica Winged Boots",
+    "description": "Create replica <b>Winged Boots</b>:\nBirdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d8bf9f8290ecfb34fa89c1da6584b36c",
-      "m_SubObjectName": "CloakOfProtection",
+      "m_AssetGUID": "8071548a3173498499cb2e7003e7b235",
+      "m_SubObjectName": "WingedBoots",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d0380f2-ff1a-55d1-b164-bc4f02d799f3",
+  "guid": "24595c97-aa40-5578-9e4d-17a56f1b5a87",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaCloakOfProtection"
+  "name": "CustomInvocationCreateInfusedReplicaBootsWinged"
 }

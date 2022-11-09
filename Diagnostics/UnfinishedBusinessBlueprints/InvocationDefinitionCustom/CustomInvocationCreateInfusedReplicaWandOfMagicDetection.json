@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 10,
+  "requiredLevel": 2,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaGauntletsOfOgrePower:45c185fc-7498-5362-8ab0-7823d458bfdc",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaWandOfMagicDetection:1063c283-b5d1-5db7-b33e-efbe5ab55ac8",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Gauntlets of Ogre Power",
-    "description": "Create replica <b>Gauntlets of Ogre Power</b>:\nArasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. ",
+    "title": "Replica Wand of Magic Detection",
+    "description": "Create replica <b>Wand of Magic Detection</b>:\nCasts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "de421cf9d6adc2c408fbb3fd7155d47f",
-      "m_SubObjectName": "GauntletsOfOgrePower",
+      "m_AssetGUID": "3b3e608ea3b926042ace08cedcf6dad5",
+      "m_SubObjectName": "StandardWand",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "22ad09ac-085b-5348-abf7-a0a1460ffddc",
+  "guid": "b93c983d-064f-5780-833b-de4da100e2d8",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaGauntletsOfOgrePower"
+  "name": "CustomInvocationCreateInfusedReplicaWandOfMagicDetection"
 }

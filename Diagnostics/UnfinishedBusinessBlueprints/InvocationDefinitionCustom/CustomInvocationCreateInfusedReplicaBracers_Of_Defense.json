@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 14,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInfusionReturningWeapon:247fbe9b-05bc-5474-ac0b-adc419399559",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBracers_Of_Defense:ec50447b-b0a8-5c4e-842a-ec549cd39846",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionReturningWeaponTitle",
-    "description": "Feature/&InfusionReturningWeaponDescription",
+    "title": "Replica Bracers of Defense",
+    "description": "Create replica <b>Bracers of Defense</b>:\nThose bracers were the prized possession of a Manacalon shock arcanist.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "24de8e77-4029-5e39-8878-c5355702ee93",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "3a617785200b0ea4b9b4b46e9c0cede6",
+      "m_SubObjectName": "BracersOfDefense",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3af69ee7-1ebc-5f15-ba09-77e54f603b53",
+  "guid": "404928ec-7e85-5d40-9e61-41a3fe9b732b",
   "contentPack": 9999,
-  "name": "InvocationInfusionReturningWeapon"
+  "name": "CustomInvocationCreateInfusedReplicaBracers_Of_Defense"
 }

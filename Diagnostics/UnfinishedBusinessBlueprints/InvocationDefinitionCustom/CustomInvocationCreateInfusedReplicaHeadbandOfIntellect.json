@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBracers_Of_Archery:7a04817f-d1ea-5567-a456-971b6c9975e4",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaHeadbandOfIntellect:c194debf-d359-5e20-b430-9c28e2f7b883",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Bracers of Archery",
-    "description": "Create replica <b>Bracers of Archery</b>:\nA favorite of Colthannin border patrols. ",
+    "title": "Replica Headband of Intellect",
+    "description": "Create replica <b>Headband of Intellect</b>:\nFashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c6e685650996e3148854e9c1d545882f",
-      "m_SubObjectName": "BracersOfArchery_TEMP",
+      "m_AssetGUID": "140e67cfd48f46a4ebcf8d555392f9df",
+      "m_SubObjectName": "HeadbandOfIntellect",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c8205d44-04df-5714-8998-9b36d0ec1e7d",
+  "guid": "47dd4a65-2836-5a7d-9cef-8ed846754dbf",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBracers_Of_Archery"
+  "name": "CustomInvocationCreateInfusedReplicaHeadbandOfIntellect"
 }

@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 6,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaPipesOfHaunting:44a566b7-89b1-56a4-af0a-8cd4b3954921",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaCloakOfElvenkind:5aeb0b0a-3178-5c60-b3a1-35be2c28381a",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Pipes of Haunting",
-    "description": "Create replica <b>Pipes of Haunting</b>:\nThese pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.",
+    "title": "Replica Cloak of Elvenkind",
+    "description": "Create replica <b>Cloak of Elvenkind</b>:\nCrafted in Colthannin for human allies of the Realm protecting its borders.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6e112e8a73c5cae40be6a6d8b2ab161b",
-      "m_SubObjectName": "DLC2.5-PipesOfHaunting",
+      "m_AssetGUID": "3124142bf93da194aa3445e39c3730a2",
+      "m_SubObjectName": "CloakOfElvenkind",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7de0477a-1b3e-5428-aeb1-2e64bbe8ddfe",
+  "guid": "4a368f66-1789-51dc-b969-8f37ae9fb293",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaPipesOfHaunting"
+  "name": "CustomInvocationCreateInfusedReplicaCloakOfElvenkind"
 }

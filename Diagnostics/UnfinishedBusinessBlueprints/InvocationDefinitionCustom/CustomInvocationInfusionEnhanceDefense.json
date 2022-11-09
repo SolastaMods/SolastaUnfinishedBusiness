@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 10,
+  "requiredLevel": 2,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBroochOfShielding:13a1276b-dbb9-53e7-ae66-8364063d6fde",
+  "grantedFeature": "Definition:PowerInfusionEnhanceDefense:9f51cd64-0359-57c1-a76e-17358842a49e",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Brooch of Shielding",
-    "description": "Create replica <b>Brooch of Shielding</b>:\nMedreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. ",
+    "title": "Feature/&InfusionEnhanceDefenseTitle",
+    "description": "Feature/&InfusionEnhanceDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "142199a6e04e89446ae2ccf7da1485df",
-      "m_SubObjectName": "BroochOfShielding",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "732d8ae0-2843-5de2-8607-872ce1197b16",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52020c83-389c-5753-8ec5-b5f57c5ee720",
+  "guid": "e91e8765-1963-5db6-a2a0-46eb6003fce0",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBroochOfShielding"
+  "name": "CustomInvocationInfusionEnhanceDefense"
 }

@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 6,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInfusionEnhanceDefense:9f51cd64-0359-57c1-a76e-17358842a49e",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsLevitation:574c3b35-fce2-5e5b-90e2-7a264532c31c",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionEnhanceDefenseTitle",
-    "description": "Feature/&InfusionEnhanceDefenseDescription",
+    "title": "Replica Boots of Levitation",
+    "description": "Create replica <b>Boots of Levitation</b>:\nAfter a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "732d8ae0-2843-5de2-8607-872ce1197b16",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "a29c34b230a0bad4a921cc2050a5723b",
+      "m_SubObjectName": "BootsOfLevitation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "004ef93a-3aca-5b50-965b-9002c577a9bd",
+  "guid": "bca99847-bbfb-54ca-85f7-a7e5d7cb1f53",
   "contentPack": 9999,
-  "name": "InvocationInfusionEnhanceDefense"
+  "name": "CustomInvocationCreateInfusedReplicaBootsLevitation"
 }

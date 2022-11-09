@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsOfElvenKind:118022a9-b6af-5c34-a510-14187490adb3",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBracers_Of_Archery:7a04817f-d1ea-5567-a456-971b6c9975e4",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Boots of Elvenkind",
-    "description": "Create replica <b>Boots of Elvenkind</b>:\nCrafted in Colthannin for human allies of the Realm protecting its borders.",
+    "title": "Replica Bracers of Archery",
+    "description": "Create replica <b>Bracers of Archery</b>:\nA favorite of Colthannin border patrols. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e115efa2f460c11428e47c3e3c6666c0",
-      "m_SubObjectName": "BootsOfElvenkind",
+      "m_AssetGUID": "c6e685650996e3148854e9c1d545882f",
+      "m_SubObjectName": "BracersOfArchery_TEMP",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "51354424-93f4-53e4-9530-14414160bdb9",
+  "guid": "d12c6ad5-3980-53b7-98cf-f7c0893647a8",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBootsOfElvenKind"
+  "name": "CustomInvocationCreateInfusedReplicaBracers_Of_Archery"
 }

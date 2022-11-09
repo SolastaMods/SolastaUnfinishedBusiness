@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 14,
+  "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaGemOfSeeing:66914bf4-0aa1-5646-88a0-3ef4137d72fa",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaGauntletsOfOgrePower:45c185fc-7498-5362-8ab0-7823d458bfdc",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Gem of Seeing",
-    "description": "Create replica <b>Gem of Seeing</b>:\nSuch gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. ",
+    "title": "Replica Gauntlets of Ogre Power",
+    "description": "Create replica <b>Gauntlets of Ogre Power</b>:\nArasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6779a7540e7f6a4409a3364a9345d833",
-      "m_SubObjectName": "Gem_of_Seeing",
+      "m_AssetGUID": "de421cf9d6adc2c408fbb3fd7155d47f",
+      "m_SubObjectName": "GauntletsOfOgrePower",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "68c20757-1f4d-57b7-a844-277ad7c04daa",
+  "guid": "af043459-5154-5759-a12b-a645ad3ff85a",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaGemOfSeeing"
+  "name": "CustomInvocationCreateInfusedReplicaGauntletsOfOgrePower"
 }

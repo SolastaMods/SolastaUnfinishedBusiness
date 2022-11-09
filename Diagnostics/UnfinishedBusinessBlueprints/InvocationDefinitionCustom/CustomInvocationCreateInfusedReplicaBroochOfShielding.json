@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaRingDarkvision:d8c372a1-40f7-584c-863f-22146e70deb8",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBroochOfShielding:13a1276b-dbb9-53e7-ae66-8364063d6fde",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Ring of Darkvision",
-    "description": "Create replica <b>Ring of Darkvision</b>:\nWhile wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. ",
+    "title": "Replica Brooch of Shielding",
+    "description": "Create replica <b>Brooch of Shielding</b>:\nMedreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "73e33e00f3a176b4ba293b93338f1ced",
-      "m_SubObjectName": "RingOfDarkvision",
+      "m_AssetGUID": "142199a6e04e89446ae2ccf7da1485df",
+      "m_SubObjectName": "BroochOfShielding",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76391874-a1c6-5406-b344-22ac19c7beb8",
+  "guid": "69881615-bdc0-5308-83ee-4b0c7e5a3f94",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaRingDarkvision"
+  "name": "CustomInvocationCreateInfusedReplicaBroochOfShielding"
 }

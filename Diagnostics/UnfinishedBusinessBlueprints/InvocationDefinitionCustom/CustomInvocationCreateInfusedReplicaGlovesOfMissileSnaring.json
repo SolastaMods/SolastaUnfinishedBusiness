@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 14,
+  "requiredLevel": 10,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaBracers_Of_Defense:ec50447b-b0a8-5c4e-842a-ec549cd39846",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaGlovesOfMissileSnaring:66c3182b-e5f4-58e7-8a27-7578a2be61e0",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Bracers of Defense",
-    "description": "Create replica <b>Bracers of Defense</b>:\nThose bracers were the prized possession of a Manacalon shock arcanist.",
+    "title": "Replica Gloves of Missile Snaring",
+    "description": "Create replica <b>Gloves of Missile Snaring</b>:\nCrafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3a617785200b0ea4b9b4b46e9c0cede6",
-      "m_SubObjectName": "BracersOfDefense",
+      "m_AssetGUID": "81430ed821bc06b4bb0a5dc15d2c6c0f",
+      "m_SubObjectName": "GlovesOfMissileSnaring",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "831c1e99-71f9-511f-bed4-f08e69251bb2",
+  "guid": "9da223e3-fd09-5604-acaa-51f844467e75",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaBracers_Of_Defense"
+  "name": "CustomInvocationCreateInfusedReplicaGlovesOfMissileSnaring"
 }

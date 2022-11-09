@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 10,
+  "requiredLevel": 2,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaHeadbandOfIntellect:c194debf-d359-5e20-b430-9c28e2f7b883",
+  "grantedFeature": "Definition:PowerInfusionReturningWeapon:247fbe9b-05bc-5474-ac0b-adc419399559",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Headband of Intellect",
-    "description": "Create replica <b>Headband of Intellect</b>:\nFashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.",
+    "title": "Feature/&InfusionReturningWeaponTitle",
+    "description": "Feature/&InfusionReturningWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "140e67cfd48f46a4ebcf8d555392f9df",
-      "m_SubObjectName": "HeadbandOfIntellect",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "24de8e77-4029-5e39-8878-c5355702ee93",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f4e2448-a326-5297-8e9e-630226e6a45d",
+  "guid": "baeeb3f6-6593-53c4-b7fe-226b0f8acd08",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaHeadbandOfIntellect"
+  "name": "CustomInvocationInfusionReturningWeapon"
 }

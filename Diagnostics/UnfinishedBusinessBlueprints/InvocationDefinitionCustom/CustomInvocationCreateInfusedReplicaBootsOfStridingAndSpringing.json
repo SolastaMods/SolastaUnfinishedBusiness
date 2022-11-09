@@ -1,9 +1,9 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 14,
+  "requiredLevel": 6,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerCreateInfusedReplicaRingProtection+1:af73b522-17a1-5ed1-8a29-f41c942fe32c",
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsOfStridingAndSpringing:72fc9ef4-5ac2-5a14-8fc0-f0531ece3bbc",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Replica Ring of Protection +1",
-    "description": "Create replica <b>Ring of Protection +1</b>:\nA ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. ",
+    "title": "Replica Boots of Striding and Springing",
+    "description": "Create replica <b>Boots of Striding and Springing</b>:\nDefineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6e9dd0bf189453b41bf5b60a5bf780ac",
-      "m_SubObjectName": "RingOfProtection+1",
+      "m_AssetGUID": "996298a6ee823934faf7eff18218a09b",
+      "m_SubObjectName": "BootsOfStridingAndSpringing",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b13c3d3-b198-5091-9597-f498c3c2c543",
+  "guid": "fd0ca7b7-dd85-51b7-a3e8-3df884dd07b6",
   "contentPack": 9999,
-  "name": "InvocationCreateInfusedReplicaRingProtection+1"
+  "name": "CustomInvocationCreateInfusedReplicaBootsOfStridingAndSpringing"
 }

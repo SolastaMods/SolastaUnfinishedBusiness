@@ -266,7 +266,7 @@ internal static class Infusions
         FeatureDefinitionPower power)
     {
         CustomInvocationDefinitionBuilder
-            .Create($"Invocation{name}")
+            .Create($"CustomInvocation{name}")
             .SetGuiPresentation(name, Category.Feature, icon)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
@@ -281,7 +281,7 @@ internal static class Infusions
         var replica = BuildItemReplica(item);
         var description = BuildReplicaDescription(item);
         var invocation = CustomInvocationDefinitionBuilder
-            .Create($"InvocationCreate{replica.name}")
+            .Create($"CustomInvocationCreate{replica.name}")
             .SetGuiPresentation(Category.Feature, replica)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
