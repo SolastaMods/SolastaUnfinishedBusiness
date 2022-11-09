@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationTrickstersEscapeTitle",
-    "description": "Feature/&InvocationTrickstersEscapeDescription",
+    "title": "Invocation/&InvocationTrickstersEscapeTitle",
+    "description": "Invocation/&InvocationTrickstersEscapeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1bce2fdb81dad0145a160ca13db55f02",

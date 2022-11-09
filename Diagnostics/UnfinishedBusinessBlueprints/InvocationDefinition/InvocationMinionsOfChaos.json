@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationMinionsOfChaosTitle",
-    "description": "Feature/&InvocationMinionsOfChaosDescription",
+    "title": "Invocation/&InvocationMinionsOfChaosTitle",
+    "description": "Invocation/&InvocationMinionsOfChaosDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "591513abd445b1649a1fd11ceefcd135",

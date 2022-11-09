@@ -322,8 +322,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationBondOfTheTalismanTitle",
-    "description": "Feature/&InvocationBondOfTheTalismanDescription",
+    "title": "Invocation/&InvocationBondOfTheTalismanTitle",
+    "description": "Invocation/&InvocationBondOfTheTalismanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

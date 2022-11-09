@@ -15,6 +15,7 @@ internal enum Category
     Feat,
     Feature,
     FightingStyle,
+    Invocation,
     Item,
     Language,
     Monster,

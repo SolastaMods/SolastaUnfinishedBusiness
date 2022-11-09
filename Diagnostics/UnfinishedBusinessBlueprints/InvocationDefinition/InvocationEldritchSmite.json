@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationEldritchSmiteTitle",
-    "description": "Feature/&InvocationEldritchSmiteDescription",
+    "title": "Invocation/&InvocationEldritchSmiteTitle",
+    "description": "Invocation/&InvocationEldritchSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",

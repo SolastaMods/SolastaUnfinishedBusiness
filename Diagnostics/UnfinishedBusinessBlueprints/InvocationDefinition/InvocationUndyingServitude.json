@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&InvocationUndyingServitudeTitle",
-    "description": "Feature/&InvocationUndyingServitudeDescription",
+    "title": "Invocation/&InvocationUndyingServitudeTitle",
+    "description": "Invocation/&InvocationUndyingServitudeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "39612bdb-cfe4-5151-8ae2-04a71bdccfc5",

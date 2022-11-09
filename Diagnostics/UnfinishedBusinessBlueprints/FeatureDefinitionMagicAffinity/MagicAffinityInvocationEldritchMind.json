@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationEldritchMindTitle",
-    "description": "Feature/&InvocationEldritchMindDescription",
+    "title": "Invocation/&InvocationEldritchMindTitle",
+    "description": "Invocation/&InvocationEldritchMindDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

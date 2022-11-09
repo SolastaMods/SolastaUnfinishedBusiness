@@ -29,8 +29,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationGiftOfTheProtectorsTitle",
-    "description": "Feature/&InvocationGiftOfTheProtectorsDescription",
+    "title": "Invocation/&InvocationGiftOfTheProtectorsTitle",
+    "description": "Invocation/&InvocationGiftOfTheProtectorsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
