@@ -55,7 +55,7 @@ public static class CharacterInformationPanelPatcher
                 BindingFlags.Instance | BindingFlags.NonPublic);
             var myEnumerateClassBadgesMethod =
                 new Action<CharacterInformationPanel>(CharacterInspectionScreenEnhancement.EnumerateClassBadges).Method;
-            
+
             return instructions
                 .ReplaceCalls(enumerateClassBadgesMethod,
                     "CharacterInformationPanel.Refresh.EnumerateClassBadges",

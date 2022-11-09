@@ -143,11 +143,15 @@ internal static class InvocationsContext
                     .InvocationDefinition
                     .RequiredLevel;
 
-                if (requiredLevel < 1) { requiredLevel = 1; }
+                if (requiredLevel < 1)
+                {
+                    requiredLevel = 1;
+                }
 
                 if (requiredLevel != level)
                 {
                     var mod = j % Columns;
+                    
                     if (mod != 0)
                     {
                         j += Columns - mod;
@@ -160,7 +164,7 @@ internal static class InvocationsContext
                 var x = j % Columns;
                 var y = j / Columns;
                 var posX = x * (Width + SpacingX);
-                var posY = -y * (Height + SpacingY) - gap;
+                var posY = (-y * (Height + SpacingY)) - gap;
 
                 rect = child.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(posX, posY);
@@ -171,7 +175,7 @@ internal static class InvocationsContext
 
             rect = table.GetComponent<RectTransform>();
             rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,
-                ((int)Math.Ceiling(j / (float)Columns)) * (Height + SpacingY) + gap);
+                ((int)Math.Ceiling(j / (float)Columns) * (Height + SpacingY)) + gap);
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(table);

@@ -96,7 +96,7 @@ internal static class BootContext
 
             // Custom invocations
             InvocationsContext.LateLoad();
-            
+
             // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
             SpellsContext.LateLoad();
 
