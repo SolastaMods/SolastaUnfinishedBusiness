@@ -137,15 +137,13 @@ public static class PowerSelectionPanelPatcher
         }
     }
 
-    //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
     [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Unbind_Patch
     {
         public static void Postfix()
         {
-            PowerBundle.CloseSubPowerSelectionModal();
-
+            //PATCH: add additional rows to powers (EnableMultiLinePowerPanel)
             if (!Main.Settings.EnableMultiLinePowerPanel)
             {
                 return;

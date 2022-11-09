@@ -73,6 +73,19 @@ public static class CharacterActionPanelPatcher
 
             if (power != null)
             {
+                var bundle = PowerBundle.GetBundle(power);
+                if (bundle != null)
+                {
+                    if (subspellIndex >= 0 && bundle.SubPowers.Count > subspellIndex)
+                    {
+                        power = bundle.SubPowers[subspellIndex];
+                    }
+                    else
+                    {
+                        Main.Error($"Wrong index for power bundle in '{definition.Name}' invocation: {subspellIndex}");
+                    }
+                }
+
                 var actionDefinitions =
                     ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
                 var action = actionDefinitions[__instance.actionId];
