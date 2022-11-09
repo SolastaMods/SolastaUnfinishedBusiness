@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "ElementalDamage",
-  "limitedUsage": "OncePerTurn",
+  "notificationTag": "",
+  "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
@@ -13,14 +13,14 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
-  "requiredSpecificSpell": null,
+  "requiredSpecificSpell": "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": "ProficiencyBonus",
+  "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "DamageThunder",
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [],
@@ -33,7 +33,18 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionHindered_By_Frost:c148df61de4a42345aeb1962d83f7b58",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,
@@ -69,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8b548ce8-5850-552e-8939-3f7b1d099649",
+  "guid": "41aa3d93-ca68-58fd-8fd1-7afbb2865bb9",
   "contentPack": 9999,
-  "name": "AdditionalDamageElementalistAir"
+  "name": "AdditionalDamageInvocationHinderingBlast"
 }

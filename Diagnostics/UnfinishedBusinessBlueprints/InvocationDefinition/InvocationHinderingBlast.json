@@ -1,23 +1,23 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 5,
+  "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": null,
-  "grantedSpell": "Definition:CreateDeadRisenSkeleton_Enforcer:091f5b2a-2ba2-514e-b7d5-8bc591b2490f",
+  "grantedFeature": "Definition:AdditionalDamageInvocationHinderingBlast:41aa3d93-ca68-58fd-8fd1-7afbb2865bb9",
+  "grantedSpell": null,
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Invocation/&InvocationUndyingServitudeTitle",
-    "description": "You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.",
+    "title": "Invocation/&InvocationHinderingBlastTitle",
+    "description": "Invocation/&InvocationHinderingBlastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "fe1d9130-fa5c-527d-bf25-fab5497dd07c",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e4430cf-3b6d-5504-ac46-97324eeee3e0",
+  "guid": "e5561045-16a0-5e61-b95f-5bb80f333220",
   "contentPack": 9999,
-  "name": "InvocationUndyingServitude"
+  "name": "InvocationHinderingBlast"
 }
