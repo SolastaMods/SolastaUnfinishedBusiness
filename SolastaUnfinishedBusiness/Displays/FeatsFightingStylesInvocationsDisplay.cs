@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class FeatsFightingStylesInvocationsDisplay
 {
-    internal static void DisplayFeatsAndFightingStyles()
+    internal static void DisplayFeatsFightingStylesInvocations()
     {
         var displayToggle = Main.Settings.DisplayFeatsToggle;
         var sliderPos = Main.Settings.FeatSliderPosition;
@@ -52,7 +52,7 @@ internal static class FeatsFightingStylesInvocationsDisplay
         sliderPos = Main.Settings.InvocationSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Invocations"),
-            InvocationsContext.Switch,
+            InvocationsContext.SwitchInvocation,
             InvocationsContext.Invocations,
             Main.Settings.InvocationEnabled,
             ref displayToggle,

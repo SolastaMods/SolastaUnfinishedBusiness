@@ -200,11 +200,13 @@ internal static class FeatsContext
     internal static void UpdateRelevantFeatList(FeatSubPanel panel)
     {
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
+        var visibleFeats = dbFeatDefinition
+            .Where(x => !x.GuiPresentation.Hidden)
+            .ToList();
 
-        var visibleFeats = dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden).ToList();
-        panel.relevantFeats.SetRange(visibleFeats.Where(f =>
-            f.GetFirstSubFeatureOfType<IGroupedFeat>() is not { } group
-            || group.GetSubFeats().Count(s => visibleFeats.Contains(s)) > 1)
+        panel.relevantFeats.SetRange(visibleFeats
+            .Where(f => f.GetFirstSubFeatureOfType<IGroupedFeat>() is not { } group
+                        || group.GetSubFeats().Count(s => visibleFeats.Contains(s)) > 1)
         );
     }
 
