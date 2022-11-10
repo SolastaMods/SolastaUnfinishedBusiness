@@ -46,8 +46,12 @@ public static class RulesetCharacterPatcher
     {
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
-            //PATCH: notifies custom condition features that condition is applied 
-            activeCondition.ConditionDefinition.Features
+            //PATCH: notifies custom condition features that condition is applied
+            var definition = activeCondition.ConditionDefinition;
+            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
+                .ForEach(c => c.ApplyFeature(__instance));
+
+            definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
                 .ToList()
                 .ForEach(c => c.ApplyFeature(__instance));
