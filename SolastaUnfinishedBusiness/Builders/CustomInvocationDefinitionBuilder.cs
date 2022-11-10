@@ -26,10 +26,12 @@ internal class CustomInvocationDefinitionBuilder
 
     internal CustomInvocationDefinitionBuilder SetActionId(
         ActionDefinitions.Id main = ActionDefinitions.Id.CastInvocation,
-        ActionDefinitions.Id bonus = (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus)
+        ActionDefinitions.Id bonus = (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus,
+        ActionDefinitions.Id noCost = (ActionDefinitions.Id)ExtraActionId.CastInvocationNoCost)
     {
         Definition.MainActionId = main;
         Definition.BonusActionId = bonus;
+        Definition.NoCostActionId = noCost;
         return this;
     }
 

@@ -132,9 +132,10 @@ internal enum ExtraAdvancementDuration
 internal enum ExtraActionId
 {
     CastInvocationBonus = 9000,
-    CastPlaneMagicMain = 9001,
-    CastPlaneMagicBonus = 9002,
-    InventorInfusion = 9003
+    CastInvocationNoCost = 9001,
+    CastPlaneMagicMain = 9002,
+    CastPlaneMagicBonus = 9003,
+    InventorInfusion = 9004,
 }
 
 internal static class EnumImplementation

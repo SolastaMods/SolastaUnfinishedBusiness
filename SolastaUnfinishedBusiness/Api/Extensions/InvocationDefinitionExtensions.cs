@@ -6,31 +6,62 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 public static class InvocationDefinitionExtensions
 {
-    private static bool IsBonusAction(this InvocationDefinition invocation)
+    internal static bool IsPermanent(this InvocationDefinition invocation)
     {
+        return invocation.GrantedFeature != null && invocation.GetPower() == null;
+    }
+
+    internal static ActionType GetActionType(this InvocationDefinition invocation)
+    {
+        if (invocation.IsPermanent())
+        {
+            return ActionType.NoCost;
+        }
+
+        RuleDefinitions.ActivationTime time = RuleDefinitions.ActivationTime.Action;
         if (invocation.GrantedSpell != null)
         {
-            return invocation.GrantedSpell.castingTime == RuleDefinitions.ActivationTime.BonusAction;
+            time = invocation.GrantedSpell.ActivationTime;
         }
 
         if (invocation.GrantedFeature is FeatureDefinitionPower power)
         {
-            return power.ActivationTime == RuleDefinitions.ActivationTime.BonusAction;
+            time = power.ActivationTime;
         }
 
-        return false;
+        switch (time)
+        {
+            case RuleDefinitions.ActivationTime.Action:
+                return ActionType.Main;
+            case RuleDefinitions.ActivationTime.BonusAction:
+                return ActionType.Bonus;
+            case RuleDefinitions.ActivationTime.NoCost:
+                return ActionType.NoCost;
+        }
+
+        return ActionType.Main;
     }
 
     internal static Id GetActionId(this InvocationDefinition invocation)
     {
-        var isBonus = invocation.IsBonusAction();
-
         if (invocation is InvocationDefinitionCustom custom)
         {
-            return isBonus ? custom.BonusActionId : custom.MainActionId;
+            return custom.BattleActionId;
         }
 
-        return isBonus ? (Id)ExtraActionId.CastInvocationBonus : Id.CastInvocation;
+        var type = invocation.GetActionType();
+
+        switch (type)
+        {
+            case ActionType.Main:
+                return Id.CastInvocation;
+            case ActionType.Bonus:
+                return (Id)ExtraActionId.CastInvocationBonus;
+            case ActionType.NoCost:
+                return (Id)ExtraActionId.CastInvocationNoCost;
+        }
+
+        return Id.CastInvocation;
     }
 
     internal static Id GetMainActionId(this InvocationDefinition invocation)

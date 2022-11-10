@@ -3,6 +3,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -13,12 +14,33 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
     /**Used for tooltip in selection screen*/
     internal ItemDefinition Item { get; set; }
 
-    internal ActionDefinitions.Id MainActionId { get; set; } = ActionDefinitions.Id.CastInvocation;
-    internal ActionDefinitions.Id BonusActionId { get; set; } = (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus;
+    internal Id MainActionId { get; set; } = Id.CastInvocation;
+    internal Id BonusActionId { get; set; } = (Id)ExtraActionId.CastInvocationBonus;
+
+    internal Id NoCostActionId { get; set; } = (Id)ExtraActionId.CastInvocationNoCost;
+
+    internal Id BattleActionId
+    {
+        get
+        {
+            var type = this.GetActionType();
+            switch (type)
+            {
+                case ActionType.Main:
+                    return MainActionId;
+                case ActionType.Bonus:
+                    return BonusActionId;
+                case ActionType.NoCost:
+                    return MainActionId;
+            }
+
+            return MainActionId;
+        }
+    }
 
     //TODO: add validator setter
     public IEnumerable<IDefinitionWithPrerequisites.Validate> Validators { get; } =
-        new IDefinitionWithPrerequisites.Validate[] { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
+        new IDefinitionWithPrerequisites.Validate[] {CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact};
 
     private static bool CheckRequiredLevel(
         RulesetCharacter character,

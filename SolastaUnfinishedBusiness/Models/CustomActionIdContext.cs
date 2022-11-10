@@ -21,6 +21,13 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
             .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(baseAction, "CastInvocationNoCost")
+            .SetActionId(ExtraActionId.CastInvocationNoCost)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
 
         ActionDefinitionBuilder
             .Create(baseAction, "CastPlaneMagicMain")
@@ -53,6 +60,7 @@ public static class CustomActionIdContext
 
         return id is Id.CastInvocation
                || extra is ExtraActionId.CastInvocationBonus
+                   or ExtraActionId.CastInvocationNoCost
                    or ExtraActionId.InventorInfusion
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus;
