@@ -220,20 +220,21 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
     {
-        public static IEnumerator Postfix(
-            IEnumerator values,
+        public static void Prefix(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
             ReactionAttackModeRestriction.ReactionContext = (attacker, defender, attackMode);
+        }
 
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
+        public static void Postfix(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode)
+        {
+            //PATCH: support for `IReactionAttackModeRestriction`
             ReactionAttackModeRestriction.ReactionContext = (null, null, null);
         }
     }
