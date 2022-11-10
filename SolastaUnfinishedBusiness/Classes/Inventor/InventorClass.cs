@@ -306,7 +306,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, _learn2, Infusions.ImprovedInfusions, BuildMagicAdept(),
+            .AddFeaturesAtLevel(10, _learn2, BuildMagicAdept(),
                 BuildInfusionPoolIncrease())
 
             #endregion
