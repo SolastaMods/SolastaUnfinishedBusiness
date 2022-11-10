@@ -85,6 +85,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .Build())
                     .Build())
             .SetBonusToAttack(true, true, AttributeDefinitions.Strength)
+            .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
 
         var powerPoolTacticianGambitAdd = FeatureDefinitionPowerUseModifierBuilder
