@@ -269,7 +269,7 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
+    internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance = 0)
     {
         var motionForm = new MotionForm { type = motionType, distance = motionDistance };
 

@@ -513,4 +513,13 @@
   <data name="ActionInfuse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions\ActionInfuse.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ActionGambit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions\ActionGambit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConditionGambit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Conditions\ConditionGambit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GambitResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

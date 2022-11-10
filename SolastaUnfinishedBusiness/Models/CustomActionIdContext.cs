@@ -21,7 +21,7 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(baseAction, "CastInvocationNoCost")
             .SetActionId(ExtraActionId.CastInvocationNoCost)
@@ -52,16 +52,44 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.Exploration)
             .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "TacticianGambitMain")
+            .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.TacticianGambitMain)
+            .SetActionType(ActionType.Main)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "TacticianGambitBonus")
+            .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.TacticianGambitBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "TacticianGambitNoCost")
+            .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.TacticianGambitNoCost)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
     }
 
     internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 
+        //TODO: consider adding all invocation actions to a list and check it here
         return id is Id.CastInvocation
                || extra is ExtraActionId.CastInvocationBonus
                    or ExtraActionId.CastInvocationNoCost
                    or ExtraActionId.InventorInfusion
+                   or ExtraActionId.TacticianGambitMain
+                   or ExtraActionId.TacticianGambitBonus
+                   or ExtraActionId.TacticianGambitNoCost
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus;
     }

@@ -136,6 +136,9 @@ internal enum ExtraActionId
     CastPlaneMagicMain = 9002,
     CastPlaneMagicBonus = 9003,
     InventorInfusion = 9004,
+    TacticianGambitMain = 9005,
+    TacticianGambitBonus = 9006,
+    TacticianGambitNoCost = 9007,
 }
 
 internal static class EnumImplementation

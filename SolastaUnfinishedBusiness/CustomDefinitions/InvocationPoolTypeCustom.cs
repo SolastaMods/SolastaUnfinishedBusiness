@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -125,6 +126,13 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
+
+        internal static readonly InvocationPoolTypeCustom Gambit =
+            //TODO: add proper sprite
+            Register("Gambit", InventorClass.Pictogram, CharacterClassDefinitions.Fighter.Name,
+                main: (Id)ExtraActionId.TacticianGambitMain,
+                bonus: (Id)ExtraActionId.TacticianGambitBonus,
+                noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic",

@@ -14,7 +14,7 @@ internal class EffectDescriptionBuilder
     {
         effect = new EffectDescription
         {
-            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
+            effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
             effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
@@ -194,6 +194,29 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetNoSavingThrow()
     {
         effect.hasSavingThrow = false;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetHasSavingThrow(
+        string savingThrowAbility,
+        EffectDifficultyClassComputation difficultyClassComputation,
+        string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
+        int fixedSavingThrowDifficultyClass = 10,
+        bool ignoreCover = false,
+        bool disableSavingThrowOnAllies = false,
+        bool advantageForEnemies = false,
+        params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense
+    )
+    {
+        effect.hasSavingThrow = true;
+        effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
+        effect.savingThrowAbility = savingThrowAbility;
+        effect.ignoreCover = ignoreCover;
+        effect.difficultyClassComputation = difficultyClassComputation;
+        effect.savingThrowDifficultyAbility = savingThrowDifficultyAbility;
+        effect.fixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
+        effect.advantageForEnemies = advantageForEnemies;
+        effect.savingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
         return this;
     }
 
