@@ -20,11 +20,7 @@ internal static class Infusions
 {
     private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
-
-    public static readonly FeatureDefinitionFeatureSet ImprovedInfusions = FeatureDefinitionFeatureSetBuilder
-        .Create("FeatureSetInfusionUpgrade")
-        .SetGuiPresentationNoContent(true)
-        .AddToDB();
+    private const int UngradeLevel = 10;
 
     public static void Build()
     {
@@ -40,7 +36,7 @@ internal static class Infusions
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, sprite, IsFocusOrStaff, FeatureDefinitionMagicAffinityBuilder
+        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionMagicAffinityBuilder
             //TODO: RAW needs to require attunement
             .Create($"MagicAffinity{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -59,7 +55,7 @@ internal static class Infusions
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, sprite, IsNonEnhancedArmor, FeatureDefinitionAttributeModifierBuilder
+        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
@@ -79,14 +75,13 @@ internal static class Infusions
             .SetMagicalWeapon()
             .AddToDB());
 
-        BuildUpgradedInfuseItemPower(name, power, sprite, IsWeapon,
-            FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{name}Upgraded")
-                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-                .SetAttackRollModifier(2)
-                .SetDamageRollModifier(2)
-                .SetMagicalWeapon()
-                .AddToDB());
+        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{name}Upgraded")
+            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+            .SetAttackRollModifier(2)
+            .SetDamageRollModifier(2)
+            .SetMagicalWeapon()
+            .AddToDB());
 
         #endregion
 
@@ -303,42 +298,42 @@ internal static class Infusions
     private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
         AssetReferenceSprite icon, ICustomItemFilter itemFilter, params FeatureDefinition[] features)
     {
-        var properties = features.Select(f =>
-        {
-            f.AddCustomSubFeatures(Infused.Marker);
-            return new FeatureUnlockByLevel(f, 0);
-        });
-
         return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
                 SkipEffectRemovalOnLocationChange.Always, PowerFromInvocation.Marker, itemFilter)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
-                    .Build())
-                .Build())
+            .SetEffectDescription(BuildInfuseItemWithFeaturesEffect(features))
             .AddToDB();
     }
 
-    private static void BuildUpgradedInfuseItemPower(string name, FeatureDefinitionPower power,
-        AssetReferenceSprite sprite, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
+    private static void UpgradeInfusionPower(FeatureDefinitionPower power, int level,
+        params FeatureDefinition[] features)
     {
-        var upgrade = BuildInfuseItemPower($"{name}Upgraded", name,
-            sprite, itemFilter, features);
-        upgrade.overriddenPower = power;
-        upgrade.AddCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasAnyFeature(power)));
-        ImprovedInfusions.FeatureSet.Add(upgrade);
+        power.AddCustomSubFeatures(new ModifyMagicEffectOnLevels(InventorClass.ClassName,
+            (level, BuildInfuseItemWithFeaturesEffect(features))));
+    }
+
+    private static EffectDescription BuildInfuseItemWithFeaturesEffect(params FeatureDefinition[] features)
+    {
+        var properties = features.Select(f =>
+        {
+            f.AddCustomSubFeatures(Infused.Marker);
+            return new FeatureUnlockByLevel(f, 0);
+        });
+
+        return EffectDescriptionBuilder.Create()
+            .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
+                itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
+            .SetDurationData(DurationType.Permanent)
+            .SetEffectForms(EffectFormBuilder.Create()
+                .HasSavingThrow(EffectSavingThrowType.None)
+                .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
+                .Build())
+            .Build();
     }
 
     private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(ItemDefinition item, string description)
