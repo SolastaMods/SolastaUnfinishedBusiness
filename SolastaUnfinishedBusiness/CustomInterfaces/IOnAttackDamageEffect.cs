@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -30,3 +31,4 @@ public interface IOnAttackDamageEffect
         bool criticalHit,
         bool firstTarget);
 }
+#endif
