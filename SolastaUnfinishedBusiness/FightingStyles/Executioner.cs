@@ -55,7 +55,8 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            var proficiencyBonus = myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiencyBonus =
+                (myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue + 1) / 2;
 
             attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(

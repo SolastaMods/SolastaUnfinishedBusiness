@@ -42,10 +42,12 @@ internal sealed class Titan : AbstractFightingStyle
                 return;
             }
 
-            // grant +2 hit if defender is large or bigger
-            attackModifier.attackRollModifier += 2;
+            var proficiencyBonus =
+                (myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue + 1) / 2;
+
+            attackModifier.attackRollModifier += proficiencyBonus;
             attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                2, RuleDefinitions.FeatureSourceType.FightingStyle, "Titan", myself));
+                proficiencyBonus, RuleDefinitions.FeatureSourceType.FightingStyle, "Titan", myself));
         }
     }
 }
