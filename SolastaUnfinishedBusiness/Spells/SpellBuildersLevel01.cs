@@ -17,6 +17,11 @@ internal static partial class SpellBuilders
 {
     #region LEVEL 01
 
+#if false
+// Monster/&OwlFamiliarDescription=Owl Familiar.
+// Monster/&OwlFamiliarTitle=Owl
+// Spell/&FindFamiliarDescription=You gain the service of a familiar.
+// Spell/&FindFamiliarTitle=Find Familiar
     internal static SpellDefinition BuildFindFamiliar()
     {
         var owlFamiliar = MonsterDefinitionBuilder
@@ -83,6 +88,7 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+#endif
 
     internal static SpellDefinition BuildMule()
     {

@@ -126,24 +126,23 @@ internal static class SpellsContext
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
+        var spellListInventorClass = InventorClass.SpellList;
+
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(BuildAirBlast(), 0, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
-            InventorClass.SpellList);
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
-            InventorClass.SpellList);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildSunlightBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
-        RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
-            InventorClass.SpellList);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 1st level
-        RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
+        // RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
-        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, InventorClass.SpellList);
+        RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
