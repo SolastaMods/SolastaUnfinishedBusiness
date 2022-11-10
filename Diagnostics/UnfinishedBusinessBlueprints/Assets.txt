@@ -2712,7 +2712,6 @@ MonsterAttackMarshalEternalComrade	MonsterAttackDefinition	MonsterAttackDefiniti
 MonsterAttackSteelDefender	MonsterAttackDefinition	MonsterAttackDefinition	dc306c4d-ba01-5bf9-8c2d-58c9c5ad698a
 InnovationWeaponSteelDefender	MonsterDefinition	MonsterDefinition	19fbf91b-460d-58ef-89a7-399350fa15d2
 MarshalEternalComrade	MonsterDefinition	MonsterDefinition	62bcd3b3-0d54-5fe4-9578-1cea388159a9
-OwlFamiliar	MonsterDefinition	MonsterDefinition	92e9e549-346e-504c-bfc8-236e8d40b7b5
 RisenGhost	MonsterDefinition	MonsterDefinition	2010e4e5-b428-5679-b39d-6f6e7f48b724
 RisenGhoul	MonsterDefinition	MonsterDefinition	3a9531c7-6138-565a-9b1c-edd8a767694d
 RisenSkeleton	MonsterDefinition	MonsterDefinition	924c88ff-d5e9-54ef-9af2-1ac16935a8a4
@@ -5326,7 +5325,6 @@ CreateDeadRisenWight	SpellDefinition	SpellDefinition	59a6741c-52cc-5859-9f99-d96
 CreateDeadRisenWightLord	SpellDefinition	SpellDefinition	1e533ed6-cae9-5e1d-9cd9-4a70c62f9d69
 EarthTremor	SpellDefinition	SpellDefinition	f72bca83-705a-52f8-bd8d-c774e4c80671
 FarStep	SpellDefinition	SpellDefinition	1adf1412-2248-5b36-805b-5076ef23ea04
-FindFamiliar	SpellDefinition	SpellDefinition	bb9f406d-0011-5248-9df9-aed0cba95948
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf
 MassHeal	SpellDefinition	SpellDefinition	0a9e59ba-4e57-52a5-ab05-27ae3c96e34f
