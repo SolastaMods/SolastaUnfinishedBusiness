@@ -91,7 +91,7 @@ internal static class ElAntoniousFeats
         feats.AddRange(featTorchbearer, featDualFlurry);
     }
 
-    private sealed class OnAttackDamageEffectFeatDualFlurry : IOnAttackDamageEffect
+    private sealed class OnAttackDamageEffectFeatDualFlurry : IOnAttackHitEffect
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
@@ -104,19 +104,15 @@ internal static class ElAntoniousFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void AfterOnAttackDamage(
+        public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            [CanBeNull] RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
         {
-            if (rangedAttack || attackMode == null)
+            if (attackMode == null)
             {
                 return;
             }
