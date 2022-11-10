@@ -122,11 +122,9 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildSpiritShroud()
     {
         var hinder = ConditionDefinitionBuilder
-            .Create("ConditionSpiritShroudHinder")
-            .SetGuiPresentation(ConditionHindered_By_Frost.GuiPresentation)
+            .Create(ConditionHindered_By_Frost, "ConditionSpiritShroudHinder")
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(ConditionHindered_By_Frost.features)
             .SetSpecialDuration(true)
             .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
@@ -139,9 +137,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch.GuiPresentation.Description,
                 ConditionChilledByTouch.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
-            )
+            .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
             .SetSpecialDuration(true)
             .SetDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
@@ -164,8 +160,7 @@ internal static partial class SpellBuilders
             .SetSubSpells(
                 BuildSpiritShroudSubSpell(DamageTypeRadiant, hinder, noHeal, sprite),
                 BuildSpiritShroudSubSpell(DamageTypeNecrotic, hinder, noHeal, sprite),
-                BuildSpiritShroudSubSpell(DamageTypeCold, hinder, noHeal, sprite)
-            )
+                BuildSpiritShroudSubSpell(DamageTypeCold, hinder, noHeal, sprite))
             .AddToDB();
     }
 

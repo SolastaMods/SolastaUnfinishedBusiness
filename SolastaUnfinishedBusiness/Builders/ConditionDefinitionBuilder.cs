@@ -131,13 +131,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
-    {
-        Definition.Features.SetRange(features);
-        Definition.Features.Sort(Sorting.Compare);
-        return this;
-    }
-
     internal ConditionDefinitionBuilder SetRecurrentEffectForms(params EffectForm[] forms)
     {
         Definition.RecurrentEffectForms.SetRange(forms);
