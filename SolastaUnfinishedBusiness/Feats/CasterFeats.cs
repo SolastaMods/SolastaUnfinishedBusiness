@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -331,9 +332,8 @@ internal static class CasterFeats
                 .Create($"CustomInvocation{name}{spell.Name}{castingAttribute}")
                 .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
                 .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(featureName))
-                .SetPoolType(null)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
                 .SetGrantedSpell(spell, longRestRecharge: true)
-                .SetActionId(ExtraActionId.CastPlaneMagicMain, ExtraActionId.CastPlaneMagicBonus)
                 .AddToDB());
         }
 
@@ -343,7 +343,7 @@ internal static class CasterFeats
             .SetInvocations(invocations)
             .AddToDB();
 
-        return new FeatureDefinition[] { spellFeature, grant };
+        return new FeatureDefinition[] {spellFeature, grant};
     }
 
     [NotNull]

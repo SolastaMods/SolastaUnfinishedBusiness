@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -22,23 +21,5 @@ internal class CustomInvocationDefinitionBuilder
     {
         Definition.PoolType = poolType;
         return this;
-    }
-
-    internal CustomInvocationDefinitionBuilder SetActionId(
-        ActionDefinitions.Id main = ActionDefinitions.Id.CastInvocation,
-        ActionDefinitions.Id bonus = (ActionDefinitions.Id)ExtraActionId.CastInvocationBonus,
-        ActionDefinitions.Id noCost = (ActionDefinitions.Id)ExtraActionId.CastInvocationNoCost)
-    {
-        Definition.MainActionId = main;
-        Definition.BonusActionId = bonus;
-        Definition.NoCostActionId = noCost;
-        return this;
-    }
-
-    internal CustomInvocationDefinitionBuilder SetActionId(
-        ExtraActionId main = (ExtraActionId)ActionDefinitions.Id.CastInvocation,
-        ExtraActionId bonus = ExtraActionId.CastInvocationBonus)
-    {
-        return SetActionId((ActionDefinitions.Id)main, (ActionDefinitions.Id)bonus);
     }
 }

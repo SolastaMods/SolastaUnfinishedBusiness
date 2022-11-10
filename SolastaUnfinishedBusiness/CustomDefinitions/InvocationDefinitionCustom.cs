@@ -14,10 +14,9 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
     /**Used for tooltip in selection screen*/
     internal ItemDefinition Item { get; set; }
 
-    internal Id MainActionId { get; set; } = Id.CastInvocation;
-    internal Id BonusActionId { get; set; } = (Id)ExtraActionId.CastInvocationBonus;
-
-    internal Id NoCostActionId { get; set; } = (Id)ExtraActionId.CastInvocationNoCost;
+    internal Id MainActionId => PoolType?.MainActionId ?? Id.CastInvocation;
+    internal Id BonusActionId => PoolType?.BonusActionId ?? (Id)ExtraActionId.CastInvocationBonus;
+    internal Id NoCostActionId => PoolType?.NoCostActionId ?? (Id)ExtraActionId.CastInvocationNoCost;
 
     internal Id BattleActionId
     {
@@ -31,7 +30,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
                 case ActionType.Bonus:
                     return BonusActionId;
                 case ActionType.NoCost:
-                    return MainActionId;
+                    return NoCostActionId;
             }
 
             return MainActionId;

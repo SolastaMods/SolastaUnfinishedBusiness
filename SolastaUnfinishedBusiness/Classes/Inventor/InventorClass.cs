@@ -28,7 +28,7 @@ internal static class InventorClass
     private static readonly AssetReferenceSprite Sprite =
         Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
 
-    private static readonly AssetReferenceSprite Pictogram =
+    internal static readonly AssetReferenceSprite Pictogram =
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
