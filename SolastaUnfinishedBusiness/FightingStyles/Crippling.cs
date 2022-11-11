@@ -1,9 +1,4 @@
-﻿#if false
-// Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!
-// Feedback/&AdditionalDamageCripplingLine={1} suffers crippling damage.
-// FightingStyle/&CripplingDescription=Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
-// FightingStyle/&CripplingTitle=Crippling
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -16,16 +11,24 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Crippling : AbstractFightingStyle
 {
+    private const string Name = "Crippling";
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("Crippling")
+        .Create(Name)
         .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer)
         .SetFeatures(
+            FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierCripplingACDebuff")
+                .SetGuiPresentation(Category.Feature)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass, -1)
+                .AddToDB(),
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
                 .SetGuiPresentationNoContent(true)
                 .SetDamageDice(DieType.D1, 0)
                 .SetFrequencyLimit(FeatureLimitedUsage.None)
-                .SetNotificationTag("Crippling")
+                .SetNotificationTag(Name)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetConditionOperations(
@@ -49,4 +52,3 @@ internal sealed class Crippling : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
     };
 }
-#endif

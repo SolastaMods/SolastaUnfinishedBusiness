@@ -1,10 +1,4 @@
-﻿/*
- * Path Of The Rage Mage is a Third Caster for Barbarians, inspired by the subclass of the same name from Valda's Spire Of Secrets.
- * Created by William Smith AKA DemonSlayer730
- * Ver. 1.0
- * 07/08/2022 (MM/DD/YYYY)
- */
-
+﻿#if false
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
@@ -144,3 +138,4 @@ internal sealed class PathOfTheRageMage : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 }
+#endif

@@ -17,7 +17,7 @@ internal static class FightingStyleContext
     internal static void Load()
     {
         LoadStyle(new BlindFighting());
-        // LoadStyle(new Crippling());
+        LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new LightFooted());
