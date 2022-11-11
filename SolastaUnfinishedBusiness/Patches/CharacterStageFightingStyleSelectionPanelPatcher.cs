@@ -2,8 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -15,6 +13,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
     {
         public static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
         {
+#if false
             //PATCH: changes the fighting style layout to allow more offerings
             var table = __instance.fightingStylesTable;
             var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
@@ -30,7 +29,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
                 gridLayoutGroup.constraintCount = Math.Min(3, ((fightingStylesCount - 1) / 4) + 1);
                 table.localScale = new Vector3(1f, 1f, 1f);
             }
-
+#endif
             //PATCH: sorts the fighting style panel by Title
             if (!Main.Settings.EnableSortingFightingStyles)
             {
