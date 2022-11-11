@@ -178,9 +178,7 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
 {
     private readonly int _bonus;
 
-    internal IncreaseMeleeAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
-        params IsCharacterValidHandler[] validators)
-        : base(isWeaponValid, validators)
+    internal IncreaseMeleeAttackReach(int bonus) : base(ValidatorsWeapon.Melee)
     {
         _bonus = bonus;
     }
@@ -191,6 +189,11 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
         if (attackMode.reach)
         {
             attackMode.reachRange += _bonus;
+        }
+        else
+        {
+            attackMode.reach = true;
+            attackMode.reachRange = 2;
         }
     }
 }
