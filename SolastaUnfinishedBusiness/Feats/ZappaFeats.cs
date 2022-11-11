@@ -520,15 +520,17 @@ internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
             return;
         }
 
-        const int TO_HIT = -5;
-        const int TO_DAMAGE = 10;
+        var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
 
-        attackMode.ToHitBonus += TO_HIT;
-        attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT,
+        var toHit = -proficiency;
+        var toDamage = 2 * proficiency;
+
+        attackMode.ToHitBonus += toHit;
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit,
             FeatureSourceType.Power, "Deadeye", null));
 
-        damage.BonusDamage += TO_DAMAGE;
-        damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE,
+        damage.BonusDamage += toDamage;
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
             FeatureSourceType.Power, "Deadeye", null));
     }
 }
