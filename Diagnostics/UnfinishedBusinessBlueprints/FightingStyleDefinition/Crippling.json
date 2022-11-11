@@ -1,8 +1,7 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7",
-    "Definition:AttributeModifierCripplingACDebuff:45dd6abf-0d7c-5563-b3ec-a9d3252159ff"
+    "Definition:AdditionalDamageCrippling:3a68707a-e9fb-5657-9956-5cb90bf16aa7"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

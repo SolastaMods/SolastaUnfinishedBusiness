@@ -6,6 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFight
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -17,12 +18,6 @@ internal sealed class Crippling : AbstractFightingStyle
         .Create(Name)
         .SetGuiPresentation(Category.FightingStyle, RangerShadowTamer)
         .SetFeatures(
-            FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierCripplingACDebuff")
-                .SetGuiPresentation(Category.Feature)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass, -1)
-                .AddToDB(),
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
                 .SetGuiPresentationNoContent(true)
@@ -34,15 +29,19 @@ internal sealed class Crippling : AbstractFightingStyle
                 .SetConditionOperations(
                     new ConditionOperationDescription
                     {
-                        canSaveToCancel = false,
                         conditionDefinition = ConditionDefinitionBuilder
                             .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
-                            .SetAllowMultipleInstances(true)
+                            .SetFeatures(
+                                MovementAffinityConditionHindered,
+                                FeatureDefinitionAttributeModifierBuilder
+                                    .Create("AttributeModifierCripplingACDebuff")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                        AttributeDefinitions.ArmorClass, -1)
+                                    .AddToDB())
                             .AddToDB(),
-                        hasSavingThrow = false,
                         operation = ConditionOperationDescription.ConditionOperation.Add,
-                        saveAffinity = EffectSavingThrowType.None,
-                        saveOccurence = TurnOccurenceType.EndOfTurn
+                        saveAffinity = EffectSavingThrowType.None
                     })
                 .AddToDB())
         .AddToDB();
