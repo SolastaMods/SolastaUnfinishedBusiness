@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorCategoryDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -32,12 +31,17 @@ internal static class ArmorFeats
             proficiencyFeatMediumArmor,
             AttributeModifierCreed_Of_Einar);
 
+        // sounds too OP
+#if false
+// Feat/&FeatHeavyArmorMasterDescription=You gain resistance to bludgeoning, slashing, and piercing damage.
+// Feat/&FeatHeavyArmorMasterTitle=Heavy Defense Mastery
         var featHeavyArmorMaster = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
             DamageAffinityBludgeoningResistance,
             DamageAffinitySlashingResistance,
             DamageAffinityPiercingResistance);
+#endif
 
-        feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr, featHeavyArmorMaster);
+        feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr);
 
         _ = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
             featMediumArmorDex,
@@ -64,7 +68,7 @@ internal static class ArmorFeats
     {
         return FeatureDefinitionProficiencyBuilder
             .Create(name)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(type, proficiencies)
             .AddToDB();
     }
