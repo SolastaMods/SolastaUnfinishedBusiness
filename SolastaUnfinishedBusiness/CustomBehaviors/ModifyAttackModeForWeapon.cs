@@ -173,3 +173,24 @@ internal sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
         attackMode.closeRange = attackMode.maxRange;
     }
 }
+
+internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
+{
+    private readonly int _bonus;
+
+    internal IncreaseMeleeAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators)
+        : base(isWeaponValid, validators)
+    {
+        _bonus = bonus;
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        if (attackMode.reach)
+        {
+            attackMode.reachRange += _bonus;
+        }
+    }
+}

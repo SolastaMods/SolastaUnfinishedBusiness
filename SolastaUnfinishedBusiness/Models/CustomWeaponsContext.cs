@@ -575,6 +575,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(CONDITION_NAME)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                .SetConditionType(ConditionType.Detrimental)
                 .SetAllowMultipleInstances(true)
                 .SetSpecialDuration(true)
                 .SetDuration(DurationType.Round, 1)

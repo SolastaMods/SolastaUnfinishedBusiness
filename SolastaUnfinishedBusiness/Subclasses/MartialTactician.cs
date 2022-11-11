@@ -244,6 +244,131 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Threaten
+
+        name = "GambitThreaten";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetDurationData(DurationType.Round, 1)
+                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    // .SetConditionForm(ConditionDefinitionBuilder
+                    //     .Create($"Condition{name}Effect")
+                    //     .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+                    //         ConditionDefinitions.ConditionFrightenedFear)
+                    //     .SetConditionType(ConditionType.Detrimental)
+                    //     .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionFrightenedFear)
+                    //     .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                        ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurnNoPerceptionOfSource)
+                    .Build())
+                .Build())
+            .AddToDB());
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Acivate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            //TODO: add limiter so only 1 on-attack power is active
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Goading
+
+        name = "GambitGoading";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetDurationData(DurationType.Round, 1)
+                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}Effect")
+                        .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+                            ConditionDefinitions.ConditionDistracted)
+                        .SetConditionType(ConditionType.Detrimental)
+                        .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                            .Create($"CombatAffinity{name}")
+                            .SetGuiPresentationNoContent()
+                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                            // .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                            .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+                .Build())
+            .AddToDB());
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Acivate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            //TODO: add limiter so only 1 on-attack power is active
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Feint
 
         name = "GambitFeint";
@@ -272,6 +397,44 @@ internal sealed class MartialTactician : AbstractSubclass
                             .Create($"CombatAffinity{name}")
                             .SetGuiPresentation(name, Category.Feature)
                             .SetMyAttackAdvantage(AdvantageType.Advantage)
+                            .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Lunging
+
+        name = "GambitLunging";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Acivate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            //TODO: add limiter so only 1 on-attack power is active
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage, featureSpendDieOnAttack, FeatureDefinitionBuilder
+                            .Create($"Feature{name}")
+                            .SetGuiPresentationNoContent(hidden: true)
+                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.Melee))
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())

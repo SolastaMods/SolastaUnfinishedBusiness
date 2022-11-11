@@ -20,6 +20,8 @@ internal static class ValidatorsWeapon
     // internal static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
     //     HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
+    internal static readonly IsWeaponValidHandler Melee = (_, weapon, _) => IsMelee(weapon);
+
     internal static bool IsPolearm([CanBeNull] RulesetItem weapon)
     {
         return weapon != null
