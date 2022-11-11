@@ -84,9 +84,9 @@ internal static class ToolsDisplay
         bool toggle;
         int intValue;
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&General"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableSaveByLocation;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
@@ -107,7 +107,7 @@ internal static class ToolsDisplay
             ToolsContext.SwitchRespec();
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableHotkeyDebugOverlay;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
@@ -115,9 +115,9 @@ internal static class ToolsDisplay
             Main.Settings.EnableHotkeyDebugOverlay = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Adventure"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
@@ -131,7 +131,7 @@ internal static class ToolsDisplay
             Main.Settings.OverrideMinMaxLevel = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
@@ -140,7 +140,7 @@ internal static class ToolsDisplay
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
         }
 
-        UI.Label("");
+        UI.Label();
 
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
@@ -152,7 +152,7 @@ internal static class ToolsDisplay
 
         if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
         {
-            UI.Label("");
+            UI.Label();
 
             toggle = Main.Settings.AllowAllPlayersOnNarrativeSequences;
             if (UI.Toggle(Gui.Localize("ModUi/&AllowAllPlayersOnNarrativeSequences"), ref toggle))
@@ -161,7 +161,7 @@ internal static class ToolsDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         var floatValue = Main.Settings.FasterTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,
@@ -173,9 +173,9 @@ internal static class ToolsDisplay
 
     private static void DisplayFactionRelations()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&FactionRelations"));
-        UI.Label("");
+        UI.Label();
 
         var flip = true;
         var gameCampaign = Gui.GameCampaign;
@@ -219,14 +219,14 @@ internal static class ToolsDisplay
             UI.Label(Gui.Localize("ModUi/&FactionHelp"));
         }
 
-        UI.Label("");
+        UI.Label();
     }
 
     private static void DisplayItems()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Items"));
-        UI.Label("");
+        UI.Label();
 
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
 

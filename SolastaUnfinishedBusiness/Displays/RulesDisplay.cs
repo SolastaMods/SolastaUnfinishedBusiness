@@ -7,9 +7,9 @@ internal static class RulesDisplay
 {
     internal static void DisplayRules()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&SRD"));
-        UI.Label("");
+        UI.Label();
 
         var toggle = Main.Settings.FixSorcererTwinnedLogic;
         if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
@@ -30,7 +30,7 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
@@ -47,7 +47,7 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
@@ -96,7 +96,7 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.ChangeSleetStormToCube;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
@@ -112,9 +112,9 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
         }
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&House"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.AllowStackedMaterialComponent;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
@@ -150,7 +150,7 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
-        UI.Label("");
+        UI.Label();
 
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
@@ -163,6 +163,6 @@ internal static class RulesDisplay
             Main.Settings.IncreaseSenseNormalVision = intValue;
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

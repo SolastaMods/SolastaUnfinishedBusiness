@@ -76,9 +76,9 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&General"));
-        UI.Label("");
+        UI.Label();
 
         var toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
         if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
@@ -107,7 +107,7 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
         if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
@@ -128,7 +128,7 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.RemoveIdentificationRequirements = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
@@ -136,7 +136,7 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         var intValue = Main.Settings.RecipeCost;
         if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
@@ -145,7 +145,7 @@ internal static class ItemsAndCraftingDisplay
             CraftingContext.UpdateRecipeCost();
         }
 
-        UI.Label("");
+        UI.Label();
 
         intValue = Main.Settings.TotalCraftingTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
@@ -153,7 +153,7 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.TotalCraftingTimeModifier = intValue;
         }
 
-        UI.Label("");
+        UI.Label();
 
         intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
         if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
@@ -163,7 +163,7 @@ internal static class ItemsAndCraftingDisplay
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
         }
 
-        UI.Label("");
+        UI.Label();
 
         using (UI.HorizontalScope())
         {
@@ -178,7 +178,7 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.DisplayCraftingToggle;
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&Crafting"), ref toggle, 200))
@@ -188,9 +188,9 @@ internal static class ItemsAndCraftingDisplay
 
         if (Main.Settings.DisplayCraftingToggle)
         {
-            UI.Label("");
+            UI.Label();
             UI.Label(Gui.Localize("ModUi/&CraftingHelp"));
-            UI.Label("");
+            UI.Label();
 
             using (UI.HorizontalScope(UI.AutoWidth()))
             {
@@ -230,7 +230,7 @@ internal static class ItemsAndCraftingDisplay
                 }
             }
 
-            UI.Label("");
+            UI.Label();
 
             var keys = CraftingContext.RecipeBooks.Keys;
             var current = 0;
@@ -253,7 +253,7 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.DisplayMerchantsToggle;
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&Merchants"), ref toggle, 200))
@@ -263,7 +263,7 @@ internal static class ItemsAndCraftingDisplay
 
         if (Main.Settings.DisplayMerchantsToggle)
         {
-            UI.Label("");
+            UI.Label();
 
             toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
             if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
@@ -296,9 +296,9 @@ internal static class ItemsAndCraftingDisplay
                 Main.Settings.ScaleMerchantPricesCorrectly = toggle;
             }
 
-            UI.Label("");
+            UI.Label();
             UI.Label(Gui.Localize("ModUi/&RestockHelp"));
-            UI.Label("");
+            UI.Label();
 
             toggle = Main.Settings.RestockAntiquarians;
             if (UI.Toggle(Gui.Localize("ModUi/&RestockAntiquarians"), ref toggle, UI.AutoWidth()))
@@ -329,6 +329,6 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

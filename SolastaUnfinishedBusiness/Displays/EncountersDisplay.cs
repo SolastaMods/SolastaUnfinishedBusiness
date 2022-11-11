@@ -250,9 +250,9 @@ internal static class EncountersDisplay
 
     internal static void DisplayEncountersGeneral()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label("Controllers:".Khaki());
-        UI.Label("");
+        UI.Label();
 
         if (ServiceRepository.GetService<INetworkingService>().IsMasterClient)
         {
@@ -292,7 +292,7 @@ internal static class EncountersDisplay
             return;
         }
 
-        UI.Label("");
+        UI.Label();
 
         if (Gui.Game == null)
         {
@@ -323,9 +323,9 @@ internal static class EncountersDisplay
 
     private static void DisplayEncountersTable()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label("Encounters:".Khaki());
-        UI.Label("");
+        UI.Label();
 
         UI.Label(". encounters only work in single player custom campaigns or locations");
         UI.Label(". use the Bestiary tab to add monsters to the challenge", UI.AutoWidth());
@@ -334,7 +334,7 @@ internal static class EncountersDisplay
         UI.Label(
             ". pan the camera to the desired encounter location and press <color=#1E81B0>CTRL-SHIFT-(S)</color> to spawn the enemies",
             UI.AutoWidth());
-        UI.Label("");
+        UI.Label();
 
         if (EncountersSpawnContext.EncounterCharacters.Count == 0)
         {
@@ -363,15 +363,15 @@ internal static class EncountersDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
     }
 
     internal static void DisplayBestiary()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(
             $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
-        UI.Label("");
+        UI.Label();
 
         foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
         {
@@ -384,10 +384,10 @@ internal static class EncountersDisplay
     {
         using (UI.VerticalScope(UI.AutoWidth(), UI.AutoHeight()))
         {
-            UI.Label("");
+            UI.Label();
             UI.Label(
                 $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
-            UI.Label("");
+            UI.Label();
 
             foreach (var hero in EncountersSpawnContext.GetHeroes())
             {

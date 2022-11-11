@@ -6,12 +6,12 @@ internal static class DungeonMakerDisplay
 {
     internal static void DisplayDungeonMaker()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Basic"));
-        UI.Label("");
+        UI.Label();
 
         UI.Label(Gui.Localize("ModUi/&DungeonMakerBasicHelp"));
-        UI.Label("");
+        UI.Label();
 
         var toggle = Main.Settings.EnableSortingDungeonMakerAssets;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSortingDungeonMakerAssets"), ref toggle))
@@ -31,12 +31,12 @@ internal static class DungeonMakerDisplay
             Main.Settings.UnleashEnemyAsNpc = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Advanced"));
-        UI.Label("");
+        UI.Label();
 
         UI.Label(Gui.Localize("ModUi/&AdvancedHelp"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.UnleashNpcAsEnemy;
         if (UI.Toggle(Gui.Localize("ModUi/&UnleashNpcAsEnemy"), ref toggle))
@@ -50,7 +50,7 @@ internal static class DungeonMakerDisplay
             Main.Settings.EnableDungeonMakerModdedContent = toggle;
         }
 
-        UI.Label("");
-        UI.Label("");
+        UI.Label();
+        UI.Label();
     }
 }

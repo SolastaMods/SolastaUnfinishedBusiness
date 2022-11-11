@@ -15,9 +15,9 @@ internal static class SpellsDisplay
     {
         bool toggle;
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
-        UI.Label("");
+        UI.Label();
 
         var intValue = SpellLevelFilter;
         if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
@@ -25,7 +25,7 @@ internal static class SpellsDisplay
             SpellLevelFilter = intValue;
         }
 
-        UI.Label("");
+        UI.Label();
 
         using (UI.HorizontalScope())
         {
@@ -94,6 +94,6 @@ internal static class SpellsDisplay
             Main.Settings.SpellListSliderPosition[name] = sliderPos;
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

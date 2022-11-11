@@ -33,7 +33,7 @@ internal static partial class UI
 
     // Labels
 
-    internal static void Label(string title, params GUILayoutOption[] options)
+    internal static void Label(string title = "", params GUILayoutOption[] options)
     {
         GL.Label(title, options.AddDefaults());
     }

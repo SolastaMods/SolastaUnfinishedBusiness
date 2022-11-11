@@ -77,7 +77,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
             var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
 
-            UI.Label("");
+            UI.Label();
 
             var toggle = displayToggle;
 
@@ -91,7 +91,7 @@ namespace SolastaUnfinishedBusiness.Displays
                 return;
             }
 
-            UI.Label("");
+            UI.Label();
 
             headerRendering?.Invoke();
 
@@ -120,7 +120,7 @@ namespace SolastaUnfinishedBusiness.Displays
             // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
             UI.Div();
-            UI.Label("");
+            UI.Label();
 
             var flip = false;
             var current = 0;

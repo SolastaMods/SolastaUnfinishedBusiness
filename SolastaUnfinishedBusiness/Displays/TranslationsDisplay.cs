@@ -10,9 +10,9 @@ internal static class TranslationsDisplay
 {
     internal static void DisplayTranslations()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Format("ModUi/&Campaigns"));
-        UI.Label("");
+        UI.Label();
 
         using (UI.HorizontalScope())
         {
@@ -30,7 +30,7 @@ internal static class TranslationsDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
@@ -74,6 +74,6 @@ internal static class TranslationsDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

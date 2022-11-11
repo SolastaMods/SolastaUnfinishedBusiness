@@ -175,7 +175,7 @@ All settings start disabled by default.
 
         internal static void DisplayDiagnostics()
         {
-            UI.Label("");
+            UI.Label();
             UI.Label(". You can set the environment variable " +
                      DiagnosticsContext.ProjectEnvironmentVariable.Italic().Khaki() +
                      " to customize the output folder");
@@ -189,7 +189,7 @@ All settings start disabled by default.
                 UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.Khaki().Bold());
             }
 
-            UI.Label("");
+            UI.Label();
 
             string exportTaLabel;
             string exportTaLabel2;
@@ -273,7 +273,7 @@ All settings start disabled by default.
                 UI.ActionButton("Dump Descriptions", DisplayDumpDescription, UI.Width(200));
             }
 
-            UI.Label("");
+            UI.Label();
 
             var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
 
@@ -282,7 +282,7 @@ All settings start disabled by default.
                 Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
             }
 
-            UI.Label("");
+            UI.Label();
         }
 
         [NotNull]

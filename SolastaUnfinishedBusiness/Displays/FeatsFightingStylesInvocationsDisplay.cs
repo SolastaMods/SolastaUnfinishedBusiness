@@ -31,7 +31,7 @@ internal static class FeatsFightingStylesInvocationsDisplay
             headerRendering: () =>
             {
                 UI.Label(Gui.Localize("ModUi/&FeatGroupsHelp"));
-                UI.Label("");
+                UI.Label();
             });
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
@@ -60,6 +60,6 @@ internal static class FeatsFightingStylesInvocationsDisplay
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
-        UI.Label("");
+        UI.Label();
     }
 }

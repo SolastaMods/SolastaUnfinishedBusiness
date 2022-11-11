@@ -46,7 +46,7 @@ internal static class CreditsDisplay
 
     internal static void DisplayCredits()
     {
-        UI.Label("");
+        UI.Label();
 
         using (UI.HorizontalScope())
         {
@@ -71,9 +71,9 @@ internal static class CreditsDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
         UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
-        UI.Label("");
+        UI.Label();
 
         if (_displayPatches)
         {
@@ -92,6 +92,6 @@ internal static class CreditsDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

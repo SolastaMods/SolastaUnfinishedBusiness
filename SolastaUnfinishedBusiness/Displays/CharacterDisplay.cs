@@ -7,9 +7,9 @@ internal static class CharacterDisplay
 {
     internal static void DisplayCharacter()
     {
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
-        UI.Label("");
+        UI.Label();
 
         var toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
@@ -39,7 +39,7 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
@@ -64,7 +64,7 @@ internal static class CharacterDisplay
         }
 #endif
 
-        UI.Label("");
+        UI.Label();
 
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
         if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
@@ -75,9 +75,9 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Progression"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnablesAsiAndFeat;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
@@ -112,7 +112,7 @@ internal static class CharacterDisplay
 
         if (Main.Settings.EnableMulticlass)
         {
-            UI.Label("");
+            UI.Label();
 
             intValue = Main.Settings.MaxAllowedClasses;
             if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue,
@@ -121,7 +121,7 @@ internal static class CharacterDisplay
                 Main.Settings.MaxAllowedClasses = intValue;
             }
 
-            UI.Label("");
+            UI.Label();
 
             toggle = Main.Settings.EnableMinInOutAttributes;
             if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
@@ -129,7 +129,7 @@ internal static class CharacterDisplay
                 Main.Settings.EnableMinInOutAttributes = toggle;
             }
 
-            UI.Label("");
+            UI.Label();
 
             toggle = Main.Settings.EnableRelearnSpells;
             if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
@@ -149,13 +149,13 @@ internal static class CharacterDisplay
                 Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
             }
 
-            UI.Label("");
+            UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
         }
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Visuals"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
@@ -169,7 +169,7 @@ internal static class CharacterDisplay
             Main.Settings.UnlockAllNpcFaces = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.AllowUnmarkedSorcerers;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowUnmarkedSorcerers"), ref toggle, UI.AutoWidth()))
@@ -189,7 +189,7 @@ internal static class CharacterDisplay
             Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.UnlockGlowingEyeColors;
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
@@ -209,6 +209,6 @@ internal static class CharacterDisplay
             Main.Settings.UnlockEyeStyles = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
     }
 }

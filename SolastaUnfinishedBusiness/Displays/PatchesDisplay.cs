@@ -49,7 +49,7 @@ internal static class PatchesDisplay
                 var returnTypeStr = methodComponents[0];
                 var methodName = methodComponents[1];
 
-                UI.Label("");
+                UI.Label();
 
                 using (new GUILayout.VerticalScope())
                 {
@@ -131,7 +131,7 @@ internal static class PatchesDisplay
             _modIdsToColor = null;
         }
 
-        UI.Label("");
+        UI.Label();
     }
 
     private static Patch[] EnabledPatchesForMethod([NotNull] MethodBase method)

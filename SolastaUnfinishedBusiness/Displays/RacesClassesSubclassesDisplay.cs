@@ -123,6 +123,6 @@ internal static class RacesClassesSubclassesDisplay
         Main.Settings.DisplaySubclassesToggle = displayToggle;
         Main.Settings.SubclassSliderPosition = sliderPos;
 
-        UI.Label("");
+        UI.Label();
     }
 }

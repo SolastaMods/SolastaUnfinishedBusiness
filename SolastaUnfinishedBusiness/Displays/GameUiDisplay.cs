@@ -9,9 +9,9 @@ internal static class GameUiDisplay
     {
         #region Campaign
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
-        UI.Label("");
+        UI.Label();
 
         var toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
@@ -29,7 +29,7 @@ internal static class GameUiDisplay
             }
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableStatsOnHeroTooltip;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
@@ -49,7 +49,7 @@ internal static class GameUiDisplay
             Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
@@ -81,9 +81,9 @@ internal static class GameUiDisplay
 
         #region Input
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Input"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.InvertAltBehaviorOnTooltips;
         if (UI.Toggle(Gui.Localize("ModUi/&InvertAltBehaviorOnTooltips"), ref toggle, UI.AutoWidth()))
@@ -97,7 +97,7 @@ internal static class GameUiDisplay
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.EnableHotkeyToggleHud;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
@@ -121,9 +121,9 @@ internal static class GameUiDisplay
 
         #region Item
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&InventoryAndItems"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.DisableAutoEquip;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
@@ -160,9 +160,9 @@ internal static class GameUiDisplay
 
         #region Monster
 
-        UI.Label("");
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&Monsters"));
-        UI.Label("");
+        UI.Label();
 
         toggle = Main.Settings.HideMonsterHitPoints;
         if (UI.Toggle(Gui.Localize("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
@@ -196,6 +196,6 @@ internal static class GameUiDisplay
 
         #endregion
 
-        UI.Label("");
+        UI.Label();
     }
 }
