@@ -1,6 +1,6 @@
 Feat/&FeatImprovedCriticalDescription=Your attacks are critical hits on a roll of 19 or 20.
 Feat/&FeatImprovedCriticalTitle=Improved Critical
-Feat/&FeatSavageAttackerDescription=Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not re-rolled).
+Feat/&FeatSavageAttackerDescription=Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 Feat/&FeatSavageAttackerReroll=Due to being a Savage Attacker {0} re-rolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle=Savage Attacker
 Feat/&FeatShieldExpertDescription=You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while wielding a shield.

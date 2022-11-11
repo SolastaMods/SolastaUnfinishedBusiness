@@ -50,7 +50,7 @@ internal static class ElAntoniousFeats
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
                     .SetCustomSubFeatures(
-                        new OnAttackDamageEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
+                        new OnAttackHitEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();
 
@@ -91,12 +91,12 @@ internal static class ElAntoniousFeats
         feats.AddRange(featTorchbearer, featDualFlurry);
     }
 
-    private sealed class OnAttackDamageEffectFeatDualFlurry : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IOnAttackHitEffect
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
 
-        internal OnAttackDamageEffectFeatDualFlurry(
+        internal OnAttackHitEffectFeatDualFlurry(
             ConditionDefinition conditionDualFlurryGrant,
             ConditionDefinition conditionDualFlurryApply)
         {
