@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#if false
+// Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!
+// Feedback/&AdditionalDamageCripplingLine={1} suffers crippling damage.
+// FightingStyle/&CripplingDescription=Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+// FightingStyle/&CripplingTitle=Crippling
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -44,3 +49,4 @@ internal sealed class Crippling : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
     };
 }
+#endif

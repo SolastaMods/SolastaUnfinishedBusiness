@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿#if false
+// FightingStyle/&ReactionaryDescription=You gain a +PB/2 (round up) to hit with attacks of opportunity.
+// FightingStyle/&ReactionaryTitle=Reactionary
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -51,3 +54,4 @@ internal sealed class Reactionary : AbstractFightingStyle
         }
     }
 }
+#endif

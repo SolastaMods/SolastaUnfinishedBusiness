@@ -16,15 +16,15 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
-        LoadStyle(new Crippling());
+        LoadStyle(new BlindFighting());
+        // LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new LightFooted());
-        LoadStyle(new Pugilist());
-        LoadStyle(new Reactionary());
-        LoadStyle(new Titan());
         LoadStyle(new Merciless());
-        LoadStyle(new BlindFighting());
+        LoadStyle(new Pugilist());
+        // LoadStyle(new Reactionary());
+        // LoadStyle(new Titan());
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();

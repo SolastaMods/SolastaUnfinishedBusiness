@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿#if false
+// FightingStyle/&TitanDescription=You gain a +PB/2 (round up) to hit against creatures of size large or bigger.
+// FightingStyle/&TitanTitle=Titan Hunter
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -51,3 +54,4 @@ internal sealed class Titan : AbstractFightingStyle
         }
     }
 }
+#endif
