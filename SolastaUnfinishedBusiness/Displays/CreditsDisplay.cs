@@ -16,26 +16,21 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Dark Kobold, Blade Dancer, Dead Master, Multiclass"),
+            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass"),
         ("TPABOBAP",
-            "game UI, infrastructure, gameplay, feats, invocations, spells, subclasses improvements, Way of The Distant Hand, Inventor"),
+            "game UI, infrastructure, gameplay, feats, invocations, spells, Moonlit, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
-        ("ChrisJohnDigital",
-            "gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
+        ("ChrisJohnDigital", "gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("Nd", "subclasses improvements, Marshal, Opportunist, Raven"),
-        ("DubhHerder", "gameplay, spells, Ancient Forest, Elementalist, Moonlit, Rift Walker"),
-        ("AceHigh", "SoulBlade, Tactician"),
+        ("Nd", "Marshal, Opportunist, Raven"),
         ("ElAntonious", "feats, Arcanist"),
-        ("Holic75", "spells, Bolgrif, Gnome"),
+        ("Holic75", "spells, Bolgrif"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Circle of The Forest Guardian"),
-        ("DemonSlayer730", "Path of The Rage Mage"),
-        ("Scarlex", "Royal Knight"),
         ("Bazou", "fighting styles, rules, spells"),
+        ("DubhHerder", "gameplay, spells"),
         ("Esker", "ruleset support, qa"),
-        ("Lyraele", "ruleset support, qa"),
-        ("Nyowwww", "Chinese, qa")
+        ("Lyraele", "ruleset support, qa")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

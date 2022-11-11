@@ -82,13 +82,12 @@ All settings start disabled by default.
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
-[*][b]Dark Kobold[/b]: Dark Kobolds are often dismissed as cowardly, foolish, and weak, but these little reptilian creatures actually have a strong social structure that stresses devotion to the tribe, are clever with their hands, and viciously work together in order to overcome their physical limitations.
-[*][b]Draconic Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of draconic kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
+[*][b]Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of draconic kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [/list]
 
 [size=3][b]Classes[/b][/size]
@@ -107,28 +106,20 @@ All settings start disabled by default.
 [list=1]
 
 [*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
-[*][b]Path of The Rage Mage[/b]: Path of The Rage Mage Barbarians are Barbarians who possess the spark of arcane talent. They learn to channel their brute ferocity through magic.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
-[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-[*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Raven[/b]: Range specialists that are trained to take down enemies quickly and effectively.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
-[*][b]Way of The Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
-[*][b]The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
-[*][b]The Elementalist[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
+[*][b]Way of The Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
 [*][b]The Moonlit[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-[*][b]The Rift Walker[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]The Soulblade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
-[*][b]Blade Dancer[/b]: In combat, a blade dancer uses a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
+[*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
-[*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
-[*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [/list]
 
@@ -388,23 +379,19 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Dark Kobold, Blade Dancer, Dead Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, subclasses improvements, Way of The Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Moonlit, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Con Artist, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]Nd[/b]: subclasses improvements, Marshal, Opportunist, Raven
-[*][b]DubhHerder[/b]: gameplay, spells, Ancient Forest, Elementalist, Moonlit, Rift Walker
-[*][b]AceHigh[/b]: SoulBlade, Tactician
+[*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]ElAntonious[/b]: feats, Arcanist
-[*][b]Holic75[/b]: spells, Bolgrif, Gnome
+[*][b]Holic75[/b]: spells, Bolgrif
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Circle of The Forest Guardian
-[*][b]DemonSlayer730[/b]: Path of The Rage Mage
-[*][b]Scarlex[/b]: Royal Knight
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]DubhHerder[/b]: gameplay, spells
 [*][b]Esker[/b]: ruleset support, qa
 [*][b]Lyraele[/b]: ruleset support, qa
-[*][b]Nyowwww[/b]: Chinese, qa
 [/list]
 

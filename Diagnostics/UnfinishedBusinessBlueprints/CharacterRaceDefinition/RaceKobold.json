@@ -10,7 +10,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetHalfElfAbilityScoreIncrease:38424c7fca90b024cb6fb8355d62b61d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDraconicKoboldDraconicCry:05e3c44a-c55a-517d-83d0-bdb161307956",
       "level": 1
     },
     {
@@ -27,12 +37,14 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellDraconicKoboldMagic:b86bcf0e-1164-5b62-b1d0-6fe08be1dc4f",
+      "level": 1
     }
   ],
-  "subRaces": [
-    "Definition:RaceDarkKobold:930f5725-69e5-5b90-86b6-5bef750addaf",
-    "Definition:RaceDraconicKobold:71f9a79f-d8fa-5d32-9514-2edc39725cfb"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
