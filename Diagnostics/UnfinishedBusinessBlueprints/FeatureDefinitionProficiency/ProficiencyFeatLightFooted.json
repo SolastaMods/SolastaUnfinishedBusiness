@@ -12,8 +12,8 @@
     "description": "FightingStyle/&LightFootedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0e810a0878ef5974dbfcad056a7c0fa1",
-      "m_SubObjectName": "Ranger_Marksman",
+      "m_AssetGUID": "97c9b8bb3c37bc94b91a5e4d84208e24",
+      "m_SubObjectName": "Rogue_Hoodlum",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
