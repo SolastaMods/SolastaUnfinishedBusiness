@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Feats;
@@ -95,46 +96,60 @@ internal static class FightingStyleContext
         {
             var isActive = trainedFightingStyle.contentPack == CeContentPackContext.CeContentPack;
 
-            // Make hand crossbows benefit from Archery Fighting Style
-            if (trainedFightingStyle.Condition == FightingStyleDefinition.TriggerCondition.RangedWeaponAttack)
+            if (isActive)
             {
-                bool HasHandXbowInHands(string slotName)
-                {
-                    var rulesetInventorySlot =
-                        hero.CharacterInventory.InventorySlotsByName[slotName];
+                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
 
-                    return rulesetInventorySlot.EquipedItem != null
-                           && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
-                           && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
-                           CustomWeaponsContext.CeHandXbowType;
+                return;
+            }
+
+            switch (trainedFightingStyle.Condition)
+            {
+                // Make hand crossbows benefit from Archery Fighting Style
+                case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
+                {
+                    bool HasHandXbowInHands(string slotName)
+                    {
+                        var rulesetInventorySlot =
+                            hero.CharacterInventory.InventorySlotsByName[slotName];
+
+                        return rulesetInventorySlot.EquipedItem != null
+                               && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
+                               && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
+                               CustomWeaponsContext.CeHandXbowType;
+                    }
+
+                    isActive = HasHandXbowInHands(EquipmentDefinitions.SlotTypeMainHand) ||
+                               HasHandXbowInHands(EquipmentDefinitions.SlotTypeOffHand);
+                    break;
                 }
 
-                isActive = HasHandXbowInHands(EquipmentDefinitions.SlotTypeMainHand) ||
-                           HasHandXbowInHands(EquipmentDefinitions.SlotTypeOffHand);
-            }
-            // Make Shield Expert benefit from Two Weapon Fighting Style
-            else if (trainedFightingStyle.Condition == FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded)
-            {
-                var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == OtherFeats.FeatShieldExpertName);
-                var mainHandSlot =
-                    hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
-                var offHandSlot =
-                    hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
-
-                if (hasShieldExpert
-                    && mainHandSlot.EquipedItem != null
-                    && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
+                // Make Shield Expert benefit from Two Weapon Fighting Style
+                case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
                 {
-                    var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
-                    var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+                    var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == OtherFeats.FeatShieldExpertName);
+                    var mainHandSlot =
+                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+                    var offHandSlot =
+                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
 
-                    if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
-                        RuleDefinitions.AttackProximity.Melee
-                        && offHandSlot.EquipedItem != null
-                        && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
+                    if (hasShieldExpert
+                        && mainHandSlot.EquipedItem != null
+                        && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
                     {
-                        isActive = true;
+                        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
+                        var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+
+                        if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
+                            RuleDefinitions.AttackProximity.Melee
+                            && offHandSlot.EquipedItem != null
+                            && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
+                        {
+                            isActive = true;
+                        }
                     }
+
+                    break;
                 }
             }
 
