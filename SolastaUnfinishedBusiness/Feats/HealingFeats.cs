@@ -14,7 +14,7 @@ internal static class HealingFeats
     {
         var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
             .Create("PowerFeatInspiringLeader")
-            .SetGuiPresentation("FeatInspiringLeader", Category.Feature, PowerOathOfTirmarGoldenSpeech)
+            .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -96,14 +96,14 @@ internal static class HealingFeats
 
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         feats.AddRange(
             FeatDefinitionBuilder
                 .Create("FeatInspiringLeader")
-                .SetGuiPresentation("PowerFeatInspiringLeader", Category.Feature)
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(powerFeatInspiringLeader)
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .AddToDB(),
