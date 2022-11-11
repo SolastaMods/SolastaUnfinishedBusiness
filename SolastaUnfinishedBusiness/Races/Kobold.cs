@@ -27,6 +27,44 @@ internal static class KoboldRaceBuilder
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
             .AddToDB();
 
+        var effectDescription = EffectDescriptionBuilder
+            .Create(TrueStrike.EffectDescription)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetDurationData(DurationType.Round, 1)
+            .Build();
+
+        var conditionDraconicKoboldDraconicCry = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDraconicKoboldDraconicCry")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 1)
+            .ClearSpecialInterruptions()
+            .AddToDB();
+
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDraconicKoboldDraconicCry;
+
+        var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
+            .Create("PowerDraconicKoboldDraconicCry")
+            .SetGuiPresentation(Category.Feature, Aid)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(effectDescription)
+            .SetUniqueInstance()
+            .AddToDB();
+
+        var spellListDraconicKobold = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKobold")
+            .SetGuiPresentationNoContent()
+            .ClearSpells()
+            .SetSpellsAtLevel(0, SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells.ToArray())
+            .FinalizeSpells()
+            .AddToDB();
+
+        var castSpellDraconicKoboldMagic = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDraconicKoboldMagic")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellList(spellListDraconicKobold)
+            .AddToDB();
+
         var raceKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceKobold")
             .SetOrUpdateGuiPresentation(Category.Race)
@@ -39,20 +77,19 @@ internal static class KoboldRaceBuilder
                 MoveModeMove6,
                 SenseNormalVision,
                 SenseDarkvision,
-                proficiencyKoboldLanguages)
+                proficiencyKoboldLanguages,
+                FeatureDefinitionFeatureSets.FeatureSetHalfElfAbilityScoreIncrease,
+                powerDraconicKoboldDraconicCry,
+                castSpellDraconicKoboldMagic)
             .AddToDB();
 
-        raceKobold.SubRaces.SetRange(new List<CharacterRaceDefinition>
-        {
-            BuildDarkKobold(raceKobold), BuildDraconicKobold(raceKobold)
-        });
-
-        RacesContext.RaceScaleMap[raceKobold] = -0.04f / -0.06f;
+        RacesContext.RaceScaleMap[raceKobold] = 3f / 6.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
         return raceKobold;
     }
 
+#if false
     [NotNull]
     private static CharacterRaceDefinition BuildDarkKobold(CharacterRaceDefinition characterRaceDefinition)
     {
@@ -193,4 +230,5 @@ internal static class KoboldRaceBuilder
 
         return raceDraconicKobold;
     }
+#endif
 }
