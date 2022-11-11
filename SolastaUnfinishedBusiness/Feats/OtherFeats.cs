@@ -23,13 +23,13 @@ internal static class OtherFeats
             .SetFeatures(
                 FeatureDefinitionDieRollModifierBuilder
                     .Create("DieRollModifierFeatSavageAttacker")
+                    .SetGuiPresentationNoContent(true)
                     .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
-                    .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
                     .AddToDB(),
                 FeatureDefinitionDieRollModifierBuilder
                     .Create("DieRollModifierFeatSavageMagicAttacker")
+                    .SetGuiPresentationNoContent(true)
                     .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
-                    .SetGuiPresentation(FeatSavageAttackerName, Category.Feat)
                     .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
@@ -55,7 +55,7 @@ internal static class OtherFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierFeatTough")
-                    .SetGuiPresentation("FeatTough", Category.Feat)
+                    .SetGuiPresentationNoContent(true)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
                     .AddToDB())
             .SetGuiPresentation(Category.Feat)
