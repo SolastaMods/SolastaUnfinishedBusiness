@@ -25,6 +25,10 @@ internal sealed class MartialTactician : AbstractSubclass
     internal FeatureDefinitionPower GambitPool { get; set; }
     public FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
 
+    public FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
+
+    public static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
+
     private int _gambitPoolIncreases;
 
 
@@ -40,11 +44,21 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitPool.AddCustomSubFeatures(new CustomPortraitPoolPower(GambitPool, icon: Sprites.GambitResourceIcon));
 
         GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamageGambitDie")
+            .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(hidden: true)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
+            .AddToDB();
+
+        //make sure that if we add any custom sub-features to base one we add them to this one too
+        GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageGambitDieOnce")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetNotificationTag("GambitDie")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
         var learn1Gambit = BuildLearn(1);
@@ -100,17 +114,24 @@ internal sealed class MartialTactician : AbstractSubclass
 
         // sub-feature that spends gambit die when melee attack hits
         var spendDieOnMeleeHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"PowerReactionSpendGambitDieOnMeleeHit")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool)
+            .AddToDB());
+
+        var spendDieOnAttackHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerReactionSpendGambitDieOnAttackHit")
             .SetGuiPresentationNoContent(hidden: true)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool, 1)
+            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
             .AddToDB());
 
         //power that is used spends gambit die
         var spendDiePower = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerReactionSpendGambitDieOnConditionRemoval")
             .SetGuiPresentationNoContent(hidden: true)
-            .SetSharedPool(ActivationTime.NoCost, GambitPool, 1)
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
@@ -143,7 +164,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -158,11 +179,11 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -172,7 +193,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -196,7 +217,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -216,11 +237,11 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -230,7 +251,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -254,7 +275,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -262,13 +283,6 @@ internal sealed class MartialTactician : AbstractSubclass
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    // .SetConditionForm(ConditionDefinitionBuilder
-                    //     .Create($"Condition{name}Effect")
-                    //     .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                    //         ConditionDefinitions.ConditionFrightenedFear)
-                    //     .SetConditionType(ConditionType.Detrimental)
-                    //     .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionFrightenedFear)
-                    //     .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
                         ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurnNoPerceptionOfSource)
@@ -277,11 +291,11 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -315,7 +329,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -332,7 +346,6 @@ internal sealed class MartialTactician : AbstractSubclass
                             .Create($"CombatAffinity{name}")
                             .SetGuiPresentationNoContent()
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                            // .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -341,11 +354,11 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -355,7 +368,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -376,11 +389,11 @@ internal sealed class MartialTactician : AbstractSubclass
         sprite = Sprites.ActionGambit;
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -414,7 +427,7 @@ internal sealed class MartialTactician : AbstractSubclass
         sprite = Sprites.ActionGambit;
 
         power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}Acivate")
+            .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
@@ -430,8 +443,8 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage, featureSpendDieOnAttack, FeatureDefinitionBuilder
+                        //TODO: figure out why Lunging with feint not use 2 dice
+                        .SetFeatures(GambitDieDamageOnce, featureSpendDieOnAttack, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
                             .SetGuiPresentationNoContent(hidden: true)
                             .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1))
