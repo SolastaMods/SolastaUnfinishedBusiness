@@ -65,7 +65,11 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
             //PATCH: notifies custom condition features that condition is removed 
-            activeCondition.ConditionDefinition.Features
+            var definition = activeCondition.ConditionDefinition;
+            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
+                .ForEach(c => c.RemoveFeature(__instance));
+            
+            definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
                 .ToList()
                 .ForEach(c => c.RemoveFeature(__instance));
