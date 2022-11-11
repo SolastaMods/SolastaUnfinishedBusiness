@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -71,6 +72,11 @@ internal sealed class Executioner : AbstractFightingStyle
             var proficiencyBonus = 
                 attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
 
+            GameConsoleHelper.LogCharacterAffectsTarget(
+                attacker.RulesetCharacter,
+                rulesetDefender,
+                ExecutionerName);
+            
             damage.BonusDamage += proficiencyBonus;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
                 RuleDefinitions.FeatureSourceType.Power, ExecutionerName, null));

@@ -20,7 +20,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .Create("AttackModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetAttackRollModifier(1)
-                .SetDamageRollModifier(2)
+                .SetDamageRollModifier(1)
                 .SetCustomSubFeatures(
                     new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.MainHandIsVersatileWeapon),
                     new RestrictedContextValidator(OperationType.And, ValidatorsCharacter.IsFreeOffhand))
