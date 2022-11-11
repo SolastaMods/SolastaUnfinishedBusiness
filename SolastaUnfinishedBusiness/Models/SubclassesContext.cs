@@ -20,7 +20,7 @@ internal static class SubclassesContext
     {
         // Barbarian
         LoadSubclass(new PathOfTheLight());
-        LoadSubclass(new PathOfTheRageMage());
+        // LoadSubclass(new PathOfTheRageMage());
 
         // Druid
         LoadSubclass(new CircleOfTheForestGuardian());
@@ -35,12 +35,14 @@ internal static class SubclassesContext
         LoadSubclass(new RangerArcanist());
 
         // Rogue
-        LoadSubclass(new RoguishConArtist());
+        // LoadSubclass(new RoguishConArtist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
+        
+        // Monk
         LoadSubclass(new WayOfTheDistantHand());
 
         // Warlock
@@ -54,8 +56,8 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardLifeTransmuter());
-        LoadSubclass(new WizardMasterManipulator());
+        // LoadSubclass(new WizardLifeTransmuter());
+        // LoadSubclass(new WizardMasterManipulator());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring
