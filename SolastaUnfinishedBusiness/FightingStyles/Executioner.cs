@@ -28,15 +28,19 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFightingStyleExecutioner : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFightingStyleExecutioner : IOnAttackDamageEffect
     {
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RuleDefinitions.RollOutcome outcome,
-            CharacterActionParams actionParams,
+            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
         {
             // melee attack only
             if (attackMode == null || defender == null)
@@ -70,6 +74,21 @@ internal sealed class Executioner : AbstractFightingStyle
             damage.BonusDamage += proficiencyBonus;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
                 RuleDefinitions.FeatureSourceType.Power, ExecutionerName, null));
+        }
+
+        public void AfterOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+
         }
     }
 }

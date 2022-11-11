@@ -171,7 +171,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-#if false    
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleCharacterAttackHitConfirmed_Patch
@@ -192,7 +191,6 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IOnAttackDamageEffect`
             var character = attacker.RulesetCharacter;
 
-#if false
             if (character != null)
             {
                 foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
@@ -201,7 +199,6 @@ public static class GameLocationBattleManagerPatcher
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
-#endif
 
             while (values.MoveNext())
             {
@@ -218,7 +215,6 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
-#endif
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

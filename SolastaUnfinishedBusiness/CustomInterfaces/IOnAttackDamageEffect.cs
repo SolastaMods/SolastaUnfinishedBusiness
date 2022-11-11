@@ -1,12 +1,10 @@
-﻿#if false
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IOnAttackDamageEffect
 {
-#if false
-    public void BeforeOnAttackDamage1(
+    public void BeforeOnAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
@@ -17,7 +15,6 @@ public interface IOnAttackDamageEffect
         RulesetEffect rulesetEffect,
         bool criticalHit,
         bool firstTarget);
-#endif
 
     public void AfterOnAttackDamage(
         GameLocationCharacter attacker,
@@ -31,4 +28,3 @@ public interface IOnAttackDamageEffect
         bool criticalHit,
         bool firstTarget);
 }
-#endif
