@@ -5,12 +5,12 @@
      */
 public interface IOnAttackHitEffect
 {
+#if false
     /**
          * Called after roll is made, but before damage is applied.
          * Called regardless of whether attack hits or not.
          */
-#if false
-    public void BeforeOnAttackHit1(
+    public void BeforeOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,

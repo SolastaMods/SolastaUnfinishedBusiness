@@ -18,8 +18,8 @@ internal sealed class Executioner : AbstractFightingStyle
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleExecutioner")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(new OnComputeAttackModifierFightingStyleExecutioner())
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new OnAttackHitEffectFightingStyleExecutioner())
                 .AddToDB())
         .AddToDB();
 
@@ -28,13 +28,15 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnComputeAttackModifierFightingStyleExecutioner : IOnComputeAttackModifier
+    private sealed class OnAttackHitEffectFightingStyleExecutioner : IOnAttackHitEffect
     {
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RuleDefinitions.RollOutcome outcome,
+            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+            ActionModifier attackModifier)
         {
             // melee attack only
             if (attackMode == null || defender == null)
@@ -42,25 +44,32 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            // grant +PB if defender has
-            // blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned
-            if (!defender.HasConditionOfType(ConditionBlinded)
-                && !defender.HasConditionOfType(ConditionFrightened)
-                && !defender.HasConditionOfType(ConditionRestrained)
-                && !defender.HasConditionOfType(ConditionIncapacitated)
-                && !defender.HasConditionOfType(ConditionParalyzed)
-                && !defender.HasConditionOfType(ConditionProne)
-                && !defender.HasConditionOfType(ConditionStunned))
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.HasConditionOfType(ConditionBlinded)
+                && !rulesetDefender.HasConditionOfType(ConditionFrightened)
+                && !rulesetDefender.HasConditionOfType(ConditionRestrained)
+                && !rulesetDefender.HasConditionOfType(ConditionIncapacitated)
+                && !rulesetDefender.HasConditionOfType(ConditionParalyzed)
+                && !rulesetDefender.HasConditionOfType(ConditionProne)
+                && !rulesetDefender.HasConditionOfType(ConditionStunned))
             {
                 return;
             }
 
-            var proficiencyBonus =
-                (myself.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue + 1) / 2;
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
-            attackModifier.attackRollModifier += proficiencyBonus;
-            attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(
-                proficiencyBonus, RuleDefinitions.FeatureSourceType.FightingStyle, ExecutionerName, myself));
+            if (damage == null)
+            {
+                return;
+            }
+
+            var proficiencyBonus = 
+                attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+
+            damage.BonusDamage += proficiencyBonus;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
+                RuleDefinitions.FeatureSourceType.Power, ExecutionerName, null));
         }
     }
 }
