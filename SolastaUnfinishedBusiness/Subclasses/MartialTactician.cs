@@ -3,7 +3,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -51,7 +53,7 @@ internal sealed class MartialTactician : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, GambitPool, learn3Gambits)
+            .AddFeaturesAtLevel(3, GambitPool, learn3Gambits, BuildEverVigilant())
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit)
             .AddFeaturesAtLevel(10)
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
@@ -60,6 +62,14 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildGambits();
     }
 
+    private FeatureDefinition BuildEverVigilant()
+    {
+        return FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifierTacticianEverVigilant")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Intelligence)
+            .AddToDB();
+    }
 
     private FeatureDefinition BuildGambitPoolIncrease()
     {
@@ -81,15 +91,59 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private void BuildGambits()
     {
-        var name = "GambitKnockdown";
-        //TODO: add proper icon
-        var sprite = SpellDefinitions.Banishment.GuiPresentation.SpriteReference;
+        string name;
+        AssetReferenceSprite sprite;
+        FeatureDefinitionPower power;
+        ICustomConditionFeature reaction;
 
-        var reaction = FeatureDefinitionPowerSharedPoolBuilder
+        #region Helpers
+
+        // sub-feature that spends gambit die when melee attack hits
+        var spendDieOnMeleeHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"PowerReactionSpendGambitDieOnAttackHit")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool, 1)
+            .AddToDB());
+
+        //power that is used spends gambit die
+        var spendDiePower = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"PowerReactionSpendGambitDieOnConditionRemoval")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetSharedPool(ActivationTime.NoCost, GambitPool, 1)
+            .AddToDB();
+
+        //sub-feature that uses `spendDiePower` to spend die when character attacks
+        var spendDieOnAttack = new ProcessConditionInterruptionHandler((actor, interruption, _) =>
+        {
+            if (actor is not RulesetCharacter character) { return; }
+
+            if (interruption == ConditionInterruption.Attacks)
+            {
+                character.UsePower(UsablePowersProvider.Get(spendDiePower));
+            }
+        });
+
+        //feature that has `spendDieOnAttack` sub-feature
+        var featureSpendDieOnAttack = FeatureDefinitionBuilder
+            .Create("FeatureSpendGambitDieOnConditionRemoval")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetCustomSubFeatures(spendDieOnAttack)
+            .AddToDB();
+
+        #endregion
+
+        #region Knockdown
+
+        name = "GambitKnockdown";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool, 1)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -101,28 +155,27 @@ internal sealed class MartialTactician : AbstractSubclass
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
                 .Build())
-            .AddToDB();
+            .AddToDB());
 
-        var power = FeatureDefinitionPowerBuilder
+        power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Acivate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limitaer so only 1 on-attack power is active
+            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(new AddUsablePowerFromCondition(reaction))
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
-                        //TODO: should it not end if we missed?
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
                         .SetFeatures(GambitDieDamage)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -130,6 +183,104 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Repel
+
+        name = "GambitRepel";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetDurationData(DurationType.Round, 1)
+                .SetHasSavingThrow(AttributeDefinitions.Strength,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Strength)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(CustomConditions.StopMovement, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .AddToDB());
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Acivate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            //TODO: add limiter so only 1 on-attack power is active
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Feint
+
+        name = "GambitFeint";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Acivate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            //TODO: add limiter so only 1 on-attack power is active
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage, featureSpendDieOnAttack, FeatureDefinitionCombatAffinityBuilder
+                            .Create($"CombatAffinity{name}")
+                            .SetGuiPresentation(name, Category.Feature)
+                            .SetMyAttackAdvantage(AdvantageType.Advantage)
+                            .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
     }
 
     private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite,
