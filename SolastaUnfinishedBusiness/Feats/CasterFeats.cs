@@ -114,7 +114,7 @@ internal static class CasterFeats
 
         var proficiencyFeatFeyTeleportationTirmarian = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Language, "Language_Tirmarian")
             .AddToDB();
 

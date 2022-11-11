@@ -14,11 +14,11 @@ internal static class HealingFeats
     {
         var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
             .Create("PowerFeatInspiringLeader")
-            .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech)
+            .SetGuiPresentation("FeatInspiringLeader", Category.Feature, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 10, TargetType.Individuals, 6)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 6)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
