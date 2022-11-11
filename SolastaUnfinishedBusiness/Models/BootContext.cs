@@ -62,6 +62,8 @@ internal static class BootContext
 
         // Start will all options under Character
         CharacterContext.Load();
+        
+        CustomConditions.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();

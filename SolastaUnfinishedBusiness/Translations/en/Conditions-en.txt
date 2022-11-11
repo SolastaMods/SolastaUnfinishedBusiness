@@ -1,0 +1,2 @@
+﻿Condition/&ConditionStopMovementDescription=Unable to move. Speed set to 0.
+Condition/&ConditionStopMovementTitle=Stopped
