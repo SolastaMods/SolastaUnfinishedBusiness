@@ -12,7 +12,7 @@ internal sealed class LightFooted : AbstractFightingStyle
 {
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("LightFooted")
-        .SetGuiPresentation(Category.FightingStyle, RangerMarksman)
+        .SetGuiPresentation(Category.FightingStyle, RoguishHoodlum)
         .SetFeatures(
             FeatureDefinitionMovementAffinityBuilder
                 .Create("MovementAffinityLightFootedAdd2")

@@ -26,7 +26,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Merciless")
-        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialChampion)
+        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.SorcerousHauntedSoul)
         .SetFeatures(
             FeatureDefinitionAdditionalActionBuilder
                 .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")

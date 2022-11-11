@@ -716,9 +716,6 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainSun { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainSun");
 
-        internal static CharacterSubclassDefinition MartialChampion { get; } =
-            GetDefinition<CharacterSubclassDefinition>("MartialChampion");
-
         internal static CharacterSubclassDefinition MartialCommander { get; } =
             GetDefinition<CharacterSubclassDefinition>("MartialCommander");
 
@@ -754,6 +751,9 @@ internal static partial class DatabaseHelper
 
         internal static CharacterSubclassDefinition RoguishDarkweaver { get; } =
             GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
+        
+        internal static CharacterSubclassDefinition RoguishHoodlum { get; } =
+            GetDefinition<CharacterSubclassDefinition>("RoguishHoodlum");
 
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } =
             GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
@@ -776,6 +776,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition TraditionLight { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLight");
 
+        internal static CharacterSubclassDefinition TraditionOpenHand { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand");
+        
         internal static CharacterSubclassDefinition TraditionLoremaster { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLoremaster");
     }
