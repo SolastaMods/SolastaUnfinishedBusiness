@@ -44,10 +44,10 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfTheDistantHand());
 
         // Warlock
-        LoadSubclass(new PatronAncientForest());
-        LoadSubclass(new PatronElementalist());
+        // LoadSubclass(new PatronAncientForest());
+        // LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
-        LoadSubclass(new PatronRiftWalker());
+        // LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 
         // Wizard
