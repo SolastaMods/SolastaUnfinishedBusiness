@@ -503,7 +503,6 @@ FeatGroupTeleportation	FeatDefinition	FeatDefinition	9975285e-172f-531f-b635-e72
 FeatGroupToxicologist	FeatDefinition	FeatDefinition	2dc87af9-11e7-5ce7-a6d3-6a83c84d6627
 FeatHandAndAHalf	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	494a65aa-32fa-5e8a-b1f1-4f3b351b291f
 FeatHealer	FeatDefinition	FeatDefinition	ee119cd3-9155-52da-997e-df56f6261fd0
-FeatHeavyArmorMaster	FeatDefinition	FeatDefinition	11579677-d4cf-5d95-bcb5-d706ab05d47a
 FeatImprovedCritical	FeatDefinition	FeatDefinition	597848f3-18fb-5372-a54b-994c4bc9b65f
 FeatInspiringLeader	FeatDefinition	FeatDefinition	ffd25d51-49e0-528d-9374-7af345e43007
 FeatLightArmor	FeatDefinition	FeatDefinition	207faf5e-83e0-53d3-8536-ae654561b208
