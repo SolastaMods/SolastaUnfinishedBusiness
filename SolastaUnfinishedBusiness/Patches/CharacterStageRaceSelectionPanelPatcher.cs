@@ -19,9 +19,8 @@ public static class CharacterStageRaceSelectionPanelPatcher
             var allRaces = new List<CharacterRaceDefinition>();
             var subRaces = new List<CharacterRaceDefinition>();
 
-            allRaces.AddRange(
-                DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                    .Where(x => !x.GuiPresentation.Hidden));
+            allRaces.AddRange(DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                .Where(x => !x.GuiPresentation.Hidden));
 
             __instance.eligibleRaces.Clear();
             __instance.sortedSubRaces.Clear();
@@ -59,8 +58,9 @@ public static class CharacterStageRaceSelectionPanelPatcher
                              .Where(x => !x.GuiPresentation.Hidden))
                 {
                     __instance.sortedSubRaces[key].Add(subRace);
-                    __instance.sortedSubRaces[key].Sort(__instance);
                 }
+
+                __instance.sortedSubRaces[key].Sort(__instance);
             }
 
             var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()

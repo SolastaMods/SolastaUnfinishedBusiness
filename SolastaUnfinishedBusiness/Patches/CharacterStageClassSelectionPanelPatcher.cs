@@ -15,23 +15,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class CharacterStageClassSelectionPanelPatcher
 {
-#if false
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class Compare_Patch
-    {
-        public static void Postfix(CharacterClassDefinition left, CharacterClassDefinition right, ref int __result)
-        {
-            //PATCH: sorts the class panel by Title
-            if (Main.Settings.EnableSortingClasses)
-            {
-                __result = String.Compare(left.FormatTitle(), right.FormatTitle(),
-                    StringComparison.CurrentCultureIgnoreCase);
-            }
-        }
-    }
-#endif
-
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnBeginShow_Patch
@@ -40,9 +23,10 @@ public static class CharacterStageClassSelectionPanelPatcher
         {
             //PATCH: avoids a restart when enabling / disabling classes on the Mod UI panel
             var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden);
+                .Where(x => !x.GuiPresentation.Hidden)
+                .OrderBy(x => x.FormatTitle());
 
-            __instance.compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+            __instance.compatibleClasses.SetRange(visibleClasses);
 
             if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
             {
@@ -53,7 +37,8 @@ public static class CharacterStageClassSelectionPanelPatcher
             LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
 
             //PATCH: apply in/out logic (MULTICLASS)
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
+            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(
+                __instance.currentHero,
                 __instance.compatibleClasses,
                 out __instance.selectedClass);
 

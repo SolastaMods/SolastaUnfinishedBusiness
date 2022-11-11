@@ -12,14 +12,18 @@ public static class CharacterStageProficiencySelectionPanelPatcher
     {
         var table = __instance.learnStepsTable;
         LearnStepItem item = null;
+
         for (var i = 0; i < table.childCount; i++)
         {
             var child = table.GetChild(i);
-            if (child.gameObject.activeSelf && i == __instance.currentLearnStep)
+
+            if (!child.gameObject.activeSelf || i != __instance.currentLearnStep)
             {
-                item = child.GetComponent<LearnStepItem>();
-                break;
+                continue;
             }
+
+            item = child.GetComponent<LearnStepItem>();
+            break;
         }
 
         return item;
@@ -109,11 +113,9 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                     .GetPoolPointsOfTypeAndTag(buildingData, item.PoolType, item.Tag, out _, out _);
                 __instance.OnPreRefresh();
                 __instance.RefreshNow();
-
                 __instance.MoveToNextLearnStep();
                 __instance.ResetWasClickedFlag();
             });
-
 
             return false;
         }
