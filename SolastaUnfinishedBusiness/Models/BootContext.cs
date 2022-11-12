@@ -286,10 +286,10 @@ internal static class BootContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             message,
-            "Message/&MessageOkTitle",
             "Donate",
-            null,
-            OpenDonate);
+            "Message/&MessageOkTitle",
+            OpenDonate,
+            null);
     }
 
     private static void DisplayUpdateMessage(string version, string changeLog)
@@ -315,10 +315,10 @@ internal static class BootContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             "Message/&MessageModWelcomeDescription",
-            "Message/&MessageOkTitle",
             "Donate",
-            null,
-            OpenDonate);
+            "Message/&MessageOkTitle",
+            OpenDonate,
+            null);
     }
 
     internal static void OpenWiki()

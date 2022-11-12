@@ -33,6 +33,12 @@ internal static class CraftyFeats
             .AddToDB())
         .AddToDB();
 
+    internal static FeatDefinition FeatCraftyScriber { get; private set; }
+
+    internal static FeatDefinition FeatGroupApothecary { get; private set; }
+
+    internal static FeatDefinition FeatGroupToxicologist { get; private set; }
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
@@ -99,7 +105,7 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .AddToDB();
 
-        GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
+        FeatGroupApothecary = GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
             featApothecaryInt,
             featApothecaryWis,
             featApothecaryCha);
@@ -127,7 +133,7 @@ internal static class CraftyFeats
                 proficiencyCraftyAnimalHandling)
             .AddToDB();
 
-        GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
+        FeatGroupToxicologist = GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha);
@@ -136,8 +142,8 @@ internal static class CraftyFeats
         // Others
         //
 
-        var featCraftyScribe = FeatDefinitionBuilder
-            .Create("FeatCraftyScribe")
+        FeatCraftyScriber = FeatDefinitionBuilder
+            .Create("FeatCraftyScriber")
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
@@ -150,7 +156,7 @@ internal static class CraftyFeats
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha,
-            featCraftyScribe,
+            FeatCraftyScriber,
             FeatCraftyFletcher);
     }
 }
