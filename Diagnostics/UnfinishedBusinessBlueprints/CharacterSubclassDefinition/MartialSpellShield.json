@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySpellShieldConcentrationAdvantage:61fde703-712e-58c4-af0c-087f96fa07a0",
+      "featureDefinition": "Definition:MagicAffinitySpellShieldCombatMagic:67839da9-6e6f-5b97-bf2c-3cc8c9bc8fe6",
       "level": 3
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySpellShieldConcentrationAdvantageVigor:3d4e97a6-443e-59bc-876e-27e3762d734f",
+      "featureDefinition": "Definition:MagicAffinitySpellShieldCombatMagicVigor:d397da35-229d-53b3-afda-26524a45f0f1",
       "level": 10
     },
     {

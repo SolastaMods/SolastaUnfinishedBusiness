@@ -16,8 +16,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
     internal MartialSpellShield()
     {
-        var magicAffinitySpellShieldConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellShieldConcentrationAdvantage")
+        var magicAffinitySpellShieldCombatMagic = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinitySpellShieldCombatMagic")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
@@ -48,7 +48,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     .Create()
                     .SetCanBePlacedOnCharacter()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round, validateDuration: false)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -69,8 +69,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var magicAffinitySpellShieldConcentrationAdvantageVigor = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellShieldConcentrationAdvantageVigor")
+        var magicAffinitySpellShieldCombatMagicVigor = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinitySpellShieldCombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new VigorSpellDcModifier(),
@@ -126,13 +126,13 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, DomainBattle)
             .AddFeaturesAtLevel(3,
-                magicAffinitySpellShieldConcentrationAdvantage,
+                magicAffinitySpellShieldCombatMagic,
                 castSpellSpellShield)
             .AddFeaturesAtLevel(7,
                 powerSpellShieldWarMagic,
                 replaceAttackWithCantripSpellShield)
             .AddFeaturesAtLevel(10,
-                magicAffinitySpellShieldConcentrationAdvantageVigor)
+                magicAffinitySpellShieldCombatMagicVigor)
             .AddFeaturesAtLevel(15,
                 powerSpellShieldArcaneDeflection)
             .AddFeaturesAtLevel(18,

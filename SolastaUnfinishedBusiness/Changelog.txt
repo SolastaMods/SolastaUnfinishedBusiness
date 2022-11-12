@@ -1,11 +1,10 @@
 ﻿CHANGES:
 
 - Rebrand to Unfinished Business
-- Add Inventor class
-- Add Kobold race
+- Add Inventor
+- Add Kobold
 - Add UI feat groups
-- Add new Feats and Fighting Styles
+- Add new Fighting Styles
 - Allow 6 players on official campaigns
+- Improve Tactician
 - Improve Wizard Dead Master
-- Remove level down feature
-- Remove Magus, Tinkerer and Witch

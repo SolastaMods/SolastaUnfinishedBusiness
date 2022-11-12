@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static RuleDefinitions;
@@ -175,9 +175,13 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetDurationData(
         DurationType durationType,
         int durationParameter = 0,
-        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
+        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn,
+        bool validateDuration = true)
     {
-        PreConditions.IsValidDuration(durationType, durationParameter);
+        if (validateDuration)
+        {
+            PreConditions.IsValidDuration(durationType, durationParameter);
+        }
 
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
@@ -188,12 +192,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetIgnoreCover(bool value = true)
     {
         effect.ignoreCover = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetNoSavingThrow()
-    {
-        effect.hasSavingThrow = false;
         return this;
     }
 
@@ -258,12 +256,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
     {
         effect.animationMagicEffect = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition(Boolean value)
-    {
-        effect.requiresVisibilityForPosition = value;
         return this;
     }
 

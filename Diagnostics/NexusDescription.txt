@@ -107,26 +107,27 @@ All settings start disabled by default.
 
 [*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
-[*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+[*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-[*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
-[*][b]Raven[/b]: Range specialists that are trained to take down enemies quickly and effectively.
+[*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
+[*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 [*][b]Way of The Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
 [*][b]The Moonlit[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]The Soulblade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-[*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
-[*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+[*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [/list]
 
 [size=3][b]Feats[/b][/size]
 
 [list=1]
 
+[*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
+You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
@@ -161,6 +162,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Feat/&FeatToxicologistChaTitle[/b]: Feat/&FeatToxicologistChaDescription
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -246,10 +248,10 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
+[*][b]Toxicologist [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
+You gain proficiency with poisoner's kit and Animal Handling, or expertise if already proficient.
 [*][b]Toxicologist [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
-[*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
-You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 [*][b]Two Weapon Fighting[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You gain the ability to perform the somatic component of spells even with both hands full.

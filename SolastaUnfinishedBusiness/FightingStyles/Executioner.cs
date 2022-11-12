@@ -62,24 +62,29 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+            var i = effectDescription.EffectForms.FindIndex(x => x.damageForm == damage);
 
-            if (damage == null)
+            if (i < 0 || damage == null)
             {
                 return;
             }
 
             var proficiencyBonus = 
                 attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            
+            var additionalDice = EffectFormBuilder
+                .Create()
+                .SetDamageForm(damage.damageType, 0, RuleDefinitions.DieType.D4, proficiencyBonus)
+                .Build();
+
+            effectDescription.EffectForms.Insert(i + 1, additionalDice);
 
             GameConsoleHelper.LogCharacterAffectsTarget(
                 attacker.RulesetCharacter,
                 rulesetDefender,
                 ExecutionerName);
-            
-            damage.BonusDamage += proficiencyBonus;
-            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
-                RuleDefinitions.FeatureSourceType.Power, ExecutionerName, null));
         }
 
         public void AfterOnAttackDamage(
