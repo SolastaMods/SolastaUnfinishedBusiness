@@ -550,7 +550,7 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Retaliate(GambitPool, ConditionDefinitionBuilder
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, ConditionDefinitionBuilder
                 .Create($"Condition{name}")
                 .SetGuiPresentationNoContent(hidden: true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
@@ -685,9 +685,12 @@ internal sealed class MartialTactician : AbstractSubclass
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             //TODO: try making this reaction request show how many dice remaining
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            manager.AddInterruptRequest(new ReactionRequestReactionAttack("GambitRiposte", reactionParams));
+            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams);
+            reactionRequest.Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon);
+            manager.AddInterruptRequest(reactionRequest);
             yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
 
+            //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
                 character.UsePower(UsablePowersProvider.Get(pool, character));
