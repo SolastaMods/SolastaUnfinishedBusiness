@@ -4,8 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDieOnce:a5dec680-ddbf-56b8-8040-a19f196dddff",
-    "Definition:FeatureGambitLunging:2ffdc03f-7b58-50a5-9a1a-5320fa1cbdd1"
+    "Definition:AdditionalActionHasted:7de0bb174ce429a458b357b5838edadb",
+    "Definition:AttributeModifierHasted:3fca0e820a3d50e4aa9797bb72822089",
+    "Definition:MovementAffinityConditionHasted:010aed5428204144aaf5fb7dc04ab460",
+    "Definition:SavingThrowAffinityConditionHasted:112a137c1bd1c254581f2f1a654985c0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -87,7 +89,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,13 +131,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitLungingTitle",
-    "description": "Feature/&GambitLungingDescription",
+    "title": "Rules/&ConditionHastedTitle",
+    "description": "Rules/&ConditionHastedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e3406fd2-9d2e-52af-9294-4710da714bb4",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
+      "m_SubObjectName": "ConditionDisengaging",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -150,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc806863-d5b0-5b5d-a186-5cf2d6ccd238",
+  "guid": "4d8a5ac8-ea3d-5e38-a470-3ef45a33ae26",
   "contentPack": 9999,
-  "name": "ConditionGambitLunging"
+  "name": "ConditionGambitUrgent"
 }

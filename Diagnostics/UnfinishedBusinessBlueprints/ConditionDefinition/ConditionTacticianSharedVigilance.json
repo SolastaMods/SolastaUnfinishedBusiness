@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDieOnce:a5dec680-ddbf-56b8-8040-a19f196dddff",
-    "Definition:FeatureGambitLunging:2ffdc03f-7b58-50a5-9a1a-5320fa1cbdd1"
+    "Definition:AttributeModifierTacticianEverVigilant:e0b4172a-9b57-5871-a28e-15b5f50e6c82"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -87,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,12 +127,12 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&GambitLungingTitle",
-    "description": "Feature/&GambitLungingDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e3406fd2-9d2e-52af-9294-4710da714bb4",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -150,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc806863-d5b0-5b5d-a186-5cf2d6ccd238",
+  "guid": "3245290f-fb4b-56ca-9f01-9b8bb309684a",
   "contentPack": 9999,
-  "name": "ConditionGambitLunging"
+  "name": "ConditionTacticianSharedVigilance"
 }
