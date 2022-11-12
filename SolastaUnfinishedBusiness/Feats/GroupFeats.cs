@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class GroupFeats
 {
-    internal static readonly List<FeatDefinition> Groups = new();
+    private static readonly List<FeatDefinition> Groups = new();
 
     internal static void Load(Action<FeatDefinition> loader)
     {
@@ -21,7 +21,7 @@ internal static class GroupFeats
             FeatDefinitions.Creed_Of_Pakri,
             FeatDefinitions.Creed_Of_Solasta));
 
-        Groups.Add(MakeGroup("FeatGroupElementalTouch", null,
+        Groups.Add(MakeGroup("FeatGroupElementalTouch", "Touch",
             FeatDefinitions.BurningTouch,
             FeatDefinitions.ToxicTouch,
             FeatDefinitions.ElectrifyingTouch,
