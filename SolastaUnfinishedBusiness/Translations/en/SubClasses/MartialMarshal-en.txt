@@ -19,5 +19,5 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactDescription=Use reac
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=Attack
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Coordinated Attack
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Select action
-Subclass/&MartialMarshalDescription=Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+Subclass/&MartialMarshalDescription=Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 Subclass/&MartialMarshalTitle=Marshal
