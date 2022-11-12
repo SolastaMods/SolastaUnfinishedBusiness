@@ -8,17 +8,24 @@ namespace SolastaUnfinishedBusiness.Models;
  */
 internal static class CustomConditions
 {
+    internal static ConditionDefinition Distracted;
+    
     internal static ConditionDefinition StopMovement;
 
     internal static void Load()
     {
         StopMovement = ConditionDefinitionBuilder
-            .Create("ConditionStopMovement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionRestrained)
-            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+            .Create(ConditionDefinitions.ConditionRestrained, "ConditionStopMovement")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
+            .AddToDB();
+        
+        Distracted = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistracted")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetDuration(RuleDefinitions.DurationType.Round, 1)
             .AddToDB();
     }
 }
