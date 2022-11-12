@@ -13,21 +13,32 @@ internal static class GroupFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        feats.Add(BuildBodyResilience());
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
         feats.Add(BuildRangedCombat());
         feats.Add(BuildTwoHandedCombat());
-        feats.Add(BuildTwoWeaponCombat()); 
+        feats.Add(BuildTwoWeaponCombat());
         feats.AddRange(Groups);
     }
 
-#if false
-    internal static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
+    private static FeatDefinition BuildBodyResilience()
     {
-        group.SetCustomSubFeatures(new GroupedFeat(feats));
-        Groups.Add(group);
+        return FeatDefinitionBuilder
+            .Create("FeatGroupBodyResilience")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.BadlandsMarauder,
+                FeatDefinitions.Enduring_Body,
+                FeatDefinitions.FocusedSleeper,
+                FeatDefinitions.HardToKill,
+                FeatDefinitions.Hauler,
+                FeatDefinitions.Robust,
+                ZappaFeats.FeatTough
+            ))
+            .SetFeatures()
+            .AddToDB();
     }
-#endif
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
@@ -86,7 +97,7 @@ internal static class GroupFeats
     private static FeatDefinition BuildRangedCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatRangedCombat")
+            .Create("FeatGroupRangedCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.TakeAim,
@@ -103,7 +114,7 @@ internal static class GroupFeats
     private static FeatDefinition BuildTwoHandedCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatTwoHandedCombat")
+            .Create("FeatGroupTwoHandedCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.MightyBlow,
@@ -117,7 +128,7 @@ internal static class GroupFeats
     private static FeatDefinition BuildTwoWeaponCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatTwoWeaponCombat")
+            .Create("FeatGroupTwoWeaponCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.Ambidextrous,

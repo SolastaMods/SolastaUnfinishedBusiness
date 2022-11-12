@@ -24,20 +24,32 @@ internal static class ZappaFeats
     private const string FeatSavageAttackerName = "FeatSavageAttacker";
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
 
-    internal static FeatDefinition FeatDeadEye = BuildDeadEye();
+    internal static readonly FeatDefinition FeatDeadEye = BuildDeadEye();
 
-    internal static FeatDefinition FeatDualWeaponDefense = FeatDefinitionBuilder
+    internal static readonly FeatDefinition FeatDualWeaponDefense = FeatDefinitionBuilder
         .Create("FeatDualWeaponDefense")
         .SetGuiPresentation(Category.Feat)
         .SetFeatures(AttributeModifierSwiftBladeBladeDance)
         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
         .AddToDB();
 
-    internal static FeatDefinition FeatMarksman = FeatDefinitionBuilder
+    internal static readonly FeatDefinition FeatMarksman = FeatDefinitionBuilder
         .Create("FeatMarksman")
         .SetGuiPresentation(Category.Feat)
         .SetFeatures(ActionAffinityMarksmanReactionShot)
         .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        .AddToDB();
+
+    internal static readonly FeatDefinition FeatTough = FeatDefinitionBuilder
+        .Create("FeatTough")
+        .SetFeatures(
+            FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierFeatTough")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.HitPointBonusPerLevel, 2)
+                .AddToDB())
+        .SetGuiPresentation(Category.Feat)
         .AddToDB();
 
     internal static void CheckElvenPrecisionContext(
@@ -430,19 +442,6 @@ internal static class ZappaFeats
             .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .AddToDB();
 
-        // Tough
-        var featTough = FeatDefinitionBuilder
-            .Create("FeatTough")
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatTough")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.HitPointBonusPerLevel, 2)
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-
         //
         // set feats to be registered in mod settings
         //
@@ -462,7 +461,7 @@ internal static class ZappaFeats
             featWiseDefense,
             featWisePrecision,
             featSavageAttacker,
-            featTough,
+            FeatTough,
             featImprovedCritical,
             featSuperiorCritical);
 
