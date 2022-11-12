@@ -17,9 +17,19 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
         {
             //PATCH: changes the fighting style layout to allow more offerings
             var gridLayoutGroup = __instance.fightingStylesTable.GetComponent<GridLayoutGroup>();
+            var rectTransform = __instance.fightingStylesTable.GetComponent<RectTransform>();
 
             // line counts on display
             gridLayoutGroup.constraintCount = 3;
+
+            if (__instance.compatibleFightingStyles.Count > 12)
+            {
+                rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            }
+            else
+            {
+                rectTransform.localScale = Vector3.one;
+            }
 
             //PATCH: sorts the fighting style panel by Title
             if (!Main.Settings.EnableSortingFightingStyles)
