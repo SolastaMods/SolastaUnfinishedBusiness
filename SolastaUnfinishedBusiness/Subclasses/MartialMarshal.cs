@@ -314,10 +314,10 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToAttackFinished
+    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToMyAttackFinished
     {
-        public IEnumerator HandleReactToAttackFinished(
-            GameLocationCharacter attacker,
+        public IEnumerator HandleReactToMyAttackFinished(
+            GameLocationCharacter me,
             GameLocationCharacter defender,
             RollOutcome outcome,
             CharacterActionParams actionParams,
@@ -347,7 +347,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                         RuleDefinitions.ConditionConjuredCreature,
                         out var activeCondition)
-                    || activeCondition.SourceGuid != attacker.Guid)
+                    || activeCondition.SourceGuid != me.Guid)
                 {
                     continue;
                 }
@@ -366,7 +366,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .Where(partyCharacter =>
                     partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 &&
                     !partyCharacter.Prone)
-                .Where(partyCharacter => partyCharacter != attacker));
+                .Where(partyCharacter => partyCharacter != me));
 
             var reactions = new List<CharacterActionParams>();
 
@@ -429,7 +429,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 actionService.ReactForOpportunityAttack(reaction);
             }
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return battleManager.WaitForReactions(me, actionService, count);
         }
     }
 

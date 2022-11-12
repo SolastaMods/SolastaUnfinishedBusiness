@@ -30,8 +30,6 @@ public static class CharacterActionAttackPatcher
             RulesetAttackMode mode = null;
             ActionModifier modifier = null;
 
-            var features = character?.GetSubFeaturesByType<IReactToAttackFinished>();
-
             // ReSharper disable InconsistentNaming
             void AttackImpactStartHandler(
                 GameLocationCharacter _,
@@ -50,10 +48,7 @@ public static class CharacterActionAttackPatcher
             }
             // ReSharper enable InconsistentNaming
 
-            if (features != null && !features.Empty())
-            {
-                actingCharacter.AttackImpactStart += AttackImpactStartHandler;
-            }
+            actingCharacter.AttackImpactStart += AttackImpactStartHandler;
 
             while (values.MoveNext())
             {
@@ -62,15 +57,29 @@ public static class CharacterActionAttackPatcher
 
             actingCharacter.AttackImpactStart -= AttackImpactStartHandler;
 
-            if (!found || features == null || features.Empty())
+            if (!found)
             {
                 yield break;
             }
 
-            foreach (var feature in features)
+            var attackerfeatures = character?.GetSubFeaturesByType<IReactToMyAttackFinished>();
+            if (attackerfeatures != null)
             {
-                yield return feature.HandleReactToAttackFinished(
-                    actingCharacter, defender, outcome, actionParams, mode, modifier);
+                foreach (var feature in attackerfeatures)
+                {
+                    yield return feature.HandleReactToMyAttackFinished(
+                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                }
+            }
+
+            var defenderfeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
+            if (defenderfeatures != null)
+            {
+                foreach (var feature in defenderfeatures)
+                {
+                    yield return feature.HandleReactToAttackOnMeFinished(
+                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                }
             }
         }
     }
