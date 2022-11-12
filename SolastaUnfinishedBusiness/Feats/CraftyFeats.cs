@@ -33,12 +33,6 @@ internal static class CraftyFeats
             .AddToDB())
         .AddToDB();
 
-    internal static FeatDefinition FeatCraftyScriber { get; private set; }
-
-    internal static FeatDefinition FeatGroupApothecary { get; private set; }
-
-    internal static FeatDefinition FeatGroupToxicologist { get; private set; }
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
@@ -105,7 +99,7 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .AddToDB();
 
-        FeatGroupApothecary = GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
+        var featGroupApothecary = GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
             featApothecaryInt,
             featApothecaryWis,
             featApothecaryCha);
@@ -133,7 +127,7 @@ internal static class CraftyFeats
                 proficiencyCraftyAnimalHandling)
             .AddToDB();
 
-        FeatGroupToxicologist = GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
+        var featGroupToxicologist = GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha);
@@ -142,7 +136,7 @@ internal static class CraftyFeats
         // Others
         //
 
-        FeatCraftyScriber = FeatDefinitionBuilder
+        var featCraftyScriber = FeatDefinitionBuilder
             .Create("FeatCraftyScriber")
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
@@ -158,10 +152,10 @@ internal static class CraftyFeats
             FeatDefinitions.MasterEnchanter);
 
         _ = GroupFeats.MakeGroup("FeatGroupTools", null,
-            FeatGroupApothecary,
-            FeatGroupToxicologist,
+            featGroupApothecary,
+            featGroupToxicologist,
             FeatCraftyFletcher,
-            FeatCraftyScriber,
+            featCraftyScriber,
             featGroupAlchemist,
             featGroupEnchanter);
 
@@ -172,7 +166,7 @@ internal static class CraftyFeats
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha,
-            FeatCraftyScriber,
+            featCraftyScriber,
             FeatCraftyFletcher);
     }
 }
