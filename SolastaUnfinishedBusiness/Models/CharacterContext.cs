@@ -69,6 +69,7 @@ internal static class CharacterContext
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditions.Distracted;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditions.Distracted.Name;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")

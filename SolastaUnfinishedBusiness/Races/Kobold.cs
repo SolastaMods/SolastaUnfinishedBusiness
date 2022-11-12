@@ -34,6 +34,7 @@ internal static class KoboldRaceBuilder
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditions.Distracted;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditions.Distracted.Name;
 
         var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
             .Create("PowerDraconicKoboldDraconicCry")
