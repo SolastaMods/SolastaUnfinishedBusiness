@@ -187,7 +187,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -245,7 +244,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -299,7 +297,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -367,7 +364,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -402,7 +398,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -440,7 +435,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
@@ -458,6 +452,38 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetGuiPresentationNoContent(hidden: true)
                             .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1))
                             .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Urgent Orders
+
+        name = "GambitUrgent";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .ExcludeCaster()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                        .SetSilent(Silent.None)
+                        .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

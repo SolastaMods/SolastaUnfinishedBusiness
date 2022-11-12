@@ -31,3 +31,5 @@ Feature/&GambitLungingTitle=Gambit: Lunge
 Condition/&ConditionGambitGoadingEffectTitle=Goaded
 Feature/&FeatureAdaptiveStrategyDescription=Gain one gambit die whenever you get critical miss or critical hit on your attack. This gain cannot put you over your maximum gambit dice limit.
 Feature/&FeatureAdaptiveStrategyTitle=Adaptive Strategy
+Feature/&GambitUrgentDescription=Use your bonus action and spend a gambit die to grant haste to an ally other than yourself, within 30 feet and in your direct sight. Haste gained this way lasts until the beginning of your next turn and doesn't affect the ally with lethargy once it wears off. 
+Feature/&GambitUrgentTitle=Gambit: Urgent Orders
