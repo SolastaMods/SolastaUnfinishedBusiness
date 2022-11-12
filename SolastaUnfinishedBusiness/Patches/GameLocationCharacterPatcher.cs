@@ -212,27 +212,21 @@ public static class GameLocationCharacterPatcher
                 new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
-        public static void Postfix(GameLocationCharacter __instance, ActionDefinitions.Id actionId,
-            ActionDefinitions.ActionScope scope, ref ActionDefinitions.ActionStatus __result)
+        public static void Postfix(GameLocationCharacter __instance,
+            ref ActionDefinitions.ActionStatus __result,
+            ActionDefinitions.Id actionId,
+            ActionDefinitions.ActionScope scope,
+            ActionDefinitions.ActionStatus actionTypeStatus,
+            RulesetAttackMode optionalAttackMode,
+            bool ignoreMovePoints,
+            bool allowUsingDelegatedPowersAsPowers)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
             //PATCH: support for custom invocation action ids
-            if (CustomActionIdContext.IsInvocationActionId(actionId))
-            {
-                var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
-                if (action.actionScope != ActionDefinitions.ActionScope.All && scope != action.actionScope)
-                {
-                    __result = ActionDefinitions.ActionStatus.Unavailable;
-                }
-                else
-                {
-                    __result = __instance.RulesetCharacter.CanCastAnyInvocationOfActionId(actionId, scope)
-                        ? ActionDefinitions.ActionStatus.Available
-                        : ActionDefinitions.ActionStatus.Unavailable;
-                }
-            }
+            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
+                optionalAttackMode, ignoreMovePoints, allowUsingDelegatedPowersAsPowers);
         }
     }
 

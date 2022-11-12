@@ -78,6 +78,60 @@ public static class CustomActionIdContext
             .AddToDB();
     }
 
+    public static void ProcessCustomActionIds(
+        GameLocationCharacter locationCharacter,
+        ref ActionStatus result,
+        Id actionId,
+        ActionScope scope,
+        ActionStatus actionTypeStatus,
+        RulesetAttackMode optionalAttackMode,
+        bool ignoreMovePoints,
+        bool allowUsingDelegatedPowersAsPowers)
+    {
+        if (!IsInvocationActionId(actionId))
+        {
+            return;
+        }
+
+        var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+        var character = locationCharacter.RulesetCharacter;
+
+        if (actionTypeStatus == ActionStatus.Irrelevant)
+        {
+            actionTypeStatus = locationCharacter.GetActionTypeStatus(action.ActionType, scope, ignoreMovePoints);
+        }
+
+        if (actionTypeStatus != ActionStatus.Available)
+        {
+            result = actionTypeStatus == ActionStatus.Spent ? ActionStatus.Unavailable : actionTypeStatus;
+            return;
+        }
+
+        if (action.ActionScope != ActionScope.All && action.ActionScope != scope)
+        {
+            result = ActionStatus.Unavailable;
+            return;
+        }
+
+        if (action.UsesPerTurn > 0)
+        {
+            var name = action.Name;
+            if (locationCharacter.UsedSpecialFeatures.ContainsKey(name)
+                && locationCharacter.UsedSpecialFeatures[name] >= action.UsesPerTurn)
+            {
+                result = ActionStatus.Unavailable;
+                return;
+            }
+        }
+
+        var canCastSpells = character.CanCastSpells();
+        var canOnlyUseCantrips = scope == ActionScope.Battle && locationCharacter.CanOnlyUseCantrips;
+
+        result = character.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
+            ? ActionStatus.Available
+            : ActionStatus.Unavailable;
+    }
+
     internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
