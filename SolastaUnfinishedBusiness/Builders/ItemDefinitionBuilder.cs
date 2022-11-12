@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -245,6 +244,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+#if false
     internal ItemDefinitionBuilder SetFoodDescription(FoodDescription foodDescription)
     {
         Definition.IsFood = true;
@@ -279,6 +279,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
         return this;
     }
+#endif
 
     #region Constructors
 

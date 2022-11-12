@@ -176,6 +176,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
     {
         var killForm = new KillForm
@@ -188,7 +189,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetDivinationForm(
         DivinationForm.Type divinationType,
         IEnumerable<CharacterFamilyDefinition> creatureFamilies,

@@ -109,6 +109,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
+#if false
     internal MonsterDefinitionBuilder SetHitDiceNumber(int hitDice)
     {
         Definition.hitDice = hitDice;
@@ -120,6 +121,7 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         Definition.hitDiceType = dieType;
         return this;
     }
+#endif
 
     internal MonsterDefinitionBuilder SetHitPointsBonus(int bonus)
     {
@@ -166,11 +168,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
+#if false
     internal MonsterDefinitionBuilder ClearAttackIterations()
     {
         Definition.AttackIterations.Clear();
         return this;
     }
+#endif
 
     internal MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
     {

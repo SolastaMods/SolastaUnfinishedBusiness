@@ -116,11 +116,13 @@ internal abstract class
         return (TBuilder)this;
     }
 
+#if false
     internal TBuilder SetIsPowerPool()
     {
         Definition.overriddenPower = Definition;
         return (TBuilder)this;
     }
+#endif
 
     internal TBuilder SetBonusToAttack(
         bool proficiencyBonusToAttack = false,

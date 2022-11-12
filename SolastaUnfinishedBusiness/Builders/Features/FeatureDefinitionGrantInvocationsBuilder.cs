@@ -10,12 +10,14 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionGrantInvocationsBuilder
     : DefinitionBuilder<FeatureDefinitionGrantInvocations, FeatureDefinitionGrantInvocationsBuilder>
 {
+#if false
     internal FeatureDefinitionGrantInvocationsBuilder SetInvocations(
         params InvocationDefinition[] invocations)
     {
         Definition.Invocations.SetRange(invocations);
         return this;
     }
+#endif
 
     internal FeatureDefinitionGrantInvocationsBuilder SetInvocations(
         IEnumerable<InvocationDefinition> invocations)

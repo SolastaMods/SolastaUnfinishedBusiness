@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
 internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, ActionDefinitionBuilder>
 {
     internal ActionDefinitionBuilder SetActionId(ActionDefinitions.Id id)

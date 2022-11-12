@@ -34,6 +34,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(RuleDefinitions.AdvantageType affinity)
     {
         Definition.initiativeAffinity = affinity;
@@ -45,6 +46,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
         Definition.situationalContext = context;
         return this;
     }
+#endif
 
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {

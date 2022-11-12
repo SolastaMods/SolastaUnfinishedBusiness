@@ -1,7 +1,9 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
+[UsedImplicitly]
 internal class FeatureDefinitionCampAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionCampAffinity,
     FeatureDefinitionCampAffinityBuilder>
 
