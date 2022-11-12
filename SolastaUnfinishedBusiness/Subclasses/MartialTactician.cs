@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -37,7 +38,7 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitPool = FeatureDefinitionPowerBuilder
             .Create("PowerPoolTacticianGambit")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(IsPowerPool.Marker)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
             .AddToDB();
 
@@ -69,7 +70,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, GambitPool, learn3Gambits, BuildEverVigilant())
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit)
-            .AddFeaturesAtLevel(10)
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
             .AddToDB();
 
@@ -92,6 +93,18 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
             .SetFixedValue(GambitPool, 1)
             .AddToDB();
+    }
+
+    private FeatureDefinition BuildAdaptiveStrategy()
+    {
+        var feature = FeatureDefinitionBuilder
+            .Create($"FeatureAdaptiveStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
+
+        return feature;
     }
 
     private FeatureDefinitionCustomInvocationPool BuildLearn(int points)
@@ -135,7 +148,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerOnAttack(spendDiePower);
+        var spendDieOnAttack = new SpendPowerAfterAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -486,6 +499,37 @@ internal sealed class MartialTactician : AbstractSubclass
             if (character == null) { return; }
 
             character.UsePower(UsablePowersProvider.Get(power, character));
+        }
+    }
+
+    private class RefundPowerUseAfterCrit : IAfterAttackEffect
+    {
+        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition feature;
+
+        public RefundPowerUseAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
+
+            if (attackMode == null) { return; }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null) { return; }
+
+            if (character.GetRemainingPowerUses(power) < character.GetMaxUsesForPool(power))
+            {
+                GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+                character.RepayPowerUse(UsablePowersProvider.Get(power, character));
+            }
         }
     }
 }
