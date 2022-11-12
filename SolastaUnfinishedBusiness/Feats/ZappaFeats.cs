@@ -15,11 +15,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttac
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static RuleDefinitions;
+using static RuleDefinitions.RollContext;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ZappaFeats
 {
+    private const string FeatSavageAttackerName = "FeatSavageAttacker";
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
 
     internal static void CheckElvenPrecisionContext(
@@ -200,25 +202,6 @@ internal static class ZappaFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
-
-#if false
-        // Feat/&FeatBrutalThugDescription=You gain simple and martial weapon proficiencies.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Hoodlum's Sneak Attack. This damage increases by 1 additional damage dice every 4 levels.
-        // Feat/&FeatBrutalThugTitle=Brutal Thug
-        // Brutal Thug
-        var featBrutalThug = FeatDefinitionBuilder
-            .Create("FeatBrutalThug")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
-                        "AdditionalDamageFeatBrutalThugSneakAttack")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1,
-                        4)
-                    .AddToDB(),
-                ProficiencyFighterWeapon)
-            .AddToDB();
-#endif
 
         // Charismatic Defense
         var featCharismaticDefense = FeatDefinitionBuilder
@@ -415,6 +398,55 @@ internal static class ZappaFeats
             .AddToDB();
 
         //
+        // OTHER FEATS
+        //
+
+        // Savage Attacker
+        var featSavageAttacker = FeatDefinitionBuilder
+            .Create(FeatSavageAttackerName)
+            .SetFeatures(
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageAttacker")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .AddToDB(),
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageMagicAttacker")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+
+        // Improved Critical
+        var featImprovedCritical = FeatDefinitionBuilder
+            .Create("FeatImprovedCritical")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierMartialChampionImprovedCritical)
+            .AddToDB();
+
+        // Superior Critical
+        var featSuperiorCritical = FeatDefinitionBuilder
+            .Create("FeatSuperiorCritical")
+            .SetGuiPresentation(Category.Feat)
+            .SetKnownFeatsPrerequisite(featImprovedCritical.Name)
+            .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
+            .AddToDB();
+
+        // Tough
+        var featTough = FeatDefinitionBuilder
+            .Create("FeatTough")
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierFeatTough")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.HitPointBonusPerLevel, 2)
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+
+        //
         // set feats to be registered in mod settings
         //
 
@@ -431,7 +463,11 @@ internal static class ZappaFeats
             featElvenAccuracyCharisma,
             featMarksman,
             featWiseDefense,
-            featWisePrecision);
+            featWisePrecision,
+            featSavageAttacker,
+            featTough,
+            featImprovedCritical,
+            featSuperiorCritical);
 
         feats.AddRange(metaMagicFeats);
 
@@ -521,7 +557,6 @@ internal sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
         }
 
         var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-
         var toHit = -proficiency;
         var toDamage = 2 * proficiency;
 
