@@ -409,19 +409,21 @@ internal static class LevelUpContext
             }
         }
 
-        if (hero.TryGetHeroBuildingData(out var data))
+        if (!hero.TryGetHeroBuildingData(out var data))
         {
-            var features = data.levelupTrainedFeats
-                .SelectMany(x => x.Value)
-                .SelectMany(f => f.Features)
-                .OfType<FeatureDefinitionAutoPreparedSpells>();
+            return;
+        }
 
-            foreach (var feature in features)
+        var features = data.levelupTrainedFeats
+            .SelectMany(x => x.Value)
+            .SelectMany(f => f.Features)
+            .OfType<FeatureDefinitionAutoPreparedSpells>();
+
+        foreach (var feature in features)
+        {
+            foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
             {
-                foreach (var spell in feature.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList))
-                {
-                    extraSpells.TryAdd(spell, feature.AutoPreparedTag);
-                }
+                extraSpells.TryAdd(spell, feature.AutoPreparedTag);
             }
         }
     }
@@ -647,13 +649,13 @@ internal static class LevelUpContext
         })!;
     }
 
-    public static void GrantCustomFeaturesFromFeats(RulesetCharacterHero hero, CharacterBuildingManager instance)
+    public static void GrantCustomFeaturesFromFeats(RulesetCharacterHero hero)
     {
         var data = hero.GetOrCreateHeroBuildingData();
 
         foreach (var pair in data.levelupTrainedFeats)
         {
-            //Grant invocations from fet features
+            //Grant invocations from feat features
             var features = pair.Value.SelectMany(f => f.Features).ToList();
 
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, pair.Key, features);

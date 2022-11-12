@@ -48,7 +48,7 @@ internal static class SharedSpellsContext
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
         // { RoguishConArtist.Name, CasterProgression.OneThird },
-        { MartialSpellShield.Name, CasterProgression.OneThird },
+        { MartialSpellShield.Name, CasterProgression.OneThird }
         // { PathOfTheRageMage.Name, CasterProgression.OneThird }
     };
 

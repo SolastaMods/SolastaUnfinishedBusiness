@@ -468,13 +468,9 @@ internal static class MulticlassGameUiContext
 
         if (spellFeature != null)
         {
-            foreach (var spellRepertoire in localHeroCharacter.SpellRepertoires)
+            foreach (var spellRepertoire in localHeroCharacter.SpellRepertoires
+                         .Where(spellRepertoire => spellRepertoire.SpellCastingFeature == spellFeature))
             {
-                if (spellRepertoire.SpellCastingFeature != spellFeature)
-                {
-                    continue;
-                }
-
                 spellRepertoire.EnumerateExtraSpellsOfLevel(group.SpellLevel, group.extraSpellsMap);
                 break;
             }
@@ -521,15 +517,11 @@ internal static class MulticlassGameUiContext
             {
                 autoPrepareTag = feature.AutoPreparedTag;
 
-                foreach (var preparedSpellsGroup in feature.AutoPreparedSpellsGroups)
+                foreach (var spells in feature.AutoPreparedSpellsGroups
+                             .SelectMany(preparedSpellsGroup => preparedSpellsGroup.SpellsList
+                                 .Where(spells => spells.SpellLevel == group.SpellLevel)))
                 {
-                    foreach (var spells in preparedSpellsGroup.SpellsList)
-                    {
-                        if (spells.SpellLevel == group.SpellLevel)
-                        {
-                            group.autoPreparedSpells.Add(spells);
-                        }
-                    }
+                    group.autoPreparedSpells.Add(spells);
                 }
 
                 foreach (var autoPreparedSpell in group.autoPreparedSpells
@@ -630,7 +622,7 @@ internal static class MulticlassGameUiContext
         [NotNull] List<SpellDefinition> allSpells,
         [NotNull] List<SpellDefinition> autoPreparedSpells,
         PointPool pointPool,
-        Dictionary<SpellDefinition, string> extraSpellsMap)
+        IDictionary<SpellDefinition, string> extraSpellsMap)
     {
         var spellsOverriden = pointPool.spellListOverride != null;
         var spellLevel = __instance.SpellLevel;
@@ -649,7 +641,7 @@ internal static class MulticlassGameUiContext
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
             .Where(x => x.Key.SpellLevel == spellLevel).ToList();
 
-        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Any(p => p.Key == x));
+        allSpells.RemoveAll(x => !allowedSpells.Contains(x) && otherClassesKnownSpells.All(p => p.Key != x));
 
         foreach (var pair in otherClassesKnownSpells)
         {

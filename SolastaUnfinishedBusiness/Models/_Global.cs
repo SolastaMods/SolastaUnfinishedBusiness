@@ -51,9 +51,6 @@ internal static class Global
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }
 
-    // casted spell
-    internal static SpellDefinition CastedSpell { get; private set; }
-
     // last attack was a critical hit
     internal static bool CriticalHit { get; set; }
 
@@ -68,23 +65,20 @@ internal static class Global
     {
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
-        CastedSpell = null;
 
         Main.Logger.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
 
         switch (characterAction)
         {
-            case CharacterActionCastSpell actionCastSpell:
-                CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
-
+            case CharacterActionCastSpell:
                 // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
                 var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
                 characterAction.actionParams.BoolParameter5 = isShiftPressed;
                 break;
 
-            case CharacterActionReady actionReady:
-                CustomReactionsContext.ReadReadyActionPreferredCantrip(actionReady.actionParams);
+            case CharacterActionReady:
+                CustomReactionsContext.ReadReadyActionPreferredCantrip(characterAction.actionParams);
                 break;
 
             case CharacterActionSpendPower spendPower:

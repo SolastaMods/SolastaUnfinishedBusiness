@@ -132,7 +132,7 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
 
-            LevelUpContext.GrantCustomFeaturesFromFeats(hero, __instance);
+            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
 
             //PATCH: grants custom features
             LevelUpContext.GrantCustomFeatures(hero);

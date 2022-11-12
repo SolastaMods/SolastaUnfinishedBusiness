@@ -84,7 +84,7 @@ internal static class TranslatorContext
         }
     }
 
-    internal static string Translate([NotNull] string sourceText, string targetCode)
+    private static string Translate([NotNull] string sourceText, string targetCode)
     {
         if (sourceText == string.Empty)
         {

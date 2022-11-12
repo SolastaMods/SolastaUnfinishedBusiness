@@ -542,7 +542,7 @@ internal static class MulticlassContext
         return SpellCastingLevel(repertoire, action.ActingCharacter.RulesetActor, action.ActiveSpell.SpellDefinition);
     }
 
-    private static int SpellCastingLevel(RulesetSpellRepertoire repertoire, RulesetActor caster, SpellDefinition spell)
+    private static int SpellCastingLevel(RulesetSpellRepertoire repertoire, ISerializable caster, SpellDefinition spell)
     {
         if (caster is RulesetCharacterHero hero && spell.SpellLevel == 0)
         {

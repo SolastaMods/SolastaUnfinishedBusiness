@@ -154,10 +154,8 @@ public static class CustomActionIdContext
         var canCastSpells = character.CanCastSpells();
         var canOnlyUseCantrips = scope == ActionScope.Battle && locationCharacter.CanOnlyUseCantrips;
 
-        if (isInvocationAction)
-        {
-            result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
-        }
+        // isInvocationAction is always true at this point
+        result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
     }
 
     private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
@@ -168,7 +166,7 @@ public static class CustomActionIdContext
             : ActionStatus.Unavailable;
     }
 
-    internal static bool IsInvocationActionId(Id id)
+    private static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 

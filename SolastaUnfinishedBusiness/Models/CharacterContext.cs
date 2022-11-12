@@ -30,7 +30,7 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
+    private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
     internal static void Load()
     {
@@ -69,7 +69,8 @@ internal static class CharacterContext
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditionsContext.Distracted;
-        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditionsContext.Distracted.Name;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName =
+            CustomConditionsContext.Distracted.Name;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Invocations.InvocationsBuilders;
@@ -89,6 +88,7 @@ internal static class InvocationsContext
         GuiWrapperContext.RecacheInvocations();
     }
 
+#if false
     internal static void UpdateRelevantInvocationList(InvocationSubPanel panel)
     {
         var dbInvocationDefinition = DatabaseRepository.GetDatabase<InvocationDefinition>();
@@ -98,6 +98,7 @@ internal static class InvocationsContext
 
         panel.relevantInvocations.SetRange(visibleInvocations);
     }
+#endif
 
     private static int CompareInvocations(InvocationDefinition a, InvocationDefinition b)
     {

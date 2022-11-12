@@ -17,19 +17,19 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class GameUiContext
 {
     // Toggle HUD components
-    internal const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
+    private const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
 
     // Debug Overlay
-    internal const InputCommands.Id CtrlShiftD = (InputCommands.Id)44440005;
+    private const InputCommands.Id CtrlShiftD = (InputCommands.Id)44440005;
 
     // Export Character
-    internal const InputCommands.Id CtrlShiftE = (InputCommands.Id)44440006;
+    private const InputCommands.Id CtrlShiftE = (InputCommands.Id)44440006;
 
     // Spawn Encounter
-    internal const InputCommands.Id CtrlShiftS = (InputCommands.Id)44440007;
+    private const InputCommands.Id CtrlShiftS = (InputCommands.Id)44440007;
 
     // Teleport Party
-    internal const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
+    private const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
 
     private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }

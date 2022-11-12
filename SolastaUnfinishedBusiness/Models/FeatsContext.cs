@@ -159,7 +159,7 @@ internal static class FeatsContext
     }
 
     // called before sorting feats to hide sub-feats during level up
-    private static void ProcessFeatGroups(FeatSubPanel panel, bool active, RectTransform table)
+    private static void ProcessFeatGroups(FeatSubPanel panel, bool active, Transform table)
     {
         //this is not feat learning - skip manipulations
         if (!active)
