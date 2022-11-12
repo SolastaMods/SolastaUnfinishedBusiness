@@ -20,51 +20,28 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
-    internal const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
-    internal const string SentinelFeat = "FeatSentinel";
+    private const string SavageAttackerFeat = "FeatSavageAttacker";
     private const string PolearmExpertFeat = "FeatPolearmExpert";
     private const string RangedExpertFeat = "FeatRangedExpert";
     private const string RecklessAttackFeat = "FeatRecklessAttack";
+
+    internal const string MagicAffinityWarcaster = "MagicAffinityFeatWarCaster";
+
+    internal const string SentinelFeat = "FeatSentinel";
     internal const string WarcasterFeat = "FeatWarCaster";
-
-    private const string FeatSavageAttackerName = "FeatSavageAttacker";
-
-    internal static readonly FeatDefinition FeatRangedExpert = BuildRangedExpert();
-    internal static readonly FeatDefinition FeatWarCaster = BuildWarcaster();
-
-    internal static readonly FeatDefinition FeatDeadEye = BuildDeadEye();
-
-    internal static readonly FeatDefinition FeatDualWeaponDefense = FeatDefinitionBuilder
-        .Create("FeatDualWeaponDefense")
-        .SetGuiPresentation(Category.Feat)
-        .SetFeatures(AttributeModifierSwiftBladeBladeDance)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        .AddToDB();
-
-    internal static readonly FeatDefinition FeatMarksman = FeatDefinitionBuilder
-        .Create("FeatMarksman")
-        .SetGuiPresentation(Category.Feat)
-        .SetFeatures(ActionAffinityMarksmanReactionShot)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        .AddToDB();
-
-    internal static readonly FeatDefinition FeatTough = FeatDefinitionBuilder
-        .Create("FeatTough")
-        .SetFeatures(
-            FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierFeatTough")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.HitPointBonusPerLevel, 2)
-                .AddToDB())
-        .SetGuiPresentation(Category.Feat)
-        .AddToDB();
-
-    internal static FeatDefinition FeatDualFlurry { get; private set; }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featDeadEye = BuildDeadEye();
+        var featDualFlurry = BuildDualFlurry();
+        var featDualWeaponDefense = BuildDualWeaponDefense();
+        var featMarksman = BuildMarksman();
+        var featRangedExpert = BuildRangedExpert();
+        var featTough = BuildTough();
+        var featWarCaster = BuildWarcaster();
+
         feats.AddRange(BuildMetamagic());
+
         feats.Add(BuildDualFlurry());
         feats.Add(BuildPolearmExpert());
         feats.Add(BuildPowerAttack());
@@ -72,150 +49,41 @@ internal static class OtherFeats
         feats.Add(BuildSavageAttacker());
         feats.Add(BuildSentinel());
         feats.Add(BuildTorchbearer());
-        feats.Add(FeatDeadEye);
-        feats.Add(FeatDualWeaponDefense);
-        feats.Add(FeatMarksman);
-        feats.Add(FeatRangedExpert);
-        feats.Add(FeatTough);
-        feats.Add(FeatWarCaster);
-    }
 
-    private static FeatDefinition BuildDualFlurry()
-    {
-        var conditionDualFlurryApply = ConditionDefinitionBuilder
-            .Create("ConditionDualFlurryApply")
-            .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Beneficial)
-            .AddToDB();
+        feats.Add(featDeadEye);
+        feats.Add(featDualWeaponDefense);
+        feats.Add(featMarksman);
+        feats.Add(featRangedExpert);
+        feats.Add(featTough);
+        feats.Add(featWarCaster);
 
-        var conditionDualFlurryGrant = ConditionDefinitionBuilder
-            .Create("ConditionDualFlurryGrant")
-            .SetGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 0, false)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Beneficial)
-            .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionDefinitions.ActionType.Bonus)
-                    .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-                    .AddToDB())
-            .AddToDB();
+        GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
+            FeatDefinitions.BadlandsMarauder,
+            FeatDefinitions.Enduring_Body,
+            FeatDefinitions.FocusedSleeper,
+            FeatDefinitions.HardToKill,
+            FeatDefinitions.Hauler,
+            FeatDefinitions.Robust,
+            featTough);
 
-        FeatDualFlurry = FeatDefinitionBuilder
-            .Create("FeatDualFlurry")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAttackDamageEffectFeatDualFlurry")
-                    .SetGuiPresentation("FeatDualFlurry", Category.Feat)
-                    .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
-                    .AddToDB())
-            .AddToDB();
+        GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
+            FeatDefinitions.TakeAim,
+            FeatDefinitions.UncannyAccuracy,
+            CraftyFeats.FeatCraftyFletcher,
+            featDeadEye,
+            featMarksman,
+            featRangedExpert);
 
-        return FeatDualFlurry;
-    }
+        GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
+            FeatDefinitions.FlawlessConcentration,
+            FeatDefinitions.PowerfulCantrip,
+            featWarCaster);
 
-    private static FeatDefinition BuildTorchbearer()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatTorchbearer")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionPowerBuilder
-                .Create("PowerTorchbearer")
-                .SetGuiPresentation(Category.Feature)
-                .SetUsesFixed(ActivationTime.BonusAction)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(SpellDefinitions.Fireball.EffectDescription)
-                    .SetCanBePlacedOnCharacter(false)
-                    .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Round, 3)
-                    .SetSpeed(SpeedType.Instant, 11f)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionOnFire1D4,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity,
-                        15)
-                    .Build())
-                .SetShowCasting(false)
-                .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.OffHandHasLightSource))
-                .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildSavageAttacker()
-    {
-        return FeatDefinitionBuilder
-            .Create(FeatSavageAttackerName)
-            .SetFeatures(
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttacker")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
-                    .AddToDB(),
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageMagicAttacker")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-    }
-
-    private static IEnumerable<FeatDefinition> BuildMetamagic()
-    {
-        // Metamagic
-        var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.SorceryPoints, 2)
-            .AddToDB();
-
-        var metaMagicFeats = new List<FeatDefinition>();
-        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
-
-        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
-                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
-                .SetGuiPresentation(
-                    Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
-                    Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2,
-                    FeatureDefinitionBuilder
-                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
-                        .AddToDB())
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                .AddToDB()));
-
-        GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
-
-        return metaMagicFeats;
+        GroupFeats.MakeGroup("FeatGroupTwoWeaponCombat", null,
+            FeatDefinitions.Ambidextrous,
+            FeatDefinitions.TwinBlade,
+            featDualFlurry,
+            featDualWeaponDefense);
     }
 
     private static FeatDefinition BuildDeadEye()
@@ -314,19 +182,103 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildSentinel()
+    private static FeatDefinition BuildDualFlurry()
+    {
+        var conditionDualFlurryApply = ConditionDefinitionBuilder
+            .Create("ConditionDualFlurryApply")
+            .SetGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 0, false)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetConditionType(ConditionType.Beneficial)
+            .AddToDB();
+
+        var conditionDualFlurryGrant = ConditionDefinitionBuilder
+            .Create("ConditionDualFlurryGrant")
+            .SetGuiPresentation(Category.Condition)
+            .SetDuration(DurationType.Round, 0, false)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Bonus)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                    .AddToDB())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatDualFlurry")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("OnAttackDamageEffectFeatDualFlurry")
+                    .SetGuiPresentation("FeatDualFlurry", Category.Feat)
+                    .SetCustomSubFeatures(
+                        new OnAttackHitEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildDualWeaponDefense()
     {
         return FeatDefinitionBuilder
-            .Create(SentinelFeat)
+            .Create("FeatDualWeaponDefense")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("OnAttackHitEffectFeatSentinel")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    AttacksOfOpportunity.CanIgnoreDisengage,
-                    AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnAttackHitEffectFeatSentinel(CustomConditions.StopMovement))
-                .AddToDB())
+            .SetFeatures(AttributeModifierSwiftBladeBladeDance)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private static IEnumerable<FeatDefinition> BuildMetamagic()
+    {
+        // Metamagic
+        var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.SorceryPoints, 2)
+            .AddToDB();
+
+        var metaMagicFeats = new List<FeatDefinition>();
+        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
+
+        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
+            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
+                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
+                .SetGuiPresentation(
+                    Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
+                    Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Solasta,
+                    ActionAffinitySorcererMetamagicToggle,
+                    attributeModifierSorcererSorceryPointsBonus2,
+                    FeatureDefinitionBuilder
+                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
+                        .AddToDB())
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
+                .AddToDB()));
+
+        GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
+
+        return metaMagicFeats;
+    }
+
+    private static FeatDefinition BuildMarksman()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatMarksman")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(ActionAffinityMarksmanReactionShot)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
@@ -343,37 +295,6 @@ internal static class OtherFeats
                     new AddPolearmFollowupAttack())
                 .AddToDB())
             .AddToDB();
-    }
-
-    private static FeatDefinition BuildRangedExpert()
-    {
-        return FeatDefinitionBuilder
-            .Create(RangedExpertFeat)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureFeatRangedExpert")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked))
-                .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildRecklessAttack()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(RecklessAttackFeat)
-            .SetGuiPresentation("RecklessAttack", Category.Action)
-            .SetFeatures(ActionAffinityBarbarianRecklessAttack)
-            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
-            .AddToDB();
-    }
-
-    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
 
     private static FeatDefinition BuildPowerAttack()
@@ -464,6 +385,119 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildRangedExpert()
+    {
+        return FeatDefinitionBuilder
+            .Create(RangedExpertFeat)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureFeatRangedExpert")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new RangedAttackInMeleeDisadvantageRemover(),
+                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
+                        ValidatorsCharacter.HasAttacked))
+                .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildRecklessAttack()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(RecklessAttackFeat)
+            .SetGuiPresentation("RecklessAttack", Category.Action)
+            .SetFeatures(ActionAffinityBarbarianRecklessAttack)
+            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSavageAttacker()
+    {
+        return FeatDefinitionBuilder
+            .Create(SavageAttackerFeat)
+            .SetFeatures(
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageAttacker")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .AddToDB(),
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageMagicAttacker")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSentinel()
+    {
+        return FeatDefinitionBuilder
+            .Create(SentinelFeat)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("OnAttackHitEffectFeatSentinel")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    AttacksOfOpportunity.CanIgnoreDisengage,
+                    AttacksOfOpportunity.SentinelFeatMarker,
+                    new OnAttackHitEffectFeatSentinel(CustomConditions.StopMovement))
+                .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildTorchbearer()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatTorchbearer")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionPowerBuilder
+                .Create("PowerTorchbearer")
+                .SetGuiPresentation(Category.Feature)
+                .SetUsesFixed(ActivationTime.BonusAction)
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Fireball.EffectDescription)
+                    .SetCanBePlacedOnCharacter(false)
+                    .SetCreatedByCharacter()
+                    .SetDurationData(DurationType.Round, 3)
+                    .SetSpeed(SpeedType.Instant, 11f)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionOnFire1D4,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        15)
+                    .Build())
+                .SetShowCasting(false)
+                .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.OffHandHasLightSource))
+                .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildTough()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatTough")
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierFeatTough")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.HitPointBonusPerLevel, 2)
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+    }
+
     private static FeatDefinition BuildWarcaster()
     {
         var warcaster = FeatDefinitionBuilder
@@ -484,49 +518,32 @@ internal static class OtherFeats
         return warcaster;
     }
 
-    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
-    {
-        private readonly ConditionDefinition _conditionSentinelStopMovement;
+    //
+    // HELPERS
+    //
 
-        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
+    }
+
+    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
+    {
+        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
         {
-            _conditionSentinelStopMovement = conditionSentinelStopMovement;
+            MetamagicOption = metamagicOption;
         }
 
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+        private MetamagicOptionDefinition MetamagicOption { get; }
+
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
             {
                 return;
             }
 
-            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
-            {
-                return;
-            }
-
-            if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
-            {
-                return;
-            }
-
-            var character = defender.RulesetCharacter;
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                RulesetCondition.CreateActiveCondition(character.Guid,
-                    _conditionSentinelStopMovement,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    attacker.Guid,
-                    string.Empty
-                ));
+            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
         }
     }
 
@@ -557,26 +574,6 @@ internal static class OtherFeats
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
                 FeatureSourceType.Power, "PowerAttack", null));
-        }
-    }
-
-    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
-    {
-        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
-        {
-            MetamagicOption = metamagicOption;
-        }
-
-        private MetamagicOptionDefinition MetamagicOption { get; }
-
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
-            {
-                return;
-            }
-
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
         }
     }
 
@@ -650,6 +647,52 @@ internal static class OtherFeats
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
+    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
+    {
+        private readonly ConditionDefinition _conditionSentinelStopMovement;
+
+        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        {
+            _conditionSentinelStopMovement = conditionSentinelStopMovement;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
+            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
+            {
+                return;
+            }
+
+            if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+            {
+                return;
+            }
+
+            var character = defender.RulesetCharacter;
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                RulesetCondition.CreateActiveCondition(character.Guid,
+                    _conditionSentinelStopMovement,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    attacker.Guid,
+                    string.Empty
+                ));
         }
     }
 }
