@@ -178,7 +178,8 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
 {
     private readonly int _bonus;
 
-    internal IncreaseMeleeAttackReach(int bonus) : base(ValidatorsWeapon.Melee)
+    internal IncreaseMeleeAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         _bonus = bonus;
     }
@@ -186,14 +187,11 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
     protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
-        if (attackMode.reach)
+        //this getter also checks is this is not thrown/ranged mode
+        if (attackMode.Reach)
         {
             attackMode.reachRange += _bonus;
-        }
-        else //TODO: figure out why Maul didn't have Reach flag
-        {
             attackMode.reach = true;
-            attackMode.reachRange = 2;
         }
     }
 }

@@ -472,7 +472,8 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
                             .SetGuiPresentationNoContent(hidden: true)
-                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1))
+                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.AlwaysValid),
+                                new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
