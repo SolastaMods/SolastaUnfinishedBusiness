@@ -470,7 +470,6 @@ internal sealed class MartialTactician : AbstractSubclass
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetShowCasting(false)
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
@@ -486,6 +485,7 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
                 .Build())
             .AddToDB();
 
