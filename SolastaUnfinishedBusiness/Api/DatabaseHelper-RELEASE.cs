@@ -752,7 +752,27 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
-        //MightOfTheIronLegion
+        internal static FeatDefinition BadlandsMarauder { get; } =
+            GetDefinition<FeatDefinition>("BadlandsMarauder");
+
+        internal static FeatDefinition Robust { get; } =
+            GetDefinition<FeatDefinition>("Robust");
+
+        internal static FeatDefinition SturdinessOfTheTundra { get; } =
+            GetDefinition<FeatDefinition>("SturdinessOfTheTundra");
+
+        internal static FeatDefinition Hauler { get; } =
+            GetDefinition<FeatDefinition>("Hauler");
+
+        internal static FeatDefinition HardToKill { get; } =
+            GetDefinition<FeatDefinition>("HardToKill");
+
+        internal static FeatDefinition Enduring_Body { get; } =
+            GetDefinition<FeatDefinition>("Enduring_Body");
+
+        internal static FeatDefinition DiscretionOfTheCoedymwarth { get; } =
+            GetDefinition<FeatDefinition>("DiscretionOfTheCoedymwarth");
+
         internal static FeatDefinition MightOfTheIronLegion { get; } =
             GetDefinition<FeatDefinition>("MightOfTheIronLegion");
 
