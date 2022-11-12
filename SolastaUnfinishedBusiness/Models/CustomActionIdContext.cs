@@ -10,6 +10,11 @@ public static class CustomActionIdContext
 {
     internal static void Load()
     {
+        BuildCustomInvocationActions();
+    }
+
+    private static void BuildCustomInvocationActions()
+    {
         if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("CastInvocation", out var baseAction))
         {
             return;
@@ -88,7 +93,9 @@ public static class CustomActionIdContext
         bool ignoreMovePoints,
         bool allowUsingDelegatedPowersAsPowers)
     {
-        if (!IsInvocationActionId(actionId))
+        var isInvocationAction = IsInvocationActionId(actionId);
+
+        if (!isInvocationAction)
         {
             return;
         }
@@ -145,7 +152,16 @@ public static class CustomActionIdContext
         var canCastSpells = character.CanCastSpells();
         var canOnlyUseCantrips = scope == ActionScope.Battle && locationCharacter.CanOnlyUseCantrips;
 
-        result = character.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
+        if (isInvocationAction)
+        {
+            result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
+        }
+    }
+
+    private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
+        RulesetCharacter character, bool canCastSpells, bool canOnlyUseCantrips)
+    {
+        return character.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
             ? ActionStatus.Available
             : ActionStatus.Unavailable;
     }
