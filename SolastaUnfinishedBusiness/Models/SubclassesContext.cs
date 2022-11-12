@@ -49,7 +49,6 @@ internal static class SubclassesContext
         // Wizard
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardSpellMaster());
 
         // settings paring
         foreach (var name in Main.Settings.SubclassEnabled
