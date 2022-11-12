@@ -26,8 +26,8 @@ internal sealed class MartialTactician : AbstractSubclass
     internal const string CounterStrikeTag = "CounterStrike";
     internal FeatureDefinitionPower GambitPool { get; set; }
     public FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
-
     public FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
+    public FeatureDefinition EverVigilant { get; set; }
 
     public static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
@@ -66,11 +66,12 @@ internal sealed class MartialTactician : AbstractSubclass
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
 
+        EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, BuildEverVigilant())
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit)
+            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
             .AddToDB();
@@ -104,6 +105,30 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"AttributeModifierTacticianEverVigilant")
             .SetGuiPresentation(Category.Feature)
             .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Intelligence)
+            .AddToDB();
+    }
+
+    private FeatureDefinition BuildSharedVigilance()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerTacticianSharedVigilance")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .ExcludeCaster()
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionTacticianSharedVigilance")
+                        .SetGuiPresentationNoContent(hidden: true)
+                        .SetFeatures(EverVigilant)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
             .AddToDB();
     }
 
