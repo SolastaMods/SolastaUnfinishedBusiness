@@ -33,18 +33,6 @@ internal static class EwFeats
 
     private static FeatDefinition BuildSentinel()
     {
-        var conditionRestrained = ConditionDefinitions.ConditionRestrained;
-
-        var conditionSentinelStopMovement = ConditionDefinitionBuilder
-            .Create("ConditionSentinelStopMovement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                conditionRestrained.GuiPresentation.SpriteReference)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create(SentinelFeat)
             .SetGuiPresentation(Category.Feat)
@@ -54,7 +42,7 @@ internal static class EwFeats
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnAttackHitEffectFeatSentinel(conditionSentinelStopMovement))
+                    new OnAttackHitEffectFeatSentinel(CustomConditions.StopMovement))
                 .AddToDB())
             .AddToDB();
     }

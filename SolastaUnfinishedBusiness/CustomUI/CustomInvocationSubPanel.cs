@@ -75,7 +75,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         var siblingIndex = invocationTransform.GetSiblingIndex() + 1;
 
         var index = panel.subPanels.Length;
-        var poolTypes = InvocationPoolTypeCustom.Pools.All;
+        var poolTypes = InvocationPoolTypeCustom.Pools.All.Where(p => !p.Hidden).ToList();
 
         Array.Resize(ref panel.subPanels, index + poolTypes.Count);
 

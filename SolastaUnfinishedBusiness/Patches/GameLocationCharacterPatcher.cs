@@ -179,7 +179,7 @@ public static class GameLocationCharacterPatcher
             var time = power.powerDefinition.ActivationTime;
             if (!ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)) { return false; }
 
-            return actionType == type || !PowerVisibilityModifier.IsPowerHidden(character, power, actionType);
+            return actionType == type && !PowerVisibilityModifier.IsPowerHidden(character, power, actionType);
         }
 
         private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower,

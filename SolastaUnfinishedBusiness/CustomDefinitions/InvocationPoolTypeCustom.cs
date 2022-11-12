@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -25,23 +27,35 @@ internal class InvocationPoolTypeCustom
 
     internal AssetReferenceSprite Sprite { get; private set; }
 
+    public bool Hidden { get; set; }
+
+    internal Id MainActionId { get; set; } = Id.CastInvocation;
+    internal Id BonusActionId { get; set; } = (Id)ExtraActionId.CastInvocationBonus;
+    internal Id NoCostActionId { get; set; } = (Id)ExtraActionId.CastInvocationNoCost;
+
     internal List<int> AllLevels { get; } = new();
     private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
 
     internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
 
-    private static InvocationPoolTypeCustom Register(string name, BaseDefinition sprite,
-        string requireClassLevel = null)
-    {
-        return Register(name, sprite.GuiPresentation.SpriteReference, requireClassLevel);
-    }
-
-    private static InvocationPoolTypeCustom Register(string name, AssetReferenceSprite sprite = null,
-        string requireClassLevel = null)
+    private static InvocationPoolTypeCustom Register(
+        string name,
+        AssetReferenceSprite sprite = null,
+        string requireClassLevel = null,
+        bool hidden = false,
+        Id main = Id.CastInvocation,
+        Id bonus = (Id)ExtraActionId.CastInvocationBonus,
+        Id noCost = (Id)ExtraActionId.CastInvocationNoCost)
     {
         var pool = new InvocationPoolTypeCustom
         {
-            Name = name, Sprite = sprite, RequireClassLevels = requireClassLevel
+            Name = name,
+            Sprite = sprite,
+            RequireClassLevels = requireClassLevel,
+            Hidden = hidden,
+            MainActionId = main,
+            BonusActionId = bonus,
+            NoCostActionId = noCost
         };
         PrivatePools.Add(pool);
 
@@ -110,7 +124,21 @@ internal class InvocationPoolTypeCustom
     internal static class Pools
     {
         internal static readonly InvocationPoolTypeCustom Infusion =
-            Register("Infusion", DatabaseHelper.SpellDefinitions.Fly, InventorClass.ClassName);
+            Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
+                main: (Id)ExtraActionId.InventorInfusion);
+
+        internal static readonly InvocationPoolTypeCustom Gambit =
+            //TODO: add proper sprite
+            Register("Gambit", InventorClass.Pictogram, CharacterClassDefinitions.Fighter.Name,
+                main: (Id)ExtraActionId.TacticianGambitMain,
+                bonus: (Id)ExtraActionId.TacticianGambitBonus,
+                noCost: (Id)ExtraActionId.TacticianGambitNoCost);
+
+        internal static readonly InvocationPoolTypeCustom PlaneMagic =
+            Register("PlaneMagic",
+                hidden: true,
+                main: (Id)ExtraActionId.CastPlaneMagicMain,
+                bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
 
         internal static List<InvocationPoolTypeCustom> All => PrivatePools;
     }

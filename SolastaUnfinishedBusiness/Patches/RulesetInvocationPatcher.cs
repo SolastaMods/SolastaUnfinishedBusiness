@@ -13,8 +13,7 @@ public static class RulesetInvocationPatcher
         public static bool Prefix(RulesetInvocation __instance, out bool __result)
         {
             //PATCH: do not count power granting invocations as permenent, so we can activate them
-            var definition = __instance.InvocationDefinition;
-            __result = definition.GrantedFeature != null && definition.GetPower() == null;
+            __result = __instance.InvocationDefinition.IsPermanent();
             return false;
         }
     }

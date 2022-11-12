@@ -266,7 +266,6 @@ internal static class Infusions
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(power)
-            .SetActionId(ExtraActionId.InventorInfusion)
             .AddToDB();
         return power;
     }
@@ -281,7 +280,6 @@ internal static class Infusions
             .SetPoolType(InvocationPoolTypeCustom.Pools.Infusion)
             .SetRequirements(level)
             .SetGrantedFeature(BuildCreateItemPower(replica, description))
-            .SetActionId(ExtraActionId.InventorInfusion)
             .AddToDB();
 
         invocation.Item = replica;

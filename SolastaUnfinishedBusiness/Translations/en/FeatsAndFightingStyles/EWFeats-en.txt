@@ -1,5 +1,3 @@
-Condition/&ConditionSentinelStopMovementDescription=Unable to move. Speed set to 0.
-Condition/&ConditionSentinelStopMovementTitle=Stopped
 Feat/&FeatPolearmExpertDescription=Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 Feat/&FeatPolearmExpertTitle=Polearm Expert
 Feat/&FeatPowerAttackDescription=You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.

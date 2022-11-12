@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -49,6 +50,22 @@ public static class RulesetActorPatcher
         {
             //PATCH: support for `IConditionRemovedOnSourceTurnStart` - removes appropriately marked conditions
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingInterruption")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ProcessConditionsMatchingInterruption_Patch
+    {
+        public static void Prefix(RulesetActor __instance,
+            RuleDefinitions.ConditionInterruption interruption,
+            int amount)
+        {
+            //PATCH: support for 'ProcessConditionInterruptionHandler'
+            foreach (var handler in __instance.GetSubFeaturesByType<ProcessConditionInterruptionHandler>())
+            {
+                handler(__instance, interruption, amount);
+            }
         }
     }
 

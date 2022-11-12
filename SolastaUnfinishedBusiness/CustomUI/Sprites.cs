@@ -109,6 +109,9 @@ public static class Sprites
     internal static AssetReferenceSprite ConditionInfiltrate =>
         GetSprite("ConditionInfiltrate", Resources.ConditionInfiltrate, 32);
 
+    internal static AssetReferenceSprite ConditionGambit =>
+        GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
+
     #endregion
 
     #region Spells
@@ -172,6 +175,16 @@ public static class Sprites
 
     internal static AssetReferenceSprite ActionInfuse =>
         GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
+
+    internal static AssetReferenceSprite ActionGambit =>
+        GetSprite("ActionGambit", Resources.ActionGambit, 80);
+
+    #endregion
+
+    #region Misc
+
+    internal static AssetReferenceSprite GambitResourceIcon =>
+        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
 
     #endregion
 }

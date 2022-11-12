@@ -77,6 +77,9 @@ public static class InvocationActivationBoxPatcher
             {
                 return;
             }
+            
+            ServiceRepository.GetService<IGuiWrapperService>()
+                .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 
             var atWill = power.rechargeRate == RuleDefinitions.RechargeRate.AtWill;
 
@@ -86,9 +89,6 @@ public static class InvocationActivationBoxPatcher
             {
                 return;
             }
-
-            ServiceRepository.GetService<IGuiWrapperService>()
-                .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 
             var boxRect = box.rectTransform;
             var slotTable = boxRect.Find(TableName);

@@ -21,12 +21,13 @@ internal class FeatureDefinitionPowerSharedPoolBuilder
 
     internal FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(
         RuleDefinitions.ActivationTime activationTime,
-        FeatureDefinitionPower poolPower)
+        FeatureDefinitionPower poolPower,
+        int costPerUse = 1)
     {
         Definition.activationTime = activationTime;
         Definition.SharedPool = poolPower;
         Definition.rechargeRate = poolPower.RechargeRate; // recharge rate should match pool for tooltips to make sense
-        Definition.costPerUse = 1;
+        Definition.costPerUse = costPerUse;
         Definition.fixedUsesPerRecharge = 1;
         return this;
     }

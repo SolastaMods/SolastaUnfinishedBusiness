@@ -72,6 +72,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ActionGambit {
+            get {
+                object obj = ResourceManager.GetObject("ActionGambit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ActionInfuse {
             get {
                 object obj = ResourceManager.GetObject("ActionInfuse", resourceCulture);
@@ -462,6 +472,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ConditionGambit {
+            get {
+                object obj = ResourceManager.GetObject("ConditionGambit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ConditionGuardian {
             get {
                 object obj = ResourceManager.GetObject("ConditionGuardian", resourceCulture);
@@ -645,6 +665,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] FlurryOfArrows {
             get {
                 object obj = ResourceManager.GetObject("FlurryOfArrows", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitResourceIcon {
+            get {
+                object obj = ResourceManager.GetObject("GambitResourceIcon", resourceCulture);
                 return ((byte[])(obj));
             }
         }

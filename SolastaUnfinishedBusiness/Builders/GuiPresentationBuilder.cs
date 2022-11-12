@@ -209,6 +209,20 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
             GuiPresentationBuilder.Build(null, GuiPresentationBuilder.CreateTitleKey(builder.Name, category),
                 description, sprite, sortOrder, hidden));
     }
+    
+    /// <summary>
+    ///     Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br />
+    ///     The Title is generated as "{category}/&amp;{name}Title".<br />
+    ///     The Description is taken from argumants.<br />
+    /// </summary>
+    internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
+        string description, BaseDefinition spriteDefinition, int sortOrder = 0, bool hidden = false)
+        where TBuilder : IDefinitionBuilder
+    {
+        return SetGuiPresentation(builder,
+            GuiPresentationBuilder.Build(null, GuiPresentationBuilder.CreateTitleKey(builder.Name, category),
+                description, spriteDefinition.GuiPresentation.spriteReference, sortOrder, hidden));
+    }
 
     /// <summary>
     ///     Create and set a GuiPresentation from the provided builder, category and AssetReferenceSprite.<br />

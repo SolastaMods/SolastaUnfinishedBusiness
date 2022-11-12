@@ -1,11 +1,12 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-#if false
 internal class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
 {
     private readonly FeatureDefinitionPower power;
@@ -19,16 +20,15 @@ internal class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
         Icon = icon ?? power.GuiPresentation.SpriteReference;
     }
 
-    internal string Name { get; }
-    internal string Tooltip { get; }
-    internal AssetReferenceSprite Icon { get; }
+    public string Name { get; }
+    public string Tooltip { get; }
+    public AssetReferenceSprite Icon { get; }
 
-    internal int GetPoints(RulesetCharacter character)
+    public int GetPoints(RulesetCharacter character)
     {
         return character.GetRemainingPowerUses(power);
     }
 }
-#endif
 
 internal class CustomPortraitPointPool : MonoBehaviour
 {
@@ -75,7 +75,8 @@ internal class CustomPortraitPointPool : MonoBehaviour
     {
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
-        var label = transform.Find("SorceryPointsLabel")?.GetComponent<GuiLabel>();
+        //yes, this label name has a typo
+        var label = transform.Find("SorceyPointsLabel")?.GetComponent<GuiLabel>();
 
         if (label != null)
         {

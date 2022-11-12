@@ -38,7 +38,7 @@ public static class CharacterActionPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
-    [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
+    [HarmonyPatch(new[] {typeof(ActionDefinitions.Id), typeof(GuiCharacterAction)})]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnActivateAction_Patch
     {
@@ -89,11 +89,8 @@ public static class CharacterActionPanelPatcher
 
                 var actionDefinitions =
                     ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
-                var action = actionDefinitions[__instance.actionId];
 
-                __instance.actionId = action.actionType == ActionDefinitions.ActionType.Bonus
-                    ? ActionDefinitions.Id.PowerBonus
-                    : ActionDefinitions.Id.PowerMain;
+                __instance.actionId = power.BattleActionId;
                 __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
                 __instance.PowerEngaged(UsablePowersProvider.Get(power, __instance.GuiCharacter.RulesetCharacter));
 
