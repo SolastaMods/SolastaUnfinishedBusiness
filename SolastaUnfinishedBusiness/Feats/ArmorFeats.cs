@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -43,9 +44,14 @@ internal static class ArmorFeats
 
         feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr);
 
-        _ = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
+        var featGroupMediumArmor = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
             featMediumArmorDex,
             featMediumArmorStr);
+        
+        GroupFeats.MakeGroup("FeatGroupArmor", null,
+            featLightArmor,
+            featGroupMediumArmor,
+            DatabaseHelper.FeatDefinitions.ArmorMaster);
     }
 
     private static FeatDefinition BuildFeat(

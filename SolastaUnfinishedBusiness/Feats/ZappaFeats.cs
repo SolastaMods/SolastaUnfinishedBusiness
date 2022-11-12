@@ -471,6 +471,10 @@ internal static class ZappaFeats
 
         feats.AddRange(metaMagicFeats);
 
+        GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", DefenseExpert,
+            featImprovedCritical,
+            featSuperiorCritical);
+        
         GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             featArcaneDefense,
             featCharismaticDefense,
