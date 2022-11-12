@@ -1,13 +1,13 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "None",
+  "saveDCModifierType": "FlatValue",
   "saveDCModifier": 0,
   "spellAttackModifierType": "None",
   "spellAttackModifier": 0,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
-  "concentrationAffinity": "None",
+  "concentrationAffinity": "Advantage",
   "overConcentrationThreshold": -1,
   "castingAffinity": "Normal",
   "spellcastingSuccessDC": 10,
@@ -16,10 +16,10 @@
   "forcedSavingThrowAffinity": "None",
   "forcedSpellDefinition": null,
   "impairedSpeech": false,
-  "somaticWithWeaponOrShield": false,
-  "somaticWithWeapon": false,
-  "canUseProficientWeaponAsFocus": false,
-  "rangeSpellNoProximityPenalty": false,
+  "somaticWithWeaponOrShield": true,
+  "somaticWithWeapon": true,
+  "canUseProficientWeaponAsFocus": true,
+  "rangeSpellNoProximityPenalty": true,
   "targetSelfOverride": null,
   "usesWarList": false,
   "warListSlotBonus": 1,
@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinitySpellShieldConcentrationAdvantageVigorTitle",
-    "description": "Feature/&MagicAffinitySpellShieldConcentrationAdvantageVigorDescription",
+    "title": "Feature/&MagicAffinitySpellShieldCombatMagicTitle",
+    "description": "Feature/&MagicAffinitySpellShieldCombatMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3d4e97a6-443e-59bc-876e-27e3762d734f",
+  "guid": "67839da9-6e6f-5b97-bf2c-3cc8c9bc8fe6",
   "contentPack": 9999,
-  "name": "MagicAffinitySpellShieldConcentrationAdvantageVigor"
+  "name": "MagicAffinitySpellShieldCombatMagic"
 }
