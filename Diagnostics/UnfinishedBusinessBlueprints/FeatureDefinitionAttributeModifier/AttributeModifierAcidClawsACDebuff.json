@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierAcidClawsACDebuffTitle",
-    "description": "Feature/&AttributeModifierAcidClawsACDebuffDescription",
+    "title": "Condition/&ConditionAcidClawsTitle",
+    "description": "Condition/&ConditionAcidClawsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

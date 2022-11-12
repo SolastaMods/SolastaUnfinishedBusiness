@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTwoWeaponCombatTitle",
-    "description": "Feat/&FeatTwoWeaponCombatDescription",
+    "title": "Feat/&FeatGroupToolsTitle",
+    "description": "Feat/&FeatGroupToolsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bd19a566-23fe-561a-950e-0779d2f99986",
+  "guid": "533f04c1-ef50-5a40-b34e-a9f1c0a59db2",
   "contentPack": 9999,
-  "name": "FeatTwoWeaponCombat"
+  "name": "FeatGroupTools"
 }
