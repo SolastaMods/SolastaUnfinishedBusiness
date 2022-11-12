@@ -119,7 +119,6 @@ All settings start disabled by default.
 [*][b]The Soulblade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
-[*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -370,8 +369,8 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Moonlit, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Master, Spell Shield
 [*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif
