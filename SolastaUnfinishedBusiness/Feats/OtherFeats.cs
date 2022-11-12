@@ -26,19 +26,22 @@ internal static class OtherFeats
     {
         var featHealer = BuildHealerMedKit();
         var featPickPocket = BuildPickPocket();
+        var featPowerAttack = BuildPowerAttack();
+        var featRecklessAttack = BuildRecklessAttack();
+        var featSavageAttack = BuildSavageAttack();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-
         feats.Add(BuildInspiringLeader());
         feats.Add(BuildPolearmExpert());
-        feats.Add(BuildPowerAttack());
-        feats.Add(BuildRecklessAttack());
-        feats.Add(BuildSavageAttacker());
         feats.Add(BuildSentinel());
         feats.Add(BuildTorchbearer());
+
         feats.Add(featHealer);
         feats.Add(featPickPocket);
+        feats.Add(featPowerAttack);
+        feats.Add(featRecklessAttack);
+        feats.Add(featSavageAttack);
         feats.Add(featTough);
         feats.Add(featWarCaster);
 
@@ -57,13 +60,20 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
 
+        GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
+            FeatDefinitions.CloakAndDagger,
+            FeatDefinitions.DistractingGambit,
+            featPowerAttack,
+            featRecklessAttack,
+            featSavageAttack);
+        
         GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
             featWarCaster);
     }
 
-    internal static FeatDefinition BuildHealerMedKit()
+    private static FeatDefinition BuildHealerMedKit()
     {
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
@@ -321,20 +331,20 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildSavageAttacker()
+    private static FeatDefinition BuildSavageAttack()
     {
         return FeatDefinitionBuilder
-            .Create("FeatSavageAttacker")
+            .Create("FeatSavageAttack")
             .SetFeatures(
                 FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttacker")
+                    .Create("DieRollModifierFeatSavageAttackNonMagic")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
                     .AddToDB(),
                 FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageMagicAttacker")
+                    .Create("DieRollModifierFeatSavageAttackMagic")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackerReroll")
+                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
                     .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();

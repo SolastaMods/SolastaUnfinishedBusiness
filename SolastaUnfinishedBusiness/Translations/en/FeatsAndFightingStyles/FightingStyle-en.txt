@@ -18,3 +18,5 @@ FightingStyle/&PugilistDescription=Your unarmed strikes deal an additional 1d4 b
 FightingStyle/&PugilistTitle=Pugilist
 FightingStyle/&ShieldExpertDescription=You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 FightingStyle/&ShieldExpertTitle=Shield Expert
+Tooltip/&FeatPreReqDoesNotHaveFightingStyle=Doesn't know {0}
+Tooltip/&FeatPreReqIsNot=Isn't {0}

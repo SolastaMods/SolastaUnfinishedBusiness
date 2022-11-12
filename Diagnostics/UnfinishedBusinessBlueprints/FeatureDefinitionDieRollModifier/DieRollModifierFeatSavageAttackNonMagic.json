@@ -4,7 +4,7 @@
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feat/&FeatSavageAttackerReroll",
+  "rerollLocalizationKey": "Feat/&FeatSavageAttackReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "AttackDamageValueRoll",
   "validSkills": [],
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c39309db-4913-5ec9-b929-10d07ce19046",
+  "guid": "10aa4ff6-23ff-5bc7-8ce4-b1e54045a72a",
   "contentPack": 9999,
-  "name": "DieRollModifierFeatSavageAttacker"
+  "name": "DieRollModifierFeatSavageAttackNonMagic"
 }

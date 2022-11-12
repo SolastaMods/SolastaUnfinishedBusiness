@@ -11,15 +11,12 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:DieRollModifierFeatSavageAttacker:c39309db-4913-5ec9-b929-10d07ce19046",
-    "Definition:DieRollModifierFeatSavageMagicAttacker:44cfaf7e-0572-5a15-a38e-1000462f0421"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSavageAttackerTitle",
-    "description": "Feat/&FeatSavageAttackerDescription",
+    "title": "Feat/&FeatGroupMeleeCombatTitle",
+    "description": "Feat/&FeatGroupMeleeCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3409543f-52c6-5e04-84a3-39c671d03bc3",
+  "guid": "76afeff2-9e1c-50bc-91b5-fdcd072eeb7e",
   "contentPack": 9999,
-  "name": "FeatSavageAttacker"
+  "name": "FeatGroupMeleeCombat"
 }
