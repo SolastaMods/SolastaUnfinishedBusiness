@@ -135,15 +135,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new ProcessConditionInterruptionHandler((actor, interruption, _) =>
-        {
-            if (actor is not RulesetCharacter character) { return; }
-
-            if (interruption == ConditionInterruption.Attacks)
-            {
-                character.UsePower(UsablePowersProvider.Get(spendDiePower));
-            }
-        });
+        var spendDieOnAttack = new SpendPowerOnAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -472,5 +464,28 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
             .SetGrantedFeature(feature)
             .AddToDB();
+    }
+
+    private class SpendPowerOnAttack : IOnAttackHitEffect
+    {
+        private readonly FeatureDefinitionPower power;
+
+        public SpendPowerOnAttack(FeatureDefinitionPower power)
+        {
+            this.power = power;
+        }
+
+        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (attackMode == null) { return; }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null) { return; }
+
+            character.UsePower(UsablePowersProvider.Get(power, character));
+        }
     }
 }
