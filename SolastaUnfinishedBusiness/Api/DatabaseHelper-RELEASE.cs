@@ -752,6 +752,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
+        internal static FeatDefinition DistractingGambit { get; } =
+            GetDefinition<FeatDefinition>("DistractingGambit");
+        
+        internal static FeatDefinition CloakAndDagger { get; } =
+            GetDefinition<FeatDefinition>("CloakAndDagger");
+        
         internal static FeatDefinition Manipulator { get; } =
             GetDefinition<FeatDefinition>("Manipulator");
 
