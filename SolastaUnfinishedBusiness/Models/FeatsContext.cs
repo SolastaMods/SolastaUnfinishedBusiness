@@ -33,9 +33,7 @@ internal static class FeatsContext
         DefenseExpertFeats.CreateFeats(feats);
         ElvenAccuracyFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
-        HealingFeats.CreateFeats(feats);
         MetamagicFeats.CreateFeats(feats);
-        PickPocketContext.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats);
         TwoWeaponCombatFeats.CreateFeats(feats);

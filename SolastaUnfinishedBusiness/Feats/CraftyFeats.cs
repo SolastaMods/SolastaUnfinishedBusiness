@@ -152,9 +152,10 @@ internal static class CraftyFeats
             FeatDefinitions.MasterEnchanter);
 
         _ = GroupFeats.MakeGroup("FeatGroupTools", null,
+            FeatCraftyFletcher,
+            FeatDefinitions.Lockbreaker,
             featGroupApothecary,
             featGroupToxicologist,
-            FeatCraftyFletcher,
             featCraftyScriber,
             featGroupAlchemist,
             featGroupEnchanter);
