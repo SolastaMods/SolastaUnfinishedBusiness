@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -140,6 +141,7 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         string name;
         AssetReferenceSprite sprite;
+        FeatureDefinition feature;
         FeatureDefinitionPower power;
         ICustomConditionFeature reaction;
 
@@ -512,6 +514,27 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, power);
 
         #endregion
+
+        #region Riposte
+
+        name = "GambitRiposte";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Retaliate(GambitPool, ConditionDefinitionBuilder
+                .Create($"Condition{name}")
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(GambitDieDamage)
+                .AddToDB()))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
     }
 
     private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite,
@@ -576,6 +599,75 @@ internal sealed class MartialTactician : AbstractSubclass
                 GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
                 character.RepayPowerUse(UsablePowersProvider.Get(power, character));
             }
+        }
+    }
+
+    private class Retaliate : IReactToAttackOnMeFinished
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower pool;
+
+        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition)
+        {
+            this.condition = condition;
+            this.pool = pool;
+        }
+
+        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        {
+            //trigger only on a miss
+            if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
+            if (me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
+                ActionDefinitions.ActionStatus.Available)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(attacker);
+            if (retaliationMode == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var character = me.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty
+            );
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            //TODO: try making this reaction request show how many dice remaining
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            manager.AddInterruptRequest(new ReactionRequestReactionAttack("GambitRiposte", reactionParams));
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (reactionParams.ReactionValidated)
+            {
+                character.UsePower(UsablePowersProvider.Get(pool, character));
+            }
+
+            character.RemoveCondition(rulesetCondition);
         }
     }
 }

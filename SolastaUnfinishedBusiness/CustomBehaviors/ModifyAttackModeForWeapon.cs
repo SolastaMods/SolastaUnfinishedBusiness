@@ -190,7 +190,7 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
         {
             attackMode.reachRange += _bonus;
         }
-        else
+        else //TODO: figure out why Maul didn't have Reach flag
         {
             attackMode.reach = true;
             attackMode.reachRange = 2;
