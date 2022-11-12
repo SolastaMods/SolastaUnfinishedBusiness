@@ -169,7 +169,7 @@ public static class RulesetActorPatcher
             var character = GameLocationCharacter.GetFromActor(actor);
 
             return character.RulesetCharacter is RulesetCharacterHero hero && hero.TrainedFeats
-                .Where(feat => feat.Name.Contains(ZappaFeats.ElvenAccuracyTag))
+                .Where(feat => feat.Name.Contains(ElvenAccuracyFeats.ElvenAccuracyTag))
                 .Select(feat => feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>())
                 .Where(context => context != null)
                 .Any(sub => sub.Qualified);

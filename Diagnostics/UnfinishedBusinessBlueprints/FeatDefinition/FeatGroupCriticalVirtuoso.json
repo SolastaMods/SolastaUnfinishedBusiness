@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "DefenseExpert",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
