@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorCategoryDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -14,15 +14,13 @@ internal static class ArmorFeats
 {
     internal static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
     {
-        var proficiencyFeatLightArmor = BuildProficiency("ProficiencyFeatLightArmor",
-            ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
-
-        var proficiencyFeatMediumArmor = BuildProficiency("ProficiencyFeatMediumArmor",
-            ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
-
-        var featLightArmor = BuildFeat("FeatLightArmor", null,
-            proficiencyFeatLightArmor,
-            AttributeModifierCreed_Of_Misaye);
+        var proficiencyFeatMediumArmor = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatMediumArmor")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Armor,
+                EquipmentDefinitions.MediumArmorCategory,
+                EquipmentDefinitions.ShieldCategory)
+            .AddToDB();
 
         var featMediumArmorDex = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
             proficiencyFeatMediumArmor,
@@ -32,27 +30,16 @@ internal static class ArmorFeats
             proficiencyFeatMediumArmor,
             AttributeModifierCreed_Of_Einar);
 
-        // sounds too OP
-#if false
-// Feat/&FeatHeavyArmorMasterDescription=You gain resistance to bludgeoning, slashing, and piercing damage.
-// Feat/&FeatHeavyArmorMasterTitle=Heavy Defense Mastery
-        var featHeavyArmorMaster = BuildFeat("FeatHeavyArmorMaster", HeavyArmorCategory,
-            DamageAffinityBludgeoningResistance,
-            DamageAffinitySlashingResistance,
-            DamageAffinityPiercingResistance);
-#endif
-
-        feats.AddRange(featLightArmor, featMediumArmorDex, featMediumArmorStr);
-
-        var featGroupMediumArmor = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
-            featMediumArmorDex,
-            featMediumArmorStr);
+        feats.AddRange(featMediumArmorDex, featMediumArmorStr);
 
         GroupFeats.MakeGroup("FeatGroupArmor", null,
-            featLightArmor,
-            featGroupMediumArmor,
-            DatabaseHelper.FeatDefinitions.ArmorMaster,
-            DatabaseHelper.FeatDefinitions.MightOfTheIronLegion);
+            GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
+                featMediumArmorDex,
+                featMediumArmorStr),
+            ArmorMaster,
+            DiscretionOfTheCoedymwarth,
+            MightOfTheIronLegion,
+            SturdinessOfTheTundra);
     }
 
     private static FeatDefinition BuildFeat(
@@ -65,18 +52,6 @@ internal static class ArmorFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(features)
             .SetArmorProficiencyPrerequisite(prerequisite)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionProficiency BuildProficiency(
-        string name,
-        ProficiencyType type,
-        params string[] proficiencies)
-    {
-        return FeatureDefinitionProficiencyBuilder
-            .Create(name)
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(type, proficiencies)
             .AddToDB();
     }
 }

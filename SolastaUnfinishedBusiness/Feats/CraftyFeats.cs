@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CraftyFeats
 {
-    internal static FeatDefinition FeatCraftyFletcher = FeatDefinitionBuilder
+    internal static readonly FeatDefinition FeatCraftyFletcher = FeatDefinitionBuilder
         .Create("FeatCraftyFletcher")
         .SetGuiPresentation(Category.Feat)
         .SetFeatures(AttributeModifierCreed_Of_Misaye, FeatureDefinitionProficiencyBuilder
@@ -63,12 +63,6 @@ internal static class CraftyFeats
             .Create("ProficiencyCraftyHerbalismKit")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.HerbalismKitType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyManacalonRosary = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyManacalonRosary")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.EnchantingToolType.Name)
             .AddToDB();
 
         var proficiencyCraftyPoisonersKit = FeatureDefinitionProficiencyBuilder
@@ -142,13 +136,6 @@ internal static class CraftyFeats
         // Others
         //
 
-        var featManacalonCrafter = FeatDefinitionBuilder
-            .Create("FeatManacalonCrafter")
-            .SetGuiPresentation(Category.Feat)
-            .SetMustCastSpellsPrerequisite()
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyManacalonRosary, proficiencyCraftyArcana)
-            .AddToDB();
-
         var featCraftyScribe = FeatDefinitionBuilder
             .Create("FeatCraftyScribe")
             .SetGuiPresentation(Category.Feat)
@@ -163,7 +150,6 @@ internal static class CraftyFeats
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha,
-            featManacalonCrafter,
             featCraftyScribe,
             FeatCraftyFletcher);
     }
