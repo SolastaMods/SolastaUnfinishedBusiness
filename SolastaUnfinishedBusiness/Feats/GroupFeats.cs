@@ -13,21 +13,17 @@ internal static class GroupFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        feats.AddRange(BuildAlchemistEnchanterAndTools());
+        feats.Add(BuildBodyResilience());
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
         feats.Add(BuildRangedCombat());
+        feats.Add(BuildSpellCombat());
         feats.Add(BuildTwoHandedCombat());
-        feats.Add(BuildTwoWeaponCombat()); 
+        feats.Add(BuildTwoWeaponCombat());
         feats.AddRange(Groups);
     }
 
-#if false
-    internal static void MakeGroup(FeatDefinition group, params FeatDefinition[] feats)
-    {
-        group.SetCustomSubFeatures(new GroupedFeat(feats));
-        Groups.Add(group);
-    }
-#endif
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {
@@ -49,6 +45,60 @@ internal static class GroupFeats
         return group;
     }
 
+
+    private static IEnumerable<FeatDefinition> BuildAlchemistEnchanterAndTools()
+    {
+        var featGroupAlchemist = FeatDefinitionBuilder
+            .Create("FeatGroupAlchemist")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.InitiateAlchemist,
+                FeatDefinitions.MasterAlchemist))
+            .SetFeatures()
+            .AddToDB();
+
+        var featGroupEnchanter = FeatDefinitionBuilder
+            .Create("FeatGroupEnchanter")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.InitiateEnchanter,
+                FeatDefinitions.MasterEnchanter))
+            .SetFeatures()
+            .AddToDB();
+
+        var featGroupTools = FeatDefinitionBuilder
+            .Create("FeatGroupTools")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                CraftyFeats.FeatGroupApothecary,
+                CraftyFeats.FeatGroupToxicologist,
+                CraftyFeats.FeatCraftyFletcher,
+                CraftyFeats.FeatCraftyScriber,
+                featGroupAlchemist,
+                featGroupEnchanter))
+            .SetFeatures()
+            .AddToDB();
+
+        return new[] { featGroupAlchemist, featGroupEnchanter, featGroupTools };
+    }
+
+    private static FeatDefinition BuildBodyResilience()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatGroupBodyResilience")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.BadlandsMarauder,
+                FeatDefinitions.Enduring_Body,
+                FeatDefinitions.FocusedSleeper,
+                FeatDefinitions.HardToKill,
+                FeatDefinitions.Hauler,
+                FeatDefinitions.Robust,
+                ZappaFeats.FeatTough))
+            .SetFeatures()
+            .AddToDB();
+    }
+
     private static FeatDefinition BuildElementalTouchGroup()
     {
         return FeatDefinitionBuilder
@@ -59,8 +109,7 @@ internal static class GroupFeats
                 FeatDefinitions.ToxicTouch,
                 FeatDefinitions.ElectrifyingTouch,
                 FeatDefinitions.IcyTouch,
-                FeatDefinitions.MeltingTouch
-            ))
+                FeatDefinitions.MeltingTouch))
             .SetFeatFamily(FeatDefinitions.BurningTouch.FamilyTag)
             .SetFeatures()
             .AddToDB();
@@ -77,8 +126,7 @@ internal static class GroupFeats
                 FeatDefinitions.Creed_Of_Maraike,
                 FeatDefinitions.Creed_Of_Misaye,
                 FeatDefinitions.Creed_Of_Pakri,
-                FeatDefinitions.Creed_Of_Solasta
-            ))
+                FeatDefinitions.Creed_Of_Solasta))
             .SetFeatures()
             .AddToDB();
     }
@@ -86,7 +134,7 @@ internal static class GroupFeats
     private static FeatDefinition BuildRangedCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatRangedCombat")
+            .Create("FeatGroupRangedCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.TakeAim,
@@ -94,8 +142,20 @@ internal static class GroupFeats
                 CraftyFeats.FeatCraftyFletcher,
                 EwFeats.FeatRangedExpert,
                 ZappaFeats.FeatDeadEye,
-                ZappaFeats.FeatMarksman
-            ))
+                ZappaFeats.FeatMarksman))
+            .SetFeatures()
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSpellCombat()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatGroupSpellCombat")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.FlawlessConcentration,
+                FeatDefinitions.PowerfulCantrip,
+                EwFeats.FeatWarCaster))
             .SetFeatures()
             .AddToDB();
     }
@@ -103,13 +163,12 @@ internal static class GroupFeats
     private static FeatDefinition BuildTwoHandedCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatTwoHandedCombat")
+            .Create("FeatGroupTwoHandedCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.MightyBlow,
                 FeatDefinitions.ForestallingStrength,
-                FeatDefinitions.FollowUpStrike
-            ))
+                FeatDefinitions.FollowUpStrike))
             .SetFeatures()
             .AddToDB();
     }
@@ -117,14 +176,13 @@ internal static class GroupFeats
     private static FeatDefinition BuildTwoWeaponCombat()
     {
         return FeatDefinitionBuilder
-            .Create("FeatTwoWeaponCombat")
+            .Create("FeatGroupTwoWeaponCombat")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.Ambidextrous,
                 ZappaFeats.FeatDualWeaponDefense,
                 ElAntoniousFeats.FeatDualFlurry,
-                FeatDefinitions.TwinBlade
-            ))
+                FeatDefinitions.TwinBlade))
             .SetFeatures()
             .AddToDB();
     }

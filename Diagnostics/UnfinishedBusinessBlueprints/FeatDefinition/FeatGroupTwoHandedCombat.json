@@ -11,15 +11,12 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:ProficiencyFeatLightArmor:57af6350-be7f-508e-84db-aedabd3d6fd7"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatLightArmorTitle",
-    "description": "Feat/&FeatLightArmorDescription",
+    "title": "Feat/&FeatGroupTwoHandedCombatTitle",
+    "description": "Feat/&FeatGroupTwoHandedCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "207faf5e-83e0-53d3-8536-ae654561b208",
+  "guid": "00b1dcb6-8c27-5c86-aa90-c233a56732bf",
   "contentPack": 9999,
-  "name": "FeatLightArmor"
+  "name": "FeatGroupTwoHandedCombat"
 }

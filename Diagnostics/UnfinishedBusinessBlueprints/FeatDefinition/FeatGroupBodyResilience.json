@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTwoHandedCombatTitle",
-    "description": "Feat/&FeatTwoHandedCombatDescription",
+    "title": "Feat/&FeatGroupBodyResilienceTitle",
+    "description": "Feat/&FeatGroupBodyResilienceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb88c745-31cf-523b-8c7e-863179306e9a",
+  "guid": "53158993-e0b8-5031-afc1-fbeaebc70fc1",
   "contentPack": 9999,
-  "name": "FeatTwoHandedCombat"
+  "name": "FeatGroupBodyResilience"
 }

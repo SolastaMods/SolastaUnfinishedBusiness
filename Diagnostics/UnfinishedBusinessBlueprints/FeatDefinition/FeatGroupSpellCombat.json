@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatRangedCombatTitle",
-    "description": "Feat/&FeatRangedCombatDescription",
+    "title": "Feat/&FeatGroupSpellCombatTitle",
+    "description": "Feat/&FeatGroupSpellCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7895958e-60ea-5258-9f8d-087ee518a82c",
+  "guid": "3c9a2ed6-0790-5712-90af-eea863da7ed0",
   "contentPack": 9999,
-  "name": "FeatRangedCombat"
+  "name": "FeatGroupSpellCombat"
 }

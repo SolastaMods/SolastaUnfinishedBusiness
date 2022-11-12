@@ -22,6 +22,7 @@ internal static class EwFeats
     internal const string WarcasterFeat = "FeatWarCaster";
 
     internal static readonly FeatDefinition FeatRangedExpert = BuildRangedExpert();
+    internal static readonly FeatDefinition FeatWarCaster = BuildWarcaster();
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -30,7 +31,7 @@ internal static class EwFeats
         feats.Add(FeatRangedExpert);
         feats.Add(BuildRecklessAttack());
         feats.Add(BuildPowerAttack());
-        feats.Add(BuildWarcaster());
+        feats.Add(FeatWarCaster);
     }
 
     private static FeatDefinition BuildSentinel()

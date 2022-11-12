@@ -1,5 +1,3 @@
-Feat/&FeatLightArmorDescription=Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with light armor.
-Feat/&FeatLightArmorTitle=Light Armor
 Feat/&FeatMediumArmorDexDescription=Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.
 Feat/&FeatMediumArmorDexTitle=Medium Armor [Dex]
 Feat/&FeatMediumArmorStrDescription=Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.
