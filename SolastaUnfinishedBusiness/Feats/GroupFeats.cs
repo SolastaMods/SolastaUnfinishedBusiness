@@ -94,7 +94,7 @@ internal static class GroupFeats
                 FeatDefinitions.HardToKill,
                 FeatDefinitions.Hauler,
                 FeatDefinitions.Robust,
-                ZappaFeats.FeatTough))
+                OtherFeats.FeatTough))
             .SetFeatures()
             .AddToDB();
     }
@@ -140,9 +140,9 @@ internal static class GroupFeats
                 FeatDefinitions.TakeAim,
                 FeatDefinitions.UncannyAccuracy,
                 CraftyFeats.FeatCraftyFletcher,
-                EwFeats.FeatRangedExpert,
-                ZappaFeats.FeatDeadEye,
-                ZappaFeats.FeatMarksman))
+                OtherFeats.FeatRangedExpert,
+                OtherFeats.FeatDeadEye,
+                OtherFeats.FeatMarksman))
             .SetFeatures()
             .AddToDB();
     }
@@ -155,7 +155,7 @@ internal static class GroupFeats
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.FlawlessConcentration,
                 FeatDefinitions.PowerfulCantrip,
-                EwFeats.FeatWarCaster))
+                OtherFeats.FeatWarCaster))
             .SetFeatures()
             .AddToDB();
     }
@@ -180,8 +180,8 @@ internal static class GroupFeats
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new GroupedFeat(
                 FeatDefinitions.Ambidextrous,
-                ZappaFeats.FeatDualWeaponDefense,
-                ElAntoniousFeats.FeatDualFlurry,
+                OtherFeats.FeatDualWeaponDefense,
+                OtherFeats.FeatDualFlurry,
                 FeatDefinitions.TwinBlade))
             .SetFeatures()
             .AddToDB();

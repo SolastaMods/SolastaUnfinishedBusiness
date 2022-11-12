@@ -27,15 +27,17 @@ internal static class FeatsContext
         var groups = new List<FeatDefinition>();
 
         // generate feats here and fill the list
-        ArmorFeats.CreateArmorFeats(feats);
+        ArmorFeats.CreateFeats(feats);
         CasterFeats.CreateFeats(feats);
+        CraftyFeats.CreateFeats(feats);
+        CriticalVirtuosoFeats.CreateFeats(feats);
+        ElvenAccuracyFeats.CreateFeats(feats);
+        OtherFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
         HealingFeats.CreateFeats(feats);
         PickPocketContext.CreateFeats(feats);
-        CraftyFeats.CreateFeats(feats);
-        ElAntoniousFeats.CreateFeats(feats);
-        ZappaFeats.CreateFeats(feats);
-        EwFeats.CreateFeats(feats);
+        PrecisionFocusedFeats.CreateFeats(feats);
+        DefenseExpertFeats.CreateFeats(feats);
 
         feats.ForEach(LoadFeat);
 

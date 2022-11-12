@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
-    internal static void CreateArmorFeats([NotNull] List<FeatDefinition> feats)
+    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyFeatMediumArmor = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatMediumArmor")
@@ -22,13 +22,19 @@ internal static class ArmorFeats
                 EquipmentDefinitions.ShieldCategory)
             .AddToDB();
 
-        var featMediumArmorDex = BuildFeat("FeatMediumArmorDex", LightArmorCategory,
-            proficiencyFeatMediumArmor,
-            AttributeModifierCreed_Of_Misaye);
+        var featMediumArmorDex = FeatDefinitionBuilder
+            .Create("FeatMediumArmorDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye)
+            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .AddToDB();
 
-        var featMediumArmorStr = BuildFeat("FeatMediumArmorStr", LightArmorCategory,
-            proficiencyFeatMediumArmor,
-            AttributeModifierCreed_Of_Einar);
+        var featMediumArmorStr = FeatDefinitionBuilder
+            .Create("FeatMediumArmorStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar)
+            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .AddToDB();
 
         feats.AddRange(featMediumArmorDex, featMediumArmorStr);
 
@@ -40,18 +46,5 @@ internal static class ArmorFeats
             DiscretionOfTheCoedymwarth,
             MightOfTheIronLegion,
             SturdinessOfTheTundra);
-    }
-
-    private static FeatDefinition BuildFeat(
-        string name,
-        ArmorCategoryDefinition prerequisite,
-        params FeatureDefinition[] features)
-    {
-        return FeatDefinitionBuilder
-            .Create(name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(features)
-            .SetArmorProficiencyPrerequisite(prerequisite)
-            .AddToDB();
     }
 }
