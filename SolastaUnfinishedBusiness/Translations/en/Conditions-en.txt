@@ -1,4 +1,4 @@
 ﻿Condition/&ConditionStopMovementDescription=Unable to move. Speed set to 0.
 Condition/&ConditionStopMovementTitle=Stopped
-Condition/&ConditionDistractedDescription=This creature has been distracted.
-Condition/&ConditionDistractedTitle=Distracted
+Condition/&ConditionDistractedByAllyDescription=This creature has been distracted.
+Condition/&ConditionDistractedByAllyTitle=Distracted

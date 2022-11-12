@@ -21,9 +21,9 @@ internal static class CustomConditions
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
-        
+
         Distracted = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistracted")
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetDuration(RuleDefinitions.DurationType.Round, 1)
             .AddToDB();
