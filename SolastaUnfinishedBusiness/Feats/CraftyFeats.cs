@@ -149,6 +149,22 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
+        var featGroupAlchemist = GroupFeats.MakeGroup("FeatGroupAlchemist", null,
+            FeatDefinitions.InitiateAlchemist,
+            FeatDefinitions.MasterAlchemist);
+
+        var featGroupEnchanter = GroupFeats.MakeGroup("FeatGroupEnchanter", null,
+            FeatDefinitions.InitiateEnchanter,
+            FeatDefinitions.MasterEnchanter);
+
+        _ = GroupFeats.MakeGroup("FeatGroupTools", null,
+            FeatGroupApothecary,
+            FeatGroupToxicologist,
+            FeatCraftyFletcher,
+            FeatCraftyScriber,
+            featGroupAlchemist,
+            featGroupEnchanter);
+
         feats.AddRange(
             featApothecaryInt,
             featApothecaryWis,

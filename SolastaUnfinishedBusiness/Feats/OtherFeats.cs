@@ -42,7 +42,6 @@ internal static class OtherFeats
 
         feats.AddRange(BuildMetamagic());
 
-        feats.Add(BuildDualFlurry());
         feats.Add(BuildPolearmExpert());
         feats.Add(BuildPowerAttack());
         feats.Add(BuildRecklessAttack());
@@ -51,6 +50,7 @@ internal static class OtherFeats
         feats.Add(BuildTorchbearer());
 
         feats.Add(featDeadEye);
+        feats.Add(featDualFlurry);
         feats.Add(featDualWeaponDefense);
         feats.Add(featMarksman);
         feats.Add(featRangedExpert);

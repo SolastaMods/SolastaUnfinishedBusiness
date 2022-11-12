@@ -14,7 +14,7 @@ internal static class FightingStyleFeats
         var fightingStyles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Select(BuildFightingStyleFeat)
-            .ToList();
+            .ToArray();
 
         GroupFeats.MakeGroup("FeatGroupFightingStyle", null, fightingStyles);
         feats.AddRange(fightingStyles);

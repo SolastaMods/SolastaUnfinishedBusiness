@@ -24,27 +24,24 @@ internal static class FeatsContext
     internal static void LateLoad()
     {
         var feats = new List<FeatDefinition>();
-        var groups = new List<FeatDefinition>();
 
         // generate feats here and fill the list
         ArmorFeats.CreateFeats(feats);
         CasterFeats.CreateFeats(feats);
         CraftyFeats.CreateFeats(feats);
         CriticalVirtuosoFeats.CreateFeats(feats);
+        DefenseExpertFeats.CreateFeats(feats);
         ElvenAccuracyFeats.CreateFeats(feats);
-        OtherFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
         HealingFeats.CreateFeats(feats);
         PickPocketContext.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
-        DefenseExpertFeats.CreateFeats(feats);
 
+        OtherFeats.CreateFeats(feats);
+        
+        // load them in mod UI
         feats.ForEach(LoadFeat);
-
-        // create groups for some feats, MUST BE last one to be called
-        GroupFeats.CreateFeats(groups);
-
-        groups.ForEach(LoadFeatGroup);
+        GroupFeats.Load(LoadFeatGroup);
 
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -9,15 +9,31 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class GroupFeats
 {
-    private static readonly List<FeatDefinition> Groups = new();
+    internal static readonly List<FeatDefinition> Groups = new();
 
-    internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
+    internal static void Load(Action<FeatDefinition> loader)
     {
-        feats.AddRange(BuildAlchemistEnchanterAndTools());
-        feats.Add(BuildElementalTouchGroup());
-        feats.Add(BuildCreedGroup());
-        feats.Add(BuildTwoHandedCombat());
-        feats.AddRange(Groups);
+        Groups.Add(MakeGroup("FeatGroupCreed", null,
+            FeatDefinitions.Creed_Of_Arun,
+            FeatDefinitions.Creed_Of_Einar,
+            FeatDefinitions.Creed_Of_Maraike,
+            FeatDefinitions.Creed_Of_Misaye,
+            FeatDefinitions.Creed_Of_Pakri,
+            FeatDefinitions.Creed_Of_Solasta));
+
+        Groups.Add(MakeGroup("FeatGroupElementalTouch", null,
+            FeatDefinitions.BurningTouch,
+            FeatDefinitions.ToxicTouch,
+            FeatDefinitions.ElectrifyingTouch,
+            FeatDefinitions.IcyTouch,
+            FeatDefinitions.MeltingTouch));
+        
+        Groups.Add(MakeGroup("FeatGroupTwoHandedCombat", null,
+            FeatDefinitions.MightyBlow,
+            FeatDefinitions.ForestallingStrength,
+            FeatDefinitions.FollowUpStrike));
+
+        Groups.ForEach(loader);
     }
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
@@ -38,86 +54,5 @@ internal static class GroupFeats
         Groups.Add(group);
 
         return group;
-    }
-
-    private static IEnumerable<FeatDefinition> BuildAlchemistEnchanterAndTools()
-    {
-        var featGroupAlchemist = FeatDefinitionBuilder
-            .Create("FeatGroupAlchemist")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                FeatDefinitions.InitiateAlchemist,
-                FeatDefinitions.MasterAlchemist))
-            .SetFeatures()
-            .AddToDB();
-
-        var featGroupEnchanter = FeatDefinitionBuilder
-            .Create("FeatGroupEnchanter")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                FeatDefinitions.InitiateEnchanter,
-                FeatDefinitions.MasterEnchanter))
-            .SetFeatures()
-            .AddToDB();
-
-        var featGroupTools = FeatDefinitionBuilder
-            .Create("FeatGroupTools")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                CraftyFeats.FeatGroupApothecary,
-                CraftyFeats.FeatGroupToxicologist,
-                CraftyFeats.FeatCraftyFletcher,
-                CraftyFeats.FeatCraftyScriber,
-                featGroupAlchemist,
-                featGroupEnchanter))
-            .SetFeatures()
-            .AddToDB();
-
-        return new[] { featGroupAlchemist, featGroupEnchanter, featGroupTools };
-    }
-
-    private static FeatDefinition BuildElementalTouchGroup()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatGroupElementalTouch")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                FeatDefinitions.BurningTouch,
-                FeatDefinitions.ToxicTouch,
-                FeatDefinitions.ElectrifyingTouch,
-                FeatDefinitions.IcyTouch,
-                FeatDefinitions.MeltingTouch))
-            .SetFeatFamily(FeatDefinitions.BurningTouch.FamilyTag)
-            .SetFeatures()
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildCreedGroup()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatGroupCreed")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                FeatDefinitions.Creed_Of_Arun,
-                FeatDefinitions.Creed_Of_Einar,
-                FeatDefinitions.Creed_Of_Maraike,
-                FeatDefinitions.Creed_Of_Misaye,
-                FeatDefinitions.Creed_Of_Pakri,
-                FeatDefinitions.Creed_Of_Solasta))
-            .SetFeatures()
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildTwoHandedCombat()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatGroupTwoHandedCombat")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(
-                FeatDefinitions.MightyBlow,
-                FeatDefinitions.ForestallingStrength,
-                FeatDefinitions.FollowUpStrike))
-            .SetFeatures()
-            .AddToDB();
     }
 }
