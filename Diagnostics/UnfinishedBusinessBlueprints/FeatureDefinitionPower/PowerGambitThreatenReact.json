@@ -1,23 +1,12 @@
 {
-  "$type": "SpellDefinition, Assembly-CSharp",
-  "spellsBundle": false,
-  "subspellsList": [],
-  "implemented": true,
-  "schoolOfMagic": "SchoolTransmutation",
-  "spellLevel": 9,
-  "ritual": false,
-  "uniqueInstance": false,
-  "castingTime": "Action",
-  "reactionContext": "None",
-  "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeType": "MeleeHit",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -41,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Hour",
+    "targetSide": "Enemy",
+    "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "createdByCharacter": false,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "savingThrowDifficultyAbility": "Intelligence",
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -73,76 +62,29 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ShapeChange",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "shapeChangeForm": {
-          "$type": "ShapeChangeForm, Assembly-CSharp",
-          "shapeChangeType": "FreeListSelection",
-          "shapeOptions": [
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:GoldDragon_AerElai:678559ae2adcb19448224941a39c3e08"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Divine_Avatar:e2044dfe47f03bc49bb8c98a37bf76da"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Sorr-Akkath_Tshar_Boss:1c40ad37c0f81af4fa18522e61670f55"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:GreenDragon_MasterOfConjuration:0ca3722ada0540f41be312bd4c571c83"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:BlackDragon_MasterOfNecromancy:88b4c2c2ce21c884ea4421c62ef8d69f"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Remorhaz:b1d9f09845585014f96d66348b24144c"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Emperor_Laethar:a7200a851aacab5429b9f73d452d6f8c"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Giant_Ape:2ab966fe4ae000c4e917022b809e8cee"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Spider_Queen:5626a4511d68a3945b9c5d330b9b472c"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 1,
-              "substituteMonster": "Definition:Sorr-Akkath_Shikkath:de59cb16776e20647a7ed74ba95d2f90"
-            }
+        "saveOccurence": "EndOfTurnNoPerceptionOfSource",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionFrightenedFear",
+          "conditionDefinition": "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84"
           ],
-          "keepMentalAbilityScores": true,
-          "specialSubstituteCondition": "Definition:ConditionWildShapeSubstituteForm:7bb134227813c9340949c7c091077b11"
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -174,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -192,7 +134,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "511002d2ecb0e4a49903dbe731487e3e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -346,31 +288,51 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "aiParameters": {
-    "$type": "SpellAIParameters, Assembly-CSharp",
-    "learnPriority": "Low",
-    "preparePriority": "Low"
-  },
-  "concentrationAction": "None",
-  "verboseComponent": true,
-  "somaticComponent": false,
-  "materialComponentType": "Mundane",
-  "specificMaterialComponentTag": "Diamond",
-  "specificMaterialComponentCostGp": 100,
-  "specificMaterialComponentConsumed": true,
-  "terminateOnItemUnequip": false,
-  "displayConditionDuration": false,
-  "vocalSpellSemeType": "Buff",
+  "delegatedToAction": false,
+  "surrogateToSpell": null,
+  "triggeredBySpecialMove": false,
+  "activationTime": "OnAttackHitMeleeAuto",
+  "autoActivationRequiredTargetSenseType": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "autoActivationPowerTag": "",
+  "triggeringPower": null,
+  "copyTargetingFromTriggeringPower": false,
+  "reactionContext": "None",
+  "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
+  "hasCastingFailure": false,
+  "castingSuccessComputation": "CasterLevel",
+  "canUseInDialog": false,
+  "disableIfConditionIsOwned": null,
+  "disableIfTargetConditionIsOwned": null,
+  "rechargeRate": "AtWill",
+  "costPerUse": 1,
+  "spellcastingFeature": null,
+  "usesDetermination": "Fixed",
+  "abilityScoreDetermination": "Explicit",
+  "usesAbilityScoreName": "Charisma",
+  "fixedUsesPerRecharge": 1,
+  "abilityScore": "Intelligence",
+  "attackHitComputation": "AbilityScore",
+  "fixedAttackHit": 0,
+  "abilityScoreBonusToAttack": false,
+  "proficiencyBonusToAttack": false,
+  "uniqueInstance": false,
+  "showCasting": true,
+  "shortTitleOverride": "",
+  "overriddenPower": null,
+  "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&ShapechangeTitle",
-    "description": "Spell/&ShapechangeDescription",
+    "title": "Feature/&GambitThreatenTitle",
+    "description": "Feature/&GambitThreatenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
-      "m_SubObjectName": "WildShape",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -385,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "92b23a62-e155-5ae0-8c2a-808403d61440",
+  "guid": "80e20d99-a5f1-5e01-8ce3-97d4243e40e8",
   "contentPack": 9999,
-  "name": "Shapechange"
+  "name": "PowerGambitThreatenReact"
 }

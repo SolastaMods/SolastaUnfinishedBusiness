@@ -4,18 +4,19 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:HealingModifierChilledByTouch:3ae4d007e0b9e314ab90c7099b6ecd5e"
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
+  "specialDuration": false,
+  "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,12 +129,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSpiritShroudNoHealTitle",
-    "description": "Condition/&ConditionSpiritShroudNoHealDescription",
+    "title": "Condition/&ConditionStopMovementTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
+      "m_SubObjectName": "ConditionRestrained",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -149,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0665c322-ab62-5829-9b25-24c3fa11411a",
+  "guid": "fc5e117a-fd71-5022-b457-042edb57b0e8",
   "contentPack": 9999,
-  "name": "ConditionSpiritShroudNoHeal"
+  "name": "ConditionStopMovement"
 }

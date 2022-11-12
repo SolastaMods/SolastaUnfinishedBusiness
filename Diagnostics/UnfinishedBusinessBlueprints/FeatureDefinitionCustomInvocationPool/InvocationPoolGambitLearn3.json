@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerUseModifierTacticianGambitAddTitle",
-    "description": "Feature/&PowerUseModifierTacticianGambitAddDescription",
+    "title": "Feature/&InvocationPoolGambitLearn3Title",
+    "description": "Feature/&InvocationPoolGambitLearn3Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "785b8d03-a023-50ef-a39a-adc544276024",
+  "guid": "016a9085-9826-5765-a020-75d99911988a",
   "contentPack": 9999,
-  "name": "PowerUseModifierTacticianGambitAdd"
+  "name": "InvocationPoolGambitLearn3"
 }
