@@ -44,7 +44,7 @@ internal static class EwFeats
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnAttackHitEffectFeatSentinel(CustomConditions.StopMovement))
+                    new AfterAttackEffectFeatSentinel(CustomConditions.StopMovement))
                 .AddToDB())
             .AddToDB();
     }
@@ -203,11 +203,11 @@ internal static class EwFeats
         return warcaster;
     }
 
-    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
+    private sealed class AfterAttackEffectFeatSentinel : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
-        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        internal AfterAttackEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
         {
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }

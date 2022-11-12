@@ -466,16 +466,16 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private class SpendPowerOnAttack : IOnAttackHitEffect
+    private class SpendPowerAfterAttack : IBeforeAttackEffect
     {
         private readonly FeatureDefinitionPower power;
 
-        public SpendPowerOnAttack(FeatureDefinitionPower power)
+        public SpendPowerAfterAttack(FeatureDefinitionPower power)
         {
             this.power = power;
         }
 
-        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
+        public void BeforeOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
             RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
