@@ -607,7 +607,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
@@ -650,7 +650,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFeatSentinel : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
