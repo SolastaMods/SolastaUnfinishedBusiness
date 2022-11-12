@@ -24,6 +24,22 @@ internal static class ZappaFeats
     private const string FeatSavageAttackerName = "FeatSavageAttacker";
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
 
+    internal static FeatDefinition FeatDeadEye = BuildDeadEye();
+
+    internal static FeatDefinition FeatDualWeaponDefense = FeatDefinitionBuilder
+        .Create("FeatDualWeaponDefense")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierSwiftBladeBladeDance)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        .AddToDB();
+
+    internal static FeatDefinition FeatMarksman = FeatDefinitionBuilder
+        .Create("FeatMarksman")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(ActionAffinityMarksmanReactionShot)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        .AddToDB();
+
     internal static void CheckElvenPrecisionContext(
         bool result,
         RulesetCharacter character,
@@ -257,17 +273,6 @@ internal static class ZappaFeats
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
 
-        // Dead Eye
-        var featDeadEye = BuildDeadEye();
-
-        // Dual Weapon Defense
-        var featDualWeaponDefense = FeatDefinitionBuilder
-            .Create("FeatDualWeaponDefense")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierSwiftBladeBladeDance)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
-
         // Elven Accuracy (Dexterity)
         var featElvenAccuracyDexterity = FeatDefinitionBuilder
             .Create("FeatElvenAccuracyDexterity")
@@ -306,14 +311,6 @@ internal static class ZappaFeats
             //.SetValidators(IsElfOrHalfElf)
             .SetFeatFamily(ElvenPrecision)
             .SetCustomSubFeatures(new ElvenPrecisionContext())
-            .AddToDB();
-
-        // Marksman
-        var featMarksman = FeatDefinitionBuilder
-            .Create("FeatMarksman")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(ActionAffinityMarksmanReactionShot)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
 
         // Metamagic
@@ -455,13 +452,13 @@ internal static class ZappaFeats
             featArcanePrecision,
             featCharismaticDefense,
             featCharismaticPrecision,
-            featDualWeaponDefense,
-            featDeadEye,
+            FeatDualWeaponDefense,
+            FeatDeadEye,
             featElvenAccuracyDexterity,
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom,
             featElvenAccuracyCharisma,
-            featMarksman,
+            FeatMarksman,
             featWiseDefense,
             featWisePrecision,
             featSavageAttacker,
@@ -474,7 +471,7 @@ internal static class ZappaFeats
         GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", DefenseExpert,
             featImprovedCritical,
             featSuperiorCritical);
-        
+
         GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             featArcaneDefense,
             featCharismaticDefense,

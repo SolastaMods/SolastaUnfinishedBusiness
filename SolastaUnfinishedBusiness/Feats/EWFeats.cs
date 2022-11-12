@@ -21,11 +21,13 @@ internal static class EwFeats
     private const string RecklessAttackFeat = "FeatRecklessAttack";
     internal const string WarcasterFeat = "FeatWarCaster";
 
+    internal static readonly FeatDefinition FeatRangedExpert = BuildRangedExpert();
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         feats.Add(BuildSentinel());
         feats.Add(BuildPolearmExpert());
-        feats.Add(BuildRangedExpert());
+        feats.Add(FeatRangedExpert);
         feats.Add(BuildRecklessAttack());
         feats.Add(BuildPowerAttack());
         feats.Add(BuildWarcaster());

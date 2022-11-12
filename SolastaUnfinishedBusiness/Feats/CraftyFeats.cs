@@ -14,6 +14,25 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CraftyFeats
 {
+    internal static FeatDefinition FeatCraftyFletcher = FeatDefinitionBuilder
+        .Create("FeatCraftyFletcher")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye, FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftySmithsTools")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+            .AddToDB(), FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftyBows")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Weapon,
+                CustomWeaponsContext.HandXbowWeaponType.Name,
+                ShortbowType.Name,
+                LongbowType.Name,
+                LightCrossbowType.Name,
+                HeavyCrossbowType.Name)
+            .AddToDB())
+        .AddToDB();
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
@@ -64,25 +83,8 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
-        var proficiencyCraftySmithsTools = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftySmithsTools")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyBows = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyBows")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Weapon,
-                CustomWeaponsContext.HandXbowWeaponType.Name,
-                ShortbowType.Name,
-                LongbowType.Name,
-                LightCrossbowType.Name,
-                HeavyCrossbowType.Name)
-            .AddToDB();
-
         //
-        // Aphotecary
+        // Apothecary
         //
 
         var featApothecaryInt = FeatDefinitionBuilder
@@ -154,13 +156,6 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
-        var featCraftyFletcher = FeatDefinitionBuilder
-            .Create("FeatCraftyFletcher")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, proficiencyCraftySmithsTools, proficiencyCraftyBows)
-            .AddToDB();
-
-
         feats.AddRange(
             featApothecaryInt,
             featApothecaryWis,
@@ -170,6 +165,6 @@ internal static class CraftyFeats
             featToxicologistCha,
             featManacalonCrafter,
             featCraftyScribe,
-            featCraftyFletcher);
+            FeatCraftyFletcher);
     }
 }

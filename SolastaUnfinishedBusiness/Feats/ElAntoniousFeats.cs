@@ -13,6 +13,8 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ElAntoniousFeats
 {
+    internal static FeatDefinition FeatDualFlurry { get; private set; }
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
@@ -42,7 +44,7 @@ internal static class ElAntoniousFeats
                     .AddToDB())
             .AddToDB();
 
-        var featDualFlurry = FeatDefinitionBuilder
+        FeatDualFlurry = FeatDefinitionBuilder
             .Create("FeatDualFlurry")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -88,7 +90,7 @@ internal static class ElAntoniousFeats
                 .AddToDB())
             .AddToDB();
 
-        feats.AddRange(featTorchbearer, featDualFlurry);
+        feats.AddRange(featTorchbearer, FeatDualFlurry);
     }
 
     private sealed class OnAttackHitEffectFeatDualFlurry : IOnAttackHitEffect

@@ -47,11 +47,12 @@ internal static class ArmorFeats
         var featGroupMediumArmor = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
             featMediumArmorDex,
             featMediumArmorStr);
-        
+
         GroupFeats.MakeGroup("FeatGroupArmor", null,
             featLightArmor,
             featGroupMediumArmor,
-            DatabaseHelper.FeatDefinitions.ArmorMaster);
+            DatabaseHelper.FeatDefinitions.ArmorMaster,
+            DatabaseHelper.FeatDefinitions.MightOfTheIronLegion);
     }
 
     private static FeatDefinition BuildFeat(
