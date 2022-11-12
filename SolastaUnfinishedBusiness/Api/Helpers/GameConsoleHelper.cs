@@ -5,6 +5,7 @@ namespace SolastaUnfinishedBusiness.Api.Helpers;
 internal static class GameConsoleHelper
 {
     private const string DefaultUseText = "Feedback/&ActivatePowerLine";
+    private const string TriggerFeature = "Feedback/&TriggerFeatureLine";
 
     internal static void LogCharacterUsedPower(
         [NotNull] RulesetCharacter character,
@@ -19,6 +20,17 @@ internal static class GameConsoleHelper
         LogCharacterActivatesAbility(character, abilityName, text, indent, power.Name, "PowerDefinition");
     }
 
+    internal static void LogCharacterUsedFeature(
+        [NotNull] RulesetCharacter character,
+        [NotNull] FeatureDefinition feature,
+        string text = TriggerFeature,
+        bool indent = false)
+    {
+        var abilityName = feature.GuiPresentation.Title;
+
+        LogCharacterActivatesAbility(character, abilityName, text, indent, feature.FormatDescription());
+    }
+
     internal static void LogCharacterActivatesAbility(
         [NotNull] RulesetCharacter character,
         string abilityName,
@@ -29,7 +41,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
@@ -45,7 +57,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
