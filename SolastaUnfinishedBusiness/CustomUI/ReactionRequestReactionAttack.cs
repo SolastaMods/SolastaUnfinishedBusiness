@@ -1,4 +1,7 @@
-﻿namespace SolastaUnfinishedBusiness.CustomUI;
+﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+using UnityEngine.AddressableAssets;
+
+namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class ReactionRequestReactionAttack : ReactionRequest
 {
@@ -11,6 +14,8 @@ internal class ReactionRequestReactionAttack : ReactionRequest
         this.type = type;
         target = new GuiCharacter(reactionParams.TargetCharacters[0]);
     }
+
+    public ICustomReactionResource Resource { get; set; }
 
     public override bool IsStillValid
     {

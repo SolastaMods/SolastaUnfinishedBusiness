@@ -189,7 +189,9 @@ internal static class RulesetCharacterExtensions
 
     internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,
         ActionDefinitions.Id actionId,
-        ActionDefinitions.ActionScope scope)
+        ActionDefinitions.ActionScope scope,
+        bool canCastSpells,
+        bool canOnlyUseCantrips)
     {
         if (instance.Invocations.Empty())
         {
@@ -198,17 +200,30 @@ internal static class RulesetCharacterExtensions
 
         foreach (var invocation in instance.Invocations)
         {
-            bool validId;
+            bool isValid;
+            var definition = invocation.invocationDefinition;
             if (scope == ActionDefinitions.ActionScope.Battle)
             {
-                validId = invocation.invocationDefinition.GetActionId() == actionId;
+                isValid = definition.GetActionId() == actionId;
             }
             else
             {
-                validId = invocation.invocationDefinition.GetMainActionId() == actionId;
+                isValid = definition.GetMainActionId() == actionId;
             }
 
-            if (validId && instance.CanCastInvocation(invocation))
+            if (isValid && definition.GrantedSpell != null)
+            {
+                if (!canCastSpells)
+                {
+                    isValid = false;
+                }
+                else if (canOnlyUseCantrips && definition.GrantedSpell.SpellLevel > 0)
+                {
+                    isValid = false;
+                }
+            }
+
+            if (isValid && instance.CanCastInvocation(invocation))
             {
                 return true;
             }

@@ -7,6 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 
@@ -48,6 +49,23 @@ public static class CharacterReactionItemPatcher
 
             __instance.GetComponent<RectTransform>()
                 .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
+
+            //PATCH: support for displaying custom resources on reaction popup
+            if (__instance.ReactionRequest is ReactionRequestReactionAttack attack)
+            {
+                SetupResource(__instance, attack.Resource);
+            }
+        }
+
+        private static void SetupResource(CharacterReactionItem item, ICustomReactionResource resource)
+        {
+            if (resource == null) { return; }
+
+            Gui.ReleaseAddressableAsset(item.resourceCostSprite);
+            item.resourceCostSprite = Gui.LoadAssetSync<Sprite>(resource.Icon);
+            item.remainingResourceGroup.gameObject.SetActive(true);
+            item.remainingResourceImage.sprite = item.resourceCostSprite;
+            item.remainingResourceValue.Text = resource.GetUses(item.guiCharacter.rulesetCharacter);
         }
 
         //patch implementation

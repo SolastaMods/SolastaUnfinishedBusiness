@@ -157,17 +157,22 @@ internal static class PowerBundle
         }
     }
 
-    internal static void UpdateUsageForPowerPool(this RulesetCharacter character,
+    internal static void UpdateUsageForPower(this RulesetCharacter character,
         [NotNull] RulesetUsablePower modifiedPower,
         int poolUsage)
     {
-        if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+        RulesetUsablePower usablePower = null;
+
+        if (modifiedPower.PowerDefinition is IPowerSharedPool sharedPoolPower)
         {
-            return;
+            var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+            usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == pointPoolPower);
+        }
+        else if (modifiedPower.PowerDefinition.HasSubFeatureOfType<IsPowerPool>())
+        {
+            usablePower = modifiedPower;
         }
 
-        var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
-        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == pointPoolPower);
 
         if (usablePower != null)
         {
@@ -719,5 +724,14 @@ internal static class PowerBundle
         // internal FeatureDefinitionFeatureSet PowerSet { get; }
 
         private RulesetSpellRepertoire Repertoire { get; }
+    }
+}
+
+internal class IsPowerPool: PowerVisibilityModifier
+{
+    public static IsPowerPool Marker { get; } = new();
+
+    private IsPowerPool(): base((_, _, _) => false)
+    {
     }
 }

@@ -79,7 +79,7 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;

@@ -53,6 +53,7 @@ public static class RulesetActorPatcher
         }
     }
 
+#if false
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingInterruption")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ProcessConditionsMatchingInterruption_Patch
@@ -68,6 +69,7 @@ public static class RulesetActorPatcher
             }
         }
     }
+#endif
 
     [HarmonyPatch(typeof(RulesetActor), "ModulateSustainedDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

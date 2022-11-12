@@ -81,7 +81,7 @@ internal static class PowerBundleContext
                     formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
 
                     //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-                    ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
+                    ruleChar.UpdateUsageForPower(usablePower, power.CostPerUse);
 
                     GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
                         $"Feedback/&{power.Name}UsedWhileTravellingFormat");

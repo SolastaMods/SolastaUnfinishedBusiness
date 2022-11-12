@@ -472,7 +472,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatSentinel : IOnAttackHitEffect
+    private sealed class OnAttackHitEffectFeatSentinel : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 

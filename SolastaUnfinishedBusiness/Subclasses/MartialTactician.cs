@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -24,8 +26,8 @@ internal sealed class MartialTactician : AbstractSubclass
     internal const string CounterStrikeTag = "CounterStrike";
     internal FeatureDefinitionPower GambitPool { get; set; }
     public FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
-
     public FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
+    public FeatureDefinition EverVigilant { get; set; }
 
     public static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
@@ -37,7 +39,7 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitPool = FeatureDefinitionPowerBuilder
             .Create("PowerPoolTacticianGambit")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(IsPowerPool.Marker)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
             .AddToDB();
 
@@ -64,16 +66,37 @@ internal sealed class MartialTactician : AbstractSubclass
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
 
+        EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, GambitPool, learn3Gambits, BuildEverVigilant())
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit)
-            .AddFeaturesAtLevel(10)
+            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
             .AddToDB();
 
         BuildGambits();
+    }
+
+    private FeatureDefinition BuildSharpMind()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianSharpMind")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPoolTacticianSharpMindSkill")
+                    .SetGuiPresentationNoContent()
+                    .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPoolTacticianSharpMindExpertise")
+                    .SetGuiPresentationNoContent()
+                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                    .AddToDB()
+            )
+            .AddToDB();
     }
 
     private FeatureDefinition BuildEverVigilant()
@@ -85,6 +108,30 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private FeatureDefinition BuildSharedVigilance()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerTacticianSharedVigilance")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .ExcludeCaster()
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionTacticianSharedVigilance")
+                        .SetGuiPresentationNoContent(hidden: true)
+                        .SetFeatures(EverVigilant)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
     private FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -92,6 +139,18 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
             .SetFixedValue(GambitPool, 1)
             .AddToDB();
+    }
+
+    private FeatureDefinition BuildAdaptiveStrategy()
+    {
+        var feature = FeatureDefinitionBuilder
+            .Create($"FeatureAdaptiveStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
+
+        return feature;
     }
 
     private FeatureDefinitionCustomInvocationPool BuildLearn(int points)
@@ -107,6 +166,7 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         string name;
         AssetReferenceSprite sprite;
+        FeatureDefinition feature;
         FeatureDefinitionPower power;
         ICustomConditionFeature reaction;
 
@@ -135,15 +195,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new ProcessConditionInterruptionHandler((actor, interruption, _) =>
-        {
-            if (actor is not RulesetCharacter character) { return; }
-
-            if (interruption == ConditionInterruption.Attacks)
-            {
-                character.UsePower(UsablePowersProvider.Get(spendDiePower));
-            }
-        });
+        var spendDieOnAttack = new SpendPowerAfterAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -182,7 +234,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -240,7 +291,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -294,7 +344,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -346,7 +395,12 @@ internal sealed class MartialTactician : AbstractSubclass
                             .Create($"CombatAffinity{name}")
                             .SetGuiPresentationNoContent()
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
+                        .SetSpecialDuration(true)
+                        //Lasts until the end of the target's turn
+                        .SetDuration(DurationType.Round, 0, false)
+                        .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
@@ -357,7 +411,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -392,7 +445,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
@@ -426,14 +478,13 @@ internal sealed class MartialTactician : AbstractSubclass
         //TODO: add proper icon
         sprite = Sprites.ActionGambit;
 
-        power = FeatureDefinitionPowerBuilder
+        power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -443,11 +494,11 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
-                        //TODO: figure out why Lunging with feint not use 2 dice
-                        .SetFeatures(GambitDieDamageOnce, featureSpendDieOnAttack, FeatureDefinitionBuilder
+                        .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
                             .SetGuiPresentationNoContent(hidden: true)
-                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1))
+                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.AlwaysValid),
+                                new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -455,6 +506,59 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Urgent Orders
+
+        name = "GambitUrgent";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .ExcludeCaster()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                        .SetSilent(Silent.None)
+                        .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Riposte
+
+        name = "GambitRiposte";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, ConditionDefinitionBuilder
+                .Create($"Condition{name}")
+                .SetGuiPresentationNoContent(hidden: true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(GambitDieDamage)
+                .AddToDB()))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
     }
@@ -468,5 +572,131 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
             .SetGrantedFeature(feature)
             .AddToDB();
+    }
+
+    private class SpendPowerAfterAttack : IBeforeAttackEffect
+    {
+        private readonly FeatureDefinitionPower power;
+
+        public SpendPowerAfterAttack(FeatureDefinitionPower power)
+        {
+            this.power = power;
+        }
+
+        public void BeforeOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (attackMode == null) { return; }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null) { return; }
+
+            character.UsePower(UsablePowersProvider.Get(power, character));
+        }
+    }
+
+    private class RefundPowerUseAfterCrit : IAfterAttackEffect
+    {
+        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition feature;
+
+        public RefundPowerUseAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
+
+            if (attackMode == null) { return; }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null) { return; }
+
+            if (character.GetRemainingPowerUses(power) < character.GetMaxUsesForPool(power))
+            {
+                GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+                character.RepayPowerUse(UsablePowersProvider.Get(power, character));
+            }
+        }
+    }
+
+    private class Retaliate : IReactToAttackOnMeFinished
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower pool;
+
+        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition)
+        {
+            this.condition = condition;
+            this.pool = pool;
+        }
+
+        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        {
+            //trigger only on a miss
+            if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
+            if (me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
+                ActionDefinitions.ActionStatus.Available)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(attacker);
+            if (retaliationMode == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var character = me.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty
+            );
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            //TODO: try making this reaction request show how many dice remaining
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams);
+            reactionRequest.Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon);
+            manager.AddInterruptRequest(reactionRequest);
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
+            if (reactionParams.ReactionValidated)
+            {
+                character.UsePower(UsablePowersProvider.Get(pool, character));
+            }
+
+            character.RemoveCondition(rulesetCondition);
+        }
     }
 }
