@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
 
 namespace SolastaUnfinishedBusiness;
 
@@ -168,7 +169,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
-    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+    public int SetBeltOfDwarvenKindBeardChances { get; set; } = CharacterPresentationBeltOfDwarvenKind.occurencePercentage;
     public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
