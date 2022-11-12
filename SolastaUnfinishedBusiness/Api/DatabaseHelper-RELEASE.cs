@@ -752,6 +752,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
+        internal static FeatDefinition ArmorMaster { get; } =
+            GetDefinition<FeatDefinition>("ArmorMaster");
+
         internal static FeatDefinition BurningTouch { get; } =
             GetDefinition<FeatDefinition>("BurningTouch");
 

@@ -168,7 +168,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer")
-            .SetGuiPresentation(Category.Subclass, DomainMischief)
+            .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
             .AddFeaturesAtLevel(2,
                 heroRefreshedBladeDanceValidateEquipment,
                 proficiencyBladeDancerLightArmor,
