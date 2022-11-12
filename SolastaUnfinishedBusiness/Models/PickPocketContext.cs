@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
-using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.TreasureTableDefinitions;
 
@@ -13,43 +9,6 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class PickPocketContext
 {
     private static bool _initialized;
-
-    internal static void CreateFeats([NotNull] ICollection<FeatDefinition> feats)
-    {
-        var abilityCheckAffinityFeatPickPocket = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
-                "AbilityCheckAffinityFeatPickPocket")
-            .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .AddToDB();
-
-        var pickpocketAbilityCheckAffinityGroup = new AbilityCheckAffinityGroup
-        {
-            abilityScoreName = AttributeDefinitions.Dexterity,
-            proficiencyName = SkillDefinitions.SleightOfHand,
-            affinity = CharacterAbilityCheckAffinity.Advantage
-        };
-
-        abilityCheckAffinityFeatPickPocket.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
-
-        var proficiencyFeatPickPocket = FeatureDefinitionProficiencyBuilder
-            .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
-                "ProficiencyFeatPickPocket")
-            .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .AddToDB();
-
-        proficiencyFeatPickPocket.proficiencyType = ProficiencyType.SkillOrExpertise;
-        proficiencyFeatPickPocket.Proficiencies.Clear();
-        proficiencyFeatPickPocket.Proficiencies.Add(SkillDefinitions.SleightOfHand);
-
-        var featPickPocket = FeatDefinitionBuilder
-            .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "FeatPickPocket")
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-
-        featPickPocket.Features.SetRange(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket);
-
-        feats.Add(featPickPocket);
-    }
 
     internal static void Load()
     {

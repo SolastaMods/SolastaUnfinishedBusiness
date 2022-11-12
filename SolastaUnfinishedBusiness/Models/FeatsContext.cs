@@ -33,12 +33,13 @@ internal static class FeatsContext
         DefenseExpertFeats.CreateFeats(feats);
         ElvenAccuracyFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
-        HealingFeats.CreateFeats(feats);
-        PickPocketContext.CreateFeats(feats);
+        MetamagicFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
+        RangedCombatFeats.CreateFeats(feats);
+        TwoWeaponCombatFeats.CreateFeats(feats);
 
         OtherFeats.CreateFeats(feats);
-        
+
         // load them in mod UI
         feats.ForEach(LoadFeat);
         GroupFeats.Load(LoadFeatGroup);
