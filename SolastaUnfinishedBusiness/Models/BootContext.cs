@@ -42,6 +42,9 @@ internal static class BootContext
         // Cache all Merchant definitions and what item types they sell
         MerchantTypeContext.Load();
 
+        // Custom Conditions must load as early as possible
+        CustomConditions.Load();
+
         //
         // custom stuff that can be loaded in any order
         //
@@ -62,8 +65,6 @@ internal static class BootContext
 
         // Start will all options under Character
         CharacterContext.Load();
-        
-        CustomConditions.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
