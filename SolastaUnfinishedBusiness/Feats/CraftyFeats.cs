@@ -14,6 +14,25 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CraftyFeats
 {
+    internal static readonly FeatDefinition FeatCraftyFletcher = FeatDefinitionBuilder
+        .Create("FeatCraftyFletcher")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye, FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftySmithsTools")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+            .AddToDB(), FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftyBows")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Weapon,
+                CustomWeaponsContext.HandXbowWeaponType.Name,
+                ShortbowType.Name,
+                LongbowType.Name,
+                LightCrossbowType.Name,
+                HeavyCrossbowType.Name)
+            .AddToDB())
+        .AddToDB();
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
@@ -46,12 +65,6 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
-        var proficiencyCraftyManacalonRosary = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyManacalonRosary")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.EnchantingToolType.Name)
-            .AddToDB();
-
         var proficiencyCraftyPoisonersKit = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyPoisonersKit")
             .SetGuiPresentationNoContent(true)
@@ -64,25 +77,8 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
-        var proficiencyCraftySmithsTools = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftySmithsTools")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyBows = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyBows")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Weapon,
-                CustomWeaponsContext.HandXbowWeaponType.Name,
-                ShortbowType.Name,
-                LongbowType.Name,
-                LightCrossbowType.Name,
-                HeavyCrossbowType.Name)
-            .AddToDB();
-
         //
-        // Aphotecary
+        // Apothecary
         //
 
         var featApothecaryInt = FeatDefinitionBuilder
@@ -103,7 +99,7 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .AddToDB();
 
-        GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
+        var featGroupApothecary = GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
             featApothecaryInt,
             featApothecaryWis,
             featApothecaryCha);
@@ -131,7 +127,7 @@ internal static class CraftyFeats
                 proficiencyCraftyAnimalHandling)
             .AddToDB();
 
-        GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
+        var featGroupToxicologist = GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha);
@@ -140,26 +136,28 @@ internal static class CraftyFeats
         // Others
         //
 
-        var featManacalonCrafter = FeatDefinitionBuilder
-            .Create("FeatManacalonCrafter")
-            .SetGuiPresentation(Category.Feat)
-            .SetMustCastSpellsPrerequisite()
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyManacalonRosary, proficiencyCraftyArcana)
-            .AddToDB();
-
-        var featCraftyScribe = FeatDefinitionBuilder
-            .Create("FeatCraftyScribe")
+        var featCraftyScriber = FeatDefinitionBuilder
+            .Create("FeatCraftyScriber")
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
-        var featCraftyFletcher = FeatDefinitionBuilder
-            .Create("FeatCraftyFletcher")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, proficiencyCraftySmithsTools, proficiencyCraftyBows)
-            .AddToDB();
+        var featGroupAlchemist = GroupFeats.MakeGroup("FeatGroupAlchemist", null,
+            FeatDefinitions.InitiateAlchemist,
+            FeatDefinitions.MasterAlchemist);
 
+        var featGroupEnchanter = GroupFeats.MakeGroup("FeatGroupEnchanter", null,
+            FeatDefinitions.InitiateEnchanter,
+            FeatDefinitions.MasterEnchanter);
+
+        _ = GroupFeats.MakeGroup("FeatGroupTools", null,
+            featGroupApothecary,
+            featGroupToxicologist,
+            FeatCraftyFletcher,
+            featCraftyScriber,
+            featGroupAlchemist,
+            featGroupEnchanter);
 
         feats.AddRange(
             featApothecaryInt,
@@ -168,8 +166,7 @@ internal static class CraftyFeats
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha,
-            featManacalonCrafter,
-            featCraftyScribe,
-            featCraftyFletcher);
+            featCraftyScriber,
+            FeatCraftyFletcher);
     }
 }

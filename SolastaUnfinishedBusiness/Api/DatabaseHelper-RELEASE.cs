@@ -1,7 +1,7 @@
 // this file is manually maintained
 // whenever you use a definition in DEBUG mode copy it over here
 // goal is to increase mod boot time and reduce total payload size
-// last update on 11/08/22 7:00 PM
+// last update on 11/11/22 11:00 PM
 
 using TA.AI;
 
@@ -752,6 +752,72 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
+        internal static FeatDefinition FlawlessConcentration { get; } =
+            GetDefinition<FeatDefinition>("FlawlessConcentration");
+
+        internal static FeatDefinition PowerfulCantrip { get; } =
+            GetDefinition<FeatDefinition>("PowerfulCantrip");
+
+        internal static FeatDefinition InitiateAlchemist { get; } =
+            GetDefinition<FeatDefinition>("InitiateAlchemist");
+
+        internal static FeatDefinition MasterAlchemist { get; } =
+            GetDefinition<FeatDefinition>("MasterAlchemist");
+
+        internal static FeatDefinition InitiateEnchanter { get; } =
+            GetDefinition<FeatDefinition>("InitiateEnchanter");
+
+        internal static FeatDefinition MasterEnchanter { get; } =
+            GetDefinition<FeatDefinition>("MasterEnchanter");
+
+        internal static FeatDefinition BadlandsMarauder { get; } =
+            GetDefinition<FeatDefinition>("BadlandsMarauder");
+
+        internal static FeatDefinition Robust { get; } =
+            GetDefinition<FeatDefinition>("Robust");
+
+        internal static FeatDefinition SturdinessOfTheTundra { get; } =
+            GetDefinition<FeatDefinition>("SturdinessOfTheTundra");
+
+        internal static FeatDefinition Hauler { get; } =
+            GetDefinition<FeatDefinition>("Hauler");
+
+        internal static FeatDefinition HardToKill { get; } =
+            GetDefinition<FeatDefinition>("HardToKill");
+
+        internal static FeatDefinition Enduring_Body { get; } =
+            GetDefinition<FeatDefinition>("Enduring_Body");
+
+        internal static FeatDefinition DiscretionOfTheCoedymwarth { get; } =
+            GetDefinition<FeatDefinition>("DiscretionOfTheCoedymwarth");
+
+        internal static FeatDefinition MightOfTheIronLegion { get; } =
+            GetDefinition<FeatDefinition>("MightOfTheIronLegion");
+
+        internal static FeatDefinition TakeAim { get; } =
+            GetDefinition<FeatDefinition>("TakeAim");
+
+        internal static FeatDefinition UncannyAccuracy { get; } =
+            GetDefinition<FeatDefinition>("UncannyAccuracy");
+
+        internal static FeatDefinition MightyBlow { get; } =
+            GetDefinition<FeatDefinition>("MightyBlow");
+
+        internal static FeatDefinition ForestallingStrength { get; } =
+            GetDefinition<FeatDefinition>("ForestallingStrength");
+
+        internal static FeatDefinition FollowUpStrike { get; } =
+            GetDefinition<FeatDefinition>("FollowUpStrike");
+
+        internal static FeatDefinition Ambidextrous { get; } =
+            GetDefinition<FeatDefinition>("Ambidextrous");
+
+        internal static FeatDefinition TwinBlade { get; } =
+            GetDefinition<FeatDefinition>("TwinBlade");
+
+        internal static FeatDefinition ArmorMaster { get; } =
+            GetDefinition<FeatDefinition>("ArmorMaster");
+
         internal static FeatDefinition BurningTouch { get; } =
             GetDefinition<FeatDefinition>("BurningTouch");
 
@@ -1266,7 +1332,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionHindered { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHindered");
-        
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityBarbarianFastMovement { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityBarbarianFastMovement");
 
@@ -2553,7 +2619,7 @@ internal static partial class DatabaseHelper
     {
         internal static SkillDefinition AnimalHandling { get; } =
             GetDefinition<SkillDefinition>("AnimalHandling");
-        
+
         internal static SkillDefinition Arcana { get; } =
             GetDefinition<SkillDefinition>("Arcana");
 

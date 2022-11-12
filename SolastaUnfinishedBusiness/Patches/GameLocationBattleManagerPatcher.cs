@@ -391,7 +391,7 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: Support elven precision feat
             // should come last as adv / dis make diff here
-            ZappaFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
+            ElvenAccuracyFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
                 attackParams.attackMode);
         }
 

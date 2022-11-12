@@ -102,7 +102,7 @@ internal static class InventorClass
             )
             //TODO: Add more preferred feats
             .AddFeatPreferences(
-                EwFeats.WarcasterFeat,
+                OtherFeats.WarcasterFeat,
                 "PowerfulCantrip",
                 "FlawlessConcentration")
 

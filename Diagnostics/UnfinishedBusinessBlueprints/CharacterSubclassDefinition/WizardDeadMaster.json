@@ -36,8 +36,8 @@
     "description": "Subclass/&WizardDeadMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
-      "m_SubObjectName": "DomainMischief",
+      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
+      "m_SubObjectName": "Sorcerer_HauntedSoul",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

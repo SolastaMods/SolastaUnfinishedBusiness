@@ -51,8 +51,8 @@
     "description": "Subclass/&WizardBladeDancerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
-      "m_SubObjectName": "DomainMischief",
+      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
+      "m_SubObjectName": "Ranger_SwiftBlade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

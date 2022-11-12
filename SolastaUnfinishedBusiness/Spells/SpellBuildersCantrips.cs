@@ -29,7 +29,7 @@ internal static partial class SpellBuilders
             .SetSpecialDuration(true)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierAcidClawsACDebuff")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass, -1)
                 .AddToDB())

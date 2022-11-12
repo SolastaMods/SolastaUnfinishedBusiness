@@ -1,20 +1,20 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "ToolOrExpertise",
+  "proficiencyType": "FightingStyle",
   "proficiencies": [
-    "EnchantingToolType"
+    "ShieldExpert"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "FightingStyle/&ShieldExpertTitle",
+    "description": "FightingStyle/&ShieldExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
+      "m_SubObjectName": "Cleric_Battler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ec7170f1-235f-5d9f-b22f-c85178a272c3",
+  "guid": "6fd6a6d7-783e-52d3-8122-7d906ebcb8cd",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyManacalonRosary"
+  "name": "ProficiencyFeatShieldExpert"
 }
