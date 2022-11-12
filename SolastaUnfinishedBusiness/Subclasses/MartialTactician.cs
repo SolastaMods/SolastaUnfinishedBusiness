@@ -68,13 +68,33 @@ internal sealed class MartialTactician : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, GambitPool, learn3Gambits, BuildEverVigilant())
+            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, BuildEverVigilant())
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit)
             .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
             .AddToDB();
 
         BuildGambits();
+    }
+
+    private FeatureDefinition BuildSharpMind()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianSharpMind")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPoolTacticianSharpMindSkill")
+                    .SetGuiPresentationNoContent()
+                    .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPoolTacticianSharpMindExpertise")
+                    .SetGuiPresentationNoContent()
+                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                    .AddToDB()
+            )
+            .AddToDB();
     }
 
     private FeatureDefinition BuildEverVigilant()
