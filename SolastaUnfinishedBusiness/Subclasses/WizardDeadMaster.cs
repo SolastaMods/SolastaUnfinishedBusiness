@@ -248,7 +248,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return result.ToArray();
     }
 
-    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster, BaseDefinition[] attackSprites)
+    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster, IReadOnlyList<BaseDefinition> attackSprites)
     {
         var modified = MonsterDefinitionBuilder
             .Create(monster, $"Risen{monster.Name}")
@@ -265,7 +265,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return modified;
         }
 
-        for (var i = 0; i < attackSprites.Length; i++)
+        for (var i = 0; i < attackSprites.Count; i++)
         {
             var attack = modified.AttackIterations.ElementAtOrDefault(i);
 

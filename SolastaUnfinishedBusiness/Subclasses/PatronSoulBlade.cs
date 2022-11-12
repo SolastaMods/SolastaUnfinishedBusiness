@@ -54,7 +54,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     RangeType.Self,
                     1,
                     TargetType.Item,
-                    //TODO: with new Inventor code we can make it RAW: implement target limiter for the weapon to work on 1-hander or pact weapon
+                    //TODO: with new Inventor code we can make it RAW: implement target limiter for the weapon to work on 1-hand or pact weapon
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetItemPropertyForm(

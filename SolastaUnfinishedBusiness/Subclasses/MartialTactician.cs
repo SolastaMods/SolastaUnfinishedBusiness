@@ -76,7 +76,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
     private FeatureDefinition EverVigilant { get; }
 
-    private FeatureDefinition BuildSharpMind()
+    private static FeatureDefinition BuildSharpMind()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianSharpMind")
@@ -96,7 +96,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private FeatureDefinition BuildEverVigilant()
+    private static FeatureDefinition BuildEverVigilant()
     {
         return FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTacticianEverVigilant")
@@ -150,7 +150,7 @@ internal sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
-    private FeatureDefinitionCustomInvocationPool BuildLearn(int points)
+    private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPoolGambitLearn{points}")
@@ -624,11 +624,13 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (character.GetRemainingPowerUses(power) < character.GetMaxUsesForPool(power))
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
-                GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
-                character.RepayPowerUse(UsablePowersProvider.Get(power, character));
+                return;
             }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.RepayPowerUse(UsablePowersProvider.Get(power, character));
         }
     }
 
