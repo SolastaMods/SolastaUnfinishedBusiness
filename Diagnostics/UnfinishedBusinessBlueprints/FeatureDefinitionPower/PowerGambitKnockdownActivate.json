@@ -1,24 +1,24 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 30,
+    "rangeType": "Self",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Self",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 12,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "CharacterOnly",
-    "targetFilteringTag": "UnderHalfHitPoints",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
@@ -31,9 +31,9 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Day",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -53,10 +53,7 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [
-      "Construct",
-      "Undead"
-    ],
+    "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -65,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "TemporaryHitPoints",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -78,12 +75,16 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "temporaryHitPointsForm": {
-          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 1,
-          "dieType": "D6",
-          "bonusHitPoints": 2,
-          "applyToSelf": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionGambitKnockdown",
+          "conditionDefinition": "Definition:ConditionGambitKnockdown:4916b052-0acd-54ea-bf49-931a89ee4951",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionGambitKnockdown:4916b052-0acd-54ea-bf49-931a89ee4951"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c9bf253b152245144834e264d2af0e23",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -139,7 +140,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ed804b962d30d5d4594418ac573ccc5e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -290,7 +291,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -305,33 +306,33 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Strength",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": true,
-  "proficiencyBonusToAttack": true,
-  "uniqueInstance": false,
-  "showCasting": true,
+  "abilityScoreBonusToAttack": false,
+  "proficiencyBonusToAttack": false,
+  "uniqueInstance": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolTacticianInspireTitle",
-    "description": "Feature/&PowerSharedPoolTacticianInspireDescription",
+    "title": "Feature/&GambitKnockdownTitle",
+    "description": "Feature/&GambitKnockdownDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
-      "m_SubObjectName": "PreserveLife",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -346,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ef392b04-239f-5289-9f6f-a400df374156",
+  "guid": "16c57eae-97cd-5586-8b67-289c04b90a75",
   "contentPack": 9999,
-  "name": "PowerSharedPoolTacticianInspire"
+  "name": "PowerGambitKnockdownActivate"
 }

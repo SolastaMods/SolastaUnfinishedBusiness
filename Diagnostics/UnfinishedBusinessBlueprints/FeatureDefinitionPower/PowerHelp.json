@@ -77,7 +77,7 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionTrueStrike",
+          "conditionDefinitionName": "ConditionDistractedByAlly",
           "conditionDefinition": "Definition:ConditionDistractedByAlly:f8ed1df8-d922-521d-9a9c-65f1811c8980",
           "operation": "Add",
           "conditionsList": [],

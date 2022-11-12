@@ -136,7 +136,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildSunlightBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
-        RegisterSpell(BuildThornyVines(), 0, SpellListDruid, InventorClass.SpellList);
+        RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 1st level
@@ -164,14 +164,14 @@ internal static class SpellsContext
         RegisterSpell(BuildMindBlank(), 0, SpellListBard, SpellListWizard);
 
         // 9th level
-        RegisterSpell(BuildForesight(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
-        RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildPowerWordHeal(), 0, SpellListCleric);
-        RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
-        RegisterSpell(BuildWeird(), 0, SpellListWizard);
+        // RegisterSpell(BuildForesight(), 0, SpellListSorcerer, SpellListWizard);
+        // RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
+        // RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
+        // RegisterSpell(BuildPowerWordHeal(), 0, SpellListCleric);
+        // RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        // RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
+        // RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
+        // RegisterSpell(BuildWeird(), 0, SpellListWizard);
 
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 

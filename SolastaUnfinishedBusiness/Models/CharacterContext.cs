@@ -68,12 +68,8 @@ internal static class CharacterContext
             .SetDurationData(DurationType.Round, 1)
             .Build();
 
-        var conditionDistractedByAlly = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .AddToDB();
-
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDistractedByAlly;
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditions.Distracted;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditions.Distracted.Name;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")

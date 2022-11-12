@@ -133,9 +133,7 @@ internal static partial class SpellBuilders
 
         var noHeal = ConditionDefinitionBuilder
             .Create("ConditionSpiritShroudNoHeal")
-            .SetGuiPresentation(Category.Condition,
-                FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch.GuiPresentation.Description,
-                ConditionChilledByTouch.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition, ConditionChilledByTouch.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
             .SetSpecialDuration(true)

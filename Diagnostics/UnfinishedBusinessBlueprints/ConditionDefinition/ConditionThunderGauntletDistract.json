@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:CombatAffinityThunderGauntletDistract:04d5a49c-802c-5f48-97ca-4d42b9e6b4c6"
   ],

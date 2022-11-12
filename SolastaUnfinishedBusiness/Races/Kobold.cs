@@ -33,14 +33,8 @@ internal static class KoboldRaceBuilder
             .SetDurationData(DurationType.Round, 1)
             .Build();
 
-        var conditionDraconicKoboldDraconicCry = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDraconicKoboldDraconicCry")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 1)
-            .ClearSpecialInterruptions()
-            .AddToDB();
-
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDraconicKoboldDraconicCry;
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditions.Distracted;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditions.Distracted.Name;
 
         var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
             .Create("PowerDraconicKoboldDraconicCry")

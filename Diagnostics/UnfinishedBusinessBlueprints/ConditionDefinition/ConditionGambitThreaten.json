@@ -2,10 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
-    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
+    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -17,7 +16,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacks"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -87,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,13 +130,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSentinelStopMovementTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&GambitThreatenTitle",
+    "description": "Feature/&GambitThreatenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
-      "m_SubObjectName": "ConditionRestrained",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "e3406fd2-9d2e-52af-9294-4710da714bb4",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -150,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "17339c35-b4e5-5de8-86e0-17f37d6d4a71",
+  "guid": "4be70ef4-02a2-5be8-be5d-342141bd66d8",
   "contentPack": 9999,
-  "name": "ConditionSentinelStopMovement"
+  "name": "ConditionGambitThreaten"
 }

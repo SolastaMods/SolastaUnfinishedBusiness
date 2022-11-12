@@ -1,4 +1,4 @@
-﻿Feat/&FeatGroupApothecaryDescription=Increase your Intelligence or Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+﻿Feat/&FeatGroupApothecaryDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 Feat/&FeatGroupApothecaryTitle=Apothecary
 Feat/&FeatGroupCelestialTouchedDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 Feat/&FeatGroupCelestialTouchedTitle=Celestial Touched
@@ -30,5 +30,5 @@ Feat/&FeatGroupTelekineticDescription=Increase one of your mental attributes by 
 Feat/&FeatGroupTelekineticTitle=Telekinetic
 Feat/&FeatGroupTeleportationDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.
 Feat/&FeatGroupTeleportationTitle=Fey Teleportation
-Feat/&FeatGroupToxicologistDescription=Increase your Intelligence or Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
+Feat/&FeatGroupToxicologistDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 Feat/&FeatGroupToxicologistTitle=Toxicologist

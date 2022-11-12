@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -109,7 +110,15 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     ///     Implement in derived builders to enforce any require preconditions, values etc, e.g.
     ///     <code>Definition.EffectDescription = new ();</code>
     /// </summary>
-    protected virtual void Initialise() { }
+    protected virtual void Initialise()
+    {
+        var fieldInDungeonEditor = AccessTools.Field(typeof(TDefinition), "inDungeonEditor");
+
+        if (fieldInDungeonEditor != null)
+        {
+            fieldInDungeonEditor.SetValue(Definition, false);
+        }
+    }
 
     /// <summary>
     ///     Called before the definition is added to the databases.

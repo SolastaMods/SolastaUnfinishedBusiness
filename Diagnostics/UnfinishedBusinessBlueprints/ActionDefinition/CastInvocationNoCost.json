@@ -1,7 +1,7 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9003,
-  "actionType": "Bonus",
+  "id": 9001,
+  "actionType": "NoCost",
   "actionScope": "Battle",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
@@ -47,13 +47,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&CastPlaneMagicTitle",
-    "description": "Action/&CastPlaneMagicDescription",
+    "title": "Action/&CastInvocationTitle",
+    "description": "Action/&CastInvocationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "89619822-0cda-51d5-b942-f554e01bfc9c",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -63,12 +63,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 41,
+    "sortOrder": 12,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c02d5cad-8d69-5b88-8b98-790acbbca5b9",
+  "guid": "0a4870d5-055f-5c2a-a6bd-e9529bb4a963",
   "contentPack": 9999,
-  "name": "CastPlaneMagicBonus"
+  "name": "CastInvocationNoCost"
 }

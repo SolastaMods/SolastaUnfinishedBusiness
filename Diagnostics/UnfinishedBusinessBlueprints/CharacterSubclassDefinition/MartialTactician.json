@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianCounterStrike:99b1d67a-6c4b-5b47-b6b2-e03edc5a53be",
+      "featureDefinition": "Definition:AttributeModifierTacticianEverVigilant:e0b4172a-9b57-5871-a28e-15b5f50e6c82",
       "level": 3
     },
     {
@@ -13,33 +13,28 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianInspire:ef392b04-239f-5289-9f6f-a400df374156",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn3:016a9085-9826-5765-a020-75d99911988a",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolTacticianKnockDown:09207873-7de6-5a65-a8f8-724f37675e6a",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetChampionRemarkableAthlete:51427fc1ded4fe14fac8457df1dee9ed",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
-      "level": 10
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
+      "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierTacticianGambitAdd:785b8d03-a023-50ef-a39a-adc544276024",
-      "level": 18
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

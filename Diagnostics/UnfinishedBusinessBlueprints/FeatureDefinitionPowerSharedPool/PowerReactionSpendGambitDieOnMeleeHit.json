@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -136,7 +136,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "OnAttackHitMeleeAuto",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -157,7 +157,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 4,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -170,9 +170,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPoolTacticianGambitTitle",
-    "description": "Feature/&PowerPoolTacticianGambitDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -192,7 +192,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "20212eff-ee31-5717-969d-22b9b8da2c95",
+  "guid": "1e651709-32d1-537e-b765-ba1f3464e6af",
   "contentPack": 9999,
-  "name": "PowerPoolTacticianGambit"
+  "name": "PowerReactionSpendGambitDieOnMeleeHit"
 }

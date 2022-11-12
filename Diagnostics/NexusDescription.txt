@@ -162,7 +162,6 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
-[*][b]Feat/&FeatToxicologistChaTitle[/b]: Feat/&FeatToxicologistChaDescription
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -173,11 +172,11 @@ You gain proficiency in Tirmarian.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
 [*][b]Flame Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Flame Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Flame Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with smith's tools, or expertise if you are already proficient.
 You gain proficiency with all bows and crossbows.
@@ -252,6 +251,8 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 You gain proficiency with poisoner's kit and Animal Handling, or expertise if already proficient.
 [*][b]Toxicologist [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
+[*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
+You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 [*][b]Two Weapon Fighting[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You gain the ability to perform the somatic component of spells even with both hands full.
@@ -329,14 +330,6 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Reverse Gravity[/b]: This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 [*][b]Mind Blank[/b]: Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
-[*][b]Foresight[/b]: You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
-[*][b]Mass Heal[/b]: A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs. 
-[*][b]Meteor Swarm [Single Target][/b]: Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
-[*][b]Power Word Heal[/b]: A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
-[*][b]Power Word Kill[/b]: You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
-[*][b]Shapechange[/b]: You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
-[*][b]Time Stop[/b]: You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-[*][b]Weird[/b]: Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 [/list]
 
 [size=3][b]Items & Crafting[/b][/size]

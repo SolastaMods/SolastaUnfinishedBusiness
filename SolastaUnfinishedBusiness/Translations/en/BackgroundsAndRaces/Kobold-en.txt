@@ -1,5 +1,3 @@
-Condition/&ConditionDraconicKoboldDraconicCryDescription=This creature has been distracted.
-Condition/&ConditionDraconicKoboldDraconicCryTitle=Distracted
 Feature/&CastSpellDraconicKoboldMagicDescription=You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
 Feature/&CastSpellDraconicKoboldMagicTitle=Kobold Magic
 Feature/&PowerDraconicKoboldDraconicCryDescription=As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.

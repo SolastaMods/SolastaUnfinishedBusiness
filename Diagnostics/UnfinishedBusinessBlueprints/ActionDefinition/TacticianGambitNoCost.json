@@ -1,7 +1,7 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9003,
-  "actionType": "Bonus",
+  "id": 9007,
+  "actionType": "NoCost",
   "actionScope": "Battle",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
@@ -47,11 +47,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&CastPlaneMagicTitle",
-    "description": "Action/&CastPlaneMagicDescription",
+    "title": "Action/&TacticianGambitTitle",
+    "description": "Action/&TacticianGambitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "89619822-0cda-51d5-b942-f554e01bfc9c",
+      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -63,12 +63,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 41,
+    "sortOrder": 20,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c02d5cad-8d69-5b88-8b98-790acbbca5b9",
+  "guid": "c06b3df4-5fb5-52f9-a63f-c73a48207c25",
   "contentPack": 9999,
-  "name": "CastPlaneMagicBonus"
+  "name": "TacticianGambitNoCost"
 }
