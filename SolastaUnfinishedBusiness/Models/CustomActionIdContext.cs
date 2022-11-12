@@ -94,6 +94,7 @@ public static class CustomActionIdContext
         }
 
         var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+        var actionType = action.actionType;
         var character = locationCharacter.RulesetCharacter;
 
         if (actionTypeStatus == ActionStatus.Irrelevant)
@@ -122,6 +123,23 @@ public static class CustomActionIdContext
                 result = ActionStatus.Unavailable;
                 return;
             }
+        }
+
+        int index = locationCharacter.currentActionRankByType[actionType];
+        var actionPerformanceFilters = locationCharacter.actionPerformancesByType[actionType];
+        if (action.RequiresAuthorization)
+        {
+            if (index >= actionPerformanceFilters.Count
+                || !actionPerformanceFilters[index].AuthorizedActions.Contains(actionId))
+            {
+                result = ActionStatus.Unavailable;
+                return;
+            }
+        }
+        else if (index >= actionPerformanceFilters.Count)
+        {
+            result = ActionStatus.Unavailable;
+            return;
         }
 
         var canCastSpells = character.CanCastSpells();
