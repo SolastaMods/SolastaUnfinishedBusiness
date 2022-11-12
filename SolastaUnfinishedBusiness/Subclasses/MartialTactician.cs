@@ -278,7 +278,7 @@ internal sealed class MartialTactician : AbstractSubclass
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder.Create()
-                        .SetConditionForm(CustomConditions.StopMovement, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(CustomConditionsContext.StopMovement, ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build())

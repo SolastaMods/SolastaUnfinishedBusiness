@@ -227,7 +227,7 @@ internal static class OtherFeats
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnAttackHitEffectFeatSentinel(CustomConditions.StopMovement))
+                    new OnAttackHitEffectFeatSentinel(CustomConditionsContext.StopMovement))
                 .AddToDB())
             .AddToDB();
     }

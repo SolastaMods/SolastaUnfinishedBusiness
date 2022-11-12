@@ -43,7 +43,7 @@ internal static class BootContext
         MerchantTypeContext.Load();
 
         // Custom Conditions must load as early as possible
-        CustomConditions.Load();
+        CustomConditionsContext.Load();
 
         //
         // custom stuff that can be loaded in any order

@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Models;
 /**
  * Place for generic conditions that mey be reused between several features
  */
-internal static class CustomConditions
+internal static class CustomConditionsContext
 {
     internal static ConditionDefinition Distracted;
 

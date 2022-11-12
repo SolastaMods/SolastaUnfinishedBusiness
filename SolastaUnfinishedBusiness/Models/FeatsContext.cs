@@ -33,6 +33,7 @@ internal static class FeatsContext
         DefenseExpertFeats.CreateFeats(feats);
         ElvenAccuracyFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
+        MeleeCombatFeats.CreateFeats(feats);
         MetamagicFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats);

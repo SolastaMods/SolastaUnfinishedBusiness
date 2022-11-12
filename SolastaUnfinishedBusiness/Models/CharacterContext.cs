@@ -68,8 +68,8 @@ internal static class CharacterContext
             .SetDurationData(DurationType.Round, 1)
             .Build();
 
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditions.Distracted;
-        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditions.Distracted.Name;
+        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditionsContext.Distracted;
+        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName = CustomConditionsContext.Distracted.Name;
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
