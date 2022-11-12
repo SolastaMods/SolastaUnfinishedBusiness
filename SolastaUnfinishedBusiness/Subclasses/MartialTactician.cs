@@ -346,7 +346,12 @@ internal sealed class MartialTactician : AbstractSubclass
                             .Create($"CombatAffinity{name}")
                             .SetGuiPresentationNoContent()
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
+                        .SetSpecialDuration(true)
+                        //Lasts until the end of the target's turn
+                        .SetDuration(DurationType.Round, 0, false)
+                        .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
@@ -426,14 +431,14 @@ internal sealed class MartialTactician : AbstractSubclass
         //TODO: add proper icon
         sprite = Sprites.ActionGambit;
 
-        power = FeatureDefinitionPowerBuilder
+        power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             //TODO: add limiter so only 1 on-attack power is active
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -443,8 +448,7 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
-                        //TODO: figure out why Lunging with feint not use 2 dice
-                        .SetFeatures(GambitDieDamageOnce, featureSpendDieOnAttack, FeatureDefinitionBuilder
+                        .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
                             .SetGuiPresentationNoContent(hidden: true)
                             .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1))
