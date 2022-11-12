@@ -18,7 +18,8 @@ internal static partial class SpellBuilders
     {
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerFarStep")
-            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
+            .SetGuiPresentation("ConditionFarStep", Category.Condition,
+                Sprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
