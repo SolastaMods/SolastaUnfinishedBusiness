@@ -104,7 +104,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
-            .SetGuiPresentation(Category.Subclass, DomainMischief)
+            .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
                 deadMasterUndeadChains

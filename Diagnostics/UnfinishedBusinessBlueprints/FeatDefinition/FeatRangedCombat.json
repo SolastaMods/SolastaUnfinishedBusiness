@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "DefenseExpert",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupCriticalVirtuosoTitle",
-    "description": "Feat/&FeatGroupCriticalVirtuosoDescription",
+    "title": "Feat/&FeatRangedCombatTitle",
+    "description": "Feat/&FeatRangedCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "17be5861-9ee7-5d67-b4cd-13b0265a1a2d",
+  "guid": "7895958e-60ea-5258-9f8d-087ee518a82c",
   "contentPack": 9999,
-  "name": "FeatGroupCriticalVirtuoso"
+  "name": "FeatRangedCombat"
 }

@@ -6,20 +6,17 @@
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": true,
-  "armorProficiencyCategory": "ShieldCategory",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:ActionAffinityFeatShieldExpertShove:46b40fc4-fa25-5781-b7a0-0d513d4d0773",
-    "Definition:AddExtraAttackFeatShieldExpert:53946096-cbf8-5286-bc15-ba26f5f1c3d0"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatShieldExpertTitle",
-    "description": "Feat/&FeatShieldExpertDescription",
+    "title": "Feat/&FeatTwoHandedCombatTitle",
+    "description": "Feat/&FeatTwoHandedCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "75c0d5b6-2fcf-56ef-8a01-aed0adc45084",
+  "guid": "cb88c745-31cf-523b-8c7e-863179306e9a",
   "contentPack": 9999,
-  "name": "FeatShieldExpert"
+  "name": "FeatTwoHandedCombat"
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -23,8 +21,7 @@ internal static class FightingStyleContext
         LoadStyle(new LightFooted());
         LoadStyle(new Merciless());
         LoadStyle(new Pugilist());
-        // LoadStyle(new Reactionary());
-        // LoadStyle(new Titan());
+        LoadStyle(new ShieldExpert());
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -127,7 +124,11 @@ internal static class FightingStyleContext
                 // Make Shield Expert benefit from Two Weapon Fighting Style
                 case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
                 {
-                    var hasShieldExpert = hero.TrainedFeats.Any(x => x.Name == OtherFeats.FeatShieldExpertName);
+                    var hasShieldExpert = hero.TrainedFeats.Any(x =>
+                                              x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
+                                          hero.TrainedFightingStyles.Any(x =>
+                                              x.Name.Contains(ShieldExpert.ShieldExpertName));
+
                     var mainHandSlot =
                         hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
                     var offHandSlot =

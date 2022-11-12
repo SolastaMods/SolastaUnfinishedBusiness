@@ -15,6 +15,9 @@ internal static class GroupFeats
     {
         feats.Add(BuildElementalTouchGroup());
         feats.Add(BuildCreedGroup());
+        feats.Add(BuildRangedCombat());
+        feats.Add(BuildTwoHandedCombat());
+        feats.Add(BuildTwoWeaponCombat()); 
         feats.AddRange(Groups);
     }
 
@@ -75,6 +78,52 @@ internal static class GroupFeats
                 FeatDefinitions.Creed_Of_Misaye,
                 FeatDefinitions.Creed_Of_Pakri,
                 FeatDefinitions.Creed_Of_Solasta
+            ))
+            .SetFeatures()
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildRangedCombat()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatRangedCombat")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.TakeAim,
+                FeatDefinitions.UncannyAccuracy,
+                CraftyFeats.FeatCraftyFletcher,
+                EwFeats.FeatRangedExpert,
+                ZappaFeats.FeatDeadEye,
+                ZappaFeats.FeatMarksman
+            ))
+            .SetFeatures()
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildTwoHandedCombat()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatTwoHandedCombat")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.MightyBlow,
+                FeatDefinitions.ForestallingStrength,
+                FeatDefinitions.FollowUpStrike
+            ))
+            .SetFeatures()
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildTwoWeaponCombat()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatTwoWeaponCombat")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(
+                FeatDefinitions.Ambidextrous,
+                ZappaFeats.FeatDualWeaponDefense,
+                ElAntoniousFeats.FeatDualFlurry,
+                FeatDefinitions.TwinBlade
             ))
             .SetFeatures()
             .AddToDB();
