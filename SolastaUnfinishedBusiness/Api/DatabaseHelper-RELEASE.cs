@@ -200,9 +200,6 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Ape_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Ape_MonsterDefinition");
 
-        internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } =
-            GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
-
         internal static MonsterDefinition BrownBear { get; } =
             GetDefinition<MonsterDefinition>("BrownBear");
 
@@ -218,14 +215,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } =
             GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
 
-        internal static MonsterDefinition Divine_Avatar { get; } =
-            GetDefinition<MonsterDefinition>("Divine_Avatar");
-
         internal static MonsterDefinition Earth_Elemental { get; } =
             GetDefinition<MonsterDefinition>("Earth_Elemental");
-
-        internal static MonsterDefinition Emperor_Laethar { get; } =
-            GetDefinition<MonsterDefinition>("Emperor_Laethar");
 
         internal static MonsterDefinition FeyBear { get; } =
             GetDefinition<MonsterDefinition>("FeyBear");
@@ -251,23 +242,11 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Ghoul { get; } =
             GetDefinition<MonsterDefinition>("Ghoul");
 
-        internal static MonsterDefinition Giant_Ape { get; } =
-            GetDefinition<MonsterDefinition>("Giant_Ape");
-
-        internal static MonsterDefinition GoldDragon_AerElai { get; } =
-            GetDefinition<MonsterDefinition>("GoldDragon_AerElai");
-
         internal static MonsterDefinition Green_Hag { get; } =
             GetDefinition<MonsterDefinition>("Green_Hag");
 
-        internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } =
-            GetDefinition<MonsterDefinition>("GreenDragon_MasterOfConjuration");
-
         internal static MonsterDefinition InvisibleStalker { get; } =
             GetDefinition<MonsterDefinition>("InvisibleStalker");
-
-        internal static MonsterDefinition Remorhaz { get; } =
-            GetDefinition<MonsterDefinition>("Remorhaz");
 
         internal static MonsterDefinition SkarnGhoul { get; } =
             GetDefinition<MonsterDefinition>("SkarnGhoul");
@@ -295,15 +274,6 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Skeleton_Marksman { get; } =
             GetDefinition<MonsterDefinition>("Skeleton_Marksman");
-
-        internal static MonsterDefinition Sorr_Akkath_Shikkath { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Shikkath");
-
-        internal static MonsterDefinition Sorr_Akkath_Tshar_Boss { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Tshar_Boss");
-
-        internal static MonsterDefinition Spider_Queen { get; } =
-            GetDefinition<MonsterDefinition>("Spider_Queen");
 
         internal static MonsterDefinition SuperEgo_Servant_Hostile { get; } =
             GetDefinition<MonsterDefinition>("SuperEgo_Servant_Hostile");
@@ -353,12 +323,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionCalmedByCalmEmotionsAlly { get; } =
             GetDefinition<ConditionDefinition>("ConditionCalmedByCalmEmotionsAlly");
 
-        internal static ConditionDefinition ConditionCharmed { get; } =
-            GetDefinition<ConditionDefinition>("ConditionCharmed");
-
-        internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } =
-            GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
-
         internal static ConditionDefinition ConditionConfused { get; } =
             GetDefinition<ConditionDefinition>("ConditionConfused");
 
@@ -391,9 +355,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionFrightenedFear { get; } =
             GetDefinition<ConditionDefinition>("ConditionFrightenedFear");
-
-        internal static ConditionDefinition ConditionFrightenedPhantasmalKiller { get; } =
-            GetDefinition<ConditionDefinition>("ConditionFrightenedPhantasmalKiller");
 
         internal static ConditionDefinition ConditionHeraldOfBattle { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeraldOfBattle");
@@ -452,12 +413,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionParalyzed { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzed");
 
-        internal static ConditionDefinition ConditionParalyzed_CrimsonSpiderVenom { get; } =
-            GetDefinition<ConditionDefinition>("ConditionParalyzed_CrimsonSpiderVenom");
-
-        internal static ConditionDefinition ConditionParalyzed_GhoulsCaress { get; } =
-            GetDefinition<ConditionDefinition>("ConditionParalyzed_GhoulsCaress");
-
         internal static ConditionDefinition ConditionPoisoned { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisoned");
 
@@ -503,29 +458,17 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStunned { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned");
 
-        internal static ConditionDefinition ConditionStunned_MutantApeSlam { get; } =
-            GetDefinition<ConditionDefinition>("ConditionStunned_MutantApeSlam");
-
-        internal static ConditionDefinition ConditionStunnedConjuredDeath { get; } =
-            GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath");
-
         internal static ConditionDefinition ConditionSurprised { get; } =
             GetDefinition<ConditionDefinition>("ConditionSurprised");
 
         internal static ConditionDefinition ConditionTrueStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionTrueStrike");
-
-        internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } =
-            GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
     }
 
     internal static class ArmorCategoryDefinitions
     {
         internal static ArmorCategoryDefinition LightArmorCategory { get; } =
             GetDefinition<ArmorCategoryDefinition>("LightArmorCategory");
-
-        internal static ArmorCategoryDefinition ShieldCategory { get; } =
-            GetDefinition<ArmorCategoryDefinition>("ShieldCategory");
     }
 
     internal static class CharacterBackgroundDefinitions
@@ -875,23 +818,8 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAbilityCheckAffinitys
     {
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBearsEndurance { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBearsEndurance");
-
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBullsStrength { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBullsStrength");
-
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionCatsGrace { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionCatsGrace");
-
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionEaglesSplendor { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionEaglesSplendor");
-
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionFoxsCunning { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionFoxsCunning");
-
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionOwlsWisdom { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionOwlsWisdom");
 
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFeatLockbreaker { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFeatLockbreaker");
@@ -1150,9 +1078,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
-
-        internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } =
-            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
     }
 
     internal static class FeatureDefinitionConditionAffinitys
@@ -1290,9 +1215,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
-
-        internal static FeatureDefinitionFeatureSet FeatureSetChampionRemarkableAthlete { get; } =
-            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetChampionRemarkableAthlete");
 
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
@@ -1485,12 +1407,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
-
-        internal static FeatureDefinitionPower PowerDomainLawHolyRetribution { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDomainLawHolyRetribution");
-
-        internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
 
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
@@ -1704,9 +1620,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
-
-        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } =
-            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
 
     internal static class FeatureDefinitionSenses
@@ -2710,9 +2623,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Bane { get; } =
             GetDefinition<SpellDefinition>("Bane");
 
-        internal static SpellDefinition Banishment { get; } =
-            GetDefinition<SpellDefinition>("Banishment");
-
         internal static SpellDefinition BeaconOfHope { get; } =
             GetDefinition<SpellDefinition>("BeaconOfHope");
 
@@ -2809,9 +2719,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DimensionDoor { get; } =
             GetDefinition<SpellDefinition>("DimensionDoor");
 
-        internal static SpellDefinition Disintegrate { get; } =
-            GetDefinition<SpellDefinition>("Disintegrate");
-
         internal static SpellDefinition DispelMagic { get; } =
             GetDefinition<SpellDefinition>("DispelMagic");
 
@@ -2859,12 +2766,6 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition FlameBlade { get; } =
             GetDefinition<SpellDefinition>("FlameBlade");
-
-        internal static SpellDefinition FlameStrike { get; } =
-            GetDefinition<SpellDefinition>("FlameStrike");
-
-        internal static SpellDefinition FlamingSphere { get; } =
-            GetDefinition<SpellDefinition>("FlamingSphere");
 
         internal static SpellDefinition Fly { get; } =
             GetDefinition<SpellDefinition>("Fly");
@@ -3069,9 +2970,6 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition Thunderwave { get; } =
             GetDefinition<SpellDefinition>("Thunderwave");
-
-        internal static SpellDefinition TrueSeeing { get; } =
-            GetDefinition<SpellDefinition>("TrueSeeing");
 
         internal static SpellDefinition TrueStrike { get; } =
             GetDefinition<SpellDefinition>("TrueStrike");
