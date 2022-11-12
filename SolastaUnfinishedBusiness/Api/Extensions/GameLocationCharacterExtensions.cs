@@ -4,10 +4,12 @@ public static class GameLocationCharacterExtensions
 {
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeAttackThatCanAttack(
         this GameLocationCharacter instance,
-        GameLocationCharacter target, IGameLocationBattleService service = null)
+        GameLocationCharacter target,
+        IGameLocationBattleService service = null)
     {
         service ??= ServiceRepository.GetService<IGameLocationBattleService>();
-        foreach (RulesetAttackMode mode in instance.RulesetCharacter.AttackModes)
+
+        foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
             if (!mode.Reach)
             {
@@ -15,8 +17,9 @@ public static class GameLocationCharacterExtensions
             }
 
             // Prepare attack evaluation params
-            BattleDefinitions.AttackEvaluationParams attackParams = new BattleDefinitions.AttackEvaluationParams();
-            ActionModifier modifier = new ActionModifier();
+            var attackParams = new BattleDefinitions.AttackEvaluationParams();
+            var modifier = new ActionModifier();
+
             attackParams.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
                 target, target.LocationPosition, modifier);
 

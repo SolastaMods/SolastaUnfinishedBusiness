@@ -11,6 +11,13 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public static class Sprites
 {
+    #region Misc
+
+    internal static AssetReferenceSprite GambitResourceIcon =>
+        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
+
+    #endregion
+
     #region CustomSprites
 
     private static readonly Dictionary<string, Sprite> SpritesByGuid = new();
@@ -178,13 +185,6 @@ public static class Sprites
 
     internal static AssetReferenceSprite ActionGambit =>
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
-
-    #endregion
-
-    #region Misc
-
-    internal static AssetReferenceSprite GambitResourceIcon =>
-        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
 
     #endregion
 }

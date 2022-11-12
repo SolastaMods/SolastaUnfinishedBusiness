@@ -317,6 +317,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionHasted { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHasted");
+
         internal static ConditionDefinition ConditionBlurred { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlurred");
 
@@ -754,10 +757,10 @@ internal static partial class DatabaseHelper
     {
         internal static FeatDefinition DistractingGambit { get; } =
             GetDefinition<FeatDefinition>("DistractingGambit");
-        
+
         internal static FeatDefinition CloakAndDagger { get; } =
             GetDefinition<FeatDefinition>("CloakAndDagger");
-        
+
         internal static FeatDefinition Manipulator { get; } =
             GetDefinition<FeatDefinition>("Manipulator");
 

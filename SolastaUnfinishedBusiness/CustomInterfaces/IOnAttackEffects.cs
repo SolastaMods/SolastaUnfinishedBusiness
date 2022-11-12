@@ -13,8 +13,6 @@ public interface IBeforeAttackEffect
         CharacterActionParams actionParams,
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);
-
-
 }
 
 /**
@@ -23,7 +21,6 @@ public interface IBeforeAttackEffect
  */
 public interface IAfterAttackEffect
 {
-
     public void AfterOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

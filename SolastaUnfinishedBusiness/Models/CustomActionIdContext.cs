@@ -124,6 +124,7 @@ public static class CustomActionIdContext
         if (action.UsesPerTurn > 0)
         {
             var name = action.Name;
+
             if (locationCharacter.UsedSpecialFeatures.ContainsKey(name)
                 && locationCharacter.UsedSpecialFeatures[name] >= action.UsesPerTurn)
             {
@@ -132,8 +133,9 @@ public static class CustomActionIdContext
             }
         }
 
-        int index = locationCharacter.currentActionRankByType[actionType];
+        var index = locationCharacter.currentActionRankByType[actionType];
         var actionPerformanceFilters = locationCharacter.actionPerformancesByType[actionType];
+
         if (action.RequiresAuthorization)
         {
             if (index >= actionPerformanceFilters.Count

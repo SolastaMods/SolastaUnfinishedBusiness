@@ -2,9 +2,9 @@
 
 public class ForcePowerUseInSpendPowerAction
 {
-    public static ForcePowerUseInSpendPowerAction Marker { get; } = new();
-
     private ForcePowerUseInSpendPowerAction()
     {
     }
+
+    public static ForcePowerUseInSpendPowerAction Marker { get; } = new();
 }

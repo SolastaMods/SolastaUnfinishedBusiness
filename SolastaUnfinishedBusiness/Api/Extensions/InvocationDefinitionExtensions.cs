@@ -18,7 +18,8 @@ public static class InvocationDefinitionExtensions
             return ActionType.NoCost;
         }
 
-        RuleDefinitions.ActivationTime time = RuleDefinitions.ActivationTime.Action;
+        var time = RuleDefinitions.ActivationTime.Action;
+
         if (invocation.GrantedSpell != null)
         {
             time = invocation.GrantedSpell.ActivationTime;

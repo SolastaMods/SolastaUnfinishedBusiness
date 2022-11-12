@@ -273,7 +273,7 @@ internal class EffectFormBuilder
 
     internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance = 0)
     {
-        var motionForm = new MotionForm {type = motionType, distance = motionDistance};
+        var motionForm = new MotionForm { type = motionType, distance = motionDistance };
 
         effectForm.motionForm = motionForm;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
@@ -368,7 +368,7 @@ internal class EffectFormBuilder
     internal EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
         var topologyForm =
-            new TopologyForm {changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters};
+            new TopologyForm { changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters };
 
         effectForm.topologyForm = topologyForm;
         effectForm.FormType = EffectForm.EffectFormType.Topology;

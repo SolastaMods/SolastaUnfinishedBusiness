@@ -38,7 +38,7 @@ internal static class SubclassesContext
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
-        
+
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
 

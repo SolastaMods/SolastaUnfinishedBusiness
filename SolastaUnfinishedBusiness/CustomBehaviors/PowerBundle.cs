@@ -727,11 +727,11 @@ internal static class PowerBundle
     }
 }
 
-internal class IsPowerPool: PowerVisibilityModifier
+internal class IsPowerPool : PowerVisibilityModifier
 {
-    public static IsPowerPool Marker { get; } = new();
-
-    private IsPowerPool(): base((_, _, _) => false)
+    private IsPowerPool() : base((_, _, _) => false)
     {
     }
+
+    public static IsPowerPool Marker { get; } = new();
 }

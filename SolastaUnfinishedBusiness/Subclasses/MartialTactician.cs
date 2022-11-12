@@ -17,22 +17,9 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
-    internal override CharacterSubclassDefinition Subclass { get; }
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-
-    //TODO: seems to be used somewhere
-    internal const string CounterStrikeTag = "CounterStrike";
-    internal FeatureDefinitionPower GambitPool { get; set; }
-    public FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
-    public FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
-    public FeatureDefinition EverVigilant { get; set; }
-
-    public static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
+    private static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
     private int _gambitPoolIncreases;
-
 
     internal MartialTactician()
     {
@@ -47,7 +34,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDie")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -56,7 +43,7 @@ internal sealed class MartialTactician : AbstractSubclass
         //make sure that if we add any custom sub-features to base one we add them to this one too
         GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieOnce")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -79,6 +66,16 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildGambits();
     }
 
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+
+    private FeatureDefinitionPower GambitPool { get; }
+    private FeatureDefinitionAdditionalDamage GambitDieDamage { get; }
+    private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
+    private FeatureDefinition EverVigilant { get; }
+
     private FeatureDefinition BuildSharpMind()
     {
         return FeatureDefinitionFeatureSetBuilder
@@ -86,12 +83,12 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPoolTacticianSharpMindSkill")
+                    .Create("PointPoolTacticianSharpMindSkill")
                     .SetGuiPresentationNoContent()
                     .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
                     .AddToDB(),
                 FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPoolTacticianSharpMindExpertise")
+                    .Create("PointPoolTacticianSharpMindExpertise")
                     .SetGuiPresentationNoContent()
                     .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
                     .AddToDB()
@@ -102,7 +99,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private FeatureDefinition BuildEverVigilant()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifierTacticianEverVigilant")
+            .Create("AttributeModifierTacticianEverVigilant")
             .SetGuiPresentation(Category.Feature)
             .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Intelligence)
             .AddToDB();
@@ -124,7 +121,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionTacticianSharedVigilance")
-                        .SetGuiPresentationNoContent(hidden: true)
+                        .SetGuiPresentationNoContent(true)
                         .SetFeatures(EverVigilant)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -144,7 +141,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private FeatureDefinition BuildAdaptiveStrategy()
     {
         var feature = FeatureDefinitionBuilder
-            .Create($"FeatureAdaptiveStrategy")
+            .Create("FeatureAdaptiveStrategy")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -174,23 +171,23 @@ internal sealed class MartialTactician : AbstractSubclass
 
         // sub-feature that spends gambit die when melee attack hits
         var spendDieOnMeleeHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"PowerReactionSpendGambitDieOnMeleeHit")
-            .SetGuiPresentationNoContent(hidden: true)
+            .Create("PowerReactionSpendGambitDieOnMeleeHit")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
             .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool)
             .AddToDB());
 
         var spendDieOnAttackHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"PowerReactionSpendGambitDieOnAttackHit")
-            .SetGuiPresentationNoContent(hidden: true)
+            .Create("PowerReactionSpendGambitDieOnAttackHit")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
             .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
             .AddToDB());
 
         //power that is used spends gambit die
         var spendDiePower = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"PowerReactionSpendGambitDieOnConditionRemoval")
-            .SetGuiPresentationNoContent(hidden: true)
+            .Create("PowerReactionSpendGambitDieOnConditionRemoval")
+            .SetGuiPresentationNoContent(true)
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .AddToDB();
 
@@ -200,7 +197,7 @@ internal sealed class MartialTactician : AbstractSubclass
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
             .Create("FeatureSpendGambitDieOnConditionRemoval")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(spendDieOnAttack)
             .AddToDB();
 
@@ -496,7 +493,7 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetPossessive()
                         .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
-                            .SetGuiPresentationNoContent(hidden: true)
+                            .SetGuiPresentationNoContent(true)
                             .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.AlwaysValid),
                                 new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                             .AddToDB())
@@ -552,7 +549,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(new Retaliate(spendDiePower, ConditionDefinitionBuilder
                 .Create($"Condition{name}")
-                .SetGuiPresentationNoContent(hidden: true)
+                .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(GambitDieDamage)
                 .AddToDB()))
@@ -587,20 +584,21 @@ internal sealed class MartialTactician : AbstractSubclass
             RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null) { return; }
+            if (attackMode == null)
+            {
+                return;
+            }
 
             var character = attacker.RulesetCharacter;
 
-            if (character == null) { return; }
-
-            character.UsePower(UsablePowersProvider.Get(power, character));
+            character?.UsePower(UsablePowersProvider.Get(power, character));
         }
     }
 
     private class RefundPowerUseAfterCrit : IAfterAttackEffect
     {
-        private readonly FeatureDefinitionPower power;
         private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
 
         public RefundPowerUseAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
         {
@@ -614,11 +612,17 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
 
-            if (attackMode == null) { return; }
+            if (attackMode == null)
+            {
+                return;
+            }
 
             var character = attacker.RulesetCharacter;
 
-            if (character == null) { return; }
+            if (character == null)
+            {
+                return;
+            }
 
             if (character.GetRemainingPowerUses(power) < character.GetMaxUsesForPool(power))
             {
@@ -663,12 +667,14 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(attacker);
+
             if (retaliationMode == null)
             {
                 yield break;
             }
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
@@ -682,12 +688,18 @@ internal sealed class MartialTactician : AbstractSubclass
                 character.Guid,
                 string.Empty
             );
+
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
             //TODO: try making this reaction request show how many dice remaining
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams);
-            reactionRequest.Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon);
+            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams)
+            {
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+            };
+
             manager.AddInterruptRequest(reactionRequest);
+
             yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
 
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated

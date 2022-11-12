@@ -70,7 +70,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                    .SetMotionForm(MotionForm.MotionType.FallProne, 0)
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
                     .Build())
                 .Build())
             .AddToDB();
@@ -248,7 +248,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                        .SetMotionForm(MotionForm.MotionType.FallProne, 0)
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
                         .Build(),
                     EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)

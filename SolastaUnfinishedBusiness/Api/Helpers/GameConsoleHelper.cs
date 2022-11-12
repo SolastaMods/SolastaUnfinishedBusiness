@@ -41,7 +41,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
@@ -57,7 +57,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);

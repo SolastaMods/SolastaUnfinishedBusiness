@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CustomConditions
 {
     internal static ConditionDefinition Distracted;
-    
+
     internal static ConditionDefinition StopMovement;
 
     internal static void Load()

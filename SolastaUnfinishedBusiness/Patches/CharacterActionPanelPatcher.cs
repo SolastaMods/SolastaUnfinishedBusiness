@@ -38,7 +38,7 @@ public static class CharacterActionPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
-    [HarmonyPatch(new[] {typeof(ActionDefinitions.Id), typeof(GuiCharacterAction)})]
+    [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnActivateAction_Patch
     {

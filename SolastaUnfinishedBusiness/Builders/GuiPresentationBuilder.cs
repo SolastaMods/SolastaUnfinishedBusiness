@@ -209,7 +209,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
             GuiPresentationBuilder.Build(null, GuiPresentationBuilder.CreateTitleKey(builder.Name, category),
                 description, sprite, sortOrder, hidden));
     }
-    
+
     /// <summary>
     ///     Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br />
     ///     The Title is generated as "{category}/&amp;{name}Title".<br />

@@ -68,7 +68,7 @@ public static class RulesetCharacterPatcher
             var definition = activeCondition.ConditionDefinition;
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
                 .ForEach(c => c.RemoveFeature(__instance));
-            
+
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
                 .ToList()

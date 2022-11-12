@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -343,7 +342,7 @@ internal static class CasterFeats
             .SetInvocations(invocations)
             .AddToDB();
 
-        return new FeatureDefinition[] {spellFeature, grant};
+        return new FeatureDefinition[] { spellFeature, grant };
     }
 
     [NotNull]

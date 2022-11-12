@@ -77,7 +77,7 @@ public static class InvocationActivationBoxPatcher
             {
                 return;
             }
-            
+
             ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 

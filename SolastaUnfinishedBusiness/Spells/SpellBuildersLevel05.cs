@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 0)
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                     .Build())
                 .SetParticleEffectParameters(MistyStep)
                 .Build())
@@ -60,7 +60,7 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
                 .SetEffectForms(EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 0)
+                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                         .Build(),
                     EffectFormBuilder.Create()
                         .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)

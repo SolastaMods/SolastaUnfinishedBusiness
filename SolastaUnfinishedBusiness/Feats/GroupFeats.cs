@@ -27,7 +27,7 @@ internal static class GroupFeats
             FeatDefinitions.ElectrifyingTouch,
             FeatDefinitions.IcyTouch,
             FeatDefinitions.MeltingTouch));
-        
+
         Groups.Add(MakeGroup("FeatGroupTwoHandedCombat", null,
             FeatDefinitions.MightyBlow,
             FeatDefinitions.ForestallingStrength,

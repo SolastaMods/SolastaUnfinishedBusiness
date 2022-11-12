@@ -60,12 +60,6 @@ internal class ConditionDefinitionBuilder
         return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
     }
 
-    internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
-    {
-        Definition.conditionParticleReference = value;
-        return this;
-    }
-
     internal ConditionDefinitionBuilder CopyParticleReferences(ConditionDefinition from)
     {
         Definition.conditionParticleReference = from.conditionParticleReference;
@@ -84,12 +78,6 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {
         Definition.conditionTags.AddRange(tags);
-        return this;
-    }
-
-    internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
-    {
-        Definition.characterShaderReference = value;
         return this;
     }
 
@@ -130,8 +118,7 @@ internal class ConditionDefinitionBuilder
         Definition.Features.Sort(Sorting.Compare);
         return this;
     }
-    
-    
+
     internal ConditionDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
     {
         Definition.Features.SetRange(value);
@@ -185,12 +172,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder ClearSpecialInterruptions()
-    {
-        Definition.SpecialInterruptions.Clear();
-        return this;
-    }
-
     internal ConditionDefinitionBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
@@ -215,13 +196,19 @@ internal class ConditionDefinitionBuilder
         Definition.SpecialInterruptions.AddRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
         return this;
     }
-#endif
+
+    internal ConditionDefinitionBuilder ClearSpecialInterruptions()
+    {
+        Definition.SpecialInterruptions.Clear();
+        return this;
+    }
 
     internal ConditionDefinitionBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
         return this;
     }
+#endif
 
     internal ConditionDefinitionBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0,
         bool validate = true)
