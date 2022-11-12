@@ -752,6 +752,24 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
+        internal static FeatDefinition FlawlessConcentration { get; } =
+            GetDefinition<FeatDefinition>("FlawlessConcentration");
+
+        internal static FeatDefinition PowerfulCantrip { get; } =
+            GetDefinition<FeatDefinition>("PowerfulCantrip");
+
+        internal static FeatDefinition InitiateAlchemist { get; } =
+            GetDefinition<FeatDefinition>("InitiateAlchemist");
+
+        internal static FeatDefinition MasterAlchemist { get; } =
+            GetDefinition<FeatDefinition>("MasterAlchemist");
+
+        internal static FeatDefinition InitiateEnchanter { get; } =
+            GetDefinition<FeatDefinition>("InitiateEnchanter");
+
+        internal static FeatDefinition MasterEnchanter { get; } =
+            GetDefinition<FeatDefinition>("MasterEnchanter");
+
         internal static FeatDefinition BadlandsMarauder { get; } =
             GetDefinition<FeatDefinition>("BadlandsMarauder");
 
