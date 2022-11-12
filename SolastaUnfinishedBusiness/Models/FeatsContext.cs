@@ -30,7 +30,6 @@ internal static class FeatsContext
         ArmorFeats.CreateArmorFeats(feats);
         CasterFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
-        OtherFeats.CreateFeats(feats);
         HealingFeats.CreateFeats(feats);
         PickPocketContext.CreateFeats(feats);
         CraftyFeats.CreateFeats(feats);

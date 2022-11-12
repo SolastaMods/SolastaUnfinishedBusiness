@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -71,20 +70,14 @@ internal sealed class Executioner : AbstractFightingStyle
                 return;
             }
 
-            var proficiencyBonus = 
+            var proficiencyBonus =
                 attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            
             var additionalDice = EffectFormBuilder
                 .Create()
                 .SetDamageForm(damage.damageType, 0, RuleDefinitions.DieType.D4, proficiencyBonus)
                 .Build();
 
             effectDescription.EffectForms.Insert(i + 1, additionalDice);
-
-            GameConsoleHelper.LogCharacterAffectsTarget(
-                attacker.RulesetCharacter,
-                rulesetDefender,
-                ExecutionerName);
         }
 
         public void AfterOnAttackDamage(
@@ -99,7 +92,6 @@ internal sealed class Executioner : AbstractFightingStyle
             bool criticalHit,
             bool firstTarget)
         {
-
         }
     }
 }
