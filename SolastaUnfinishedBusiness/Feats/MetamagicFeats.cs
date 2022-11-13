@@ -24,8 +24,8 @@ internal static class MetamagicFeats
     private static List<FeatDefinition> BuildMetamagic()
     {
         // Metamagic
-        var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
@@ -43,7 +43,7 @@ internal static class MetamagicFeats
                     Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
                 .SetFeatures(
                     ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2,
+                    attributeModifierSorcererSorceryPointsBonus3,
                     FeatureDefinitionBuilder
                         .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
                         .SetGuiPresentationNoContent(true)
