@@ -25,14 +25,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
-        GambitPool = FeatureDefinitionPowerBuilder
-            .Create("PowerPoolTacticianGambit")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(IsPowerPool.Marker)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
-            .AddToDB();
-
-        GambitPool.AddCustomSubFeatures(new CustomPortraitPoolPower(GambitPool, icon: Sprites.GambitResourceIcon));
+        BuildGambitPool();
 
         GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDie")
@@ -70,12 +63,22 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildGambits();
     }
 
+    private static void BuildGambitPool()
+    {
+        GambitPool = FeatureDefinitionPowerBuilder
+            .Create("PowerPoolTacticianGambit")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(IsPowerPool.Marker)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
+            .AddToDB();
+    }
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private FeatureDefinitionPower GambitPool { get; }
+    private static FeatureDefinitionPower GambitPool { get; set; }
     private FeatureDefinitionAdditionalDamage GambitDieDamage { get; }
     private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
     private FeatureDefinition EverVigilant { get; }
@@ -734,6 +737,20 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
+        }
+    }
+
+    internal class GambitActionDiceBox : IActionItemDiceBox
+    {
+        public static IActionItemDiceBox Instance { get; } = new GambitActionDiceBox();
+
+        private GambitActionDiceBox()
+        {
+        }
+
+        public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
+        {
+            return (GetGambitDieSize(character), character.GetRemainingPowerUses(GambitPool), "Screen/&GambitDieDescription");
         }
     }
 }
