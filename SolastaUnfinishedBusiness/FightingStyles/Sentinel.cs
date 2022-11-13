@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -15,7 +16,7 @@ internal sealed class Sentinel : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)
-        .SetGuiPresentation(Category.FightingStyle)
+        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer)
         .SetFeatures(FeatureDefinitionBuilder
             .Create("OnAttackHitEffectFeatSentinel")
             .SetGuiPresentationNoContent(true)
