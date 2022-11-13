@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CustomConditionsContext
 {
     internal static ConditionDefinition Distracted;
-    
+
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
@@ -32,7 +32,7 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetDuration(RuleDefinitions.DurationType.Round, 1)
+            .SetDuration(DurationType.Round, 1)
             .AddToDB();
     }
 
@@ -56,7 +56,7 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         var conditionLightSensitive = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionLightSensitive")
+            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionLightSensitivity")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
