@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.FightingStyles;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -68,7 +68,7 @@ internal static class AttacksOfOpportunity
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
 
-        RequestReactionAttack(OtherFeats.SentinelFeat, new CharacterActionParams(
+        RequestReactionAttack(Sentinel.SentinelName, new CharacterActionParams(
             unit,
             ActionDefinitions.Id.AttackOpportunity,
             opportunityAttackMode,

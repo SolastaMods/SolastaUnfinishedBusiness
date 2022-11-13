@@ -20,7 +20,9 @@ internal static class FightingStyleContext
         LoadStyle(new HandAndAHalf());
         LoadStyle(new LightFooted());
         LoadStyle(new Merciless());
+        LoadStyle(new PolearmExpert());
         LoadStyle(new Pugilist());
+        LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
 
         // sorting
