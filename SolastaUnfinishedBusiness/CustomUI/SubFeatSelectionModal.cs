@@ -90,12 +90,12 @@ internal class SubFeatSelectionModal : GuiGameScreen
         var num = subFeats.Count;
         var columns = (int)Math.Ceiling(num / 6f);
         var d = (1 - columns) / 2f;
-        var headerMaxWidth = (columns + 0.2f) * FeatsContext.Width;
+        float headerMaxWidth = (columns + 0.2f) * FeatsContext.Width + (columns - 1) * FeatsContext.Spacing * 2;
 
         var sz = headerRect.sizeDelta;
-        sz.x = columns * FeatsContext.Width + (columns - 1) * FeatsContext.Spacing * 2;
+        sz.x = FeatsContext.Width;
         headerRect.sizeDelta = sz;
-        headerRect.position = position + new Vector3(hstep * d, 0, 0);
+        headerRect.position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
         SetColor(header, HeaderColor);
 
