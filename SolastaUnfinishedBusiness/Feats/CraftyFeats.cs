@@ -4,35 +4,14 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CraftyFeats
 {
-    internal static readonly FeatDefinition FeatCraftyFletcher = FeatDefinitionBuilder
-        .Create("FeatCraftyFletcher")
-        .SetGuiPresentation(Category.Feat)
-        .SetFeatures(AttributeModifierCreed_Of_Misaye, FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftySmithsTools")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-            .AddToDB(), FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyBows")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Weapon,
-                CustomWeaponsContext.HandXbowWeaponType.Name,
-                ShortbowType.Name,
-                LongbowType.Name,
-                LightCrossbowType.Name,
-                HeavyCrossbowType.Name)
-            .AddToDB())
-        .AddToDB();
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
@@ -151,8 +130,7 @@ internal static class CraftyFeats
             FeatDefinitions.InitiateEnchanter,
             FeatDefinitions.MasterEnchanter);
 
-        _ = GroupFeats.MakeGroup("FeatGroupTools", null,
-            FeatCraftyFletcher,
+        GroupFeats.MakeGroup("FeatGroupTools", null,
             FeatDefinitions.Lockbreaker,
             featGroupApothecary,
             featGroupToxicologist,
@@ -167,7 +145,6 @@ internal static class CraftyFeats
             featToxicologistInt,
             featToxicologistWis,
             featToxicologistCha,
-            featCraftyScriber,
-            FeatCraftyFletcher);
+            featCraftyScriber);
     }
 }

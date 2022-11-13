@@ -44,7 +44,7 @@ public static class RulesetCharacterMonsterPatcher
             return instructions.ReplaceCalls(refreshAttributes, "RulesetCharacterMonster.RefreshAll",
                 new CodeInstruction(OpCodes.Call, refreshAttributeModifiers),
                 new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, refreshAttributes));
+                new CodeInstruction(OpCodes.Callvirt, refreshAttributes)); // checked for Call vs CallVirtual
         }
     }
 

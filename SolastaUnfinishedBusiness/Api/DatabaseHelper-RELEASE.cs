@@ -1,7 +1,7 @@
 // this file is manually maintained
 // whenever you use a definition in DEBUG mode copy it over here
 // goal is to increase mod boot time and reduce total payload size
-// last update on 11/11/22 11:00 PM
+// last update on 11/13/22 10:30 AM
 
 using TA.AI;
 
@@ -698,6 +698,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatDefinitions
     {
+        internal static FeatDefinition TripAttack { get; } =
+            GetDefinition<FeatDefinition>("TripAttack");
+
+        internal static FeatDefinition DauntingPush { get; } =
+            GetDefinition<FeatDefinition>("DauntingPush");
+
         internal static FeatDefinition DistractingGambit { get; } =
             GetDefinition<FeatDefinition>("DistractingGambit");
 
@@ -1758,9 +1764,6 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition BeltOfRegeneration { get; } =
             GetDefinition<ItemDefinition>("BeltOfRegeneration");
-
-        internal static ItemDefinition Berry_Ration { get; } =
-            GetDefinition<ItemDefinition>("Berry_Ration");
 
         internal static ItemDefinition Bolt { get; } =
             GetDefinition<ItemDefinition>("Bolt");

@@ -148,7 +148,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Charismatic Precision[/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
-[*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible.
+[*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible:
 • Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
 • Your ranged weapon attacks ignore half cover and three-quarters cover.
 • You can choose to take a -PB penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 2xPB damage of the weapon's type.
@@ -176,34 +176,24 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Flame Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Fletcher[/b]: Increase your Dexterity by 1, to a maximum of 20.
-You gain proficiency with smith's tools, or expertise if you are already proficient. You gain proficiency with all bows and crossbows.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
-[*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Metamagic: Careful Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Careful Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Distant Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Distant Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Empowered Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Empowered Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Extended Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Extended Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Heightened Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Heightened Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Quickened Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Quickened Spell metamagic and gain 2 sorcery points.
-[*][b]Metamagic: Twinned Spell[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Twinned Spell metamagic and gain 2 sorcery points.
+[*][b]Metamagic: Careful Spell[/b]: You gain 3 sorcery points and learn the Careful Spell metamagic: Allied creatures affected by the spell automatically succeed their saving throw 
+[*][b]Metamagic: Distant Spell[/b]: You gain 3 sorcery points and learn the Distant Spell metamagic: Doubles the range of a spell or change the range of a touch spell to 30 feet 
+[*][b]Metamagic: Empowered Spell[/b]: You gain 3 sorcery points and learn the Empowered Spell metamagic: All damage dice rolls of 1 or 2 are rerolled, keeping the new result 
+[*][b]Metamagic: Extended Spell[/b]: You gain 3 sorcery points and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours 
+[*][b]Metamagic: Heightened Spell[/b]: You gain 3 sorcery points and learn the Heightened Spell metamagic: Can force a creature to roll the saving throw with disadvantage 
+[*][b]Metamagic: Quickened Spell[/b]: You gain 3 sorcery points and learn the Quickened Spell metamagic: Can cast a main action spell with a bonus action instead, though you can't cast another spell during the same turn, except for cantrips. 
+[*][b]Metamagic: Twinned Spell[/b]: You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target 
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
@@ -312,8 +302,8 @@ This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level 
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
-[*][b]Radiant Motes[/b]: Unleashes a swarm of 5 radiant projectiles that deal 1d4 radiant damage each.
-When you cast this spell using a spell slot of 2nd level or higher, the spell creates 2 more projectiles for each slot above 1st.
+[*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
+When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -374,17 +364,17 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Moonlit, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master improvements, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Shield
-[*][b]Nd[/b]: Marshal, Opportunist, Raven
+[*][b]Nd[/b]: Spell Shield improvements, Marshal, Opportunist, Raven
+[*][b]DubhHerder[/b]: gameplay, spells, Moonlit
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Circle of The Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
-[*][b]DubhHerder[/b]: gameplay, spells
 [*][b]Esker[/b]: ruleset support, qa
 [*][b]Lyraele[/b]: ruleset support, qa
 [/list]

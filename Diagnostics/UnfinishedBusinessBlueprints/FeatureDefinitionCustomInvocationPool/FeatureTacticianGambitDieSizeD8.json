@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "SorceryPoints",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureTacticianGambitDieSizeD8Title",
+    "description": "Feature/&FeatureTacticianGambitDieSizeD8Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c83ac082-07a8-539e-b6ae-157e640b3a3c",
+  "guid": "2e930de2-ade4-5563-b5cb-f65b3d4ba395",
   "contentPack": 9999,
-  "name": "AttributeModifierSorcererSorceryPointsBonus2"
+  "name": "FeatureTacticianGambitDieSizeD8"
 }

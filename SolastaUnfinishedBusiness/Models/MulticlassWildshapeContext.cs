@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -77,13 +76,13 @@ internal static class MulticlassWildshapeContext
             return;
         }
 
-        //for some reason TA didn't set armor properly and many game checks consider these forms as armored (1.4.20)
+        //for some reason TA didn't set armor properly and many game checks consider these forms as armored (1.4.24)
         //set armor to 'Natural' as intended
         monster.MonsterDefinition.armor = EquipmentDefinitions.EmptyMonsterArmor;
 
         var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
-        //Vanilla game (as of 1.4.20) sets this to monster's AC from definition
+        //Vanilla game (as of 1.4.24) sets this to monster's AC from definition
         //this breaks many AC stacking rules
         //set base AC to 0, so we can properly apply modifiers to it
         ac.BaseValue = 0;
@@ -102,7 +101,6 @@ internal static class MulticlassWildshapeContext
             monster.MonsterDefinition.ArmorClass, TagNaturalAc
         );
 
-        mod.tags.Add(ExclusiveAcBonus.TagNaturalArmor);
         ac.AddModifier(mod);
 
         //DEX bonus to AC

@@ -291,26 +291,19 @@ DamageAffinityInfusionResistantArmorDamagePsychic	Description='Resistance to Psy
 DamageAffinityInfusionResistantArmorDamageRadiant	Description='Resistance to Radiant: damage is halved'.
 DamageAffinityInfusionResistantArmorDamageThunder	Description='Resistance to Thunder: damage is halved'.
 FeatAdeptMetamagicCarefullSpell	Title='Metamagic: Careful Spell'.
-FeatAdeptMetamagicCarefullSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Careful Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicCarefullSpell	Description='You gain 3 sorcery points and learn the Careful Spell metamagic: Allied creatures affected by the spell automatically succeed their saving throw '.
 FeatAdeptMetamagicDistantSpell	Title='Metamagic: Distant Spell'.
-FeatAdeptMetamagicDistantSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Distant Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicDistantSpell	Description='You gain 3 sorcery points and learn the Distant Spell metamagic: Doubles the range of a spell or change the range of a touch spell to 30 feet '.
 FeatAdeptMetamagicEmpoweredSpell	Title='Metamagic: Empowered Spell'.
-FeatAdeptMetamagicEmpoweredSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Empowered Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicEmpoweredSpell	Description='You gain 3 sorcery points and learn the Empowered Spell metamagic: All damage dice rolls of 1 or 2 are rerolled, keeping the new result '.
 FeatAdeptMetamagicExtendedSpell	Title='Metamagic: Extended Spell'.
-FeatAdeptMetamagicExtendedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Extended Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicExtendedSpell	Description='You gain 3 sorcery points and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours '.
 FeatAdeptMetamagicHeightenedSpell	Title='Metamagic: Heightened Spell'.
-FeatAdeptMetamagicHeightenedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Heightened Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicHeightenedSpell	Description='You gain 3 sorcery points and learn the Heightened Spell metamagic: Can force a creature to roll the saving throw with disadvantage '.
 FeatAdeptMetamagicQuickenedSpell	Title='Metamagic: Quickened Spell'.
-FeatAdeptMetamagicQuickenedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Quickened Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicQuickenedSpell	Description='You gain 3 sorcery points and learn the Quickened Spell metamagic: Can cast a main action spell with a bonus action instead, though you can't cast another spell during the same turn, except for cantrips. '.
 FeatAdeptMetamagicTwinnedSpell	Title='Metamagic: Twinned Spell'.
-FeatAdeptMetamagicTwinnedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
-You learn the Twinned Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicTwinnedSpell	Description='You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target '.
 InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.

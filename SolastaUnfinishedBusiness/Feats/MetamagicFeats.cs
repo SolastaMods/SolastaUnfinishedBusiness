@@ -24,12 +24,12 @@ internal static class MetamagicFeats
     private static List<FeatDefinition> BuildMetamagic()
     {
         // Metamagic
-        var attributeModifierSorcererSorceryPointsBonus2 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.SorceryPoints, 2)
+                AttributeDefinitions.SorceryPoints, 3)
             .AddToDB();
 
         var metaMagicFeats = new List<FeatDefinition>();
@@ -40,11 +40,12 @@ internal static class MetamagicFeats
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
-                    Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
+                    Gui.Format("Feat/&FeatAdeptMetamagicDescription",
+                        metamagicOptionDefinition.FormatTitle(),
+                        metamagicOptionDefinition.FormatDescription()))
                 .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
                     ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus2,
+                    attributeModifierSorcererSorceryPointsBonus3,
                     FeatureDefinitionBuilder
                         .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
                         .SetGuiPresentationNoContent(true)

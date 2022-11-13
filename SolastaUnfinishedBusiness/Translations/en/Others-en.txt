@@ -71,6 +71,7 @@ Tooltip/&MonsterNaturalArmorTitle=Natural Armor
 Tooltip/&CustomMapMarkerCamp=Camp
 Tooltip/&CustomMapMarkerExit=Exit
 Tooltip/&CustomMapMarkerTeleport=Teleporter
+Tooltip/&FeatGroupTitle=Feat Group
 Tooltip/&PreReqDoesNotHaveFightingStyle=Doesn't know {0}
 Tooltip/&PreReqIsNot=Isn't {0}
 Tooltip/&Tag9000Title=Custom Effect

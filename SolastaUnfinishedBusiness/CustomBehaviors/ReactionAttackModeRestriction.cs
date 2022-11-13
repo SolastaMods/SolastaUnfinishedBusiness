@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -36,7 +35,7 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
         };
     }
 #endif
-    
+
     internal static bool CanCharacterReactWithPower(GameLocationBattleManager _, RulesetUsablePower usablePower)
     {
         var (attacker, defender, attackMode) = ReactionContext;

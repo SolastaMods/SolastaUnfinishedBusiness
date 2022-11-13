@@ -1,3 +1,4 @@
+using System;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -721,14 +722,14 @@ public static class InnovationAlchemy
 
     private sealed class Overcharge : ICustomOverchargeProvider
     {
-        private static readonly (int, int)[] None = System.Array.Empty<(int, int)>();
+        private static readonly (int, int)[] None = Array.Empty<(int, int)>();
         private static readonly (int, int)[] Once = { (1, 1) };
         private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {
             var overcharges = character.GetSubFeaturesByType<OverchargeFeature>().Count;
-            
+
             if (overcharges >= 2)
             {
                 return Twice;

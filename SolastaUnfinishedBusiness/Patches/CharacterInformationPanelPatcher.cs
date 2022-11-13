@@ -63,11 +63,11 @@ public static class CharacterInformationPanelPatcher
                 .ReplaceCall(containsMethod,
                     2, "CharacterInformationPanel.Refresh.Contains.1",
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
-                    new CodeInstruction(OpCodes.Call, containsMethod))
+                    new CodeInstruction(OpCodes.Callvirt, containsMethod))// checked for Call vs CallVirtual
                 .ReplaceCall(containsMethod,
                     3, "CharacterInformationPanel.Refresh.Contains.2",
                     new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod),
-                    new CodeInstruction(OpCodes.Call, containsMethod));
+                    new CodeInstruction(OpCodes.Callvirt, containsMethod));// checked for Call vs CallVirtual
         }
     }
 }

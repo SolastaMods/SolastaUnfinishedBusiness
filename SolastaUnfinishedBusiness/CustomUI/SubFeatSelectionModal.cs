@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -77,17 +79,30 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
         attachTo.GetWorldCorners(corners);
 
-        var step = corners[0].y - corners[1].y - 4f;
+        const float H_STEP = FeatsContext.Width + (2 * FeatsContext.Spacing);
+        const float V_STEP = -(FeatsContext.Height + FeatsContext.Spacing);
+
         var position = attachTo.position;
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
         var header = Gui.GetPrefabFromPool(featPrefab, featTable).GetComponent<FeatItem>();
 
         InitFeatItem(feat, header);
-        header.GetComponent<RectTransform>().position = position;
+
+        var headerRect = header.GetComponent<RectTransform>();
+        var num = subFeats.Count;
+        var columns = (int)Math.Ceiling(num / 6f);
+        var d = (1 - columns) / 2f;
+        var headerMaxWidth = ((columns + 0.2f) * FeatsContext.Width) + ((columns - 1) * FeatsContext.Spacing * 2);
+
+        var sz = headerRect.sizeDelta;
+
+        sz.x = FeatsContext.Width;
+        headerRect.sizeDelta = sz;
+        headerRect.position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
         SetColor(header, HeaderColor);
 
-        position += new Vector3(0, step, 0);
+        position += new Vector3(0, V_STEP, 0);
 
         var i = 0;
 
@@ -96,12 +111,17 @@ internal class SubFeatSelectionModal : GuiGameScreen
             var item = Gui.GetPrefabFromPool(featPrefab, featTable);
 
             InitFeatItem(subFeat, item.GetComponent<FeatItem>());
-            item.GetComponent<RectTransform>().position = position + new Vector3(0, step * i, 0);
+
+            var column = i % columns;
+            var row = i / columns;
+
+            item.GetComponent<RectTransform>().position =
+                position + new Vector3(H_STEP * (column + d), V_STEP * row, 0);
             item.transform.SetAsFirstSibling();
             i++;
         }
 
-        animator.Init(background, featTable);
+        animator.Init(background, featTable, headerMaxWidth);
 
         Visible = false;
     }
@@ -117,6 +137,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         for (var i = 0; i < featTable.childCount; i++)
         {
             var featItem = featTable.GetChild(i).GetComponent<FeatItem>();
+
             featItem.Unbind();
         }
 
@@ -240,8 +261,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         component.Tooltip.Anchor = baseItem.Tooltip.Anchor;
         component.Tooltip.AnchorMode = baseItem.Tooltip.AnchorMode;
 
-        //TODO: respect feat resize settings
-        component.RectTransform.sizeDelta = new Vector2(300, 44);
+        component.RectTransform.sizeDelta = new Vector2(FeatsContext.Width, FeatsContext.Height);
     }
 
     private static void UpdateFeatState(FeatItem item)
@@ -269,7 +289,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         else
         {
             var isRestricted = restrictedChoices.Count != 0;
-            
+
             if (isRestricted)
             {
                 var hasRestrictedFeats = restrictedChoices

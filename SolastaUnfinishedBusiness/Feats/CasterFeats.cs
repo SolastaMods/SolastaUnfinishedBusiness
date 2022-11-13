@@ -24,6 +24,8 @@ internal static class CasterFeats
         FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spells;
         FeatureDefinitionAutoPreparedSpells autoPreparedSpells;
 
+        #region Telekinetic
+
         // telekinetic general
         const string TELEKINETIC = "Telekinetic";
 
@@ -90,6 +92,8 @@ internal static class CasterFeats
         groupFeats.SetRange(featTelekineticInt, featTelekineticCha, featTelekineticWis);
         groups.Add(GroupFeats.MakeGroup("FeatGroupTelekinetic", TELEKINETIC, groupFeats));
         feats.AddRange(groupFeats);
+
+        #endregion
 
         #region Fey Teleportation
 

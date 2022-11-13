@@ -44,7 +44,7 @@ public static class WorldLocationPatcher
                 new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos),
                 new CodeInstruction(OpCodes.Ldloc_S, userRoomPos),
                 new CodeInstruction(OpCodes.Call, addVegetationMaskAreaMethod),
-                new CodeInstruction(OpCodes.Call, setLocalPositionMethod),
+                new CodeInstruction(OpCodes.Call, setLocalPositionMethod), // checked for Call vs CallVirtual
                 new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos),
                 new CodeInstruction(OpCodes.Ldloc_S, userRoomPos),
                 new CodeInstruction(OpCodes.Call, setupFlatRoomsMethod));

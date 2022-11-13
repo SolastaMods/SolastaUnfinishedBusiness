@@ -79,13 +79,13 @@ internal static class GlobalUniqueEffects
         GetGroup(group).Item1.AddRange(powers);
     }
 
-    #if false
+#if false
     internal static void AddToGroup(Group group, [NotNull] params SpellDefinition[] spells)
     {
         GetGroup(group).Item2.AddRange(spells);
     }
 #endif
-    
+
     /**
      * Used in the patch to terminate all matching powers and spells of same group
      */

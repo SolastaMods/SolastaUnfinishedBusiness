@@ -1,14 +1,12 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "CEHandXbowType",
-    "HeavyCrossbowType",
-    "LightCrossbowType",
-    "LongbowType",
-    "ShortbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "SorceryPoints",
+  "modifierOperation": "Additive",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -33,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "424d5757-ca3f-5f7d-b2fb-6f340a96fb17",
+  "guid": "62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyBows"
+  "name": "AttributeModifierSorcererSorceryPointsBonus3"
 }
