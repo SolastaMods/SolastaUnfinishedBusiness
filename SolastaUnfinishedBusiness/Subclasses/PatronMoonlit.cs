@@ -36,7 +36,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var conditionMoonlitInvisibility = ConditionDefinitionBuilder
-            .Create("ConditionMoonlitInvisible")
+            .Create("ConditionMoonlitInvisibility")
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(MoonlitInvisibility.Build())
@@ -240,7 +240,7 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
             .AddToDB();
 
         ConditionMoonlitInvisibility = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisibility")
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible")
             .SetCancellingConditions(ConditionMoonlitRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
