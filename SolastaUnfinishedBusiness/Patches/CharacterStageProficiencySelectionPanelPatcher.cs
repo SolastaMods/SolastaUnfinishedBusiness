@@ -75,11 +75,13 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                 }
             }
 
-            if (needSkip)
+            if (!needSkip)
             {
-                item.ignoreAvailable = true;
-                item.Refresh(LearnStepItem.Status.InProgress);
+                return;
             }
+
+            item.ignoreAvailable = true;
+            item.Refresh(LearnStepItem.Status.InProgress);
         }
     }
 

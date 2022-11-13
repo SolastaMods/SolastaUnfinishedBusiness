@@ -696,37 +696,24 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
+            foreach (var definition in hero.CharacterInventory.InventorySlotsByName
+                         .Select(keyValuePair => keyValuePair.Value)
+                         .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
+                         .Select(slot => slot.EquipedItem)
+                         .SelectMany(equipedItem => equipedItem.DynamicItemProperties
+                             .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
+                             .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
             {
-                var slot = keyValuePair.Value;
+                featuresToBrowse.Add(definition);
 
-                if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
+                if (featuresOrigin.ContainsKey(definition))
                 {
                     continue;
                 }
 
-                var equipedItem = slot.EquipedItem;
-
-                foreach (var dynamicItemProperty in equipedItem.DynamicItemProperties)
-                {
-                    var definition = dynamicItemProperty.FeatureDefinition;
-
-                    if (definition == null || definition is not ISpellCastingAffinityProvider)
-                    {
-                        continue;
-                    }
-
-                    featuresToBrowse.Add(definition);
-
-                    if (featuresOrigin.ContainsKey(definition))
-                    {
-                        continue;
-                    }
-
-                    featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
-                        RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
-                        null, definition.ParseSpecialFeatureTags()));
-                }
+                featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
+                    RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
+                    null, definition.ParseSpecialFeatureTags()));
             }
         }
 

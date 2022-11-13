@@ -56,15 +56,16 @@ public static class RulesetCharacterHeroPatcher
                 return false;
             }
 
-            //PATCH: report invocation as castable if this is a power we can use
+            //PATCH: report invocation as cast-able if this is a power we can use
             var power = invocation.invocationDefinition.GetPower();
-            if (power)
+
+            if (!power)
             {
-                __result = __instance.CanUsePower(power);
-                return false;
+                return true;
             }
 
-            return true;
+            __result = __instance.CanUsePower(power);
+            return false;
         }
     }
 
@@ -90,12 +91,14 @@ public static class RulesetCharacterHeroPatcher
 
                 foreach (var repertoire in __instance.SpellRepertoires)
                 {
-                    if (matcher(repertoire, __instance))
+                    if (!matcher(repertoire, __instance))
                     {
-                        invocation.invocationRepertoire = repertoire;
-                        invocation.spellCastingFeature = repertoire.spellCastingFeature;
-                        break;
+                        continue;
                     }
+
+                    invocation.invocationRepertoire = repertoire;
+                    invocation.spellCastingFeature = repertoire.spellCastingFeature;
+                    break;
                 }
             }
         }
@@ -392,8 +395,6 @@ public static class RulesetCharacterHeroPatcher
             }
 
             // ReSharper disable once RedundantAssignment
-            var original = experiencePoints;
-
             experiencePoints =
                 (int)Math.Round(experiencePoints * Main.Settings.MultiplyTheExperienceGainedBy / 100.0f,
                     MidpointRounding.AwayFromZero);

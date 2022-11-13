@@ -14,8 +14,11 @@ public static class CharacterActionSpendPowerPatcher
         public static void Postfix(CharacterActionSpendPower __instance)
         {
             //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
-            var activePower = __instance.ActionParams.RulesetEffect as RulesetEffectPower;
-            if (activePower == null || activePower.OriginItem != null) { return; }
+
+            if (__instance.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
+            {
+                return;
+            }
 
             var usablePower = activePower.UsablePower;
             if (usablePower.OriginClass != null || usablePower.OriginRace != null)

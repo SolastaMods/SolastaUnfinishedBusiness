@@ -17,7 +17,7 @@ public class SpellsByLevelGroupPatcher
             Dictionary<SpellDefinition, string> extraSpellsMap
         )
         {
-            //PATCH: add all auto prepared spells to extra apells map, so that different sources of auto spells won't bleed their tag
+            //PATCH: add all auto prepared spells to extra spells map, so that different sources of auto spells won't bleed their tag
             LevelUpContext.EnumerateExtraSpells(extraSpellsMap, caster as RulesetCharacterHero);
         }
     }

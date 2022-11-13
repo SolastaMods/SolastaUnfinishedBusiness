@@ -11,7 +11,7 @@ public static class SpellBoxPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Bind_Patch
     {
-        private static string extraTag;
+        private static string _extraTag;
 
         public static void Prefix(
             SpellBox __instance,
@@ -30,7 +30,7 @@ public static class SpellBoxPatcher
                 || extraSpellTag.StartsWith(LevelUpContext.ExtraSubclassTag))
             {
                 //store original extra tag and reset both - actual texts would be handled on Postfix for this case
-                extraTag = extraSpellTag;
+                _extraTag = extraSpellTag;
                 autoPreparedTag = null;
                 extraSpellTag = null;
                 return;
@@ -50,13 +50,13 @@ public static class SpellBoxPatcher
         public static void Postfix(SpellBox __instance)
         {
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on levelup
-            if (string.IsNullOrEmpty(extraTag))
+            if (string.IsNullOrEmpty(_extraTag))
             {
                 return;
             }
 
-            var parts = extraTag.Split('|');
-            extraTag = null;
+            var parts = _extraTag.Split('|');
+            _extraTag = null;
 
             if (parts.Length != 2)
             {
@@ -66,22 +66,22 @@ public static class SpellBoxPatcher
             var type = parts[0];
             var name = parts[1];
 
-            const string classFormat = "Screen/&ClassExtraSpellDescriptionFormat";
-            const string subclassFormat = "Screen/&SubclassClassExtraSpellDescriptionFormat";
+            const string CLASS_FORMAT = "Screen/&ClassExtraSpellDescriptionFormat";
+            const string SUBCLASS_FORMAT = "Screen/&SubclassClassExtraSpellDescriptionFormat";
 
             if (type == LevelUpContext.ExtraClassTag &&
                 DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(name, out var classDef))
             {
                 name = classDef.FormatTitle();
                 __instance.autoPreparedTitle.Text = name;
-                __instance.autoPreparedTooltip.Content = Gui.Format(classFormat, name);
+                __instance.autoPreparedTooltip.Content = Gui.Format(CLASS_FORMAT, name);
             }
             else if (type == LevelUpContext.ExtraSubclassTag &&
                      DatabaseHelper.TryGetDefinition<CharacterSubclassDefinition>(name, out var subDef))
             {
                 name = subDef.FormatTitle();
                 __instance.autoPreparedTitle.Text = name;
-                __instance.autoPreparedTooltip.Content = Gui.Format(subclassFormat, name);
+                __instance.autoPreparedTooltip.Content = Gui.Format(SUBCLASS_FORMAT, name);
             }
         }
     }

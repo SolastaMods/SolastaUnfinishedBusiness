@@ -461,7 +461,7 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: Completely replace this method to suppoort several features. Modified method based on TA provided sources.
+            //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
             __result = GameLocationBattleManagerTweaks.HandleAdditionalDamageOnCharacterAttackHitConfirmed(__instance,
                 attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms,
                 rulesetEffect, criticalHit, firstTarget);

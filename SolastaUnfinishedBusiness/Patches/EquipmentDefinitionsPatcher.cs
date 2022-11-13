@@ -144,7 +144,7 @@ public static class SignificantDigits
         roundingPosition = significantDigits - 1 - (int)Math.Floor(Math.Log10(Math.Abs(value)));
 
         // try to use a rounding position directly, if no scale is needed.
-        // this is because the scale mutliplication after the rounding can introduce error, although 
+        // this is because the scale multiplication after the rounding can introduce error, although 
         // this only happens when you're dealing with really tiny numbers, i.e 9.9e-14.
         if (roundingPosition is > 0 and < 16)
         {

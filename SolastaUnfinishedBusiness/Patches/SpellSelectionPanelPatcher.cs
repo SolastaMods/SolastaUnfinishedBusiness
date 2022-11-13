@@ -55,10 +55,10 @@ public static class SpellSelectionPanelPatcher
         {
             //PATCH: hide spell panels for repertoires that have hidden spell casting feature
             var getRepertoires = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
-            var getVisiblerepertoires = new Func<RulesetCharacter, List<RulesetSpellRepertoire>>(GetRepertoires).Method;
+            var getVisibleRepertoires = new Func<RulesetCharacter, List<RulesetSpellRepertoire>>(GetRepertoires).Method;
 
             return instructions.ReplaceCalls(getRepertoires, "SpellSelectionPanel.Bind",
-                new CodeInstruction(OpCodes.Call, getVisiblerepertoires));
+                new CodeInstruction(OpCodes.Call, getVisibleRepertoires));
         }
 
         private static List<RulesetSpellRepertoire> GetRepertoires(RulesetCharacter character)

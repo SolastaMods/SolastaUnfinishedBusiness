@@ -21,7 +21,6 @@ public static class NarrativeDirectionManagerPatcher
                     x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
                          && SrdAndHouseRulesContext.ConjuredMonsters.Contains(rulesetCharacterMonster
                              .MonsterDefinition));
-                ;
             }
 
             //PATCH: Only offer the first 4 players on dialogue sequences (PARTYSIZE)

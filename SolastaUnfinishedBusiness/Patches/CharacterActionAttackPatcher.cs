@@ -62,20 +62,22 @@ public static class CharacterActionAttackPatcher
                 yield break;
             }
 
-            var attackerfeatures = character?.GetSubFeaturesByType<IReactToMyAttackFinished>();
-            if (attackerfeatures != null)
+            var attackerFeatures = character?.GetSubFeaturesByType<IReactToMyAttackFinished>();
+
+            if (attackerFeatures != null)
             {
-                foreach (var feature in attackerfeatures)
+                foreach (var feature in attackerFeatures)
                 {
                     yield return feature.HandleReactToMyAttackFinished(
                         actingCharacter, defender, outcome, actionParams, mode, modifier);
                 }
             }
 
-            var defenderfeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
-            if (defenderfeatures != null)
+            var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
+
+            if (defenderFeatures != null)
             {
-                foreach (var feature in defenderfeatures)
+                foreach (var feature in defenderFeatures)
                 {
                     yield return feature.HandleReactToAttackOnMeFinished(
                         actingCharacter, defender, outcome, actionParams, mode, modifier);

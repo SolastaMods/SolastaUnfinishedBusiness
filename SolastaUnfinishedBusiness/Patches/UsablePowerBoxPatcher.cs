@@ -31,7 +31,7 @@ public static class UsablePowerBoxPatcher
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user
             Tooltips.AddContextToPowerBoxTooltip(__instance);
 
-            //PATCH: make reaction powers not activatable
+            //PATCH: make reaction powers not active
             if (__instance.usablePower.PowerDefinition.activationTime == RuleDefinitions.ActivationTime.Reaction)
             {
                 __instance.button.interactable = false;
