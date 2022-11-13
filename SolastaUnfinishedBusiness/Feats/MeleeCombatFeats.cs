@@ -27,7 +27,9 @@ internal static class MeleeCombatFeats
 
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             FeatDefinitions.CloakAndDagger,
+            FeatDefinitions.DauntingPush,
             FeatDefinitions.DistractingGambit,
+            FeatDefinitions.TripAttack,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack);
