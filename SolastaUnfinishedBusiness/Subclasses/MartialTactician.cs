@@ -21,6 +21,8 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private int _gambitPoolIncreases;
 
+    private static DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
+
     internal MartialTactician()
     {
         GambitPool = FeatureDefinitionPowerBuilder
@@ -35,6 +37,7 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -44,6 +47,7 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieOnce")
             .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -75,6 +79,25 @@ internal sealed class MartialTactician : AbstractSubclass
     private FeatureDefinitionAdditionalDamage GambitDieDamage { get; }
     private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
     private FeatureDefinition EverVigilant { get; }
+
+    internal static DieType GetGambitDieSize(RulesetCharacter character)
+    {
+        var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
+        if (level >= 15)
+        {
+            return DieType.D12;
+        }
+        else if (level >= 10)
+        {
+            return DieType.D10;
+        }
+        else if (level >= 5)
+        {
+            return DieType.D8;
+        }
+
+        return DieType.D6;
+    }
 
     private static FeatureDefinition BuildSharpMind()
     {
