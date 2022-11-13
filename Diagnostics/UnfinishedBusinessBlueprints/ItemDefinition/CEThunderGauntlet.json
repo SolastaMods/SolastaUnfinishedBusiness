@@ -540,7 +540,7 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0315d6c2-4fc2-5b48-8d1b-36bfae5600ff",
+      "m_AssetGUID": "38ed1022-bb1f-53ea-8190-ffddba9b2382",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

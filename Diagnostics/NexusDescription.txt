@@ -370,7 +370,7 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Moonlit, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Shield
 [*][b]Nd[/b]: Marshal, Opportunist, Raven
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif

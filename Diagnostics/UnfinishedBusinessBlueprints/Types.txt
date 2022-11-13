@@ -39,7 +39,6 @@ FightingStyleDefinition
 InvocationDefinition
 ItemDefinition
 LanguageDefinition
-LootPackDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition
@@ -58,5 +57,4 @@ SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReplaceAttackWithCa
 SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom
 SpellDefinition
 SpellListDefinition
-TreasureTableDefinition
 WeaponTypeDefinition
