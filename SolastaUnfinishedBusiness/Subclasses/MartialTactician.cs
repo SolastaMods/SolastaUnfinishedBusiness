@@ -55,9 +55,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
+            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -182,6 +183,15 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"InvocationPoolGambitLearn{points}")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, points)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildGambitDieSize(DieType size)
+    {
+        //doesn't do anything, just to display to player dice size progression on levelup
+        return CustomInvocationPoolDefinitionBuilder
+            .Create($"FeatureTacticianGambitDieSize{size}")
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
     }
 
@@ -750,7 +760,8 @@ internal sealed class MartialTactician : AbstractSubclass
 
         public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
         {
-            return (GetGambitDieSize(character), character.GetRemainingPowerUses(GambitPool), "Screen/&GambitDieDescription");
+            return (GetGambitDieSize(character), character.GetRemainingPowerUses(GambitPool),
+                "Screen/&GambitDieDescription");
         }
     }
 }
