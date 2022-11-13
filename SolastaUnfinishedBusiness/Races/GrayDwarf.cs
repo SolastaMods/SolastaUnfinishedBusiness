@@ -34,7 +34,7 @@ internal static class GrayDwarfSubraceBuilder
 
         var lightAffinityGrayDwarfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityGrayDwarfLightSensitivity")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(CustomConditionsContext.LightSensitivity.Name, Category.Condition)
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {

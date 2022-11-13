@@ -37,7 +37,7 @@ internal static class DarkelfSubraceBuilder
 
         var lightAffinityDarkelfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityDarkelfLightSensitivity")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(CustomConditionsContext.LightSensitivity.Name, Category.Condition)
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
