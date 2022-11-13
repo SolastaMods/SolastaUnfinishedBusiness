@@ -33,14 +33,14 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cd10433f24101be46898ed600f8c537b",
-      "m_SubObjectName": "ConditionLightSensitiveSaboteur",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "01682c40-11c3-59f2-940e-ea483cf6bc1b",
+  "guid": "cfa139f5-e67e-572a-bde6-a217329aeb93",
   "contentPack": 9999,
-  "name": "CombatAffinityDarkelfLightSensitivity"
+  "name": "CombatAffinityLightSensitivity"
 }

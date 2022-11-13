@@ -4,7 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Bright",
-      "condition": "Definition:ConditionDarkelfLightSensitive:e4449b6a-1db4-5bb1-a2c0-03bf595a0eaa",
+      "condition": "Definition:ConditionLightSensitivity:0c2dcf8b-8320-536c-b9f2-e685ec85b00e",
       "effect": null
     }
   ],
@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+    "title": "Condition/&ConditionLightSensitivityTitle",
+    "description": "Condition/&ConditionLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

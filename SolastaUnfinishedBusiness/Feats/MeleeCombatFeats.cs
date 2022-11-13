@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -22,9 +23,7 @@ internal static class MeleeCombatFeats
         var featRecklessAttack = BuildRecklessAttack();
         var featSavageAttack = BuildSavageAttack();
 
-        feats.Add(featPowerAttack);
-        feats.Add(featRecklessAttack);
-        feats.Add(featSavageAttack);
+        feats.AddRange(featPowerAttack, featRecklessAttack, featSavageAttack);
 
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             FeatDefinitions.CloakAndDagger,
@@ -73,7 +72,7 @@ internal static class MeleeCombatFeats
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -95,7 +94,7 @@ internal static class MeleeCombatFeats
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(
                     EffectFormBuilder

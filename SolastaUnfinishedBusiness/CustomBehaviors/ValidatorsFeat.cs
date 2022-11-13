@@ -17,7 +17,7 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var hasFightingStyle = hero.TrainedFightingStyles.Any(x => x.Name == baseDefinition.Name);
-            var guiFormat = Gui.Format("Tooltip/&FeatPreReqDoesNotHaveFightingStyle", baseDefinition.FormatTitle());
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotHaveFightingStyle", baseDefinition.FormatTitle());
 
             return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };
@@ -32,7 +32,7 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
-            var guiFormat = Gui.Format("Tooltip/&FeatPreReqIsNot", className);
+            var guiFormat = Gui.Format("Tooltip/&PreReqIsNot", className);
 
             return isNotClass
                 ? (true, guiFormat)

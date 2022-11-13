@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.FightingStyles;
 using UnityEngine;
 using static ActionDefinitions;
 
@@ -18,7 +18,7 @@ internal static class CustomReactionsContext
     {
         MakeReactDefinition(ReactionRequestWarcaster.Name);
         MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
-        MakeReactDefinition(ReactionRequestReactionAttack.Name(OtherFeats.SentinelFeat));
+        MakeReactDefinition(ReactionRequestReactionAttack.Name(Sentinel.SentinelName));
     }
 
     private static void MakeReactDefinition(string name)

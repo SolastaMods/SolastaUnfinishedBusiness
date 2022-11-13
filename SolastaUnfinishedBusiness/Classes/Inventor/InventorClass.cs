@@ -102,7 +102,7 @@ internal static class InventorClass
             )
             //TODO: Add more preferred feats
             .AddFeatPreferences(
-                OtherFeats.WarcasterFeat,
+                OtherFeats.FeatWarCaster,
                 "PowerfulCantrip",
                 "FlawlessConcentration")
 
@@ -670,7 +670,7 @@ internal static class InventorClass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder

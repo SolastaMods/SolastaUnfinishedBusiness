@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:AbilityCheckAffinityDarkelfLightSensitivity:b46d6896-1306-559a-960a-914fb6645f45",
-    "Definition:CombatAffinityDarkelfLightSensitivity:01682c40-11c3-59f2-940e-ea483cf6bc1b"
+    "Definition:AbilityCheckAffinityLightSensitivity:a49458aa-f228-5369-a4de-e10b3cd3a02b",
+    "Definition:CombatAffinityLightSensitivity:cfa139f5-e67e-572a-bde6-a217329aeb93"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -264,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+    "title": "Condition/&ConditionLightSensitivityTitle",
+    "description": "Condition/&ConditionLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0af77d521f0cb8a4381f7316dc2e50e0",
@@ -285,7 +285,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e4449b6a-1db4-5bb1-a2c0-03bf595a0eaa",
+  "guid": "0c2dcf8b-8320-536c-b9f2-e685ec85b00e",
   "contentPack": 9999,
-  "name": "ConditionDarkelfLightSensitive"
+  "name": "ConditionLightSensitivity"
 }

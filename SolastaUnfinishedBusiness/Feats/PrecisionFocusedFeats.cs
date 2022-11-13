@@ -31,7 +31,7 @@ internal static class PrecisionFocusedFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1 /* range */, TargetType.Item,
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1 /* duration */)
@@ -69,7 +69,7 @@ internal static class PrecisionFocusedFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item,
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
@@ -107,10 +107,10 @@ internal static class PrecisionFocusedFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Item,
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                     .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 1 /* duration */)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -131,14 +131,7 @@ internal static class PrecisionFocusedFeats
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
 
-        //
-        // set feats to be registered in mod settings
-        //
-
-        feats.AddRange(
-            featArcanePrecision,
-            featCharismaticPrecision,
-            featWisePrecision);
+        feats.AddRange(featArcanePrecision, featCharismaticPrecision, featWisePrecision);
 
         GroupFeats.MakeGroup("FeatGroupPrecisionFocused", PrecisionFocused,
             featArcanePrecision,

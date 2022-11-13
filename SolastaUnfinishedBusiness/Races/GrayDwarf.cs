@@ -32,43 +32,14 @@ internal static class GrayDwarfSubraceBuilder
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
             .AddToDB();
 
-        var abilityCheckAffinityGrayDwarfLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityGrayDwarfLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
-                (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
-            .AddToDB();
-
-        abilityCheckAffinityGrayDwarfLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
-
-        var grayDwarfCombatAffinityLightSensitivity = FeatureDefinitionCombatAffinityBuilder
-            .Create(CombatAffinitySensitiveToLight, "CombatAffinityGrayDwarfLightSensitivity")
-            .SetOrUpdateGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
-            .SetMyAttackAdvantage(AdvantageType.None)
-            .SetMyAttackModifierSign(AttackModifierSign.Substract)
-            .SetMyAttackModifierDieType(DieType.D4)
-            .AddToDB();
-
-        var conditionGrayDwarfLightSensitive = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionGrayDwarfLightSensitive")
-            .SetOrUpdateGuiPresentation("LightAffinityGrayDwarfLightSensitivity", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(abilityCheckAffinityGrayDwarfLightSensitivity, grayDwarfCombatAffinityLightSensitivity)
-            .AddToDB();
-
-        // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionGrayDwarfLightSensitive);
-
         var lightAffinityGrayDwarfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityGrayDwarfLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(CustomConditionsContext.LightSensitivity.Name, Category.Condition)
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
                     lightingState = LocationDefinitions.LightingState.Bright,
-                    condition = conditionGrayDwarfLightSensitive
+                    condition = CustomConditionsContext.LightSensitivity
                 })
             .AddToDB();
 
@@ -141,7 +112,7 @@ internal static class GrayDwarfSubraceBuilder
         var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
             .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
             .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .Build();
 
         grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = conditionGrayDwarfStoneStrength;
@@ -161,7 +132,7 @@ internal static class GrayDwarfSubraceBuilder
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(SpellDefinitions.Invisibility.EffectDescription)
                 .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
             .SetShowCasting(true)
             .AddToDB();

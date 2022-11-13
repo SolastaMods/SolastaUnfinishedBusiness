@@ -142,7 +142,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -165,7 +165,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(
                     EffectFormBuilder

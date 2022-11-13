@@ -89,7 +89,6 @@ internal static class ElvenAccuracyFeats
             featElvenAccuracyWisdom,
             featElvenAccuracyCharisma);
 
-
         GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenPrecision,
             featElvenAccuracyCharisma,
             featElvenAccuracyDexterity,

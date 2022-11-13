@@ -49,7 +49,7 @@ internal static class RaceBolgrifBuilder
                 .Create(SpellDefinitions.Invisibility.EffectDescription)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .ClearEffectAdvancements()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
             .SetShowCasting(true)
             .AddToDB();

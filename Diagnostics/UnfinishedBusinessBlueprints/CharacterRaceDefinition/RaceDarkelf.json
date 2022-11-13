@@ -15,17 +15,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:3c201ed4-9197-5ddd-9045-ecec590dd752",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDarkelfWeaponTraining:b04688d6-0f45-5c9a-986e-12ee78715f36",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:3c201ed4-9197-5ddd-9045-ecec590dd752",
       "level": 1
     },
     {

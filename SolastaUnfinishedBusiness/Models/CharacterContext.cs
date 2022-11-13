@@ -64,7 +64,7 @@ internal static class CharacterContext
     {
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 6, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
             .SetDurationData(DurationType.Round, 1)
             .Build();
 

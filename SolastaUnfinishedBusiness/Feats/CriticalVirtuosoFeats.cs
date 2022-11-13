@@ -25,9 +25,7 @@ internal static class CriticalVirtuosoFeats
             .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .AddToDB();
 
-        feats.AddRange(
-            featImprovedCritical,
-            featSuperiorCritical);
+        feats.AddRange(featImprovedCritical, featSuperiorCritical);
 
         GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", null,
             featImprovedCritical,

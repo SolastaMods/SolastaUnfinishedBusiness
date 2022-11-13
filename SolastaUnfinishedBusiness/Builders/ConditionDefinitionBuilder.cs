@@ -43,6 +43,12 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder SetCancellingConditions(params ConditionDefinition[] values)
+    {
+        Definition.cancellingConditions.SetRange(values);
+        return this;
+    }
+    
     internal ConditionDefinitionBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
         Definition.amountOrigin = value;

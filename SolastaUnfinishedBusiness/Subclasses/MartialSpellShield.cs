@@ -82,14 +82,14 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionShielded)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierSpellShieldArcaneDeflection")
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass,
                     3)
-                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition, ConditionShielded)
+                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition)
                 .AddToDB())
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
@@ -103,7 +103,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .CreatedByCharacter()

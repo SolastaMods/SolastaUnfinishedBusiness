@@ -15,17 +15,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:ef40a203-fd0c-51f2-ae44-41af7bc114df",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetGrayDwarfAncestry:48f08b34-9ff9-5055-accb-d2d8adc27cb4",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:ef40a203-fd0c-51f2-ae44-41af7bc114df",
       "level": 1
     },
     {

@@ -236,7 +236,7 @@ As a bonus action, you can telekinetically push or pull one creature you can see
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
 [*][b]Telekinetic [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
-[*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
+[*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 [*][b]Toxicologist [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Animal Handling, or expertise if already proficient.
@@ -264,7 +264,14 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
+• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
+• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
+• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
+• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [/list]
 

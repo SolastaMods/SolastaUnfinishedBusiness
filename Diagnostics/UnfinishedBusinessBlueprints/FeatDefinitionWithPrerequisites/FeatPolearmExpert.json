@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,18 +12,18 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:OnAttackHitEffectFeatSentinel:1a2abf93-483e-5e6e-8408-bc553864469f"
+    "Definition:ProficiencyFeatPolearmExpert:1c75c89c-a39e-5546-8bba-022b6b9b1271"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSentinelTitle",
-    "description": "Feat/&FeatSentinelDescription",
+    "title": "FightingStyle/&PolearmExpertTitle",
+    "description": "FightingStyle/&PolearmExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f2733f10f4843734fa82a117017a9d7c",
+      "m_SubObjectName": "Sorcerer_ChildOfTheRift",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3682aea3-2741-538a-9471-d8d00bf2cd0f",
+  "guid": "cb389132-d8dc-597c-a510-15ee95d029e7",
   "contentPack": 9999,
-  "name": "FeatSentinel"
+  "name": "FeatPolearmExpert"
 }

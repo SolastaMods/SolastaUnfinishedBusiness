@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -21,9 +22,7 @@ internal static class RangedCombatFeats
         var featMarksman = BuildMarksman();
         var featRangedExpert = BuildRangedExpert();
 
-        feats.Add(featDeadEye);
-        feats.Add(featMarksman);
-        feats.Add(featRangedExpert);
+        feats.AddRange(featDeadEye, featMarksman, featRangedExpert);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             FeatDefinitions.TakeAim,
@@ -75,7 +74,7 @@ internal static class RangedCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -98,7 +97,7 @@ internal static class RangedCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
