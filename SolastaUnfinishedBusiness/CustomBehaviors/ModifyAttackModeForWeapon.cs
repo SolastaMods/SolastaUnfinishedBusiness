@@ -184,14 +184,18 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
         _bonus = bonus;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character,
+        [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         //this getter also checks is this is not thrown/ranged mode
-        if (attackMode.Reach)
+        if (!attackMode.Reach)
         {
-            attackMode.reachRange += _bonus;
-            attackMode.reach = true;
+            return;
         }
+
+        attackMode.reachRange += _bonus;
+        attackMode.reach = true;
     }
 }

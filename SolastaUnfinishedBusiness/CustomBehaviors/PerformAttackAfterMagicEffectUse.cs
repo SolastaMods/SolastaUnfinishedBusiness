@@ -19,9 +19,9 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
         PerformAttackAfterUse = DefaultAttackHandler;
     }
 
-    public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; set; }
-    public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
-    public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; set; }
+    public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; }
+    public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; }
+    public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; }
 
     private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
     {

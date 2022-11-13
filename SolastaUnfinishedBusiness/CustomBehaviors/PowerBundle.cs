@@ -557,7 +557,7 @@ internal static class PowerBundle
 
     /**
      * Patch implementation
-     * Replaces invocationn activation with sub-power selection modal, after sub-power is selected activates invocation selected handler with proper sub-power index
+     * Replaces invocation activation with sub-power selection modal, after sub-power is selected activates invocation selected handler with proper sub-power index
      * Returns true if nothing needs (or can) be done.
      */
     internal static bool InvocationPowerActivated(InvocationActivationBox box,

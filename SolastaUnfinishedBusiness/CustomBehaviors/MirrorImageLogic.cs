@@ -95,6 +95,7 @@ public class MirrorImageLogic
         }
 
         var distance = (int)attacker.DistanceTo(target);
+        
         foreach (var sense in attacker.SenseModes)
         {
             if (sense.senseType is not (SenseMode.Type.Blindsight or SenseMode.Type.Truesight
@@ -108,18 +109,20 @@ public class MirrorImageLogic
                 continue;
             }
 
-            if (sense.senseRange >= distance)
+            if (sense.senseRange < distance)
             {
-                ReportAttackerHasSense(attacker, sense.senseType);
-                return;
+                continue;
             }
+
+            ReportAttackerHasSense(attacker, sense.senseType);
+            return;
         }
 
         //TODO: Bonus points if we can manage to change attack `GameConsole.AttackRolled` to show duplicate, instead of the target
 
         //TODO: add custom context and modify Halfling's Lucky to include it
         var result = target.RollDie(RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.None, false,
-            RuleDefinitions.AdvantageType.None, out var _, out var _, skill: TargetMirrorImageTag);
+            RuleDefinitions.AdvantageType.None, out _, out _, skill: TargetMirrorImageTag);
 
         var hitImage = false;
 

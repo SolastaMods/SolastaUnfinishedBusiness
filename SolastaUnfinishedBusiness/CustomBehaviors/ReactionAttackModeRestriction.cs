@@ -25,7 +25,7 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
         return validators.All(v => v(attackMode, character, target));
     }
 
-    [NotNull]
+#if false
     internal static ValidReactionModeHandler TargetHasNoCondition(ConditionDefinition condition)
     {
         return (_, _, target) =>
@@ -35,7 +35,8 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
             return rulesetCharacter != null && !rulesetCharacter.HasConditionOfType(condition.Name);
         };
     }
-
+#endif
+    
     internal static bool CanCharacterReactWithPower(GameLocationBattleManager _, RulesetUsablePower usablePower)
     {
         var (attacker, defender, attackMode) = ReactionContext;

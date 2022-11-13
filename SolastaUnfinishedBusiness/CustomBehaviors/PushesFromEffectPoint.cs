@@ -57,7 +57,7 @@ internal sealed class PushesFromEffectPoint
             return true;
         }
 
-        if (formsParams.targetCharacter == null || !formsParams.targetCharacter.CanReceiveMotion ||
+        if (formsParams.targetCharacter is not { CanReceiveMotion: true } ||
             (formsParams.rolledSaveThrow &&
              effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
              formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&
@@ -92,7 +92,7 @@ internal sealed class PushesFromEffectPoint
         if (!ServiceRepository.GetService<IGameLocationEnvironmentService>()
                 .ComputePushDestination(position, target, motionForm.Distance, reverse,
                     ServiceRepository.GetService<IGameLocationPositioningService>(),
-                    out var destination, out var _))
+                    out var destination, out _))
         {
             return false;
         }

@@ -27,11 +27,11 @@ internal class InvocationPoolTypeCustom
 
     internal AssetReferenceSprite Sprite { get; private set; }
 
-    public bool Hidden { get; set; }
+    public bool Hidden { get; private set; }
 
-    internal Id MainActionId { get; set; } = Id.CastInvocation;
-    internal Id BonusActionId { get; set; } = (Id)ExtraActionId.CastInvocationBonus;
-    internal Id NoCostActionId { get; set; } = (Id)ExtraActionId.CastInvocationNoCost;
+    internal Id MainActionId { get; private set; } = Id.CastInvocation;
+    internal Id BonusActionId { get; private set; } = (Id)ExtraActionId.CastInvocationBonus;
+    internal Id NoCostActionId { get; private set; } = (Id)ExtraActionId.CastInvocationNoCost;
 
     internal List<int> AllLevels { get; } = new();
     private List<InvocationDefinitionCustom> AllFeatures { get; } = new();

@@ -214,9 +214,10 @@ internal static class ValidatorsCharacter
                 .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>()));
     }
 
-    [NotNull]
+#if false
     internal static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
     {
         return character => character.HasAnyFeature(features);
     }
+#endif
 }
