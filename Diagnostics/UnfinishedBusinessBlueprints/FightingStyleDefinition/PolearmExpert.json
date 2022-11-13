@@ -1,10 +1,14 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:FeaturePolearm:8e6e835a-2424-5900-8677-034801779b88"
+  ],
+  "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "FightingStyle/&PolearmExpertTitle",
+    "description": "FightingStyle/&PolearmExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "839b4ca4-f92a-5490-a7fe-3f4104e0fb82",
+  "guid": "f595a71b-7902-5950-87d4-86abd4b656e9",
   "contentPack": 9999,
-  "name": "FeatureFeatPolearm"
+  "name": "PolearmExpert"
 }
