@@ -1,4 +1,5 @@
-﻿namespace SolastaUnfinishedBusiness.CustomUI;
+﻿#if false
+namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
 {
@@ -45,3 +46,4 @@ internal class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
         return Gui.Localize("Reaction/&CastSpellInRetributionReactTitle");
     }
 }
+#endif

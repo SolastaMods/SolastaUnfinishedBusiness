@@ -882,9 +882,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] ItemThundergauntlet {
+        public static byte[] ItemThunderGauntlet {
             get {
-                object obj = ResourceManager.GetObject("ItemThundergauntlet", resourceCulture);
+                object obj = ResourceManager.GetObject("ItemThunderGauntlet", resourceCulture);
                 return ((byte[])(obj));
             }
         }

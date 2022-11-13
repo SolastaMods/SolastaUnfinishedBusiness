@@ -474,7 +474,7 @@
   <data name="ItemGemLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\ItemGemLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ItemThundergauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ItemThunderGauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\ItemThundergauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDefensiveField" type="System.Resources.ResXFileRef, System.Windows.Forms">

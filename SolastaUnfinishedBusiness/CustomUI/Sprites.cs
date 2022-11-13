@@ -167,8 +167,8 @@ public static class Sprites
 
     #region Items
 
-    internal static AssetReferenceSprite ItemThundergauntlet =>
-        GetSprite("ItemThundergauntlet", Resources.ItemThundergauntlet, 128);
+    internal static AssetReferenceSprite ItemThunderGauntlet =>
+        GetSprite("ItemThunderGauntlet", Resources.ItemThunderGauntlet, 128);
 
     internal static AssetReferenceSprite ItemGemLightning =>
         GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128);

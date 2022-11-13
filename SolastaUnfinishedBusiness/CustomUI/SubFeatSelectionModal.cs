@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -268,21 +269,12 @@ internal class SubFeatSelectionModal : GuiGameScreen
         else
         {
             var isRestricted = restrictedChoices.Count != 0;
+            
             if (isRestricted)
             {
-                var hasRestrictedFeats = false;
-
-                foreach (var restrictedChoice in restrictedChoices)
-                {
-                    if (DatabaseRepository.GetDatabase<FeatDefinition>()
-                            .GetElement(restrictedChoice, true) == null)
-                    {
-                        continue;
-                    }
-
-                    hasRestrictedFeats = true;
-                    break;
-                }
+                var hasRestrictedFeats = restrictedChoices
+                    .Any(restrictedChoice => DatabaseRepository.GetDatabase<FeatDefinition>()
+                        .GetElement(restrictedChoice, true) != null);
 
                 isRestricted = hasRestrictedFeats && !restrictedChoices.Contains(feat.Name);
             }
