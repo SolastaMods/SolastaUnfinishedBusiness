@@ -27,7 +27,6 @@ internal static class RangedCombatFeats
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             FeatDefinitions.TakeAim,
             FeatDefinitions.UncannyAccuracy,
-            CraftyFeats.FeatCraftyFletcher,
             featDeadEye,
             featMarksman,
             featRangedExpert);
