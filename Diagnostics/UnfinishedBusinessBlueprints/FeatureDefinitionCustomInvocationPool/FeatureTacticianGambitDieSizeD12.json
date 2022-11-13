@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "ToolOrExpertise",
-  "proficiencies": [
-    "ArtisanToolSmithToolsType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureTacticianGambitDieSizeD12Title",
+    "description": "Feature/&FeatureTacticianGambitDieSizeD12Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a579f430-fba8-504f-8957-7938a73b95bd",
+  "guid": "e40d45bb-fc63-55a5-8d99-56561ba957fc",
   "contentPack": 9999,
-  "name": "ProficiencyCraftySmithsTools"
+  "name": "FeatureTacticianGambitDieSizeD12"
 }

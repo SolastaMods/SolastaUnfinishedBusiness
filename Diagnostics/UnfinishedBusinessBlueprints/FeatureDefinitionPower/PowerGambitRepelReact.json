@@ -43,7 +43,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Strength",
+    "savingThrowDifficultyAbility": "Intelligence",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],

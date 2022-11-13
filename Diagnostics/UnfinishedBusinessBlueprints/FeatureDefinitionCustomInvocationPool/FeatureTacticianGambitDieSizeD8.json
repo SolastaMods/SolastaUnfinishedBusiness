@@ -1,19 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "CEHandXbowType",
-    "HeavyCrossbowType",
-    "LightCrossbowType",
-    "LongbowType",
-    "ShortbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureTacticianGambitDieSizeD8Title",
+    "description": "Feature/&FeatureTacticianGambitDieSizeD8Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "424d5757-ca3f-5f7d-b2fb-6f340a96fb17",
+  "guid": "2e930de2-ade4-5563-b5cb-f65b3d4ba395",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyBows"
+  "name": "FeatureTacticianGambitDieSizeD8"
 }
