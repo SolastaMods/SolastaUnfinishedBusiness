@@ -29,7 +29,7 @@ internal static class MetamagicFeats
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.SorceryPoints, 2)
+                AttributeDefinitions.SorceryPoints, 3)
             .AddToDB();
 
         var metaMagicFeats = new List<FeatDefinition>();
@@ -42,7 +42,6 @@ internal static class MetamagicFeats
                     Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
                     Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
                 .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
                     ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsBonus2,
                     FeatureDefinitionBuilder
