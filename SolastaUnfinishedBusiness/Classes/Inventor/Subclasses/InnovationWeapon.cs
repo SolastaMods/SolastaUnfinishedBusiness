@@ -86,21 +86,21 @@ public static class InnovationWeapon
 
     private static FeatureDefinition BuildSteelDefenderShortRestRecovery()
     {
-        const string name = "PowerInnovationWeaponSteelDefenderRecuperate";
+        const string NAME = "PowerInnovationWeaponSteelDefenderRecuperate";
 
         RestActivityDefinitionBuilder
             .Create("RestActivityInnovationWeaponSteelDefenderRecuperate")
-            .SetGuiPresentation(name, Category.Feature)
+            .SetGuiPresentation(NAME, Category.Feature)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 PowerBundleContext.UseCustomRestPowerFunctorName,
-                name)
+                NAME)
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
-            .Create(name)
+            .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
@@ -126,7 +126,7 @@ public static class InnovationWeapon
         return power;
     }
 
-    private static RulesetCharacter GetBladedefender(RulesetCharacter character)
+    private static RulesetCharacter GetBladeDefender(RulesetCharacter character)
     {
         var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
@@ -136,14 +136,14 @@ public static class InnovationWeapon
 
     private static bool HasInjuredDefender(RulesetCharacter character)
     {
-        var blade = GetBladedefender(character);
+        var blade = GetBladeDefender(character);
 
         return blade is { IsMissingHitPoints: true };
     }
 
     private static string GetRestPowerTitle(RulesetCharacter character)
     {
-        var blade = GetBladedefender(character);
+        var blade = GetBladeDefender(character);
 
         if (blade == null)
         {
@@ -468,13 +468,9 @@ public static class InnovationWeapon
             }
 
             //can act if summoner is KO
-            if (summoner.IsUnconscious)
-            {
-                return true;
-            }
-
-            //can act if summoner commanded
-            return summoner.HasConditionOfType(CommandSteelDefenderCondition);
+            return summoner.IsUnconscious ||
+                   //can act if summoner commanded
+                   summoner.HasConditionOfType(CommandSteelDefenderCondition);
         }
     }
 
@@ -519,7 +515,7 @@ public static class InnovationWeapon
     {
         public GameLocationCharacter GetTarget(RulesetCharacter user)
         {
-            var blade = GetBladedefender(user);
+            var blade = GetBladeDefender(user);
 
             return blade == null ? null : GameLocationCharacter.GetFromActor(blade);
         }

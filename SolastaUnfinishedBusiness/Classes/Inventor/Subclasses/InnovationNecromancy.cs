@@ -1,3 +1,4 @@
+#if false
 using SolastaUnfinishedBusiness.Builders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -13,3 +14,4 @@ public static class InnovationNecromancy
             .AddToDB();
     }
 }
+#endif

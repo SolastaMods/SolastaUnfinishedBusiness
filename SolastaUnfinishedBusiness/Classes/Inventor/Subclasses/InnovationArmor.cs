@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -238,15 +239,8 @@ public static class InnovationArmor
         var damageBonus = 0;
         var magical = armor.ItemDefinition.Magical;
 
-        foreach (var feature in features)
+        foreach (var modifier in features.OfType<FeatureDefinitionAttackModifier>())
         {
-            var modifier = feature as FeatureDefinitionAttackModifier;
-
-            if (modifier == null)
-            {
-                continue;
-            }
-
             if (modifier.magicalWeapon)
             {
                 magical = true;
@@ -273,12 +267,14 @@ public static class InnovationArmor
         var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
 
-        if (damageBonus != 0 && damage != null)
+        if (damageBonus == 0 || damage == null)
         {
-            trendInfo = new TrendInfo(damageBonus, FeatureSourceType.Equipment, armor.Name, null);
-            damage.BonusDamage += damageBonus;
-            damage.DamageBonusTrends.Add(trendInfo);
+            return;
         }
+
+        trendInfo = new TrendInfo(damageBonus, FeatureSourceType.Equipment, armor.Name, null);
+        damage.BonusDamage += damageBonus;
+        damage.DamageBonusTrends.Add(trendInfo);
     }
 
     private class AddGauntletAttack : AddExtraAttackBase
