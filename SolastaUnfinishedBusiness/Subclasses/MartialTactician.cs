@@ -411,7 +411,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
@@ -450,7 +450,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
