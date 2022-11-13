@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -61,6 +62,23 @@ public static class GuiFeatDefinitionPatcher
         private static int CanCastSpells([NotNull] RulesetCharacterHero hero)
         {
             return hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count;
+        }
+    }
+
+    [HarmonyPatch(typeof(GuiFeatDefinition), "Subtitle", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class Subtitle_Patch
+    {
+        public static bool Prefix(GuiFeatDefinition __instance, ref string __result)
+        {
+            //PATCH: use 'Feat Group' as subtitle for feats that are feat groups
+            if (__instance.FeatDefinition.HasSubFeatureOfType<GroupedFeat>())
+            {
+                __result = "Tooltip/&FeatGroupTitle";
+                return false;
+            }
+
+            return true;
         }
     }
 }

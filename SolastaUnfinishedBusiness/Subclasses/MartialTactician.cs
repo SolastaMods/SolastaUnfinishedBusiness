@@ -21,20 +21,16 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private int _gambitPoolIncreases;
 
+    private static DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
+
     internal MartialTactician()
     {
-        GambitPool = FeatureDefinitionPowerBuilder
-            .Create("PowerPoolTacticianGambit")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(IsPowerPool.Marker)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
-            .AddToDB();
-
-        GambitPool.AddCustomSubFeatures(new CustomPortraitPoolPower(GambitPool, icon: Sprites.GambitResourceIcon));
+        BuildGambitPool();
 
         GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -44,6 +40,7 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieOnce")
             .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
@@ -58,12 +55,23 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
+            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy())
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit)
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
+    }
+
+    private static void BuildGambitPool()
+    {
+        GambitPool = FeatureDefinitionPowerBuilder
+            .Create("PowerPoolTacticianGambit")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(IsPowerPool.Marker)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
+            .AddToDB();
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -71,10 +79,29 @@ internal sealed class MartialTactician : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private FeatureDefinitionPower GambitPool { get; }
+    private static FeatureDefinitionPower GambitPool { get; set; }
     private FeatureDefinitionAdditionalDamage GambitDieDamage { get; }
     private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
     private FeatureDefinition EverVigilant { get; }
+
+    internal static DieType GetGambitDieSize(RulesetCharacter character)
+    {
+        var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
+        if (level >= 15)
+        {
+            return DieType.D12;
+        }
+        else if (level >= 10)
+        {
+            return DieType.D10;
+        }
+        else if (level >= 5)
+        {
+            return DieType.D8;
+        }
+
+        return DieType.D6;
+    }
 
     private static FeatureDefinition BuildSharpMind()
     {
@@ -159,6 +186,15 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildGambitDieSize(DieType size)
+    {
+        //doesn't do anything, just to display to player dice size progression on levelup
+        return CustomInvocationPoolDefinitionBuilder
+            .Create($"FeatureTacticianGambitDieSize{size}")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+    }
+
     private void BuildGambits()
     {
         string name;
@@ -219,7 +255,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Strength)
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -271,7 +307,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Strength)
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
@@ -375,13 +411,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}Effect")
@@ -399,7 +432,6 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetDuration(DurationType.Round, 0, false)
                         .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
                 .Build())
             .AddToDB());
@@ -418,7 +450,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -711,6 +743,21 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
+        }
+    }
+
+    internal class GambitActionDiceBox : IActionItemDiceBox
+    {
+        public static IActionItemDiceBox Instance { get; } = new GambitActionDiceBox();
+
+        private GambitActionDiceBox()
+        {
+        }
+
+        public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
+        {
+            return (GetGambitDieSize(character), character.GetRemainingPowerUses(GambitPool),
+                "Screen/&GambitDieDescription");
         }
     }
 }

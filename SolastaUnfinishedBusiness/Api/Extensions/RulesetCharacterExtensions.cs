@@ -175,12 +175,10 @@ internal static class RulesetCharacterExtensions
             : null;
     }
 
-#if false
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
         return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(classDefinition);
     }
-#endif
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {

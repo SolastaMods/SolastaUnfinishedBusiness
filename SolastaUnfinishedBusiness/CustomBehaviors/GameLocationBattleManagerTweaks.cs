@@ -114,7 +114,31 @@ internal static class GameLocationBattleManagerTweaks
                 diceNumber += provider.FamiliesDiceNumber;
             }
 
-            additionalDamageForm.DieType = provider.DamageDieType;
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for damage die progression
+             */
+            
+            //Commented out original assignment
+            // additionalDamageForm.DieType = provider.DamageDieType;
+            
+            //Get die type from features if applicable
+            var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
+            if (dieTypeProvider != null)
+            {
+                additionalDamageForm.DieType = dieTypeProvider(attacker.RulesetCharacter, provider.DamageDieType);
+            }
+            else
+            {
+                additionalDamageForm.DieType = provider.DamageDieType;
+            }
+            
+            /*
+             * Support for damage die progression
+             * [CE] EDIT END
+             * ######################################
+             */
             additionalDamageForm.DiceNumber = diceNumber;
         }
         /*

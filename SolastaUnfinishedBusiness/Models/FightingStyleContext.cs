@@ -99,7 +99,7 @@ internal static class FightingStyleContext
             {
                 hero.activeFightingStyles.TryAdd(trainedFightingStyle);
 
-                return;
+                continue;
             }
 
             switch (trainedFightingStyle.Condition)

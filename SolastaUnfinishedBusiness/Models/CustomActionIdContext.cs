@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -61,6 +62,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitMain")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -69,6 +71,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitBonus")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -77,6 +80,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitNoCost")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
+            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)

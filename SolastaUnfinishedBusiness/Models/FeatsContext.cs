@@ -14,9 +14,9 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class FeatsContext
 {
     private const int Columns = 3;
-    private const int Width = 300;
-    private const int Height = 44;
-    private const int Spacing = 5;
+    internal const int Width = 300;
+    internal const int Height = 44;
+    internal const int Spacing = 5;
 
     internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
     internal static HashSet<FeatDefinition> FeatGroups { get; private set; } = new();
