@@ -11,8 +11,6 @@ using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
-
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -37,43 +35,14 @@ internal static class DarkelfSubraceBuilder
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Charisma, 1)
             .AddToDB();
 
-        var abilityCheckAffinityDarkelfLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityDarkelfLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
-                (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
-            .AddToDB();
-
-        abilityCheckAffinityDarkelfLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
-
-        var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
-            .Create(CombatAffinitySensitiveToLight, "CombatAffinityDarkelfLightSensitivity")
-            .SetOrUpdateGuiPresentation("LightAffinityDarkelfLightSensitivity", Category.Feature)
-            .SetMyAttackAdvantage(AdvantageType.None)
-            .SetMyAttackModifierSign(AttackModifierSign.Substract)
-            .SetMyAttackModifierDieType(DieType.D4)
-            .AddToDB();
-
-        var conditionDarkelfLightSensitive = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionLightSensitive, "ConditionDarkelfLightSensitive")
-            .SetOrUpdateGuiPresentation("LightAffinityDarkelfLightSensitivity", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(abilityCheckAffinityDarkelfLightSensitivity, combatAffinityDarkelfLightSensitivity)
-            .AddToDB();
-
-        // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionDarkelfLightSensitive);
-
         var lightAffinityDarkelfLightSensitivity = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityDarkelfLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .AddLightingEffectAndCondition(
                 new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
                     lightingState = LocationDefinitions.LightingState.Bright,
-                    condition = conditionDarkelfLightSensitive
+                    condition = CustomConditionsContext.LightSensitivity
                 })
             .AddToDB();
 
