@@ -131,14 +131,7 @@ internal static class PrecisionFocusedFeats
             .SetFeatFamily(PrecisionFocused)
             .AddToDB();
 
-        //
-        // set feats to be registered in mod settings
-        //
-
-        feats.AddRange(
-            featArcanePrecision,
-            featCharismaticPrecision,
-            featWisePrecision);
+        feats.AddRange(featArcanePrecision, featCharismaticPrecision, featWisePrecision);
 
         GroupFeats.MakeGroup("FeatGroupPrecisionFocused", PrecisionFocused,
             featArcanePrecision,

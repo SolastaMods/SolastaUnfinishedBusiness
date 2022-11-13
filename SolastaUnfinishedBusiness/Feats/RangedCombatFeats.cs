@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -21,9 +22,7 @@ internal static class RangedCombatFeats
         var featMarksman = BuildMarksman();
         var featRangedExpert = BuildRangedExpert();
 
-        feats.Add(featDeadEye);
-        feats.Add(featMarksman);
-        feats.Add(featRangedExpert);
+        feats.AddRange(featDeadEye, featMarksman, featRangedExpert);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             FeatDefinitions.TakeAim,

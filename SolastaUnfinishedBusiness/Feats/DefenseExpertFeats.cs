@@ -61,10 +61,7 @@ internal static class DefenseExpertFeats
         // set feats to be registered in mod settings
         //
 
-        feats.AddRange(
-            featArcaneDefense,
-            featCharismaticDefense,
-            featWiseDefense);
+        feats.AddRange(featArcaneDefense, featCharismaticDefense, featWiseDefense);
 
         GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             featArcaneDefense,

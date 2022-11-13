@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -17,8 +18,7 @@ internal static class TwoWeaponCombatFeats
         var featDualFlurry = BuildDualFlurry();
         var featDualWeaponDefense = BuildDualWeaponDefense();
 
-        feats.Add(featDualFlurry);
-        feats.Add(featDualWeaponDefense);
+        feats.AddRange(featDualFlurry, featDualWeaponDefense);
 
         GroupFeats.MakeGroup("FeatGroupTwoWeaponCombat", null,
             FeatDefinitions.Ambidextrous,
