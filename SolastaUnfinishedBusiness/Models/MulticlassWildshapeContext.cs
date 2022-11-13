@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class MulticlassWildshapeContext
 {
     private const string TagWildShape = "99WildShape";
-    private const string NaturalAcTitle = "Tooltip/&CEMonsterNaturalArmorTitle";
+    private const string NaturalAcTitle = "Tooltip/&MonsterNaturalArmorTitle";
     private const string TagMonsterBase = "<Base>";
     private const string TagNaturalAc = "<NaturalArmor>";
 
