@@ -1,9 +1,5 @@
 ﻿Feat/&FeatDeadeyeDescription=You have mastered ranged weapons and can make shots that others find impossible:\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• You can choose to take a -PB penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 2xPB damage of the weapon's type.
 Feat/&FeatDeadeyeTitle=Deadeye
-Feat/&FeatMarksmanDescription=When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
-Feat/&FeatMarksmanTitle=Marksman
 Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 Feat/&FeatRangedExpertTitle=Ranged Expert
 Tooltip/&DeadeyeConcentration=Disable Deadeye.
-Tooltip/&FeatElvenAccuracyBaseDescription=Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Tooltip/&FeatElvenAccuracyBaseTitle=Elven Precision

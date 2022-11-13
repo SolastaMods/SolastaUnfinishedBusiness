@@ -19,16 +19,14 @@ internal static class RangedCombatFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featDeadEye = BuildDeadEye();
-        var featMarksman = BuildMarksman();
         var featRangedExpert = BuildRangedExpert();
 
-        feats.AddRange(featDeadEye, featMarksman, featRangedExpert);
+        feats.AddRange(featDeadEye, featRangedExpert);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             FeatDefinitions.TakeAim,
             FeatDefinitions.UncannyAccuracy,
             featDeadEye,
-            featMarksman,
             featRangedExpert);
     }
 
@@ -125,16 +123,6 @@ internal static class RangedCombatFeats
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildMarksman()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatMarksman")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(ActionAffinityMarksmanReactionShot)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
