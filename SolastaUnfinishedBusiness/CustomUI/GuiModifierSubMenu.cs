@@ -13,8 +13,9 @@ internal class GuiModifierSubMenu : GuiModifier
     private RectTransform header;
     private Vector3 headerPosition;
     private Vector2 headerSize;
+    private float maxHeaderWidth;
 
-    internal void Init(Image bkg, RectTransform table)
+    internal void Init(Image bkg, RectTransform table, float headerWidth)
     {
         featTable = table;
         background = bkg;
@@ -24,6 +25,7 @@ internal class GuiModifierSubMenu : GuiModifier
         header = table.GetChild(num - 1).GetComponent<RectTransform>();
         headerSize = header.sizeDelta;
         headerPosition = header.position;
+        maxHeaderWidth = headerWidth;
 
         for (var i = 0; i < table.childCount - 1; i++)
         {
@@ -33,7 +35,7 @@ internal class GuiModifierSubMenu : GuiModifier
 
     public override void InterpolateAndApply(float ratio)
     {
-        var headerWidth = Mathf.Lerp(headerSize.x, headerSize.x * 1.2f, Math.Min(1.5f * ratio, 1));
+        var headerWidth = Mathf.Lerp(headerSize.x, maxHeaderWidth, Math.Min(1.5f * ratio, 1));
 
         header.sizeDelta = new Vector2(headerWidth, headerSize.y);
         header.position = headerPosition + new Vector3((headerSize.x - headerWidth) / 2, 0, 0);
