@@ -51,15 +51,22 @@ public class MirrorImageLogic
     private static List<RulesetCondition> GetConditions(RulesetCharacter character)
     {
         var conditions = new List<RulesetCondition>();
-        if (character == null) { return conditions; }
+
+        if (character == null)
+        {
+            return conditions;
+        }
 
         character.GetAllConditions(conditions);
+
         return conditions.FindAll(c =>
                 c.ConditionDefinition.HasSubFeatureOfType<MirrorImageLogic>())
             .ToList();
     }
 
-    internal static int GetAC(RulesetAttribute attribute, RulesetActor target,
+    internal static int GetAC(
+        RulesetAttribute attribute,
+        RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends)
     {
         if (!TargetsMirrorImage(toHitTrends)) { return attribute.CurrentValue; }
@@ -73,8 +80,11 @@ public class MirrorImageLogic
         return toHitTrends.Any(t => t.sourceName == TargetMirrorImageTag);
     }
 
-    internal static void AttackRollPrefix(RulesetCharacter attacker, RulesetActor target,
-        List<RuleDefinitions.TrendInfo> toHitTrends, bool testMode)
+    internal static void AttackRollPrefix(
+        RulesetCharacter attacker,
+        RulesetActor target,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        bool testMode)
     {
         if (!testMode)
         {
@@ -95,7 +105,7 @@ public class MirrorImageLogic
         }
 
         var distance = (int)attacker.DistanceTo(target);
-        
+
         foreach (var sense in attacker.SenseModes)
         {
             if (sense.senseType is not (SenseMode.Type.Blindsight or SenseMode.Type.Truesight
@@ -126,9 +136,18 @@ public class MirrorImageLogic
 
         var hitImage = false;
 
-        if (conditions.Count >= 3 && result >= 6) { hitImage = true; }
-        else if (conditions.Count == 2 && result >= 8) { hitImage = true; }
-        else if (conditions.Count == 1 && result >= 11) { hitImage = true; }
+        if (conditions.Count >= 3 && result >= 6)
+        {
+            hitImage = true;
+        }
+        else if (conditions.Count == 2 && result >= 8)
+        {
+            hitImage = true;
+        }
+        else if (conditions.Count == 1 && result >= 11)
+        {
+            hitImage = true;
+        }
 
         ReportTargetingMirrorImage(attacker, target, result, hitImage);
 
@@ -138,8 +157,12 @@ public class MirrorImageLogic
         }
     }
 
-    internal static void AttackRollPostfix(RulesetCharacter attacker, RulesetAttackMode attackMode, RulesetActor target,
-        List<RuleDefinitions.TrendInfo> toHitTrends, ref RuleDefinitions.RollOutcome outcome, ref int successDelta,
+    internal static void AttackRollPostfix(
+        RulesetCharacter attacker, RulesetAttackMode attackMode,
+        RulesetActor target,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        ref RuleDefinitions.RollOutcome outcome,
+        ref int successDelta,
         bool testMode)
     {
         //skip custom code if attacker doesn't target mirror image
@@ -153,6 +176,7 @@ public class MirrorImageLogic
         {
             //attacker hit our mirror image, need to remove one of them
             var conditions = GetConditions(target as RulesetCharacter);
+
             if (conditions.Count > 0)
             {
                 target.RemoveCondition(conditions[0]);
@@ -160,7 +184,10 @@ public class MirrorImageLogic
         }
 
         //disable automatic hit, so target won't get hit
-        if (attackMode != null) { attackMode.AutomaticHit = false; }
+        if (attackMode != null)
+        {
+            attackMode.AutomaticHit = false;
+        }
 
         outcome = RuleDefinitions.RollOutcome.Failure;
         successDelta = Int32.MaxValue;
@@ -169,8 +196,8 @@ public class MirrorImageLogic
     private static void ReportAttackerIsBlind(RulesetActor attacker)
     {
         var console = Gui.Game.GameConsole;
-
         var entry = new GameConsoleEntry("Feedback/&MirrorImageAttackerIsBlind", console.consoleTableDefinition);
+
         console.AddCharacterEntry(attacker, entry);
         entry.AddParameter(ParameterType.Negative, "Rules/&ConditionBlindedTitle");
         entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
@@ -180,8 +207,8 @@ public class MirrorImageLogic
     private static void ReportAttackerHasSense(RulesetActor attacker, SenseMode.Type sense)
     {
         var console = Gui.Game.GameConsole;
-
         var entry = new GameConsoleEntry("Feedback/&MirrorImageAttackerHasSense", console.consoleTableDefinition);
+
         console.AddCharacterEntry(attacker, entry);
         entry.AddParameter(ParameterType.Positive, Gui.Format(Gui.SenseTypeTitleFormat, $"{sense}"));
         entry.AddParameter(ParameterType.AttackSpellPower, SpellDefinitions.MirrorImage.FormatTitle());
@@ -197,6 +224,7 @@ public class MirrorImageLogic
 
         string result;
         ParameterType resultType;
+
         if (success)
         {
             result = GameConsole.SaveSuccessOutcome;
@@ -220,6 +248,7 @@ public class MirrorImageLogic
         };
 
         console.AddCharacterEntry(attacker, entry);
+
         if (success)
         {
             entry.AddParameter(ParameterType.AttackSpellPower, ConditionTitle);
@@ -278,6 +307,7 @@ public class MirrorImageLogic
         public void RemoveFeature(RulesetCharacter hero)
         {
             var conditions = GetConditions(hero);
+
             foreach (var condition in conditions)
             {
                 hero.RemoveCondition(condition);

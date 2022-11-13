@@ -35,7 +35,7 @@ internal class GuiModifierSubMenu : GuiModifier
 
     public override void InterpolateAndApply(float ratio)
     {
-        var headerWidth = Mathf.Lerp(headerSize.x, maxHeaderWidth, (float) Math.Sqrt(ratio));
+        var headerWidth = Mathf.Lerp(headerSize.x, maxHeaderWidth, (float)Math.Sqrt(ratio));
 
         header.sizeDelta = new Vector2(headerWidth, headerSize.y);
         header.position = headerPosition + new Vector3((headerSize.x - headerWidth) / 2, 0, 0);

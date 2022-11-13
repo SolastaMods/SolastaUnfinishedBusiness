@@ -79,27 +79,30 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
         attachTo.GetWorldCorners(corners);
 
-        float hstep = FeatsContext.Width + 2 * FeatsContext.Spacing;
-        float vstep = -(FeatsContext.Height + FeatsContext.Spacing);
+        const float H_STEP = FeatsContext.Width + (2 * FeatsContext.Spacing);
+        const float V_STEP = -(FeatsContext.Height + FeatsContext.Spacing);
+
         var position = attachTo.position;
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
         var header = Gui.GetPrefabFromPool(featPrefab, featTable).GetComponent<FeatItem>();
 
         InitFeatItem(feat, header);
+
         var headerRect = header.GetComponent<RectTransform>();
         var num = subFeats.Count;
         var columns = (int)Math.Ceiling(num / 6f);
         var d = (1 - columns) / 2f;
-        float headerMaxWidth = (columns + 0.2f) * FeatsContext.Width + (columns - 1) * FeatsContext.Spacing * 2;
+        var headerMaxWidth = ((columns + 0.2f) * FeatsContext.Width) + ((columns - 1) * FeatsContext.Spacing * 2);
 
         var sz = headerRect.sizeDelta;
+
         sz.x = FeatsContext.Width;
         headerRect.sizeDelta = sz;
         headerRect.position = position;
         header.Refresh(ProficiencyBaseItem.InteractiveMode.Static, HeroDefinitions.PointsPoolType.Feat);
         SetColor(header, HeaderColor);
 
-        position += new Vector3(0, vstep, 0);
+        position += new Vector3(0, V_STEP, 0);
 
         var i = 0;
 
@@ -108,10 +111,12 @@ internal class SubFeatSelectionModal : GuiGameScreen
             var item = Gui.GetPrefabFromPool(featPrefab, featTable);
 
             InitFeatItem(subFeat, item.GetComponent<FeatItem>());
+
             var column = i % columns;
             var row = i / columns;
 
-            item.GetComponent<RectTransform>().position = position + new Vector3(hstep * (column + d), vstep * row, 0);
+            item.GetComponent<RectTransform>().position =
+                position + new Vector3(H_STEP * (column + d), V_STEP * row, 0);
             item.transform.SetAsFirstSibling();
             i++;
         }
@@ -132,6 +137,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         for (var i = 0; i < featTable.childCount; i++)
         {
             var featItem = featTable.GetChild(i).GetComponent<FeatItem>();
+
             featItem.Unbind();
         }
 
@@ -283,7 +289,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         else
         {
             var isRestricted = restrictedChoices.Count != 0;
-            
+
             if (isRestricted)
             {
                 var hasRestrictedFeats = restrictedChoices

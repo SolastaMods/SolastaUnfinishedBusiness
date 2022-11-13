@@ -19,9 +19,9 @@ internal sealed class MartialTactician : AbstractSubclass
 {
     private static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
-    private int _gambitPoolIncreases;
+    private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
-    private static DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
+    private int _gambitPoolIncreases;
 
     internal MartialTactician()
     {
@@ -64,16 +64,6 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildGambits();
     }
 
-    private static void BuildGambitPool()
-    {
-        GambitPool = FeatureDefinitionPowerBuilder
-            .Create("PowerPoolTacticianGambit")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(IsPowerPool.Marker)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
-            .AddToDB();
-    }
-
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -84,6 +74,16 @@ internal sealed class MartialTactician : AbstractSubclass
     private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
     private FeatureDefinition EverVigilant { get; }
 
+    private static void BuildGambitPool()
+    {
+        GambitPool = FeatureDefinitionPowerBuilder
+            .Create("PowerPoolTacticianGambit")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(IsPowerPool.Marker)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
+            .AddToDB();
+    }
+
     internal static DieType GetGambitDieSize(RulesetCharacter character)
     {
         var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
@@ -91,11 +91,13 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             return DieType.D12;
         }
-        else if (level >= 10)
+
+        if (level >= 10)
         {
             return DieType.D10;
         }
-        else if (level >= 5)
+
+        if (level >= 5)
         {
             return DieType.D8;
         }
@@ -748,11 +750,11 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal class GambitActionDiceBox : IActionItemDiceBox
     {
-        public static IActionItemDiceBox Instance { get; } = new GambitActionDiceBox();
-
         private GambitActionDiceBox()
         {
         }
+
+        public static IActionItemDiceBox Instance { get; } = new GambitActionDiceBox();
 
         public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
         {

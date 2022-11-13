@@ -4,10 +4,8 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;

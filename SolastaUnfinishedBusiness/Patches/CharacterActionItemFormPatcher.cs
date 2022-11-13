@@ -36,29 +36,42 @@ public static class CharacterActionItemFormPatcher
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;
             var provider = action.GetFirstSubFeatureOfType<IActionItemDiceBox>();
-            if (provider == null) { return; }
+
+            if (provider == null)
+            {
+                return;
+            }
 
             var rulesetCharacter = __instance.GuiCharacterAction.ActingCharacter.RulesetCharacter;
-            if (rulesetCharacter == null) { return; }
+
+            if (rulesetCharacter == null)
+            {
+                return;
+            }
 
             var (size, number, format) = provider.GetDiceInfo(rulesetCharacter);
 
             var box = __instance.bardicInpirationBox;
 
-            if (box == null) { return; }
+            if (box == null)
+            {
+                return;
+            }
 
             var dieImage = __instance.bardicInspirationDieImage;
             var dieLabel = __instance.bardicInspirationNumberLabel;
             var tooltip = __instance.bardicInspirationTooltip;
 
             box.gameObject.SetActive(true);
+
             if (dieImage.sprite != null)
             {
                 Gui.ReleaseAddressableAsset(dieImage.sprite);
                 dieImage.sprite = null;
             }
 
-            string dieSizeAssetPath = $"Gui/Bitmaps/Dice/{size}Icon";
+            var dieSizeAssetPath = $"Gui/Bitmaps/Dice/{size}Icon";
+
             if (SyncAddressables.AddressableResourceExists<Sprite>(dieSizeAssetPath))
             {
                 dieImage.sprite = Gui.LoadAssetSync<Sprite>(dieSizeAssetPath);

@@ -48,7 +48,7 @@ internal class ConditionDefinitionBuilder
         Definition.cancellingConditions.SetRange(values);
         return this;
     }
-    
+
     internal ConditionDefinitionBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
         Definition.amountOrigin = value;

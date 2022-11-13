@@ -278,7 +278,8 @@ internal class ReflectionTreeView
                 name + " : " + (
                     node.IsBaseType ? node.Type.Name.Grey() :
                     node.IsGameObject ? node.Type.Name.Magenta() :
-                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()), GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
+                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()), GUILayout.ExpandWidth(false),
+                GUILayout.MinWidth(TitleMinWidth));
 
             // value
             var originalColor = GUI.contentColor;

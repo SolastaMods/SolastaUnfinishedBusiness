@@ -226,7 +226,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetVerboseComponent(true)
                     .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
                     .SetUniqueInstance()
-                    .SetRequiresConcentration(false)
                     .SetCastingTime(ActivationTime.Action)
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
@@ -248,7 +247,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return result.ToArray();
     }
 
-    private static MonsterDefinition MakeSummonedMonster(MonsterDefinition monster, IReadOnlyList<BaseDefinition> attackSprites)
+    private static MonsterDefinition MakeSummonedMonster(
+        MonsterDefinition monster,
+        IReadOnlyList<BaseDefinition> attackSprites)
     {
         var modified = MonsterDefinitionBuilder
             .Create(monster, $"Risen{monster.Name}")

@@ -119,10 +119,10 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for damage die progression
              */
-            
+
             //Commented out original assignment
             // additionalDamageForm.DieType = provider.DamageDieType;
-            
+
             //Get die type from features if applicable
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
             if (dieTypeProvider != null)
@@ -133,7 +133,7 @@ internal static class GameLocationBattleManagerTweaks
             {
                 additionalDamageForm.DieType = provider.DamageDieType;
             }
-            
+
             /*
              * Support for damage die progression
              * [CE] EDIT END
