@@ -289,7 +289,7 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonate,
-            null);
+            () => { }); // keep like this - don't use null here
     }
 
     private static void DisplayUpdateMessage(string version, string changeLog)
@@ -306,7 +306,7 @@ internal static class BootContext
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
             () => UpdateMod(version),
-            null);
+            () => { }); // keep like this - don't use null here
     }
 
     private static void DisplayWelcomeMessage()
@@ -318,7 +318,7 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonate,
-            null);
+            () => { }); // keep like this - don't use null here
     }
 
     internal static void OpenWiki()
