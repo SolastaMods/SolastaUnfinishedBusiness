@@ -210,10 +210,12 @@ internal class ConditionDefinitionBuilder
     }
 #endif
 
-    internal ConditionDefinitionBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0,
-        bool validate = true)
+    internal ConditionDefinitionBuilder SetDuration(
+        RuleDefinitions.DurationType type,
+        int duration = 0,
+        bool validateDuration = true)
     {
-        if (validate)
+        if (validateDuration)
         {
             PreConditions.IsValidDuration(type, duration);
         }

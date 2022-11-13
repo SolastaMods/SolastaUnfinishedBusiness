@@ -30,17 +30,13 @@ public static class InvocationDefinitionExtensions
             time = power.ActivationTime;
         }
 
-        switch (time)
+        return time switch
         {
-            case RuleDefinitions.ActivationTime.Action:
-                return ActionType.Main;
-            case RuleDefinitions.ActivationTime.BonusAction:
-                return ActionType.Bonus;
-            case RuleDefinitions.ActivationTime.NoCost:
-                return ActionType.NoCost;
-        }
-
-        return ActionType.Main;
+            RuleDefinitions.ActivationTime.Action => ActionType.Main,
+            RuleDefinitions.ActivationTime.BonusAction => ActionType.Bonus,
+            RuleDefinitions.ActivationTime.NoCost => ActionType.NoCost,
+            _ => ActionType.Main
+        };
     }
 
     internal static Id GetActionId(this InvocationDefinition invocation)
@@ -52,17 +48,13 @@ public static class InvocationDefinitionExtensions
 
         var type = invocation.GetActionType();
 
-        switch (type)
+        return type switch
         {
-            case ActionType.Main:
-                return Id.CastInvocation;
-            case ActionType.Bonus:
-                return (Id)ExtraActionId.CastInvocationBonus;
-            case ActionType.NoCost:
-                return (Id)ExtraActionId.CastInvocationNoCost;
-        }
-
-        return Id.CastInvocation;
+            ActionType.Main => Id.CastInvocation,
+            ActionType.Bonus => (Id)ExtraActionId.CastInvocationBonus,
+            ActionType.NoCost => (Id)ExtraActionId.CastInvocationNoCost,
+            _ => Id.CastInvocation
+        };
     }
 
     internal static Id GetMainActionId(this InvocationDefinition invocation)

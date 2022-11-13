@@ -222,7 +222,7 @@ internal static class BlueprintDisplay
                             using (new GUILayout.HorizontalScope())
                             {
                                 UI.ToggleButton(ref _searchExpanded,
-                                    $"Search: {_bpChildNames[_searchIndex]}", ButtonStyle,
+                                    $"Search: {_bpChildNames[_searchIndex]}",
                                     GUILayout.ExpandWidth(false));
 
                                 // _searchText input

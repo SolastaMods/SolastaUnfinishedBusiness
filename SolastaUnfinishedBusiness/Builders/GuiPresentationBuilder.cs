@@ -199,7 +199,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     /// <summary>
     ///     Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br />
     ///     The Title is generated as "{category}/&amp;{name}Title".<br />
-    ///     The Description is taken from argumants.<br />
+    ///     The Description is taken from arguments.<br />
     /// </summary>
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
         string description, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
@@ -213,7 +213,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     /// <summary>
     ///     Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br />
     ///     The Title is generated as "{category}/&amp;{name}Title".<br />
-    ///     The Description is taken from argumants.<br />
+    ///     The Description is taken from arguments.<br />
     /// </summary>
     internal static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category,
         string description, BaseDefinition spriteDefinition, int sortOrder = 0, bool hidden = false)

@@ -75,8 +75,7 @@ internal static partial class UI
         return true;
     }
 
-    internal static void ToggleButton(ref ToggleState toggle, string title, GUIStyle style = null,
-        params GUILayoutOption[] options)
+    internal static void ToggleButton(ref ToggleState toggle, string title, params GUILayoutOption[] options)
     {
         var isOn = toggle.IsOn();
         var isEmpty = toggle == ToggleState.None;

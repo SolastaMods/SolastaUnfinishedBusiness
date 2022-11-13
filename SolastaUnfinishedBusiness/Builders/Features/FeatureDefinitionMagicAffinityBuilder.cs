@@ -71,7 +71,6 @@ internal class FeatureDefinitionMagicAffinityBuilder
 
         return this;
     }
-#endif
 
     internal FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
         float scribeDurationMultiplier,
@@ -88,7 +87,8 @@ internal class FeatureDefinitionMagicAffinityBuilder
 
         return this;
     }
-
+#endif
+    
     internal FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
         Definition.extendedSpellList = spellListDefinition;

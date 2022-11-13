@@ -52,7 +52,7 @@ public static class InvocationSelectionPanelExtensions
 
             if (label != null)
             {
-                label.Text = actionId == Id.CastInvocation || actionId == (Id)ExtraActionId.CastInvocationBonus
+                label.Text = actionId is Id.CastInvocation or (Id)ExtraActionId.CastInvocationBonus
                     ? "Feature/&PointPoolWarlockInvocationInitialTitle"
                     : action.GuiPresentation.Title;
             }
