@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:ClothesSage:1dae33db28588484686fb3a3466796f0",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

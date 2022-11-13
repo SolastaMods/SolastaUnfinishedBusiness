@@ -7,6 +7,7 @@
       "abilityScoreName": "Dexterity",
       "proficiencyName": "Stealth",
       "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
@@ -17,12 +18,14 @@
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
       "affinity": "Disadvantage",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "EscapingPerception",
       "lightingContext": "Irrelevant"
     }
   ],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

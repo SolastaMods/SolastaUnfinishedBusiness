@@ -89,8 +89,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_Merchant_Mask_Yasmin:0557c333c7f6d744ba444278af239b6d"
     ],
@@ -124,6 +123,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

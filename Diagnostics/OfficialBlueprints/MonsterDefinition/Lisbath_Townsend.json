@@ -92,6 +92,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Lisbath_Sword:18bb7643ead63094687b201e6048f54b"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Lisbath_Crossbow:77e79cd8b5713ef41bbcd84572658d44"
     }
   ],
   "sneakStance": "Stealth",
@@ -124,8 +129,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Lisbath_Townsend:27c09ca274e3ac34f993920485fd2bf5"
     ],
@@ -159,6 +163,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatAmbidextrous:4018f46d0a72a8a48b96aad8282647d1",

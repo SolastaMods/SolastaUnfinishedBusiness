@@ -10,7 +10,8 @@
       "additiveModifier": 59,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

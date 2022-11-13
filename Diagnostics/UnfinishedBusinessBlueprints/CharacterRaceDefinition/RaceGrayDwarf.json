@@ -1,0 +1,257 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "LawfulGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 55,
+  "baseWeight": 115,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGrayDwarfStrengthAbilityScoreIncrease:25954e3c-a310-5775-84b7-1c936d815cca",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityGrayDwarfLightSensitivity:ef40a203-fd0c-51f2-ae44-41af7bc114df",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetGrayDwarfAncestry:48f08b34-9ff9-5055-accb-d2d8adc27cb4",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerGrayDwarfStoneStrength:a3310dbb-532e-56a8-ba7d-cb855cabe127",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerGrayDwarfInvisibility:c4864fef-ecc0-5cf5-bb63-638addf6e90a",
+      "level": 5
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 2.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Dwarf",
+    "armorAssetPrefix": "Dwarf",
+    "helmetAssetPrefix": "Dwarf",
+    "morphotypeAssetPrefix": "Dwarf",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": true,
+    "surNameTitle": "Race/&DwarfSurNameTitle",
+    "surNameOptions": [
+      "Race/&DwarfSurName1Title",
+      "Race/&DwarfSurName2Title",
+      "Race/&DwarfSurName3Title",
+      "Race/&DwarfSurName4Title",
+      "Race/&DwarfSurName5Title",
+      "Race/&DwarfSurName6Title",
+      "Race/&DwarfSurName7Title"
+    ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Priest_of_Arun",
+      "FaceShape_NPC_Ceannard",
+      "FaceShape_NPC_Galar_Goldentongue",
+      "FaceShape_NPC_Gromnir_Stonefist",
+      "FaceShape_NPC_Joris_Nikannen"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Beryl_Stonebeard",
+      "FaceShape_NPC_Gormdottir",
+      "FaceShape_NPC_Gorim_Ironsoot",
+      "FaceShape_NPC_Cafrain_Shadow",
+      "FaceShape_NPC_Reya_Schildberg",
+      "FaceShape_NPC_Karelia_Snowfox"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_N",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_None",
+      "HairShape_F",
+      "HairShape_G"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_N",
+      "HairShape_None",
+      "HairShape_S",
+      "HairShape_G",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_A",
+      "BeardShape_B",
+      "BeardShape_E",
+      "BeardShape_F",
+      "BeardShape_G",
+      "BeardShape_C",
+      "BeardShape_D",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
+      "BeardShape_None"
+    ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL2",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 48,
+      "maxValue": 53
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 35,
+      "maxValue": 41
+    },
+    "musicalInstrumentScale": 0.8
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceGrayDwarfTitle",
+    "description": "Race/&RaceGrayDwarfDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "50842775-6f5f-5cf9-8f4e-dec5cc4bf838",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c1b69f2c-e1ce-5142-81d0-19e950d68a7e",
+  "contentPack": 9999,
+  "name": "RaceGrayDwarf"
+}

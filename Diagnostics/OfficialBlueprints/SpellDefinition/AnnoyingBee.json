@@ -8,6 +8,7 @@
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
+  "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": false,
   "effectDescription": {
@@ -26,6 +27,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -48,6 +50,7 @@
     "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -75,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -101,6 +105,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -113,9 +118,11 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D4",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D10",
           "bonusDamage": 0,
           "damageType": "DamagePiercing",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -247,6 +254,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -301,6 +309,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -317,9 +326,11 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

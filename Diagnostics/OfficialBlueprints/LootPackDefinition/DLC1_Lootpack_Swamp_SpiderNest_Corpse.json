@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_TearOfTirmar:0bc1f451ed2b00642b6027dc212fddd4",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

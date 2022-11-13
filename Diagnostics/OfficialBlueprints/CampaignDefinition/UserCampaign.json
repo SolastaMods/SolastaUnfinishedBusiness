@@ -3,9 +3,11 @@
   "editorOnly": false,
   "isUserCampaign": true,
   "multiplayer": true,
+  "canLoadEndGameSave": false,
   "partySize": 4,
   "minStartLevel": 1,
   "maxStartLevel": 1,
+  "maxLevelImport": 12,
   "levelCap": 12,
   "predefinedParty": [],
   "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
@@ -1695,6 +1697,10 @@
     "name": "Location"
   },
   "namedPlacesPath": "Campaign/COTM_NamedPlaces",
+  "recommendedCampaign": null,
+  "recommendedSceneNameStartsWith": "",
+  "variablesToImport": [],
+  "questStatusToImport": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

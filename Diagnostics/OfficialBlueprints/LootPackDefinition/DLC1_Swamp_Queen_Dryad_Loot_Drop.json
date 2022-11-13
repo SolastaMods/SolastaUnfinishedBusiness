@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Swamp_Queen_Dryad_Head:840f4b113ac9e924598d328a52ce5aeb",
-      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857"
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

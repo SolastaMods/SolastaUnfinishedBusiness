@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Document_ForgeOrcBaseReport:7e3480a9b105a084e87e0d3ed7dda5e6",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Document_ForgeOrcBaseReport:7e3480a9b105a084e87e0d3ed7dda5e6",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_Document_ForgeWanderingElfReport:2a5d90e147d902140ac0cca5dede4e1d",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

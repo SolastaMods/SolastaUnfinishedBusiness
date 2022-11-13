@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityFeatTakeAim:59fc2dad93396cd4daa5433df3aafb99"

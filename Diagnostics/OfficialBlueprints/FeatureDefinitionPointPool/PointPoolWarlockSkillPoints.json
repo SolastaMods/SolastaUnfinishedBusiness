@@ -1,0 +1,47 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Skill",
+  "poolAmount": 2,
+  "restrictedChoices": [
+    "Arcana",
+    "Deception",
+    "History",
+    "Intimidation",
+    "Investigation",
+    "Nature",
+    "Religion"
+  ],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&WarlockSkillPointsTitle",
+    "description": "Feature/&SkillGainChoicesPluralDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "16dd9f5d7cc44254c9284ad7d81e3db8",
+  "contentPack": "BaseGame",
+  "name": "PointPoolWarlockSkillPoints"
+}

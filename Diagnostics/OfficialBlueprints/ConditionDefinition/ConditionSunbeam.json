@@ -14,14 +14,20 @@
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
+  "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
+  "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "DamageAcid",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
@@ -49,6 +55,12 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
+  "recurrentEffectParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -56,6 +68,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
@@ -71,6 +84,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -96,6 +115,12 @@
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "fireParticleParameters": {
@@ -113,6 +138,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -138,6 +169,12 @@
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "poisonParticleParameters": {
@@ -155,6 +192,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -188,12 +231,14 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
   "forceBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {

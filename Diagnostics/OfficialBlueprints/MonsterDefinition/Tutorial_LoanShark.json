@@ -105,8 +105,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Tutorial_Stealth_Loan_Shark:221fdd89d56a42e4c8d85e8f0d7ee5f6"
     ],
@@ -140,6 +139,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

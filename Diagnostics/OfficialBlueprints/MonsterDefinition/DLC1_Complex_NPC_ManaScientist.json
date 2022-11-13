@@ -120,8 +120,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Scientist:0e1ec3563dd34364aaf833d8aefe5887",
       "Definition:NPC_Presentation_DLC1_NPC_Complex_Mana_Scientist 2:b9b12b08f9865e943abd47b7d84a2368",
@@ -158,6 +157,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

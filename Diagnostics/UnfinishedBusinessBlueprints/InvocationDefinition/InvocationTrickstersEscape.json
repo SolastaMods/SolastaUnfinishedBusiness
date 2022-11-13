@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 7,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:TrickstersEscape:dce51973-8d26-51a3-8bb9-c8fa8c216715",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationTrickstersEscapeTitle",
+    "description": "Invocation/&InvocationTrickstersEscapeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1bce2fdb81dad0145a160ca13db55f02",
+      "m_SubObjectName": "FreedomOfMovement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "44b65b2f-7681-5a95-aada-7742d710c6be",
+  "contentPack": 9999,
+  "name": "InvocationTrickstersEscape"
+}

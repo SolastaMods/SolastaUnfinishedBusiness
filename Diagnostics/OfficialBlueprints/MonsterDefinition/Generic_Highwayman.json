@@ -105,8 +105,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_Generic_Highwayman_AF_Female:5cef3b8cee0e61745b7db7045d68dfe1",
       "Definition:NPC_Presentation_Generic_Highwayman_AF_Male:16c054b70114c1a40865e597ae29a69d",
@@ -145,6 +144,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

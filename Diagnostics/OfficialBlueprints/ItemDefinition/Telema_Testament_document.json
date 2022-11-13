@@ -31,12 +31,18 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -51,7 +57,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Kickstarter_Item_Testament_Content",
+        "text": "Equipment/&kickstarter_item_Testament_Content",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -214,11 +220,13 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Kickstarter_Item_Testament_Title",
-    "description": "Equipment/&Kickstarter_Item_Testament_Description",
+    "title": "Equipment/&kickstarter_item_Testament_Title",
+    "description": "Equipment/&kickstarter_item_Testament_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b1ce011006bac5a499ce193c3e59bc6e",

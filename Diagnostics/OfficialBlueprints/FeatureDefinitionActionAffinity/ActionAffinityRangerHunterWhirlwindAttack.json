@@ -19,6 +19,7 @@
   "specialBehaviour": "None",
   "randomBehaviorDie": "D10",
   "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

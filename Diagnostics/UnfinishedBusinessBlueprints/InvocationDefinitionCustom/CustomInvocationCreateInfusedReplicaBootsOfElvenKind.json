@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 2,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaBootsOfElvenKind:118022a9-b6af-5c34-a510-14187490adb3",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Boots of Elvenkind",
+    "description": "Create replica <b>Boots of Elvenkind</b>:\nCrafted in Colthannin for human allies of the Realm protecting its borders.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e115efa2f460c11428e47c3e3c6666c0",
+      "m_SubObjectName": "BootsOfElvenkind",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "456adf23-d6ca-5a7c-8eea-3e68499a8450",
+  "contentPack": 9999,
+  "name": "CustomInvocationCreateInfusedReplicaBootsOfElvenKind"
+}

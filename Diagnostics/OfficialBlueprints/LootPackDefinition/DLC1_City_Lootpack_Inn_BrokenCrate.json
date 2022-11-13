@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_Document_RebelOrders3:af2c3826d8878a841a89f78c190428d6",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

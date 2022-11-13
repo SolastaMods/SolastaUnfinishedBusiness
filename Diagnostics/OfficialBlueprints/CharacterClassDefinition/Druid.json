@@ -164,14 +164,14 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
-      "level": 16
     }
   ],
   "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassDruidFlag"
+    },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
@@ -189,7 +189,7 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 4,
+      "weight": 8,
       "personalityFlag": "GpSpellcaster"
     },
     {
@@ -199,13 +199,8 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 1,
+      "weight": 2,
       "personalityFlag": "GpStealth"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "ClassDruidFlag"
     }
   ],
   "skillAutolearnPreference": [
@@ -226,6 +221,7 @@
     "FlawlessConcentration",
     "Enduring_Body"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 10,
   "classPictogramReference": {
@@ -237,6 +233,10 @@
   "defaultBattleDecisions": "Definition:ClericCombatDecisions:d5ceea03da8e7be4c86e2c1e37dda354",
   "classAnimationId": "Cleric",
   "vocalSpellSemeClass": "Natura",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

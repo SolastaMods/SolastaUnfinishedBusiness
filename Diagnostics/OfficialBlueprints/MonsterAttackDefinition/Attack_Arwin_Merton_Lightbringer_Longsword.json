@@ -28,6 +28,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -50,6 +51,7 @@
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -77,6 +79,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -89,9 +92,11 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D8",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 4,
           "damageType": "DamageSlashing",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -109,6 +114,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -121,9 +127,11 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D10",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
           "damageType": "DamageRadiant",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -255,6 +263,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -309,6 +318,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -325,9 +335,11 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
@@ -335,6 +347,7 @@
   "itemDefinitionOffHand": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -396,8 +409,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ca23042d6de6861489f5528ed10ae84a",
-      "m_SubObjectName": "Longsword+1",
+      "m_AssetGUID": "a14da1ceda9e15b47bca10b3dbf9b4d2",
+      "m_SubObjectName": "LongswordStormblade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

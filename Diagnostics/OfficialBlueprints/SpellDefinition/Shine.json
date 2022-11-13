@@ -8,6 +8,7 @@
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
+  "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": false,
   "effectDescription": {
@@ -26,6 +27,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -48,6 +50,7 @@
     "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
@@ -75,6 +78,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -89,9 +93,9 @@
           "dimAdditionalRange": 4,
           "color": {
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-            "r": 1.0,
-            "g": 0.990625,
-            "b": 0.8,
+            "r": 0.8,
+            "g": 0.9849781,
+            "b": 1.0,
             "a": 1.0
           },
           "graphicsPrefabReference": {
@@ -101,6 +105,33 @@
             "m_SubObjectType": ""
           },
           "applyToSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionShine:6ec6aef512f50f346b5ee785a358b20f",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -156,7 +187,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e93a9e29f35763940acb4955ce60d5b2",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -226,6 +257,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -280,6 +312,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -296,9 +329,11 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": true
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

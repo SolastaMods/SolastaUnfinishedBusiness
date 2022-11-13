@@ -56,7 +56,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:MarilithCombatDecisions:037a16cb0c9cf8a47ac1fb006ec2a123",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -78,14 +78,14 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeDpsRangedAndFocusAttacks"
   },
   "languages": [
     "Language_Abyssal"
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 34.0,
   "challengeRating": 16.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Marilith_loot_drop:b33d06d0295178744a53d377f7ab95e8",
@@ -103,43 +103,41 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
-    "Definition:PowerPhaseMarilithTeleport:bd5e55fd2ab911844ad1373ba9ac67e7"
+    "Definition:ActionAffinityReactive:854f270500ab55f4bb62380075fa7907",
+    "Definition:PowerPhaseMarilithTeleport:bd5e55fd2ab911844ad1373ba9ac67e7",
+    "Definition:PowerMarilithTail:eea9e36c449e37d41a1f52d338348566",
+    "Definition:PowerMarilithParry:2e4f2a002e84b284ca55e171446f8cea"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
+      "number": 0,
       "monsterAttackDefinition": "Definition:Attack_Marilith_Longsword:0fae4c94b82cefc46b51b05274b5af26"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Marilith_Tail:c01ad393ee105a649bd70007f233e067"
     }
   ],
   "sneakStance": "Stealth",
@@ -155,7 +153,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -172,8 +170,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -205,6 +202,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -221,18 +220,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_AssetGUID": "8d1b249817b48ee4e9d2b8c5f62d61e3",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.3,
+    "maleModelScale": 0.656,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_AssetGUID": "8d1b249817b48ee4e9d2b8c5f62d61e3",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 1.3,
+    "femaleModelScale": 0.656,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -269,8 +268,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&GhoulTitle",
-    "description": "Monster/&GhoulTitle",
+    "title": "Monster/&Marilith_Title",
+    "description": "Monster/&Marilith_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e1e8c1136dfb17644a66967d898ac9f2",

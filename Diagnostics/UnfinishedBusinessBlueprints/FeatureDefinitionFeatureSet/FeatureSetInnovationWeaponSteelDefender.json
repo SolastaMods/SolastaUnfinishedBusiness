@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInventorWeaponSteelDefenderCommand:429ff712-f9ee-5c0d-bd48-945da7881d33",
+    "Definition:PowerInnovationWeaponSummonSteelDefender:30f9693e-72d8-5eeb-b005-21802ac84625",
+    "Definition:PowerInnovationWeaponSteelDefenderRecuperate:1b4e13a9-a821-5994-b70d-5cc222495bcb",
+    "Definition:SummoningAffinityInnovationWeaponSummonSteelDefender:e1f271a7-ad06-5ffc-b4b6-fae7ac0a8430"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationWeaponSteelDefenderTitle",
+    "description": "Feature/&FeatureSetInnovationWeaponSteelDefenderDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "765318d4-2884-5899-a364-9d226007df5b",
+  "contentPack": 9999,
+  "name": "FeatureSetInnovationWeaponSteelDefender"
+}

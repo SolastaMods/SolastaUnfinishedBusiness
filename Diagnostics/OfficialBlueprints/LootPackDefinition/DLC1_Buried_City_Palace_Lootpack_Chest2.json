@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:PrimedWand:ee80029f12ca82b4b8da1bf97994681c",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Primed_Spear:8037e153bcdba5b438868c0e86b2628a",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Primed Dagger:6b3401851b033f74088e7977f516d55b",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

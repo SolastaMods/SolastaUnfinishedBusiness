@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Greataxe:f5f24f61e9777684d8507f438660300a",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -46,7 +50,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

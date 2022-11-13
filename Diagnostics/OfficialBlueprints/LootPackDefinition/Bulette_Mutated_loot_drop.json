@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Mutant_Bulette_Head:1fe4a5006939ece43b87e15ff2f0b63d",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

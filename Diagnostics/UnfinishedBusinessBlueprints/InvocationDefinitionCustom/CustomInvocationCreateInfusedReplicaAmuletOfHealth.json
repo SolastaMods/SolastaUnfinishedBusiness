@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 14,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaAmuletOfHealth:241cfb02-8421-5f82-8f11-300407bff7c7",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Amulet of Health",
+    "description": "Create replica <b>Amulet of Health</b>:\nThis amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. ",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a0767cd40b4795e4f8e2ad54cd9485ce",
+      "m_SubObjectName": "AmuletOfHealth",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a3ec248a-52b1-50ba-99b8-990e70c68303",
+  "contentPack": 9999,
+  "name": "CustomInvocationCreateInfusedReplicaAmuletOfHealth"
+}

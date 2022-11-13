@@ -28,6 +28,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -50,6 +51,7 @@
     "savingThrowAbility": "Strength",
     "ignoreCover": true,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "FixedValue",
@@ -77,6 +79,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -89,9 +92,11 @@
           "versatile": false,
           "diceNumber": 6,
           "dieType": "D8",
+          "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 5,
           "damageType": "DamageNecrotic",
+          "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -109,6 +114,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -119,7 +125,9 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "PushFromOrigin",
-          "distance": 2
+          "distance": 2,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -131,6 +139,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
+        "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -141,7 +150,9 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "FallProne",
-          "distance": 2
+          "distance": 2,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -267,6 +278,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -321,6 +333,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -337,9 +350,11 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
@@ -347,6 +362,7 @@
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
+  "isMultiattack": false,
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "377a1d41915183944a84d3bf064646cd",

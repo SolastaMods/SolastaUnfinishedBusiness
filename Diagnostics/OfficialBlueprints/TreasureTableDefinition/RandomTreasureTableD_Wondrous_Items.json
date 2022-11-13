@@ -210,6 +210,72 @@
       "odds": 10,
       "itemDefinition": "Definition:HelmOfComprehendingLanguages:1aded96fb777fe74bbeddda213dd3bc2",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:HornOfBlasting:c78c577570a72964e8ecb4668b6e5d22",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:PipesOfHaunting:8a003329450dd824fb3b3788389c31d8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:DwarvenWarDrums:d23b9ed52419d604f855f5ddee638600",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:PipesOfHaunting:8a003329450dd824fb3b3788389c31d8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:FluteOfRespite:e59c364d36281434b94e7b4cce6690ce",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:CloakOfUbiquity:3df70ea368fa5fd4d9d34c49c3ee601d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:TheAmendment:62a69ff62ddd16a46aa6c67454418f4f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:CloakOfUbiquity:3df70ea368fa5fd4d9d34c49c3ee601d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:NecklaceOfGrounding:c4bf8382f61ef72479d9e7f986debaa4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bracers_Of_StunningStrike:b43a625a3b5fe4f498a5756618ab0c0a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:PenitentBelt:86163b5b43f3a2e4795f67259a0cce8d",
+      "amount": 1
     }
   ],
   "guiPresentation": {

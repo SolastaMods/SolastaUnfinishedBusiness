@@ -8,6 +8,8 @@
     "Definition:AncestrySorcererDraconicBlue:5e3813bc1010c5b4697ab3551a64f008"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 1,
   "uniqueChoices": false,
   "enumerateInDescription": false,

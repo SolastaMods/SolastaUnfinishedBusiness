@@ -1759,6 +1759,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "TowerOfKnowledge",
       "factionStatus": "Sympathy"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Item_RestorativeOintment:2e685b93a8e898040a2939e061c640b1",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "TowerOfKnowledge",
+      "factionStatus": "Brotherhood"
     }
   ],
   "guiPresentation": {

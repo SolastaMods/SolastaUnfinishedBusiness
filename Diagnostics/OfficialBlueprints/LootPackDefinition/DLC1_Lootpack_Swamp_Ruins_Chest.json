@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_Blood_Of_Solasta:f139a17731fb4a94b9405e1869606d86",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:PrimedWand:ee80029f12ca82b4b8da1bf97994681c",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:CraftingManual_DLC1_Enchant_ScimitarOfTheAnfarels:a03624d32dd426047b725338bc1dd8ce",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_PaganRitual:0a81c022c9f006b47a1856c8557fd5e3",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

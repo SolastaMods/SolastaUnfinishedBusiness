@@ -84,6 +84,18 @@
       "odds": 1,
       "itemDefinition": "Definition:WandMagicMissile:7617927d5593fac4982b711a9b9643ec",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:ChitinousBoon:b18880011cfb58e41b2b175f30ee3d2f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfSwarmingInsects:d0222a200f3f05a40a8ebbbb3a9e7bed",
+      "amount": 1
     }
   ],
   "guiPresentation": {

@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 14,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaRingProtection+1:af73b522-17a1-5ed1-8a29-f41c942fe32c",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Ring of Protection +1",
+    "description": "Create replica <b>Ring of Protection +1</b>:\nA ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. ",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6e9dd0bf189453b41bf5b60a5bf780ac",
+      "m_SubObjectName": "RingOfProtection+1",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c8aef788-f7e3-5fdb-82d1-e96759ed8bac",
+  "contentPack": 9999,
+  "name": "CustomInvocationCreateInfusedReplicaRingProtection+1"
+}

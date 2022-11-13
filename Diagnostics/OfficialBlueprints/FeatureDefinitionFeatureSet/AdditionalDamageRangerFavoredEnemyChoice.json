@@ -16,6 +16,8 @@
     "Definition:AdditionalDamageRangerFavoredEnemyUndead:97c1aa3907924a147b9dbbbd99f752bb"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 1,
   "uniqueChoices": true,
   "enumerateInDescription": false,

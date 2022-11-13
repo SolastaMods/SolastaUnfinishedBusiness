@@ -1,0 +1,32 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [],
+  "quest": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CompletedInvestigation1",
+    "description": "CompletedInvestigation1 Desc",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "07ab17849c0e24844b7ad243f79700db",
+  "contentPack": "BaseGame",
+  "name": "CompletedInvestigation1"
+}

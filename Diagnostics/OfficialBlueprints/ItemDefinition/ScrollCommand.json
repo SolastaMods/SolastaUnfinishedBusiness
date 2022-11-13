@@ -34,6 +34,7 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
@@ -63,7 +64,7 @@
         "durationType": "Hour",
         "canOverchargeSpell": false,
         "type": "Spell",
-        "spellDefinition": "Definition:Command:2e8593be0a135614c91f4a02123d7c47",
+        "spellDefinition": "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
         "featureDefinitionPower": null
       }
     ],
@@ -78,6 +79,11 @@
     }
   },
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -214,15 +220,17 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&ScrollCommandTitle",
-    "description": "Equipment/&ScrollCommandDescription",
+    "title": "Equipment/&ScrollColorSprayTitle",
+    "description": "Equipment/&ScrollColorSprayDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2a18842d1e8ba62449d0142bbc9f89d8",
-      "m_SubObjectName": "Scroll_Command",
+      "m_AssetGUID": "4e838da76abae7543a42100990f9260c",
+      "m_SubObjectName": "Scroll_ColorSpray",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

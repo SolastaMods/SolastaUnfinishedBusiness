@@ -142,8 +142,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC1_NPC_ForgeHunter_F_1:d540c2eb4239b044abd186cb4d438331",
       "Definition:NPC_Presentation_DLC1_NPC_ForgeHunter_F_2:16b97c84a51c23d4b8899f4e0f1c8b80",
@@ -180,6 +179,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "type": "Dragonborn",
+  "damageType": "DamageLightning",
+  "associatedFaceAndSkinColor": "FaceAndSkin_Dragonborn_09",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryDragonbornDraconicBlueTitle",
+    "description": "Feature/&AncestryDragonbornDraconicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6fb28284f3de3f442a6c5a6fecff1fa1",
+  "contentPack": "BaseGame",
+  "name": "AncestryDragonbornDraconicBlue"
+}

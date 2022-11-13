@@ -1,6 +1,8 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
   "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
   "firstName": "Commander6",
   "surName": "Fighter",
   "abilityScores": [
@@ -18,6 +20,7 @@
   "skinMorphotype": "FaceAndSkinFair",
   "musculatureMorphotypeValue": 100.0,
   "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
   "faceShapeMorphotype": "FaceShape_CA_A",
   "hairShapeMorphotype": "HairShape_C",
   "hairColorMorphotype": "HairColorBlack",
@@ -27,6 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "",
+  "tailMorphotype": "",
   "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
   "subClass": "Definition:MartialCommander:68aa1945f2ab5b4428bf96f9793a1b1a",
   "deity": null,
@@ -75,6 +80,7 @@
   "featsOverride": [
     "Robust"
   ],
+  "invocationsOverride": [],
   "expertisesOverride": [],
   "languagesOverride": [
     "Language_Orc"
@@ -87,11 +93,14 @@
   "knownRaceSpells": [],
   "knownClassSpells": [],
   "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
   "preparedClassSpells": [],
   "preparedSubclassSpells": [],
   "sex": "Male",
   "pronoun": "Male",
   "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
   "facePath": "",
   "wieldedItemsConfigurations": [
     {

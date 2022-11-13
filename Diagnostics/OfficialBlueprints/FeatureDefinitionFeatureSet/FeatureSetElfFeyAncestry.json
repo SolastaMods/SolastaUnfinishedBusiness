@@ -6,6 +6,8 @@
     "Definition:ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern:b167a3e7068de17408d30d8f85daeed5"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

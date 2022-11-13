@@ -10,12 +10,12 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Unaligned",
-  "armorClass": 11,
+  "armorClass": 12,
   "armor": "",
   "hitDice": 4,
   "hitDiceType": "D10",
-  "hitPointsBonus": 4,
-  "standardHitPoints": 2,
+  "hitPointsBonus": 1,
+  "standardHitPoints": 8,
   "abilityScores": [
     16,
     17,
@@ -61,6 +61,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_SpiritEagle_Talons:eead6da11a41fe741935d2a6480098d8"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_SpiritEagle_Beak:26ebe72c2691482418de302ccc5203cb"
     }
   ],
   "sneakStance": "Stealth",
@@ -93,8 +98,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -126,6 +130,8 @@
       "a": 1.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "7f5170280f2dadd4aa5091e5d9145b4c",

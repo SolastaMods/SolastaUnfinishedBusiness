@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_BadlandsSpiderVenomGland:8fc51d73ff06c6f4baec8ee9a1c4acb7",
-      "treasureTableDefinition": "Definition:Random_BadlandsSpider_Table:b83d78f9892af6842bfe712628499ec3"
+      "treasureTableDefinition": "Definition:Random_BadlandsSpider_Table:b83d78f9892af6842bfe712628499ec3",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

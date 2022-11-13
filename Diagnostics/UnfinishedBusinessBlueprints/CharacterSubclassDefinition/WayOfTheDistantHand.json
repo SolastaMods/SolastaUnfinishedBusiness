@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWayOfTheDistantHandCombat:9ae5c18b-4f4a-5234-90a6-f3d147af88b1",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowTechnique:e4bbc39f-f35d-566b-81f5-199e1dd11c8c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArcherFlurryOfArrows:141c7117-a252-597f-b0fd-71611c08bd4a",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfTheDistantHandKiPoweredArrows:8acc04de-0e89-5533-8c62-3da460e9f7a1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowUpgradedTechnique:75ccd86a-0b92-5944-8a4f-bcc7272b1aea",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfTheDistantHandZenArcherStunningArrows:b25ffd2c-c7e5-5d8a-94f7-86908a085c14",
+      "level": 11
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WayOfTheDistantHandTitle",
+    "description": "Subclass/&WayOfTheDistantHandDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0e810a0878ef5974dbfcad056a7c0fa1",
+      "m_SubObjectName": "Ranger_Marksman",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7af2ae84-8fc6-536d-8522-77d87d13592a",
+  "contentPack": 9999,
+  "name": "WayOfTheDistantHand"
+}

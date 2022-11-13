@@ -6,6 +6,7 @@
   "canAttack": true,
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
+  "incrementalDamageDice": 0,
   "actionId": "ProxySpiritualWeapon",
   "freeActionId": "ProxySpiritualWeaponFree",
   "attackMethod": "CasterSpellAbility",
@@ -110,10 +111,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Warhammer",
-        "id": 3699224795,
-        "guid": "F6698FC6-7096-4DB2-9463-8277CA3BA1B3",
-        "name": "F6698FC6-7096-4DB2-9463-8277CA3BA1B3"
+        "objectName": "Longsword",
+        "id": 3955957070,
+        "guid": "62A5773C-C085-45FF-81BD-20147B55AD74",
+        "name": "62A5773C-C085-45FF-81BD-20147B55AD74"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

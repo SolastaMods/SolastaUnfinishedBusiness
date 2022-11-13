@@ -1,8 +1,8 @@
 {
   "$type": "SkillDefinition, Assembly-CSharp",
   "abilityScore": "Wisdom",
-  "personalityFlag": false,
-  "personalityAdditiveBase": 10,
+  "personalityFlag": true,
+  "personalityAdditiveBase": 20,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInnovationWeaponSteelDefender:765318d4-2884-5899-a364-9d226007df5b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyInnovationWeaponBattleReady:073495cf-41ae-548e-8741-517ccb3f3f6a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsInnovationWeapon:dd309c08-cc5f-57c3-938e-82a0494a6c14",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierInnovationWeaponExtraAttack:1da02c4c-236a-5f08-9eed-eb63d5f9dcb3",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationWeaponArcaneJolt:6042eb1a-b0f4-5f41-b50f-5bc9282079f8",
+      "level": 9
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&InnovationWeaponTitle",
+    "description": "Subclass/&InnovationWeaponDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
+      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4ee7b2cc-9465-5710-9e0f-7fc17da2a0f8",
+  "contentPack": 9999,
+  "name": "InnovationWeapon"
+}

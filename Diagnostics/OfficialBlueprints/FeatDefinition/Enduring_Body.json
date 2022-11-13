@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierEnduringBody_HitPoints:61fbf4794805edb4d9b07f872b426d67",

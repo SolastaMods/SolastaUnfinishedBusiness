@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:DLC1_Equipment_Document_ForgeDryadReport:e59e491bfa151594b8b6dcbfab37a88e",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

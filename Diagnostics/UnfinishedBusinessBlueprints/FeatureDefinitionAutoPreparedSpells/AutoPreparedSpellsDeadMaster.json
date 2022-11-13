@@ -1,0 +1,86 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "DeadMaster",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 2,
+      "spellsList": [
+        "Definition:CreateDeadRisenSkeleton:86611dbf-bc5e-50d4-b699-bb09f11c79a5",
+        "Definition:CreateDeadRisenSkeleton_Archer:c03cf01d-8d95-5f4b-b3c8-485ee02386ea"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:CreateDeadRisenGhoul:154586bd-b1a2-53d0-ac83-ecf3d0be8a7d"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:CreateDeadRisenSkeleton_Enforcer:091f5b2a-2ba2-514e-b7d5-8bc591b2490f"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 7,
+      "spellsList": [
+        "Definition:CreateDeadRisenSkeleton_Knight:79eb12d2-b078-5ae8-a6d9-5a537bfc9dde",
+        "Definition:CreateDeadRisenSkeleton_Marksman:9ecad24a-5902-53af-abf2-550346507292"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:CreateDeadRisenGhost:02a12317-e3e2-5833-9611-eeaaead7c151"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 11,
+      "spellsList": [
+        "Definition:CreateDeadRisenWight:59a6741c-52cc-5859-9f99-d96b02217b72"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:CreateDeadRisenWightLord:1e533ed6-cae9-5e1d-9cd9-4a70c62f9d69"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsDeadMasterTitle",
+    "description": "Feature/&AutoPreparedSpellsDeadMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fb2d7ec3-4662-5ee2-b5d8-3dee24f34d64",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsDeadMaster"
+}

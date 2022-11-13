@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionCampAffinity, Assembly-CSharp",
+  "encounterRollModifier": 0,
+  "encounterNoSurpriseInCamp": false,
+  "awakeWhenCampAttacked": true,
+  "sleepDurationOverride": 4,
+  "ignoreFoodConsumption": false,
+  "fastBardicInspirationRecovery": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Invocation/&InvocationAspectOfTheMoonTitle",
+    "description": "Invocation/&InvocationAspectOfTheMoonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ae828ac9-74a2-536f-9c96-4de829749b6f",
+  "contentPack": 9999,
+  "name": "CampAffinityInvocationAspectOfTheMoonTrance"
+}

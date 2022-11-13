@@ -1,0 +1,11 @@
+﻿CHANGES:
+
+- Rebrand to Unfinished Business
+- Add Inventor
+- Add Kobold
+- Add UI feat groups
+- Add new Fighting Styles
+- Allow 6 players on multiplayer [beta]
+- Allow 6 players on official campaigns
+- Improve Tactician
+- Improve Wizard Dead Master

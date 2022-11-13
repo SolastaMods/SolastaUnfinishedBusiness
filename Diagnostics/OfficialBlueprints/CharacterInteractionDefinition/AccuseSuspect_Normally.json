@@ -1,0 +1,33 @@
+{
+  "$type": "CharacterInteractionDefinition, Assembly-CSharp",
+  "actionId": "Manipulate",
+  "cursorType": "Parley",
+  "animation": "NoAnimation",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterInteraction/&SuspectAccuseNormally",
+    "description": "CharacterInteraction/&SuspectAccuseNormally",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7742c36126347064aa9232e8418828f8",
+      "m_SubObjectName": "Accuse_Normally",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1b2b6088ff5d8634caf9d54d24a6e66c",
+  "contentPack": "BaseGame",
+  "name": "AccuseSuspect_Normally"
+}

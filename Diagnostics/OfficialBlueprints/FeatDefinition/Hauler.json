@@ -8,6 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatHauler:ff8441d25f424f8419d899da8cf4285d",

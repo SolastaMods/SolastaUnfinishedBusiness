@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
-      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e"
+      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:ScrollMassCureWounds:4e6cc51cff1b7d74285a644a73481576",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

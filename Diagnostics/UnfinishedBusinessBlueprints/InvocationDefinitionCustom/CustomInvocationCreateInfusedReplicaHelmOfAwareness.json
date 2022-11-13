@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 10,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaHelmOfAwareness:0d3e1202-6224-5dda-9a4f-178f24ca55b7",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Helm of Awareness",
+    "description": "Create replica <b>Helm of Awareness</b>:\nA creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f9c80d4a3d02bd540b700978d64fa869",
+      "m_SubObjectName": "Helm_of_Comprehending_Languages",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2e042f9b-e697-50d2-88c0-a6887a6f410e",
+  "contentPack": 9999,
+  "name": "CustomInvocationCreateInfusedReplicaHelmOfAwareness"
+}

@@ -1,0 +1,84 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierTacticianEverVigilant:e0b4172a-9b57-5871-a28e-15b5f50e6c82",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn3:016a9085-9826-5765-a020-75d99911988a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetTacticianSharpMind:4db7f8bb-dad9-5fa6-a85b-db8a535e0484",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerTacticianSharedVigilance:3581ed42-7ce9-5464-a495-910e3bd168a9",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureAdaptiveStrategy:233c2b1c-b40f-58b9-99dd-7ef75bd1159b",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MartialTacticianTitle",
+    "description": "Subclass/&MartialTacticianDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
+      "m_SubObjectName": "Rogue_Shadowcaster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1e48c684-6822-5fe5-a311-f2c51b683451",
+  "contentPack": 9999,
+  "name": "MartialTactician"
+}

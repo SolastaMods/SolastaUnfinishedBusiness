@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDeadMaster:fb2d7ec3-4662-5ee2-b5d8-3dee24f34d64",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SummoningAffinityDeadMasterUndeadChains:afdb20e8-8265-5158-86f0-89a10fad52c1",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TargetReducedToZeroHpDeadMasterStarkHarvest:a36543ab-7740-5dc1-9761-48956c7e4173",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDeadMasterHardenToNecrotic:93b6c812-5d43-5976-9eec-69c9b7745e90",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDeadMasterCommandUndead:9f289f69-cb71-51db-a752-16b26f902eef",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WizardDeadMasterTitle",
+    "description": "Subclass/&WizardDeadMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
+      "m_SubObjectName": "Sorcerer_HauntedSoul",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "65804f40-eb6b-5e26-bb1e-f5ef0ba6ee3e",
+  "contentPack": 9999,
+  "name": "WizardDeadMaster"
+}

@@ -1,0 +1,52 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Darkness",
+      "condition": "Definition:ConditionDemonGeneral:26486197465b6b3449130f7e5e82f194",
+      "effect": null
+    },
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Unlit",
+      "condition": "Definition:ConditionDemonGeneral:26486197465b6b3449130f7e5e82f194",
+      "effect": null
+    },
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Dim",
+      "condition": "Definition:ConditionDemonGeneral:26486197465b6b3449130f7e5e82f194",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Condition/&AllyOfDarkness_Title",
+    "description": "Condition/&AllyOfDarkness_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5e7b8cc1efb2b78409be2ec7d95aa6c5",
+  "contentPack": "BaseGame",
+  "name": "LightAffinity_DemonGeneral"
+}

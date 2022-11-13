@@ -77,8 +77,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Rebel_Man01:6d694476c611c9140b1b4f3f4acb691e",
       "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Rebel_Man02:b99376cd5f2411d4cb0ce2806b69eaee",
@@ -135,6 +134,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

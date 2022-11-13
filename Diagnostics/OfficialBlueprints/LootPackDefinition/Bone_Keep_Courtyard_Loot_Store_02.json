@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Art_Item_25_GP_GoldBracelet:b5eb965df15a17e4fb9fb75ae0069c44",
-      "treasureTableDefinition": "Definition:RandomWeaponTable:2f3690971b7ff104c82162e74b819612"
+      "treasureTableDefinition": "Definition:RandomWeaponTable:2f3690971b7ff104c82162e74b819612",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
-      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

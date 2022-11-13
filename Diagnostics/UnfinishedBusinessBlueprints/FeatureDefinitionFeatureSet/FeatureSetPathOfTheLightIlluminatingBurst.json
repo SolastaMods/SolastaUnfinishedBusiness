@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerPathOfTheLightIlluminatingBurst:e4e99b02-b403-5b0a-9a8b-2b0343d90cf6",
+    "Definition:PowerPathOfTheLightIlluminatingBurstInitiator:1b0b222a-d63b-5a1d-a7ff-32e0daee1c22",
+    "Definition:PowerPathOfTheLightIlluminatingBurstSuppressor:2e97d82c-4679-564a-ac16-ff9d9f834ec5"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheLightIlluminatingBurstTitle",
+    "description": "Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "81312825-9ca6-5b0d-8173-e2972ab63504",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheLightIlluminatingBurst"
+}

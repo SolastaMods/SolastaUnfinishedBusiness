@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_BuriedCity_Jail_Key:19a2b5e4aaa51bc4c9281709ca15edd5",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Shield+1:e2e3b47343efdf645979617d2a692864",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -46,7 +50,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Morningstar:d99766c4fc8941f4fb0c26038895fdea",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -55,7 +60,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Morningstar:d99766c4fc8941f4fb0c26038895fdea",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -64,7 +70,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:HeavyCrossbow:8de3995cbb4970243bee6a479f8d67cd",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

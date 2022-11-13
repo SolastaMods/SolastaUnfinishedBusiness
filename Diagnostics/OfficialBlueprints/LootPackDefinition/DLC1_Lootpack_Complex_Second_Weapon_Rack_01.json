@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
-      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
-      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

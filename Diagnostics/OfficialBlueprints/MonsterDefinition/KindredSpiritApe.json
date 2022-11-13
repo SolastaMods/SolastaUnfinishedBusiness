@@ -3,17 +3,19 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
-  "creatureTags": [],
+  "creatureTags": [
+    "KindredSpirit"
+  ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 9,
+  "armorClass": 10,
   "armor": "",
   "hitDice": 4,
   "hitDiceType": "D10",
   "hitPointsBonus": 8,
-  "standardHitPoints": 10,
+  "standardHitPoints": 11,
   "abilityScores": [
     18,
     16,
@@ -60,6 +62,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_SpiritApe_Fist:9dcdd25e1c76f6c43964ae18153a20db"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_SpiritApe_Toss_Rock:acce013bc5cb8a2459f2da85a0d1eb17"
     }
   ],
   "sneakStance": "Stealth",
@@ -92,8 +99,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -125,6 +131,8 @@
       "a": 1.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "67164ca27feba33419a98954fffee0fe",
@@ -145,14 +153,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.655,
+    "maleModelScale": 0.5,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8f4589a9a294b444785fab045256a713",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.655,
+    "femaleModelScale": 0.5,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": true,

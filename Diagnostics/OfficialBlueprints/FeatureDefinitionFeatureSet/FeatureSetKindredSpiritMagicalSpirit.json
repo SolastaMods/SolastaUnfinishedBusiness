@@ -5,6 +5,8 @@
     "Definition:HealingModifierKindredSpiritMagicalSpirit:ec91e81346228284f9106f0127331899"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 1,
   "uniqueChoices": false,
   "enumerateInDescription": false,

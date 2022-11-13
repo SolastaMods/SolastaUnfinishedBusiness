@@ -12,14 +12,20 @@
   "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 0,
+  "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
   "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
+  "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
@@ -31,19 +37,25 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "606ae01bcf804704486f00cac4c1df5b",
+    "m_AssetGUID": "809ac15410e4a2f4aaaba8b6e4690fa5",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "04d5994e23fc58040920b6300f86d163",
+    "m_AssetGUID": "002164a19f54b3f4483af8c9a1133db4",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "00641b9d6a6c7f4419c9d6928d88d173",
+    "m_AssetGUID": "d749388ec46489342bc3dcc7e3e9e765",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "recurrentEffectParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -54,6 +66,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidParticleParameters": {
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
@@ -69,6 +82,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -94,6 +113,12 @@
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "fireParticleParameters": {
@@ -111,6 +136,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -136,6 +167,12 @@
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "poisonParticleParameters": {
@@ -153,6 +190,12 @@
       "m_SubObjectType": ""
     },
     "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -186,12 +229,14 @@
   "subsequentSavingThrowAbilityScore": "Constitution",
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
   "forceBehavior": true,
   "fearSource": false,
   "battlePackage": "Definition:Confused_Attack:6a5baea55ca7cb64bb3d4182a21e1c80",
   "explorationPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {

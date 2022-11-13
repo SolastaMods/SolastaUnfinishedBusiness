@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_BrimstoneViperScales:9c0c994974528ee4c8a0c3d55ebb26fb",
-      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a"
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

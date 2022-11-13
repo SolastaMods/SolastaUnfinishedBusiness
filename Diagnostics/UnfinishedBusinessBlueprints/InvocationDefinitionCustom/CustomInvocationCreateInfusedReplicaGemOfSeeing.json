@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 14,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerCreateInfusedReplicaGemOfSeeing:66914bf4-0aa1-5646-88a0-3ef4137d72fa",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Replica Gem of Seeing",
+    "description": "Create replica <b>Gem of Seeing</b>:\nSuch gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. ",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6779a7540e7f6a4409a3364a9345d833",
+      "m_SubObjectName": "Gem_of_Seeing",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2a1b5a2a-7316-57be-b820-e403e65813ca",
+  "contentPack": 9999,
+  "name": "CustomInvocationCreateInfusedReplicaGemOfSeeing"
+}

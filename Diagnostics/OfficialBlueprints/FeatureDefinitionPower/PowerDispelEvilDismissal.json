@@ -16,6 +16,7 @@
     "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
@@ -38,6 +39,7 @@
     "savingThrowAbility": "Charisma",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
@@ -71,6 +73,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 0,
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -84,7 +87,9 @@
           "automaticSpellLevel": 0,
           "checkBaseDC": 0,
           "addSpellCastingAbility": false,
-          "addProficiencyBonus": false
+          "addProficiencyBonus": false,
+          "addAbilityBonus": false,
+          "abilityToAdd": ""
         },
         "hasFilterId": false,
         "filterId": 0
@@ -210,6 +215,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "activeEffectSurfaceParticlePerIndex": "",
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -264,6 +270,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
+      "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -280,20 +287,30 @@
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
       "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0"
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
   },
   "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
+  "autoActivationRequiredTargetSenseType": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "autoActivationPowerTag": "",
+  "triggeringPower": null,
+  "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
   "reactionName": "",
+  "reactionActingCharacterParamIdx": 0,
+  "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
+  "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
@@ -311,7 +328,6 @@
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
-  "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

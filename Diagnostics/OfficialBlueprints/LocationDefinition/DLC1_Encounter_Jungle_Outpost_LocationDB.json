@@ -200,6 +200,7 @@
   "canAttackNonHostileCharacters": true,
   "forceNoEncounterPrespawn": true,
   "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

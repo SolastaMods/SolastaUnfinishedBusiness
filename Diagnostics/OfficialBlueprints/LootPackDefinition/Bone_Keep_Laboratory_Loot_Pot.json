@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

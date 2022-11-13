@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 7,
+  "maxSpellLevel": 6,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -99,13 +99,10 @@
         "Definition:HeroesFeast:2df9af96f1ce6ee4aa3d1b9ecdb67b1f",
         "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
       ]
-    },
-    {
-      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
-      "level": 7,
-      "spells": []
     }
   ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

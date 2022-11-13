@@ -99,7 +99,8 @@
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
     "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
     "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:ActionAffinityNimbleEscape:c79ed2c68dfa49c4bb45d76d142a139c"
+    "Definition:ActionAffinityNimbleEscape:c79ed2c68dfa49c4bb45d76d142a139c",
+    "Definition:ConditionAffinityResistanceToShine:ccba3756c041c0e4692516926740e8f8"
   ],
   "attackIterations": [
     {
@@ -148,8 +149,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "hasUniqueName": false,
-    "uniqueNameTitle": "",
+    "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -181,6 +181,8 @@
       "a": 0.0
     },
     "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",

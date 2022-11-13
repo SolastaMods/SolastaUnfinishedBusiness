@@ -150,6 +150,12 @@
       "odds": 3,
       "itemDefinition": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Primed Gauntlet:51acb92856627d6409c7da52009bdb2d",
+      "amount": 1
     }
   ],
   "guiPresentation": {

@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
-      "treasureTableDefinition": "Definition:RandomTreasureTableI2_PoisonedProjectiles:3e0b4ec21fd5d874da7c579d7650a8b2"
+      "treasureTableDefinition": "Definition:RandomTreasureTableI2_PoisonedProjectiles:3e0b4ec21fd5d874da7c579d7650a8b2",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

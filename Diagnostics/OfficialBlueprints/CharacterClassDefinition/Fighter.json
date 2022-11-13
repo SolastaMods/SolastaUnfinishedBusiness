@@ -252,6 +252,11 @@
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassFighterFlag"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Authority"
     },
@@ -272,18 +277,13 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 5,
+      "weight": 10,
       "personalityFlag": "GpCombat"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 1,
       "personalityFlag": "GpExplorer"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "ClassFighterFlag"
     }
   ],
   "skillAutolearnPreference": [
@@ -308,6 +308,7 @@
     "RaiseShield",
     "TakeAim"
   ],
+  "invocationAutolearnPreference": [],
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 7,
   "classPictogramReference": {
@@ -319,6 +320,10 @@
   "defaultBattleDecisions": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
   "classAnimationId": "Fighter",
   "vocalSpellSemeClass": "Arcana",
+  "isUsingRandomUnarmedStrikes": false,
+  "randomUnarmedStrikesRangeMin": 0,
+  "randomUnarmedStrikesRangeMax": 0,
+  "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

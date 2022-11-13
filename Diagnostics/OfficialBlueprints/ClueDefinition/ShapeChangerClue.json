@@ -1,0 +1,31 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "suspicionModifier": 1.0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Screen/&InvestigationClueShapechangerTitle",
+    "description": "Screen/&InvestigationClueShapechangerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2e1e9a8d196569646986736e5ecd3d78",
+      "m_SubObjectName": "Sorr-Akkath_Saboteur",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6034aaa01039f0b4097c418df9ad3e35",
+  "contentPack": "BaseGame",
+  "name": "ShapeChangerClue"
+}

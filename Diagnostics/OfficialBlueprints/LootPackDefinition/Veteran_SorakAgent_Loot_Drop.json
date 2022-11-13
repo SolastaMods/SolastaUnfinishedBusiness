@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:5D6_Gold_Coins:c7ef4dc502217ae498b72232aaf308e4",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:HeavyCrossbow:8de3995cbb4970243bee6a479f8d67cd",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -28,7 +30,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:ChainMail:80f0c1abf6973fe4fa5e2fc9ecb26ff0",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -37,7 +40,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -46,7 +50,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -55,7 +60,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
-      "treasureTableDefinition": null
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -64,7 +70,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Poison_Basic:b5b96717da1f5114abfa3b097bc1db7d",
-      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e"
+      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

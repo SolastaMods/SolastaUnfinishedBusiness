@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 12,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerInvocationBondOfTheTalismanShadowEscape:58e998a0-37b6-51f6-9da4-d9a50cc8c046",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationBondOfTheTalismanTitle",
+    "description": "Invocation/&InvocationBondOfTheTalismanDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f2582a82a487aad49910c5263c7830ce",
+      "m_SubObjectName": "ShadowDodge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5ba5723e-5b19-5811-9e29-d978598bf736",
+  "contentPack": 9999,
+  "name": "InvocationBondOfTheTalisman"
+}

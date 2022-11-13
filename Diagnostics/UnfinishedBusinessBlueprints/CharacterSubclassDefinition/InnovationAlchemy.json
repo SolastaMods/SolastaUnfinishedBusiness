@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyBombs:d831282d-31f5-507f-88d9-c52083dcc036",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationAlchemyPool:4d7395d5-b784-5c60-8813-7ff6d2d34027",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityInnovationAlchemyFastHands:ce58b680-f8b3-5a2a-b8d2-eb7cb31f4b08",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsInnovationAlchemy:b85f31f8-8640-5851-bb5d-208cfe756082",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyOverchargeBombs:f68f7df0-086b-50e3-b3a7-17d199edf405",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationAlchemyBombsElemental:9c6889e1-290c-5b52-bab3-4b4606489e5e",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationAlchemyBombsAdvanced:d9893368-bd29-545f-8fd6-7721c1d94004",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyExtraOverchargeBombs:0ebedc10-3e37-53de-ad5b-c2977253a4b8",
+      "level": 11
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&InnovationAlchemyTitle",
+    "description": "Subclass/&InnovationAlchemyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6546b72bf75bd1f4b8e16068391909f9",
+      "m_SubObjectName": "Cleric_Red",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f0e38a2c-f4df-5153-bc4f-00d60bb23032",
+  "contentPack": 9999,
+  "name": "InnovationAlchemy"
+}

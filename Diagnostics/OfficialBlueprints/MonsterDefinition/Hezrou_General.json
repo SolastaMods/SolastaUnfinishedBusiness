@@ -1,0 +1,337 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Fiend",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "alignment": "ChaoticEvil",
+  "armorClass": 18,
+  "armor": "",
+  "hitDice": 19,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 84,
+  "standardHitPoints": 218,
+  "abilityScores": [
+    21,
+    18,
+    22,
+    10,
+    12,
+    14
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 10
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 6
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 6
+    }
+  ],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:PowerHezrouEatFriends:354ad00f2983efd4396b89ec9a57a9a5",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryHezrouLifeLeechAlly:26f446698a06be54bad9b7e39ab2b83c"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Bite:e7959423843504e4b980effcf75a3121",
+      "featureDefinitionPower": "Definition:PowerSpiderQueenEatFriends:3c60bb7dfd57c0844955f11ec95e1d9e",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryHezrouAttackAndMove:c9efa508a4c9b2340a0917d4f40b8f67"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Claw_Shoving:d0d165fbb9883fa479f68a6b4fef5ef6",
+      "featureDefinitionPower": "Definition:PowerSpiderQueenEatFriends:3c60bb7dfd57c0844955f11ec95e1d9e",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryHezrouAttack:9080bc381e3cb664baae7be2b83add2e"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:HezrouGeneralCombatDecisions:fddd22853aa5f89488292711c433ff80",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeDamageDealers"
+  },
+  "languages": [
+    "Language_Abyssal"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioRaceRTPCValue": 0.0,
+  "challengeRating": 14.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Hezrou_General_loot_drop:7bc4404d5eb3a3d4dab3f448b1cdf38e",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseBlindSight16:9c1d39576cf623546956edf147f1c916",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerHezrouPoisonBolt:0f4e39d744cb27348b7825aa3ca0d408",
+    "Definition:LightAffinity_DemonGeneral:5e7b8cc1efb2b78409be2ec7d95aa6c5",
+    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
+    "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
+    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Bite:e7959423843504e4b980effcf75a3121"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Claw:b934398324192e64d831f545064a3b87"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Hezrou_General_Claw:b934398324192e64d831f545064a3b87"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "Walk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 0,
+  "weight": 0,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "3e8b29b06d46f2546b5f2c3e535bf99f",
+    "m_SubObjectName": "Hezrou_General_Bestiary",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "062b4a0dc85a6464991d3dcc5527190b",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 1.0,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.656,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": true,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&DLC3_HezrouGeneral_Title",
+    "description": "Monster/&DLC3_HezrouGeneral_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bb3fa0bc600c77d47b363d13ca943df4",
+      "m_SubObjectName": "CustomPortrait_Hezrou_General",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "df0b72c39c197db4897e4ffe52bf8fb4",
+  "contentPack": "PalaceOfIce",
+  "name": "Hezrou_General"
+}

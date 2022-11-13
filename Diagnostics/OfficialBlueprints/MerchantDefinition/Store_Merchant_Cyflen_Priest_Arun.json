@@ -191,6 +191,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "Principality",
       "factionStatus": "Indifference"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:RestorativeOintment:97987a31b6e74b94b8dbd6f9d59f9716",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 23,
+      "requiredFaction": "Principality",
+      "factionStatus": "Sympathy"
     }
   ],
   "guiPresentation": {

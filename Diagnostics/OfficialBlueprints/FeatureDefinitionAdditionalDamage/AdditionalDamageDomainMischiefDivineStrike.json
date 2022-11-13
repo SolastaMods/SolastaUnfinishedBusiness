@@ -1,21 +1,75 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "DivineStrike",
-  "limitedUsage": "OnceInMyturn",
+  "limitedUsage": "OnceInMyTurn",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": true,
+  "attackOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
+  "flatBonus": 0,
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamagePsychic",
-  "damageAdvancement": "None",
-  "diceByRankTable": [],
+  "ancestryTypeForDamageType": "Sorcerer",
+  "damageAdvancement": "ClassLevel",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 8,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 9,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 2
+    }
+  ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
@@ -23,6 +77,7 @@
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
   "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
   "conditionOperations": [],
   "addLightSource": false,
@@ -53,6 +108,7 @@
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
   "acidImpactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

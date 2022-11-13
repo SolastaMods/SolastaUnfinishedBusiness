@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Ingredient_BlackBear_Pelt:551a3237f80d1ff4fbd0d5c27ea0715f",
-      "treasureTableDefinition": "Definition:Random_Golem_Iron_Table:3201394dde218b744bb72bb26cb2f120"
+      "treasureTableDefinition": "Definition:Random_Golem_Iron_Table:3201394dde218b744bb72bb26cb2f120",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

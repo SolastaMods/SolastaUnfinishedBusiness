@@ -1,0 +1,52 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerFiendishResilienceAcid:3e50b6cb85712db4ebc6f3d6f32ab52d",
+    "Definition:PowerFiendishResilienceBludgeoning:22c005816ca351c49bad76ec0a883675",
+    "Definition:PowerFiendishResilienceCold:5ac188b2da08815448fdf880b02847ac",
+    "Definition:PowerFiendishResilienceFire:d80c997b6646cb04a9f0d83c544c3246",
+    "Definition:PowerFiendishResilienceForce:e0c7cab4a33b84c4d90f6948f3b8a521",
+    "Definition:PowerFiendishResilienceLightning:86d1c3508e8c5c741a7cd53b98db4653",
+    "Definition:PowerFiendishResilienceNecrotic:429f8fbe6014cf342a07c1861fbd965e",
+    "Definition:PowerFiendishResiliencePiercing:2079cab31d6354547b6a6dd67db3b741",
+    "Definition:PowerFiendishResiliencePoison:4bf8c600585452041bb28f5be3ff2cf2",
+    "Definition:PowerFiendishResiliencePsychic:d8f0a20c2f3941b48955c7019c1cbaaa",
+    "Definition:PowerFiendishResilienceRadiant:8746414941c0e9341a9f62a7d117e23d",
+    "Definition:PowerFiendishResilienceSlashing:b79c120f6b5185245b89007d376be8bf",
+    "Definition:PowerFiendishResilienceThunder:f8aee135e47d29447baf592bb24f619b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPatronFiendFiendishResilienceTitle",
+    "description": "Feature/&FeatureSetPatronFiendFiendishResilienceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "eeed9ff39c80f704dbd5fe2891a5f749",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetPatronFiendFiendishResilience"
+}

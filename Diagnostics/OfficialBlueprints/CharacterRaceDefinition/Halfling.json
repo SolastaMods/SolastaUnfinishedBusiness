@@ -62,6 +62,8 @@
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Halfling",
+    "armorAssetPrefix": "Halfling",
+    "helmetAssetPrefix": "Halfling",
     "morphotypeAssetPrefix": "Halfling",
     "maleNameOptions": [
       "Race/&HalflingMaleName1Title",
@@ -90,8 +92,23 @@
       "Race/&HalflingSurName5Title",
       "Race/&HalflingSurName6Title"
     ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
     "needBeard": false,
-    "canModifyMusculature": false,
+    "defaultMusculature": 0,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -176,6 +193,18 @@
       "HairShape_G",
       "HairShape_None"
     ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
     "maleBeardShapeOptions": [
       "BeardShape_None",
       "BeardShape_C",
@@ -187,6 +216,10 @@
       "BeardShape_O",
       "BeardShape_P"
     ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "NEUTRAL1",
     "femaleVoiceDefinition": "FEM2",
@@ -205,7 +238,8 @@
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
-    }
+    },
+    "musicalInstrumentScale": 0.7
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

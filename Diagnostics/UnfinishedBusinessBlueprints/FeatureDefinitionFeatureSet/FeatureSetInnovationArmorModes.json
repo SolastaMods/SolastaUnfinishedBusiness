@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInnovationArmorModeSelectorPool:388d2312-5ad7-5599-a3fe-a4ad55f3befc",
+    "Definition:PowerInnovationArmorDefensiveField:bb1bfd9c-9fb0-54ae-9966-fdbfc27dfedc",
+    "Definition:PowerInnovationArmorSwitchModeGuardian:19455924-a4bd-54e8-b702-70d4ce2470df",
+    "Definition:PowerInnovationArmorSwitchModeInfiltrator:5c413201-a118-5edb-91cb-1d692e959922"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationArmorModesTitle",
+    "description": "Feature/&FeatureSetInnovationArmorModesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1e8127c0-fc80-50e5-acdb-74306738b3d0",
+  "contentPack": 9999,
+  "name": "FeatureSetInnovationArmorModes"
+}

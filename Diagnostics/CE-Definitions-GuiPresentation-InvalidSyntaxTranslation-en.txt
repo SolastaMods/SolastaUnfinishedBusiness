@@ -1,80 +1,522 @@
-DH_ElementalForm_Air	Title='Air Plane'.
-DH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_AirAdditionalDamage	Title='Elemental Damage: Air Plane'.
-DH_ElementalForm_AirAdditionalDamage	Description='When channeling Air Plane, deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_AirCondition	Title='Channeling Air Plane'.
-DH_ElementalForm_AirCondition	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Earth	Title='Earth Plane'.
-DH_ElementalForm_Earth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_EarthAdditionalDamage	Title='Elemental Damage: Earth Plane'.
-DH_ElementalForm_EarthAdditionalDamage	Description='When channeling Earth Plane, deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_EarthCondition	Title='Channeling Earth Plane'.
-DH_ElementalForm_EarthCondition	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Fire	Title='Fire Plane'.
-DH_ElementalForm_Fire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_FireAdditionalDamage	Title='Elemental Damage: Fire Plane'.
-DH_ElementalForm_FireAdditionalDamage	Description='When channeling Fire Plane, deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_FireCondition	Title='Channeling Fire Plane'.
-DH_ElementalForm_FireCondition	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_Ice	Title='Ice Plane'.
-DH_ElementalForm_Ice	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-DH_ElementalForm_IceAdditionalDamage	Title='Elemental Damage: Ice Plane'.
-DH_ElementalForm_IceAdditionalDamage	Description='When channeling Ice Plane, deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-DH_ElementalForm_IceCondition	Title='Channeling Ice Plane'.
-DH_ElementalForm_IceCondition	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Air	Title='Channeling Air Plane'.
-DH_EnhancedElementalForm_Air	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_AirCondition	Title='Channeling Air Plane'.
-DH_EnhancedElementalForm_AirCondition	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Earth	Title='Channeling Earth Plane'.
-DH_EnhancedElementalForm_Earth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_EarthCondition	Title='Channeling Earth Plane'.
-DH_EnhancedElementalForm_EarthCondition	Description='Deal additional Bludgeoning damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Fire	Title='Channeling Fire Plane'.
-DH_EnhancedElementalForm_Fire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_FireCondition	Title='Channeling Fire Plane'.
-DH_EnhancedElementalForm_FireCondition	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
-DH_EnhancedElementalForm_Ice	Title='Channeling Ice Plane'.
-DH_EnhancedElementalForm_Ice	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
-DH_EnhancedElementalForm_IceCondition	Title='Channeling Ice Plane'.
-DH_EnhancedElementalForm_IceCondition	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-EldritchInvocationBane	Description='Cast Bane once until long rest.'.
-EldritchInvocationBaneRemover	Description='Cast Bane once until long rest.'.
-EldritchInvocationConfusion	Description='Cast Confusion once until long rest.'.
-EldritchInvocationConfusionRemover	Description='Cast Confusion once until long rest.'.
-EldritchInvocationDetectMagic	Description='Cast Detect Magic at will.'.
-EldritchInvocationDetectMagicRemover	Description='Cast Detect Magic at will.'.
-EldritchInvocationFalseLife	Description='Cast False Life at will.'.
-EldritchInvocationFalseLifeRemover	Description='Cast False Life at will.'.
-EldritchInvocationFreedomOfMovement	Description='Cast Freedom of Movement once until long rest.'.
-EldritchInvocationFreedomOfMovementRemover	Description='Cast Freedom of Movement once until long rest.'.
-EldritchInvocationHoldMonster	Description='Cast Hold Monster at will.'.
-EldritchInvocationHoldMonsterRemover	Description='Cast Hold Monster at will.'.
-EldritchInvocationInvisibility	Description='Cast Invisibility at will.'.
-EldritchInvocationInvisibilityRemover	Description='Cast Invisibility at will.'.
-EldritchInvocationJump	Description='Cast Jump at will.'.
-EldritchInvocationJumpRemover	Description='Cast Jump at will.'.
-EldritchInvocationLevitate	Description='Cast Levitate at will.'.
-EldritchInvocationLevitateRemover	Description='Cast Levitate at will.'.
-EldritchInvocationMageArmor	Description='Cast Mage Armor at will.'.
-EldritchInvocationMageArmorRemover	Description='Cast Mage Armor at will.'.
-EldritchInvocationSlow	Description='Cast Slow once until long rest.'.
-EldritchInvocationSlowRemover	Description='Cast Slow once until long rest.'.
-MagicAffinityMasterManipulatorDC	Description='It is harder for opponents to resist your spells. The save DC increases by 2.'.
-MagicAffinityRoguishConArtistDC	Description='Your spell save DC increases by 3.'.
-SpellDH_ElementalForm_Air	Title='Air Plane'.
-SpellDH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Earth	Title='Earth Plane'.
-SpellDH_ElementalForm_Earth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Fire	Title='Fire Plane'.
-SpellDH_ElementalForm_Fire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_ElementalForm_Ice	Title='Ice Plane'.
-SpellDH_ElementalForm_Ice	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Air	Title='Channeling Air Plane'.
-SpellDH_EnhancedElementalForm_Air	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Earth	Title='Channeling Earth Plane'.
-SpellDH_EnhancedElementalForm_Earth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Fire	Title='Channeling Fire Plane'.
-SpellDH_EnhancedElementalForm_Fire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
-SpellDH_EnhancedElementalForm_Ice	Title='Channeling Ice Plane'.
-SpellDH_EnhancedElementalForm_Ice	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+CraftingManualRecipeEnchantBreastplate_Deflection	Title='Enchant Breastplate of Deflection'.
+CraftingManualRecipeEnchantBreastplate_FlameDancing	Title='Enchant Breastplate of Flame Dancing'.
+CraftingManualRecipeEnchantBreastplate_FrostWalking	Title='Enchant Breastplate of Frost Walking'.
+CraftingManualRecipeEnchantBreastplate_Robustness	Title='Enchant Breastplate of Robustness'.
+CraftingManualRecipeEnchantBreastplate_Sturdiness	Title='Enchant Breastplate of Sturdiness'.
+CraftingManualRecipeEnchantBreastplate_Survival	Title='Enchant Breastplate of Survival'.
+CraftingManualRecipeEnchantCEHalberd+1	Title='Enchant Halberd +1'.
+CraftingManualRecipeEnchantCEHalberd+2	Title='Enchant Halberd +2'.
+CraftingManualRecipeEnchantCEHalberdLightning	Title='Enchant Lightning Halberd '.
+CraftingManualRecipeEnchantCEHandXbow+1	Title='Enchant Hand Crossbow +1'.
+CraftingManualRecipeEnchantCEHandXbow+2	Title='Enchant Hand Crossbow +2'.
+CraftingManualRecipeEnchantCEHandXbowAcid	Title='Enchant Acidic Hand Crossbow'.
+CraftingManualRecipeEnchantCELongMace+1	Title='Enchant Long Mace +1'.
+CraftingManualRecipeEnchantCELongMace+2	Title='Enchant Long Mace +2'.
+CraftingManualRecipeEnchantCELongMaceThunder	Title='Enchant Thundering Long Mace'.
+CraftingManualRecipeEnchantCEPike+1	Title='Enchant Pike +1'.
+CraftingManualRecipeEnchantCEPike+2	Title='Enchant Pike +2'.
+CraftingManualRecipeEnchantCEPikePsychic	Title='Enchant Psychic Pike'.
+CraftingManualRecipeEnchantChainMail_Deflection	Title='Enchant Chain Mail of Deflection'.
+CraftingManualRecipeEnchantChainMail_FlameDancing	Title='Enchant Chain Mail of Flame Dancing'.
+CraftingManualRecipeEnchantChainMail_FrostWalking	Title='Enchant Chain Mail of Frost Walking'.
+CraftingManualRecipeEnchantChainMail_Robustness	Title='Enchant Chain Mail of Robustness'.
+CraftingManualRecipeEnchantChainMail_Sturdiness	Title='Enchant Chain Mail of Sturdiness'.
+CraftingManualRecipeEnchantChainMail_Survival	Title='Enchant Chain Mail of Survival'.
+CraftingManualRecipeEnchantChainShirt_Deflection	Title='Enchant Chain Shirt of Deflection'.
+CraftingManualRecipeEnchantChainShirt_FlameDancing	Title='Enchant Chain Shirt of Flame Dancing'.
+CraftingManualRecipeEnchantChainShirt_FrostWalking	Title='Enchant Chain Shirt of Frost Walking'.
+CraftingManualRecipeEnchantChainShirt_Robustness	Title='Enchant Chain Shirt of Robustness'.
+CraftingManualRecipeEnchantChainShirt_Sturdiness	Title='Enchant Chain Shirt of Sturdiness'.
+CraftingManualRecipeEnchantChainShirt_Survival	Title='Enchant Chain Shirt of Survival'.
+CraftingManualRecipeEnchantClub_Acuteness	Title='Enchant Club of Acuteness'.
+CraftingManualRecipeEnchantClub_Bearclaw	Title='Enchant Bearclaw Club'.
+CraftingManualRecipeEnchantClub_Lightbringer	Title='Enchant Lightbringer Club'.
+CraftingManualRecipeEnchantClub_Power	Title='Enchant Club of Power'.
+CraftingManualRecipeEnchantClub_Punisher	Title='Enchant Punisher Club'.
+CraftingManualRecipeEnchantDart_Acuteness	Title='Enchant Dart of Acuteness'.
+CraftingManualRecipeEnchantDart_Frostburn	Title='Enchant Frostburn Dart'.
+CraftingManualRecipeEnchantDart_Sharpness	Title='Enchant Dart of Sharpness'.
+CraftingManualRecipeEnchantDart_Souldrinker	Title='Enchant Souldrinker Dart'.
+CraftingManualRecipeEnchantGreataxe_Acuteness	Title='Enchant Greataxe of Acuteness'.
+CraftingManualRecipeEnchantGreataxe_Bearclaw	Title='Enchant Bearclaw Greataxe'.
+CraftingManualRecipeEnchantGreataxe_Lightbringer	Title='Enchant Lightbringer Greataxe'.
+CraftingManualRecipeEnchantGreataxe_Power	Title='Enchant Greataxe of Power'.
+CraftingManualRecipeEnchantGreataxe_Punisher	Title='Enchant Punisher Greataxe'.
+CraftingManualRecipeEnchantGreatsword_Punisher	Title='Enchant Punisher Greatsword'.
+CraftingManualRecipeEnchantHalfPlate_Deflection	Title='Enchant Half Plate of Deflection'.
+CraftingManualRecipeEnchantHalfPlate_FlameDancing	Title='Enchant Half Plate of Flame Dancing'.
+CraftingManualRecipeEnchantHalfPlate_FrostWalking	Title='Enchant Half Plate of Frost Walking'.
+CraftingManualRecipeEnchantHalfPlate_Robustness	Title='Enchant Half Plate of Robustness'.
+CraftingManualRecipeEnchantHalfPlate_Sturdiness	Title='Enchant Half Plate of Sturdiness'.
+CraftingManualRecipeEnchantHalfPlate_Survival	Title='Enchant Half Plate of Survival'.
+CraftingManualRecipeEnchantHandaxe_Acuteness	Title='Enchant Handaxe of Acuteness'.
+CraftingManualRecipeEnchantHandaxe_Frostburn	Title='Enchant Frostburn Handaxe'.
+CraftingManualRecipeEnchantHandaxe_Sharpness	Title='Enchant Handaxe of Sharpness'.
+CraftingManualRecipeEnchantHandaxe_Souldrinker	Title='Enchant Souldrinker Handaxe'.
+CraftingManualRecipeEnchantHandwrapsOfForce	Title='Enchant Forceful Gauntlets'.
+CraftingManualRecipeEnchantHandwrapsOfPulling	Title='Enchant Gauntlets Of Pulling'.
+CraftingManualRecipeEnchantHeavyCrossbow_Accuracy	Title='Enchant Heavy Crossbow of Accuracy'.
+CraftingManualRecipeEnchantHeavyCrossbow_Lightbringer	Title='Enchant Lightbringer Heavy Crossbow'.
+CraftingManualRecipeEnchantHeavyCrossbow_Medusa	Title='Enchant Medusa Heavy Crossbow'.
+CraftingManualRecipeEnchantHeavyCrossbow_Sharpshooting	Title='Enchant Heavy Crossbow of Sharpshooting'.
+CraftingManualRecipeEnchantHeavyCrossbow_Stormbow	Title='Enchant Heavy Stormcrossbow'.
+CraftingManualRecipeEnchantHideArmor_Deflection	Title='Enchant Hide Armor of Deflection'.
+CraftingManualRecipeEnchantHideArmor_FlameDancing	Title='Enchant Hide Armor of Flame Dancing'.
+CraftingManualRecipeEnchantHideArmor_FrostWalking	Title='Enchant Hide Armor of Frost Walking'.
+CraftingManualRecipeEnchantHideArmor_Robustness	Title='Enchant Hide Armor of Robustness'.
+CraftingManualRecipeEnchantHideArmor_Sturdiness	Title='Enchant Hide Armor of Sturdiness'.
+CraftingManualRecipeEnchantHideArmor_Survival	Title='Enchant Hide Armor of Survival'.
+CraftingManualRecipeEnchantJavelin_Acuteness	Title='Enchant Javelin of Acuteness'.
+CraftingManualRecipeEnchantJavelin_Frostburn	Title='Enchant Frostburn Javelin'.
+CraftingManualRecipeEnchantJavelin_Sharpness	Title='Enchant Javelin of Sharpness'.
+CraftingManualRecipeEnchantJavelin_Souldrinker	Title='Enchant Souldrinker Javelin'.
+CraftingManualRecipeEnchantLeather_Deflection	Title='Enchant Leather of Deflection'.
+CraftingManualRecipeEnchantLeather_FlameDancing	Title='Enchant Leather of Flame Dancing'.
+CraftingManualRecipeEnchantLeather_FrostWalking	Title='Enchant Leather of Frost Walking'.
+CraftingManualRecipeEnchantLeather_Robustness	Title='Enchant Leather of Robustness'.
+CraftingManualRecipeEnchantLeather_Sturdiness	Title='Enchant Leather of Sturdiness'.
+CraftingManualRecipeEnchantLeather_Survival	Title='Enchant Leather of Survival'.
+CraftingManualRecipeEnchantLeatherDruid_Deflection	Title='Enchant Druid Leather of Deflection'.
+CraftingManualRecipeEnchantLeatherDruid_FlameDancing	Title='Enchant Druid Leather of Flame Dancing'.
+CraftingManualRecipeEnchantLeatherDruid_FrostWalking	Title='Enchant Druid Leather of Frost Walking'.
+CraftingManualRecipeEnchantLeatherDruid_Robustness	Title='Enchant Druid Leather of Robustness'.
+CraftingManualRecipeEnchantLeatherDruid_Sturdiness	Title='Enchant Druid Leather of Sturdiness'.
+CraftingManualRecipeEnchantLeatherDruid_Survival	Title='Enchant Druid Leather of Survival'.
+CraftingManualRecipeEnchantLightCrossbow_Accuracy	Title='Enchant Light Crossbow of Accuracy'.
+CraftingManualRecipeEnchantLightCrossbow_Lightbringer	Title='Enchant Lightbringer Light Crossbow'.
+CraftingManualRecipeEnchantLightCrossbow_Medusa	Title='Enchant Medusa Light Crossbow'.
+CraftingManualRecipeEnchantLightCrossbow_Sharpshooting	Title='Enchant Light Crossbow of Sharpshooting'.
+CraftingManualRecipeEnchantLightCrossbow_Stormbow	Title='Enchant Light Stormcrossbow'.
+CraftingManualRecipeEnchantMaul_Acuteness	Title='Enchant Maul of Acuteness'.
+CraftingManualRecipeEnchantMaul_Bearclaw	Title='Enchant Bearclaw Maul'.
+CraftingManualRecipeEnchantMaul_Lightbringer	Title='Enchant Lightbringer Maul'.
+CraftingManualRecipeEnchantMaul_Power	Title='Enchant Maul of Power'.
+CraftingManualRecipeEnchantMaul_Punisher	Title='Enchant Punisher Maul'.
+CraftingManualRecipeEnchantPaddedLeather_Deflection	Title='Enchant Padded Leather of Deflection'.
+CraftingManualRecipeEnchantPaddedLeather_FlameDancing	Title='Enchant Padded Leather of Flame Dancing'.
+CraftingManualRecipeEnchantPaddedLeather_FrostWalking	Title='Enchant Padded Leather of Frost Walking'.
+CraftingManualRecipeEnchantPaddedLeather_Robustness	Title='Enchant Padded Leather of Robustness'.
+CraftingManualRecipeEnchantPaddedLeather_Sturdiness	Title='Enchant Padded Leather of Sturdiness'.
+CraftingManualRecipeEnchantPaddedLeather_Survival	Title='Enchant Padded Leather of Survival'.
+CraftingManualRecipeEnchantPlate_Deflection	Title='Enchant Plate of Deflection'.
+CraftingManualRecipeEnchantPlate_FlameDancing	Title='Enchant Plate of Flame Dancing'.
+CraftingManualRecipeEnchantPlate_FrostWalking	Title='Enchant Plate of Frost Walking'.
+CraftingManualRecipeEnchantPlate_Robustness	Title='Enchant Plate of Robustness'.
+CraftingManualRecipeEnchantPlate_Sturdiness	Title='Enchant Plate of Sturdiness'.
+CraftingManualRecipeEnchantPlate_Survival	Title='Enchant Plate of Survival'.
+CraftingManualRecipeEnchantQuarterstaff_Acuteness	Title='Enchant Quarterstaff of Acuteness'.
+CraftingManualRecipeEnchantQuarterstaff_Dragonblade	Title='Enchant Dragonblade Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Frostburn	Title='Enchant Frostburn Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Lightbringer	Title='Enchant Lightbringer Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Souldrinker	Title='Enchant Souldrinker Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Stormblade	Title='Enchant Stormblade Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Warden	Title='Enchant Warden Quarterstaff'.
+CraftingManualRecipeEnchantQuarterstaff_Whiteburn	Title='Enchant Whiteburn Quarterstaff'.
+CraftingManualRecipeEnchantRapier_Dragonblade	Title='Enchant Dragonblade Rapier'.
+CraftingManualRecipeEnchantRapier_Frostburn	Title='Enchant Frostburn Rapier'.
+CraftingManualRecipeEnchantRapier_Lightbringer	Title='Enchant Lightbringer Rapier'.
+CraftingManualRecipeEnchantRapier_Power	Title='Enchant Rapier of Power'.
+CraftingManualRecipeEnchantRapier_Souldrinker	Title='Enchant Souldrinker Rapier'.
+CraftingManualRecipeEnchantRapier_Stormblade	Title='Enchant Stormblade Rapier'.
+CraftingManualRecipeEnchantRapier_Warden	Title='Enchant Warden Rapier'.
+CraftingManualRecipeEnchantRapier_Whiteburn	Title='Enchant Whiteburn Rapier'.
+CraftingManualRecipeEnchantRingmail_Deflection	Title='Enchant Ring Mail of Deflection'.
+CraftingManualRecipeEnchantRingmail_FlameDancing	Title='Enchant Ring Mail of Flame Dancing'.
+CraftingManualRecipeEnchantRingmail_FrostWalking	Title='Enchant Ring Mail of Frost Walking'.
+CraftingManualRecipeEnchantRingmail_Robustness	Title='Enchant Ring Mail of Robustness'.
+CraftingManualRecipeEnchantRingmail_Sturdiness	Title='Enchant Ring Mail of Sturdiness'.
+CraftingManualRecipeEnchantRingmail_Survival	Title='Enchant Ring Mail of Survival'.
+CraftingManualRecipeEnchantScaleMail_Deflection	Title='Enchant Scale Mail of Deflection'.
+CraftingManualRecipeEnchantScaleMail_FlameDancing	Title='Enchant Scale Mail of Flame Dancing'.
+CraftingManualRecipeEnchantScaleMail_FrostWalking	Title='Enchant Scale Mail of Frost Walking'.
+CraftingManualRecipeEnchantScaleMail_Robustness	Title='Enchant Scale Mail of Robustness'.
+CraftingManualRecipeEnchantScaleMail_Sturdiness	Title='Enchant Scale Mail of Sturdiness'.
+CraftingManualRecipeEnchantScaleMail_Survival	Title='Enchant Scale Mail of Survival'.
+CraftingManualRecipeEnchantScimitar_Dragonblade	Title='Enchant Dragonblade Scimitar'.
+CraftingManualRecipeEnchantScimitar_Frostburn	Title='Enchant Frostburn Scimitar'.
+CraftingManualRecipeEnchantScimitar_Lightbringer	Title='Enchant Lightbringer Scimitar'.
+CraftingManualRecipeEnchantScimitar_Souldrinker	Title='Enchant Souldrinker Scimitar'.
+CraftingManualRecipeEnchantScimitar_Stormblade	Title='Enchant Stormblade Scimitar'.
+CraftingManualRecipeEnchantScimitar_Warden	Title='Enchant Warden Scimitar'.
+CraftingManualRecipeEnchantScimitar_Whiteburn	Title='Enchant Whiteburn Scimitar'.
+CraftingManualRecipeEnchantShield_Deflection	Title='Enchant Shield of Deflection'.
+CraftingManualRecipeEnchantShield_FlameDancing	Title='Enchant Shield of Flame Dancing'.
+CraftingManualRecipeEnchantShield_FrostWalking	Title='Enchant Shield of Frost Walking'.
+CraftingManualRecipeEnchantShield_Robustness	Title='Enchant Shield of Robustness'.
+CraftingManualRecipeEnchantShield_Sturdiness	Title='Enchant Shield of Sturdiness'.
+CraftingManualRecipeEnchantShield_Survival	Title='Enchant Shield of Survival'.
+CraftingManualRecipeEnchantShield_Wooden_Deflection	Title='Enchant Wooden Shield of Deflection'.
+CraftingManualRecipeEnchantShield_Wooden_FlameDancing	Title='Enchant Wooden Shield of Flame Dancing'.
+CraftingManualRecipeEnchantShield_Wooden_FrostWalking	Title='Enchant Wooden Shield of Frost Walking'.
+CraftingManualRecipeEnchantShield_Wooden_Robustness	Title='Enchant Wooden Shield of Robustness'.
+CraftingManualRecipeEnchantShield_Wooden_Sturdiness	Title='Enchant Wooden Shield of Sturdiness'.
+CraftingManualRecipeEnchantShield_Wooden_Survival	Title='Enchant Wooden Shield of Survival'.
+CraftingManualRecipeEnchantSpear_Acuteness	Title='Enchant Spear of Acuteness'.
+CraftingManualRecipeEnchantSpear_BlackViper	Title='Enchant Black Viper Spear'.
+CraftingManualRecipeEnchantSpear_Doomblade	Title='Enchant Doom Tipped Spear'.
+CraftingManualRecipeEnchantSpear_Lightbringer	Title='Enchant Lightbringer Spear'.
+CraftingManualRecipeEnchantSpear_Sharpness	Title='Enchant Spear of Sharpness'.
+CraftingManualRecipeEnchantSpear_Whiteburn	Title='Enchant Whiteburn Spear'.
+CraftingManualRecipeEnchantSplintArmor_Deflection	Title='Enchant Splint Armor of Deflection'.
+CraftingManualRecipeEnchantSplintArmor_FlameDancing	Title='Enchant Splint Armor of Flame Dancing'.
+CraftingManualRecipeEnchantSplintArmor_FrostWalking	Title='Enchant Splint Armor of Frost Walking'.
+CraftingManualRecipeEnchantSplintArmor_Robustness	Title='Enchant Splint Armor of Robustness'.
+CraftingManualRecipeEnchantSplintArmor_Sturdiness	Title='Enchant Splint Armor of Sturdiness'.
+CraftingManualRecipeEnchantSplintArmor_Survival	Title='Enchant Splint Armor of Survival'.
+CraftingManualRecipeEnchantStuddedLeather_Deflection	Title='Enchant Studded Leather of Deflection'.
+CraftingManualRecipeEnchantStuddedLeather_FlameDancing	Title='Enchant Studded Leather of Flame Dancing'.
+CraftingManualRecipeEnchantStuddedLeather_FrostWalking	Title='Enchant Studded Leather of Frost Walking'.
+CraftingManualRecipeEnchantStuddedLeather_Robustness	Title='Enchant Studded Leather of Robustness'.
+CraftingManualRecipeEnchantStuddedLeather_Sturdiness	Title='Enchant Studded Leather of Sturdiness'.
+CraftingManualRecipeEnchantStuddedLeather_Survival	Title='Enchant Studded Leather of Survival'.
+CraftingManualRecipeEnchantWarhammer_Acuteness	Title='Enchant Warhammer of Acuteness'.
+CraftingManualRecipeEnchantWarhammer_Bearclaw	Title='Enchant Bearclaw Warhammer'.
+CraftingManualRecipeEnchantWarhammer_Lightbringer	Title='Enchant Lightbringer Warhammer'.
+CraftingManualRecipeEnchantWarhammer_Power	Title='Enchant Warhammer of Power'.
+CraftingManualRecipeEnchantWarhammer_Punisher	Title='Enchant Punisher Warhammer'.
+CraftingManualRecipePrimeCEHalberd	Title='Prime Halberd'.
+CraftingManualRecipePrimeCEHandXbow	Title='Prime Hand Crossbow'.
+CraftingManualRecipePrimeCELongMace	Title='Prime Long Mace'.
+CraftingManualRecipePrimeCEPike	Title='Prime Pike'.
+CreateDeadRisenGhost	Title='Raise Spectral Avenger'.
+CreateDeadRisenGhost	Description='Summons <b>Spectral Avenger</b>:
+A powerful, ethereal undead creature.'.
+CreateDeadRisenGhoul	Title='Raise Ghoul'.
+CreateDeadRisenGhoul	Description='Summons <b>Ghoul</b>:
+A ravenous undead creature, constantly searching for flesh to eat.'.
+CreateDeadRisenSkeleton	Title='Raise Skeleton'.
+CreateDeadRisenSkeleton	Description='Summons <b>Skeleton</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
+CreateDeadRisenSkeleton_Archer	Title='Raise Skeleton Archer'.
+CreateDeadRisenSkeleton_Archer	Description='Summons <b>Skeleton Archer</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
+CreateDeadRisenSkeleton_Enforcer	Title='Raise Skeletal Enforcer'.
+CreateDeadRisenSkeleton_Enforcer	Description='Summons <b>Skeletal Enforcer</b>:
+A powerful undead creature armed with an axe and a shield.'.
+CreateDeadRisenSkeleton_Knight	Title='Raise Skeletal Knight'.
+CreateDeadRisenSkeleton_Knight	Description='Summons <b>Skeletal Knight</b>:
+A powerful undead creature, created by raising a dead knight.'.
+CreateDeadRisenSkeleton_Marksman	Title='Raise Skeletal Marksman'.
+CreateDeadRisenSkeleton_Marksman	Description='Summons <b>Skeletal Marksman</b>:
+A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.'.
+CreateDeadRisenWight	Title='Raise Wight'.
+CreateDeadRisenWight	Description='Summons <b>Wight</b>:
+A Wight'.
+CreateDeadRisenWightLord	Title='Raise Wight Lord'.
+CreateDeadRisenWightLord	Description='Summons <b>Wight Lord</b>:
+A powerful wight, trained to withstand the light of day.'.
+CustomInvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+CustomInvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+CustomInvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+CustomInvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+CustomInvocationCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+CustomInvocationCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+CustomInvocationCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+CustomInvocationCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+CustomInvocationCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+CustomInvocationCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+CustomInvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+CustomInvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+CustomInvocationCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+CustomInvocationCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+CustomInvocationCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+CustomInvocationCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+CustomInvocationCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+CustomInvocationCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+CustomInvocationCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+CustomInvocationCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+CustomInvocationCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+CustomInvocationCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+CustomInvocationCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+CustomInvocationCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+CustomInvocationCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+CustomInvocationCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+CustomInvocationCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+CustomInvocationCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+CustomInvocationCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+CustomInvocationCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+CustomInvocationCreateInfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
+CustomInvocationCreateInfusedReplicaGlovesOfThievery	Description='Create replica <b>Gloves of Thievery</b>:
+These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.'.
+CustomInvocationCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+CustomInvocationCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+CustomInvocationCreateInfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
+CustomInvocationCreateInfusedReplicaHelmOfAwareness	Description='Create replica <b>Helm of Awareness</b>:
+A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.'.
+CustomInvocationCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+CustomInvocationCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's command word, and then blow the horn, which emits a thunderous blast in a 6-cell cone that is audible 120 cells away. Each creature in the cone must make a DC 15 constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+CustomInvocationCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+CustomInvocationCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
+These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
+CustomInvocationCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
+CustomInvocationCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
+CustomInvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+CustomInvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+CustomInvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+CustomInvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
+CustomInvocationCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+CustomInvocationCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+DamageAffinityInfusionResistantArmorDamageAcid	Description='Resistance to Acid: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageCold	Description='Resistance to Cold: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageFire	Description='Resistance to Fire: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageForce	Description='Resistance to Force: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageLightning	Description='Resistance to Lightning: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageNecrotic	Description='Resistance to Necrotic: damage is halved'.
+DamageAffinityInfusionResistantArmorDamagePoison	Description='Resistance to Poison: damage is halved'.
+DamageAffinityInfusionResistantArmorDamagePsychic	Description='Resistance to Psychic: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageRadiant	Description='Resistance to Radiant: damage is halved'.
+DamageAffinityInfusionResistantArmorDamageThunder	Description='Resistance to Thunder: damage is halved'.
+FeatAdeptMetamagicCarefullSpell	Title='Metamagic: Careful Spell'.
+FeatAdeptMetamagicCarefullSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Careful Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicDistantSpell	Title='Metamagic: Distant Spell'.
+FeatAdeptMetamagicDistantSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Distant Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicEmpoweredSpell	Title='Metamagic: Empowered Spell'.
+FeatAdeptMetamagicEmpoweredSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Empowered Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicExtendedSpell	Title='Metamagic: Extended Spell'.
+FeatAdeptMetamagicExtendedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Extended Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicHeightenedSpell	Title='Metamagic: Heightened Spell'.
+FeatAdeptMetamagicHeightenedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Heightened Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicQuickenedSpell	Title='Metamagic: Quickened Spell'.
+FeatAdeptMetamagicQuickenedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Quickened Spell metamagic and gain 2 sorcery points.'.
+FeatAdeptMetamagicTwinnedSpell	Title='Metamagic: Twinned Spell'.
+FeatAdeptMetamagicTwinnedSpell	Description='Increase your Charisma by 1, to a maximum of 20.
+You learn the Twinned Spell metamagic and gain 2 sorcery points.'.
+InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+InfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+InfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+InfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+InfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+InfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+InfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+InfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+InfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+InfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+InfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+InfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+InfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+InfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
+InfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+InfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
+InfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+InfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+InfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
+InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+InfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+InvocationUndyingServitude	Description='You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.'.
+PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
+PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
+PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
+This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
+PowerCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>Belt of Giant Strength (Hill)</b>:
+At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
+PowerCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
+PowerCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+PowerCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
+PowerCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
+PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+PowerCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
+PowerCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
+Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
+PowerCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
+A favorite of Colthannin border patrols. '.
+PowerCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
+PowerCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
+Those bracers were the prized possession of a Manacalon shock arcanist.'.
+PowerCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
+PowerCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+PowerCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
+PowerCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
+Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+PowerCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
+PowerCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
+PowerCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+PowerCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
+PowerCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
+PowerCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
+Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
+PowerCreateInfusedReplicaGlovesOfThievery	Title='Replica Gloves of Thievery'.
+PowerCreateInfusedReplicaGlovesOfThievery	Description='Create replica <b>Gloves of Thievery</b>:
+These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Title='Replica Headband of Intellect'.
+PowerCreateInfusedReplicaHeadbandOfIntellect	Description='Create replica <b>Headband of Intellect</b>:
+Fashioned by order of the merchant prince Elgareth Goldenmind to ensure his dynasty would survive the advent of less gifted successors.'.
+PowerCreateInfusedReplicaHelmOfAwareness	Title='Replica Helm of Awareness'.
+PowerCreateInfusedReplicaHelmOfAwareness	Description='Create replica <b>Helm of Awareness</b>:
+A creature that is wearing this helmet while attuned to it has advantage on initiative rolls and can't be surprised, provided it isn't incapacitated.'.
+PowerCreateInfusedReplicaHornOfBlasting	Title='Replica Horn of Blasting'.
+PowerCreateInfusedReplicaHornOfBlasting	Description='Create replica <b>Horn of Blasting</b>:
+You can use an action to speak the horn's command word, and then blow the horn, which emits a thunderous blast in a 6-cell cone that is audible 120 cells away. Each creature in the cone must make a DC 15 constitution saving throw. On a failed save, a creature takes 5d6 thunder damage and is deafened for 1 minute. On a successful save, a creature takes half as much damage and isn't deafened. Creatures and objects made of glass or crystal have disadvantage on the saving throw, and take 10d6 thunder damage instead of 5d6.'.
+PowerCreateInfusedReplicaPipesOfHaunting	Title='Replica Pipes of Haunting'.
+PowerCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of Haunting</b>:
+These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
+PowerCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
+PowerCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
+PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
+PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
+PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
+These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
+PowerCreateInfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
+PowerCreateInfusedReplicaWandOfIdentify	Description='Create replica <b>Wand of Identify</b>:
+A magic wand capable of revealing the hidden properties of unidentified magic items.'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
+PowerCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
+Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+PowerCreateSpellStoringWandOfAid	Title='Aid'.
+PowerCreateSpellStoringWandOfAid	Description='Create a wand that can cast <b>Aid (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfBlur	Title='Blur'.
+PowerCreateSpellStoringWandOfBlur	Description='Create a wand that can cast <b>Blur (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfCureWounds	Title='Cure Wounds'.
+PowerCreateSpellStoringWandOfCureWounds	Description='Create a wand that can cast <b>Cure Wounds (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfDarkvision	Title='Darkvision'.
+PowerCreateSpellStoringWandOfDarkvision	Description='Create a wand that can cast <b>Darkvision (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfDetectMagic	Title='Detect Magic'.
+PowerCreateSpellStoringWandOfDetectMagic	Description='Create a wand that can cast <b>Detect Magic (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfEnhanceAbility	Title='Enhance Ability'.
+PowerCreateSpellStoringWandOfEnhanceAbility	Description='Create a wand that can cast <b>Enhance Ability (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfFaerieFire	Title='Faerie Fire'.
+PowerCreateSpellStoringWandOfFaerieFire	Description='Create a wand that can cast <b>Faerie Fire (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfFalseLife	Title='False Life'.
+PowerCreateSpellStoringWandOfFalseLife	Description='Create a wand that can cast <b>False Life (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfGrease	Title='Grease'.
+PowerCreateSpellStoringWandOfGrease	Description='Create a wand that can cast <b>Grease (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfHeatMetal	Title='Heat Metal'.
+PowerCreateSpellStoringWandOfHeatMetal	Description='Create a wand that can cast <b>Heat Metal (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfInvisibility	Title='Invisibility'.
+PowerCreateSpellStoringWandOfInvisibility	Description='Create a wand that can cast <b>Invisibility (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfJump	Title='Jump'.
+PowerCreateSpellStoringWandOfJump	Description='Create a wand that can cast <b>Jump (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfLesserRestoration	Title='Lesser Restoration'.
+PowerCreateSpellStoringWandOfLesserRestoration	Description='Create a wand that can cast <b>Lesser Restoration (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfLevitate	Title='Levitate'.
+PowerCreateSpellStoringWandOfLevitate	Description='Create a wand that can cast <b>Levitate (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfLongstrider	Title='Longstrider'.
+PowerCreateSpellStoringWandOfLongstrider	Description='Create a wand that can cast <b>Longstrider (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfProtectionFromPoison	Title='Protection from Poison'.
+PowerCreateSpellStoringWandOfProtectionFromPoison	Description='Create a wand that can cast <b>Protection from Poison (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfSeeInvisibility	Title='See Invisibility'.
+PowerCreateSpellStoringWandOfSeeInvisibility	Description='Create a wand that can cast <b>See Invisibility (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfSpiderClimb	Title='Spider Climb'.
+PowerCreateSpellStoringWandOfSpiderClimb	Description='Create a wand that can cast <b>Spider Climb (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfAid	Title='Aid'.
+SpellPowerCreateSpellStoringWandOfAid	Description='Create a wand that can cast <b>Aid (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfBlur	Title='Blur'.
+SpellPowerCreateSpellStoringWandOfBlur	Description='Create a wand that can cast <b>Blur (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfCureWounds	Title='Cure Wounds'.
+SpellPowerCreateSpellStoringWandOfCureWounds	Description='Create a wand that can cast <b>Cure Wounds (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfDarkvision	Title='Darkvision'.
+SpellPowerCreateSpellStoringWandOfDarkvision	Description='Create a wand that can cast <b>Darkvision (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfDetectMagic	Title='Detect Magic'.
+SpellPowerCreateSpellStoringWandOfDetectMagic	Description='Create a wand that can cast <b>Detect Magic (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfEnhanceAbility	Title='Enhance Ability'.
+SpellPowerCreateSpellStoringWandOfEnhanceAbility	Description='Create a wand that can cast <b>Enhance Ability (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfFaerieFire	Title='Faerie Fire'.
+SpellPowerCreateSpellStoringWandOfFaerieFire	Description='Create a wand that can cast <b>Faerie Fire (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfFalseLife	Title='False Life'.
+SpellPowerCreateSpellStoringWandOfFalseLife	Description='Create a wand that can cast <b>False Life (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfGrease	Title='Grease'.
+SpellPowerCreateSpellStoringWandOfGrease	Description='Create a wand that can cast <b>Grease (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfHeatMetal	Title='Heat Metal'.
+SpellPowerCreateSpellStoringWandOfHeatMetal	Description='Create a wand that can cast <b>Heat Metal (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfInvisibility	Title='Invisibility'.
+SpellPowerCreateSpellStoringWandOfInvisibility	Description='Create a wand that can cast <b>Invisibility (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfJump	Title='Jump'.
+SpellPowerCreateSpellStoringWandOfJump	Description='Create a wand that can cast <b>Jump (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfLesserRestoration	Title='Lesser Restoration'.
+SpellPowerCreateSpellStoringWandOfLesserRestoration	Description='Create a wand that can cast <b>Lesser Restoration (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfLevitate	Title='Levitate'.
+SpellPowerCreateSpellStoringWandOfLevitate	Description='Create a wand that can cast <b>Levitate (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfLongstrider	Title='Longstrider'.
+SpellPowerCreateSpellStoringWandOfLongstrider	Description='Create a wand that can cast <b>Longstrider (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfProtectionFromPoison	Title='Protection from Poison'.
+SpellPowerCreateSpellStoringWandOfProtectionFromPoison	Description='Create a wand that can cast <b>Protection from Poison (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfSeeInvisibility	Title='See Invisibility'.
+SpellPowerCreateSpellStoringWandOfSeeInvisibility	Description='Create a wand that can cast <b>See Invisibility (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellPowerCreateSpellStoringWandOfSpiderClimb	Title='Spider Climb'.
+SpellPowerCreateSpellStoringWandOfSpiderClimb	Description='Create a wand that can cast <b>Spider Climb (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+SpellStoringWandOfAid	Title='Wand of Aid'.
+SpellStoringWandOfAid	Description='This wand allows casting the <b>Aid</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfBlur	Title='Wand of Blur'.
+SpellStoringWandOfBlur	Description='This wand allows casting the <b>Blur</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfCureWounds	Title='Wand of Cure Wounds'.
+SpellStoringWandOfCureWounds	Description='This wand allows casting the <b>Cure Wounds</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfDarkvision	Title='Wand of Darkvision'.
+SpellStoringWandOfDarkvision	Description='This wand allows casting the <b>Darkvision</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfDetectMagic	Title='Wand of Detect Magic'.
+SpellStoringWandOfDetectMagic	Description='This wand allows casting the <b>Detect Magic</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfEnhanceAbility	Title='Wand of Enhance Ability'.
+SpellStoringWandOfEnhanceAbility	Description='This wand allows casting the <b>Enhance Ability</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfFaerieFire	Title='Wand of Faerie Fire'.
+SpellStoringWandOfFaerieFire	Description='This wand allows casting the <b>Faerie Fire</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfFalseLife	Title='Wand of False Life'.
+SpellStoringWandOfFalseLife	Description='This wand allows casting the <b>False Life</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfGrease	Title='Wand of Grease'.
+SpellStoringWandOfGrease	Description='This wand allows casting the <b>Grease</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfHeatMetal	Title='Wand of Heat Metal'.
+SpellStoringWandOfHeatMetal	Description='This wand allows casting the <b>Heat Metal</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfInvisibility	Title='Wand of Invisibility'.
+SpellStoringWandOfInvisibility	Description='This wand allows casting the <b>Invisibility</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfJump	Title='Wand of Jump'.
+SpellStoringWandOfJump	Description='This wand allows casting the <b>Jump</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfLesserRestoration	Title='Wand of Lesser Restoration'.
+SpellStoringWandOfLesserRestoration	Description='This wand allows casting the <b>Lesser Restoration</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfLevitate	Title='Wand of Levitate'.
+SpellStoringWandOfLevitate	Description='This wand allows casting the <b>Levitate</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfLongstrider	Title='Wand of Longstrider'.
+SpellStoringWandOfLongstrider	Description='This wand allows casting the <b>Longstrider</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfProtectionFromPoison	Title='Wand of Protection from Poison'.
+SpellStoringWandOfProtectionFromPoison	Description='This wand allows casting the <b>Protection from Poison</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfSeeInvisibility	Title='Wand of See Invisibility'.
+SpellStoringWandOfSeeInvisibility	Description='This wand allows casting the <b>See Invisibility</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfSpiderClimb	Title='Wand of Spider Climb'.
+SpellStoringWandOfSpiderClimb	Description='This wand allows casting the <b>Spider Climb</b> spell using spell casting stats of the Inventor who created it.'.

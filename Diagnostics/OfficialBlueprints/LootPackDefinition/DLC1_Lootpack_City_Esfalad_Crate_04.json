@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Smart_Giant_Head:1c27514e0d119634e86720efc854b55a",
-      "treasureTableDefinition": "Definition:RandomTreasureTableK_Recipe_Manuals:54c572835a8874c48a72b95d6d226a5d"
+      "treasureTableDefinition": "Definition:RandomTreasureTableK_Recipe_Manuals:54c572835a8874c48a72b95d6d226a5d",
+      "autoIdentify": false
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",
@@ -19,7 +20,8 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Smart_Giant_Head:1c27514e0d119634e86720efc854b55a",
-      "treasureTableDefinition": "Definition:RandomTreasureTableJ_Scrolls:f32c8bd80e21a834d84a9b08ced9f9cd"
+      "treasureTableDefinition": "Definition:RandomTreasureTableJ_Scrolls:f32c8bd80e21a834d84a9b08ced9f9cd",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

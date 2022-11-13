@@ -5,7 +5,7 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_DPS_LifeLeech_SingleTargetOnAlly_Defiler:f01e5bc57355f8d4598b861a44a0290b",
+        "decision": "Definition:CastMagic_DPS_LifeLeech_SingleTargetOnAlly_Gradual:440e0c9ddf7159847b7801fc752c1faf",
         "weight": 5.0,
         "cooldown": 1,
         "dynamicCooldown": true

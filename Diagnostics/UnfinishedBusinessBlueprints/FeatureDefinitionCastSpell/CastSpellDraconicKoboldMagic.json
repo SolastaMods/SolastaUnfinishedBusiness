@@ -1,0 +1,431 @@
+{
+  "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
+  "spellCastingOrigin": "Race",
+  "spellcastingAbility": "Charisma",
+  "spellcastingParametersComputation": "Dynamic",
+  "staticDCValue": 10,
+  "staticToHitValue": 4,
+  "spellListDefinition": "Definition:SpellListDraconicKobold:6d6fbcad-5330-5bb5-958e-a2b75ad198e1",
+  "restrictedSchools": [],
+  "spellKnowledge": "Selection",
+  "spellReadyness": "AllKnown",
+  "spellPreparationCount": "AbilityBonusPlusLevel",
+  "slotsRecharge": "AtWill",
+  "uniqueLevelSlots": false,
+  "spellCastingLevel": -1,
+  "knownCantrips": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "knownSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scribedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "replacedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "slotsPerLevels": [
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 10,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 11,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 12,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 13,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 14,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 15,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 16,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 17,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 18,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 19,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 20,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "focusType": "Arcane",
+  "hasAccessToInvocations": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&CastSpellDraconicKoboldMagicTitle",
+    "description": "Feature/&CastSpellDraconicKoboldMagicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b86bcf0e-1164-5b62-b1d0-6fe08be1dc4f",
+  "contentPack": 9999,
+  "name": "CastSpellDraconicKoboldMagic"
+}

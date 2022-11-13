@@ -3,10 +3,12 @@
   "editorOnly": true,
   "isUserCampaign": false,
   "multiplayer": false,
+  "canLoadEndGameSave": false,
   "partySize": 4,
   "minStartLevel": 1,
   "maxStartLevel": 5,
-  "levelCap": 13,
+  "maxLevelImport": 12,
+  "levelCap": 12,
   "predefinedParty": [
     "Level1_Paladin_Berden_Redstone",
     "Level1_Wizard_Nialla_Wildwind",
@@ -1767,6 +1769,10 @@
     "name": "Location"
   },
   "namedPlacesPath": "Campaign/COTM_NamedPlaces",
+  "recommendedCampaign": null,
+  "recommendedSceneNameStartsWith": "",
+  "variablesToImport": [],
+  "questStatusToImport": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

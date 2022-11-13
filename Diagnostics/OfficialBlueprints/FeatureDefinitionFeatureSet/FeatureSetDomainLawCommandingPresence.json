@@ -5,6 +5,8 @@
     "Definition:AbilityCheckAffinityDomainLawCommandingPresenceIntimidationAdvantage:3cf1970ddc20f054bb0a50b522cfc24c"
   ],
   "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

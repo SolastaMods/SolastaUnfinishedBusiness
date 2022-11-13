@@ -10,6 +10,8 @@
     "Definition:TerrainTypeAffinityRangerNaturalExplorerCoast:1f6018fd973b91c4d9d1b89e364a7ea4"
   ],
   "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
   "defaultSelection": 0,
   "uniqueChoices": true,
   "enumerateInDescription": false,

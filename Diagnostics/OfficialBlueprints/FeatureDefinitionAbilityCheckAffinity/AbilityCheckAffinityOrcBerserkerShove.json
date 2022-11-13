@@ -7,6 +7,7 @@
       "abilityScoreName": "Strength",
       "proficiencyName": "Athletics",
       "affinity": "None",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 5,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "ResistingShove",
@@ -17,12 +18,14 @@
       "abilityScoreName": "Dexterity",
       "proficiencyName": "Acrobatics",
       "affinity": "None",
+      "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 5,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "ResistingShove",
       "lightingContext": "Irrelevant"
     }
   ],
+  "substractBardicDieRoll": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

@@ -34,6 +34,7 @@
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
+  "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -73,6 +74,7 @@
       "targetProximityDistance": 30,
       "targetExcludeCaster": false,
       "canBePlacedOnCharacter": true,
+      "affectOnlyGround": false,
       "targetFilteringMethod": "AllCharacterAndGadgets",
       "targetFilteringTag": "No",
       "requiresVisibilityForPosition": true,
@@ -95,9 +97,10 @@
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
       "grantedConditionOnSave": null,
+      "rollSaveOnlyIfRelevantForms": false,
       "hasShoveRoll": false,
       "createdByCharacter": false,
-      "difficultyClassComputation": "FixedValue",
+      "difficultyClassComputation": "SpellCastingFeature",
       "savingThrowDifficultyAbility": "Wisdom",
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
@@ -122,6 +125,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 1,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": false,
@@ -134,9 +138,11 @@
             "versatile": false,
             "diceNumber": 1,
             "dieType": "D8",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePiercing",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
@@ -154,6 +160,7 @@
           "applyLevel": "No",
           "levelType": "ClassLevel",
           "levelMultiplier": 1,
+          "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
           "hasSavingThrow": false,
@@ -166,9 +173,11 @@
             "versatile": false,
             "diceNumber": 2,
             "dieType": "D4",
+            "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamagePsychic",
+            "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
@@ -300,6 +309,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "activeEffectSurfaceParticlePerIndex": "",
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -354,6 +364,7 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
+        "forceApplyZoneParticle": false,
         "applyEmissionColorOnWeapons": false,
         "emissionColor": {
           "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -370,15 +381,22 @@
         "aoeScoreMultiplier": 1.0,
         "cooldownForCaster": 0,
         "cooldownForBattle": 0,
+        "sortingScoreMultiplier": 1.0,
         "dynamicCooldown": false
       },
-      "animationMagicEffect": "Animation0"
+      "animationMagicEffect": "Animation0",
+      "lightCounterDispellsEffect": false
     },
     "ammunitionType": "BoltType"
   },
   "isAmmunition": false,
   "isUsableDevice": false,
   "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -515,6 +533,8 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
+  "clue": null,
+  "clueSuspect": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

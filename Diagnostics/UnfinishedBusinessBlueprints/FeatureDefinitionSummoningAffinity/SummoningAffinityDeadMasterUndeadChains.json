@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "DeadMasterMinion",
+  "addedConditions": [
+    "Definition:ConditionDeadMasterUndeadChainsLevel:a5f1f685-8443-59a3-919f-92149376003f",
+    "Definition:ConditionDeadMasterUndeadChainsProficiency:cec193c1-aeeb-5905-bf4c-00a1c23c2575"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&SummoningAffinityDeadMasterUndeadChainsTitle",
+    "description": "Feature/&SummoningAffinityDeadMasterUndeadChainsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "afdb20e8-8265-5158-86f0-89a10fad52c1",
+  "contentPack": 9999,
+  "name": "SummoningAffinityDeadMasterUndeadChains"
+}

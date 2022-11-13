@@ -10,7 +10,8 @@
       "additiveModifier": 0,
       "itemMode": "Explicit",
       "itemDefinition": "Definition:Ingredient_Enchant_Slavestone:b9c2c46851e33f04184235fed2db6dc3",
-      "treasureTableDefinition": "Definition:RandomTravelIngredient_Badlands_Volcanic:848ccefcd1a53a14b97fe42b43dde6c6"
+      "treasureTableDefinition": "Definition:RandomTravelIngredient_Badlands_Volcanic:848ccefcd1a53a14b97fe42b43dde6c6",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",
