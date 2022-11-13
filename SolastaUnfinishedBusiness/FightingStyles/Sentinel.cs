@@ -29,7 +29,7 @@ internal sealed class Sentinel : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
     private sealed class OnAttackHitEffectFeatSentinel : IAfterAttackEffect

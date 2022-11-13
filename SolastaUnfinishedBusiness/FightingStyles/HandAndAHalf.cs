@@ -29,6 +29,6 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
     };
 }
