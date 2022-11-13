@@ -14,15 +14,8 @@ internal static partial class SpellBuilders
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(
-                DurationType.Hour,
-                24)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Touch,
-                1,
-                TargetType.Individuals
-            )
+            .SetDurationData(DurationType.Hour, 24)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(

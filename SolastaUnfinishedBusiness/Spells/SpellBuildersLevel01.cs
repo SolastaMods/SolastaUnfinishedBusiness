@@ -92,7 +92,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Hour, 8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
             .SetEffectForms(

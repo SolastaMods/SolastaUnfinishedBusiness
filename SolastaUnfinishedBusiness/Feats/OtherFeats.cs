@@ -197,7 +197,7 @@ internal static class OtherFeats
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Round, 3)
                     .SetSpeed(SpeedType.Instant, 11f)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 30, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
