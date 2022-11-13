@@ -13,14 +13,14 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus3:c83ac082-07a8-539e-b6ae-157e640b3a3c",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
     "Definition:CustomCodeFeatAdeptMetamagicExtendedSpell:88261d1d-d150-554b-8d8d-e88547fc01ae"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Extended Spell",
-    "description": "You learn the Extended Spell metamagic and gain 3 sorcery points.",
+    "description": "You gain 3 sorcery points and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

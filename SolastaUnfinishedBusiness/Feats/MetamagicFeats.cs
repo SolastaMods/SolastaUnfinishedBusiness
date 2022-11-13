@@ -40,7 +40,9 @@ internal static class MetamagicFeats
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
-                    Gui.Format("Feat/&FeatAdeptMetamagicDescription", metamagicOptionDefinition.FormatTitle()))
+                    Gui.Format("Feat/&FeatAdeptMetamagicDescription",
+                        metamagicOptionDefinition.FormatTitle(),
+                        metamagicOptionDefinition.FormatDescription()))
                 .SetFeatures(
                     ActionAffinitySorcererMetamagicToggle,
                     attributeModifierSorcererSorceryPointsBonus3,
