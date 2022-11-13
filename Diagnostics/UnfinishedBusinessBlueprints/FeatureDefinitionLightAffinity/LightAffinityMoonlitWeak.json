@@ -4,7 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Unlit",
-      "condition": "Definition:ConditionMoonlitInvisibility:f5a7e04b-9442-5bed-99cd-ad94f1928535",
+      "condition": "Definition:ConditionMoonlitInvisible:4691af45-9227-58a0-9cba-f0133df7da6d",
       "effect": null
     }
   ],

@@ -37,7 +37,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var conditionMoonlitInvisibility = ConditionDefinitionBuilder
-            .Create("ConditionMoonlitInvisibility")
+            .Create("ConditionMoonlitInvisible")
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(MoonlitInvisibility.Build())
@@ -195,12 +195,12 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
 {
     private const string CategoryRevealed = "MoonlitRevealed";
     private const string CategoryHidden = "MoonlitHidden";
-    private static ConditionDefinition RevealedCondition { get; set; }
-    private static ConditionDefinition InvisibilityCondition { get; set; }
+    private static ConditionDefinition ConditionMoonlitRevealed { get; set; }
+    private static ConditionDefinition ConditionMoonlitInvisibility { get; set; }
 
     public void ApplyFeature(RulesetCharacter hero)
     {
-        if (!hero.HasConditionOfType(RevealedCondition))
+        if (!hero.HasConditionOfType(ConditionMoonlitRevealed))
         {
             BecomeInvisible(hero);
         }
@@ -233,31 +233,16 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
 
     internal static FeatureDefinition Build()
     {
-        RevealedCondition = BuildRevealedCondition();
-        InvisibilityCondition = BuildInvisibilityCondition();
-
-        return FeatureDefinitionBuilder
-            .Create("FeatureMoonlitInvisibility")
-            .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(new MoonlitInvisibility())
-            .AddToDB();
-    }
-
-    private static ConditionDefinition BuildRevealedCondition()
-    {
-        return ConditionDefinitionBuilder
+        ConditionMoonlitRevealed = ConditionDefinitionBuilder
             .Create("ConditionMoonlitRevealed")
             .SetGuiPresentationNoContent()
             .SetDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
-    }
 
-    private static ConditionDefinition BuildInvisibilityCondition()
-    {
-        var conditionMoonlitInvisible = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible")
-            .SetGuiPresentationNoContent()
+        ConditionMoonlitInvisibility = ConditionDefinitionBuilder
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisibility")
+            .SetCancellingConditions(ConditionMoonlitRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
@@ -266,9 +251,11 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        conditionMoonlitInvisible.CancellingConditions.SetRange(RevealedCondition);
-
-        return conditionMoonlitInvisible;
+        return FeatureDefinitionBuilder
+            .Create("FeatureMoonlitInvisibility")
+            .SetGuiPresentationNoContent()
+            .SetCustomSubFeatures(new MoonlitInvisibility())
+            .AddToDB();
     }
 
     // returns true if effect is self teleport or any self targeting spell that is self-buff
@@ -319,7 +306,7 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
         hero.AddConditionOfCategory(CategoryRevealed,
             RulesetCondition.CreateActiveCondition(
                 hero.Guid,
-                RevealedCondition,
+                ConditionMoonlitRevealed,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -333,7 +320,7 @@ internal sealed class MoonlitInvisibility : ICustomOnActionFeature, ICustomCondi
         hero.AddConditionOfCategory(CategoryHidden,
             RulesetCondition.CreateActiveCondition(
                 hero.Guid,
-                InvisibilityCondition,
+                ConditionMoonlitInvisibility,
                 DurationType.Permanent,
                 0,
                 TurnOccurenceType.EndOfTurn,
