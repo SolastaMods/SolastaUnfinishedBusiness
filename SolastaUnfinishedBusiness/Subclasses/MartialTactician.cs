@@ -255,7 +255,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Strength)
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -307,7 +307,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Strength)
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
@@ -415,9 +415,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1)
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}Effect")
@@ -435,7 +432,6 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetDuration(DurationType.Round, 0, false)
                         .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
                 .Build())
             .AddToDB());
