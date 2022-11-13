@@ -1,4 +1,4 @@
-﻿ATTENTION:
+ATTENTION:
 
 - Uninstall this mod before Nov, 14th.
 - DELETE the folder GAME_FOLDER/Mods/SolastaCommunityExpansion.
@@ -6,7 +6,9 @@
 
 SNEAK PEAK ON WHAT'S NEW AT UB ONE:
 
+- Release on Dec 1st, 2022
 - Rebrand to Unfinished Business
+
 - Add Inventor
 - Add Kobold
 - Add UI feat groups
