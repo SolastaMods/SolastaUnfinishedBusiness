@@ -94,7 +94,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
@@ -123,7 +123,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
@@ -164,7 +164,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(

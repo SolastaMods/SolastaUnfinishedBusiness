@@ -111,7 +111,7 @@ public static class InnovationWeapon
             )
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
                     .Build())
@@ -316,7 +316,7 @@ public static class InnovationWeapon
                     // RAW this can heal any other Inventor construct, this version only heals self
                     .SetEffectDescription(EffectDescriptionBuilder
                         .Create()
-                        .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                         .SetEffectForms(EffectFormBuilder
                             .Create()
                             .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
@@ -392,7 +392,7 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                     .Build())

@@ -112,7 +112,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Heal.EffectDescription)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();

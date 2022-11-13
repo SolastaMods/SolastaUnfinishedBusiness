@@ -347,7 +347,7 @@ internal static class Infusions
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetParticleEffectParameters(SpellDefinitions.Bless)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder

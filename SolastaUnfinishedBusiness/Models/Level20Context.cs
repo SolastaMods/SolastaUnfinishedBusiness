@@ -352,7 +352,7 @@ internal static class Level20Context
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(
                     EffectFormBuilder
