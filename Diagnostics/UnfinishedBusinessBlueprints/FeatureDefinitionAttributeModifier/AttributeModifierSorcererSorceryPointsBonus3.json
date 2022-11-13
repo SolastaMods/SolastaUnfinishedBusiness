@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "SorceryPoints",
   "modifierOperation": "Additive",
-  "modifierValue": 2,
+  "modifierValue": 3,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,
@@ -33,5 +33,5 @@
   "contentCopyright": "UserContent",
   "guid": "c83ac082-07a8-539e-b6ae-157e640b3a3c",
   "contentPack": 9999,
-  "name": "AttributeModifierSorcererSorceryPointsBonus2"
+  "name": "AttributeModifierSorcererSorceryPointsBonus3"
 }
