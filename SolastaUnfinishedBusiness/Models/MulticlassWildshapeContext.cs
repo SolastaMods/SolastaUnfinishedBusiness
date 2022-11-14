@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -58,7 +59,14 @@ internal static class MulticlassWildshapeContext
         {
             foreach (var attribute in MentalAttributes)
             {
-                monster.GetAttribute(attribute).BaseValue = hero.GetAttribute(attribute).CurrentValue;
+                var heroAttr = hero.GetAttribute(attribute);
+                var monsterAttr = monster.GetAttribute(attribute);
+                monsterAttr.BaseValue = heroAttr.BaseValue;
+                //copy all race/class/subclass modifiers
+                monsterAttr.ActiveModifiers.AddRange(heroAttr.ActiveModifiers
+                    .Where(x => x.Tags.Any(t => t.Contains(AttributeDefinitions.TagRace)
+                                                || t.Contains(AttributeDefinitions.TagClass)
+                                                || t.Contains(AttributeDefinitions.TagSubclass))));
             }
         }
 
