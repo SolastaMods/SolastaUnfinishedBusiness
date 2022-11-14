@@ -2,12 +2,14 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -18,6 +20,8 @@ internal static class KoboldRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildKobold()
     {
+        var koboldSpriteReference = Sprites.GetSprite("Kobold", Resources.Kobold, 1024, 512);
+
         var proficiencyKoboldLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyKoboldLanguages")
             .SetGuiPresentation(Category.Feature)
@@ -59,7 +63,7 @@ internal static class KoboldRaceBuilder
 
         var raceKobold = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceKobold")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, koboldSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetBaseWeight(35)
             .SetBaseHeight(3)
@@ -75,7 +79,7 @@ internal static class KoboldRaceBuilder
                 castSpellDraconicKoboldMagic)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceKobold] = 3f / 6.4f;
+        RacesContext.RaceScaleMap[raceKobold] = 6f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
         return raceKobold;

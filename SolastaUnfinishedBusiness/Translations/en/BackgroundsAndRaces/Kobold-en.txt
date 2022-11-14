@@ -4,5 +4,5 @@ Feature/&PowerDraconicKoboldDraconicCryDescription=As a bonus action, you let ou
 Feature/&PowerDraconicKoboldDraconicCryTitle=Draconic Cry
 Feature/&ProficiencyKoboldLanguagesDescription=Common, Draconic.
 Feature/&ProficiencyKoboldLanguagesTitle=Languages
-Race/&RaceKoboldDescription=Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of draconic kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+Race/&RaceKoboldDescription=Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 Race/&RaceKoboldTitle=Kobold
