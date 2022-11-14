@@ -57,7 +57,6 @@ internal static class MeleeCombatFeats
             .Create("ConditionPowerAttack")
             .SetGuiPresentation("PowerAttack", Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetAllowMultipleInstances(false)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatPowerAttack")

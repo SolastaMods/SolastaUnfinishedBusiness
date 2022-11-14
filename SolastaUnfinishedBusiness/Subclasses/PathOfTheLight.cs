@@ -40,7 +40,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
-            .SetEnumerateInDescription(false)
             .AddFeatureSet(
                 InvisibleConditions
                     .Select(x => FeatureDefinitionConditionAffinityBuilder
@@ -106,7 +105,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var featureSetPathOfTheLightIlluminatingStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetEnumerateInDescription(false)
             .AddFeatureSet(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingStrike")
@@ -123,7 +121,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         ConditionDefinitionBuilder
                                             .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
                                             .SetGuiPresentationNoContent(true)
-                                            .SetAllowMultipleInstances(false)
                                             .SetConditionType(ConditionType.Beneficial)
                                             .SetDuration(DurationType.Minute, 1)
                                             .SetTerminateWhenRemoved(true)
@@ -140,14 +137,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var featureSetPathOfTheLightPierceTheDarkness = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightPierceTheDarkness")
             .SetGuiPresentation(Category.Feature)
-            .SetEnumerateInDescription(false)
             .AddFeatureSet(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .AddToDB();
 
         var featureSetPathOfTheLightLightsProtection = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightLightsProtection")
             .SetGuiPresentation(Category.Feature)
-            .SetEnumerateInDescription(false)
             .AddFeatureSet(
                 FeatureDefinitionOpportunityAttackImmunityBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
@@ -175,9 +170,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                         .SetConditionForm(
                             ConditionDefinitionBuilder
                                 .Create("ConditionPathOfTheLightEyesOfTruth")
-                                .SetGuiPresentation(Category.Condition,
-                                    ConditionSeeInvisibility)
-                                .SetAllowMultipleInstances(false)
+                                .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility)
                                 .SetConditionType(ConditionType.Beneficial)
                                 .SetDuration(DurationType.Permanent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
@@ -196,7 +189,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var conditionPathOfTheLightSuppressedIlluminatingBurst = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheLightSuppressedIlluminatingBurst")
             .SetGuiPresentationNoContent(true)
-            .SetAllowMultipleInstances(false)
             .SetConditionType(ConditionType.Neutral)
             .SetDuration(DurationType.Permanent)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -273,7 +265,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var featureSetPathOfTheLightIlluminatingBurst = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingBurst")
             .SetGuiPresentation(Category.Feature)
-            .SetEnumerateInDescription(false)
             .AddFeatureSet(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
