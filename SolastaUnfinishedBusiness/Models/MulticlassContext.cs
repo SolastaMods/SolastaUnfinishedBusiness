@@ -206,12 +206,14 @@ internal static class MulticlassContext
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
+#if false
         // leave here for now as we will need this on level 20...
         _ = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce4")
             .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 4)
             .AddToDB();
+#endif
 
         Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
         RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
