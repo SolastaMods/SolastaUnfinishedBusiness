@@ -49,11 +49,10 @@ internal sealed class RangerArcanist : AbstractSubclass
             .AddToDB();
 
         var additionalDamageArcanistMark = FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark")
-            .SetGuiPresentation(Category.Feature)
-            .SetSpecificDamageType(DamageTypeForce)
+            .Create("AdditionalDamageArcanistMark")
+            .SetGuiPresentationNoContent(true)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 0)
-            .SetNotificationTag(ArcanistMarkTag)
             .SetTargetCondition(conditionMarkedByArcanist, AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -163,11 +162,11 @@ internal sealed class RangerArcanist : AbstractSubclass
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
                 PowerDomainElementalHeraldOfTheElementsThunder)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom, 1, 0)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
                 .SetCreatedByCharacter()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 30, TargetType.Sphere)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetEffectForms(effectForms)
                 .Build())
             .SetShowCasting(true)
