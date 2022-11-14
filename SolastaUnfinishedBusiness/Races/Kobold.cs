@@ -75,7 +75,7 @@ internal static class KoboldRaceBuilder
                 castSpellDraconicKoboldMagic)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceKobold] = 3f / 6.4f;
+        RacesContext.RaceScaleMap[raceKobold] = 6f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 
         return raceKobold;
