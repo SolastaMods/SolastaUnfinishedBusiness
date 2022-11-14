@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
@@ -207,6 +208,37 @@ public static class CharacterBuildingManagerPatcher
             }
 
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, tag, grantedFeatures);
+        }
+
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var getInvocationproficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
+            var custom = new Func<RulesetCharacterHero, List<string>>(CustomGetter).Method;
+
+            return instructions
+                .ReplaceCalls(getInvocationproficiencies,
+                    "CharacterBuildingManager.GrantFeatures",
+                    new CodeInstruction(OpCodes.Call, custom));
+        }
+
+        private static List<string> CustomGetter(RulesetCharacterHero __instance)
+        {
+            //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
+            var selectedClass = LevelUpContext.GetSelectedClass(__instance);
+
+            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+            {
+                var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
+                    .OfType<InvocationDefinitionCustom>()
+                    .Select(i => i.Name)
+                    .ToList();
+
+                return __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
+            }
+            else
+            {
+                return new List<string>();
+            }
         }
     }
 

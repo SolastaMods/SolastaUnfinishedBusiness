@@ -4,11 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -462,41 +460,6 @@ public static class RulesetCharacterHeroPatcher
             __instance.hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
             __instance.ComputeCharacterLevel();
             __instance.ComputeProficiencyBonus();
-
-            return false;
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class InvocationProficiencies_Patch
-    {
-        public static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
-        {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
-
-            if (!isLevelingUp)
-            {
-                return true;
-            }
-
-            //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
-            var selectedClass = LevelUpContext.GetSelectedClass(__instance);
-
-            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-            {
-                var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                    .OfType<InvocationDefinitionCustom>()
-                    .Select(i => i.Name)
-                    .ToList();
-
-                __result = __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
-            }
-            else
-            {
-                __result = new List<string>();
-            }
-
 
             return false;
         }
