@@ -106,7 +106,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .ClearFeatures()
-                                    .SetAllowMultipleInstances(false)
                                     .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),
@@ -135,7 +134,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin,
                                         "ConditionForestGuardianImprovedBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetAllowMultipleInstances(false)
                                     .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .SetFeatures(
@@ -145,7 +143,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                             .SetDamageAffinityType(DamageAffinityType.None)
                                             .SetDamageType(DamageTypePoison)
                                             .SetRetaliate(powerForestGuardianImprovedBarkWard, 1, true)
-                                            .SetAncestryDefinesDamageType(false)
                                             .AddToDB())
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add,
@@ -183,9 +180,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                             .SetDamageAffinityType(DamageAffinityType.Immunity)
                                             .SetDamageType(DamageTypePoison)
                                             .SetRetaliate(powerForestGuardianSuperiorBarkWard, 1, true)
-                                            .SetAncestryDefinesDamageType(false)
                                             .AddToDB())
-                                    .SetAllowMultipleInstances(false)
                                     .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),

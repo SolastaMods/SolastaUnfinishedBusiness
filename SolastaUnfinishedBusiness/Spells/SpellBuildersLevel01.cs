@@ -60,8 +60,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetSpellLevel(1)
             .SetUniqueInstance()
@@ -131,8 +129,6 @@ internal static partial class SpellBuilders
             .SetConcentrationAction(ActionDefinitions.ActionParameter.None)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetRequiresConcentration(false)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -149,8 +145,6 @@ internal static partial class SpellBuilders
                 Sprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)

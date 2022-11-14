@@ -51,7 +51,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(5)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetCastingTime(ActivationTime.BonusAction)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)

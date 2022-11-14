@@ -92,7 +92,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition)
                 .AddToDB())
             .SetConditionType(ConditionType.Beneficial)
-            .SetAllowMultipleInstances(false)
             .SetDuration(DurationType.Round, 1)
             .AddToDB();
 

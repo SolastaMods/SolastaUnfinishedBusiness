@@ -34,11 +34,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, WindWall)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(2)
-            .SetRequiresConcentration(true)
             .AddToDB();
 
         //TODO: move this into a builder
@@ -85,8 +82,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Bane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
             .SetRequiresConcentration(false)

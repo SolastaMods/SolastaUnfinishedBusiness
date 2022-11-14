@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,35 +17,9 @@ public static class BaseBlueprintPatcher
             EnvironmentDefinition environmentDefinition,
             bool perspective)
         {
-            if (__instance is not PropBlueprint propBlueprint || !propBlueprint.Name.EndsWith("MOD"))
-            {
-                return true;
-            }
-
             //PATCH: ensures custom props display the proper icon (DMP)
-            var a = propBlueprint.Name.Split(new[] { '~' }, 3);
-
-            if (a.Length != 3)
-            {
-                return true;
-            }
-
-            var propName = a[0];
-            var environmentName = a[1];
-            var str1 = "Gui/Bitmaps/Blueprints/Props/";
-            var str2 = "User_Props_" + propName;
-            var postfix = perspective ? "_Pers" : "_Top";
-
-            if (environmentDefinition != null &&
-                prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
-            {
-                str1 = "Gui/Bitmaps/Props-" + environmentName + "/";
-                str2 = str2 + "_" + environmentName;
-            }
-
-            __result = str1 + str2 + postfix;
-
-            return false;
+            return DmProRendererContext.ExtendedGetAssetKey(
+                __instance, ref __result, prefabByEnvironmentDescription, environmentDefinition, perspective);
         }
     }
 }

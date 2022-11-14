@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "ArcanistMark",
+  "notificationTag": "",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -19,8 +19,8 @@
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "DamageForce",
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [],
@@ -46,70 +46,21 @@
     }
   ],
   "addLightSource": false,
-  "lightSourceForm": {
-    "$type": "LightSourceForm, Assembly-CSharp",
-    "lightSourceType": "Basic",
-    "brightRange": 4,
-    "dimAdditionalRange": 4,
-    "color": {
-      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0,
-      "a": 1.0
-    },
-    "graphicsPrefabReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "applyToSelf": false
-  },
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "lightSourceForm": null,
+  "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
-  "acidImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "coldImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "fireImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "lightningImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "poisonImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "acidImpactParticleReference": null,
+  "coldImpactParticleReference": null,
+  "fireImpactParticleReference": null,
+  "lightningImpactParticleReference": null,
+  "poisonImpactParticleReference": null,
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AdditionalDamageArcanistMarkTitle",
-    "description": "Feature/&AdditionalDamageArcanistMarkDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

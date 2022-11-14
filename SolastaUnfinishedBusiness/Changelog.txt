@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.25.1:
+
+- Add Kobold sprite
+- Fix feats selection
+
+1.4.25.0:
+
 - Rebrand to Unfinished Business
 - Add Inventor
 - Add Kobold

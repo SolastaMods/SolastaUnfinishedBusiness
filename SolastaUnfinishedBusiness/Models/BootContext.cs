@@ -227,7 +227,7 @@ internal static class BootContext
         }
         catch
         {
-            Main.Logger.Log("cannot fetch update data.");
+            Main.Error("cannot fetch update data.");
         }
 
         return hasUpdate;
@@ -279,8 +279,6 @@ internal static class BootContext
         {
             message = $"Cannot fetch update payload. Try again or download from:\n{url}.";
         }
-
-        Main.Logger.Log(message);
 
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,

@@ -40,7 +40,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(effectDescription)

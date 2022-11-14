@@ -218,9 +218,9 @@
     "description": "Race/&RaceKoboldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "62c3e9ea5c80d8449ac26d8548424d1b",
-      "m_SubObjectName": "Dragonborn",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "170238d2-99d4-58bb-baa8-6112ecc4685d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -103,7 +103,7 @@ internal static class CasterFeats
             .Create("AutoPreparedSpellsFeyTeleportation")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
-            .SetPreparedSpellGroups(BuildSpellGroup(0, MistyStep))
+            .AddPreparedSpellGroup(0, MistyStep)
             .SetSpellcastingClass(null)
             .SetAutoTag(FEY_TELEPORT)
             .AddToDB();
