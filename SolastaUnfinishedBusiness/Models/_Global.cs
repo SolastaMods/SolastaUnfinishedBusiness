@@ -66,7 +66,7 @@ internal static class Global
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
 
-        Main.Logger.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
+        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
 
         switch (characterAction)
         {

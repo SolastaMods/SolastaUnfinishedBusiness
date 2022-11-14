@@ -78,7 +78,7 @@ internal static class TranslatorContext
         }
         catch
         {
-            Main.Logger.Log("Failed translating: " + sourceText);
+            Main.Error("Failed translating: " + sourceText);
 
             return sourceText;
         }
@@ -194,11 +194,12 @@ internal static class TranslatorContext
 
             if (termData?.Languages[languageIndex] != null)
             {
+#if DEBUG
                 if (languageIndex == 0)
                 {
-                    Main.Logger.Log($"term {term} overwritten with text {text}");
+                    Main.Log($"term {term} overwritten with text {text}");
                 }
-
+#endif
                 termData.Languages[languageIndex] = text;
             }
             else
