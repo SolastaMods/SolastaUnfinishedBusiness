@@ -235,10 +235,8 @@ public static class CharacterBuildingManagerPatcher
 
                 return __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
             }
-            else
-            {
-                return new List<string>();
-            }
+
+            return new List<string>();
         }
     }
 

@@ -290,7 +290,7 @@ public static class RulesetActorPatcher
             return instructions.ReplaceCalls(refreshAttributes, "RulesetActor.RefreshAttributes",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
-                new CodeInstruction(OpCodes.Call, refreshAttributes));// checked for Call vs CallVirtual
+                new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
         }
     }
 }
