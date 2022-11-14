@@ -57,8 +57,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .SetAiParameters(new SpellAIParameters())
