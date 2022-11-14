@@ -40,23 +40,17 @@ public static class GuiFeatDefinitionPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToList();
-
-            //PATCH: Removes annoying error message on DEBUG builds
-            var assertCheckIndex = codes.FindIndex(c => c.opcode == OpCodes.Ldc_I4_1);
-
-            if (assertCheckIndex != -1)
-            {
-                codes[assertCheckIndex] = new CodeInstruction(OpCodes.Ldc_I4_0);
-            }
-
             //PATCH: Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell
             //which are registered before feat selection at lvl 1
-            return codes.ReplaceCall(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires"),
-                1,
-                1, "GuiFeatDefinition.IsFeatMatchingPrerequisites",
-                new CodeInstruction(OpCodes.Call,
-                    new Func<RulesetCharacterHero, int>(CanCastSpells).Method));
+            return instructions
+                .ReplaceCall(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires"),
+                    1,
+                    1, "GuiFeatDefinition.IsFeatMatchingPrerequisites",
+                    new CodeInstruction(OpCodes.Call,
+                        new Func<RulesetCharacterHero, int>(CanCastSpells).Method))
+                
+            // PATCH: Remove asserts in DEBUG build
+                .RemoveBoolAsserts();
         }
 
         private static int CanCastSpells([NotNull] RulesetCharacterHero hero)
