@@ -87,7 +87,7 @@ All settings start disabled by default.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
-[*][b]Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of draconic kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+[*][b]Kobold[/b]: Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [/list]
 
 [size=3][b]Classes[/b][/size]
