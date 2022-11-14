@@ -854,9 +854,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
 
-        internal static FeatureDefinitionActionAffinity ActionAffinityMarksmanReactionShot { get; } =
-            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMarksmanReactionShot");
-
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
 
