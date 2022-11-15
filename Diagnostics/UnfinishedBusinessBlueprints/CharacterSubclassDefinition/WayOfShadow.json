@@ -13,6 +13,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityWayOfShadow:6faee54a-4b89-5890-a0fb-1c3116c1a119",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfShadowShadowStep:fa779660-00ac-546a-806b-9254714d76f9",
       "level": 6
     },
