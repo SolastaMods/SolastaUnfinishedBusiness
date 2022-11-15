@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
 using TA;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -70,7 +71,7 @@ internal static class AttacksOfOpportunity
 
         RequestReactionAttack(Sentinel.SentinelName, new CharacterActionParams(
             unit,
-            ActionDefinitions.Id.AttackOpportunity,
+            Id.AttackOpportunity,
             opportunityAttackMode,
             attacker,
             actionModifier)
@@ -106,9 +107,16 @@ internal static class AttacksOfOpportunity
         //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (mover != unit)
+            if (mover != unit
+                && mover.IsOppositeSide(unit.Side)
+                && MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
-                yield return ProcessPolearmExpert(unit, mover, battleManager);
+                if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                {
+                    break;
+                }
+
+                yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
             }
         }
     }
@@ -118,13 +126,12 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.Clear();
     }
 
-    private static IEnumerator ProcessPolearmExpert(
-        [NotNull] GameLocationCharacter attacker,
+    private static IEnumerator ProcessPolearmExpert([NotNull] GameLocationCharacter attacker,
         [NotNull] GameLocationCharacter mover,
+        (int3, int3) movement,
         GameLocationBattleManager battleManager)
     {
-        if (!attacker.IsOppositeSide(mover.Side) || !CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
-            !MovingCharactersCache.TryGetValue(mover.Guid, out var movement) ||
+        if (!CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
             !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
                 out var attackMode))
         {
@@ -136,7 +143,7 @@ internal static class AttacksOfOpportunity
 
         actionService.ReactForOpportunityAttack(new CharacterActionParams(
             attacker,
-            ActionDefinitions.Id.AttackOpportunity,
+            Id.AttackOpportunity,
             attackMode,
             mover,
             new ActionModifier()));
@@ -177,7 +184,7 @@ internal static class AttacksOfOpportunity
             return false;
         }
 
-        attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
+        attackMode = attacker.FindActionAttackMode(Id.AttackOpportunity);
 
         if (attackMode == null)
         {
