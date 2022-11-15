@@ -447,14 +447,14 @@ internal static partial class SpellBuilders
                 15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
+            .ExcludeCaster()
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
             .Build();
-
-        effectDescription.targetExcludeCaster = true;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
