@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureTacticianGambitDieSizeD8Title",
-    "description": "Feature/&FeatureTacticianGambitDieSizeD8Description",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2e930de2-ade4-5563-b5cb-f65b3d4ba395",
+  "guid": "7560e610-25da-56eb-a51e-84d40fb27c2a",
   "contentPack": 9999,
-  "name": "FeatureTacticianGambitDieSizeD8"
+  "name": "FeatureWayOfShadowTrackHiddenRevealed"
 }

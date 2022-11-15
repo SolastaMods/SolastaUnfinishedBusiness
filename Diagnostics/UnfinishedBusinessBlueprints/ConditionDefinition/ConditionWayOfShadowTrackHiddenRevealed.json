@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481"
+    "Definition:FeatureWayOfShadowTrackHiddenRevealed:7560e610-25da-56eb-a51e-84d40fb27c2a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -15,7 +15,7 @@
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87e61d2c-e50c-57ce-93e3-852b856ee36f",
+  "guid": "cf5f3170-c263-5ab7-af34-173c872dade7",
   "contentPack": 9999,
-  "name": "ConditionGambitRiposte"
+  "name": "ConditionWayOfShadowTrackHiddenRevealed"
 }
