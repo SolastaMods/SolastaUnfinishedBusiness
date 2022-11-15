@@ -22,9 +22,9 @@ internal static partial class SpellBuilders
 
         var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
 
-        // var rubbleProxy = EffectProxyDefinitionBuilder
-        //     .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy")
-        //     .AddToDB();
+        var rubbleProxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyGrease, "EarthTremorRubbleProxy")
+            .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -40,6 +40,10 @@ internal static partial class SpellBuilders
             .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
             .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetSummonEffectProxyForm(rubbleProxy)
+                    .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne, 1)
@@ -58,7 +62,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)
-            .SetRequiresConcentration(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();

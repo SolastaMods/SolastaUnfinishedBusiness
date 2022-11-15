@@ -49,6 +49,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                 AttributeDefinitions.HitPoints)
             .AddToDB();
+
         var attackBonus = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierDeadMasterUndeadChains")
             .SetGuiPresentation(ChainsName, Category.Feature)

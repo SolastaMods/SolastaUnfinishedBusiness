@@ -382,7 +382,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
     {
-        return attackMode is {SourceDefinition: ItemDefinition item} && IsMonkWeapon(character, item);
+        return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
     }
 
     private static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)
@@ -392,12 +392,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor actor, ItemDefinition weapon)
     {
-        if (weapon == null)
-        {
-            return false;
-        }
-
-        return IsMonkWeapon(actor, weapon.WeaponDescription);
+        return weapon != null && IsMonkWeapon(actor, weapon.WeaponDescription);
     }
 
     internal static bool IsMonkWeapon(RulesetActor actor, WeaponDescription weapon)
@@ -407,12 +402,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             return false;
         }
 
-        if (weapon.IsMonkWeaponOrUnarmed())
-        {
-            return true;
-        }
-
-        return IsZenArcherWeapon(actor, weapon);
+        return weapon.IsMonkWeaponOrUnarmed() || IsZenArcherWeapon(actor, weapon);
     }
 
     private static bool IsZenArcherWeapon(RulesetActor actor, ItemDefinition item)

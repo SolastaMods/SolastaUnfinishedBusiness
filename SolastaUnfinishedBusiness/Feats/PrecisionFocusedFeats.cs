@@ -33,8 +33,7 @@ internal static class PrecisionFocusedFeats
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 1 /* duration */)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -71,7 +70,6 @@ internal static class PrecisionFocusedFeats
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -109,7 +107,6 @@ internal static class PrecisionFocusedFeats
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder

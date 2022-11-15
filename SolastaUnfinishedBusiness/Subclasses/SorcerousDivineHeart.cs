@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -92,10 +91,18 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(
+                        conditionDivineHeartEmpoweredHealing,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false)
+                    .Build())
+                .Build())
             .AddToDB();
-
-        powerDivineHeartEmpoweredHealing.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
-            conditionDivineHeartEmpoweredHealing;
 
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")

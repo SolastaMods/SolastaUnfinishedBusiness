@@ -363,7 +363,6 @@ internal static class CasterFeats
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
-                .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,
                     AttributeDefinitions.Strength,

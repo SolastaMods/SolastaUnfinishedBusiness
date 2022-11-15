@@ -1,6 +1,6 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Race/&HumanSurName1Title",
@@ -30,8 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_SorcererDraconic",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
-  "hornsMorphotype": "",
-  "tailMorphotype": "",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
   "subClass": "Definition:SorcerousDraconicBloodline:f3ff002265fd37f48adf21641715592d",
   "deity": null,
