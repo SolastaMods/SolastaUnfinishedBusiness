@@ -79,7 +79,7 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceAndSkin_18 { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_18");
-        
+
         internal static MorphotypeElementDefinition HairColorSilver { get; } =
             GetDefinition<MorphotypeElementDefinition>("HairColorSilver");
 
@@ -1072,6 +1072,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCastSpell CastSpellSorcerer { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorcerer");
+
+        internal static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight");
 
         internal static FeatureDefinitionCastSpell CastSpellWarlock { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellWarlock");
@@ -2632,6 +2635,12 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition Silence { get; } =
+            GetDefinition<SpellDefinition>("Silence");
+
+        internal static SpellDefinition PassWithoutTrace { get; } =
+            GetDefinition<SpellDefinition>("PassWithoutTrace");
+
         internal static SpellDefinition HypnoticPattern { get; } =
             GetDefinition<SpellDefinition>("HypnoticPattern");
 

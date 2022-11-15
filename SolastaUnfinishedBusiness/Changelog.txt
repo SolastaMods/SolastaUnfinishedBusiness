@@ -4,4 +4,5 @@
 
 - Add rubble proxy to Earth Tremor spell
 - Add unlock skin colors option
+- Add Way of Shadow subclass
 - Fix Divine Heart Empowered Healing
