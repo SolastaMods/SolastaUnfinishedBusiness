@@ -3,6 +3,7 @@
 1.4.26.1:
 
 - Add rubble proxy to Earth Tremor spell
+- Add unlock skin colors option
 - Fix Divine Heart Empowered Healing
 
 1.4.26.0:

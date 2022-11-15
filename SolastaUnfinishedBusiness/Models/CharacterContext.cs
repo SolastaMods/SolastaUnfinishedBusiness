@@ -139,14 +139,14 @@ internal static class CharacterContext
         if (Main.Settings.UnlockSkinColors)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
-                x => x.Category == MorphotypeElementDefinition.ElementCategory.Skin &&
-                x != FaceAndSkin_12 &&
-                x != FaceAndSkin_13 &&
-                x != FaceAndSkin_14 &&
-                x != FaceAndSkin_15 &&
-                x != FaceAndSkin_16 &&
-                x != FaceAndSkin_17 &&
-                x != FaceAndSkin_18))
+                         x => x.Category == MorphotypeElementDefinition.ElementCategory.Skin &&
+                              x != FaceAndSkin_12 &&
+                              x != FaceAndSkin_13 &&
+                              x != FaceAndSkin_14 &&
+                              x != FaceAndSkin_15 &&
+                              x != FaceAndSkin_16 &&
+                              x != FaceAndSkin_17 &&
+                              x != FaceAndSkin_18))
             {
                 morphotype.playerSelectable = true;
                 morphotype.originAllowed = EyeColor_001.OriginAllowed;

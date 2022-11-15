@@ -41,6 +41,9 @@ internal static partial class DatabaseHelper
 
     internal static class MorphotypeElementDefinitions
     {
+        internal static MorphotypeElementDefinition EyeColor_001 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("EyeColor_001");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Aksha { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Aksha");
 
@@ -56,6 +59,27 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceAndSkin_01 { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_01");
 
+        internal static MorphotypeElementDefinition FaceAndSkin_12 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_12");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_13 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_13");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_14 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_14");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_15 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_15");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_16");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_17 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_17");
+
+        internal static MorphotypeElementDefinition FaceAndSkin_18 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_18");
+        
         internal static MorphotypeElementDefinition HairColorSilver { get; } =
             GetDefinition<MorphotypeElementDefinition>("HairColorSilver");
 
