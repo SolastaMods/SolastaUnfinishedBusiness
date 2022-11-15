@@ -394,28 +394,22 @@ internal static class SrdAndHouseRulesContext
                 cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
             }
         }
-        else
-        {
-            Main.Error("Unable to find form of type Condition in LesserRestoration");
-        }
 
         var cfg = GreaterRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 
-        if (cfg != null)
+        if (cfg == null)
         {
-            // NOTE: using the same setting as for Lesser Restoration for compatibility
-            if (Main.Settings.AddBleedingToLesserRestoration)
-            {
-                cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
-            }
-            else
-            {
-                cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
-            }
+            return;
+        }
+
+        // NOTE: using the same setting as for Lesser Restoration for compatibility
+        if (Main.Settings.AddBleedingToLesserRestoration)
+        {
+            cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
         }
         else
         {
-            Main.Error("Unable to find form of type Condition in GreaterRestoration");
+            cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
         }
     }
 
