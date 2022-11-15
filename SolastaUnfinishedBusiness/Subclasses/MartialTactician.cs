@@ -183,7 +183,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private static FeatureDefinition BuildGambitDieSize(DieType size)
     {
         //doesn't do anything, just to display to player dice size progression on levelup
-        return CustomInvocationPoolDefinitionBuilder
+        return FeatureDefinitionBuilder
             .Create($"FeatureTacticianGambitDieSize{size}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
