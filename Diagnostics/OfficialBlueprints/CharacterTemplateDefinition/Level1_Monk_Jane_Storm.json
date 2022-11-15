@@ -1,6 +1,6 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Race/&HumanFemaleName5Title",

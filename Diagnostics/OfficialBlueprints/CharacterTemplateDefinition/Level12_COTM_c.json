@@ -1,6 +1,6 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Race/&HumanSurName5Title",
@@ -30,8 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
-  "hornsMorphotype": "",
-  "tailMorphotype": "",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
   "subClass": "Definition:RoguishShadowCaster:c5672e851a6615d4598b5ec32c3ff3dc",
   "deity": null,
