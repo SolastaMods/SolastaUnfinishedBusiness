@@ -358,7 +358,7 @@ internal sealed class MartialTactician : AbstractSubclass
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
@@ -729,7 +729,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
-            character.RepayPowerUse(UsablePowersProvider.Get(power, character));
+            character.UpdateUsageForPower(power, -1);
         }
     }
 

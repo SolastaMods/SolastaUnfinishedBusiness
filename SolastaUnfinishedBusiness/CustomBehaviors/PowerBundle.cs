@@ -181,7 +181,7 @@ internal static class PowerBundle
     }
 
     private static void UpdateUsageForPowerPool(
-        RulesetCharacter character,
+        this RulesetCharacter character,
         int poolUsage,
         RulesetUsablePower usablePower)
     {
