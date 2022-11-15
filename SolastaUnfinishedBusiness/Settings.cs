@@ -86,6 +86,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewBrightEyeColors { get; set; }
     public bool UnlockGlowingEyeColors { get; set; }
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
+    public bool UnlockSkinColors { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
