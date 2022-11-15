@@ -231,6 +231,13 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetCustomSubFeatures(spendDieOnAttack)
             .AddToDB();
 
+        var conditionGambitDieDamage = ConditionDefinitionBuilder
+            .Create($"ConditionGambitDieDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(GambitDieDamage)
+            .AddToDB();
+
         #endregion
 
         #region Knockdown
@@ -573,12 +580,7 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Retaliate(spendDiePower, ConditionDefinitionBuilder
-                .Create($"Condition{name}")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(GambitDieDamage)
-                .AddToDB()))
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, feature);
