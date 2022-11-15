@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.26.1:
+
+- Add rubble proxy to Earth Tremor spell
+- Fix Divine Heart Empowered Healing
+
 1.4.26.0:
 
 - Fix distant hand technique (Way of Distant Hand)
