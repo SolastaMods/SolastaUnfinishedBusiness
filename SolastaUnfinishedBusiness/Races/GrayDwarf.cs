@@ -108,19 +108,20 @@ internal static class GrayDwarfSubraceBuilder
                 additionalDamageGrayDwarfStoneStrength)
             .AddToDB();
 
-        var grayDwarfStoneStrengthEffect = EffectDescriptionBuilder
-            .Create(SpellDefinitions.EnhanceAbilityBullsStrength.EffectDescription)
-            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .Build();
-
-        grayDwarfStoneStrengthEffect.EffectForms[0].ConditionForm.conditionDefinition = conditionGrayDwarfStoneStrength;
-
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfStoneStrength")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(grayDwarfStoneStrengthEffect)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add,
+                        false, false)
+                    .Build())
+                .Build())
             .SetShowCasting(true)
             .AddToDB();
 

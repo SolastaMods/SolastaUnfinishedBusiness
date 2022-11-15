@@ -2737,9 +2737,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition EnhanceAbility { get; } =
             GetDefinition<SpellDefinition>("EnhanceAbility");
 
-        internal static SpellDefinition EnhanceAbilityBullsStrength { get; } =
-            GetDefinition<SpellDefinition>("EnhanceAbilityBullsStrength");
-
         internal static SpellDefinition Entangle { get; } =
             GetDefinition<SpellDefinition>("Entangle");
 
