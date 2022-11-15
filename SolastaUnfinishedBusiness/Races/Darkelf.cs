@@ -16,17 +16,50 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class DarkelfSubraceBuilder
 {
+    internal static readonly FeatureDefinitionPower PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
+        .Create("PowerDarkelfFaerieFire")
+        .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+        .SetEffectDescription(EffectDescriptionBuilder
+            .Create(SpellDefinitions.FaerieFire.EffectDescription)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Charisma,
+                8)
+            .Build())
+        .SetShowCasting(true)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
+        .Create("PowerDarkelfDarkness")
+        .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+        .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
+        .SetShowCasting(true)
+        .AddToDB();
+
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
     internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
 
-    internal static FeatureDefinitionPower PowerDarkelfFaerieFire { get; private set; }
-
-    internal static FeatureDefinitionPower PowerDarkelfDarkness { get; private set; }
-
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
+        CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetSpellList(SpellListDefinitionBuilder
+                .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelf")
+                .SetGuiPresentationNoContent()
+                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
+                .FinalizeSpells()
+                .AddToDB())
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .AddToDB();
+
         var darkelfSpriteReference = Sprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
@@ -44,45 +77,6 @@ internal static class DarkelfSubraceBuilder
                     lightingState = LocationDefinitions.LightingState.Bright,
                     condition = CustomConditionsContext.LightSensitivity
                 })
-            .AddToDB();
-
-        var spellListDarkelf = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelf")
-            .SetGuiPresentationNoContent()
-            .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
-            .FinalizeSpells()
-            .AddToDB();
-
-        CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetSpellList(spellListDarkelf)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
-            .Create("PowerDarkelfFaerieFire")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.FaerieFire.EffectDescription)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Charisma,
-                    8)
-                .Build())
-            .SetShowCasting(true)
-            .AddToDB();
-
-        PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
-            .Create("PowerDarkelfDarkness")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var proficiencyDarkelfWeaponTraining = FeatureDefinitionProficiencyBuilder

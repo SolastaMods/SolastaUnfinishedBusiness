@@ -28,21 +28,20 @@ internal static class KoboldRaceBuilder
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
             .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-            .SetDurationData(DurationType.Round, 1)
-            .Build();
-
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditionsContext.Distracted;
-        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName =
-            CustomConditionsContext.Distracted.Name;
-
         var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
             .Create("PowerDraconicKoboldDraconicCry")
             .SetGuiPresentation(Category.Feature, Aid)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Round, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add,
+                        false, false)
+                    .Build())
+                .Build())
             .SetUniqueInstance()
             .AddToDB();
 

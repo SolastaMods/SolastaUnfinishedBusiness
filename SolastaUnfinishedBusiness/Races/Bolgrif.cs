@@ -55,6 +55,7 @@ internal static class RaceBolgrifBuilder
             .AddToDB();
 
         var druidCantrips = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
         var spellListBolgrif = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrif")
             .SetGuiPresentationNoContent()
