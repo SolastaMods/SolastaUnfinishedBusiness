@@ -73,22 +73,18 @@ internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvid
         SetPrerequisites(missingRequirements.ToList());
     }
 
-    internal CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
+    internal void SetPrerequisites(List<string> missingRequirements)
     {
         _prerequisites = missingRequirements == null || missingRequirements.Empty()
             ? string.Empty
             : String.Join("\n", missingRequirements.Select(e => Gui.Localize(e)));
-
-        return this;
     }
 
-    internal CustomTooltipProvider SetSubtitle(string subtitle)
+    internal void SetSubtitle(string subtitle)
     {
         _subtitle = string.IsNullOrEmpty(subtitle)
             ? GetDefaultSubtitle()
             : subtitle;
-
-        return this;
     }
 }
 

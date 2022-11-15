@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class CustomConcentrationControl : MonoBehaviour
 {
-    internal static CustomConcentrationControl Setup(
+    internal static void Setup(
         ICustomConcentrationProvider provider,
         RulesetCharacter character,
         GameObject prefab, Transform parent)
@@ -27,16 +27,14 @@ internal class CustomConcentrationControl : MonoBehaviour
 
             obj.name = name;
             control = obj.AddComponent<CustomConcentrationControl>();
-            control.Setup(provider, character);
+            control.Setup(provider);
         }
 
         control.UpdateState(provider, character);
-
-        return control;
     }
 
 
-    private void Setup(ICustomConcentrationProvider provider, RulesetCharacter character)
+    private void Setup(ICustomConcentrationProvider provider)
     {
         var image = transform.Find("ConcentrationImage").GetComponent<Image>();
 
