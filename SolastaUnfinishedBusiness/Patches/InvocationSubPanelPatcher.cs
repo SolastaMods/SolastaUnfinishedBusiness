@@ -49,13 +49,13 @@ public static class InvocationSubPanelPatcher
 
             return instructions
                 //PATCH: enforces the invocations selection panel to always display same-width columns
-                .ReplaceCalls(forceRebuildLayoutImmediateMethod, "InvocationSubPanel.SetState",
+                .ReplaceCalls(forceRebuildLayoutImmediateMethod, "InvocationSubPanel.SetState.1",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, forceSameWidthMethod))
                 //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
                 .ReplaceCalls(getInvocationProficiencies,
-                    "CharacterBuildingManager.GrantFeatures",
+                    "InvocationSubPanel.SetState.2",
                     new CodeInstruction(OpCodes.Call, customInvocationsProficiencies));
         }
     }
