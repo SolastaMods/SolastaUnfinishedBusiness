@@ -84,25 +84,17 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    internal static DieType GetGambitDieSize(RulesetCharacter character)
+    private static DieType GetGambitDieSize(RulesetCharacter character)
     {
         var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
-        if (level >= 15)
-        {
-            return DieType.D12;
-        }
 
-        if (level >= 10)
+        return level switch
         {
-            return DieType.D10;
-        }
-
-        if (level >= 5)
-        {
-            return DieType.D8;
-        }
-
-        return DieType.D6;
+            >= 15 => DieType.D12,
+            >= 10 => DieType.D10,
+            >= 5 => DieType.D8,
+            _ => DieType.D6
+        };
     }
 
     private static FeatureDefinition BuildSharpMind()
@@ -594,7 +586,9 @@ internal sealed class MartialTactician : AbstractSubclass
         #endregion
     }
 
-    private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite,
+    private static void BuildFeatureInvocation(
+        string name,
+        AssetReferenceSprite sprite,
         FeatureDefinition feature)
     {
         CustomInvocationDefinitionBuilder
@@ -614,8 +608,12 @@ internal sealed class MartialTactician : AbstractSubclass
             this.power = power;
         }
 
-        public void BeforeOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
             if (attackMode == null)
@@ -640,8 +638,12 @@ internal sealed class MartialTactician : AbstractSubclass
             this.feature = feature;
         }
 
-        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
@@ -679,8 +681,13 @@ internal sealed class MartialTactician : AbstractSubclass
             this.pool = pool;
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        public IEnumerator HandleReactToAttackOnMeFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
         {
             //trigger only on a miss
             if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
@@ -716,14 +723,14 @@ internal sealed class MartialTactician : AbstractSubclass
             reactionParams.AttackMode = retaliationMode;
 
             var character = me.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
                 condition,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
                 character.Guid,
-                string.Empty
-            );
+                string.Empty);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
