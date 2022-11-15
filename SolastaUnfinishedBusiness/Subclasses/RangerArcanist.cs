@@ -164,7 +164,6 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
-                .SetCreatedByCharacter()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetEffectForms(effectForms)
                 .Build())

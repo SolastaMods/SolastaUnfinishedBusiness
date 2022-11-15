@@ -57,12 +57,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
-    {
-        effect.createdByCharacter = value;
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value = true)
     {
         effect.canBePlacedOnCharacter = value;
