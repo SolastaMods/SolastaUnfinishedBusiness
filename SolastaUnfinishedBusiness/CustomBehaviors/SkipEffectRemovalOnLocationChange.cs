@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class SkipEffectRemovalOnLocationChange
 {
     internal static readonly ISKipEffectRemovalOnLocationChange Always = new AlwaysSkip();
-    internal static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
+    // internal static readonly ISKipEffectRemovalOnLocationChange OnChained = new SkipOnChained();
 
     private sealed class AlwaysSkip : ISKipEffectRemovalOnLocationChange
     {
@@ -15,6 +15,7 @@ internal static class SkipEffectRemovalOnLocationChange
         }
     }
 
+#if false
     private sealed class SkipOnChained : ISKipEffectRemovalOnLocationChange
     {
         public bool Skip(bool willEnterChainedLocation)
@@ -22,4 +23,5 @@ internal static class SkipEffectRemovalOnLocationChange
             return willEnterChainedLocation;
         }
     }
+#endif
 }
