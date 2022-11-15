@@ -4,7 +4,7 @@
   "modifierOperation": "SetWithDexPlusOtherAbilityScoreBonusIfBetter",
   "modifierValue": 10,
   "modifierAbilityScore": "Intelligence",
-  "situationalContext": "NotWearingArmorOrMageArmor",
+  "situationalContext": "NotWearingArmorOrMageArmorOrShield",
   "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {

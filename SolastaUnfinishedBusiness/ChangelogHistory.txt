@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.25.3:
+
+- Fix Tactician level up
+
 1.4.25.2:
 
 - Fix Tactician translations
