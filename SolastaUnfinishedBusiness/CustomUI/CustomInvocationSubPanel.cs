@@ -35,11 +35,13 @@ public class CustomInvocationSubPanel : MonoBehaviour
             return new List<string>();
         }
 
-        var custom = InvocationsContext.Invocations
-            .Select(i => i.Name)
-            .ToList();
+        var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
+            .OfType<InvocationDefinitionCustom>()
+            .Select(i => i.Name);
 
-        return __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
+        return __instance.invocationProficiencies
+            .Except(customInvocations)
+            .ToList();
     }
 
     public static void UpdateRelevantInvocations(InvocationSubPanel panel)
