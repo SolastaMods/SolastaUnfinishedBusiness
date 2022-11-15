@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
-1.4.25.3:
+1.4.26.0:
 
-- Fix Tactician level up
+- Fix distant hand technique (Way of Distant Hand)
+- Fix warning sign over bows (Way of Distant Hand)
+- Fix EN terms (Inventor)
