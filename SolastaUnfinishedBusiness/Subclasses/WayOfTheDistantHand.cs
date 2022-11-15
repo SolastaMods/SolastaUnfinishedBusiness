@@ -382,7 +382,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
+        return attackMode is {SourceDefinition: ItemDefinition item} && IsMonkWeapon(character, item);
     }
 
     private static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)
@@ -397,24 +397,37 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             return false;
         }
 
-        var typeDefinition = weapon.WeaponDescription?.WeaponTypeDefinition;
+        return IsMonkWeapon(actor, weapon.WeaponDescription);
+    }
 
-        if (typeDefinition == null)
+    internal static bool IsMonkWeapon(RulesetActor actor, WeaponDescription weapon)
+    {
+        if (weapon == null)
         {
             return false;
         }
 
-        return ZenArcherWeapons.Contains(typeDefinition) || IsZenArcherWeapon(actor, weapon);
+        if (weapon.IsMonkWeaponOrUnarmed())
+        {
+            return true;
+        }
+
+        return IsZenArcherWeapon(actor, weapon);
     }
 
     private static bool IsZenArcherWeapon(RulesetActor actor, ItemDefinition item)
     {
-        if (actor == null || item == null)
+        return IsZenArcherWeapon(actor, item.WeaponDescription);
+    }
+
+    private static bool IsZenArcherWeapon(RulesetActor actor, WeaponDescription weapon)
+    {
+        if (actor == null || weapon == null)
         {
             return false;
         }
 
-        var typeDefinition = item.WeaponDescription?.WeaponTypeDefinition;
+        var typeDefinition = weapon.WeaponTypeDefinition;
 
         if (typeDefinition == null)
         {
