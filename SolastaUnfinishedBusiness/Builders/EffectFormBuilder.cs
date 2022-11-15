@@ -349,6 +349,26 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
+    
+    internal EffectFormBuilder SetSummonEffectProxyForm(EffectProxyDefinition effectProxyDefinition)
+    {
+        var summonForm = new SummonForm
+        {
+            summonType = SummonForm.Type.EffectProxy,
+            itemDefinition = null,
+            number = 0,
+            trackItem = false,
+            monsterDefinitionName = "",
+            conditionDefinition = null,
+            persistOnConcentrationLoss = true,
+            decisionPackage = null,
+            effectProxyDefinitionName = effectProxyDefinition.Name
+        };
+
+        effectForm.summonForm = summonForm;
+        effectForm.FormType = EffectForm.EffectFormType.Summon;
+        return this;
+    }
 
     internal EffectFormBuilder SetTempHpForm(
         int bonusHitPoints = 0,
