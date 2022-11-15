@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static ActionDefinitions;
 
@@ -117,6 +118,16 @@ internal static class AttacksOfOpportunity
                 }
 
                 yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
+                
+                foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>())
+                {
+                    if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                    {
+                        break;
+                    }
+
+                    yield return brace.Process(unit, mover, movement, battleManager);
+                }
             }
         }
     }

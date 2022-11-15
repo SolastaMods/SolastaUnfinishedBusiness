@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -27,25 +28,10 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         BuildGambitPool();
 
-        GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageGambitDie")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(UpgradeDice)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetNotificationTag("GambitDie")
-            .AddToDB();
+        GambitDieDamage = BuildGambitDieDamage("");
 
         //make sure that if we add any custom sub-features to base one we add them to this one too
-        GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageGambitDieOnce")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(UpgradeDice)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetNotificationTag("GambitDie")
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
+        GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
@@ -189,6 +175,20 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinitionAdditionalDamage BuildGambitDieDamage(string name,
+        FeatureLimitedUsage limit = FeatureLimitedUsage.None)
+    {
+        return FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamageGambitDie{name}")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetNotificationTag("GambitDie")
+            .SetFrequencyLimit(limit)
+            .AddToDB();
+    }
+
     private void BuildGambits()
     {
         string name;
@@ -235,7 +235,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"ConditionGambitDieDamage")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(GambitDieDamage)
+            .SetFeatures(BuildGambitDieDamage("Reaction"))
             .AddToDB();
 
         #endregion
@@ -571,6 +571,51 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Bait and Switch
+
+        name = "GambitSwitch";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetShowCasting(false)
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
+                .ExcludeCaster()
+                // .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetHasSavingThrow(AttributeDefinitions.Intelligence,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence,
+                    disableSavingThrowOnAllies: true)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.SwapPositions, 1)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            //TODO: make this grant AC bonus (ideally equal to Gambit die roll)
+                            .Create($"Condition{name}")
+                            .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                            .SetSilent(Silent.None)
+                            .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
+                            .SetSpecialDuration(true)
+                            .SetDuration(DurationType.Round, 1)
+                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
+                        .Build())
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Riposte
 
         name = "GambitRiposte";
@@ -581,6 +626,22 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
+
+        #region Brace
+
+        name = "GambitBrace";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Brace(spendDiePower, conditionGambitDieDamage))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, feature);
@@ -736,7 +797,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
-            //TODO: try making this reaction request show how many dice remaining
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams)
             {
@@ -756,6 +816,76 @@ internal sealed class MartialTactician : AbstractSubclass
             character.RemoveCondition(rulesetCondition);
         }
     }
+
+    internal class Brace
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower pool;
+
+        public Brace(FeatureDefinitionPower pool, ConditionDefinition condition)
+        {
+            this.pool = pool;
+            this.condition = condition;
+        }
+
+        internal IEnumerator Process(
+            GameLocationCharacter me,
+            GameLocationCharacter mover,
+            (int3, int3) movement,
+            GameLocationBattleManager battle)
+        {
+            //TODO: check that enemy actually entered reach, and not just moves within it
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(mover);
+
+            if (retaliationMode == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(mover);
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var character = me.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty
+            );
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("GambitBrace", reactionParams)
+            {
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+            };
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(mover, manager, previousReactionCount);
+
+            //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
+            if (reactionParams.ReactionValidated)
+            {
+                character.UsePower(UsablePowersProvider.Get(pool, character));
+            }
+
+            character.RemoveCondition(rulesetCondition);
+        }
+    }
+
 
     internal class GambitActionDiceBox : IActionItemDiceBox
     {
