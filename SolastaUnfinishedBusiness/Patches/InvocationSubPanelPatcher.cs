@@ -29,8 +29,7 @@ public static class InvocationSubPanelPatcher
             InvocationsContext.SortInvocations(__instance);
         }
     }
-
-    //PATCH: enforces the invocations selection panel to always display same-width columns
+    
     [HarmonyPatch(typeof(InvocationSubPanel), "SetState")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class SetState_Patch
@@ -43,10 +42,21 @@ public static class InvocationSubPanelPatcher
             var forceSameWidthMethod =
                 new Action<RectTransform, bool, InvocationSubPanel>(InvocationsContext.ForceSameWidth).Method;
 
-            return instructions.ReplaceCalls(forceRebuildLayoutImmediateMethod, "InvocationSubPanel.SetState",
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, forceSameWidthMethod));
+            var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
+            var customInvocationsProficiencies =
+                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
+                    .Method;
+
+            return instructions
+                //PATCH: enforces the invocations selection panel to always display same-width columns
+                .ReplaceCalls(forceRebuildLayoutImmediateMethod, "InvocationSubPanel.SetState",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, forceSameWidthMethod))
+                //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
+                .ReplaceCalls(getInvocationProficiencies,
+                    "CharacterBuildingManager.GrantFeatures",
+                    new CodeInstruction(OpCodes.Call, customInvocationsProficiencies));
         }
     }
 }

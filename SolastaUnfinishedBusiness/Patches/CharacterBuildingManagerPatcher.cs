@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
@@ -212,31 +212,16 @@ public static class CharacterBuildingManagerPatcher
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var getInvocationproficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
-            var custom = new Func<RulesetCharacterHero, List<string>>(CustomGetter).Method;
+            var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
+            var customInvocationsProficiencies =
+                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
+                    .Method;
 
             return instructions
-                .ReplaceCalls(getInvocationproficiencies,
+                //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
+                .ReplaceCalls(getInvocationProficiencies,
                     "CharacterBuildingManager.GrantFeatures",
-                    new CodeInstruction(OpCodes.Call, custom));
-        }
-
-        private static List<string> CustomGetter(RulesetCharacterHero __instance)
-        {
-            //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
-            var selectedClass = LevelUpContext.GetSelectedClass(__instance);
-
-            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-            {
-                var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                    .OfType<InvocationDefinitionCustom>()
-                    .Select(i => i.Name)
-                    .ToList();
-
-                return __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
-            }
-
-            return new List<string>();
+                    new CodeInstruction(OpCodes.Call, customInvocationsProficiencies));
         }
     }
 

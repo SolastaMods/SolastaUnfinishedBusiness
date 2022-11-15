@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -22,6 +24,22 @@ public class CustomInvocationSubPanel : MonoBehaviour
         {
             title.GetComponent<GuiLabel>().Text = type.PanelTitle;
         }
+    }
+
+    internal static List<string> CustomInvocationsProficiencies(RulesetCharacterHero __instance)
+    {
+        var selectedClass = LevelUpContext.GetSelectedClass(__instance);
+
+        if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock)
+        {
+            return new List<string>();
+        }
+
+        var custom = InvocationsContext.Invocations
+            .Select(i => i.Name)
+            .ToList();
+
+        return __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
     }
 
     public static void UpdateRelevantInvocations(InvocationSubPanel panel)
