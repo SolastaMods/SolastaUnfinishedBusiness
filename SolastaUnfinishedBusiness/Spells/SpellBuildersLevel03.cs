@@ -62,7 +62,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)
-            .SetRequiresConcentration(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
