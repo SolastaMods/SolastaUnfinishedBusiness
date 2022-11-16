@@ -60,7 +60,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
@@ -123,7 +123,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                             .SetGuiPresentationNoContent(true)
                                             .SetConditionType(ConditionType.Beneficial)
                                             .SetDuration(DurationType.Minute, 1)
-                                            .SetTerminateWhenRemoved(true)
+                                            .SetTerminateWhenRemoved()
                                             .SetSilent(Silent.WhenAddedOrRemoved)
                                             .SetSpecialInterruptions(ConditionInterruption.RageStop)
                                             .SetFeatures(additionalDamagePathOfTheLightIlluminatingStrike)

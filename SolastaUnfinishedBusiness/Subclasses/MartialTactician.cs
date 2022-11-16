@@ -428,7 +428,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
-                        .SetSpecialDuration(true)
+                        .SetSpecialDuration()
                         //Lasts until the end of the target's turn
                         .SetDuration(DurationType.Round, 0, false)
                         .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -604,7 +604,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
                             .SetSilent(Silent.None)
                             .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
-                            .SetSpecialDuration(true)
+                            .SetSpecialDuration()
                             .SetDuration(DurationType.Round, 1)
                             .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
                         .Build())

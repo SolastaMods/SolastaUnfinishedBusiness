@@ -383,7 +383,7 @@ public static class InnovationWeapon
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 

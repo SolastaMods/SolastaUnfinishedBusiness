@@ -191,7 +191,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetDuration(DurationType.Round, 0, false)
-                            .SetSpecialDuration(true)
+                            .SetSpecialDuration()
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(
                                 ConditionInterruption.BattleEnd,

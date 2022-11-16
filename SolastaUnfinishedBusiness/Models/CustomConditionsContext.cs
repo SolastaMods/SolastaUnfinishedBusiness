@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -20,9 +19,9 @@ internal static class CustomConditionsContext
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
-    
+
     private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
-    
+
     private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
 
     internal static void Load()
@@ -36,7 +35,7 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         InvisibilityEveryRound = BuildInvisibilityEveryRound();
-        
+
         LightSensitivity = BuildLightSensitivity();
 
         Distracted = ConditionDefinitionBuilder
@@ -56,7 +55,7 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         ConditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
-            .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
+            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
             .SetCancellingConditions(ConditionInvisibilityEveryRoundRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
@@ -77,13 +76,13 @@ internal static class CustomConditionsContext
                 .AddToDB())
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
-        
+
         // only reports condition on char panel
         Global.CharacterLabelEnabledConditions.Add(conditionInvisibilityEveryRound);
 
         return conditionInvisibilityEveryRound;
     }
-    
+
     private static ConditionDefinition BuildLightSensitivity()
     {
         var abilityCheckAffinityLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -117,7 +116,7 @@ internal static class CustomConditionsContext
 
         return conditionLightSensitive;
     }
-    
+
     private sealed class InvisibilityEveryRoundBehavior : ICustomOnActionFeature, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";

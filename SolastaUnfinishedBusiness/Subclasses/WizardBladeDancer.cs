@@ -59,7 +59,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                         (AttributeDefinitions.Constitution, string.Empty))
                     .AddToDB())
             .SetConditionType(ConditionType.Beneficial)
-            .SetTerminateWhenRemoved(true)
+            .SetTerminateWhenRemoved()
             .AddToDB();
 
         var effectBladeDance = EffectDescriptionBuilder

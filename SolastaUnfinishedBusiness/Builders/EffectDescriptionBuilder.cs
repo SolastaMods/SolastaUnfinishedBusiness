@@ -182,9 +182,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetIgnoreCover(bool value = true)
+    internal EffectDescriptionBuilder SetIgnoreCover()
     {
-        effect.ignoreCover = value;
+        effect.ignoreCover = true;
         return this;
     }
 

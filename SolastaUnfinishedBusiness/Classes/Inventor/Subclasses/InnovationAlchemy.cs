@@ -195,7 +195,7 @@ public static class InnovationAlchemy
                 .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionShocked)
                 .SetGuiPresentation(ConditionDefinitions.ConditionShocked.GuiPresentation)
                 .SetConditionType(ConditionType.Detrimental)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
@@ -232,7 +232,7 @@ public static class InnovationAlchemy
                     poisoned.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacks)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -335,7 +335,7 @@ public static class InnovationAlchemy
                 .SetGuiPresentation(branded)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -379,7 +379,7 @@ public static class InnovationAlchemy
                 .SetRecurrentEffectForms(EffectFormBuilder.Create()
                     .SetDamageForm(damage, dieType: dieType, diceNumber: 2)
                     .Build())
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 // .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                 // .SetSpecialInterruptions(ExtraConditionInterruption.)
@@ -424,7 +424,7 @@ public static class InnovationAlchemy
                     .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
                         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma)
                     .AddToDB())
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
@@ -468,7 +468,7 @@ public static class InnovationAlchemy
                         AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution)
                     .AddToDB())
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();

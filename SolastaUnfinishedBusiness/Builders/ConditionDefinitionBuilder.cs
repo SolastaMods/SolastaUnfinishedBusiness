@@ -153,9 +153,9 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetTerminateWhenRemoved(bool value)
+    internal ConditionDefinitionBuilder SetTerminateWhenRemoved()
     {
-        Definition.terminateWhenRemoved = value;
+        Definition.terminateWhenRemoved = true;
         return this;
     }
 
@@ -166,15 +166,15 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetSpecialDuration(bool value)
+    internal ConditionDefinitionBuilder SetSpecialDuration()
     {
-        Definition.specialDuration = value;
+        Definition.specialDuration = true;
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetPossessive(bool value = true)
+    internal ConditionDefinitionBuilder SetPossessive()
     {
-        Definition.possessive = value;
+        Definition.possessive = true;
         return this;
     }
 

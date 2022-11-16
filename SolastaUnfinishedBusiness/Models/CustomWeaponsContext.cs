@@ -577,7 +577,7 @@ internal static class CustomWeaponsContext
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetAllowMultipleInstances(true)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
@@ -620,7 +620,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)

@@ -126,7 +126,7 @@ internal static partial class SpellBuilders
         public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
         {
             var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            
+
             return casterLevel < _level ? null : _upgraded;
         }
     }
@@ -144,7 +144,7 @@ internal static partial class SpellBuilders
             }
 
             var weapon = hero.GetMainWeapon();
-            
+
             if (weapon == null || !weapon.itemDefinition.IsWeapon)
             {
                 return effect;

@@ -23,7 +23,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetDuration(DurationType.Permanent)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .AddToDB();
 
         //

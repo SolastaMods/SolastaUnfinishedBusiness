@@ -26,7 +26,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierAcidClawsACDebuff")
                 .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
@@ -311,7 +311,7 @@ internal static partial class SpellBuilders
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .AddToDB()
         };
 

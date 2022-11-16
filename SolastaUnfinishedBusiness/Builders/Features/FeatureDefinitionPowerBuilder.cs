@@ -78,9 +78,9 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetUniqueInstance(bool unique = true)
+    internal TBuilder SetUniqueInstance()
     {
-        Definition.uniqueInstance = unique;
+        Definition.uniqueInstance = true;
         return (TBuilder)this;
     }
 

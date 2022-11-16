@@ -105,9 +105,9 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetUniqueInstance(bool uniqueInstance = true)
+    internal SpellDefinitionBuilder SetUniqueInstance()
     {
-        Definition.uniqueInstance = uniqueInstance;
+        Definition.uniqueInstance = true;
         return this;
     }
 

@@ -96,9 +96,9 @@ internal class FeatureDefinitionMagicAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionMagicAffinityBuilder IgnoreClassRestrictionsOnMagicalItems(bool ignore = true)
+    internal FeatureDefinitionMagicAffinityBuilder IgnoreClassRestrictionsOnMagicalItems()
     {
-        Definition.ignoreClassRestrictionsOnMagicalItems = ignore;
+        Definition.ignoreClassRestrictionsOnMagicalItems = true;
 
         return this;
     }
