@@ -28,7 +28,7 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
-    "Definition:ConditionWayOfSilhouetteRevealed:21370939-3b3b-5f95-9fde-dd1327ed3001"
+    "Definition:ConditionInvisibilityEveryRoundRevealed:9afa6b40-97b5-55bb-a1bb-540b1ed808b3"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -288,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1b6c6a4b-9db6-5b8d-8b05-7419ae9bce93",
+  "guid": "f7094006-33e0-5e31-a5c8-b6f3d825eba7",
   "contentPack": 9999,
-  "name": "ConditionWayOfSilhouetteInvisible"
+  "name": "ConditionInvisibilityEveryRoundHidden"
 }

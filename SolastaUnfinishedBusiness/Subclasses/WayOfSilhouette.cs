@@ -63,23 +63,15 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        var conditionWayOfSilhouetteInvisibility = ConditionDefinitionBuilder
-            .Create("ConditionWayOfSilhouetteInvisibility")
-            .SetGuiPresentationNoContent()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(WayOfSilhouetteInvisibility.Build())
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-            .AddToDB();
-
         // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionWayOfSilhouetteInvisibility);
+        Global.CharacterLabelEnabledConditions.Add(CustomConditionsContext.InvisibilityEveryRound);
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Unlit, condition = conditionWayOfSilhouetteInvisibility
+                lightingState = LocationDefinitions.LightingState.Unlit, condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddToDB();
         
@@ -88,11 +80,11 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Dim, condition = conditionWayOfSilhouetteInvisibility
+                lightingState = LocationDefinitions.LightingState.Dim, condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Darkness, condition = conditionWayOfSilhouetteInvisibility
+                lightingState = LocationDefinitions.LightingState.Darkness, condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddToDB();
 
@@ -115,143 +107,3 @@ internal sealed class WayOfSilhouette : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 }
-
-internal sealed class WayOfSilhouetteInvisibility : ICustomOnActionFeature, ICustomConditionFeature
-{
-    private const string CategoryRevealed = "WayOfSilhouetteRevealed";
-    private const string CategoryHidden = "WayOfSilhouetteHidden";
-    private static ConditionDefinition ConditionWayOfSilhouetteRevealed { get; set; }
-    private static ConditionDefinition ConditionWayOfSilhouetteInvisibility { get; set; }
-
-    public void ApplyFeature(RulesetCharacter hero)
-    {
-        if (!hero.HasConditionOfType(ConditionWayOfSilhouetteRevealed))
-        {
-            BecomeInvisible(hero);
-        }
-    }
-
-    public void RemoveFeature(RulesetCharacter hero)
-    {
-        hero.RemoveAllConditionsOfCategory(CategoryHidden, false);
-    }
-
-    public void OnAfterAction(CharacterAction characterAction)
-    {
-        var hero = characterAction.ActingCharacter.RulesetCharacter;
-        var action = characterAction.ActionDefinition;
-
-        if (!action.Name.StartsWith("Attack")
-            && !action.Name.StartsWith("Cast")
-            && !action.Name.StartsWith("Power"))
-        {
-            return;
-        }
-
-        var ruleEffect = characterAction.ActionParams.RulesetEffect;
-
-        if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-        {
-            BecomeRevealed(hero);
-        }
-    }
-
-    internal static FeatureDefinition Build()
-    {
-        ConditionWayOfSilhouetteRevealed = ConditionDefinitionBuilder
-            .Create("ConditionWayOfSilhouetteRevealed")
-            .SetGuiPresentationNoContent()
-            .SetDuration(DurationType.Round, 1)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        ConditionWayOfSilhouetteInvisibility = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionInvisible, "ConditionWayOfSilhouetteInvisible")
-            .SetCancellingConditions(ConditionWayOfSilhouetteRevealed)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(
-                ConditionInterruption.Attacks,
-                ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-            .AddToDB();
-
-        return FeatureDefinitionBuilder
-            .Create("FeatureWayOfSilhouetteInvisibility")
-            .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(new WayOfSilhouetteInvisibility())
-            .AddToDB();
-    }
-
-    // returns true if effect is self teleport or any self targeting spell that is self-buff
-    private static bool IsAllowedEffect(EffectDescription effect)
-    {
-        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        switch (effect.TargetType)
-        {
-            case TargetType.Position:
-            {
-                foreach (var form in effect.EffectForms)
-                {
-                    if (form.FormType != EffectForm.EffectFormType.Motion) { return false; }
-
-                    if (form.MotionForm.Type != MotionForm.MotionType.TeleportToDestination) { return false; }
-                }
-
-                break;
-            }
-            case TargetType.Self:
-            {
-                foreach (var form in effect.EffectForms)
-                {
-                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                    switch (form.FormType)
-                    {
-                        case EffectForm.EffectFormType.Damage:
-                        case EffectForm.EffectFormType.Healing:
-                        case EffectForm.EffectFormType.ShapeChange:
-                        case EffectForm.EffectFormType.Summon:
-                        case EffectForm.EffectFormType.Counter:
-                        case EffectForm.EffectFormType.Motion:
-                            return false;
-                    }
-                }
-
-                break;
-            }
-            default:
-                return false;
-        }
-
-        return true;
-    }
-
-    private static void BecomeRevealed(RulesetCharacter hero)
-    {
-        hero.AddConditionOfCategory(CategoryRevealed,
-            RulesetCondition.CreateActiveCondition(
-                hero.Guid,
-                ConditionWayOfSilhouetteRevealed,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                hero.Guid,
-                hero.CurrentFaction.Name
-            ));
-    }
-
-    private static void BecomeInvisible(RulesetCharacter hero)
-    {
-        hero.AddConditionOfCategory(CategoryHidden,
-            RulesetCondition.CreateActiveCondition(
-                hero.Guid,
-                ConditionWayOfSilhouetteInvisibility,
-                DurationType.Permanent,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                hero.Guid,
-                hero.CurrentFaction.Name),
-            false);
-    }
-}
-

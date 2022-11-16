@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureMoonlitInvisibility:ceb99cdf-89d5-5aef-b958-8b0f3e53bb9c"
+    "Definition:FeatureInvisibilityEveryRound:bf67a74c-489f-5f20-b471-5c29cbaadef6"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f5a7e04b-9442-5bed-99cd-ad94f1928535",
+  "guid": "8f1fecc4-ea18-53c2-8cef-63c365b2b5ad",
   "contentPack": 9999,
-  "name": "ConditionMoonlitInvisibility"
+  "name": "ConditionInvisibilityEveryRound"
 }
